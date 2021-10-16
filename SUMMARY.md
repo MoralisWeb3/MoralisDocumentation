@@ -1,0 +1,100 @@
+# Table of contents
+
+## 👋 Introduction
+
+* [Why use Moralis?](README.md)
+* [How to get help](introduction/how-to-get-help.md)
+* [Prerequisites](introduction/pre-requisites.md)
+
+## 🧙 Server <a href="moralis-server" id="moralis-server"></a>
+
+* [🛠 Getting Started](moralis-server/getting-started/README.md)
+  * [Create a Moralis Server](moralis-server/getting-started/create-a-moralis-server.md)
+  * [Connect the SDK](moralis-server/getting-started/connect-the-sdk.md)
+  * [Boilerplate Projects](moralis-server/getting-started/boilerplate-projects.md)
+  * [Demos](moralis-server/getting-started/demos.md)
+* [👥 Users](moralis-server/users/README.md)
+  * [Intro](moralis-server/users/intro.md)
+  * [Crypto Login](moralis-server/users/crypto-login.md)
+  * [Email Login](moralis-server/users/email-login.md)
+  * [Reset Password](moralis-server/users/reset-password.md)
+  * [Merging Addresses](moralis-server/users/merging-addresses.md)
+  * [Current User](moralis-server/users/current-user.md)
+  * [Security For Other Objects](moralis-server/users/security-for-other-objects.md)
+  * [Sessions](moralis-server/users/sessions.md)
+* [💸 Sending ETH, Tokens and NFTs](moralis-server/sending-assets.md)
+* [🪄 Web3 API (Token, Balances, NFTs)](moralis-server/web3-sdk/README.md)
+  * [Intro](moralis-server/web3-sdk/intro.md)
+  * [Native](moralis-server/web3-sdk/native.md)
+  * [Account](moralis-server/web3-sdk/account.md)
+  * [Token](moralis-server/web3-sdk/token.md)
+  * [Resolve](moralis-server/web3-sdk/resolve.md)
+  * [REST API](moralis-server/web3-sdk/moralis-web3-api-rest.md)
+* [♻ Automatic Sync](moralis-server/automatic-transaction-sync/README.md)
+  * [User Balances and Transactions](moralis-server/automatic-transaction-sync/historical-transactions.md)
+  * [Smart Contract Events](moralis-server/automatic-transaction-sync/smart-contract-events.md)
+  * [Address Casing](moralis-server/automatic-transaction-sync/address-casing.md)
+* [🗃 Database](moralis-server/database/README.md)
+  * [Objects](moralis-server/database/objects.md)
+  * [Queries](moralis-server/database/queries.md)
+  * [Live Queries](moralis-server/database/live-queries.md)
+  * [Roles](moralis-server/database/roles.md)
+  * [Security](moralis-server/database/security.md)
+  * [Data](moralis-server/database/data.md)
+* [☁ Cloud Code](moralis-server/cloud-code/README.md)
+  * [Cloud Functions](moralis-server/cloud-code/cloud-functions.md)
+  * [httpRequest](moralis-server/cloud-code/httprequest.md)
+  * [Triggers](moralis-server/cloud-code/triggers.md)
+  * [Jobs](moralis-server/cloud-code/jobs.md)
+  * [Webhooks](moralis-server/cloud-code/webhooks.md)
+  * [Config](moralis-server/cloud-code/config.md)
+* [⛓ Web3](moralis-server/web3/README.md)
+  * [Web3 Provider](moralis-server/web3/web3.md)
+  * [Ganache & Hardhat Setup](moralis-server/web3/setting-up-ganache.md)
+* [📂 Files](moralis-server/files/README.md)
+  * [Files](moralis-server/files/files.md)
+  * [IPFS](moralis-server/files/ipfs.md)
+* [🧰 Tools](moralis-server/tools/README.md)
+  * [Moralis Units](moralis-server/tools/moralis-units.md)
+  * [CLI](moralis-server/tools/moralis-admin-cli.md)
+  * [Website Hosting](moralis-server/tools/hosting.md)
+  * [Sending Emails](moralis-server/tools/sending-email.md)
+  * [React Moralis](moralis-server/tools/react-moralis.md)
+* [🔌 Plugins](moralis-server/plugins/README.md)
+  * [Install and Remove Plugins](moralis-server/plugins/untitled.md)
+
+## 🔥 Speedy Nodes
+
+* [What Are Speedy Nodes?](speedy-nodes/what-are-speedy-nodes.md)
+* [Connecting to RPC Nodes](speedy-nodes/connecting-to-rpc-nodes/README.md)
+  * [Connect to Ethereum Node](speedy-nodes/connecting-to-rpc-nodes/connect-to-eth-node.md)
+  * [Connect to Polygon Node](speedy-nodes/connecting-to-rpc-nodes/connect-to-polygon-node.md)
+  * [Connect to BSC Node](speedy-nodes/connecting-to-rpc-nodes/connect-to-bsc-node.md)
+  * [Connect to Avalanche Node](speedy-nodes/connecting-to-rpc-nodes/connect-to-avalanche-node.md)
+  * [Connect to Arbitrum Node](speedy-nodes/connecting-to-rpc-nodes/connect-to-arbitrum-node.md)
+
+## 👨‍🍳 Tutorials
+
+* [Fiat Gateway Tutorial](tutorials/fiat-gateway.md)
+* [Token Swaps (DEX) Tutorial](tutorials/token-swaps-dex-tutorial.md)
+* [Create and Launch Own NFTs](tutorials/create-and-launch-own-nfts.md)
+* [Create NFT Game From Scratch](tutorials/nft-game-course.md)
+* [Token Price Charts](tutorials/token-price-charts.md)
+* [Learning BSC Programming From Scratch](tutorials/learning-bsc-programming-from-scratch.md)
+
+## 🎓Guides
+
+* [Build a Simple dApp in 3 Minutes - Setup (Part 1)](guides/build-a-simple-dapp-in-3-minutes.md)
+* [Build a Simple dApp in 3 Minutes - Login (Part 2)](guides/build-a-simple-dap-in-3-mins-login-part-2.md)
+* [Build a Simple dApp in 3 Mins - Historical Transactions (Part 3)](guides/build-a-simple-dapp-in-3-mins-historical-transactions-part3.md)
+* [Build a Simple dApp in 3 Mins - Real-Time Transactions (Part 4)](guides/build-a-simple-dapp-in-3-mins-real-time-transactions-part-4.md)
+* [Build a Simple dApp in 3 Mins - Cloud Functions (Part 5)](guides/build-a-simple-dapp-in-3-mins-cloud-functions-part-5.md)
+* [Deploy and Track ERC-20 Events](guides/deploy-and-track-erc20-events.md)
+* [Where to Host Frontend](https://abhiaiyer.medium.com/exploring-moralis-web3-authentication-6a7365524a9a)
+
+## Misc
+
+* [FAQ](misc/faq.md)
+* [Troubleshooting](misc/troubleshooting.md)
+* [Rate Limit](misc/rate-limit.md)
+* [License](misc/license.md)
