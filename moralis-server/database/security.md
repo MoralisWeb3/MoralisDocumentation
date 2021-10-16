@@ -7,7 +7,11 @@ description: >-
 
 # Security
 
-If your app is compromised, it’s not only you as the developer who suffers, but potentially the users of your app as well. Continue reading for our suggestions for sensible defaults and precautions to take before releasing your app into the wild.
+If your app is compromised, it’s not only you as the developer who suffers, but potentially the users of your app as well. Continue reading for our suggestions for sensible defaults and precautions to take before releasing your app into the wild. 
+
+{% embed url="https://www.youtube.com/watch?v=Yd4gFQ5ppmQ" %}
+CLP, ACL and protected fields practically demonstrated.
+{% endembed %}
 
 ### Client vs. Server <a href="client-vs-server" id="client-vs-server"></a>
 
