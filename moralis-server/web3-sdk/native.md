@@ -111,6 +111,52 @@ const date = await Moralis.Web3API.native.getDateToBlock(options);
 }
 ```
 
+## getLogsByAddress
+
+Retrieve the logs from an address  (asynchronous). 
+
+#### Options:
+
+* `chain`(optional): The blockchain to get data from. Valid values are listed on the [intro page in the Transactions and Balances section](https://docs.moralis.io/transactions-and-balances/intro). Default value `Eth`.
+* `from_date` (optional): The date from where to get the transactions (any format that is accepted by momentjs). Provide the param 'from_block' or 'from_date' If 'from_date' and 'from_block' are provided, 'from_block' will be used.
+* `to_date` (optional):  Get the transactions to this date (any format that is accepted by momentjs). Provide the param 'to_block' or 'to_date' If 'to_date' and 'to_block' are provided, 'to_block' will be used.
+* `from_block` (optional): The minimum block number from where to get the transactions Provide the param 'from_block' or 'from_date' If 'from_date' and 'from_block' are provided, 'from_block' will be used.
+* `to_block` (optional): The maximum block number from where to get the transactions. Provide the param 'to_block' or 'to_date' If 'to_date' and 'to_block' are provided, 'to_block' will be used.
+* `address` (required): A smart contract address
+* `topic0` (optional): Event topic
+* `topic1` (optional): Event topic
+* `topic2` (optional): Event topic
+* `topic3` (optional): Event topic
+
+```javascript
+const options = {
+   address: "0x057Ec652A4F150f7FF94f089A38008f49a0DF88e",
+   chain: "bsc",
+   topic0: "0x2caecd17d02f56fa897705dcc740da2d237c373f70686f4e0d9bd3bf0400ea7a",
+   topic1: "0x000000000000000000000000031002d15b0d0cd7c9129d6f644446368deae391",
+   topic2: "0x000000000000000000000000d25943be09f968ba740e0782a34e710100defae9"
+};
+
+ const logs = await Moralis.Web3API.native.getLogsByAddress(options);
+```
+
+#### Example result:
+
+```javascript
+{
+  "transaction_hash": "0x2d30ca6f024dbc1307ac8a1a44ca27de6f797ec22ef20627a1307243b0ab7d09",
+  "address": "0x057Ec652A4F150f7FF94f089A38008f49a0DF88e",
+  "block_timestamp": "2021-04-02T10:07:54.000Z",
+  "block_number": "12526958",
+  "block_hash": "0x0372c302e3c52e8f2e15d155e2c545e6d802e479236564af052759253b20fd86",
+  "data": "0x00000000000000000000000000000000000000000000000de05239bccd4d537400000000000000000000000000024dbc80a9f80e3d5fc0a0ee30e2693781a443",
+  "topic0": "0x2caecd17d02f56fa897705dcc740da2d237c373f70686f4e0d9bd3bf0400ea7a",
+  "topic1": "0x000000000000000000000000031002d15b0d0cd7c9129d6f644446368deae391",
+  "topic2": "0x000000000000000000000000d25943be09f968ba740e0782a34e710100defae9",
+  "topic3": null
+}
+```
+
 ## getContractEvents
 
 Get the  events in descending order based on block number. Returns an object with the number of Contract events and the array of Contract events (asynchronous).
