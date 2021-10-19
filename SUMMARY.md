@@ -29,7 +29,7 @@
   * [Account](moralis-server/web3-sdk/account.md)
   * [Token](moralis-server/web3-sdk/token.md)
   * [Resolve](moralis-server/web3-sdk/resolve.md)
-  * [DeFi](moralis-server/web3-sdk/defi.md)
+  * [🔥DeFi (new)](moralis-server/web3-sdk/defi-new.md)
   * [REST API](moralis-server/web3-sdk/moralis-web3-api-rest.md)
 * [♻ Automatic Sync](moralis-server/automatic-transaction-sync/README.md)
   * [User Balances and Transactions](moralis-server/automatic-transaction-sync/historical-transactions.md)

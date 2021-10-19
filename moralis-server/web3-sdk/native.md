@@ -111,7 +111,7 @@ const date = await Moralis.Web3API.native.getDateToBlock(options);
 }
 ```
 
-## 🚧getLogsByAddress (soon)
+## 🔥 getLogsByAddress (new)
 
 Retrieve the logs from an address  (asynchronous).&#x20;
 
@@ -257,7 +257,7 @@ const NFTTransfers = await Moralis.Web3API.native.getNFTTransfersByBlock(options
 ]
 ```
 
-## 🚧getTransaction (soon)
+## 🔥 getTransaction (new)
 
 Get the transaction by transaction hash.  Returns a transaction object (asynchronous).&#x20;
 

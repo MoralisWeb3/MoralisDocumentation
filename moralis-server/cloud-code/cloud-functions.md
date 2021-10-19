@@ -70,7 +70,7 @@ moralis-admin-cli get-logs --moralisApiKey MORALIS_CLI_API_KEY --moralisApiSecre
 
 To learn more about CLI, how to install CLI and how to work with CLI please check the CLI docs using the link below.
 
-To get started, you need to install it by running the following code in the terminal: 
+To get started, you need to install it by running the following code in the terminal:&#x20;
 
 {% content-ref url="../tools/moralis-admin-cli.md" %}
 [moralis-admin-cli.md](../tools/moralis-admin-cli.md)
@@ -86,7 +86,7 @@ You can write your Cloud Functions in your preferred IDE by making use of the `m
 Exact time-stamp where we explain how to setup an IDE on your local machine.
 {% endembed %}
 
-To get started, you need to install it by running the following code in the terminal: 
+To get started, you need to install it by running the following code in the terminal:&#x20;
 
 ```bash
 npm install -g moralis-admin-cli
@@ -133,7 +133,9 @@ If there is an error, the response in the client looks like this:
 }
 ```
 
-##  Using the Master Key in Cloud Code <a href="using-the-master-key-in-cloud-code" id="using-the-master-key-in-cloud-code"></a>
+\
+Using the Master Key in Cloud Code <a href="using-the-master-key-in-cloud-code" id="using-the-master-key-in-cloud-code"></a>
+----------------------------------------------------------------------------------------------------------------------------
 
 Set `useMasterKey:true` in the requests that require the master key.
 
@@ -299,7 +301,7 @@ The URL has the following structure:
 
 ## Web3
 
-Web3 functions are available within Cloud Code including the ability to call contract methods. Moralis uses the [Web3.js](https://web3js.readthedocs.io) library. 
+Web3 functions are available within Cloud Code including the ability to call contract methods. Moralis uses the [Web3.js](https://web3js.readthedocs.io) library.&#x20;
 
 ```javascript
 // get a web3 instance for a specific chain
@@ -331,7 +333,7 @@ Once you have a `web3` instance, you can use it to make contract calls by constr
 const contract = new web3.eth.Contract(abi, address);
 ```
 
- For convenience, Moralis bundles the [Openzepplin](https://github.com/OpenZeppelin/openzeppelin-contracts/tree/master/contracts/token) ABI for ERC20, ERC721, and ERC1155.
+&#x20;For convenience, Moralis bundles the [Openzepplin](https://github.com/OpenZeppelin/openzeppelin-contracts/tree/master/contracts/token) ABI for ERC20, ERC721, and ERC1155.
 
 * `Moralis.Web3.abis.erc20`
 * `Moralis.Web3.abis.erc721`
@@ -356,7 +358,7 @@ const name = await contract.methods
 
 For more details on the Web3.js contract interface, see the [`web3.eth.Contract`](https://web3js.readthedocs.io/en/v1.3.4/web3-eth-contract.html) section of the Web3.js docs.
 
-The Web3 instance returned by `Moralis.web3ByChain()` cannot sign transactions. In the near future, it may be possible to do this with custom plugins. For now, if you need to make on-chain contract interactions, consider doing them on the frontend or create a NodeJS backend where you have access to [Truffle's HdWalletProvider](https://github.com/trufflesuite/truffle/tree/develop/packages/hdwallet-provider). 
+The Web3 instance returned by `Moralis.web3ByChain()` cannot sign transactions. In the near future, it may be possible to do this with custom plugins. For now, if you need to make on-chain contract interactions, consider doing them on the frontend or create a NodeJS backend where you have access to [Truffle's HdWalletProvider](https://github.com/trufflesuite/truffle/tree/develop/packages/hdwallet-provider).&#x20;
 
 ### Contract ABI
 

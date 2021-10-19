@@ -1,6 +1,6 @@
-# DeFi
+# 🔥DeFi (new)
 
-## 🚧 getPairAddress (soon)
+## 🔥 getPairAddress (new)
 
 Fetches and returns pair data of the provided token0+token1 combination (asynchronous).
 
@@ -55,7 +55,7 @@ const pairAddress = await Moralis.Web3API.defi.getPairAddress(options);
 }
 ```
 
-## 🚧 getPairReserves (soon)
+## 🔥 getPairReserves (new)
 
 Get the liquidity reserves for a given pair address (asynchronous).&#x20;
 
