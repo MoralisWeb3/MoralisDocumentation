@@ -8,12 +8,12 @@ description: >-
 
 ## getBlock
 
-Retrieve the contents of a block by block hash.  Returns a block object (asynchronous). 
+Retrieve the contents of a block by block hash.  Returns a block object (asynchronous).&#x20;
 
 #### Options:
 
 * `chain`(optional): The blockchain to get data from. Valid values are listed on the [intro page in the Transactions and Balances section](https://docs.moralis.io/transactions-and-balances/intro). Default value `Eth`.
-*  `block_number_or_hash` (required): The block hash or block number.
+* &#x20;`block_number_or_hash` (required): The block hash or block number.
 
 ```javascript
 const options = { chain: "bsc", block_number_or_hash: "2" };
@@ -86,12 +86,12 @@ const transactions = await Moralis.Web3API.native.getBlock(options);
 
 ## getDateToBlock
 
-Retrieve the closest block of the provided date  (asynchronous). 
+Retrieve the closest block of the provided date  (asynchronous).&#x20;
 
 #### Options:
 
 * `chain`(optional): The blockchain to get data from. Valid values are listed on the [intro page in the Transactions and Balances section](https://docs.moralis.io/transactions-and-balances/intro). Default value `Eth`.
-*  `date` (required): Unix date in miliseconds or a datestring (any format that is accepted by momentjs)
+* &#x20;`date` (required): Unix date in miliseconds or a datestring (any format that is accepted by momentjs)
 
 ```javascript
 const options = {
@@ -111,17 +111,17 @@ const date = await Moralis.Web3API.native.getDateToBlock(options);
 }
 ```
 
-## getLogsByAddress
+## 🚧getLogsByAddress (soon)
 
-Retrieve the logs from an address  (asynchronous). 
+Retrieve the logs from an address  (asynchronous).&#x20;
 
 #### Options:
 
 * `chain`(optional): The blockchain to get data from. Valid values are listed on the [intro page in the Transactions and Balances section](https://docs.moralis.io/transactions-and-balances/intro). Default value `Eth`.
-* `from_date` (optional): The date from where to get the transactions (any format that is accepted by momentjs). Provide the param 'from_block' or 'from_date' If 'from_date' and 'from_block' are provided, 'from_block' will be used.
-* `to_date` (optional):  Get the transactions to this date (any format that is accepted by momentjs). Provide the param 'to_block' or 'to_date' If 'to_date' and 'to_block' are provided, 'to_block' will be used.
-* `from_block` (optional): The minimum block number from where to get the transactions Provide the param 'from_block' or 'from_date' If 'from_date' and 'from_block' are provided, 'from_block' will be used.
-* `to_block` (optional): The maximum block number from where to get the transactions. Provide the param 'to_block' or 'to_date' If 'to_date' and 'to_block' are provided, 'to_block' will be used.
+* `from_date` (optional): The date from where to get the transactions (any format that is accepted by momentjs). Provide the param 'from\_block' or 'from\_date' If 'from\_date' and 'from\_block' are provided, 'from\_block' will be used.
+* `to_date` (optional):  Get the transactions to this date (any format that is accepted by momentjs). Provide the param 'to\_block' or 'to\_date' If 'to\_date' and 'to\_block' are provided, 'to\_block' will be used.
+* `from_block` (optional): The minimum block number from where to get the transactions Provide the param 'from\_block' or 'from\_date' If 'from\_date' and 'from\_block' are provided, 'from\_block' will be used.
+* `to_block` (optional): The maximum block number from where to get the transactions. Provide the param 'to\_block' or 'to\_date' If 'to\_date' and 'to\_block' are provided, 'to\_block' will be used.
 * `address` (required): A smart contract address
 * `topic0` (optional): Event topic
 * `topic1` (optional): Event topic
@@ -166,7 +166,7 @@ Get the  events in descending order based on block number. Returns an object wit
 * `chain`(optional): The blockchain to get data from. Valid values are listed on the [intro page in the Transactions and Balances section](https://docs.moralis.io/transactions-and-balances/intro). Default value `Eth`.
 * `offset`(optional): Offset.
 * `limit`(optional): Limit.
-* `from_block` (optional): To get contract events starting from this block 
+* `from_block` (optional): To get contract events starting from this block&#x20;
 * `to_block` (optional): To get contract events up to this block
 * `topic `(required): The topic of the event
 * `address` (required): A smart contract address
@@ -221,12 +221,12 @@ const events = await Moralis.Web3API.native.getContractEvents(options);
 
 ## getNFTTransfersByBlock
 
-Retrieve NFT transfers by block number or block hash.  Returns an array of NFT transfers (asynchronous). 
+Retrieve NFT transfers by block number or block hash.  Returns an array of NFT transfers (asynchronous).&#x20;
 
 #### Options:
 
 * `chain`(optional): The blockchain to get data from. Valid values are listed on the [intro page in the Transactions and Balances section](https://docs.moralis.io/transactions-and-balances/intro). Default value `Eth`.
-*  `block_number_or_hash` (required): The block hash or block number.
+* &#x20;`block_number_or_hash` (required): The block hash or block number.
 
 ```javascript
 const options = { chain: "bsc", block_number_or_hash: "11284830" };
@@ -257,14 +257,14 @@ const NFTTransfers = await Moralis.Web3API.native.getNFTTransfersByBlock(options
 ]
 ```
 
-## getTransaction
+## 🚧getTransaction (soon)
 
-Get the transaction by transaction hash.  Returns a transaction object (asynchronous). 
+Get the transaction by transaction hash.  Returns a transaction object (asynchronous).&#x20;
 
 #### Options:
 
 * `chain`(optional): The blockchain to get data from. Valid values are listed on the [intro page in the Transactions and Balances section](https://docs.moralis.io/transactions-and-balances/intro). Default value `Eth`.
-*  `transaction_hash` (required): The transaction hash.
+* &#x20;`transaction_hash` (required): The transaction hash.
 
 ```javascript
 const options = {
