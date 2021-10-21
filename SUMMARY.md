@@ -3,7 +3,7 @@
 ## 👋 Introduction
 
 * [Why use Moralis?](README.md)
-* [How to get help](introduction/how-to-get-help.md)
+* [Our community](introduction/our-community.md)
 * [Prerequisites](introduction/pre-requisites.md)
 
 ## 🧙 Server <a href="moralis-server" id="moralis-server"></a>
