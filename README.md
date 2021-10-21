@@ -12,7 +12,7 @@ Think "Firebase of crypto". Moralis provides managed backend for blockchain proj
 
 Moralis is the fastest way to build and deploy dApps on Ethereum, BSC, Polygon, Solana, and Elrond (more coming). All Moralis dApps are cross-chain by default. Building on Moralis ensures that your dApp is future-proof even if new blockchains are invented as your dApp will instantly work on any chain.
 
-Whether you are building your first blockchain project, or are already a seasoned developer - Moralis will make your projects easier to build, maintain and improve. 
+Whether you are building your first blockchain project, or are already a seasoned developer - Moralis will make your projects easier to build, maintain and improve.&#x20;
 
 The video below explains more in-depth what Moralis is and how it helps your project.
 
@@ -28,29 +28,29 @@ Let's quickly summarize the different components of a Moralis Server that you wi
 
 ### Database
 
-Here is where all of your data will be stored. For example, when a user signs in to your dApp using [crypto wallet authentication](https://docs.moralis.io/moralis-server/users/crypto-login), that wallet address will automatically be saved to your database together with any data you have configured such as token balances, historical transactions, or events. 
+Here is where all of your data will be stored. For example, when a user signs in to your dApp using [crypto wallet authentication](https://docs.moralis.io/moralis-server/users/crypto-login), that wallet address will automatically be saved to your database together with any data you have configured such as token balances, historical transactions, or events.&#x20;
 
-You can then use this data instantaneously in your dApp frontend. 
+You can then use this data instantaneously in your dApp frontend.&#x20;
 
-You can read more under the sections: [Moralis Server Database](moralis-server/database/) and [User Authentication](moralis-server/users/crypto-login.md). 
+You can read more under the sections: [Moralis Server Database](moralis-server/database/) and [User Authentication](moralis-server/users/crypto-login.md).&#x20;
 
 ### Cloud Code
 
-If you need to execute backend code in your dApp, you can do so by using [Moralis' Cloud Code](moralis-server/cloud-code/) feature. Maybe you need to do aggregation or filtering on data that requires computation on the backend. By using cloud code, you can write functions in JavaScript which can then be triggered by either calling it from your dApp, when certain events happen or triggered by a scheduled job. 
+If you need to execute backend code in your dApp, you can do so by using [Moralis' Cloud Code](moralis-server/cloud-code/) feature. Maybe you need to do aggregation or filtering on data that requires computation on the backend. By using cloud code, you can write functions in JavaScript which can then be triggered by either calling it from your dApp, when certain events happen or triggered by a scheduled job.&#x20;
 
 You can read more about this in the [cloud code section](moralis-server/cloud-code/).
 
 ### The Moralis SDK
 
-Moralis' SDK is how we tie all of this together. Our JavaScript SDK is how your dApp interacts with your Moralis Server. It's through the SDK that you can authenticate users, either through username and password or through a crypto wallet like MetaMask. You can also use the SDK to get and set user data, to fetch balances, NFTs, events, or transactions. 
+Moralis' SDK is how we tie all of this together. Our JavaScript SDK is how your dApp interacts with your Moralis Server. It's through the SDK that you can authenticate users, either through username and password or through a crypto wallet like MetaMask. You can also use the SDK to get and set user data, to fetch balances, NFTs, events, or transactions.&#x20;
 
- You can read more about the SDK by [clicking here](https://docs.moralis.io/moralis-server/getting-started/connect-the-sdk).
+&#x20;You can read more about the SDK by [clicking here](https://docs.moralis.io/moralis-server/getting-started/connect-the-sdk).
 
 ## Welcome to the Moralis Documentation
 
 {% embed url="https://www.youtube.com/watch?v=TAJnP8SLVI4" %}
 
-We're excited for you to discover all the cool things you can build using Moralis with just a few lines of code. Before we get started, let's go over some important information. 
+We're excited for you to discover all the cool things you can build using Moralis with just a few lines of code. Before we get started, let's go over some important information.&#x20;
 
 ## Expectations
 
@@ -77,10 +77,10 @@ For more experienced developers, then make sure to watch the following video on 
 
 ## Setup Your First dApp with Moralis
 
-See the "[Quick Start](broken-reference)" section to guide you through setting up your first server with Moralis and how to integrate it with your dApp:
+See the [Getting Started ](https://docs.moralis.io/moralis-server/getting-started)section to guide you through setting up your first server with Moralis and how to integrate it with your dApp:
 
-{% content-ref url="broken-reference" %}
-[Broken link](broken-reference)
+{% content-ref url="moralis-server/getting-started/" %}
+[getting-started](moralis-server/getting-started/)
 {% endcontent-ref %}
 
 Or follow our guide on how to make a simple dApp in three minutes:
