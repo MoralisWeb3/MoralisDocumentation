@@ -26,7 +26,7 @@ This will connect [MetaMask](https://metamask.io) and request a signature (no ga
 
 We use the signature as proof the user is owner of account, if no signature is provided, anyone can gain the credentials necessary to read /write to users private data in Moralis Database. The signing is no different than entering a username and password. If a user wants to use the authenticated features of an app they need to “log in”. They choose when to do so by pressing the “login” button.
 
-![](<../../.gitbook/assets/Metamask_Login (1).png>)
+![](<../../.gitbook/assets/Metamask\_Login (1).png>)
 
 It works the same way for all Ethereum Virtual Machine (EVM) compatible chains such as Binance Smart Chain and Polygon (Matic), as they all share the same Ethereum addresses.
 
@@ -58,15 +58,15 @@ const user = await Moralis.authenticate({ provider: "walletconnect" })
 
 #### Specify the `chainId`.
 
-You might want to specify the chain id that WalletConnect will use by default. You can do this by providing the `chainId` as an extra option: 
+You might want to specify the chain id that WalletConnect will use by default. You can do this by providing the `chainId` as an extra option:&#x20;
 
 ```javascript
 const user = await Moralis.authenticate({ provider: "walletconnect", chainId: 56 })
 ```
 
-#### Filter Mobile Linking Options 
+#### Filter Mobile Linking Options&#x20;
 
-If you would like to reduce the number of mobile linking options or customize its order, you can provide an array of wallet names to the `mobileLinks` option . 
+If you would like to reduce the number of mobile linking options or customize its order, you can provide an array of wallet names to the `mobileLinks` option .&#x20;
 
 ```javascript
 const user = await Moralis.authenticate({ 
@@ -94,16 +94,6 @@ The `Moralis` class has a method called `enable`. The first step is to overwrite
 
 ```javascript
 <script src="https://cdn.jsdelivr.net/npm/@toruslabs/torus-embed"></script>
-```
-
-**Overwrite the \`enable\` Method**
-
-```javascript
-Moralis.enable = async () => {
-    const web3Provider = new MoralisTorusProvider();
-    const web3 = await web3Provider.activate();
-    return web3;
-}
 ```
 
 **Create the Torus Provider**
@@ -138,10 +128,26 @@ class MoralisTorusProvider {
 }
 ```
 
+**Create a custom "enable" function**
+
+```javascript
+const customEnable = async () => {
+    const web3Provider = new MoralisTorusProvider();
+    const web3 = await web3Provider.activate();
+    return web3;
+}
+```
+
+Set `customEnable` as provider
+
+```javascript
+Moralis.setEnableWeb3(customEnable )
+```
+
 You are good to go, you can now enable Moralis and connect to Web3 by:
 
 ```javascript
-window.web3 = await Moralis.enable();
+window.web3 = await Moralis.enableWeb3();
 ```
 
 ![](../../.gitbook/assets/custom.png)
@@ -178,7 +184,7 @@ Moralis.authenticate({ type: 'erd' }).then(function (user) {
 
 ## User Object
 
-After the signature is completed the promise will resolve with a `User` object. The shape of the created user looks like this: 
+After the signature is completed the promise will resolve with a `User` object. The shape of the created user looks like this:&#x20;
 
 ```javascript
 {
@@ -201,7 +207,7 @@ After the signature is completed the promise will resolve with a `User` object. 
 
 For new users, the `username` will be a randomly generated alphanumeric string and the `email` property will not exist. This can be set or changed by the app. See the "[Objects](../database/objects.md#saving-objects)" and "[Intro](https://docs.moralis.io/users/intro)" docs.
 
-It will also create a new entry in the `Moralis._EthAddress` class, corresponding to the Ethereum address used for this user. The schema of the created entry in the `Moralis._EthAddress` object looks like this: 
+It will also create a new entry in the `Moralis._EthAddress` class, corresponding to the Ethereum address used for this user. The schema of the created entry in the `Moralis._EthAddress` object looks like this:&#x20;
 
 ```javascript
 {
