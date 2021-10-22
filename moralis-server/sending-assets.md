@@ -78,7 +78,7 @@ const options = {type: "erc1155",
 let result = await Moralis.transfer(options)
 ```
 
-## 🔥Callbacks Promises Events (new)
+## 🔥 Callbacks Promises Events (new)
 
 Moralis.transfer() supports promise events. It allows you to get info on different stages of your interaction with the blockchain.&#x20;
 
