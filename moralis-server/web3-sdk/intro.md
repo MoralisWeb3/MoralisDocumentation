@@ -18,19 +18,15 @@ Moralis Web3 API can be easily accessed through the SDK functions as the video a
 
 It's also possible to access all of this functionality through REST API from your own backend.
 
-{% content-ref url="moralis-web3-api-rest.md" %}
-[moralis-web3-api-rest.md](moralis-web3-api-rest.md)
-{% endcontent-ref %}
-
 ### Configuring Web3API
 
 After you have initialized your application with `Moralis.start()`, it will automatically load the Web3API module. You don't need to make any additional steps to start using Web3API.
 
 {% hint style="info" %}
-[Initialize Moralis guide ](https://docs.moralis.io/moralis-server/getting-started/quick-start#initialize-moralis)
+[Initialize Moralis guide](https://docs.moralis.io/moralis-server/getting-started/connect-the-sdk#initialize-the-sdk)&#x20;
 {% endhint %}
 
-### Supported Chains 
+### Supported Chains&#x20;
 
 All helper functions have a `chain` option to specify which blockchain to get data from. The following are the currently supported values for the chain option. Any of the "Lookup Values" will match the corresponding chain. If not specified the chain will default to Ethereum Mainnet.
 
