@@ -32,7 +32,7 @@ let result = await Moralis.transfer(options)
 
 ## Transferring ERC20 Tokens
 
-When sending an ERC20 you need to know the contract address of the token and the number of decimals. 
+When sending an ERC20 you need to know the contract address of the token and the number of decimals.&#x20;
 
 ```javascript
 // sending 0.5 tokens with 18 decimals
@@ -76,4 +76,30 @@ const options = {type: "erc1155",
                  tokenId: 1,
                  amount: 15}
 let result = await Moralis.transfer(options)
+```
+
+## 🔥Callbacks Promises Events (new)
+
+Moralis.transfer() supports promise events. It allows you to get info on different stages of your interaction with the blockchain.&#x20;
+
+For example, you can instantly get a `transactionHash` without awaitng the entire transaction has been processed. And then after the transaction is processed, you can receive a `receipt`
+
+To receive all data as event callbacks, you need to switch `chawaitReceipt` to `false` in your  transaction options.
+
+```javascript
+const txOptions = {
+  type: "erc20",
+  amount: Moralis.Units.Token("10", "18"),
+  receiver: "0xB5...ee035",
+  contractAddress: "0x7b...605e",
+  awaitReceipt: false // should be switched to false
+}
+
+const tx = await Moralis.transfer(txOptions );
+
+tx.on("transactionHash", (hash) => { ... })
+  .on("receipt", (receipt) => { ... })
+  .on("confirmation", (confirmationNumber, receipt) => { ... })
+  .on("error", (error) => { ... });
+
 ```
