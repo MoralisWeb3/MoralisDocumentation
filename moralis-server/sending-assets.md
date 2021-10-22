@@ -95,7 +95,7 @@ const txOptions = {
   awaitReceipt: false // should be switched to false
 }
 
-const tx = await Moralis.transfer(txOptions );
+const tx = await Moralis.transfer(txOptions);
 
 tx.on("transactionHash", (hash) => { ... })
   .on("receipt", (receipt) => { ... })
