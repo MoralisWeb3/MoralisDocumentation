@@ -25,7 +25,7 @@ const options = {
     }
   ]
    };
-  const pairAddress = await Moralis.Web3API.defi.getPairAddress(options);
+  const path = await Moralis.Web3API.storage.uploadFolder(options);
 ```
 
 #### Example result:
