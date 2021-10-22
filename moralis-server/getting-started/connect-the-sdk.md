@@ -17,35 +17,32 @@ This guide will show you the process using Vanilla Javascript. Moralis has dedic
 
 ### Creating an empty page
 
-The first step is to create an empty page we call `index.html` and import web3 and moralis scripts. We include two buttons on the page - one for login and one for logout.
+The first step is to create an empty page we call `index.html` and `main.js` in the same directory and import **web3** and **moralis** scripts alongside our `main.js` file. We include two buttons on the page - one for logging in and one for logging out.
 
-```javascript
+#### **`index.html`**
+```html
+<!DOCTYPE html>
 <html>
   <head>
     <title>Vanilla Boilerplate</title>
-
     <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
-    <script src="https://npmcdn.com/moralis@latest/dist/moralis.js"></script>
-
+    <script src="https://unpkg.com/moralis/dist/moralis.js"></script>
   </head>
 
   <body>
-  
-    <h1>Moralis Hello World</h1>
+    <h1>Moralis Hello World!</h1>
 
-    <button id="btn-login">Moralis Login</button>
+    <button id="btn-login">Moralis Metamask Login</button>
     <button id="btn-logout">Logout</button>
-    
-    <script>
-      // put Moralis Code here
-    </script>
 
-    
+    <script type="text/javascript" src="./main.js"></script>
   </body>
-
-
 </html>
+```
 
+#### **`main.js`**
+```javascript
+/* TODO: Add Moralis init code */
 ```
 
 ### Initialize the SDK
@@ -56,99 +53,50 @@ In order to initialize the SDK you need to fetch _Server URL_ and _APP ID_ from 
 
 Next you can initialize your server using _`Moralis.start`_ function.
 
+#### **`main.js`**
 ```javascript
+/* Moralis init code */
 const serverUrl = "https://xxxxx/server";
 const appId = "YOUR_APP_ID";
 Moralis.start({ serverUrl, appId });
+
+/* TODO: Add Moralis Authentication code */
 ```
-
-Full code this far:
-
-```javascript
-<html>
-  <head>
-    <title>Vanilla Boilerplate</title>
-
-    <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
-    <script src="https://npmcdn.com/moralis@latest/dist/moralis.js"></script>
-
-  </head>
-
-  <body>
-  
-    <h1>Moralis Hello World</h1>
-
-    <button id="btn-login">Moralis Login</button>
-    <button id="btn-logout">Logout</button>
-    
-    <script>
-      // put Moralis Code here
-      const serverUrl = "https://xxxxx/server";
-      const appId = "YOUR_APP_ID";
-      Moralis.start({ serverUrl, appId });
-    </script>
-
-    
-  </body>
-
-
-</html>
-
-```
-
 
 
 ### Authentication Demo
 
 Now that the SDK is successfully connected we can use the power of Moralis. Let's login a user and instantly get all their tokens, transactions and NFTs from all chains in your Moralis Database.
 
+#### **`main.js`**
 ```javascript
-<html>
-  <head>
-    <title>Vanilla Boilerplate</title>
+/* Moralis init code */
+const serverUrl = "https://xxxxx/server";
+const appId = "YOUR_APP_ID";
+Moralis.start({ serverUrl, appId });
 
-    <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
-    <script src="https://npmcdn.com/moralis@latest/dist/moralis.js"></script>
+/* Authentication code */
+async function login() {
+  let user = Moralis.User.current();
+  if (!user) {
+    user = await Moralis.authenticate({ signingMessage: "Log in using Moralis" })
+      .then(function (user) {
+        console.log("logged in user:", user);
+        console.log(user.get("ethAddress"));
+      })
+      .catch(function (error) {
+        console(error);
+      });
+  }
+}
 
-  </head>
+async function logOut() {
+  await Moralis.User.logOut();
+  console.log("logged out");
+}
 
-  <body>
-  
-    <h1>Moralis Hello World</h1>
-
-    <button id="btn-login">Moralis Login</button>
-    <button id="btn-logout">Logout</button>
-    
-    <script>
-    
-        // put Moralis Code here
-        const serverUrl = "https://xxxxx/server";
-        const appId = "YOUR_APP_ID";
-        Moralis.start({ serverUrl, appId });
-        
-        async function login() {
-            let user = Moralis.User.current();
-            if (!user) {
-              user = await Moralis.authenticate();
-            }
-            console.log("logged in user:", user);
-        }
-        
-        async function logOut() {
-            await Moralis.User.logOut();
-            console.log("logged out");
-        }
-        
-        document.getElementById("btn-login").onclick = login;
-        document.getElementById("btn-logout").onclick = logOut;
-      
-      </script>
-
-    
-  </body>
-
-
-</html>
+document.getElementById("btn-login").onclick = login;
+document.getElementById("btn-logout").onclick = logOut;
 ```
 
 ### View the page from localhost
@@ -175,11 +123,11 @@ You will see the database of that server once you click _Dashboard_. Moralis fet
 
 ### Move Assets
 
-Try moving the assets in your Metamask and observe how the Moralis Database will update the records in real time. 
+Try moving the assets in your Metamask Wallet and observe how the Moralis Database will update the records in real time.
 
 ### Tip of the iceberg
 
-As you can probably already see Moralis is true superpower for blockchain developers. But this small demo is just the tip of the iceberg. Moralis provides endless tools and features for any blockchain use-case. Most importantly, every thing is cross-chain by default 
+As you can probably already see Moralis is true superpower for blockchain developers. But this small demo is just the tip of the iceberg. Moralis provides endless tools and features for any blockchain use-case. Most importantly, every thing is cross-chain by default.
 
 
 
@@ -212,17 +160,7 @@ For server-side applications or NodeJs command-line tools, include:
 const Moralis  = require('moralis/node');
 ```
 
-## Moralis Snippets
 
-To help you code fast you can make use of [Moralis Snippets](https://marketplace.visualstudio.com/items?itemName=MoralisWeb3.moralis-snippets) available as an extension to Visual Studio Code.
-
-{% embed url="https://www.youtube.com/watch?v=X82YBwLf1Vk" %}
-
-With the extension installed, begin by typing: "moralis" anywhere inside a JavaScript file.
-
-You will get IntelliSense for the available snippets.
-
-![](<../../.gitbook/assets/image (41).png>)
 
 ###
 
