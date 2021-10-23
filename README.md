@@ -28,7 +28,7 @@ Let's quickly summarize the different components of a Moralis Server that you wi
 
 ### Database
 
-Here is where all of your data will be stored. For example, when a user signs in to your dApp using [crypto wallet authentication](moralis-server/users/crypto-login), that wallet address will automatically be saved to your database together with any data you have configured, such as token balances, historical transactions, or events.
+Here is where all of your data will be stored. For example, when a user signs in to your dApp using [crypto wallet authentication](https://docs.moralis.io/moralis-server/users/crypto-login), that wallet address will automatically be saved to your database together with any data you have configured, such as token balances, historical transactions, or events.
 
 You can then use this data instantaneously in your dApp frontend.
 
@@ -44,7 +44,7 @@ You can read more about this in the [cloud code section](moralis-server/cloud-co
 
 Moralis' SDK is how we tie all of this together. Our JavaScript SDK is how your dApp interacts with your Moralis Server. Using the SDK, you can authenticate users, either through username and password or through a crypto wallet like MetaMask You can also use the SDK to get and set user data to fetch balances, NFTs, events, or transactions.
 
-You can read more about the SDK by [clicking here](moralis-server/getting-started/connect-the-sdk).
+You can read more about the SDK by[ clicking here](https://docs.moralis.io/moralis-server/getting-started/connect-the-sdk).
 
 ## Welcome to the Moralis Documentation
 
