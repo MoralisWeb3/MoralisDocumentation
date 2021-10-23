@@ -2,7 +2,7 @@
 
 ## getTokenMetadata
 
-Returns metadata (name, symbol, decimals, logo) for a given token contract address (asynchronous). 
+Returns metadata (name, symbol, decimals, logo) for a given token contract address (asynchronous).&#x20;
 
 #### Options:
 
@@ -40,7 +40,7 @@ const tokenMetadata = await Moralis.Web3API.token.getTokenMetadata(options);
 
 ## getTokenMetadataBySymbol
 
-Returns metadata (name, address, decimals, logo) for given symbols (asynchronous). 
+Returns metadata (name, address, decimals, logo) for given symbols (asynchronous).&#x20;
 
 #### Options:
 
@@ -78,7 +78,7 @@ const tokenMetadata = await Moralis.Web3API.token.getTokenMetadataBySymbol(optio
 
 ## getTokenAllowance
 
-Returns the amount which the spender is allowed to withdraw from the spender (asynchronous). 
+Returns the amount which the spender is allowed to withdraw from the spender (asynchronous).&#x20;
 
 #### Options:
 
@@ -107,7 +107,7 @@ const allowance = await Moralis.Web3API.token.getTokenAllowance(options);
 
 ## getTokenPrice
 
-Returns the price nominated in the native token and usd for a given token contract address (asynchronous). 
+Returns the price nominated in the native token and usd for a given token contract address (asynchronous).&#x20;
 
 #### Options:
 
@@ -145,33 +145,9 @@ const price = await Moralis.Web3API.token.getTokenPrice(options);
 }
 ```
 
-## getERC721Metadata
-
-Returns  metadata (name, symbol) for a given token contract address (asynchronous). 
-
-#### Options:
-
-* `chain`(optional): The blockchain to get data from. Valid values are listed on the [intro page in the Transactions and Balances section](https://docs.moralis.io/transactions-and-balances/intro). Default value `Eth`.
-* `address`(required): The address of the token contract.
-
-```javascript
-const options = { address: "0x...2", chain: "bsc" };
-const price = await Moralis.Web3API.token.getERC721Metadata(options);
-```
-
-#### Example result:
-
-```javascript
-{
-  name: "Pancake Bunnies",
-  symbol: "PB",
-  token_uri: "ipfs://QmYu9WwPNKNSZQiTCDfRk7aCR472GURavR9M1qosDmqpev/sparkle.json"
-}
-```
-
 ## getAllTokenIds
 
-Returns  an object with number of NFTs and an array with NFT metadata (name, symbol) for a given token contract address (asynchronous). 
+Returns  an object with number of NFTs and an array with NFT metadata (name, symbol) for a given token contract address (asynchronous).&#x20;
 
 #### Options:
 
@@ -203,7 +179,7 @@ const NFTs = await Moralis.Web3API.token.getAllTokenIds(options);
 
 ## getNFTMetadata
 
-Returns  the contract level metadata (name, symbol, base token uri) for the given contract (asynchronous). 
+Returns  the contract level metadata (name, symbol, base token uri) for the given contract (asynchronous).&#x20;
 
 #### Options:
 
@@ -236,7 +212,7 @@ Requests for contract addresses not yet indexed will automatically start the ind
 
 ## getNFTOwners
 
-Returns  an object with number of NFT ownsers and an array with NFT metadata (name, symbol) for a given token contract address (asynchronous). 
+Returns  an object with number of NFT ownsers and an array with NFT metadata (name, symbol) for a given token contract address (asynchronous).&#x20;
 
 #### Options:
 
@@ -252,7 +228,7 @@ const options = { address: "0xd...07", chain: "bsc" };
 const nftOwners = await Moralis.Web3API.token.getNFTOwners(options);
 ```
 
-The field(s) to order on and if it should be ordered in ascending or descending order. Specified by: `fieldName1.order`,` fieldName2.order`. 
+The field(s) to order on and if it should be ordered in ascending or descending order. Specified by: `fieldName1.order`,` fieldName2.order`.&#x20;
 
 ```javascript
 //Example 1: "name". Example for name: "name.ASC" or "name.DESC"
@@ -265,7 +241,7 @@ const nftOwners = await Moralis.Web3API.token.getNFTOwners(options);
 ```
 
 {% hint style="info" %}
-Make sure to include a sort parm on a column like block_number_minted for consistent pagination results
+Make sure to include a sort parm on a column like block\_number\_minted for consistent pagination results
 {% endhint %}
 
 {% hint style="info" %}
@@ -295,7 +271,7 @@ Requests for contract addresses not yet indexed will automatically start the ind
 
 ## searchNFTs
 
-Very powerful and fast tool for getting the NFT data based on a metadata search (asynchronous). 
+Very powerful and fast tool for getting the NFT data based on a metadata search (asynchronous).&#x20;
 
 #### Options:
 
@@ -344,7 +320,7 @@ const NFTs = await Moralis.Web3API.token.searchNFTs(options);
 
 ## getContractNFTTransfers
 
-Returns  an object with number of NFT transfers and an array with NFT transfers for a given token contract address (asynchronous). 
+Returns  an object with number of NFT transfers and an array with NFT transfers for a given token contract address (asynchronous).&#x20;
 
 #### Options:
 
@@ -360,7 +336,7 @@ const options = { address: "0xd...07", chain: "bsc" };
 const nftTransfers = await Moralis.Web3API.token.getContractNFTTransfers(options);
 ```
 
-The field(s) to order on and if it should be ordered in ascending or descending order. Specified by: `fieldName1.order`,` fieldName2.order`. 
+The field(s) to order on and if it should be ordered in ascending or descending order. Specified by: `fieldName1.order`,` fieldName2.order`.&#x20;
 
 ```javascript
 //Exmaple 1 "block_number": "block_number.ASC", "block_number.DESC", 
@@ -399,7 +375,7 @@ const nftTransfers = await Moralis.Web3API.token.getContractNFTTransfers(options
 
 ## getTokenIdMetadata
 
-Returns data, including fully resolved metadata for the given token id of the given contract address (asynchronous). 
+Returns data, including fully resolved metadata for the given token id of the given contract address (asynchronous).&#x20;
 
 #### Options:
 
@@ -431,7 +407,7 @@ const tokenIdMetadata = await Moralis.Web3API.token.getTokenIdMetadata(options);
 
 ## getTokenIdOwners
 
-Returns  an object with number of NFT transfers and an array with all owners of NFT items within a given contract collection (asynchronous). 
+Returns  an object with number of NFT transfers and an array with all owners of NFT items within a given contract collection (asynchronous).&#x20;
 
 #### Options:
 
@@ -448,7 +424,7 @@ const options = { address: "0xd...07", token_id: "1", chain: "bsc" };
 const tokenIdOwners= await Moralis.Web3API.token.getTokenIdOwners(options);
 ```
 
-The field(s) to order on and if it should be ordered in ascending or descending order. Specified by: `fieldName1.order`, `fieldName2.order`. 
+The field(s) to order on and if it should be ordered in ascending or descending order. Specified by: `fieldName1.order`, `fieldName2.order`.&#x20;
 
 ```javascript
 //Example 1: "name", "name.ASC", "name.DESC"
@@ -487,7 +463,7 @@ const nftTransfers = await Moralis.Web3API.token.getTokenIdOwners(options);
 
 ## getWalletTokenIdTransfers
 
-Returns  an object with number of NFT transfers and an array with all transfers of NFT by token id  (asynchronous). 
+Returns  an object with number of NFT transfers and an array with all transfers of NFT by token id  (asynchronous).&#x20;
 
 #### Options:
 
@@ -504,7 +480,7 @@ const options = { address: "0xd...07", token_id: "1", chain: "bsc" };
 const transfers = await Moralis.Web3API.token.getWalletTokenIdTransfers(options);
 ```
 
-The field(s) to order on and if it should be ordered in ascending or descending order. Specified by: `fieldName1.order`, `fieldName2.order`. 
+The field(s) to order on and if it should be ordered in ascending or descending order. Specified by: `fieldName1.order`, `fieldName2.order`.&#x20;
 
 ```javascript
 //Example 1: "name", "block_number.ASC", "block_number.DESC"
