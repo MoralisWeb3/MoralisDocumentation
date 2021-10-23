@@ -1,10 +1,23 @@
 ---
-description: The Docs Assume Some Web3 and JavaScript Programming Knowledge.
+description: The Docs Assume Some JavaScript and Web3 Programming Knowledge.
 ---
 
 # Prerequisites
 
-Explaining the concepts of JavaScript and Web3 from scratch is beyond the scope of the docs. You don't need to be an expert in Web3 to try Moralis, but some basic knowledge will help you understand it better. 
+Explaining the concepts of JavaScript and Web3 from scratch is beyond the scope of the docs. You don't need to be an expert in Web3 to try Moralis, but some basic knowledge will help you understand it better.
+
+
+## JavaScript Knowledge
+
+* You have worked with Objects, JSON and MongoDB.
+* You've worked with frontend JavaScript and backend JavaScript (for cloud functions).
+* Basic knowledge of how to query a database.
+  * Moralis queries are constructed with MongoDB query objects.
+* Understanding of asynchronous operations.
+  * Promises, `async` and `await`.
+
+{% embed url="https://youtu.be/vn3tm0quoqE" %}
+
 
 ## Web3 Knowledge
 
@@ -14,16 +27,6 @@ Explaining the concepts of JavaScript and Web3 from scratch is beyond the scope 
 * You are familiar with smart contracts and smart contract events.
 * You have worked with different chains such as mainnet, testnet, or [Ganache](https://www.trufflesuite.com/ganache) (Ganache is your own local development chain).
 
-## JavaScript Knowledge
-
-* You have worked with Objects, JSON and MongoDB.
-* You've worked with frontend JavaScript and backend JavaScript (for cloud functions).
-* Basic knowledge of how to query a database. 
-  * Moralis queries are constructed with MongoDB query objects.
-* Understanding of asynchronous operations.
-  * Promises, `async` and `await`.
-
-{% embed url="https://youtu.be/vn3tm0quoqE" %}
 
 ## Software
 
