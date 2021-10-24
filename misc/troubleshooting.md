@@ -8,7 +8,7 @@ description: Answers to Common Issues.
 
 For any Moralis issue, the first place to check is the logs section in the dashboard.
 
-![](../.gitbook/assets/CloudFunctionError_Log.png)
+![](../.gitbook/assets/CloudFunctionError\_Log.png)
 
 ## Uncaught (in promise) Error: Non-Ethereum Enabled Browser
 
@@ -30,6 +30,25 @@ For any Moralis issue, the first place to check is the logs section in the dashb
 * Are you** forking the mainnet**? This feature in both Ganache-CLI and Hardhat is not yet supported.
 
 See the [Real-Time Transactions](../moralis-server/automatic-transaction-sync/smart-contract-events.md) docs for more details on how to set up the plugin.
+
+## Error: Web3Api not initialized, run Moralis.start() first
+
+Make sure you have provided correct `appId` and `serverUrl`.&#x20;
+
+If you initialize your application using **deprecated syntax**:
+
+```
+Moralis.initialize("xxxxxx");
+Moralis.serverURL = "https://xxxxxx:2053/server";
+```
+
+You need to change it to the new syntax:
+
+```
+serverUrl = "https://xxxxxx:2053/server"
+appId =  "xxxxxx" 
+Moralis.start({ serverUrl, appId});
+```
 
 ## CORS Errors in the Client
 
