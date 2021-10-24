@@ -9,7 +9,7 @@ description: >-
 ## Javascript
 
 * [Moralis Vanilla JS Boilerplate](https://github.com/MoralisWeb3/demo-apps/tree/main/moralis-vanilla-boilerplate).
-* [Moralis React Boilerplate](https://github.com/MoralisWeb3/demo-apps/tree/main/moralis-react-app).
+* [Moralis React Boilerplate.](https://github.com/ethereum-boilerplate/ethereum-boilerplate)
 * [Moralis Angular Boilerplate](https://github.com/MoralisWeb3/demo-apps/tree/main/moralis-angular-app) (vid.
 * Moralis NextJS Boilerplate (coming soon).
 * [Moralis VueJS Boilerplate](https://github.com/MoralisWeb3/demo-apps/tree/main/moralis-vue3-boilerplate).
