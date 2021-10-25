@@ -84,7 +84,7 @@ Moralis.transfer() supports promise events. It allows you to get info on differe
 
 For example, you can instantly get a `transactionHash` without awaitng the entire transaction has been processed. And then after the transaction is processed, you can receive a `receipt`
 
-To receive all data as event callbacks, you need to switch `chawaitReceipt` to `false` in your  transaction options.
+To receive all data as event callbacks, you need to switch `awaitReceipt` to `false` in your  transaction options.
 
 ```javascript
 const txOptions = {
