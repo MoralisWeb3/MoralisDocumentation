@@ -43,7 +43,7 @@ It's also possible to get a Web3 instance inside cloud functions, but the syntax
 
 ## executeFunction
 
-Runs a smart contract function. You can execute `.call()` or`send()` smart contract methods. 
+Runs a smart contract function. You can execute `.call()` or`send()` smart contract methods.&#x20;
 
 #### Options:
 
@@ -97,7 +97,7 @@ const allowance = await Moralis.executeFunction(options);
 ```
 
 {% hint style="info" %}
-Requires an enabled web3 provider. Before executing the function, make sure that the correct network is selected in your wallet. 
+Requires an enabled web3 provider. Before executing the function, make sure that the correct network is selected in your wallet.&#x20;
 {% endhint %}
 
 {% hint style="info" %}
@@ -152,7 +152,7 @@ const receipt = await Moralis.executeFunction(options);
 console.log(receipt)
 ```
 
-### Transfering native crypto in contract method example 
+### Transfering native crypto in contract method example&#x20;
 
 For example, you want to call a smart contract method that exchanges native cryptocurrency for tokens. This case is different from the usual situations where you use ERC20 tokens and specify the number of tokens to use as a method parameter. Action with a native cryptocurrency in a smart contract assumes that you will transfer some value along with the transaction. In solidity you can know it as a `msg.value`
 
@@ -166,6 +166,22 @@ const options = {
 
 const receipt = await Moralis.executeFunction(options);
 console.log(receipt)
+```
+
+### Example of creating reusable options
+
+You can use this construction to create reusable options for calling multiple contract methods.
+
+```javascript
+const options = {
+  contractAddress: "0xe...56",
+  abi: ABI,
+};
+
+const symbol = await Moralis.executeFunction({ functionName: 'symbol', ...options })
+const decimals = await Moralis.executeFunction({ functionName: 'decimals', ...options })
+const name = await Moralis.executeFunction({ functionName: 'name', ...options })
+
 ```
 
 ## Events
