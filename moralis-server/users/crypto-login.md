@@ -30,7 +30,13 @@ We use the signature as proof the user is owner of account, if no signature is p
 
 It works the same way for all Ethereum Virtual Machine (EVM) compatible chains such as Binance Smart Chain and Polygon (Matic), as they all share the same Ethereum addresses.
 
-{% embed url="https://youtu.be/6BfOtYfwFBI" %}
+As soon as the user is logged in all their assets, tokens, NFTs and past transactions are instantly synced into your Moralis Database. The database updates if the users are moving assets on-chain.
+
+![Once the user logs in - all their assets are seen in the database. The database updates if the users move assets on chain.](<../../.gitbook/assets/image (117).png>)
+
+{% embed url="https://youtu.be/SYWdSg9KLCQ" %}
+Logging in your first users on Ethereum, Polygon, Avalanche (or any other chain) using Moralis.
+{% endembed %}
 
 ### WalletConnect
 
