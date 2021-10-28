@@ -12,7 +12,7 @@ description: >-
 Each dApp is usually divided into 2 parts:
 
 1. **On-chain part:** Smart Contracts, On-Chain Assets like tokens and NFTs, On-Chain transactions etc.
-2. \*\*Off-chain part: \*\*Backend infrastructure that collect data from the blockchain, offers an API to clients like web apps and mobile apps, indexes the blockchain, provides real-time alerts, co-ordinates events that are happening on different chains, handles the user life-cycle and so much more.
+2. **Off-chain part:** Backend infrastructure that collect data from the blockchain, offers an API to clients like web apps and mobile apps, indexes the blockchain, provides real-time alerts, co-ordinates events that are happening on different chains, handles the user life-cycle and so much more.
 
 Moralis Server is used in order to speed up the implementation of the **off-chain part**. Moralis Server is a bundled solution of all the features most dApps need in order to get going as soon as possible.
 
