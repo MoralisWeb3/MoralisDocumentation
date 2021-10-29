@@ -14,7 +14,7 @@ description: Moralis Has Native Support for IPFS!
 
 [IPFS ](https://ipfs.io)is supported out of the box when using Moralis.
 
-You can upload files with the _saveIPFS()_ method (max file size 64 MB).
+You can upload files with the _saveIPFS()_ method (max file size 1 GB).
 
 ```javascript
 // Save file input to IPFS
