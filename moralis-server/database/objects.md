@@ -10,28 +10,28 @@ description: Storing Data in a Moralis Server.
 
 Storing data on Moralis is built around `Moralis.Object`. Each `Moralis.Object` contains key-value pairs of JSON-compatible data. This data is schemaless, which means that you don’t need to specify ahead of time what keys exist on each `Moralis.Object`. You simply set whatever key-value pairs you want, and our back-end will store it.
 
-For example, let’s say you’re tracking high scores for a game. A single `Moralis.Object` could contain:
+For example, let’s say you’re building an NFT game where the characters are monsters. A single `Moralis.Object` could contain:
 
 ```javascript
-score: 1337, playerName: "Sean Plott", cheatMode: false
+strength: 1024, ownerName: "Aegon", canFly: true
 ```
 
 Keys must be alphanumeric strings. Values can be strings, numbers, booleans, or even arrays and dictionaries - anything that can be JSON-encoded.
 
-Each `Moralis.Object` is an instance of a specific subclass with a class name that you can use to distinguish different sorts of data. For example, we could call the high score object a `GameScore`. We recommend that you NameYourClassesLikeThis and nameYourKeysLikeThis, just to keep your code looking pretty.
+Each `Moralis.Object` is an instance of a specific subclass with a class name that you can use to distinguish different sorts of data. For example, we could call the object a `LegendaryMonster`. We recommend that you NameYourClassesLikeThis and nameYourKeysLikeThis, just to keep your code looking pretty.
 
 To create a new subclass, use the `Moralis.Object.extend` method. Any `Moralis.Query` will return instances of the new class for any `Moralis.Object` with the same classname. If you’re familiar with `Backbone.Model`, then you already know how to use `Moralis.Object`. It’s designed to be created and modified in the same ways.
 
 ```javascript
 // Simple syntax to create a new subclass of Moralis.Object.
-const GameScore = Moralis.Object.extend("GameScore");
+const LegendaryMonster = Moralis.Object.extend("Monster");
 
 // Create a new instance of that class.
-const gameScore = new GameScore();
+const monster = new LegendaryMonster();
 
 // Alternatively, you can use the typical Backbone syntax.
-const Achievement = Moralis.Object.extend({
-  className: "Achievement"
+const LegendaryMonster = Moralis.Object.extend({
+  className: "Monster"
 });
 ```
 
@@ -126,20 +126,20 @@ customUser.signUp().then((user) => {
 
 ## Saving Objects
 
-Let’s say you want to save the `GameScore` described above to the Moralis Cloud. The interface is similar to a `Backbone.Model`, including the `save` method:
+Let’s say you want to save the `Monster` described above to the Moralis Cloud. The interface is similar to a `Backbone.Model`, including the `save` method:
 
 ```javascript
-const GameScore = Moralis.Object.extend("GameScore");
-const gameScore = new GameScore();
+const Monster = Moralis.Object.extend("Monster");
+const monster = new Monster();
 
-gameScore.set("score", 1337);
-gameScore.set("playerName", "Sean Plott");
-gameScore.set("cheatMode", false);
+monster.set("strength", 1024);
+monster.set("ownerName", "Aegon");
+monster.set("canFly", true);
 
-gameScore.save()
-.then((gameScore) => {
+monster.save()
+.then((monster) => {
   // Execute any logic that should take place after the object is saved.
-  alert('New object created with objectId: ' + gameScore.id);
+  alert('New object created with objectId: ' + monster.id);
 }, (error) => {
   // Execute any logic that should take place if the save fails.
   // error is a Moralis.Error with an error code and message.
@@ -150,26 +150,26 @@ gameScore.save()
 After this code runs, you will probably be wondering if anything really happened. To make sure the data was saved, you can look at the "Data Browser" in your "Moralis Dashboard". You should see something like this:
 
 ```javascript
-objectId: "xWMyZ4YEGZ", score: 1337, playerName: "Sean Plott", cheatMode: false,
+objectId: "xWMyZ4YEGZ", strength: 1024, ownerName: "Aegon", canFly: true,
 createdAt:"2011-06-10T18:33:42Z", updatedAt:"2011-06-10T18:33:42Z"
 ```
 
-There are two things to note here. You didn’t have to configure or set up a new class called `GameScore` before running this code. Your Moralis app lazily creates this class for you when it first encounters it.
+There are two things to note here. You didn’t have to configure or set up a new class called `Monster` before running this code. Your Moralis app lazily creates this class for you when it first encounters it.
 
 There are also a few fields you don’t need to specify that are provided as a convenience. `objectId` is a unique identifier for each saved object. `createdAt` and `updatedAt` represent the time that each object was created and last modified in the cloud. Each of these fields is filled in by Moralis, so they don’t exist on a `Moralis.Object` until a save operation has been completed.
 
 If you prefer, you can set attributes directly in your call to `save` instead.
 
 ```javascript
-const GameScore = Moralis.Object.extend("GameScore");
-const gameScore = new GameScore();
+const Monster = Moralis.Object.extend("Monster");
+const monster = new Monster();
 
-gameScore.save({
-  score: 1337,
-  playerName: "Sean Plott",
-  cheatMode: false
+monster.save({
+  strength: 1024,
+  ownerName: "Aegon",
+  canFly: true
 })
-.then((gameScore) => {
+.then((monster) => {
   // The object was saved successfully.
 }, (error) => {
   // The save failed.
@@ -193,14 +193,14 @@ parent.save({ child: child });
 // just before saving the Parent
 ```
 
-In some scenarios, you may want to prevent this default chain save. For example, when saving a team member’s profile that points to an account owned by another user to which you don’t have write access. In this case, setting the option `cascadeSave` to `false` may be useful:
+In some scenarios, you may want to prevent this default chain save. For example, when saving a monster’s profile that has an owner property pointing to an account owned by another user to which you don’t have write access. In this case, setting the option `cascadeSave` to `false` may be useful:
 
 ```javascript
-const TeamMember = Moralis.Object.extend("TeamMember");
-const teamMember = new TeamMember();
-teamMember.set('ownerAccount', ownerAccount);   // Suppose `ownerAccount` has been created earlier.
+const Monster = Moralis.Object.extend("Monster");
+const monster = new Monster();
+monster.set('ownerAccount', ownerAccount);   // Suppose `ownerAccount` has been created earlier.
 
-teamMember.save(null, { cascadeSave: false });
+monster.save(null, { cascadeSave: false });
 // Will save `teamMember` wihout attempting to save or modify `ownerAccount`
 
 ```
@@ -210,21 +210,21 @@ teamMember.save(null, { cascadeSave: false });
 You may pass a `context` dictionary that is accessible in cloud code `beforeSave` and `afterSave` triggers for that `Moralis.Object`. This is useful if you want to condition certain operations in cloud code triggers on ephemeral information that should not be saved with the `Moralis.Object` in the database. The context is ephemeral in the sense that it vanishes after the cloud code triggers for that particular `Moralis.Object` as it has been executed. For example:
 
 ```javascript
-const TeamMember = Moralis.Object.extend("TeamMember");
-const teamMember = new TeamMember();
-teamMember.set("team", "A");
+const Monster = Moralis.Object.extend("Monster");
+const monster = new Monster();
+monster.set("species", "Dragon");
 
-const context = { notifyTeam: false };
-await teamMember.save(null, { context: context });
+const context = { notifyMonsterGuild: true };
+await monster.save(null, { context: context });
 ```
 
 The context is then accessible in cloud code:
 
 ```javascript
-Moralis.Cloud.afterSave("TeamMember", async (req) => {
-  const notifyTeam = req.context.notifyTeam;
-  if (notifyTeam) {
-    // Notify team about new member.
+Moralis.Cloud.afterSave("Monster", async (req) => {
+  const notifyMonsterGuild = req.context.notifyMonsterGuild;
+  if (notifyMonsterGuild) {
+    // Notify the guild about new monster.
   }
 });
 ```
@@ -234,10 +234,10 @@ Moralis.Cloud.afterSave("TeamMember", async (req) => {
 Saving data to the cloud is fun, but it’s even more fun to get that data out again. If the `Moralis.Object` has been uploaded to the server, you can use the `objectId` to retrieve it using a `Moralis.Query`:
 
 ```javascript
-const GameScore = Moralis.Object.extend("GameScore");
-const query = new Moralis.Query(GameScore);
+const Monster = Moralis.Object.extend("Monster");
+const query = new Moralis.Query(Monster);
 query.get("xWMyZ4YEGZ")
-.then((gameScore) => {
+.then((monster) => {
   // The object was retrieved successfully.
 }, (error) => {
   // The object was not retrieved successfully.
@@ -248,24 +248,24 @@ query.get("xWMyZ4YEGZ")
  To get the values out of the `Moralis.Object`, use the `get` method:
 
 ```javascript
-const score = gameScore.get("score");
-const playerName = gameScore.get("playerName");
-const cheatMode = gameScore.get("cheatMode");
+const strength = monster.get("strength");
+const ownerName = monster.get("ownerName");
+const canFly = monster.get("canFly");
 ```
 
 Alternatively, the `attributes` property of the `Moralis.Object` can be treated as a JavaScript object, and even destructured.
 
 ```javascript
-const { score, playerName, cheatMode } = result.attributes;
+const { strength, ownerName, canFly } = result.attributes;
 ```
 
 The four special reserved values are provided as properties and cannot be retrieved using the ‘get’ method nor modified with the ‘set’ method:
 
 ```javascript
-const objectId = gameScore.id;
-const updatedAt = gameScore.updatedAt;
-const createdAt = gameScore.createdAt;
-const acl = gameScore.getACL();
+const objectId = monster.id;
+const updatedAt = monster.updatedAt;
+const createdAt = monster.createdAt;
+const acl = monster.getACL();
 ```
 
 If you need to refresh an object you already have with the latest data currently in the Moralis Cloud, you can call the `fetch` method like so:
@@ -295,20 +295,21 @@ Updating an object is simple. Just set some new data on it and call the save met
 
 ```javascript
 // Create the object.
-const GameScore = Moralis.Object.extend("GameScore");
-const gameScore = new GameScore();
+const Monster = Moralis.Object.extend("Monster");
+const monster = new Monster();
 
-gameScore.set("score", 1337);
-gameScore.set("playerName", "Sean Plott");
-gameScore.set("cheatMode", false);
-gameScore.set("skills", ["pwnage", "flying"]);
+monster.set("strength", 1024);
+monster.set("energy", 1337);
+monster.set("owner", "Aegon");
+monster.set("canFly", false);
+monster.set("skills", ["pwnage", "flying"]);
 
-gameScore.save().then((gameScore) => {
-  // Now let's update it with some new data. In this case, only cheatMode and score
-  // will get sent to the cloud. playerName hasn't changed.
-  gameScore.set("cheatMode", true);
-  gameScore.set("score", 1338);
-  return gameScore.save();
+monster.save().then((monster) => {
+  // Now let's update it with some new data. In this case, only canFly and energy
+  // will get sent to the cloud. ownerName hasn't changed.
+  monster.set("canFly", true);
+  monster.set("energy", 1338);
+  return monster.save();
 });
 ```
 
@@ -316,29 +317,29 @@ Moralis automatically figures out which data has changed so only “dirty” fie
 
 #### COUNTERS
 
-The above example contains a common use case. The “score” field is a counter that we’ll need to continually update with the player’s latest score. Using the above method works but it’s cumbersome and can lead to problems if you have multiple clients trying to update the same counter.
+The above example contains a common use case. The strength field is a counter that we’ll need to continually update with the monster's latest energy. Using the above method works but it’s cumbersome and can lead to problems if you have multiple clients trying to update the same counter.
 
 To help with storing counter-type data, Moralis provides methods that automatically increment (or decrement) any number field. So, the same update can be rewritten as:
 
 ```javascript
-gameScore.increment("score");
-gameScore.save();
+monster.increment("energy");
+monster.save();
 ```
 
 You can also increment by any amount by passing in a second argument to `increment`. When no amount is specified, 1 is used by default.
 
 #### ARRAYS <a href="arrays" id="arrays"></a>
 
-To help with storing array data, there are three operations that can be used to atomically change an array associated with a given key:
+To help with storing array data, there are three operations that can be used to automatically change an array associated with a given key:
 
 * `add` append the given object to the end of an array field.
 * `addUnique` add the given object only if it isn’t already contained in an array field. The position of the insert is not guaranteed.
 * `remove` remove all instances of the given object from an array field.
 
 ```javascript
-gameScore.addUnique("skills", "flying");
-gameScore.addUnique("skills", "kungfu");
-gameScore.save();
+monster.addUnique("skills", "flying");
+monster.addUnique("skills", "kungfu");
+monster.save();
 ```
 
 Note that it is not currently possible to automatically add and remove items from an array in the same save. You will have to call `save` in between every different kind of array operation.
@@ -359,8 +360,8 @@ myObject.destroy().then((myObject) => {
 You can delete a single field from an object with the `unset` method:
 
 ```javascript
-// After this, the playerName field will be empty
-myObject.unset("playerName");
+// After this, the ownerName field will be empty
+myObject.unset("ownerName");
 
 // Saves the field deletion to the Moralis Cloud.
 // If the object's field is an array, call save() after every unset() operation.
