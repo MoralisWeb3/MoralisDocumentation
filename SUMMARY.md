@@ -5,6 +5,7 @@
 * [Why use Moralis?](README.md)
 * [Our community](introduction/our-community.md)
 * [Prerequisites](introduction/pre-requisites.md)
+* [Contribute Docs](introduction/contribute-docs.md)
 
 ## 🧙 Server <a href="moralis-server" id="moralis-server"></a>
 
