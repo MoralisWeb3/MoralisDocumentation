@@ -59,7 +59,7 @@ Returns native balance for a specific address (asynchronous).
 
 * `chain`(optional): The blockchain to get data from. Valid values are listed on the [intro page in the Transactions and Balances section](https://docs.moralis.io/transactions-and-balances/intro). Default value `Eth`.
 * `to_block `(optional): The block number on which the balances should be checked.
-* `address` (required): The address for which the native balance will be checked. If specified, the user attached to the query is ignored and the address will be used instead.
+* `address` (optional): The address for which the native balance will be checked. If specified, the user attached to the query is ignored and the address will be used instead. If user is not authenticated with a Wallet, then address has to be specified.
 
 ```javascript
 // get mainnet native balance for the current user
