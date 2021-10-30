@@ -12,18 +12,18 @@ We've already seen how a `Moralis.Query` with `get` can retrieve a single `Moral
 
 In many cases, `get` isn't powerful enough to specify which objects you want to retrieve. `Moralis.Query` offers different ways to retrieve a list of objects rather than just a single object.
 
-The general pattern is to create a `Moralis.Query`, put conditions on it, and then retrieve an `Array` of matching `Moralis.Object`s using `find`. For example, to retrieve the scores that have a particular `playerName`, use the `equalTo` method to constrain the value for a key.
+The general pattern is to create a `Moralis.Query`, put conditions on it, and then retrieve an `Array` of matching `Moralis.Object`s using `find`. For example, to retrieve the monster that have a particular `ownerName`, use the `equalTo` method to constrain the value for a key.
 
 ```javascript
-const GameScore = Moralis.Object.extend("GameScore");
-const query = new Moralis.Query(GameScore);
-query.equalTo("playerName", "Dan Stemkoski");
+const Monster = Moralis.Object.extend("Monster");
+const query = new Moralis.Query(Monster);
+query.equalTo("ownerName", "Aegon");
 const results = await query.find();
-alert("Successfully retrieved " + results.length + " scores.");
+alert("Successfully retrieved " + results.length + " monsters.");
 // Do something with the returned Moralis.Object values
 for (let i = 0; i < results.length; i++) {
   const object = results[i];
-  alert(object.id + ' - ' + object.get('playerName'));
+  alert(object.id + ' - ' + object.get('ownerName'));
 }
 ```
 
@@ -34,14 +34,14 @@ for (let i = 0; i < results.length; i++) {
 There are several ways to put constraints on the objects found by a `Moralis.Query`. You can filter out objects with a particular key-value pair with `notEqualTo`:
 
 ```javascript
-query.notEqualTo("playerName", "Michael Yabuti");
+query.notEqualTo("ownerName", "Daenerys");
 ```
 
 You can give multiple constraints, and objects will only be in the results if they match all of the constraints. In other words, it's like an AND of constraints.
 
 ```javascript
-query.notEqualTo("playerName", "Michael Yabuti");
-query.greaterThan("playerAge", 18);
+query.notEqualTo("ownerName", "Daenerys");
+query.greaterThan("ownerAge", 18);
 ```
 
 You can limit the number of results by setting `limit`. By default, results are limited to 100. In the old Moralis hosted back-end, the maximum limit was 1,000, but Moralis Server removed that constraint:
@@ -53,9 +53,9 @@ query.limit(10); // limit to at most 10 results
 If you want exactly one result, a more convenient alternative may be to use `first` instead of using `find`.
 
 ```javascript
-const GameScore = Moralis.Object.extend("GameScore");
-const query = new Moralis.Query(GameScore);
-query.equalTo("playerEmail", "dstemkoski@example.com");
+const Monster = Moralis.Object.extend("Monster");
+const query = new Moralis.Query(Monster);
+query.equalTo("ownerEmail", "daenerys@housetargaryen.com");
 const object = await query.first();
 ```
 
@@ -71,19 +71,19 @@ If you want to know the total number of rows in a table satisfying your query, f
 
 **Note:** Enabling this flag will change the structure of the response, see the example below.
 
-Let's say you have 200 rows in a table called `GameScore`:
+Let's say you have 200 rows in a table called `Monster`:
 
 ```javascript
-const GameScore = Moralis.Object.extend("GameScore");
-const query = new Moralis.Query(GameScore);
+const Monster = Moralis.Object.extend("Monster");
+const query = new Moralis.Query(Monster);
 
 query.limit(25);
 
-const results = await query.find(); // [ GameScore, GameScore, ...]
+const results = await query.find(); // [ Monster, Monster, ...]
 
 // to include count:
 query.withCount();
-const response = await query.find(); // { results: [ GameScore, ... ], count: 200 }
+const response = await query.find(); // { results: [ Monster, ... ], count: 200 }
 ```
 
 ⚠️ Сount operations can be slow and expensive.
@@ -93,11 +93,11 @@ If you only want to get the count without objects - use [Counting Objects](queri
 For sortable types like numbers and strings, you can control the order in which results are returned:
 
 ```javascript
-// Sorts the results in ascending order by the score field
-query.ascending("score");
+// Sorts the results in ascending order by the strength field
+query.ascending("strength");
 
-// Sorts the results in descending order by the score field
-query.descending("score");
+// Sorts the results in descending order by the strength field
+query.descending("strength");
 ```
 
 For sortable types, you can also use comparisons in queries:
@@ -116,30 +116,30 @@ query.greaterThan("wins", 50);
 query.greaterThanOrEqualTo("wins", 50);
 ```
 
-If you want to retrieve objects matching any of the values in a list of values, you can use `containedIn`, providing an array of acceptable values. This is often useful to replace multiple queries with a single query. For example, if you want to retrieve scores made by any player in a particular list:
+If you want to retrieve objects matching any of the values in a list of values, you can use `containedIn`, providing an array of acceptable values. This is often useful to replace multiple queries with a single query. For example, if you want to retrieve monsters owned by any monster owner in a particular list:
 
 ```javascript
-// Finds scores from any of Jonathan, Dario, or Shawn
-query.containedIn("playerName",
+// Finds monsters from any of Jonathan, Dario, or Shawn
+query.containedIn("ownerName",
                   ["Jonathan Walsh", "Dario Wunsch", "Shawn Simon"]);
 ```
 
-If you want to retrieve objects that do not match any of several values, you can use `notContainedIn`, providing an array of acceptable values. For example, if you want to retrieve scores from players besides those in a list:
+If you want to retrieve objects that do not match any of several values, you can use `notContainedIn`, providing an array of acceptable values. For example, if you want to retrieve monsters from monster owners besides those in a list:
 
 ```javascript
-// Finds scores from anyone who is neither Jonathan, Dario, nor Shawn
-query.notContainedIn("playerName",
+// Finds monsters from anyone who is neither Jonathan, Dario, nor Shawn
+query.notContainedIn("ownerName",
                      ["Jonathan Walsh", "Dario Wunsch", "Shawn Simon"]);
 ```
 
 If you want to retrieve objects that have a particular key set, you can use `exists`. Conversely, if you want to retrieve objects without a particular key set, you can use `doesNotExist`.
 
 ```javascript
-// Finds objects that have the score set
-query.exists("score");
+// Finds objects that have the strength set
+query.exists("strength");
 
-// Finds objects that don't have the score set
-query.doesNotExist("score");
+// Finds objects that don't have the strength set
+query.doesNotExist("strength");
 ```
 
 You can use the `matchesKeyInQuery` method to get objects where a key matches the value of a key in a set of objects resulting from another query. For example, if you have a class containing sports teams and you store a user's hometown in the user class, you can issue one query to find the list of users whose hometown teams have winning records. The query would look like this:
@@ -176,25 +176,25 @@ groupsWithRoleX.find().then(function(results) {
 });
 ```
 
-You can restrict the fields returned by calling `select` with a list of keys. To retrieve documents that contain only the `score` and `playerName` fields (and also special built-in fields such as `objectId`, `createdAt`, and `updatedAt`):
+You can restrict the fields returned by calling `select` with a list of keys. To retrieve documents that contain only the `strength` and `ownerName` fields (and also special built-in fields such as `objectId`, `createdAt`, and `updatedAt`):
 
 ```javascript
-const GameScore = Moralis.Object.extend("GameScore");
-const query = new Moralis.Query(GameScore);
-query.select("score", "playerName");
-query.find().then(function(results) {
-  // each of results will only have the selected fields available.
+const Monster = Moralis.Object.extend("Monster");
+const query = new Moralis.Query(Monster);
+query.select("strength", "ownerName");
+query.find().then(function(monsters) {
+  // each of the monsters will only have the selected fields available.
 });
 ```
 
 Similarly, use `exclude` to remove undesired fields while retrieving the rest:
 
 ```javascript
-const GameScore = Moralis.Object.extend("GameScore");
-const query = new Moralis.Query(GameScore);
-query.exclude("playerName");
-query.find().then(function(results) {
-  // Now each result will have all fields except `playerName`
+const Monster = Moralis.Object.extend("Monster");
+const query = new Moralis.Query(Monster);
+query.exclude("ownerName");
+query.find().then(function(monsters) {
+  // Now each monster will have all fields except `ownerName`
 });
 ```
 
@@ -240,7 +240,7 @@ Type the query exactly as you would in the client or cloud code. Include a `cons
 * You can use the master key.
   * `const results = query.find({ useMasterKey: true })`
 
-The code can be saved between sessions by pressing "Save". 
+The code can be saved between sessions by pressing "Save".
 
 ## Queries on String Values
 
@@ -369,14 +369,14 @@ You can issue a query with multiple fields included by calling `include` multipl
 
 Note: In the old Moralis hosted back-end, count queries were rate limited to a maximum of 160 requests per minute. They also returned inaccurate results for classes with more than 1,000 objects. But, Moralis Server has removed both constraints and can count objects well above 1,000.
 
-If you just need to count how many objects match a query, but you do not need to retrieve all the objects that match, you can use `count` instead of `find`. For example, to count how many games have been played by a particular player:
+If you just need to count how many objects match a query, but you do not need to retrieve all the objects that match, you can use `count` instead of `find`. For example, to count how many monsters have been owned by a particular monster owner:
 
 ```javascript
-const GameScore = Moralis.Object.extend("GameScore");
-const query = new Moralis.Query(GameScore);
-query.equalTo("playerName", "Sean Plott");
+const Monster = Moralis.Object.extend("Monster");
+const query = new Moralis.Query(Monster);
+query.equalTo("ownerName", "Aegon");
 const count = await query.count();
-alert("Sean has played " + count + " games");
+alert("Aegon has owned " + count + " monsters");
 ```
 
 ## Compound Queries
@@ -553,14 +553,14 @@ Then you would define a cloud function like this (aggregate queries must be run 
 Moralis.Cloud.define("getUserTokenTransfers", function(request) {
   const userAddress = request.params.userAddress;
   const query = new Moralis.Query("EthTokenTransfers");
-  
+
   const pipeline = [
     // only transfers to or from userAddress
     {match: {$expr: {$or: [
       {$eq: ["$from_address", userAddress]},
       {$eq: ["$to_address", userAddress]},
     ]}}},
-    
+
     // join to Token collection on token_address
     {lookup: {
       from: "Token",
@@ -569,7 +569,7 @@ Moralis.Cloud.define("getUserTokenTransfers", function(request) {
       as: "token"
     }}
   ];
-  
+
   return query.aggregate(pipeline);
 });
 ```
@@ -609,14 +609,14 @@ Joining on multiple attributes requires a nested pipeline in the `lookup`, but g
 Moralis.Cloud.define("getUserTokenTransfers", function(request) {
   const userAddress = request.params.userAddress;
   const query = new Moralis.Query("EthTokenTransfers");
-  
+
   const pipeline = [
     // only transfers to or from userAddress
     {match: {$expr: {$or: [
       {$eq: ["$from_address", userAddress]},
       {$eq: ["$to_address", userAddress]},
     ]}}},
-  
+
       // join to EthTokenBalance on token_address and userAddress
     {lookup: {
       from: "EthTokenBalance",
@@ -629,7 +629,7 @@ Moralis.Cloud.define("getUserTokenTransfers", function(request) {
       as: "EthTokenBalance",
     }}
   ];
-  
+
   return query.aggregate(pipeline);
 });
 ```
@@ -722,7 +722,7 @@ const query = new Moralis.Query("GameRound");
 
 query.aggregate(pipeline)
   .then(function(results) {
-    // results contains a collection of players with their respective games played 
+    // results contains a collection of players with their respective games played
   })
   .catch(function(error) {
     // There was an error.
@@ -767,7 +767,7 @@ The skip stage skips over the specified number of rows that is passed into the s
 
 ### Limit
 
-The limit stage only includes the first  `n` number of rows that are passed into the stage. 
+The limit stage only includes the first  `n` number of rows that are passed into the stage.
 
 ```javascript
    // This stage will throw away all rows except the first 5
@@ -776,7 +776,7 @@ The limit stage only includes the first  `n` number of rows that are passed into
 
 ### Count
 
-The count stage returns the number of rows passed into the stage assigned to a variable name. 
+The count stage returns the number of rows passed into the stage assigned to a variable name.
 
 ```javascript
    // This stage will return the number of rows passed into the stage
