@@ -4,11 +4,13 @@ description: >-
   maintenance of this documentation.
 ---
 
-# Contribute Docs
+# Contribute to Docs
 
 ## 🤝 Moralis Community
 
 Moralis is a community driven project. As we are working towards open sourcing more and more of the Moralis stack we are proud to see the community involvement in more and more aspects of Moralis tech, education and documentation.
+
+You can find the Moralis Documentation repo here: [https://github.com/MoralisWeb3/MoralisDocumentation](https://github.com/MoralisWeb3/MoralisDocumentation)
 
 ### 🤔 Important of documentation
 
