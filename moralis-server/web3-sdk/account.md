@@ -8,10 +8,10 @@ Returns the transactions from the current user or address. Returns an object wit
 
 * `chain`(optional): The blockchain to get data from. Valid values are listed on the [intro page in the Transactions and Balances section](https://docs.moralis.io/transactions-and-balances/intro). Default value `Eth`.
 * `address` (optional): A user address (i.e. `0x1a2b3x...`). If specified, the user attached to the query is ignored and the address will be used instead.
-* `from_date` (optional): The date from where to get the transactions (any format that is accepted by momentjs). Provide the param 'from_block' or 'from_date' If 'from_date' and 'from_block' are provided, 'from_block' will be used.
-* `to_date` (optional):  Get the transactions to this date (any format that is accepted by momentjs). Provide the param 'to_block' or 'to_date' If 'to_date' and 'to_block' are provided, 'to_block' will be used.
-* `from_block` (optional): The minimum block number from where to get the transactions Provide the param 'from_block' or 'from_date' If 'from_date' and 'from_block' are provided, 'from_block' will be used.
-* `to_block` (optional): The maximum block number from where to get the transactions. Provide the param 'to_block' or 'to_date' If 'to_date' and 'to_block' are provided, 'to_block' will be used.
+* `from_date` (optional): The date from where to get the transactions (any format that is accepted by momentjs). Provide the param 'from\_block' or 'from\_date' If 'from\_date' and 'from\_block' are provided, 'from\_block' will be used.
+* `to_date` (optional):  Get the transactions to this date (any format that is accepted by momentjs). Provide the param 'to\_block' or 'to\_date' If 'to\_date' and 'to\_block' are provided, 'to\_block' will be used.
+* `from_block` (optional): The minimum block number from where to get the transactions Provide the param 'from\_block' or 'from\_date' If 'from\_date' and 'from\_block' are provided, 'from\_block' will be used.
+* `to_block` (optional): The maximum block number from where to get the transactions. Provide the param 'to\_block' or 'to\_date' If 'to\_date' and 'to\_block' are provided, 'to\_block' will be used.
 * `offset`(optional): Offset.
 * `limit`(optional): Limit
 
@@ -58,9 +58,8 @@ Returns native balance for a specific address (asynchronous).
 #### Options:
 
 * `chain`(optional): The blockchain to get data from. Valid values are listed on the [intro page in the Transactions and Balances section](https://docs.moralis.io/transactions-and-balances/intro). Default value `Eth`.
-* `address` (optional): A user address (i.e. `0x1a2b3x...`). If specified, the user attached to the query is ignored and the address will be used instead.
 * `to_block `(optional): The block number on which the balances should be checked.
-* `address` (required): The address for which the native balance will be checked.
+* `address` (required): The address for which the native balance will be checked. If specified, the user attached to the query is ignored and the address will be used instead.
 
 ```javascript
 // get mainnet native balance for the current user
@@ -86,7 +85,7 @@ Retrieve all token balances of a current user or specified address.  Returns an 
 #### Options:
 
 * `chain`(optional): The blockchain to get data from. Valid values are listed on the [intro page in the Transactions and Balances section](https://docs.moralis.io/transactions-and-balances/intro). Default value `Eth`.
-*  `address` (optional): A user address (i.e. `0x1a2b3x...`). If specified, the user attached to the query is ignored and the address will be used instead.
+* &#x20;`address` (optional): A user address (i.e. `0x1a2b3x...`). If specified, the user attached to the query is ignored and the address will be used instead.
 * `to_block` (optional): The block number on which the balances should be checked
 
 ```javascript
@@ -124,10 +123,10 @@ Get ERC20 token transfers from the current user or address. Returns an object wi
 
 * `chain`(optional): The blockchain to get data from. Valid values are listed on the [intro page in the Transactions and Balances section](https://docs.moralis.io/transactions-and-balances/intro). Default value `Eth`.
 * `address` (optional): A user address (i.e. `0x1a2b3x...`). If specified, the user attached to the query is ignored and the address will be used instead.
-* `from_date` (optional): The date from where to get the transactions (any format that is accepted by momentjs). Provide the param 'from_block' or 'from_date' If 'from_date' and 'from_block' are provided, 'from_block' will be used.
-* `to_date` (optional):  Get the transactions to this date (any format that is accepted by momentjs). Provide the param 'to_block' or 'to_date' If 'to_date' and 'to_block' are provided, 'to_block' will be used.
-* `from_block` (optional): The minimum block number from where to get the transactions Provide the param 'from_block' or 'from_date' If 'from_date' and 'from_block' are provided, 'from_block' will be used.
-* `to_block` (optional): The maximum block number from where to get the transactions. Provide the param 'to_block' or 'to_date' If 'to_date' and 'to_block' are provided, 'to_block' will be used.
+* `from_date` (optional): The date from where to get the transactions (any format that is accepted by momentjs). Provide the param 'from\_block' or 'from\_date' If 'from\_date' and 'from\_block' are provided, 'from\_block' will be used.
+* `to_date` (optional):  Get the transactions to this date (any format that is accepted by momentjs). Provide the param 'to\_block' or 'to\_date' If 'to\_date' and 'to\_block' are provided, 'to\_block' will be used.
+* `from_block` (optional): The minimum block number from where to get the transactions Provide the param 'from\_block' or 'from\_date' If 'from\_date' and 'from\_block' are provided, 'from\_block' will be used.
+* `to_block` (optional): The maximum block number from where to get the transactions. Provide the param 'to\_block' or 'to\_date' If 'to\_date' and 'to\_block' are provided, 'to\_block' will be used.
 * `offset`(optional): Offset.
 * `limit`(optional): Limit
 
@@ -165,7 +164,7 @@ Get all NFTs from the current user or address. Supports both ERC721 and ERC1155.
 #### Options:
 
 * `chain`(optional): The blockchain to get data from. Valid values are listed on the [intro page in the Transactions and Balances section](https://docs.moralis.io/transactions-and-balances/intro). Default value `Eth`.
-*  `address` (optional): A user address (i.e. `0x1a2b3x...`). If specified, the user attached to the query is ignored and the address will be used instead.
+* &#x20;`address` (optional): A user address (i.e. `0x1a2b3x...`). If specified, the user attached to the query is ignored and the address will be used instead.
 
 ```javascript
 // get NFTs for current user on Mainnet
@@ -225,11 +224,11 @@ const transfersNFT = await Moralis.Web3API.account.getNFTTransfers(options);
 ```
 
 {% hint style="info" %}
-Use the token_address param to get results for a specific contract only.
+Use the token\_address param to get results for a specific contract only.
 
 Note results will include all indexed NFTs.
 
-Any request which includes the token_address param will start the indexing process for that NFT collection the very first time it is requested.
+Any request which includes the token\_address param will start the indexing process for that NFT collection the very first time it is requested.
 {% endhint %}
 
 #### Example result:
@@ -274,11 +273,11 @@ const polygonNFTs = await Moralis.Web3API.account.getNFTsForContract(options);
 ```
 
 {% hint style="info" %}
-Use the token_address param to get results for a specific contract only.
+Use the token\_address param to get results for a specific contract only.
 
 Note results will include all indexed NFTs.
 
-Any request which includes the token_address param will start the indexing process for that NFT collection the very first time it is requested.
+Any request which includes the token\_address param will start the indexing process for that NFT collection the very first time it is requested.
 {% endhint %}
 
 #### Example result:
