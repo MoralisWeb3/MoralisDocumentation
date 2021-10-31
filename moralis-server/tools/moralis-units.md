@@ -43,7 +43,6 @@ const tokenValue = Moralis.Units.FromWei("2000000000000000000", 6)
 const tokenValue = Moralis.Units.FromWei("2000000000000000000")
 ```
 Note that this function is not available on cloud code. You can use it in the SDK only. We are very soon adding it to cloud code.
-In the meantime, In javascript it would be wei = eth_amount*10e17. Not *10e18 . e counts as the 10 and *10e18 would multiply your eth by one order of magnitude too many!
 
 Web3 API responses for token balances have **decimals **and **balance **in Wei fields:
 
