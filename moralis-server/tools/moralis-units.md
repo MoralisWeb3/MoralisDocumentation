@@ -42,6 +42,7 @@ const tokenValue = Moralis.Units.FromWei("2000000000000000000", 6)
 //If you do not specify decimals, 18 decimals will be automatically used
 const tokenValue = Moralis.Units.FromWei("2000000000000000000")
 ```
+Note that this function is not available on cloud code. You can use it in the SDK only.
 
 Web3 API responses for token balances have **decimals **and **balance **in Wei fields:
 
