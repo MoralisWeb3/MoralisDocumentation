@@ -153,6 +153,7 @@ Important: Master key should not be used on your frontend code as it would be ac
 In case if you are using master key from another backend server that you are controlling you can use the following code to intialize the master key:
 
 ```javascript
+const Moralis = require("moralis/node"); // Node.js
 const appId = "YOUR_MORALIS_APP_ID";
 const serverUrl = "YOUR_MORALIS_SERVER_URL";
 const masterKey = "YOUR_MORALIS_MASTER_KEY"; 
