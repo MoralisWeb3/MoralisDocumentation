@@ -101,7 +101,7 @@ Requires an enabled web3 provider. Before executing the function, make sure that
 {% endhint %}
 
 {% hint style="info" %}
-If you use WalletConnect, check [#callbacks-promises-events-new](web3.md#callbacks-promises-events-new "mention") to be able recieve tsHash, receipt and etc.
+If you use WalletConnect, check [#callbacks-promises-events](web3.md#callbacks-promises-events "mention") to be able recieve tsHash, receipt and etc.
 {% endhint %}
 
 {% hint style="info" %}
