@@ -101,6 +101,10 @@ Requires an enabled web3 provider. Before executing the function, make sure that
 {% endhint %}
 
 {% hint style="info" %}
+If you use WalletConnect, check [#callbacks-promises-events-new](web3.md#callbacks-promises-events-new "mention") to be able recieve tsHash, receipt and etc.
+{% endhint %}
+
+{% hint style="info" %}
 You can recieve this information without an active web3 provider using our Web3API: [Moralis.Web3API.token.getAllowance()](https://docs.moralis.io/moralis-server/web3-sdk/token#gettokenallowance)
 {% endhint %}
 
@@ -181,7 +185,31 @@ const options = {
 const symbol = await Moralis.executeFunction({ functionName: 'symbol', ...options })
 const decimals = await Moralis.executeFunction({ functionName: 'decimals', ...options })
 const name = await Moralis.executeFunction({ functionName: 'name', ...options })
+```
 
+### Callbacks Promises Events
+
+Moralis.executeFunction() supports promise events. It allows you to get info on different stages of your interaction with the blockchain.&#x20;
+
+For example, you can instantly get a `transactionHash` without awaitng the entire transaction has been processed. And then after the transaction is processed, you can receive a `receipt`
+
+To receive all data as event callbacks, you need to switch `awaitReceipt` to `false` in your  transaction options.
+
+```javascript
+const options = {
+  contractAddress: "0xe...56",
+  functionName: "swapNativeForTokens",
+  abi: ABI,
+  msgValue: Moralis.Units.ETH("0.1"),
+  awaitReceipt: false // should be switched to false
+};
+
+const tx = await Moralis.executeFunction(options);
+
+tx.on("transactionHash", (hash) => { ... })
+  .on("receipt", (receipt) => { ... })
+  .on("confirmation", (confirmationNumber, receipt) => { ... })
+  .on("error", (error) => { ... });
 ```
 
 ## Events
