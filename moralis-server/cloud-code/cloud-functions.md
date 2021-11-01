@@ -146,6 +146,19 @@ query.find({useMasterKey:true});
 object.save(null,{useMasterKey:true});
 Moralis.Object.saveAll(objects,{useMasterKey:true});
 ```
+Note that master key is accessible by default in a cloud function when you use `useMasterKey:true`
+
+Important: Master key should not be used on your frontend code as it would be accessible in the user's browser. 
+
+In case if you are using master key from another backend server that you are controlling you can use the following code to intialize the master key:
+
+```javascript
+const appId = "YOUR_MORALIS_APP_ID";
+const serverUrl = "YOUR_MORALIS_SERVER_URL";
+const masterKey = "YOUR_MORALIS_MASTER_KEY"; 
+
+Moralis.start({ serverUrl, appId, masterKey });
+```
 
 ## Implementing Cloud Function Validation
 
