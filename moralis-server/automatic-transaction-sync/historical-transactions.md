@@ -109,6 +109,10 @@ You can still get all historic data using the [Web3 API functions](../web3-sdk/)
 
 Therefore please check out the features of the Web3 API and if the historical endpoints in the Web3 API are enough for your use-case then you should disable historic sync in your server as you won't use it.&#x20;
 
+### When should you not disable historic sync?
+
+In case you need to run some specific queries that the Web3 API doesn't offer you need to have historic sync enabled so that you can run custom queries on the historical data using the [Database Queries](../database/queries.md) Moralis offers.&#x20;
+
 ## Optimisation examples
 
 In this section we will give concrete optimisation examples that can save you a lot of CPU and RAM usage.
