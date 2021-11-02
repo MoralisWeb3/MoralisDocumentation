@@ -97,9 +97,17 @@ This means if you define an `afterSave` trigger on a collection with a `confirme
 
 By default Moralis will sync all the past transactions of your users automatically. This is very resource intensive and CPU and RAM may be a bottleneck here. Imagine you have 5000 users and all of them have a history of 100 transactions - suddenly your server needs to handle 500,000 historic events which will eat up CPU and RAM resources quickly especially if you have many new users joining at the same time.
 
-If you know that you don't need all history of all your users you should disable historic sync in Server Settings.
+If you know that you don't need all history of all your users you should disable historic sync in Server Settings. See image below.
 
 ![Disabling historic sync can be done in server settings.](../../.gitbook/assets/screenaaa.png)
+
+### Fetching historical data via API
+
+Please remember that disabling historic sync only means that your database won't be filled with historical events.
+
+You can still get all historic data using the [Web3 API functions](../web3-sdk/). Web3 API are completely independent from the contents of your database.
+
+Therefore please check out the features of the Web3 API and if the historical endpoints in the Web3 API are enough for your use-case then you should disable historic sync in your server as you won't use it.&#x20;
 
 ## Optimisation examples
 
