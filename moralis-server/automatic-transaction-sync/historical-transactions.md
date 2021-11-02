@@ -93,7 +93,7 @@ When the transaction gets confirmed, the status is updated to `confirmed: true` 
 
 This means if you define an `afterSave` trigger on a collection with a `confirmed` property like `EthTransactions` or any "Sync and Watch Contract Event" collection, then the trigger can get fired TWICE- once for `confirmed: false` and again for `confirmed: true`! See the [Trigger](../cloud-code/triggers.md) section for more details.
 
-## Disabling Historic Sync
+## Disabling User Historic Sync
 
 By default Moralis will sync all the past transactions of your users automatically. This is very resource intensive and CPU and RAM may be a bottleneck here. Imagine you have 5000 users and all of them have a history of 100 transactions - suddenly your server needs to handle 500,000 historic events which will eat up CPU and RAM resources quickly especially if you have many new users joining at the same time.
 
@@ -112,6 +112,12 @@ Therefore please check out the features of the Web3 API and if the historical en
 ### When should you not disable historic sync?
 
 In case you need to run some specific queries that the Web3 API doesn't offer you need to have historic sync enabled so that you can run custom queries on the historical data using the [Database Queries](../database/queries.md) Moralis offers.&#x20;
+
+### Smart Contract Historical Events Will Still Work
+
+Please keep in mind that this setting just disables the automatic fetching of user history. If you have added [Smart Contract Events](smart-contract-events.md) - they will still fetch history as they work independently of this setting.
+
+Below we explain a concrete example of how a Smart Contract Event can replace the historic sync of user data.
 
 ## Optimisation examples
 
