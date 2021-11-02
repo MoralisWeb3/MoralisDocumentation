@@ -7,7 +7,7 @@ description: >-
 
 # Security
 
-If your app is compromised, it’s not only you as the developer who suffers, but potentially the users of your app as well. Continue reading for our suggestions for sensible defaults and precautions to take before releasing your app into the wild. 
+If your app is compromised, it’s not only you as the developer who suffers, but potentially the users of your app as well. Continue reading for our suggestions for sensible defaults and precautions to take before releasing your app into the wild.&#x20;
 
 {% embed url="https://www.youtube.com/watch?v=Yd4gFQ5ppmQ" %}
 CLP, ACL and protected fields practically demonstrated.
@@ -35,7 +35,7 @@ The second level of security is at the schema and data level. Enforcing security
 * A client application can add fields to classes.
 * A client application can modify or query for objects on Moralis.
 
-You can configure any of these permissions to apply to everyone, no one, or to specific users or roles in your app. Roles are groups that contain users or other roles, which you can assign to an object to restrict its use. Any permission granted to a role is also granted to any of its children, whether they are users or other roles, enabling you to create an access hierarchy for your apps. 
+You can configure any of these permissions to apply to everyone, no one, or to specific users or roles in your app. Roles are groups that contain users or other roles, which you can assign to an object to restrict its use. Any permission granted to a role is also granted to any of its children, whether they are users or other roles, enabling you to create an access hierarchy for your apps.&#x20;
 
 Once you are confident that you have the right classes and relationships between classes in your app, you should begin to lock it down by doing the following:
 
@@ -195,7 +195,7 @@ Effects:
 
 Class-Level Permissions (CLPs) and Access Control Lists (ACLs) are both powerful tools for securing your app, but they don’t always interact exactly how you might expect. They actually represent two separate layers of security that each request has to pass through to return the correct information or make the intended change. These layers, one at the class level, and one at the object level are shown below. A request must pass through BOTH layers of checks in order to be authorized. Note that despite acting similarly to ACLs, [Pointer Permissions](objects.md#relational-data) are a type of class level permission, so a request must pass the pointer permission check in order to pass the CLP check.
 
-![CLP vs ACL Diagram](https://docs.parseplatform.org/assets/images/clp_vs_acl_diagram.png)
+![CLP vs ACL Diagram](https://docs.parseplatform.org/assets/images/clp\_vs\_acl\_diagram.png)
 
 As you can see, whether a user is authorized to make a request can become complicated when you use both CLPs and ACLs. Let’s look at an example to get a better sense of how CLPs and ACLs can interact. Say we have a `Photo` class, with an object, `photoObject`. There are 2 users in our app, `user1` and `user2`. Now let's say we set a Get CLP on the `Photo` class, disabling public Get, but allowing `user1` to perform Get. Now let’s also set an ACL on `photoObject` to allow Read - which includes GET - for only `user2`.
 
@@ -275,6 +275,16 @@ The master key should be used carefully. Setting `useMasterKey` to `true` only i
 ```
 
 One very common use case for Cloud Code is sending push notifications to particular users. In general, clients can’t be trusted to send push notifications directly, because they could modify the alert text, or push to people they shouldn’t be able to. Your apps settings will allow you to set whether “client push” is enabled or not; we recommend that you make sure it’s disabled. Instead, you should write Cloud Code functions that validate the data to be pushed and sent before sending a push.
+
+### Client Class Creation
+
+By default Moralis allows any SDK user to modify the database by creating new Classes and changing the structure of existing classes.
+
+This is great during the development stage but should be turned off when you go to production so that your database is protected from spam (in case someone uses SDK to fill your database with new Classes or adds a lot of columns to existing columns).
+
+This can be done in server settings.
+
+![Client Class Creation needs to be disabled when you go to production.](<../../.gitbook/assets/Screenshot 2021-11-02 at 19.37.00.png>)
 
 ### Moralis Security Summary <a href="parse-security-summary" id="parse-security-summary"></a>
 
