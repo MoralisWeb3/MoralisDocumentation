@@ -115,7 +115,7 @@ In case you need to run some specific queries that the Web3 API doesn't offer yo
 
 ### Smart Contract Historical Events Will Still Work
 
-Please keep in mind that this setting just disables the automatic fetching of user history. If you have added [Smart Contract Events](smart-contract-events.md) - they will still fetch history as they work independently of this setting.
+Please keep in mind that this setting just disables the automatic fetching of user history. If you have added [Smart Contract Events](smart-contract-events.md) - they will still fetch history and put that info into your database as they work independently of this setting.
 
 Below we explain a concrete example of how a Smart Contract Event can replace the historic sync of user data.
 
