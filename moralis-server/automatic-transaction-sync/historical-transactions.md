@@ -23,15 +23,15 @@ You can get all historical transactions and listen to new transactions in real-t
 
 ### Historical Event Limit
 
-If a sync job is created that would result in retrieving 500k or more historical events, then the `"Sync_historical (Optional)`option will be disabled and no historical data will be saved. It is possible to contact support to upgrade your account to enable saving it anyway but think hard about whether it's actually necessary before doing so. It's possible to handle the events in real-time without saving the data to the database. 
+If a sync job is created that would result in retrieving 500k or more historical events, then the `"Sync_historical (Optional)`option will be disabled and no historical data will be saved. It is possible to contact support to upgrade your account to enable saving it anyway but think hard about whether it's actually necessary before doing so. It's possible to handle the events in real-time without saving the data to the database.&#x20;
 
 ## Monitoring Authenticated Users
 
 Moralis Server syncs all transactions and balances for users that at some point authenticated with your app in real-time. You don't have to do anything to enable this feature as it's enabled by default in all Moralis Servers.
 
-As always we want you to focus on the user experience and leave this mundane and complex task of syncing blockchain data to us [🧙](https://emojipedia.org/mage/). 
+As always we want you to focus on the user experience and leave this mundane and complex task of syncing blockchain data to us [🧙](https://emojipedia.org/mage/).&#x20;
 
-Moralis Server will in real-time insert and update data into your database so that you can get all the latest transactions and balances of your users with a simple database query. 
+Moralis Server will in real-time insert and update data into your database so that you can get all the latest transactions and balances of your users with a simple database query.&#x20;
 
 {% embed url="https://www.youtube.com/watch?v=Z8Ik3TyubvU" %}
 In this video we demonstrate this functionality.
@@ -92,6 +92,24 @@ When the transaction gets confirmed, the status is updated to `confirmed: true` 
 ### Consequences for Triggers
 
 This means if you define an `afterSave` trigger on a collection with a `confirmed` property like `EthTransactions` or any "Sync and Watch Contract Event" collection, then the trigger can get fired TWICE- once for `confirmed: false` and again for `confirmed: true`! See the [Trigger](../cloud-code/triggers.md) section for more details.
+
+## Disabling Historic Sync
+
+By default Moralis will sync all the past transactions of your users automatically. This is very resource intensive and CPU and RAM may be a bottleneck here. Imagine you have 5000 users and all of them have a history of 100 transactions - suddenly your server needs to handle 500,000 historic events which will eat up CPU and RAM resources quickly especially if you have many new users joining at the same time.
+
+If you know that you don't need all history of all your users you should disable historic sync in Server Settings.
+
+![Disabling historic sync can be done in server settings.](../../.gitbook/assets/screenaaa.png)
+
+## Optimisation examples
+
+In this section we will give concrete optimisation examples that can save you a lot of CPU and RAM usage.
+
+### History and activity related only to your contract
+
+Let's say you have an NFT contract and you only care about the user history and user real-time transactions that are related to that contract.&#x20;
+
+In this case you should disable historic sync as explained above and instead just add a smart [contract event sync](historical-transactions.md#sync-and-watch-address) for your NFT token contract. This way you will only be keeping history and watching real time transactions for your smart contract and nothing else.
 
 ## Collection Schema
 
