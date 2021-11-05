@@ -32,7 +32,7 @@ It works the same way for all Ethereum Virtual Machine (EVM) compatible chains s
 
 As soon as the user is logged in all their assets, tokens, NFTs and past transactions are instantly synced into your Moralis Database. The database updates if the users are moving assets on-chain.
 
-![Once the user logs in - all their assets are seen in the database. The database updates if the users move assets on chain.](<../../.gitbook/assets/image (117).png>)
+![Once the user logs in - all their assets are seen in the database. The database updates if the users move assets on chain.](<../../.gitbook/assets/image (117) (1).png>)
 
 {% embed url="https://youtu.be/SYWdSg9KLCQ" %}
 Logging in your first users on Ethereum, Polygon, Avalanche (or any other chain) using Moralis.
