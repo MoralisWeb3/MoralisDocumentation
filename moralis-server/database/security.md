@@ -77,7 +77,7 @@ var user = Moralis.User.current();
 user.setACL(new Moralis.ACL(user));
 ```
 
-Most apps should do this. If you store any sensitive user data, such as email addresses or phone numbers, you need to set an ACL like this so that the user’s private information isn’t visible to other users. If an object doesn’t have an ACL, it’s readable and writeable by everyone. The only exception is the `_User` class. We never allow users to write each other’s data, but they can read it by default. (If you as the developer need to update other `_User` objects, remember that your master key can provide the power to do this.)
+Most apps should do this. If you store any sensitive user data, such as email addresses or phone numbers, you need to set an ACL like this so that the user’s private information isn’t visible to other users. If an object doesn’t have an ACL, it’s readable and writeable by everyone. By default Moralis sets the ACL on new User objects so that only the user can read or write their own data. (If you as the developer need to update other `_User` objects, remember that your master key can provide the power to do this.)
 
 If you want the user to have some data that is public and some that are private, it’s best to have two separate objects. You can add a pointer to the private data from the public one.
 

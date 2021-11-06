@@ -68,7 +68,7 @@ When a server is shutdown you will experience down time until you wake it up by 
 
 Don't worry - the wake up process will take approximately 30 seconds and your server will be restored to exactly the same state that it was before.
 
-### 🛑 If Your Server Gets Shutdown
+### 🛑 If Your Server Stays Shutdown for 48h
 
 If a server stays shutdown for a period longer than 48 hours it will be terminated.&#x20;
 
@@ -87,3 +87,9 @@ This will support the Moralis developers so that we can continue delivering worl
 You can upgrade by [clicking here](https://moralis.io/pricing).
 
 As you know we are also working on a self-hosted version of the Moralis Server. When it's out you will be able to host your server on your own server in the future 🏆
+
+### 🤝 If You Need Help
+
+If you want more information regarding sleeping servers or need help please email us at hello@moralis.io and we will help asap!
+
+Keep BUIDLing 👷‍♂️
