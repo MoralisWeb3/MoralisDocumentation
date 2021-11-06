@@ -284,8 +284,6 @@ This can be done in server settings.
 
 Moralis provides a number of ways for you to secure data in your app. As you build your app and evaluate the kinds of data you will be storing, you can make the decision about which implementation to choose.
 
-It is worth repeating that the Moralis User object is readable by all other users by default. You will want to set the ACL on your User object accordingly if you wish to prevent data contained in the User object (for example, the user’s email address) from being visible by other users.
-
 Most classes in your app will fall into one of a couple of easy-to-secure categories. For fully public data, you can use class-level permissions to lock down the table to put it publicly readable and writeable by no one. For fully private data, you can use ACLs to make sure that only the user who owns the data can read it. But occasionally, you’ll run into situations where you don’t want data that’s fully public or fully private. For example, you may have a social app, where you have data for a user that should be readable only to friends whom they’ve approved. For this, you’ll need a combination of the techniques discussed in this guide to enable exactly the sharing rules you desire.
 
 We hope that you’ll use these tools to do everything you can to keep your app’s data and your users’ data secure. Together, we can make the web a safer place.
