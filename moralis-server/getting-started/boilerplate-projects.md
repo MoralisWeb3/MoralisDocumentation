@@ -13,7 +13,7 @@ description: >-
 * [Moralis React Native Boilerplate.](https://github.com/MoralisWeb3/demo-apps/tree/main/react-native-boilerplate)
 * [Moralis Angular Boilerplate](https://github.com/MoralisWeb3/demo-apps/tree/main/moralis-angular-app) ([video demo](https://www.youtube.com/watch?v=3WU8ple4zsM)).
 * Moralis NextJS Boilerplate (coming soon).
-* [Moralis VueJS Boilerplate](https://github.com/MoralisWeb3/demo-apps/tree/main/moralis-vue3-boilerplate).
-* [Moralis VueJS Boilerplate (alternative)](https://github.com/MoralisWeb3/demo-apps/tree/main/vue3-boiler-plate).
+* [Moralis VueJS 3 Boilerplate (Javascript)](https://github.com/MoralisWeb3/demo-apps/tree/main/moralis-vue3-boilerplate).
+* [Moralis VueJS 3 Boilerplate (Typescript Alternative)](https://github.com/MoralisWeb3/demo-apps/tree/main/vue3-boiler-plate).
 
 ## C# (coming soon)
