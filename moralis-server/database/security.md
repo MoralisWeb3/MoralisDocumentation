@@ -157,10 +157,11 @@ For example, if you want to allow your **authenticated users** to `find` and `ge
 
 ```
 📋// POST https://my-moralis-server.com/schemas/Announcement
+// Note: You need to use PUT http method if the class already exists
 // Set the X-Parse-Application-Id and X-Parse-Master-Key header
 // body:
 {
-  classLevelPermissions:
+  "classLevelPermissions":
   {
     "find": {
       "requiresAuthentication": true,
