@@ -241,7 +241,7 @@ const nftOwners = await Moralis.Web3API.token.getNFTOwners(options);
 ```
 
 {% hint style="info" %}
-Make sure to include a sort parm on a column like block\_number\_minted for consistent pagination results
+Make sure to include a sort parm on a column like token\_id for consistent pagination results
 {% endhint %}
 
 {% hint style="info" %}
