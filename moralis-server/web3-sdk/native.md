@@ -6,6 +6,62 @@ description: >-
 
 # Native
 
+## runContractFunction
+
+Runs a given function of a contract abi and returns readonly data (asynchronous).
+
+#### Options:
+
+* `chain`(optional): The blockchain to get data from. Valid values are listed on the [intro page in the Transactions and Balances section](https://docs.moralis.io/transactions-and-balances/intro). Default value `Eth`.
+* `function_name `(required): The function name
+* `address` (required): A smart contract address
+* `abi` (required): contract or function ABI(should be provided as an array)
+* `params` (optional): Parameters needed for your specific function
+
+```javascript
+const ABI = [{
+  "constant": true,
+  "inputs": [
+    {
+      "internalType": "address",
+      "name": "owner",
+      "type": "address"
+    },
+    {
+      "internalType": "address",
+      "name": "spender",
+      "type": "address"
+    }
+  ],
+  "name": "allowance",
+  "outputs": [
+    {
+      "internalType": "uint256",
+      "name": "",
+      "type": "uint256"
+    }
+  ],
+  "payable": false,
+  "stateMutability": "view",
+  "type": "function"
+}];
+
+const options = {
+  chain: "bsc",
+  address: "0x...16",
+  function_name: "allowance",
+  abi: ABI,
+  params: {owner: "0x1...2", spender: "0x1...2"}
+};
+const allowance = await Moralis.Web3API.native.runContractFunction(options);
+```
+
+#### Example result:
+
+```javascript
+"string"
+```
+
 ## getBlock
 
 Retrieve the contents of a block by block hash.  Returns a block object (asynchronous).&#x20;
@@ -314,56 +370,3 @@ const transaction = await Moralis.Web3API.native.getTransaction(options);
 }
 ```
 
-## runContractFunction
-
-Runs a given function of a contract abi and returns readonly data (asynchronous).
-
-#### Options:
-
-* `chain`(optional): The blockchain to get data from. Valid values are listed on the [intro page in the Transactions and Balances section](https://docs.moralis.io/transactions-and-balances/intro). Default value `Eth`.
-* `function_name `(required): The function name
-* `address` (required): A smart contract address
-* `abi` (required): contract or function ABI(should be provided as an array)
-
-```javascript
-const ABI = [{
-  "constant": true,
-  "inputs": [
-    {
-      "internalType": "address",
-      "name": "owner",
-      "type": "address"
-    },
-    {
-      "internalType": "address",
-      "name": "spender",
-      "type": "address"
-    }
-  ],
-  "name": "allowance",
-  "outputs": [
-    {
-      "internalType": "uint256",
-      "name": "",
-      "type": "uint256"
-    }
-  ],
-  "payable": false,
-  "stateMutability": "view",
-  "type": "function"
-}];
-
-const options = {
-  chain: "bsc",
-  address: "0x...16",
-  function_name: "allowance",
-  abi: ABI 
-};
-const allowance = await Moralis.Web3API.native.runContractFunction(options);
-```
-
-#### Example result:
-
-```javascript
-"string"
-```
