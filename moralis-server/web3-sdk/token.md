@@ -118,6 +118,7 @@ Returns the price nominated in the native token and usd for a given token contra
   Polygon mainnet: `quickswap`\
   _If no `exchange_name` is specified, all exchanges are checked (in the order as listed above) until a valid pool has been found. Note that this request can take more time. So specifying the `exchange_name` will result in faster responses most of the time._
 * `address`(required): The address of the token contract
+* `to_block`(optional): Returns the price for a given blocknumber (historical price-data)
 
 ```javascript
 //Get token price on PancakeSwap v2 BSC
