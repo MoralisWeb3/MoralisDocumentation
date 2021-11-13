@@ -13,8 +13,9 @@ Install [MetaMask](https://metamask.io) if you haven't already. Add the followin
 ```markup
     <script>
       // connect to Moralis server
-      Moralis.initialize("paste Moralis APP ID here");
-      Moralis.serverURL = "paste Morlis server URL here";
+      const serverUrl = "https://xxxxx/server";
+      const appId = "YOUR_APP_ID";
+      Moralis.start({ serverUrl, appId });
 
       // add from here down
       async function login() {

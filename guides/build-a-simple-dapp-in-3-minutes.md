@@ -39,8 +39,11 @@ Create a new file called `index.html` and copy the following code.
 
     <script>
       // connect to Moralis server
-      Moralis.initialize("paste Moralis APP ID here");
-      Moralis.serverURL = "paste Morlis server URL here";
+
+      const serverUrl = "https://xxxxx/server";
+      const appId = "YOUR_APP_ID";
+      Moralis.start({ serverUrl, appId });
+
     </script>
   </body>
 </html>
