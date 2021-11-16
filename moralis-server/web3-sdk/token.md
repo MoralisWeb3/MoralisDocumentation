@@ -112,11 +112,11 @@ Returns the price nominated in the native token and usd for a given token contra
 #### Options:
 
 * `chain`(optional): The blockchain to get data from. Valid values are listed on the [intro page in the Transactions and Balances section](https://docs.moralis.io/transactions-and-balances/intro). Default value `Eth`.
-* `exchange_name `(optional): The factory name or address of the token exchange. Possible exchanges, for different chains are:\
+* `exchange`(optional): The factory name or address of the token exchange. Possible exchanges, for different chains are:\
   ETH mainnet: `uniswap-v3`, `sushiswap`, `uniswap-v2`\
   BSC mainnet: `pancakeswap-v2, pancakeswap-v1`\
   Polygon mainnet: `quickswap`\
-  _If no `exchange_name` is specified, all exchanges are checked (in the order as listed above) until a valid pool has been found. Note that this request can take more time. So specifying the `exchange_name` will result in faster responses most of the time._
+  _If no `exchange` is specified, all exchanges are checked (in the order as listed above) until a valid pool has been found. Note that this request can take more time. So specifying the `exchange` will result in faster responses most of the time._
 * `address`(required): The address of the token contract
 * `to_block`(optional): Returns the price for a given blocknumber (historical price-data)
 

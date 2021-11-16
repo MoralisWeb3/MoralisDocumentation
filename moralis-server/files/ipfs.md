@@ -77,6 +77,6 @@ For example, [https://ipfs.moralis.io:2053/ipfs/QmUfpsyqc4hwozotRo4woyi5fJqvfcej
 async function fetchIPFSDoc(ipfsHash) {
   const url = `https://ipfs.moralis.io:2053/ipfs/${ipfsHash}`;
   const response = await fetch(url);
-  return response.json();
+  return await response.json();
 }
 ```

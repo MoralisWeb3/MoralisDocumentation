@@ -10,6 +10,14 @@ No. The app ID ("Application ID") is meant to be public and is included in all r
 
 Please Note: You want to protect the master key since it can override all permissions and has full access to read, write, and delete. It's best to use the master key only on the server (i.e., cloud functions). Never use the master key on the frontend.
 
+## Why do you use the signing messages and other Dapps don't?
+
+This is the general standard for verifying that you really own the wallet. It is used, for example, by Opensea, Rarible and so on.
+
+Authorization through Moralis gives for user access to his [user object](https://docs.moralis.io/moralis-server/users/crypto-login#user-object), in which, for example, private information can be stored, and the user also gets the right to change his data. For this we use sigining messages. This is an absolutely safe way: It does not export private keys, does not allow the spending of tokens, and does not require gas fees.&#x20;
+
+If you do not need users to be stored in the database, you can use `enableWeb3()` and get eth\_address of users using default web3 methods.
+
 ## FRPC
 
 ### What version should I use on Mac?
