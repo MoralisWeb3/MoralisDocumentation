@@ -18,6 +18,21 @@ Authorization through Moralis gives for user access to his [user object](https:/
 
 If you do not need users to be stored in the database, you can use `enableWeb3()` and get eth\_address of users using default web3 methods.
 
+## How to ask for help on the forum and Discord
+
+If you want to get help quickly you need to follow the next steps:
+
+1. Provide your server subdomain (what is a server subdomain?)
+2. Describe your issue in details
+3. If you share your code - always send it as a formatted code (not screenshots) or github repository
+4. Attach screenshots, error messages
+
+### What is a server subdomain?
+
+You can find it in the Moralis admin panel after clicking on the "View Details" button
+
+![](<../.gitbook/assets/image (117).png>)
+
 ## FRPC
 
 ### What version should I use on Mac?
