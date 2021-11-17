@@ -100,5 +100,5 @@
 
 * [FAQ](misc/faq.md)
 * [Troubleshooting](misc/troubleshooting.md)
-* [Rate Limit](misc/rate-limit.md)
+* [Billing & Rate Limits](misc/rate-limit.md)
 * [License](misc/license.md)
