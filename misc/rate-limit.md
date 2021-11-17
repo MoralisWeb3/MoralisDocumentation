@@ -31,3 +31,10 @@ It's easy to keep track of how many requests you've made, because one request to
 
 ### Speedy Node Requests
 
+| Method                         | Cost         |
+| ------------------------------ | ------------ |
+| eth\_estimateGas               | 10 requests  |
+| eth\_sendRawTransaction        | 30 requests  |
+| debug\_traceTransaction        | 30 requests  |
+| trace\_replayTransaction       | 200 requests |
+| trace\_replayBlockTransactions | 200 requests |
