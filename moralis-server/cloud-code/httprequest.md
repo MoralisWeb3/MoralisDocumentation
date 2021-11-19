@@ -98,13 +98,13 @@ Moralis.Cloud.httpRequest({
 
 ## Sending a POST Request
 
-You can send a post request by setting the `method` attribute of the options object. The body of the POST can be set using the `data`. A simple example would be:
+You can send a post request by setting the `method` attribute of the options object. The body of the POST can be set using the `body`. A simple example would be:
 
 ```javascript
 Moralis.Cloud.httpRequest({
   method: 'POST',
   url: 'http://www.example.com/create_post',
-  data: {
+  body: {
     title: 'Vote for Pedro',
     body: 'If you vote for Pedro, your wildest dreams will come true'
   }
