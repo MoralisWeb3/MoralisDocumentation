@@ -35,7 +35,7 @@ const LegendaryMonster = Moralis.Object.extend({
 });
 ```
 
- You can add additional methods and properties to your subclasses of `Moralis.Object`.
+You can add additional methods and properties to your subclasses of `Moralis.Object`.
 
 ```javascript
 // A complex subclass of Moralis.Object
@@ -94,7 +94,7 @@ However, when using `extends`, the SDK is not automatically aware of your subcla
 Moralis.Object.registerSubclass('Monster', Monster);
 ```
 
- Similarly, you can use `extends` with `Moralis.User`.
+Similarly, you can use `extends` with `Moralis.User`.
 
 ```javascript
 class CustomUser extends Moralis.User {
@@ -109,7 +109,7 @@ class CustomUser extends Moralis.User {
 Moralis.Object.registerSubclass('_User', CustomUser);
 ```
 
- In addition to queries, `logIn` and `signUp` will return the subclass `CustomUser`.
+In addition to queries, `logIn` and `signUp` will return the subclass `CustomUser`.
 
 ```javascript
 const customUser = new CustomUser({ foo: 'bar' });
@@ -122,7 +122,7 @@ customUser.signUp().then((user) => {
 });
 ```
 
- `CustomUser.logIn` and `CustomUser.signUp` will return the subclass `CustomUser`.
+`CustomUser.logIn` and `CustomUser.signUp` will return the subclass `CustomUser`.
 
 ## Saving Objects
 
@@ -202,7 +202,6 @@ monster.set('ownerAccount', ownerAccount);   // Suppose `ownerAccount` has been 
 
 monster.save(null, { cascadeSave: false });
 // Will save `teamMember` wihout attempting to save or modify `ownerAccount`
-
 ```
 
 #### CLOUD CODE CONTEXT
@@ -236,6 +235,8 @@ Saving data to the cloud is fun, but it’s even more fun to get that data out a
 ```javascript
 const Monster = Moralis.Object.extend("Monster");
 const query = new Moralis.Query(Monster);
+
+//get monster with id xWMyZ4YEGZ
 query.get("xWMyZ4YEGZ")
 .then((monster) => {
   // The object was retrieved successfully.
@@ -245,7 +246,7 @@ query.get("xWMyZ4YEGZ")
 });
 ```
 
- To get the values out of the `Moralis.Object`, use the `get` method:
+To get the values out of the `Moralis.Object`, use the `get` method:
 
 ```javascript
 const strength = monster.get("strength");
