@@ -29,6 +29,9 @@ After you have initialized your application with `Moralis.start()`, it will auto
 ### Supported Chains&#x20;
 
 All helper functions have a `chain` option to specify which blockchain to get data from. The following are the currently supported values for the chain option. Any of the "Lookup Values" will match the corresponding chain. If not specified the chain will default to Ethereum Mainnet.
+{% hint style="info" %}
+Local Dev Chain (Ganache, Hardhat) doesn't work now with Web3API.
+{% endhint %}
 
 | Chain                              | Lookup Values                                                           |
 | ---------------------------------- | ----------------------------------------------------------------------- |
@@ -42,7 +45,7 @@ All helper functions have a `chain` option to specify which blockchain to get da
 | Polygon (Matic) Mainnet            | `matic`, `polygon`, `0x89`                                              |
 | Mumbai (Matic Testnet)             | `mumbai`, `matic testnet`, `polygon testnet`, `0x13881`                 |
 | Avalanche Mainnet                  | `avalanche`, `0xa86a `                                                  |
-| Local Dev Chain (Ganache, Hardhat) | `ganache`, `hardhat`, `localdevchain`, `local devchain` ,`dev`, `0x539` |
+[comment]: # | Local Dev Chain (Ganache, Hardhat) | `ganache`, `hardhat`, `localdevchain`, `local devchain` ,`dev`, `0x539` |
 
 ### Web3 API return format
 
