@@ -23,29 +23,30 @@ It's also possible to access all of this functionality through REST API from you
 After you have initialized your application with `Moralis.start()`, it will automatically load the Web3API module. You don't need to make any additional steps to start using Web3API.
 
 {% hint style="info" %}
-[Initialize Moralis guide](https://docs.moralis.io/moralis-server/getting-started/connect-the-sdk#initialize-the-sdk)&#x20;
+[Initialize Moralis guide](https://docs.moralis.io/moralis-server/getting-started/connect-the-sdk#initialize-the-sdk)
 {% endhint %}
 
-### Supported Chains&#x20;
+### Supported Chains
 
 All helper functions have a `chain` option to specify which blockchain to get data from. The following are the currently supported values for the chain option. Any of the "Lookup Values" will match the corresponding chain. If not specified the chain will default to Ethereum Mainnet.
+
 {% hint style="info" %}
-Local Dev Chain (Ganache, Hardhat) doesn't work now with Web3API.
+Local Dev Chain (Ganache, Hardhat) doesn't work currently with Web3API.
 {% endhint %}
 
-| Chain                              | Lookup Values                                                           |
-| ---------------------------------- | ----------------------------------------------------------------------- |
-| Ethereum Mainnet                   | `eth`, `mainnet`, `0x1`                                                 |
-| Ropsten (Ethereum Testnet)         | `testnet`, `ropsten`, `0x3`                                             |
-| Rinkeby (Ethereum Testnet)         | `rinkeby`, `0x4`                                                        |
-| Goerli (Ethereum Testnet)          | `goerli`, `0x5`                                                         |
-| Kovan (Ethereum Testnet)           | `kovan`, `0x2a`                                                         |
-| Binance Smart Chain Mainnet        | `bsc`, `binance`, `binance smart chain`, `0x38`                         |
-| Binance Smart Chain Testnet        | `bsc testnet`, `binance testnet`, `binance smart chain testnet`, `0x61` |
-| Polygon (Matic) Mainnet            | `matic`, `polygon`, `0x89`                                              |
-| Mumbai (Matic Testnet)             | `mumbai`, `matic testnet`, `polygon testnet`, `0x13881`                 |
-| Avalanche Mainnet                  | `avalanche`, `0xa86a `                                                  |
-[comment]: # | Local Dev Chain (Ganache, Hardhat) | `ganache`, `hardhat`, `localdevchain`, `local devchain` ,`dev`, `0x539` |
+| Chain                                                                                                  | Lookup Values                                                           |
+| ------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------- |
+| Ethereum Mainnet                                                                                       | `eth`, `mainnet`, `0x1`                                                 |
+| Ropsten (Ethereum Testnet)                                                                             | `testnet`, `ropsten`, `0x3`                                             |
+| Rinkeby (Ethereum Testnet)                                                                             | `rinkeby`, `0x4`                                                        |
+| Goerli (Ethereum Testnet)                                                                              | `goerli`, `0x5`                                                         |
+| Kovan (Ethereum Testnet)                                                                               | `kovan`, `0x2a`                                                         |
+| Binance Smart Chain Mainnet                                                                            | `bsc`, `binance`, `binance smart chain`, `0x38`                         |
+| Binance Smart Chain Testnet                                                                            | `bsc testnet`, `binance testnet`, `binance smart chain testnet`, `0x61` |
+| Polygon (Matic) Mainnet                                                                                | `matic`, `polygon`, `0x89`                                              |
+| Mumbai (Matic Testnet)                                                                                 | `mumbai`, `matic testnet`, `polygon testnet`, `0x13881`                 |
+| Avalanche Mainnet                                                                                      | `avalanche`, `0xa86a`                                                   |
+| <p>Local Dev Chain (Ganache, Hardhat)</p><p><strong>(doesn't work currently with Web3API)</strong></p> | `ganache`, `hardhat`, `localdevchain`, `local devchain` ,`dev`, `0x539` |
 
 ### Web3 API return format
 
