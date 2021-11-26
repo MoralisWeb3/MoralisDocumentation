@@ -221,7 +221,6 @@ Returns an object with number of NFT ownsers and an array with NFT metadata (nam
 * `format` (optional): The format of the token id. Available values : `decimal`, `hex`. Default value : `decimal.`
 * `offset `(optional): offset.
 * `limit`(optional): limit.
-* `order `(optional): The field(s) to order on and if it should be ordered in ascending or descending order.
 * `address`(required): Address of the contract
 
 ```javascript
@@ -229,15 +228,8 @@ const options = { address: "0xd...07", chain: "bsc" };
 const nftOwners = await Moralis.Web3API.token.getNFTOwners(options);
 ```
 
-The field(s) to order on and if it should be ordered in ascending or descending order. Specified by: `fieldName1.order`,` fieldName2.order`.
-
 ```javascript
-//Example 1: "name". Example for name: "name.ASC" or "name.DESC"
-const options = { address: "0xd...07", order: "name.ASC" };
-const nftOwners = await Moralis.Web3API.token.getNFTOwners(options);
-
-//Example 2: "Name and Symbol"
-const options = { address: "0xd...07", order: "name.ASC,symbol.DESC" };
+const options = { address: "0xd...07" };
 const nftOwners = await Moralis.Web3API.token.getNFTOwners(options);
 ```
 
@@ -329,26 +321,13 @@ Returns an object with number of NFT transfers and an array with NFT transfers f
 * `format` (optional): The format of the token id. Available values : `decimal`, `hex`. Default value is `decimal.`
 * `offset `(optional): offset.
 * `limit`(optional): limit.
-* `order `(optional): The field(s) to order on and if it should be ordered in ascending or descending order.
+
+``
+
 * `address`(required): Address of the contract
 
 ```javascript
 const options = { address: "0xd...07", chain: "bsc" };
-const nftTransfers = await Moralis.Web3API.token.getContractNFTTransfers(options);
-```
-
-The field(s) to order on and if it should be ordered in ascending or descending order. Specified by: `fieldName1.order`,` fieldName2.order`.
-
-```javascript
-//Exmaple 1 "block_number": "block_number.ASC", "block_number.DESC", 
-const options = { address: "0xd...07", order: "name.ASC" };
-const nftTransfers = await Moralis.Web3API.token.getContractNFTTransfers(options);
-
-//Example 2 "block_number and contract_type": "block_number.ASC,contract_type.DESC"
-const options = { 
-  address: "0xd...07", 
-  order: "block_number.ASC, contract_type.DESC"
-}
 const nftTransfers = await Moralis.Web3API.token.getContractNFTTransfers(options);
 ```
 
@@ -416,29 +395,12 @@ Returns an object with number of NFT transfers and an array with all owners of N
 * `format` (optional): The format of the token id. Available values : `decimal`, `hex`. Default value is `decimal`
 * `offset `(optional): offset.
 * `limit`(optional): limit.
-* `order `(optional): The field(s) to order on and if it should be ordered in ascending or descending order.
 * `address`(required): Address of the contract.
 * `token_id`(requierd): The id of the token.
 
 ```javascript
 const options = { address: "0xd...07", token_id: "1", chain: "bsc" };
 const tokenIdOwners= await Moralis.Web3API.token.getTokenIdOwners(options);
-```
-
-The field(s) to order on and if it should be ordered in ascending or descending order. Specified by: `fieldName1.order`, `fieldName2.order`.
-
-```javascript
-//Example 1: "name", "name.ASC", "name.DESC"
-const options = { address: "0xd...07", order: "name.DESC", token_id: "1" };
-const nftTransfers = await Moralis.Web3API.token.getTokenIdOwners(options);
-
-//Example 2: "Block and Contract Type", "block_number.ASC, contract_type.DESC" 
-const options = { 
-  address: "0xd...07", 
-  order: "block_number.ASC, contract_type.DESC", 
-  token_id: "1"
-}
-const nftTransfers = await Moralis.Web3API.token.getTokenIdOwners(options);
 ```
 
 #### Example result:
@@ -472,28 +434,11 @@ Returns an object with number of NFT transfers and an array with all transfers o
 * `format` (optional): The format of the token id. Available values : `decimal`, `hex`. Default value is `decimal`
 * `offset `(optional): offset.
 * `limit`(optional): limit.
-* `order `(optional): The field(s) to order on and if it should be ordered in ascending or descending order.
 * `address`(required): Address of the contract.
 * `token_id`(requierd): The id of the token.
 
 ```javascript
 const options = { address: "0xd...07", token_id: "1", chain: "bsc" };
-const transfers = await Moralis.Web3API.token.getWalletTokenIdTransfers(options);
-```
-
-The field(s) to order on and if it should be ordered in ascending or descending order. Specified by: `fieldName1.order`, `fieldName2.order`.
-
-```javascript
-//Example 1: "name", "block_number.ASC", "block_number.DESC"
-const options = { address: "0xd...07", order: "block_number.DESC", token_id: "1" };
-const transfers = await Moralis.Web3API.token.getContractNFTTransfers(options);
-
-//Example 2: "Block and Contract Type", "block_number.ASC, contract_type.DESC" 
-const options = { 
-  address: "0xd...07", 
-  order: "block_number.ASC, contract_type.DESC",
-  token_id: "1"
-}
 const transfers = await Moralis.Web3API.token.getWalletTokenIdTransfers(options);
 ```
 
