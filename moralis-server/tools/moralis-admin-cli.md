@@ -10,7 +10,7 @@ description: >-
 
 {% embed url="https://youtu.be/WtAlRwkB12w" %}
 
-To use the Moralis Admin CLI, you need to install it by running the following code in the terminal: 
+To use the Moralis Admin CLI, you need to install it by running the following code in the terminal:&#x20;
 
 ```bash
 npm install -g moralis-admin-cli
@@ -108,7 +108,7 @@ moralis-admin-cli connect-local-devchain --moralisApiKey FAM6pYzBKjcM
  
 ```
 
-To get more information you can write: 
+To get more information you can write:&#x20;
 
 ```bash
 moralis-admin-cli connect-local-devchain help
@@ -132,7 +132,7 @@ moralis-admin-cli update-server --moralisApiKey FAM6pYzBKjcM
  
 ```
 
-To get more information you can write: 
+To get more information you can write:&#x20;
 
 ```bash
 moralis-admin-cli update-server help
@@ -156,7 +156,7 @@ moralis-admin-cli create-server --moralisApiKey FAM6pYzBKjcM
  
 ```
 
-To get more information you can write: 
+To get more information you can write:&#x20;
 
 ```bash
 moralis-admin-cli create-server help
@@ -205,7 +205,7 @@ If you want to specify another folder, you can do that by using the `--folderPat
 Example:
 
 ```bash
-moralis-admin-cli deploy --p C:\myDapp\
+moralis-admin-cli deploy -p C:\myDapp\
 ```
 
 You can also choose to specify the server to deploy to by using the `--moralisSubdomain` or `-d` flags.
@@ -213,12 +213,12 @@ You can also choose to specify the server to deploy to by using the `--moralisSu
 Example:
 
 ```bash
-moralis-admin-cli deploy --d dajbrubkfnoi.moralis.io
+moralis-admin-cli deploy -d dajbrubkfnoi.moralis.io
 ```
 
 If the `--moralisSubdomain` or `-d` flags are left out, you'll get to choose from a list of your servers.
 
-To get more information you can write: 
+To get more information you can write:&#x20;
 
 ```bash
 moralis-admin-cli deploy help
@@ -239,12 +239,12 @@ You can choose to specify where the server should undeploy to by using the `--mo
 Example:
 
 ```bash
-moralis-admin-cli undeploy --d dajbrubkfnoi.moralis.io
+moralis-admin-cli undeploy -d dajbrubkfnoi.moralis.io
 ```
 
 If the `--moralisSubdomain` or `-d` flags are left out, you'll get to choose from a list of your servers.
 
-To get more information you can write: 
+To get more information you can write:&#x20;
 
 ```bash
 moralis-admin-cli undeploy help
