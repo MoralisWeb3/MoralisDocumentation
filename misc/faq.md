@@ -6,9 +6,39 @@ description: Frequently Asked Questions
 
 ## My Moralis app ID is publicly visible on the frontend. Is this a security risk?
 
-No. The app ID ("Application ID") is meant to be public and is included in all requests to Moralis. It's ok to include the app ID in a public code repository, such as GitHub. With the app ID, a user can create accounts and call any type of cloud function. To control when new users can sign up, use a "[beforeSave" trigger](https://docs.moralis.io/triggers#beforesave) on the user collection. To learn more about how to lock down your app, see the [Security docs](https://docs.moralis.io/security).
+No. The app ID ("Application ID") is meant to be public and is included in all requests to Moralis.
 
-Please Note: You want to protect the master key since it can override all permissions and has full access to read, write, and delete. It's best to use the master key only on the server (i.e., cloud functions). Never use the master key on the frontend.
+**What can someone do if they have App ID and Server URL?**
+
+1.  **Sign up as a new user.**&#x20;
+
+    Each dapp by default welcomes any user to sign up. If you have app id and server url you can try to sign up as a user.&#x20;
+
+    To control how new users are created you can use use a "[beforeSave" trigger](https://docs.moralis.io/triggers#beforesave) on the user collection.
+2.  **Try to call Cloud Functions**.&#x20;
+
+    Think of Cloud Functions as endpoints in an API.&#x20;
+
+    Anyone can try calling them. You can setup [Roles](../moralis-server/database/security.md) in your dapp in order to control which Cloud Functions can be called by which users.&#x20;
+
+    For example you can ensure that some Cloud Functions can be called by anyone - even if they don't have an account in your dapp.&#x20;
+
+    Then you can specify that some other Cloud Functions can only called by registered users.
+
+    And finally you can specify that some specific Cloud Functions can only be called by registered users with a specific role. See the [Security docs](https://docs.moralis.io/security) for more details.
+3.  **Try to add new Classes or Columns to the database.**&#x20;
+
+    By default Moralis allows clients to create new Classes in the database and to add columns to existing Classes. This speeds up the development a lot.&#x20;
+
+    Of course this should be disabled when you go to production.
+
+    Read here about disabling [Client Class Creation](https://docs.moralis.io/moralis-server/database/security#client-class-creation).
+
+To learn more about how to lock down your app, see the [Security docs](https://docs.moralis.io/security).
+
+### ALWAYS PROTECT THE MASTER KEY
+
+<mark style="color:red;">**Please Note: You want to protect the **</mark><mark style="color:red;background-color:yellow;">**master key**</mark><mark style="color:red;">** since it can override all permissions and has full access to read, write, and delete. It's best to use the master key only on the server (i.e., cloud functions). Never use the master key on the frontend.**</mark>
 
 ## Why do you use the signing messages and other Dapps don't?
 
