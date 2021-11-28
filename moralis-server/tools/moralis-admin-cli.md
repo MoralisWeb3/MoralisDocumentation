@@ -190,6 +190,11 @@ moralis-admin-cli add-contract help
 
 You can leave out the arguments if you follow option [2](https://docs.moralis.io/moralis-admin-cli#2-use-an-env-file) or [3](https://docs.moralis.io/moralis-admin-cli#3-use-environment-variables) in the [Initial Setup](https://docs.moralis.io/moralis-admin-cli#initial-setup) section.
 
+### Table Name Restrictions
+
+Keep in mind that table names are not allowed to contain numeric characters (0-9).
+
+
 ## deploy
 
 {% embed url="https://youtu.be/3_5oMqcFLws" %}
