@@ -46,6 +46,7 @@ Local Dev Chain (Ganache, Hardhat) doesn't work currently with Web3API.
 | Polygon (Matic) Mainnet                                                                                | `matic`, `polygon`, `0x89`                                              |
 | Mumbai (Matic Testnet)                                                                                 | `mumbai`, `matic testnet`, `polygon testnet`, `0x13881`                 |
 | Avalanche Mainnet                                                                                      | `avalanche`, `0xa86a`                                                   |
+| Fantom Mainnet                                                                                         | `fantom`, `0xfa`                                                        |
 | <p>Local Dev Chain (Ganache, Hardhat)</p><p><strong>(doesn't work currently with Web3API)</strong></p> | `ganache`, `hardhat`, `localdevchain`, `local devchain` ,`dev`, `0x539` |
 
 ### Web3 API return format
