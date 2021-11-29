@@ -28,15 +28,17 @@ Of course, this kind of permission should be turned off when you go to productio
 
 ### Class Permissions
 
-For example when you create a new Class in the database - it has no permission so that you can quickly experiment with it by reading and writing data to it from the SDK without any configuration.&#x20;
+When you create a new Class in the database - it has no permission so that you can quickly experiment with it by reading and writing data to it from the SDK without any configuration.&#x20;
 
 This is explained when you create a new Class via the UI.
 
 ![Default Class Permission Warning](<../../.gitbook/assets/Screenshot 2021-11-29 at 12.24.30.png>)
 
+This should be locked down before going to production.
+
 The default system Classes such as `User` and `Session` are locked down by default.
 
-But for all other Classes you need to set CLP and/or ACL policies to ensure no unauthorized users write and/or read the data.
+But for all other Classes you need to set CLP and/or ACL policies to ensure no unauthorised users write and/or read the data.
 
 Learn by watching the video below and reading [Security Docs](security.md).
 
@@ -46,4 +48,4 @@ CLP and ACL policies explained.
 
 ## Getting help
 
-If you have any questions about database security or locking down your dapp feel free to ask in the [Forum](https://forum.moralis.io).
+If you have any questions about database security or locking down your database feel free to ask in the [Forum](https://forum.moralis.io).
