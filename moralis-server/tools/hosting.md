@@ -10,7 +10,9 @@ description: >-
 
 Moralis makes it easy to host your static files through the Moralis Admin CLI.
 
-{% embed url="https://youtu.be/3_5oMqcFLws" %}
+{% embed url="https://www.youtube.com/watch?v=RiH0ADGPleg" %}
+How to host your dapp using Moralis Hosting.
+{% endembed %}
 
 Read more about how to use [deploy ](moralis-admin-cli.md#deploy)and [undeploy ](moralis-admin-cli.md#undeploy)to your sever in the [Moralis Admin CLI](moralis-admin-cli.md#initial-setup) section.
 
