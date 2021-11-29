@@ -23,18 +23,52 @@ Below are a few scenarios where your IP may get temporarily banned.&#x20;
 2. Implement rate-limiting logic in your app so you don't try doing more requests than your plan allows.
 3. Email us at hello@moralis.io if you have any questions.
 
-## Request pricing
+## Request weights
 
 All Moralis plans have generous limits on the amount of requests you can make per month. How many included requests you have depends on the plan you have, check the [pricing page](https://moralis.io/pricing) for more details.&#x20;
 
-It's easy to keep track of how many requests you've made, because one request to the Speedy Nodes or the Web3 API counts as one request towards your monthly quota. However, in order to prevent attacks and abuse of our APIs some of the more computationally heavy methods have a different cost where one call to the method counts as multiple requests towards your monthly quota. See the tables below for details
+In most cases one request to the Speedy Nodes or the Web3 API counts as one request towards your monthly quota or allowed rate limit.
+
+However, some Speedy Node methods and API requests are very computationally expensive and therefore count as several requests.&#x20;
+
+By giving different requests different weights we ensure that you pay for what you use - if you only use normal endpoints - you have very high rate limits and monthly quota than someone who uses the computationally expensive endpoints.
+
+See the tables below for details about Speedy Node methods and API Endpoints that are weighted.&#x20;
 
 ### Speedy Node Requests
 
 | Method                         | Cost         |
 | ------------------------------ | ------------ |
+| All methods not on this list   | 1 request    |
 | eth\_estimateGas               | 10 requests  |
 | eth\_sendRawTransaction        | 30 requests  |
 | debug\_traceTransaction        | 30 requests  |
 | trace\_replayTransaction       | 200 requests |
 | trace\_replayBlockTransactions | 200 requests |
+
+### API Requests
+
+| Endpoint                                       | Cost        |
+| ---------------------------------------------- | ----------- |
+| All endpoints not on this list                 | 1 request   |
+| /{address}/events                              | 2 requests  |
+| /{address}/erc20/transfers                     | 2 requests  |
+| /block/{block\_number\_or\_hash}/nft/transfers | 2 requests  |
+| /nft/{address}/{token\_id}                     | 2 requests  |
+| /nft/{address}/{token\_id}/owners              | 2 requests  |
+| /nft/{address}/{token\_id}/transfers           | 2 requests  |
+| /{address}/logs                                | 2 requests  |
+| /transaction/{transaction\_hash}               | 2 requests  |
+| /{address}/function                            | 2 requests  |
+| /erc20/{address}/price                         | 3 requests  |
+| /nft/{address}/lowestprice                     | 4 requests  |
+| /nft/{address}/trades                          | 4 requests  |
+| /{address}/nft/{token\_address}                | 5 requests  |
+| /{address}/nft/transfers                       | 5 requests  |
+| /nft/{address}/transfers                       | 5 requests  |
+| /nft/{address}/owners                          | 5 requests  |
+| /nft/{address}                                 | 5 requests  |
+| /nft/{address}/metadata                        | 5 requests  |
+| /nft/transfers                                 | 5 requests  |
+| /nft/search                                    | 5 requests  |
+| uploadIPFSFolder                               | 25 requests |
