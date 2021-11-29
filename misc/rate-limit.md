@@ -31,7 +31,7 @@ In most cases one request to the Speedy Nodes or the Web3 API counts as one requ
 
 However, some Speedy Node methods and API requests are very computationally expensive and therefore count as several requests.&#x20;
 
-By giving different requests different weights we ensure that you pay ONLY for what you use and not a cent more - period! This way you get cheap requests for most use-cases while we can protect our systems from abuse by weighing the computationally expensive endpoints.
+By giving some heavy requests higher weight we ensure that you ONLY pay for what you use and not a cent more - period! This way you get cheap requests for most use-cases while we can protect our systems from abuse by weighing the computationally expensive endpoints.
 
 See the tables below for details about Speedy Node methods and API Endpoints that are weighted.&#x20;
 
