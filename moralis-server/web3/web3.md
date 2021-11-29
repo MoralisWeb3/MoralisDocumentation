@@ -223,7 +223,7 @@ There are wrappers for the standard Web3 change events.
 
 ```javascript
 const unsubscribe = Moralis.onAccountsChanged(function(accounts) {
-  console.log(account);
+  console.log(accounts);
 });
 // ["0x0f7056a5778b15ebd522f39ab9782abf3ee37f08"]
 ```
