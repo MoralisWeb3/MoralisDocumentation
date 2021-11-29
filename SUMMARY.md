@@ -40,6 +40,7 @@
   * [Address Casing](moralis-server/automatic-transaction-sync/address-casing.md)
 * [🗃 Database](moralis-server/database/README.md)
   * [Objects](moralis-server/database/objects.md)
+  * [⚠ Permissions](moralis-server/database/permissions.md)
   * [Queries](moralis-server/database/queries.md)
   * [Live Queries](moralis-server/database/live-queries.md)
   * [Roles](moralis-server/database/roles.md)
