@@ -98,6 +98,10 @@ This is an example of a valid _**abi:**_
 If the abi provided contains an "id" input, it will then be parsed to "uid" due to field "id" being reserved in the Moralis.Object
 {% endhint %}
 
+### Table Name field limits
+
+Table names are not allowed to contain nuneric characters (0 to 9)
+
 ### Name field limits
 
 Name fields that start with and `_` don't work for now_, _like for example `"name": "_side"` will not work, and you'll have to change it to `"name": "side"` in order to make it work.
