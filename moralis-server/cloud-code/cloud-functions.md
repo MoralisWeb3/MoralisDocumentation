@@ -49,6 +49,12 @@ The following packages are available globally within Cloud Function code and can
 
 * `crypto` ([docs](https://nodejs.org/api/crypto.html))
 
+### Global Variables
+
+There is a load balancing for Node servers so each core in the server can run a separate Moralis Node Server
+(NodeJS is single thread - it can only use 1 CPU)
+So there is load balancing across different separate node processes, therefore cloud function code cannot have state - all state needs to be in the DB
+
 ### Console.log
 
 For debugging or informational purposes it's often useful to print messages. A logger can be obtained for this purpose. It will print messages to the Moralis Dashboard in the  "Logs > Info" section.
