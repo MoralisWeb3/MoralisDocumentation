@@ -75,6 +75,12 @@ The `Sync and Watch Address` plugin calls a [Cloud Function](../cloud-code/cloud
 const results = await Moralis.Cloud.run("watchBscAddress", {address: "0x..."})
 ```
 
+By default, only new transactions made by addresses being watched by using this cloud function will be added to the database. If you also want to add historical data for addresses that you want to watch, you can add `sync_historical:true`:
+
+```javascript
+const results = await Moralis.Cloud.run("watchBscAddress", {address: "0x...", sync_historical: true});
+```
+
 {% hint style="info" %}
 The watch address functions return no value as they start a job. They are still asynchronous though! Once the promise returns the synced transactions, they should be in the XxxTransactions table for the corresponding chain.
 {% endhint %}
