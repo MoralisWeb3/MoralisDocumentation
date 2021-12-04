@@ -148,11 +148,14 @@ const price = await Moralis.Web3API.token.getTokenPrice(options);
 
 ## getAllTokenIds
 
-Returns an object with number of NFTs and an array with NFT metadata (name, symbol) for a given token contract address (asynchronous).
+Returns an object with a number of NFTs and an array with NFT metadata (name, symbol) for a given token contract address (asynchronous).
 
 #### Options:
 
 * `chain`(optional): The blockchain to get data from. Valid values are listed on the [intro page in the Transactions and Balances section](https://docs.moralis.io/transactions-and-balances/intro). Default value `Eth`.
+* `format` (optional): The format of the token id. Available values : `decimal`, `hex`. Default value : `decimal.`
+* `offset` (optional): offset.
+* `limit`(optional): limit.
 * `address`(required): The address of the token contract.
 
 ```javascript
@@ -166,15 +169,20 @@ const NFTs = await Moralis.Web3API.token.getAllTokenIds(options);
 [
   {
     "token_address": "0xdf7952b35f24acf7fc0487d01c8d5690a60dba07",
-    "token_id": "414742",
+    "token_id": "384165",
+    "amount": "1",
+    "block_number": "10111462",
+    "block_number_minted": "10111462",
     "contract_type": "ERC721",
-    "token_uri": "https://ipfs.moralis.io:2053/ipfs/QmYsTqbmGA3H5cgouCkh8tswJAQE1AsEko9uBZX9jZ3oTC/twinkle.json",
-    "metadata": "{\n\t\"name\": \"Twinkle\",\n\t\"description\": \"Three guesses what's put that twinkle in those eyes! (Hint: it's CAKE)\",\n\t\"image\": \"ipfs://QmYD9AtzyQPjSa9jfZcZq88gSaRssdhGmKqQifUDjGFfXm/twinkle.png\",\n\t\"attributes\": {\n\t\t\"bunnyId\": \"7\"\n\t}\n}",
-    "synced_at": null,
-    "amount": null,
     "name": "Pancake Bunnies",
-    "symbol": "PB"
-  }
+    "symbol": "PB",
+    "token_uri": "https://ipfs.moralis.io:2053/ipfs/QmSs1sgcU57XeAsZneMsivFx3cgxhn3QZrswbwZxwpnuaJ/lottie.json",
+    "metadata": "{\n    \"name\": \"Lottie\",\n    \"description\": \"Lottie's looking hotto for lotto!\",\n    \"mp4_url\": \"ipfs://QmWnhyxSrD8v9bx5tE9mDkwW853bpjoCXGd7o2fe1BtQJ8/lottie.mp4\",\n    \"gif_url\": \"ipfs://QmWnhyxSrD8v9bx5tE9mDkwW853bpjoCXGd7o2fe1BtQJ8/lottie.gif\",\n    \"webm_url\": \"ipfs://QmWnhyxSrD8v9bx5tE9mDkwW853bpjoCXGd7o2fe1BtQJ8/lottie.webm\",\n    \"image\": \"ipfs://QmWnhyxSrD8v9bx5tE9mDkwW853bpjoCXGd7o2fe1BtQJ8/lottie.png\",\n    \"attributes\": {\n      \"bunnyId\": \"18\"\n    }\n  }",
+    "is_valid": 1,
+    "syncing": 2,
+    "synced_at": "2021-12-04T07:36:07.567Z",
+    "frozen": 0
+  },
 ]
 ```
 
@@ -213,13 +221,13 @@ Requests for contract addresses not yet indexed will automatically start the ind
 
 ## getNFTOwners
 
-Returns an object with number of NFT ownsers and an array with NFT metadata (name, symbol) for a given token contract address (asynchronous).
+Returns an object with a number of NFT owners and an array with NFT metadata (name, symbol) for a given token contract address (asynchronous).
 
 #### Options:
 
 * `chain`(optional): The blockchain to get data from. Valid values are listed on the [intro page in the Transactions and Balances section](https://docs.moralis.io/transactions-and-balances/intro). Default value `Eth`.
 * `format` (optional): The format of the token id. Available values : `decimal`, `hex`. Default value : `decimal.`
-* `offset `(optional): offset.
+* `offset` (optional): offset.
 * `limit`(optional): limit.
 * `address`(required): Address of the contract
 
@@ -270,9 +278,9 @@ Very powerful and fast tool for getting the NFT data based on a metadata search 
 
 * `chain`(optional): The blockchain to get data from. Valid values are listed on the [intro page in the Transactions and Balances section](https://docs.moralis.io/transactions-and-balances/intro). Default value `Eth`.
 * `format` (optional): The format of the token id. Available values : `decimal`, `hex`. Default value : `decimal.`
-* `offset `(optional): offset.
+* `offset` (optional): offset.
 * `limit`(optional): limit.
-* `q `(required): The search string parameter
+* `q` (required): The search string parameter
 * `filter`(required): What fields the search should match on. To look into the entire metadata set the value to `global`. To have a better response time you can look into a specific field like name. Available values : `name`; `description`; `attributes`; `global`; `name,description`; `name,attributes`; `description,attributes`; `name,description,attributes`
 
 ```javascript
@@ -319,7 +327,7 @@ Returns an object with number of NFT transfers and an array with NFT transfers f
 
 * `chain`(optional): The blockchain to get data from. Valid values are listed on the [intro page in the Transactions and Balances section](https://docs.moralis.io/transactions-and-balances/intro). Default value `Eth`.
 * `format` (optional): The format of the token id. Available values : `decimal`, `hex`. Default value is `decimal.`
-* `offset `(optional): offset.
+* `offset` (optional): offset.
 * `limit`(optional): limit.
 
 ``
@@ -393,7 +401,7 @@ Returns an object with number of NFT transfers and an array with all owners of N
 
 * `chain`(optional): The blockchain to get data from. Valid values are listed on the [intro page in the Transactions and Balances section](https://docs.moralis.io/transactions-and-balances/intro). Default value `Eth`.
 * `format` (optional): The format of the token id. Available values : `decimal`, `hex`. Default value is `decimal`
-* `offset `(optional): offset.
+* `offset` (optional): offset.
 * `limit`(optional): limit.
 * `address`(required): Address of the contract.
 * `token_id`(requierd): The id of the token.
@@ -432,7 +440,7 @@ Returns an object with number of NFT transfers and an array with all transfers o
 
 * `chain`(optional): The blockchain to get data from. Valid values are listed on the [intro page in the Transactions and Balances section](https://docs.moralis.io/transactions-and-balances/intro). Default value `Eth`.
 * `format` (optional): The format of the token id. Available values : `decimal`, `hex`. Default value is `decimal`
-* `offset `(optional): offset.
+* `offset` (optional): offset.
 * `limit`(optional): limit.
 * `address`(required): Address of the contract.
 * `token_id`(requierd): The id of the token.
