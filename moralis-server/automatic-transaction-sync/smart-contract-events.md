@@ -17,11 +17,9 @@ Luckily, Moralis Server has this functionality built in.
 
 **You can listen to smart contract events in real-time and also get all historic occurences of a specific event.**
 
-{% embed url="https://www.youtube.com/watch?v=dKMyHugbK-Y" %}
-Here is a tutorial explaining how this works.
+{% embed url="https://www.youtube.com/watch?v=LMqqxkuo7b0" %}
+A tutorial demonstrating how to sync and watch smart contract event with Moralis.
 {% endembed %}
-
-
 
 ## Sync and Watch Contract Events
 
@@ -29,15 +27,15 @@ Here is a tutorial explaining how this works.
 
 You can get all historical events from a specific smart contract topic and listen to new events in real-time. It requires the following information:
 
-* _**description**: _a short description to identify this sync job.
-* _**topic**: _The topic you will listen to, this could either be a definition or sha3:
+* \_**description**: \_a short description to identify this sync job.
+* \_**topic**: \_The topic you will listen to, this could either be a definition or sha3:
   * `bet(address,uint256,bool)`
   * `0x20d932006281d267f137cd3921b707c2097e1f041b1291181cc3d0e86f449ebb`
 * _**abi**_: If you provide the abi for this event, Moralis will automatically parse all the fields and populate the schema accordingly.
 * _**address**_: The address you will listen to for this event.
 * _**tableName**_: The name of the subclass that will be created in your Moralis database.
 
-if you do not provide the _**abi **_then the following schema will be used:
+if you do not provide the \_\*\*abi \*\*\_then the following schema will be used:
 
 ```javascript
 {
@@ -104,15 +102,15 @@ Table names are not allowed to contain nuneric characters (0 to 9)
 
 ### Name field limits
 
-Name fields that start with and `_` don't work for now_, _like for example `"name": "_side"` will not work, and you'll have to change it to `"name": "side"` in order to make it work.
+Name fields that start with and `_` don't work for now\_, \_like for example `"name": "_side"` will not work, and you'll have to change it to `"name": "side"` in order to make it work.
 
 ### Historical Event Limit
 
-If a sync job is created that would result in retrieving 500k or more historical events, then the `"Sync_historical (Optional)`option will be disabled and no historical data will be saved. It is possible to contact support to upgrade your account to enable saving it anyway but think hard about whether it's actually necessary before doing so. It's possible to handle the events in real-time without saving the data to the database. 
+If a sync job is created that would result in retrieving 500k or more historical events, then the `"Sync_historical (Optional)`option will be disabled and no historical data will be saved. It is possible to contact support to upgrade your account to enable saving it anyway but think hard about whether it's actually necessary before doing so. It's possible to handle the events in real-time without saving the data to the database.
 
 ### Editing
 
-To edit a sync job, click on _View Details_ on the server where the plugin is installed and go to the Sync tab. There you will see all your sync jobs. Click the _Edit _button.
+To edit a sync job, click on _View Details_ on the server where the plugin is installed and go to the Sync tab. There you will see all your sync jobs. Click the \_Edit \_button.
 
 ![](<../../.gitbook/assets/image (97).png>)
 
