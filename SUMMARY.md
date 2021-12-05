@@ -7,7 +7,7 @@
 * [Prerequisites](introduction/pre-requisites.md)
 * [Contribute to Docs](introduction/contribute-to-docs.md)
 
-## 🧙 Server <a href="moralis-server" id="moralis-server"></a>
+## 🧙 Server <a href="#moralis-server" id="moralis-server"></a>
 
 * [🛠 Getting Started](moralis-server/getting-started/README.md)
   * [Create a Moralis Server](moralis-server/getting-started/create-a-moralis-server.md)
@@ -102,4 +102,5 @@
 * [FAQ](misc/faq.md)
 * [Troubleshooting](misc/troubleshooting.md)
 * [Billing & Rate Limits](misc/rate-limit.md)
+* [Change Log](misc/change-log.md)
 * [License](misc/license.md)
