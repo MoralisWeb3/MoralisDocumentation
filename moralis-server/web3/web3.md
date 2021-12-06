@@ -257,7 +257,7 @@ Also, see the [Crypto Login](../users/crypto-login.md) page for more info.
 
 ## Changing Linking Message
 
-The message the user sees when links an address to the current user can be changed by providing the `signingMessage `option:
+The message the user sees when links an address to the current user can be changed by providing the `signingMessage` option:
 
 ```javascript
 await Moralis.link(accounts[0], { signingMessage: "Custom Linking Message"} );
@@ -267,7 +267,7 @@ await Moralis.link(accounts[0], { signingMessage: "Custom Linking Message"} );
 
 Detect if web3 provider is activated.
 
-Returns: `True `or `False`
+Returns: `True` or `False`
 
 ```javascript
 const isWeb3Active = Moralis.ensureWeb3IsInstalled()
@@ -283,7 +283,7 @@ if (isWeb3Active) {
 
 Detect if MetaMask web3 provider is installed.
 
-Returns: `True `or `False`
+Returns: `True` or `False`
 
 ```javascript
 const isMetaMaskInstalled= await Moralis.isMetaMaskInstalled();
@@ -305,7 +305,7 @@ Function to change the current network
 
 #### Options:
 
-* `chain`(required): The chain id to switch to. Accepts values in numbers or in hex strings. Valid values are listed on the [intro page in the Transactions and Balances section](https://docs.moralis.io/transactions-and-balances/intro). Examples: `56`,  `"0x38"`
+* `chain`(required): The chain id to switch to. Accepts values in numbers or in hex strings. Valid values are listed on the [intro page in the Transactions and Balances section](https://docs.moralis.io/moralis-server/web3-sdk/intro#supported-chains). Examples: `56`,  `"0x38"`
 
 ```javascript
 const chainId = "0x1"; //Ethereum Mainnet
