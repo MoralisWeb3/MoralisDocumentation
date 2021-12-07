@@ -49,15 +49,31 @@ The following packages are available globally within Cloud Function code and can
 
 * `crypto` ([docs](https://nodejs.org/api/crypto.html))
 
-### Global Variables
+### ⚠️ IMPORTANT - Don't create any global variable
 
-There is a load balancing for Node servers so each core in the server can run a separate Moralis Node Server
-(NodeJS is single thread - it can only use 1 CPU)
-So there is load balancing across different separate node processes, therefore cloud function code cannot have state - all state needs to be in the DB
+You cloud function code cannot have any variables outside the function bodies.
+
+Example below.
+
+```javascript
+let name = "Satoshi"; // NOT ALLOWED
+
+Moralis.Cloud.define("functionName", async (request) => {
+  let age = 20; // allowed
+});
+```
+
+The reason is that your cloud code will get load balanced across many instances of your server so that Moralis can infinitely scale your app.
+
+The different instances of your server won't share any variables defined outside the function bodies.
+
+All instances of your server will share the same database.
+
+Therefore if you need to share data across instances it's recommended you store it in the [database](../database/).
 
 ### Console.log
 
-For debugging or informational purposes it's often useful to print messages. A logger can be obtained for this purpose. It will print messages to the Moralis Dashboard in the  "Logs > Info" section.
+For debugging or informational purposes it's often useful to print messages. A logger can be obtained for this purpose. It will print messages to the Moralis Dashboard in the "Logs > Info" section.
 
 ```javascript
 const logger = Moralis.Cloud.getLogger();
@@ -76,13 +92,11 @@ moralis-admin-cli get-logs --moralisApiKey MORALIS_CLI_API_KEY --moralisApiSecre
 
 To learn more about CLI, how to install CLI and how to work with CLI please check the CLI docs using the link below.
 
-To get started, you need to install it by running the following code in the terminal:&#x20;
+To get started, you need to install it by running the following code in the terminal:
 
 {% content-ref url="../tools/moralis-admin-cli.md" %}
 [moralis-admin-cli.md](../tools/moralis-admin-cli.md)
 {% endcontent-ref %}
-
-
 
 ### IDE Setup
 
@@ -92,7 +106,7 @@ You can write your Cloud Functions in your preferred IDE by making use of the `m
 Exact time-stamp where we explain how to setup an IDE on your local machine.
 {% endembed %}
 
-To get started, you need to install it by running the following code in the terminal:&#x20;
+To get started, you need to install it by running the following code in the terminal:
 
 ```bash
 npm install -g moralis-admin-cli
@@ -140,21 +154,22 @@ If there is an error, the response in the client looks like this:
 ```
 
 \
-Using the Master Key in Cloud Code <a href="using-the-master-key-in-cloud-code" id="using-the-master-key-in-cloud-code"></a>
-----------------------------------------------------------------------------------------------------------------------------
+Using the Master Key in Cloud Code <a href="#using-the-master-key-in-cloud-code" id="using-the-master-key-in-cloud-code"></a>
+-----------------------------------------------------------------------------------------------------------------------------
 
 Set `useMasterKey:true` in the requests that require the master key.
 
-### Examples: <a href="examples-3" id="examples-3"></a>
+### Examples: <a href="#examples-3" id="examples-3"></a>
 
 ```javascript
 query.find({useMasterKey:true});
 object.save(null,{useMasterKey:true});
 Moralis.Object.saveAll(objects,{useMasterKey:true});
 ```
+
 Note that master key is accessible by default in a cloud function when you use `useMasterKey:true`
 
-Important: Master key should not be used on your frontend code as it would be accessible in the user's browser. 
+Important: Master key should not be used on your frontend code as it would be accessible in the user's browser.
 
 In case if you are using master key from another backend server that you are controlling you can use the following code to intialize the master key:
 
@@ -287,7 +302,6 @@ Moralis.Cloud.define('adminFunction', request => {
 Moralis.Cloud.define('adminFunctionTwo', request => {
 // do admin code here, confident that request.user.id is masterUser, or masterKey is provided
 },validationRules)
-
 ```
 
 #### SOME CONSIDERATIONS TO BE AWARE OF
@@ -321,7 +335,7 @@ The URL has the following structure:
 
 ## Web3
 
-Web3 functions are available within Cloud Code including the ability to call contract methods. Moralis uses the [Web3.js](https://web3js.readthedocs.io) library.&#x20;
+Web3 functions are available within Cloud Code including the ability to call contract methods. Moralis uses the [Web3.js](https://web3js.readthedocs.io) library.
 
 ```javascript
 // get a web3 instance for a specific chain
@@ -353,7 +367,7 @@ Once you have a `web3` instance, you can use it to make contract calls by constr
 const contract = new web3.eth.Contract(abi, address);
 ```
 
-&#x20;For convenience, Moralis bundles the [Openzepplin](https://github.com/OpenZeppelin/openzeppelin-contracts/tree/master/contracts/token) ABI for ERC20, ERC721, and ERC1155.
+For convenience, Moralis bundles the [Openzepplin](https://github.com/OpenZeppelin/openzeppelin-contracts/tree/master/contracts/token) ABI for ERC20, ERC721, and ERC1155.
 
 * `Moralis.Web3.abis.erc20`
 * `Moralis.Web3.abis.erc721`
@@ -378,7 +392,7 @@ const name = await contract.methods
 
 For more details on the Web3.js contract interface, see the [`web3.eth.Contract`](https://web3js.readthedocs.io/en/v1.3.4/web3-eth-contract.html) section of the Web3.js docs.
 
-The Web3 instance returned by `Moralis.web3ByChain()` cannot sign transactions. In the near future, it may be possible to do this with custom plugins. For now, if you need to make on-chain contract interactions, consider doing them on the frontend or create a NodeJS backend where you have access to [Truffle's HdWalletProvider](https://github.com/trufflesuite/truffle/tree/develop/packages/hdwallet-provider).&#x20;
+The Web3 instance returned by `Moralis.web3ByChain()` cannot sign transactions. In the near future, it may be possible to do this with custom plugins. For now, if you need to make on-chain contract interactions, consider doing them on the frontend or create a NodeJS backend where you have access to [Truffle's HdWalletProvider](https://github.com/trufflesuite/truffle/tree/develop/packages/hdwallet-provider).
 
 ### Contract ABI
 
