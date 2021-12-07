@@ -100,7 +100,11 @@ Because each time the request gets randomly routed to different instances of you
 
 Therefore we hope you now understand why you should not use global variables 🙌
 
-### Console.log
+### What about global constants?
+
+Global constants are ok to use as they will just be copied to all instances and won't change.
+
+## Console.log
 
 For debugging or informational purposes it's often useful to print messages. A logger can be obtained for this purpose. It will print messages to the Moralis Dashboard in the "Logs > Info" section.
 
@@ -127,7 +131,7 @@ To get started, you need to install it by running the following code in the term
 [moralis-admin-cli.md](../tools/moralis-admin-cli.md)
 {% endcontent-ref %}
 
-### IDE Setup
+## IDE Setup
 
 You can write your Cloud Functions in your preferred IDE by making use of the `moralis-admin-cli`.
 
