@@ -40,6 +40,8 @@ In a browser, you’ll want to use an HTML form with a file upload control. To d
 
 Then, in a click handler or other function, get a reference to that file:
 
+> note this is using JQuery, for JS, (see vid)[https://youtu.be/I_wxIshq4WA?t=93] or getElementById 
+
 ```javascript
 const fileUploadControl = $("#profilePhotoFileUpload")[0];
 if (fileUploadControl.files.length > 0) {
