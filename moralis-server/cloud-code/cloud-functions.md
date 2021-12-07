@@ -51,9 +51,7 @@ The following packages are available globally within Cloud Function code and can
 
 ### ⚠️ IMPORTANT - Don't create any global variable
 
-You cloud function code cannot have any variables outside the function bodies.
-
-Example below.
+Cloud Functions cannot have state. They can read and write data to the database but you can't create global variables like in the example below.
 
 ```javascript
 let name = "Satoshi"; // NOT ALLOWED
@@ -70,6 +68,37 @@ The different instances of your server won't share any variables defined outside
 All instances of your server will share the same database.
 
 Therefore if you need to share data across instances it's recommended you store it in the [database](../database/).
+
+### What happens if I create global variables?
+
+You will get unexpected results. Consider the example below.
+
+```javascript
+let count = 0; // very bad
+
+Moralis.Cloud.define("increment", async (request) => {
+  count++;
+  logger.info(count);
+});
+
+// If you call the function above you may get the following results
+// 0
+// 0
+// 0
+// 1
+// 1
+// 2
+// 1
+// 3
+// 0
+// 2
+```
+
+Why is the increment function not working properly?
+
+Because each time the request gets randomly routed to different instances of your server and each instance has its own separate `count` variable.
+
+Therefore we hope you now understand why you should not use global variables 🙌
 
 ### Console.log
 
