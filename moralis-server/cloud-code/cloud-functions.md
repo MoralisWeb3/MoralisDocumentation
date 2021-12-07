@@ -77,8 +77,8 @@ You will get unexpected results. Consider the example below.
 let count = 0; // very bad
 
 Moralis.Cloud.define("increment", async (request) => {
-  count++;
   logger.info(count);
+  count++;
 });
 
 // If you call the function above you may get the following results
