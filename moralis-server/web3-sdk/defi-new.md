@@ -18,7 +18,7 @@ The token0 and token1 options are interchangable (ie. there is no different outc
 ```javascript
 const options = {
   token0_address: "0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c",
-  token0_address: "0xe9e7cea3dedca5984780bafc599bd69add087d56",
+  token1_address: "0xe9e7cea3dedca5984780bafc599bd69add087d56",
   exchange: "pancakeswapv2",
   chain: "bsc"
  };
