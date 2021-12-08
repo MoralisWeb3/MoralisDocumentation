@@ -436,19 +436,40 @@ For your own contracts, the ABI can be found in the build directory after compil
 * Truffle: `/truffle/build/contracts/myContract.json`.
 * Hardhat: `/artifacts/contracts/myContract.sol/myContract.json`.
 
+## Units
+
 ## IPFS
+
+Moralis units is integrated in Cloud Code.\
+In order to successfully run the `units` function you always need to specify a `method` and a `value`.
 
 IPFS functionalities are available in Cloud Code.\
 In order to successfully upload to IPFS you need to specify:
 
+### To wei
+
 * A source type: `sourceType`
 * A source: `source`
 
+Convert any ether value to wei.
+
 Follows a list supported `sourceType`.
+
+```javascript
+const result = await Moralis.Cloud.units({
+  method: "toWei",
+  value: 1
+});
+return result;
+```
 
 ### Url
 
+Result: `1000000000000000000`
+
 Push the content of a given url to IPFS.
+
+### From wei
 
 ```javascript
 const result = await Moralis.Cloud.toIpfs({
@@ -458,11 +479,25 @@ const result = await Moralis.Cloud.toIpfs({
 return result;
 ```
 
+Convert any wei value to ether.
+
 Result: `{ "path": "https://ipfs.moralis.io:2053/ipfs/QmYrUVhr1f6ZpZ4jrmi7mSv5X8MGjxxrgaERWde3cFASL6" }`
+
+```javascript
+const result = Moralis.Cloud.units({
+  method: "fromWei",
+  value: 1000000000000000
+});
+return result;
+```
 
 ### String
 
+Result: `0.001`
+
 Push a string to IPFS.
+
+### To hex
 
 ```javascript
  const result = await Moralis.Cloud.toIpfs({
@@ -472,11 +507,25 @@ Push a string to IPFS.
  return result;
 ```
 
+Convert any given value to its hexadecimal representation.&#x20;
+
 Result: `{ "path": "https://ipfs.moralis.io:2053/ipfs/QmeYY26fCN4t2Apo9Nqix5ZDhJwcjoyDVLLz85TLkoiqpn" }`
+
+```javascript
+ const result = Moralis.Cloud.units({
+   method: "toHex",
+   value: 100
+ });
+ return result;
+```
 
 ### Object
 
+Result: `64`
+
 Push an object to IPFS.
+
+
 
 ```javascript
 const result = await Moralis.Cloud.toIpfs({
@@ -492,6 +541,8 @@ const result = await Moralis.Cloud.toIpfs({
 });
 return result;
 ```
+
+
 
 Result: `{ "path": "https://ipfs.moralis.io:2053/ipfs/QmWowsJ74rYCHUYhag83Puky1qZTSsdj3n7bT2ejE2NvCJ" }`
 
