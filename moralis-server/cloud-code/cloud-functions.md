@@ -442,9 +442,8 @@ Moralis units are available inside your cloud functions.\
 In order to successfully run the `units` function you always need to specify a `method` and a `value`.
 
 ### To wei
-Convert any ether value to wei.
 
-Follows a list supported `sourceType`.
+Convert any ether value to wei.
 
 ```javascript
 const result = await Moralis.Cloud.units({
@@ -453,10 +452,13 @@ const result = await Moralis.Cloud.units({
 });
 return result;
 ```
+
 Result: `1000000000000000000`
 
 ### From wei
+
 Convert any wei value to ether.
+
 ```javascript
 const result = Moralis.Cloud.units({
   method: "fromWei",
@@ -468,7 +470,9 @@ return result;
 Result: `0.001`
 
 ### To hex
-Convert any given value to its hexadecimal representation.&#x20;
+
+Convert any given value to its hexadecimal representation.
+
 ```javascript
  const result = Moralis.Cloud.units({
    method: "toHex",
@@ -476,19 +480,23 @@ Convert any given value to its hexadecimal representation.&#x20;
  });
  return result;
 ```
+
 Result: `64`
 
-
 ## IPFS
+
 IPFS functionality is available inside your cloud functions.\
 In order to successfully upload to IPFS you need to specify:
+
 * A source type: `sourceType`
 * A source: `source`
 
 Below are the supported values of `sourceType`
 
 ### Url
+
 Push the content of a given url to IPFS.
+
 ```javascript
 const result = await Moralis.Cloud.toIpfs({
   sourceType: "url",
@@ -496,10 +504,13 @@ const result = await Moralis.Cloud.toIpfs({
 });
 return result;
 ```
+
 Result: `{ "path": "https://ipfs.moralis.io:2053/ipfs/QmYrUVhr1f6ZpZ4jrmi7mSv5X8MGjxxrgaERWde3cFASL6" }`
 
 ### String
+
 Push a string to IPFS.
+
 ```javascript
  const result = await Moralis.Cloud.toIpfs({
    sourceType: "string",
@@ -511,7 +522,9 @@ Push a string to IPFS.
 Result: `{ "path": "https://ipfs.moralis.io:2053/ipfs/QmeYY26fCN4t2Apo9Nqix5ZDhJwcjoyDVLLz85TLkoiqpn" }`
 
 ### Object
+
 Push an object to IPFS.
+
 ```javascript
 const result = await Moralis.Cloud.toIpfs({
   sourceType: 'object',
@@ -526,6 +539,7 @@ const result = await Moralis.Cloud.toIpfs({
 });
 return result;
 ```
+
 Result: `{ "path": "https://ipfs.moralis.io:2053/ipfs/QmWowsJ74rYCHUYhag83Puky1qZTSsdj3n7bT2ejE2NvCJ" }`
 
 ### Base64 Binary
