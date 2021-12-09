@@ -60,7 +60,7 @@ Moralis.Cloud.beforeSaveFile((request) => {
 
 You can do any custom logic you want in order to determine wether a file should be allowed to save or not. For example you can analyze the `request` object in order to see which user is trying to save the file.
 
-Read more in [Triggers](../cloud-code/triggers.md).
+Read more in [File Triggers](../cloud-code/triggers.md#file-triggers).
 
 ## Getting help
 
