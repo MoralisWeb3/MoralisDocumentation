@@ -46,6 +46,24 @@ Learn by watching the video below and reading [Security Docs](security.md).
 CLP and ACL policies explained.
 {% endembed %}
 
+## Restricting File Uploads
+
+By default Moralis allows any authenticated user to upload [Files](../files/). It's a good idea to put in logic that restricts file uploads.
+
+If your app has no use for files they should be completely disabled. You can disable all file uploads by including the following trigger in your cloud code.
+
+\`\`\`\`&#x20;
+
+```javascript
+// Some codeMoralis.Cloud.beforeSaveFile((request) => {
+  throw "Not Allowed";
+ });Moralis.Cloud.beforeSaveFile((request) => {
+  throw "Not Allowed";
+ });
+```
+
+&#x20;
+
 ## Getting help
 
 If you have any questions about database security or locking down your database feel free to ask in the [Forum](https://forum.moralis.io).
