@@ -16,11 +16,23 @@ Moralis allows you to authenticate users on any blockchain with just one line of
 
 Authenticating users is simple:
 
+{% tabs %}
+{% tab title="JavaScript" %}
 ```javascript
 Moralis.authenticate().then(function (user) {
     console.log(user.get('ethAddress'))
 })
 ```
+{% endtab %}
+
+{% tab title="Kotlin Android" %}
+```kotlin
+Moralis.authenticate() { user ->
+    // Do sometthing with "user".
+}
+```
+{% endtab %}
+{% endtabs %}
 
 This will connect [MetaMask](https://metamask.io) and request a signature (no gas required!).
 
