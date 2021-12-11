@@ -38,7 +38,7 @@ To learn more about how to lock down your app, see the [Security docs](https://d
 
 ### ALWAYS PROTECT THE MASTER KEY
 
-<mark style="color:red;">**Please Note: You want to protect the **</mark><mark style="color:red;background-color:yellow;">**master key**</mark><mark style="color:red;">** since it can override all permissions and has full access to read, write, and delete. It's best to use the master key only on the server (i.e., cloud functions). Never use the master key on the frontend.**</mark>
+<mark style="color:red;">**Please Note: You want to protect the**</mark>** **<mark style="color:red;background-color:yellow;">**master key**</mark>** **<mark style="color:red;">**since it can override all permissions and has full access to read, write, and delete. It's best to use the master key only on the server (i.e., cloud functions). Never use the master key on the frontend.**</mark>
 
 ## Why do you use the signing messages and other Dapps don't?
 
@@ -63,6 +63,34 @@ You can find it in the Moralis admin panel after clicking on the "View Details" 
 
 ![](<../.gitbook/assets/image (117).png>)
 
+## Why is metadata null for some NFTs?
+
+The goal of Moralis is to always offer you fully resolved metadata so that you don't have to resolve it yourself and save load time in your app.
+
+### Why is it null?
+
+Some NFTs have their metadata is hosted on centralised servers. These servers sometimes have rate limits preventing Moralis to fully index the collections that have their metadata stored on such servers. In such cases the metadata may not be resolved. We are working all the time to extend our coverage of metadata.
+
+### How to get metadata?
+
+Even though Moralis can't always resolve the metadata for you we will always give you `token_uri` so that you can always resolve it yourself.
+
+When working with Moralis NFT API always check if metadata is given to you.&#x20;
+
+If yes - use it! We just saved you load time and improved the performance of your app 🙌
+
+If no - make a request to `token_uri` provided and get the metadata yourself.
+
+## Why is metadata outdated?
+
+There are millions of NFTs across the different blockchains that Moralis supports. The vast majority of NFTs never change metadata, therefore Moralis doesn't currently re-sync metadata. This is something we may do in the future!
+
+In the near future we will add a way for you to trigger metadata re-sync on a specific token. We know that this feature is important when you develop your NFT and you may be experimenting with different metadata and update it often during the development of your app.
+
+Join our [Discord](https://moralis.io/mage) to be updated when this feature is released!&#x20;
+
+If you really want us to add the auto re-sync feature - join Discord and explain why in the `#feature-request` channel.
+
 ## FRPC
 
 ### What version should I use on Mac?
@@ -80,7 +108,7 @@ You can find it in the Moralis admin panel after clicking on the "View Details" 
 This is because `frpc` is not signed for Mac. To allow it to run, follow these steps:
 
 * Navigate to `frpc` folder in Finder.
-* Right-click on the `frpc` executable while pressing the "**Ctrl" **key.
+* Right-click on the `frpc` executable while pressing the "**Ctrl"** key.
 * Select **Open**.
 
 Mac will give you information about the risks of overriding the system's security. Please read it carefully and click "**Open"** in the pop-up if you agree.
@@ -125,7 +153,7 @@ Don't worry - the wake up process will take approximately 30 seconds and your se
 
 If a server stays shutdown for a period longer than 48 hours it will be terminated.&#x20;
 
-But don't worry - we will back up your server configuration and save it in archive. You will need to recover it by clicking the _**"Recover" **_button.&#x20;
+But don't worry - we will back up your server configuration and save it in archive. You will need to recover it by clicking the _**"Recover"**_ button.&#x20;
 
 This process is a bit longer than a normal "Wake Up" and can take a few minutes.
 
