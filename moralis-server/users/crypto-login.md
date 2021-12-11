@@ -52,11 +52,15 @@ Logging in your first users on Ethereum, Polygon, Avalanche (or any other chain)
 
 ### WalletConnect
 
+Moralis also supports authentication using WalletConnect.
+
+{% tabs %}
+{% tab title="JavaScript" %}
 {% embed url="https://www.youtube.com/watch?v=UP6MfkU3Bkg" %}
 Practical Demo how to login your users to you dapp with any wallet.
 {% endembed %}
 
-Moralis also supports authentication using WalletConnect. First add the provider by adding the script (make sure to use the latest version, see [https://github.com/WalletConnect/walletconnect-monorepo/releases](https://github.com/WalletConnect/walletconnect-monorepo/releases)):
+First add the provider by adding the script (make sure to use the latest version, see [https://github.com/WalletConnect/walletconnect-monorepo/releases](https://github.com/WalletConnect/walletconnect-monorepo/releases)):
 
 ```javascript
 <script src="https://github.com/WalletConnect/walletconnect-monorepo/releases/download/1.6.2/web3-provider.min.js"></script>
@@ -73,16 +77,37 @@ Then call authenticate like above, but with a provider option:
 ```javascript
 const user = await Moralis.authenticate({ provider: "walletconnect" })
 ```
+{% endtab %}
+
+{% tab title="Kotlin Android" %}
+With Kotlin Android WalletConnect is the default and only way of connecting with wallets, so no extra action is needed.
+{% endtab %}
+{% endtabs %}
 
 #### Specify the `chainId`.
 
-You might want to specify the chain id that WalletConnect will use by default. You can do this by providing the `chainId` as an extra option:&#x20;
+You might want to specify the chain id that WalletConnect will use by default
+
+{% tabs %}
+{% tab title="JavaScript" %}
+You can do this by providing the `chainId` as an extra option:&#x20;
 
 ```javascript
 const user = await Moralis.authenticate({ provider: "walletconnect", chainId: 56 })
 ```
+{% endtab %}
 
-#### Filter Mobile Linking Options&#x20;
+{% tab title="Kotlin Android" %}
+Simply pass the optional parameter "chainId" in the authenticate() function:
+```kotlin
+Moralis.authenticate(chainId = 56) { user ->
+    // Do sometthing with "user".
+}
+```
+{% endtab %}
+{% endtabs %}
+
+#### Filter Mobile Linking Options&#x20; (iOS only)
 
 If you would like to reduce the number of mobile linking options or customize its order, you can provide an array of wallet names to the `mobileLinks` option .&#x20;
 
@@ -280,11 +305,23 @@ During testing, if you manually delete a user, then make sure to delete the corr
 
 ## Changing Sign-In Message
 
-The message the user sees when signing in with Web3 can be changed by doing the following in the browser:
+The message the user sees when signing in with Web3 can be changed by doing the following:
 
+{% tabs %}
+{% tab title="JavaScript" %}
 ```javascript
 Moralis.authenticate({signingMessage:"hello"})
 ```
+{% endtab %}
+
+{% tab title="Kotlin Android" %}
+```kotlin
+Moralis.authenticate(signingMessage= "hello") { user ->
+    // Do sometthing with "user".
+}
+```
+{% endtab %}
+{% endtabs %}
 
 ![](<../../.gitbook/assets/image (57).png>)
 
