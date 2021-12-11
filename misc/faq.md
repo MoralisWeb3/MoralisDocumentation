@@ -81,6 +81,14 @@ If yes - use it! We just saved you load time and improved the performance of you
 
 If no - make a request to `token_uri` provided and get the metadata yourself.
 
+## Why is metadata outdated?
+
+There are millions of NFTs across the different blockchains that Moralis supports. The vast majority of NFTs never change metadata, there Moralis doesn't currently re-sync metadata. This is something we may do in the future!
+
+In the near future we will add a way for you to trigger metadata re-sync on a specific token. We know that this feature is important when you develop your NFT and you may be experimenting with different metadata and update it often during the development of your app.
+
+Join our [Discord](https://moralis.io/mage) to be updated when this feature is released!
+
 ## FRPC
 
 ### What version should I use on Mac?
