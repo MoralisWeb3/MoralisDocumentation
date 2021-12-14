@@ -23,11 +23,11 @@ For any Moralis issue, the first place to check is the logs section in the dashb
 * Check that the event topic is correctly defined.
   * **`EventName(type1,type2,type3)`**
   * There should be no spaces between commas, no event param names only types.
-* Was the event **ABI **included, and properly formatted?
+* Was the event **ABI** included, and properly formatted?
 * Ensure that the event sync is pointing to the correct contract address.
 * Ensure that the Moralis server is updated to the latest version.
 * **Switching the local devchain** from Ganache to Hardhat (or vise versa) may result in a corrupted server instance. If you want to switch from one to the other, it's better to create a new server instance.
-* Are you** forking the mainnet**? This feature in both Ganache-CLI and Hardhat is not yet supported.
+* Are you **forking the mainnet**? This feature in both Ganache-CLI and Hardhat is not yet supported.
 
 See the [Real-Time Transactions](../moralis-server/automatic-transaction-sync/smart-contract-events.md) docs for more details on how to set up the plugin.
 

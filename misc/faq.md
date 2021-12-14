@@ -63,6 +63,22 @@ You can find it in the Moralis admin panel after clicking on the "View Details" 
 
 ![](<../.gitbook/assets/image (117).png>)
 
+## I just minted an NFT - why is it not showing up in the API?
+
+### Ensure you are compliant with the standards
+
+In order for the NFT to show up in the API it needs to be compliant with [ERC721](https://eips.ethereum.org/EIPS/eip-721) or [ERC1155](https://eips.ethereum.org/EIPS/eip-1155) standards.
+
+Both of these standards require the implementation of `supportsInterface` method from ERC165 standard.
+
+If you use [OpenZeppelin contracts](https://docs.openzeppelin.com/contracts/2.x/api/token/erc721) this is done automatically for you.
+
+A way to double check this is to open your contract in Etherscan and ensure it says `ERC721` or `ERC1155` on your contract page.
+
+![A contract like this will show up in the NFT API.](<../.gitbook/assets/Screenshot 2021-12-14 at 12.51.44.png>)
+
+![A contract like this won't show up in the NFT API. ](<../.gitbook/assets/Screenshot 2021-12-14 at 12.49.43.png>)
+
 ## Why is metadata null for some NFTs?
 
 The goal of Moralis is to always offer you fully resolved metadata so that you don't have to resolve it yourself and save load time in your app.

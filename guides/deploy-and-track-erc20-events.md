@@ -2,7 +2,7 @@
 
 The following guide will explain how to deploy an ERC-20 smart contract, sync and watch contract events, and saving the data into the Moralis database:
 
-For this example, we deployed an ERC-20 contract with the symbol MOR with "**ERC20PresetMinterPauser.sol"** using our local Ganache instance, [Remix](https://remix.ethereum.org), and MetaMask. We also want to track all "\_mint" events for our contract _(keep in mind that "\_mint" events in OpenZeppelin emits a transfer event, more info _[_HERE_](https://docs.openzeppelin.com/contracts/2.x/api/token/erc20#ERC20-\_mint-address-uint256-)_)._
+For this example, we deployed an ERC-20 contract with the symbol MOR with "**ERC20PresetMinterPauser.sol"** using our local Ganache instance, [Remix](https://remix.ethereum.org), and MetaMask. We also want to track all "\_mint" events for our contract _(keep in mind that "\_mint" events in OpenZeppelin emits a transfer event, more info_ [_HERE_](https://docs.openzeppelin.com/contracts/2.x/api/token/erc20#ERC20-\_mint-address-uint256-)_)._
 
 ### Set Up Ganache
 
@@ -58,7 +58,7 @@ Give it a name, we called it "_**erc20.sol".**_
 
 ![](<../.gitbook/assets/image (15).png>)
 
-Since we will use an ERC-20 contract from [OpenZeppelin](https://openzeppelin.com/contracts/), just paste this line to the file and save it.** T**o save, just use _CONTROL + S_ on Windows or _COMMAND + S_ on Mac.
+Since we will use an ERC-20 contract from [OpenZeppelin](https://openzeppelin.com/contracts/), just paste this line to the file and save it. **T**o save, just use _CONTROL + S_ on Windows or _COMMAND + S_ on Mac.
 
 ```
 import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/token/ERC20/presets/ERC20PresetMinterPauser.sol";
@@ -108,7 +108,7 @@ Enter your address and an amount in WEI. For example, I will mint 1000 MOR tokes
 
 ![](<../.gitbook/assets/image (30).png>)
 
-After clicking on transact, confirm the transaction with MetaMask and the tokens should now have arrived at the proper address. 
+After clicking on transact, confirm the transaction with MetaMask and the tokens should now have arrived at the proper address.&#x20;
 
 ### Add Token to MetaMask
 
@@ -160,10 +160,10 @@ The next step will be to crea~~t~~e a new plugin in the admin panel to sync and 
 ![](<../.gitbook/assets/image (5).png>)
 
 * **"description" -** Enter "Sync MOR Transfer Events". It's a small description for us to keep track of all the plugins we add to our instance.
-* **"topic" -** We use "_**Transfer(address,address,uint256)", **_but you can also use the sha3 topic "**0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef**".
-* **"abi" - **Our abi includes three inputs: from, to, and value. We get this abi directly from Remix.
-* **"address" - **"**0x4F27558d3F86670a9E2EfF294b7d10600266533F**" (our MOR contract address).
-* **"tableName" -** "_**MORTransferEvent**", _it's the name of the table that will be created in our database with all the events.
+* **"topic" -** We use "_**Transfer(address,address,uint256)",**_ but you can also use the sha3 topic "**0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef**".
+* **"abi" -** Our abi includes three inputs: from, to, and value. We get this abi directly from Remix.
+* **"address" -** "**0x4F27558d3F86670a9E2EfF294b7d10600266533F**" (our MOR contract address).
+* **"tableName" -** "_**MORTransferEvent**",_ it's the name of the table that will be created in our database with all the events.
 
 To get the abi from Remix, just go to the "Solidity Compiler" tab, choose the "**ERC20PresetMinterPauser.sol"**  contract and click on the abi icon. The full abi will be copied to the clipboard, make sure you use only the abi for the event you are syncing:
 

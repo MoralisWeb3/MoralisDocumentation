@@ -16,9 +16,9 @@ You can find the Moralis Documentation repo here: [https://github.com/MoralisWeb
 
 Documentation is maybe the most important thing for developers learning new technologies. Documentation welcomes new developers and gets them up to speed. Moralis in on a mission to take crypto mainstream by empowering the developers to build great dapps and in order to achieve this vision we have to always have stellar and updated documentation.
 
-**Here is where you come in! **
+**Here is where you come in!**&#x20;
 
-As a member of the Moralis Community you are welcome to help out** **and we will reward you greatly for your help.
+As a member of the Moralis Community you are welcome to help out **** and we will reward you greatly for your help.
 
 ### 🏆 Rewards for helping out
 
