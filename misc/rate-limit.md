@@ -63,6 +63,7 @@ See the tables below for details about Speedy Node methods and API Endpoints tha
 | /erc20/{address}/price                         | 3 requests  |
 | /nft/{address}/lowestprice                     | 4 requests  |
 | /nft/{address}/trades                          | 4 requests  |
+| /{address}/erc20                               | 5 requests  |
 | /{address}/nft/{token\_address}                | 5 requests  |
 | /{address}/nft/transfers                       | 5 requests  |
 | /nft/{address}/transfers                       | 5 requests  |
