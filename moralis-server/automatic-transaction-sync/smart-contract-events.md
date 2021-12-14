@@ -21,11 +21,19 @@ Luckily, Moralis Server has this functionality built in.
 A tutorial demonstrating how to sync and watch smart contract event with Moralis.
 {% endembed %}
 
+## The Graph vs Moralis For Smart Contract Indexing
+
+{% embed url="https://www.youtube.com/watch?v=zrtcXd5cSe4" %}
+Indexing Smart Contracts with The Graph vs Moralis
+{% endembed %}
+
 ## Webhooks, SMS, Emails, Custom Code Based on Smart Contract Events
 
 {% embed url="https://www.youtube.com/watch?v=PEILxU53-Zs" %}
 This video explains how you can setup SMS, Email, Webhooks and run custom code when a smart contract even triggers.
 {% endembed %}
+
+## The\`G &#x20;
 
 ## Sync and Watch Contract Events
 
