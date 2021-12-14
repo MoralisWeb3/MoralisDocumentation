@@ -33,8 +33,6 @@ Indexing Smart Contracts with The Graph vs Moralis
 This video explains how you can setup SMS, Email, Webhooks and run custom code when a smart contract even triggers.
 {% endembed %}
 
-## The\`G &#x20;
-
 ## Sync and Watch Contract Events
 
 ### Defining
