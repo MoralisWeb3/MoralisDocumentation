@@ -73,3 +73,42 @@ See the tables below for details about Speedy Node methods and API Endpoints tha
 | /nft/transfers                                 | 5 requests  |
 | /nft/search                                    | 5 requests  |
 | uploadIPFSFolder                               | 25 requests |
+
+## Why am I rate limited?
+
+There are 2 different types of rate-limits you need to know about.
+
+### Error 400 - Rate limit between your server and your clients
+
+The first type of rate limit is protecting your Moralis Server from spam requests from your clients.&#x20;
+
+As you know - anyone can use the Moralis SDK and call the [Web3 API](../moralis-server/web3-sdk/) using your server.&#x20;
+
+Your server has built-in rate limits you can adjust that dictate how many requests different types of users can do before they are rate limited. You have full control over these rate limits and can adjust them with a few lines of code in your Cloud Code.&#x20;
+
+Read more [here](https://docs.moralis.io/moralis-server/web3-sdk/rate-limit).
+
+If your clients go above the allowed rate-limit you set they will see the following error:
+
+Error `400: Too many requests, please try again later.`
+
+### Error 141 - Rate limit between your server and Web3 API
+
+Wether you are using Moralis Server or calling the Web3 API from your own backend you may get limited by the Web3 API.
+
+In that case you will get `Error 141: Rate limit exceeded`.
+
+When you call the API you can expect the response header in order to understand your rate limits.
+
+![Response header example.](<../.gitbook/assets/Screenshot 2021-12-15 at 15.38.46.png>)
+
+The most important values to look at are `x-rate-limit-limit` and `x-rate-limit-throttle-limit`.
+
+The first one tells you how many requests you are allowed to do per minute and the second one how many you can do per second.&#x20;
+
+Some heavy requests count as [several requests](https://docs.moralis.io/moralis-server/web3-sdk/rate-limit).
+
+In order to not get rate-limited pay attention to `x-rate-limit-used` and `x-rate-throttle-used`.
+
+_(If you are using NFT endpoints with offset - please_ [_read this_](https://forum.moralis.io/t/nft-endpoints-temporary-offset-rate-limit/5867/16?u=ivan) _as they have temporarily different special weights)._
+
