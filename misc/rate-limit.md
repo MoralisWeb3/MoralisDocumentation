@@ -106,7 +106,7 @@ The most important values to look at are `x-rate-limit-limit` and `x-rate-limit-
 
 The first one tells you how many requests you are allowed to do per minute and the second one how many you can do per second.&#x20;
 
-Some heavy requests count as [several requests](https://docs.moralis.io/moralis-server/web3-sdk/rate-limit).
+Some heavy requests count as [several requests](https://docs.moralis.io/misc/rate-limit#request-weights).
 
 In order to not get rate-limited pay attention to `x-rate-limit-used` and `x-rate-throttle-used`.
 
