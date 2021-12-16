@@ -305,14 +305,14 @@ const NFTs = await Moralis.Web3API.token.searchNFTs(options);
 ]
 ```
 
-#### Serching by `global`:
+#### Searching by `global`:
 
 ```javascript
 const options = { q: "bored ape", chain: "bsc", filter: "global" };
 const NFTs = await Moralis.Web3API.token.searchNFTs(options);
 ```
 
-#### Serching by `description,attributes`:
+#### Searching by `description,attributes`:
 
 ```javascript
 const options = { q: "loves bananas", chain: "bsc", filter: "description,attributes" };
