@@ -466,11 +466,11 @@ You can create a pipeline using an Array or an Object.
 
 ```javascript
 const pipelineObject = {
-
- };
+  group: { objectId: '$name' }
+};
 
 const pipelineArray = [
-
+  { group: { objectId: '$name' } }
 ];
 ```
 
@@ -522,8 +522,6 @@ query.aggregate(pipeline)
 
 You can read more about what operators are available in the [Mongo query operators docs](https://docs.mongodb.com/v3.6/reference/operator/query/).
 
-
-
 ### Lookup (Join)
 
 The `lookup` pipeline is similar to `LEFT OUTER JOIN` in SQL. It will match documents in another collection and bring them into the results as an array property. Use this for collections that were not created with an explicit relation (see [Relational Data](objects.md#relational-data), [Relational Queries](queries.md#relational-queries)).
@@ -546,7 +544,7 @@ Token {
 }
 ```
 
-Then you would define a cloud function like this (aggregate queries must be run in cloud code). ~~Remember to escape the `$` like `\$` to prevent parsing errors ~~(this is now fixed!).
+Then you would define a cloud function like this (aggregate queries must be run in cloud code). \~\~Remember to escape the `$` like `\$` to prevent parsing errors \~\~(this is now fixed!).
 
 ```javascript
 // this goes in the Moralis server Cloud Functions section
@@ -662,8 +660,6 @@ query.aggregate(pipeline)
 
 {% embed url="https://youtu.be/xAoBRCoAhMU" %}
 
-
-
 Group pipeline is similar to `distinct`.
 
 You can group by field:
@@ -741,7 +737,7 @@ You can group by the column of a child document by using dot notation. However, 
 
 The sorting stage is used to sort the results by a given column in a specific order.
 
-To specify sort order,   `1` is used to sort in ascending order, and`  -1  ` is used to sort in descending order.
+To specify sort order, `1` is used to sort in ascending order, and `-1` is used to sort in descending order.
 
 ```javascript
  // This will sort the rows in ascending order based on the username field
@@ -767,7 +763,7 @@ The skip stage skips over the specified number of rows that is passed into the s
 
 ### Limit
 
-The limit stage only includes the first  `n` number of rows that are passed into the stage.
+The limit stage only includes the first `n` number of rows that are passed into the stage.
 
 ```javascript
    // This stage will throw away all rows except the first 5
