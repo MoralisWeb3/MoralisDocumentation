@@ -94,11 +94,23 @@ If your clients go above the allowed rate-limit you set they will see the follow
 
 `Error 141: Too many requests to Web3API from this particular client, the clients needs to wait before sending more requests. This can be adjusted using Moralis.settings.setAPIRateLimit. Read More:` [`https://docs.moralis.io/moralis-server/web3-sdk/rate-limit`](https://docs.moralis.io/moralis-server/web3-sdk/rate-limit)`.`
 
+_When this error can happen:_
+
+Someone using your website tries to make 10000 requests in 1 minute. Your server will protect itself and reject the user.&#x20;
+
+The way to fix this error is to adjust your settings like described above.
+
 #### Error 141 - Rate limit between your Moralis server and Web3 API
 
-When your users are calling the Web3 API from the SDK they may not be rate-limited by your server (situation described above) but they may get rate-limited because you plan
+When your users are calling the Web3 API from the SDK they may not be rate-limited by your server (situation described above) but they may get rate-limited because of your plan.
 
-`Error 141: This Moralis Server is rate-limited because of the plan restrictions. The server admin needs to upgrade Moralis Plan.`
+`Error 141: This Moralis Server is rate-limited because of the plan restrictions. See the details about the current rate and throttle limits: [RATE LIMIT INFO].`
+
+_When this error can happen:_
+
+You have many users not doing too many requests individually, but collectively they are doing more requests than your plan allows. For example - your plan allows 1000 request per minute. You have 100 users doing 15 requests per minute.&#x20;
+
+The way to fix this error is to upgrade your Moralis plan.
 
 ### Rate-limits when calling Web3 API using HTTP
 
@@ -119,5 +131,7 @@ The first one tells you how many requests you are allowed to do per minute and t
 Some heavy requests count as [several requests](https://docs.moralis.io/misc/rate-limit#request-weights).
 
 In order to not get rate-limited pay attention to `x-rate-limit-used` and `x-rate-throttle-used`.
+
+The way to fix this error is to upgrade your Moralis plan.
 
 _(If you are using NFT endpoints with offset - please_ [_read this_](https://forum.moralis.io/t/nft-endpoints-temporary-offset-rate-limit/5867/16?u=ivan) _as they have temporarily different special weights)._
