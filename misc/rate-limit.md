@@ -5,13 +5,13 @@ description: Important note regarding rate limits when using Moralis Services.
 # Billing & Rate Limits
 
 It's important you study rate limits for your plan and the different services that you use.\
-Please email hello@moralis.io if you have any questions!&#x20;
+Please email hello@moralis.io if you have any questions!
 
 ## Abuse prevention
 
 As Moralis offers a free tier we have systems in place in order to prevent abuse of our systems.
 
-Below are a few scenarios where your IP may get temporarily banned.&#x20;
+Below are a few scenarios where your IP may get temporarily banned.
 
 1. If you are sending requests although your key is already rate-limited we may temporarily ban your IP. For example, let's say you are on the free plan and you are allowed to do 3,000 requests per minute using your key. If you try to do 100,000 requests in the same minute using the same key - you will most likely get temporarily IP-banned.
 2. You are allowed to use several keys on the same IP for testing when you are way below your rate limits but it's not recommended for production as our systems may flag it as abuse. For example, if you create 100 free accounts and send requests using the keys from these accounts from the same IP - it's going to be temporarily disabled.
@@ -25,15 +25,15 @@ Below are a few scenarios where your IP may get temporarily banned.&#x20;
 
 ## Request weights
 
-All Moralis plans have generous limits on the amount of requests you can make per month. How many included requests you have depends on the plan you have, check the [pricing page](https://moralis.io/pricing) for more details.&#x20;
+All Moralis plans have generous limits on the amount of requests you can make per month. How many included requests you have depends on the plan you have, check the [pricing page](https://moralis.io/pricing) for more details.
 
 In most cases one request to the Speedy Nodes or the Web3 API counts as one request towards your monthly quota or allowed rate limit.
 
-However, some Speedy Node methods and API requests are very computationally expensive and therefore count as several requests.&#x20;
+However, some Speedy Node methods and API requests are very computationally expensive and therefore count as several requests.
 
 By giving some heavy requests higher weight we ensure that you ONLY pay for what you use and not a cent more - period! This way you get cheap requests for most use-cases while we can protect our systems from abuse by weighing the computationally expensive endpoints.
 
-See the tables below for details about Speedy Node methods and API Endpoints that are weighted.&#x20;
+See the tables below for details about Speedy Node methods and API Endpoints that are weighted.
 
 ### Speedy Node Requests
 
@@ -78,25 +78,35 @@ See the tables below for details about Speedy Node methods and API Endpoints tha
 
 There are 2 different types of rate-limits you need to know about.
 
-### Error 141 - Rate limit between your server and your clients
+### Rate-limits when using `Moralis.Web3API.` in the SDK
 
-The first type of rate limit is protecting your Moralis Server from spam requests from your clients.&#x20;
+#### Error 141 - Rate limit between your server and your clients
 
-As you know - anyone can use the Moralis SDK and call the [Web3 API](../moralis-server/web3-sdk/) using your server.&#x20;
+The first type of rate limit is protecting your Moralis Server from spam requests from your clients.
 
-Your server has built-in rate limits you can adjust that dictate how many requests different types of users can do before they are rate limited. You have full control over these rate limits and can adjust them with a few lines of code in your Cloud Code.&#x20;
+As you know - anyone can use the Moralis SDK and call the [Web3 API](../moralis-server/web3-sdk/) using your server.
+
+Your server has built-in rate limits you can adjust that dictate how many requests different types of users can do before they are rate limited. You have full control over these rate limits and can adjust them with a few lines of code in your Cloud Code.
 
 Read more [here](https://docs.moralis.io/moralis-server/web3-sdk/rate-limit).
 
 If your clients go above the allowed rate-limit you set they will see the following error:
 
-Error `141: Too many requests, please try again later.`
+`Error 141: Too many requests to Web3API from this particular client, the clients needs to wait before sending more requests. This can be adjusted using Moralis.settings.setAPIRateLimit. Read More:` [`https://docs.moralis.io/moralis-server/web3-sdk/rate-limit`](https://docs.moralis.io/moralis-server/web3-sdk/rate-limit)`.`
 
-### Error 141 - Rate limit between your server and Web3 API
+#### Error 141 - Rate limit between your Moralis server and Web3 API
 
-Wether you are using Moralis Server or calling the Web3 API from your own backend you may get limited by the Web3 API.
+When your users are calling the Web3 API from the SDK they may not be rate-limited by your server (situation described above) but they may get rate-limited because you plan
 
-In that case you will get `Error 141: Rate limit exceeded`.
+`Error 141: This Moralis Server is rate-limited because of the plan restrictions. The server admin needs to upgrade Moralis Plan.`
+
+### Rate-limits when calling Web3 API using HTTP
+
+#### Error 429 - Rate limit between your non-Moralis server and Web3 API
+
+When you are calling Web3 API from your own non-Moralis backend you may get limited by the Web3 API.
+
+In that case you will get `Error 429: Rate limit exceeded`.
 
 When you call the API you can expect the response header in order to understand your rate limits.
 
@@ -104,11 +114,10 @@ When you call the API you can expect the response header in order to understand 
 
 The most important values to look at are `x-rate-limit-limit` and `x-rate-limit-throttle-limit`.
 
-The first one tells you how many requests you are allowed to do per minute and the second one how many you can do per second.&#x20;
+The first one tells you how many requests you are allowed to do per minute and the second one how many you can do per second.
 
 Some heavy requests count as [several requests](https://docs.moralis.io/misc/rate-limit#request-weights).
 
 In order to not get rate-limited pay attention to `x-rate-limit-used` and `x-rate-throttle-used`.
 
 _(If you are using NFT endpoints with offset - please_ [_read this_](https://forum.moralis.io/t/nft-endpoints-temporary-offset-rate-limit/5867/16?u=ivan) _as they have temporarily different special weights)._
-
