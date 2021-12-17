@@ -96,7 +96,7 @@ If your clients go above the allowed rate-limit you set they will see the follow
 
 _When this error can happen:_
 
-A particular user using your website tries to make 10000 requests in 1 minute. Your server will protect itself and reject the user. Only the particular user will be affected.
+Imagine a particular user using your website trying to make a large number of requests during the same minute. Your server will protect itself and reject the user. Only the particular user will be affected.
 
 The way to fix this error is to adjust your settings like described above.
 
