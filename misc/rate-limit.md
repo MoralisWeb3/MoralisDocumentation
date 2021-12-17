@@ -78,7 +78,7 @@ See the tables below for details about Speedy Node methods and API Endpoints tha
 
 There are 2 different types of rate-limits you need to know about.
 
-### Error 400 - Rate limit between your server and your clients
+### Error 141 - Rate limit between your server and your clients
 
 The first type of rate limit is protecting your Moralis Server from spam requests from your clients.&#x20;
 
@@ -90,7 +90,7 @@ Read more [here](https://docs.moralis.io/moralis-server/web3-sdk/rate-limit).
 
 If your clients go above the allowed rate-limit you set they will see the following error:
 
-Error `400: Too many requests, please try again later.`
+Error `141: Too many requests, please try again later.`
 
 ### Error 141 - Rate limit between your server and Web3 API
 
