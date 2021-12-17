@@ -68,7 +68,7 @@ Get the liquidity reserves for a given pair address (asynchronous).&#x20;
 
 ```javascript
 const options = {
-  address: "0xa527a61703d82139f8a06bc30097cc9caa2df5a6",
+  pair_address: "0xa527a61703d82139f8a06bc30097cc9caa2df5a6",
   chain: "bsc"
  };
 const reserves = await Moralis.Web3API.defi.getPairReserves(options);
