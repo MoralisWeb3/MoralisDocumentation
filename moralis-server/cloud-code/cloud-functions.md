@@ -282,22 +282,6 @@ This function will only run if:
 * `request.user.get('accType')` is defined.
 * `request.user.get('accType')` is equal to ‘reviewer.’
 
-However, the requested user could set ‘accType’ to 'reviewer' and then recall the function. Here, you could provide validation on a `Moralis.User` `beforeSave` trigger. `beforeSave` validators have a few additional options available, to help you make sure your data is secure.
-
-```javascript
-Moralis.Cloud.beforeSave(Moralis.User, () => {
-  // any additional beforeSave logic here
-}, {
-    fields: {
-      accType: {
-        default: 'viewer',
-        constant: true
-      },
-    },
-});
-```
-
-This means that the field `accType` on `Moralis.User` will be ‘viewer’ on signup, and will be unchangeable, unless `masterKey` is provided.
 
 The full range of built-in validation options are:
 
