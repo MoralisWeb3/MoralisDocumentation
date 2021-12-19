@@ -62,24 +62,16 @@ Ganache and Hardhat only process new blocks when a transaction is made. This mea
 
 Another reason to run code in the cloud is to enforce a particular data format. For example, you might have both an Android and an iOS app, and you want to validate data for each of those. Rather than writing code once for each client environment, you can write it just once with cloud code.
 
-Let’s take a look at our movie review example. When you’re choosing how many stars to give something, you can typically only give 1, 2, 3, 4, or 5 stars. You can’t give -6 stars or 1337 stars in a review. If we want to reject reviews that are out of bounds, we can do this with the `beforeSave` method:
+Data validation can be done in the code of the trigger.
 
 ```javascript
 Moralis.Cloud.beforeSave("Review", (request) => {
-// do any additional beforeSave logic here
-},{
-  fields: {
-    stars : {
-      required:true,
-      options: stars => {
-        return stars >= 1 && stars <= 5;
-      },
-      error: 'Your review must be between one and five stars'
-    }
-  }
+   throw "validation error";
+}
 });
 
 ```
+
 
 If the function throws, then the `Review` object will not be saved and the client will get an error. If nothing is thrown, the object will be saved normally.
 
