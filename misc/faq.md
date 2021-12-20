@@ -105,7 +105,7 @@ In the near future we will add a way for you to trigger metadata re-sync on a sp
 
 Join our [Discord](https://moralis.io/mage) to be updated when this feature is released!&#x20;
 
-If you really want us to add the auto re-sync feature - join Discord and explain why in the `#feature-request` channel.
+If you really want us to add the auto re-sync feature - add it or upvote it here: [https://roadmap.moralis.io/b/feature-requests/](https://roadmap.moralis.io/b/feature-requests/)
 
 ## FRPC
 
