@@ -36,7 +36,7 @@ If the object doesn't exist it gets created.
 #### Options:
 
 * `className`: Class name in which you want to insert rows
-* `inserts:` Array of updates to make, each update needs to specify `filter` and `update` objects. The former is specifying which column to base the selection on and the latter is specifying which column to update in the selection.
+* `filters:` Array of updates to make, each update needs to specify `filter` and `update` objects. The former is specifying which column to base the selection on and the latter is specifying which column to update in the selection.
 
 **Note:** this query expects always the filter to return 1 row for each update, if multiple rows are returned only the first one will be updated.
 
@@ -58,7 +58,7 @@ If the objects doesn't exist they get created.
 #### Options:
 
 * `className`: Class name in which you want to insert rows
-* `updates:` Array of updates to make, each update needs to specify `filter` and `update` objects. The former is specifying which column to base the selection on and the latter is specifying which column to update in the selection.
+* `filters:` Array of updates to make, each update needs to specify `filter` and `update` objects. The former is specifying which column to base the selection on and the latter is specifying which column to update in the selection.
 
 ```javascript
 // update the all Food where name is Apple and set color to red 
@@ -76,7 +76,7 @@ Deletes the first found object for each filter.
 #### Options:
 
 * `className`: Class name in which you want to insert rows
-* `updates:` Array of updates to make, each update needs to specify `filter` and `update` objects. The former is specifying which column to base the selection on and the latter is specifying which column to update in the selection.
+* `filters:` Array of updates to make, each update needs to specify `filter` and `update` objects. The former is specifying which column to base the selection on and the latter is specifying which column to update in the selection.
 
 **Note:** this query expects always the filter to return 1 row for each update, if multiple rows are returned only the first one will be deleted.
 
@@ -96,7 +96,7 @@ Deletes all objects found for each filter.
 #### Options:
 
 * `className`: Class name in which you want to insert rows
-* `updates:` Array of updates to make, each update needs to specify `filter` and `update` objects. The former is specifying which column to base the selection on and the latter is specifying which column to update in the selection.
+* `filters:` Array of updates to make, each update needs to specify `filter` and `update` objects. The former is specifying which column to base the selection on and the latter is specifying which column to update in the selection.
 
 ```javascript
 // deletes all Food where name is Apple
