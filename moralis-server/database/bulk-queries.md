@@ -6,9 +6,17 @@ description: Bulk Queries are optimised to do large numbers of database operatio
 
 If you need to insert, update or delete many rows at once it's recommended to use Bulk Queries.
 
-Bulk Queries are fast and efficient but they don't trigger any [LiveQuery](live-queries.md) events nor any [Triggers](../cloud-code/triggers.md).
+**Bulk Queries are fast and efficient but they don't trigger any** [**LiveQuery**](live-queries.md) **events nor any** [**Triggers**](../cloud-code/triggers.md)**.**
 
 Because Bulk Queries have no overhead they are very fast and are executed directly on the database.
+
+**When to use:**
+
+If you need to run fast queries on the database without triggering Live Queries or Triggers.
+
+**When not to use:**
+
+If you need Live-Queries or Triggers to work as result of these queries.
 
 ## Bulk Write
 
