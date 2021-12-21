@@ -12,7 +12,7 @@
 * [🛠 Getting Started](moralis-server/getting-started/README.md)
   * [Create a Moralis Server](moralis-server/getting-started/create-a-moralis-server.md)
   * [Connect the SDK](moralis-server/getting-started/connect-the-sdk.md)
-  * [Boilerplate Projects](moralis-server/getting-started/boilerplate-projects.md)
+  * [🔥 Boilerplate Projects](moralis-server/getting-started/boilerplate-projects.md)
   * [Code Snippets](moralis-server/getting-started/snippets.md)
   * [Demos](moralis-server/getting-started/demos.md)
 * [👥 Users](moralis-server/users/README.md)
