@@ -39,8 +39,6 @@ Moralis.bulkWrite("Food", foodsToInsert)
 
 Updates one or several columns on the first found object for each filter.
 
-If the object doesn't exist it gets created.
-
 #### Options:
 
 * `className`: Class name in which you want to insert rows
@@ -60,8 +58,6 @@ Moralis.bulkUpdate("Food", foodsToUpdate)
 ## Bulk Update Many
 
 Updates one or several columns on all found objects for each filter.
-
-If the objects doesn't exist they get created.
 
 #### Options:
 
