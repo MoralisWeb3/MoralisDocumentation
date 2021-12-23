@@ -65,7 +65,7 @@ See the [Cloud Functions](../cloud-code/cloud-functions.md) and [Live Query](../
 
 ### Historical Transaction Limit
 
-If an address is watched that would result in retrieving 250k or more historical transactions, then the `Sync_historical` option will be disabled and no historical data will be saved. It is possible to contact support to upgrade your account to enable saving it anyway but think hard about whether it's actually necessary before doing so. It's possible to handle new transactions in real-time without saving the data to the database. You can also call the [Deep Index API](broken-reference) to selectively query the historical data. See below for more details.
+If an address is watched that would result in retrieving 500k or more historical transactions, then the `Sync_historical` option will be disabled and no historical data will be saved. It is possible to contact support to upgrade your account to enable saving it anyway but think hard about whether it's actually necessary before doing so. It's possible to handle new transactions in real-time without saving the data to the database. You can also call the [Deep Index API](broken-reference) to selectively query the historical data. See below for more details.
 
 ### Watch Address From Code
 
