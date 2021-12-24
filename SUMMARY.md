@@ -97,7 +97,6 @@
 * [Build a Simple dApp in 3 Mins - Real-Time Transactions (Part 4)](guides/build-a-simple-dapp-in-3-mins-real-time-transactions-part-4.md)
 * [Build a Simple dApp in 3 Mins - Cloud Functions (Part 5)](guides/build-a-simple-dapp-in-3-mins-cloud-functions-part-5.md)
 * [Deploy and Track ERC-20 Events](guides/deploy-and-track-erc20-events.md)
-* [Where to Host Frontend](https://abhiaiyer.medium.com/exploring-moralis-web3-authentication-6a7365524a9a)
 
 ## Misc
 
