@@ -132,6 +132,59 @@ If a new table name is not provided you'll see the following error message:
 
 ![This error message will also appear if you accidently name it the same as an existing plugin.](<../../.gitbook/assets/image (78).png>)
 
+## Watching from Code
+
+### Watch new smart contract event
+
+Moralis Server has a special cloud function called `watchContractEvent(options)`. You can call it using the master key.
+
+_Note: at the moment the events created via code won't be seen in the admin UI, you can only see them in the database, we are working on connecting the admin UI properly_
+
+```javascript
+// code example of creating a sync event from cloud code
+let options = {
+    "chainId": "0x1",
+    "address": "0x5c69bee701ef814a2b6a3edd4b1652cb9cc5aa6f",
+    "topic": "PairCreated(address, address, address, uint)",
+    "abi":   {
+      "anonymous": false,
+      "inputs": [
+        { "indexed": true, "internalType": "address", "name": "token0", "type": "address" },
+        { "indexed": true, "internalType": "address", "name": "token1", "type": "address" },
+        { "indexed": false, "internalType": "address", "name": "pair", "type": "address" },
+        { "indexed": false, "internalType": "uint256", "name": "", "type": "uint256" }
+      ],
+      "name": "PairCreated",
+      "type": "event"
+    },
+    "tableName": "UniPairCreated",
+    "sync_historical": false
+}
+
+Moralis.Cloud.run("watchContractEvent", options, {useMasterKey:true});
+```
+
+### Unwatch existing smart contract event
+
+```javascript
+// unwatch event that has TABLE_NAME as table in the database
+let options = {"tableName": "TABLE_NAME"}
+Moralis.Cloud.run("unwatchContractEvent", options, {useMasterKey:true});
+```
+
+### Important Note
+
+These features to watch/unwatch from code are still beta.
+
+Some known issues:
+
+1. You can only unwatch events via code that were created via code. If you created an event via UI - you can't unwatch it via code.
+2. If you watch an event via code - it won't be shown in the UI.
+
+We are working to fix these issues.
+
+[Join our Discord](https://moralis.io/mage) to discuss the development!
+
 ## Manual Event Handling
 
 If you start a sync job that would result in retrieving 500,000 or more historical events then the `Sync_historical` option will be disabled and no historical data will be fetched. The contract event (or watched address transaction) will still be monitored by Moralis, but it requires a trigger to tell Moralis what to do with the data. Until a `beforeConsume` trigger is defined, the default behavior will be to skip the event and log a message to the dashboard.
