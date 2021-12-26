@@ -1,6 +1,6 @@
 ---
 description: >-
-  You can get the content of any block in past, or address events based on block
+  You can get the content of any block from the past, or address events based on block
   number.
 ---
 
