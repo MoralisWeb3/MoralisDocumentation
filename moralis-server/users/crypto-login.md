@@ -92,7 +92,7 @@ const user = await Moralis.authenticate({
 
 Although Moralis offers native support for MetaMask and WalletConnect, it's possible to use any Web3 provider. The scope of this guide is to demonstrate how to supply any provider.
 
-This guide will use `Tourus` and Binance Smart Chain. The `Tourus` documentation is available at this url: [https://docs.tor.us/](https://docs.tor.us).
+This guide will use `Torus` and Binance Smart Chain. The `Torus` documentation is available at this url: [https://docs.tor.us/](https://docs.tor.us).
 
 The `Moralis` class has a method called `enable`. The first step is to overwrite this method in order to use a custom `Moralis wallet provider` class.
 
