@@ -162,7 +162,15 @@ window.web3 = await Moralis.enableWeb3();
 
 ## Non-EVM Chain Login
 
-Authenticating with non-Ethereum Virtual Machine (EVM) compatible chains requires a bit more setup.
+### Solana
+
+You can login a user using Phantom wallet on Solana using the code below.
+
+```javascript
+Moralis.authenticate({type:'sol'}).then(function(user) {
+    console.log(user.get('solAddress'))
+})
+```
 
 ### Elrond
 
