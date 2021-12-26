@@ -82,7 +82,7 @@ You may often want to be more careful with user information stored in the browse
 
 ```javascript
 Moralis.enableEncryptedUser();
-Moralis.secret = 'my Secrey Key';
+Moralis.secret = 'My Secret Key';
 ```
 
 * It's important to remember that this function will not work if `Moralis.secret` is not set.
