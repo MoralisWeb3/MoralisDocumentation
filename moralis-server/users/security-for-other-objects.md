@@ -6,7 +6,7 @@ description: Security Principles.
 
 The same security model that applies to the `Moralis.User` can be applied to other objects. For any object, you can specify which users are allowed to read and/or modify the object. To support this type of security, each object has an [access control list](http://en.wikipedia.org/wiki/Access_control_list), implemented by the `Moralis.ACL` class.
 
-The simplest way to use a `Moralis.ACL` is to specify that an object may only be read or written by a single user. This is done by initializing a Moralis.ACL with a `Moralis.User`: `new Moralis.ACL(user)` generates a `Moralis.ACL` that limits access to that user. An object's ACL is updated when the object is saved, like any other property. Thus, to create a private note that can only be accessed by the current user:
+The simplest way to use a `Moralis.ACL` is to specify that an object may only be read or written by a single user. This is done by initializing a Moralis.ACL with a `Moralis.User`: `new Moralis.ACL(user)`, which generates a `Moralis.ACL` that limits access to that user. An object's ACL is updated when the object is saved, like any other property. Thus, to create a private note that can only be accessed by the current user:
 
 ```javascript
 const Note = Moralis.Object.extend("Note");
