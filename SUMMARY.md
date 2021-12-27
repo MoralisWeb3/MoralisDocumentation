@@ -34,7 +34,7 @@
   * [🔥DeFi (new)](moralis-server/web3-sdk/defi-new.md)
   * [🔥IPFS Storage (new)](moralis-server/web3-sdk/ipfs-storage-new.md)
   * [REST API](moralis-server/web3-sdk/moralis-web3-api-rest.md)
-  * [NFT API](moralis-server/web3-sdk/nft-api.md)
+  * [😼 NFT API](moralis-server/web3-sdk/nft-api.md)
   * [Rate limit](moralis-server/web3-sdk/rate-limit.md)
 * [♻ Automatic Sync](moralis-server/automatic-transaction-sync/README.md)
   * [User Balances and Transactions](moralis-server/automatic-transaction-sync/historical-transactions.md)

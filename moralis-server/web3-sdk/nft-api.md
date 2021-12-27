@@ -4,7 +4,7 @@ description: >-
   metadata and so much more.
 ---
 
-# NFT API
+# 😼 NFT API
 
 Full documentation: [https://github.com/nft-api/nft-api](https://github.com/nft-api/nft-api)
 
@@ -15,6 +15,13 @@ The NFT API removes all the difficulties from working with NFTs and integrating 
 Working with NFTs is normally difficult as NFT token standards are poorly followed and a lot of edge-cases arise when you start parsing on-chain NFT data.&#x20;
 
 That's why the NFT API was built to provide a unified interface for all NFT tokens across different blockchains so that you can focus on your dapp without running your own NFT parsing pipeline.
+
+The most important use-cases for this API is getting cross-chain data related to:
+
+1. **NFT Metadata**
+2. **NFT Ownership data**
+3. **NFT Transfer data**
+4. **NFT Prices**
 
 ## NFT API Specification
 
