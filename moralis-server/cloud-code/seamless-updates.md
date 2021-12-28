@@ -13,7 +13,7 @@ You Moralis app is run by several workers (independent processes).
 When the setting is enabled Moralis will roll-out your new cloud code to one worker at a time which will lead to the following side-effects you need to keep in mind:
 
 * Different users will interact with different versions during a short period of time while the updated code is rolled out to all workers.
-* Rolling out an update fully will take much more time as instead of rebooting all workers with new code Moralis reboots only one worker at a time.
+* Rolling out an update fully will take much more time (several minutes) as instead of rebooting all workers with new code Moralis reboots only one worker at a time.&#x20;
 
 ### When to use
 
