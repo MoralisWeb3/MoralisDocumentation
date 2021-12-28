@@ -14,6 +14,7 @@ When the setting is enabled Moralis will roll-out your new cloud code to one wor
 
 * Different users will interact with different versions during a short period of time while the updated code is rolled out to all workers.
 * Rolling out an update fully will take much more time (several minutes) as instead of rebooting all workers with new code Moralis reboots only one worker at a time.&#x20;
+* New Cloud Code can't be saved until the rollout is fully complete.
 
 ### When to use
 
