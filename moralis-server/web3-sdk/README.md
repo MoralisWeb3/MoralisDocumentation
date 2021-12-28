@@ -17,4 +17,4 @@ Topics are divided into categories, depending on what is the main parameter for 
 
 Most of the information in this section will contain methods for getting data from blockchains using our SDK.
 
-Infromation about how to fetch data using `REST API` is described in the "REST API" topic. It has similar functionality as SDK.
+Information about how to fetch data using `REST API` is described in the "REST API" topic. It has similar functionality as SDK.
