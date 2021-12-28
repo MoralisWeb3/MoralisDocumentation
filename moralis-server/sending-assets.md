@@ -82,7 +82,7 @@ let result = await Moralis.transfer(options)
 
 Moralis.transfer() supports promise events. It allows you to get info on different stages of your interaction with the blockchain.&#x20;
 
-For example, you can instantly get a `transactionHash` without awaitng the entire transaction has been processed. And then after the transaction is processed, you can receive a `receipt`
+For example, you can instantly get a `transactionHash` without the need to await for the entire transaction to be processed. Once the transaction has processed, you will have access to the `receipt`
 
 To receive all data as event callbacks, you need to switch `awaitReceipt` to `false` in your  transaction options.
 
