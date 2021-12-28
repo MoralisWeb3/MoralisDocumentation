@@ -56,6 +56,7 @@
   * [Jobs](moralis-server/cloud-code/jobs.md)
   * [Webhooks](moralis-server/cloud-code/webhooks.md)
   * [Config](moralis-server/cloud-code/config.md)
+  * [🥳 Seamless Updates](moralis-server/cloud-code/seamless-updates.md)
 * [⛓ Web3](moralis-server/web3/README.md)
   * [Web3 Provider](moralis-server/web3/web3.md)
   * [Ganache & Hardhat Setup](moralis-server/web3/setting-up-ganache.md)
