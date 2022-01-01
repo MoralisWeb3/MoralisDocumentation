@@ -155,7 +155,7 @@ To verify the connection made is correct, just refresh the page (you can use F5)
 
 ### Syncing and Watching Contract Events From Moralis
 
-The next step will be to crea~~t~~e a new plugin in the admin panel to sync and watch contract events:
+The next step will be to create a new plugin in the admin panel to sync and watch contract events:
 
 ![](<../.gitbook/assets/image (5).png>)
 
