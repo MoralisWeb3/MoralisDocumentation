@@ -85,6 +85,14 @@ const results = await Moralis.Cloud.run("watchBscAddress", {address: "0x...", sy
 The watch address functions return no value as they start a job. They are still asynchronous though! Once the promise returns the synced transactions, they should be in the XxxTransactions table for the corresponding chain.
 {% endhint %}
 
+### Unwatch Address From Code
+
+When deleting `Sync and Watch Address` plugin on certain address, the plugin calls a [Cloud Function](../cloud-code/cloud-functions.md) called `unwatchXxxAddress` under the hood, where "Xxx" are the chain names [here](historical-transactions.md#chain-prefixes). Similarly to watching address from code, this cloud function can also be called directly from your own code!
+
+```javascript
+const results = await Moralis.Cloud.run("unwatchBscAddress", { address: "0x..." })
+```
+
 ## Unconfirmed Transactions
 
 Transactions on Testnet and Mainnet can take a while to be confirmed. When Moralis detects a new transaction (or event) in an unconfirmed state, these get put into transaction tables like `EthTransactions` with `confirmed: false`. For aggregate collections like balances, the unconfirmed transaction entries are put in separate collections postfixed with "Pending".
