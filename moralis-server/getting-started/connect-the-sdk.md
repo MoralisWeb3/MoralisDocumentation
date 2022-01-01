@@ -85,7 +85,7 @@ async function login() {
         console.log(user.get("ethAddress"));
       })
       .catch(function (error) {
-        console(error);
+        console.log(error);
       });
   }
 }
