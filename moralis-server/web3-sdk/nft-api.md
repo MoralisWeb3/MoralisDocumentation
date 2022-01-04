@@ -6,6 +6,8 @@ description: >-
 
 # 😼 NFT API
 
+## The Most Powerful Cross-chain NFT API
+
 Full documentation: [https://github.com/nft-api/nft-api](https://github.com/nft-api/nft-api)
 
 ## What is NFT API?
