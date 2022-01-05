@@ -39,7 +39,7 @@ On the other hand - if you see open issues on our GitHub - feel free to submit p
 
 ### 📹 YouTube and Blog
 
-As you know, the Moralis Community runs one of the largest crypto development channels on YouTube. If you would like to contribute to our YouTube with tutorials - please join [our Discord](https://morals.io/mage) and submit a video sample in **#content-trials**. The same procedure is in case you want to contribute to our Blog - submit samples in Discord **#content-trials** section.
+As you know, the Moralis Community runs one of the largest crypto development channels on YouTube. If you would like to contribute to our YouTube with tutorials - please join [our Discord](https://moralis.io/mage) and submit a video sample in **#content-trials**. The same procedure is in case you want to contribute to our Blog - submit samples in Discord **#content-trials** section.
 
 
 
