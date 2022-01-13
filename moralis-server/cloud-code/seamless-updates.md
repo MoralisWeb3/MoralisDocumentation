@@ -8,7 +8,7 @@ description: Update cloud code without downtime.
 
 You can enable `Seamless updates` in your server settings to avoid downtime each time you update cloud code.
 
-You Moralis app is run by several workers (independent processes).
+Your Moralis app is run by several workers (independent processes).
 
 When the setting is enabled Moralis will roll-out your new cloud code to one worker at a time which will lead to the following side-effects you need to keep in mind:
 
