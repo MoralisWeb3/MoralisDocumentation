@@ -17,7 +17,7 @@ This guide will show you the process using Vanilla Javascript. Moralis has dedic
 
 ### Creating an empty page
 
-The first step is to create an empty page we call `index.html` and `main.js` in the same directory and import **web3** and **moralis** scripts alongside our `main.js` file. We include two buttons on the page - one for logging in and one for logging out.
+The first step is to create an empty page we call `index.html` and `main.js` in the same directory and import the **moralis** script alongside our `main.js` file. We include two buttons on the page - one for logging in and one for logging out.
 
 #### **`index.html`**
 ```html
@@ -25,7 +25,6 @@ The first step is to create an empty page we call `index.html` and `main.js` in 
 <html>
   <head>
     <title>Vanilla Boilerplate</title>
-    <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
     <script src="https://unpkg.com/moralis/dist/moralis.js"></script>
   </head>
 

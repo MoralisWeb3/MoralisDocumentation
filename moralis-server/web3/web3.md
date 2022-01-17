@@ -8,38 +8,53 @@ Let's talk about Web3 integration!
 
 Moralis comes with a set of plugins to help you focus on the development of your app, leaving the rest to us.
 
-## Web3.js
+Similar to `window.ethereum.enable()` but returns a promise that resolves to a `Web3` instance from Ethers.js. Use this when you need a fully functional `Web3` instance, such as for making contract calls.
 
-### In Browser
+> ❗️ Note: make sure to have v1.0.0 or higher of the SDK installed. Otherwise Moralis.enableWeb3() will return an instance of web3.js instead of ethers.js
 
-Similar to `window.ethereum.enable()` but returns a promise that resolves to a `Web3` instance. Use this when you need a fully functional `Web3` instance, such as for making contract calls.
-
-```javascript
-const web3 = await Moralis.enableWeb3();
-const contract = new web3.eth.Contract(contractAbi, contractAddress);
+*Example*
+```js
+const web3Provider = await Moralis.enableWeb3();
 ```
 
-If you want to use providers like [WalletConnect](https://docs.moralis.io/moralis-server/users/crypto-login#walletconnect) you need to specify the `provider`option
+See for more info on how to use Ethers.js, in the [Ethers.js docs](https://docs.ethers.io/)
 
-```javascript
+### Web3.js
+You might want to use another library, like [Web3.js](https://web3js.readthedocs.io/). To do so, you need to include this library to your code.
+
+*When you import javascript scripts via html:*
+```html
+<script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
+```
+*Or when you use a package manager:*
+
+```sh
+npm install web3
+```
+
+Then in your code, use `Moralis.provider` to initialize the web3.js library. `Moralis.provider` will only be set after calling Moralis.authenticate or Moralis.enableWeb3.
+```js
+import Web3 from "web3"; // Only when using npm/yarn
+
+// Enable web3 and get the initialized web3 instance from Web3.js
+await Moralis.enableWeb3();
+const web3 = new Web3(Moralis.provider)
+```
+
+See for more info on how to use Ethers.js, in the  [Web3.js docs](https://web3js.readthedocs.io)
+
+### Connectors
+You enable web3 with any connector (such as WalletConnect, Metamask, Network etc.), the [same way as with Moralis.authenticate](https://docs.moralis.io/moralis-server/users/crypto-login#ethereum-bsc-and-polygon-login)), with the `provider` option:
+
+```js
 const web3 = await Moralis.enableWeb3({ provider: "walletconnect" });
-const contract = new web3.eth.Contract(contractAbi, contractAddress);
 ```
-
-If you only need to access `web3.utils` without Web3 connectivity, use the following:
-
-```javascript
-const web3 = new Moralis.Web3();
-const amountInEth = web3.utils.fromWei(amountInWei, 'ether');
-```
-
-Just beware that calls like `web3.eth.getAccounts()` will not work. You can re-assign the variable using `Moralis.enableWeb3()` later if you need full Web3 connectivity.
-
-See the [Web3.js docs](https://web3js.readthedocs.io) for more info on the Web3 object.
 
 ### In Cloud Functions
 
 It's also possible to get a Web3 instance inside cloud functions, but the syntax is a bit different. See the [Cloud Functions Web3](../cloud-code/cloud-functions.md#web3) page for more info.
+
+This instance is a **Web3.js instance**
 
 ## executeFunction
 
@@ -186,46 +201,39 @@ const symbol = await Moralis.executeFunction({ functionName: 'symbol', ...option
 const decimals = await Moralis.executeFunction({ functionName: 'decimals', ...options })
 const name = await Moralis.executeFunction({ functionName: 'name', ...options })
 ```
+### Resolve transaction result
 
-### Callbacks Promises Events
+`Moralis.executeFunction()` returns a [transaction response](https://docs.ethers.io/v5/api/providers/types/#providers-TransactionResponse). This object contains all data about the transaction. If you need data about the **result** of the transation, then you need to wait for the transaction to be **confirmed**.
 
-Moralis.executeFunction() supports promise events. It allows you to get info on different stages of your interaction with the blockchain.&#x20;
+You can do this via `transaction.wait()` to wait for 1 confirmation (or `transaction.wait(5)` to wait for 5 confirmations for example):
 
-For example, you can instantly get a `transactionHash` without awaitng the entire transaction has been processed. And then after the transaction is processed, you can receive a `receipt`
-
-To receive all data as event callbacks, you need to switch `awaitReceipt` to `false` in your  transaction options.
-
-```javascript
+```js
 const options = {
   contractAddress: "0xe...56",
   functionName: "swapNativeForTokens",
   abi: ABI,
   msgValue: Moralis.Units.ETH("0.1"),
-  awaitReceipt: false // should be switched to false
-};
-
-const tx = await Moralis.executeFunction(options);
-
-tx.on("transactionHash", (hash) => { ... })
-  .on("receipt", (receipt) => { ... })
-  .on("confirmation", (confirmationNumber, receipt) => { ... })
-  .on("error", (error) => { ... });
+}
+const transaction = await Moralis.executeFunction(options)
+const result = await transaction.wait()
 ```
 
 ## Events
 
-There are wrappers for the standard Web3 change events.
+There are several events, that you can listen to on Moralis:
 
 * onConnect
 * onDisconnect
+* onWeb3Enabled
+* onWeb3Deactivated
 * onChainChanged
-* onAccountsChanged
+* onAccountChanged
 
 ```javascript
-const unsubscribe = Moralis.onAccountsChanged(function(accounts) {
+const unsubscribe = Moralis.onAccountChanged(function(account) {
   console.log(accounts);
 });
-// ["0x0f7056a5778b15ebd522f39ab9782abf3ee37f08"]
+// "0x0f7056a5778b15ebd522f39ab9782abf3ee37f08"
 ```
 
 ## Linking
@@ -238,10 +246,10 @@ Link (unlink) an address to the current user.
 The user may have multiple addresses they wish to associate with their profile.  This can be done with the `link` function after the user has been authenticated.
 
 ```javascript
-Moralis.onAccountsChanged(async function (accounts) {
+Moralis.onAccountChanged(async function (account) {
   const confirmed = confirm('Link this address to your account?');
   if (confirmed) {
-    await Moralis.link(accounts[0]);
+    await Moralis.link(account);
     alert('Address added!');
   }
 });
@@ -279,29 +287,43 @@ if (isWeb3Active) {
 }
 ```
 
-## isMetaMaskInstalled
+## connector / connectorType
 
-Detect if MetaMask web3 provider is installed.
+Returns details of the connector or the connector type, that is used to authenticate or enable web3:
+```js
+const connectorType =  Moralis.Web3.connectorType;
+if(connectorType === 'injected'){
+  console.log("Metamask or an injected provider is used")
+}
 
-Returns: `True` or `False`
+const connector = Moralis.Web3.connector;
+console.log(connector)
 
-```javascript
-const isMetaMaskInstalled= await Moralis.isMetaMaskInstalled();
-console.log(isMetaMaskInstalled) 
 ```
 
-## getChainId
+## chainId
 
-Returns the current chain ID
+Returns the current chain ID that is used to connect to web3
 
 ```javascript
-const chainId = await Moralis.getChainId();
+const chainId = await Moralis.chainId;
 console.log(chainId); // 56
+```
+
+## account
+
+Returns the current account that is used to connect to web3
+
+```javascript
+const account = await Moralis.account;
+console.log(account); // "0x...."
 ```
 
 ## switchNetwork
 
 Function to change the current network
+
+> Note: this method can only be used, when Metamask is used as a connector
 
 #### Options:
 
@@ -317,6 +339,8 @@ You can only switch to the network that is in the wallet. How to add a new netwo
 {% endhint %}
 
 ## addNetwork
+
+> Note: this method can only be used, when Metamask is used as a connector
 
 The function for adding a new network to the wallet. You can find the network configuration for each chain in their documentation sites.
 

@@ -61,7 +61,7 @@ const options = {type: "erc721",
                  receiver: "0x..",
                  contractAddress: "0x..",
                  tokenId: 1}
-let result = await Moralis.transfer(options)
+let transaction = await Moralis.transfer(options)
 ```
 
 ## Transferring ERC1155 Tokens (Semi-Fungible)
@@ -75,31 +75,16 @@ const options = {type: "erc1155",
                  contractAddress: "0x..",
                  tokenId: 1,
                  amount: 15}
-let result = await Moralis.transfer(options)
+let transaction = await Moralis.transfer(options)
 ```
 
-## 🔥 Callbacks Promises Events (new)
+### Resolving the results
 
-Moralis.transfer() supports promise events. It allows you to get info on different stages of your interaction with the blockchain.&#x20;
+`Moralis.transfer()` returns a [transaction response](https://docs.ethers.io/v5/api/providers/types/#providers-TransactionResponse). This object contains all data about the transaction. If you need data about the **result** of the transation, then you need to wait for the transaction to be **confirmed**.
 
-For example, you can instantly get a `transactionHash` without awaitng the entire transaction has been processed. And then after the transaction is processed, you can receive a `receipt`
+You can do this via `transaction.wait()` to wait for 1 confirmation (or `transaction.wait(5)` to wait for 5 confirmations for example):
 
-To receive all data as event callbacks, you need to switch `awaitReceipt` to `false` in your  transaction options.
-
-```javascript
-const txOptions = {
-  type: "erc20",
-  amount: Moralis.Units.Token("10", "18"),
-  receiver: "0xB5...ee035",
-  contractAddress: "0x7b...605e",
-  awaitReceipt: false // should be switched to false
-}
-
-const tx = await Moralis.transfer(txOptions);
-
-tx.on("transactionHash", (hash) => { ... })
-  .on("receipt", (receipt) => { ... })
-  .on("confirmation", (confirmationNumber, receipt) => { ... })
-  .on("error", (error) => { ... });
-
+```js
+const transaction = await Moralis.transfer(options)
+const result = await transaction.wait()
 ```
