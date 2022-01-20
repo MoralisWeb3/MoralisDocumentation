@@ -11,10 +11,10 @@ It's possible to link multiple addresses from multiple chains to the same user p
 Normally a user has more than one Ethereum address. You'll want to maintain the same user session even if the user changes to another active address, known as "linking". This will add the address to the current user, allowing the user to change their active address and still have the same user profile.
 
 ```javascript
-Moralis.onAccountChanged( async (accounts) => {
+Moralis.onAccountChanged( async (account) => {
   const confirmed = confirm("Link this address to your account?");
   if (confirmed) {
-    await Moralis.link(accounts[0]);
+    await Moralis.link(account);
   }
 });
 ```
