@@ -39,6 +39,15 @@ The first step is to create an empty page we call `index.html` and `main.js` in 
 </html>
 ```
 
+> The above example imports the **latest** version of Moralis. Be aware of this when running your code in production. It's always better to specify a version. That way, you can update the version yourself and check if there are any breaking changes. 
+> 
+> To do so:
+> Change the `src` of the script tag to specify the latest stable version of Moralis like:
+> `https://unpkg.com/moralis@<VERSION>/dist/moralis.js`
+> For the latest release version, you can check the [Releases on GitHub](https://github.com/MoralisWeb3/Moralis-JS-SDK/releases)
+> For example: `<script src="https://unpkg.com/moralis@1.0.3/dist/moralis.js"></script>`
+> 
+
 #### **`main.js`**
 ```javascript
 /* TODO: Add Moralis init code */
