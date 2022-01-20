@@ -13,7 +13,7 @@ Similar to `window.ethereum.enable()` but returns a promise that resolves to a `
 > ❗️ Note: make sure to have v1.0.0 or higher of the SDK installed. Otherwise Moralis.enableWeb3() will return an instance of web3.js instead of ethers.js
 
 *Example*
-```js
+```javascript
 const web3Provider = await Moralis.enableWeb3();
 ```
 
@@ -33,7 +33,7 @@ npm install web3
 ```
 
 Then in your code, use `Moralis.provider` to initialize the web3.js library. `Moralis.provider` will only be set after calling Moralis.authenticate or Moralis.enableWeb3.
-```js
+```javascript
 import Web3 from "web3"; // Only when using npm/yarn
 
 // Enable web3 and get the initialized web3 instance from Web3.js
@@ -46,7 +46,7 @@ See for more info on how to use Ethers.js, in the  [Web3.js docs](https://web3js
 ### Connectors
 You enable web3 with any connector (such as WalletConnect, Metamask, Network etc.), the [same way as with Moralis.authenticate](https://docs.moralis.io/moralis-server/users/crypto-login#ethereum-bsc-and-polygon-login)), with the `provider` option:
 
-```js
+```javascript
 const web3 = await Moralis.enableWeb3({ provider: "walletconnect" });
 ```
 
@@ -207,7 +207,7 @@ const name = await Moralis.executeFunction({ functionName: 'name', ...options })
 
 You can do this via `transaction.wait()` to wait for 1 confirmation (or `transaction.wait(5)` to wait for 5 confirmations for example):
 
-```js
+```javascript
 const options = {
   contractAddress: "0xe...56",
   functionName: "swapNativeForTokens",
@@ -290,7 +290,7 @@ if (isWeb3Active) {
 ## connector / connectorType
 
 Returns details of the connector or the connector type, that is used to authenticate or enable web3:
-```js
+```javascript
 const connectorType =  Moralis.Web3.connectorType;
 if(connectorType === 'injected'){
   console.log("Metamask or an injected provider is used")
