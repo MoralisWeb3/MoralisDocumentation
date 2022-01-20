@@ -62,6 +62,13 @@ This instance is a **Web3.js instance**
 
 Via `executeFunction`, you can execute read-only (view) functions, and write methods. They both give a slightly different response. So we handle them seperately below.
 
+Options:
+- contractAddress (required): A smart contract address
+- abi (required): Contract's or function ABI(should be provided as an array)
+- functionName (required): A function name
+- params (required): Parameters needed for your specific function
+- msgValue(optional): Number|String|BN|BigNumber. The value transferred for the transaction in wei.
+
 
 ### Read-only functions
 For read-only functions, you will need to wait for the execution to be completed. Then you get the results back directly.
@@ -96,17 +103,13 @@ const ABI = [
   }
 ];
 
-const options = {
+const readOptions = {
   contractAddress: "0xe...56",
   functionName: "message",
-  abi: ABI,
-  params: {
-    owner: "0x2...45",
-    spender: "0x3...49"
-  },
+  abi: ABI
 };
 
-const message = await Moralis.executeFunction(options);
+const message = await Moralis.executeFunction(readOptions);
 console.log(message)
 // -> "Hello World"
 ```
@@ -153,18 +156,26 @@ const ABI = [
   }
 ];
 
-const options = {
+const sendOptions = {
   contractAddress: "0xe...56",
-  functionName: "message",
+  functionName: "setMessage",
   abi: ABI,
   params: {
     _newMessage: "Hello Moralis",
   },
 };
 
-const transaction = await Moralis.executeFunction(options);
+const transaction = await Moralis.executeFunction(sendOptions);
 console.log(transaction.hash)
 // --> "0x39af55979f5b690fdce14eb23f91dfb0357cb1a27f387656e197636e597b5b7c"
+
+// Wait until the transaction is confirmed
+await transaction.wait();
+
+// Read new value
+const message = await Moralis.executeFunction(readOptions);
+console.log(message)
+// --> "Hello Moralis"
 ```
 
 You will get back a [transaction response from Ethers.js](https://docs.ethers.io/v5/api/providers/types/#providers-TransactionResponse), that includes the `hash` and other information.
@@ -281,11 +292,11 @@ const name = await Moralis.executeFunction({ functionName: 'name', ...options })
 ```
 ### Resolve transaction result
 
-`Moralis.executeFunction()` returns a  This returns:
+`Moralis.executeFunction()` returns:
 - The return value if the function is read-only
 - A [transaction response](https://docs.ethers.io/v5/api/providers/types/#providers-TransactionResponse), if the function writes on-chain.
 
-You can resolve the transaction into a receipt via `transaction.wait(3)` (to wait for 3 confirmations):
+You can resolve the transaction response into a receipt, by waiting until the transaction has been confirmed. For example, to wait for 3 confirmations:
 
 ```javascript
 const options = {
@@ -300,7 +311,7 @@ const result = await transaction.wait()
 
 ## Events
 
-There are several events, that you can listen to on Moralis:
+There are several events, that you can listen to on Moralis, in order to check the web3 connection of the user:
 
 * onWeb3Enabled
 * onWeb3Deactivated
