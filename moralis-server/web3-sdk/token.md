@@ -556,3 +556,22 @@ const NFTLowestPrice = await Moralis.Web3API.token.getNFTLowestPrice(options);
   }
 ]
 ```
+
+## reSyncMetadata
+
+Resync the metadata for a given token_id
+
+#### Options:
+
+* `chain`(optional): The blockchain to get data from. Valid values are listed on the [intro page in the Transactions and Balances section](https://docs.moralis.io/transactions-and-balances/intro). Default value `Eth`.
+* `address`(required): Address of the contract.
+* `token_id`(requierd): The id of the token.
+* `flag` (optional): The type of resync to operate. Available values : `uri`, `metadata`. Default value : `metadata.` The metadata flag will request a resync of the metadata for an nft. The uri flag will request fetch the token_uri for an NFT and then fetch it's metadata. To be used when the token uri get updated.
+
+```javascript
+const options = { address: "0xd...07", token_id: "1", flag: "metadata" };
+const NFTLowestPrice = await Moralis.Web3API.token.reSyncMetadata(options);
+```
+
+#### Example result:
+  /// empty result
