@@ -12,7 +12,7 @@ Moralis is a community driven project. As we are working towards open sourcing m
 
 You can find the Moralis Documentation repo here: [https://github.com/MoralisWeb3/MoralisDocumentation](https://github.com/MoralisWeb3/MoralisDocumentation)
 
-### 🤔 Important of documentation
+### 🤔 Importance of documentation
 
 Documentation is maybe the most important thing for developers learning new technologies. Documentation welcomes new developers and gets them up to speed. Moralis in on a mission to take crypto mainstream by empowering the developers to build great dapps and in order to achieve this vision we have to always have stellar and updated documentation.
 
