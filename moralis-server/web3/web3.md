@@ -8,12 +8,13 @@ Let's talk about Web3 integration!
 
 Moralis comes with a set of plugins to help you focus on the development of your app, leaving the rest to us.
 
-Similar to `window.ethereum.enable()` but returns a promise that resolves to a `Web3` instance from Ethers.js. Use this when you need a fully functional `Web3` instance, such as for making contract calls.
+Similar to `window.ethereum.enable()` but returns a promise that resolves to a `web3Provider` instance from Ethers.js. Use this when you need a fully functional `web3Provider` instance, such as for making contract calls.
 
 > ❗️ Note: make sure to have v1.0.0 or higher of the SDK installed. Otherwise Moralis.enableWeb3() will return an instance of web3.js instead of ethers.js
 
 *Example*
 ```javascript
+// Get a (ethers.js) web3Provider 
 const web3Provider = await Moralis.enableWeb3();
 ```
 
@@ -38,12 +39,41 @@ import Web3 from "web3"; // Only when using npm/yarn
 
 // Enable web3 and get the initialized web3 instance from Web3.js
 await Moralis.enableWeb3();
-const web3 = new Web3(Moralis.provider)
+const web3Js = new Web3(Moralis.provider)
 ```
 
-See for more info on how to use Ethers.js, in the  [Web3.js docs](https://web3js.readthedocs.io)
+See for more info on how to use web3.js, in the  [Web3.js docs](https://web3js.readthedocs.io)
 
 > Note: Ethers.js is included in the Moralis SDK. So The function responses of Moralis.executeFunction and Moralis.transfer will always be formatted by Ethers.js (see below for more information)
+
+### Get the EthersJs library
+You can have access to the Ethers.js library, that Moralis is using:
+```javascript
+const ethers = Moralis.web3Library
+```
+
+With this instance, you can use any methods from Ethers.js, for example:
+
+```javascript
+const ethers = Moralis.web3Library
+
+const daiAddress = "dai.tokens.ethers.eth";
+const daiAbi = [
+  "function name() view returns (string)",
+  "function symbol() view returns (string)",
+  "function balanceOf(address) view returns (uint)",
+  "function transfer(address to, uint amount)",
+  "event Transfer(address indexed from, address indexed to, uint amount)"
+];
+const daiContract = new ethers.Contract(daiAddress, daiAbi, provider);
+
+const name = await daiContract.name()
+console.log(name)
+// 'Dai Stablecoin'
+```
+
+See for more info on how to use Ethers.js, in the [Ethers.js docs](https://docs.ethers.io/)
+
 
 ### Connectors
 You enable web3 with any connector (such as WalletConnect, Metamask, Network etc.), the [same way as with Moralis.authenticate](https://docs.moralis.io/moralis-server/users/crypto-login#ethereum-bsc-and-polygon-login)), with the `provider` option:
