@@ -90,6 +90,46 @@ const user = await Moralis.authenticate({
 })
 ```
 
+### MagicLink
+
+Moralis also supports authentication using MagicLink. That way a user can use a crypto-login by using only an email.
+
+To get started, you will need to make an account on https://magic.link/ to get an publishable api-key. This key looks like:
+```javascript
+pk_xxxxxxx
+```
+> Note: do not use the secret api-key, that one should never be used on the client-side of your app. This key starts with sk_xxxxxx
+
+
+Next, add the sdk by adding the script:
+
+*When you imported moralis via CDN:*
+```javascript
+<script src="https://auth.magic.link/sdk"></script>
+```
+
+*When you imported moralis via NPM or another package manager:*
+
+```bash
+npm install magic-sdk
+```
+
+Then call authenticate like above, but with a provider option, and the required params. The `email`, `apiKey` and `network` are all required params.
+
+- `email`: the email of the user that wants to login
+- `apiKey` the publishable api-key that you can get in yout magicLink dashboard on http://magic.link
+- `network`: one of mainnet, rinkeby, kovan, or ropsten
+
+```javascript
+const user = await Moralis.authenticate({ 
+  provider: "magicLink",
+  email: "example@email.com",
+  apiKey: "pk_xxxxx",
+  network: "kovan",
+})
+```
+
+
 ### Custom Wallet Login
 Although Moralis offers native support for MetaMask and WalletConnect, it's possible to use any Web3 provider. The scope of this guide is to demonstrate how to supply any provider.
 
