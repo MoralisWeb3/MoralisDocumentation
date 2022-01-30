@@ -85,7 +85,7 @@ The goal of Moralis is to always offer you fully resolved metadata so that you d
 
 ### Why is it null?
 
-Some NFTs have their metadata is hosted on centralised servers. These servers sometimes have rate limits preventing Moralis to fully index the collections that have their metadata stored on such servers. In such cases the metadata may not be resolved. We are working all the time to extend our coverage of metadata.
+Some NFTs have their metadata hosted on centralised servers. These servers sometimes have rate limits preventing Moralis to fully index the collections that have their metadata stored on such servers. In such cases the metadata may not be resolved. We are working all the time to extend our coverage of metadata.
 
 ### How to get metadata?
 
