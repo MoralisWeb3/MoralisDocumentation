@@ -89,13 +89,13 @@ Some NFTs have their metadata is hosted on centralised servers. These servers so
 
 ### How to get metadata?
 
-Even though Moralis can't always resolve the metadata for you we will always give you `token_uri` so that you can always resolve it yourself.
+Even though Moralis can't always resolve the metadata for you automatically, we have [`resyncMetadata`](https://docs.moralis.io/moralis-server/web3-sdk/token#resyncmetadata) API so that you can always resync the metadata and resolve it yourself.
 
 When working with Moralis NFT API always check if metadata is given to you.&#x20;
 
 If yes - use it! We just saved you load time and improved the performance of your app 🙌
 
-If no - make a request to `token_uri` provided and get the metadata yourself.
+If no - use the [`resyncMetadata`](https://docs.moralis.io/moralis-server/web3-sdk/token#resyncmetadata) to resync the metadata and get the metadata yourself.
 
 ## Why is metadata outdated?
 
