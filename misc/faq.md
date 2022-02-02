@@ -89,19 +89,19 @@ Some NFTs have their metadata is hosted on centralised servers. These servers so
 
 ### How to get metadata?
 
-Even though Moralis can't always resolve the metadata for you automatically, we have [`resyncMetadata`](https://docs.moralis.io/moralis-server/web3-sdk/token#resyncmetadata) API so that you can always resync the metadata and resolve it yourself.
+Even though Moralis can't always resolve the metadata for you we will always give you `token_uri` so that you can always resolve it yourself.
 
 When working with Moralis NFT API always check if metadata is given to you.&#x20;
 
 If yes - use it! We just saved you load time and improved the performance of your app 🙌
 
-If no - use the [`resyncMetadata`](https://docs.moralis.io/moralis-server/web3-sdk/token#resyncmetadata) to resync the metadata and get the metadata yourself.
+If no - make a request to `token_uri` provided and get the metadata yourself.
 
 ## Why is metadata outdated?
 
-There are millions of NFTs across the different blockchains that Moralis supports. The vast majority of NFTs never change metadata, therefore Moralis doesn't currently re-sync metadata. This is something we may do in the future!
+There are millions of NFTs across the different blockchains that Moralis supports. The vast majority of NFTs never change metadata, therefore Moralis doesn't automatically re-sync metadata. This is something we may do in the future!
 
-In the near future we will add a way for you to trigger metadata re-sync on a specific token. We know that this feature is important when you develop your NFT and you may be experimenting with different metadata and update it often during the development of your app.
+For now, Moralis have [`reSyncMetadata`](https://docs.moralis.io/moralis-server/web3-sdk/token#resyncmetadata) API that can help you to manually trigger metadata re-sync on specific token. We know that this feature is important when you develop your NFT and you may be experimenting with different metadata and update it often during the development of your app
 
 Join our [Discord](https://moralis.io/mage) to be updated when this feature is released!&#x20;
 
