@@ -132,6 +132,72 @@ If a new table name is not provided you'll see the following error message:
 
 ![This error message will also appear if you accidently name it the same as an existing plugin.](<../../.gitbook/assets/image (78).png>)
 
+## Event Filters
+
+Imagine you only want to get events in your database based on some conditions.
+
+Moralis gives you an easy way to define filters based on ABI variables.
+
+For example the filter below will only sync event instances where the variable `price` is equal to `80000000000000000`:
+
+`{"eq": ["price", "80000000000000000"]}`
+
+Below are some more filter examples. You can set conditions for any variable in the event.
+
+If `sender` = `0x0` AND `receiver` = `0x0`
+
+```
+{ 
+  "and": [
+    { "eq": ["sender", "0x0"] },
+    { "eq": ["receiver", "0x0"] }
+  ] 
+}
+```
+
+If `sender` = `0x0` OR `receiver` = `0x0`
+
+```
+{ 
+  "or": [
+    { "eq": ["sender", "0x0"] },
+    { "eq": ["receiver", "0x0"] }
+  ] 
+}
+```
+
+If (`sender` = `0x0` AND `amount` = `1000` ) OR (`receiver` = `0x0` AND `amount` = `100` )
+
+```
+{ 
+  "or": [
+    { 
+      "and": [
+       { "eq": ["sender", "0x0"] },
+       { "eq": ["amount", "1000"]}
+      ]
+    },
+    {
+      "and": [
+       { "eq": ["receiver", "0x0"] },
+       { "eq": ["amount", "1000"]}
+      ]
+    }
+  ] 
+}
+```
+
+If an event has wei denominated values you can use `<name>_decimals` fields to run comparisons (like greater than/less than):
+
+```
+{ 
+  "and": [
+    { "eq": ["sender", "0x0"] },
+    { "gt": ["amount_decimals", "1000"]}
+  ]
+}
+```
+
 ## Watching from Code
 
 ### Watch new smart contract event
@@ -185,33 +251,3 @@ We are working to fix these issues.
 
 [Join our Discord](https://moralis.io/mage) to discuss the development!
 
-## Manual Event Handling
-
-If you start a sync job that would result in retrieving 500,000 or more historical events then the `Sync_historical` option will be disabled and no historical data will be fetched. The contract event (or watched address transaction) will still be monitored by Moralis, but it requires a trigger to tell Moralis what to do with the data. Until a `beforeConsume` trigger is defined, the default behavior will be to skip the event and log a message to the dashboard.
-
-![A skipped events are logged to the dashboard.](<../../.gitbook/assets/image (79).png>)
-
-### beforeConsume Trigger
-
-When historical data is not synced automatically a `beforeConsume` trigger needs to be created on the `tableName` given in the plugin definition.
-
-```javascript
-// always save event
-Moralis.Cloud.beforeConsume(eventTableName, (event) => {
-  return true;
-});
-
-// only save event if transaction is confirmed
-Moralis.Cloud.beforeConsume(eventTableName, (event) => {
-  return event && event.confirmed;
-});
-```
-
-The callback should:
-
-* Return `Boolean`.
-  * When `true` the event will be saved, otherwise, it will be skipped.
-* Be synchronous.
-  * If a `Promise` is returned, it will NOT be awaited, and since a promise is a truthy value the event data will be saved to the database.
-  * Because the callback is synchronous it should be as fast as possible. Ideally, the callback will make its decision based entirely on the input data with no database lookups or other outside calls (a "pure" function). If the callback is slow it could negatively affect the performance of your entire server.
-* Have an input parameter. This will contain the properties of the event data, not a Moralis object.
