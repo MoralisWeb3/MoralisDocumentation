@@ -2,7 +2,9 @@
 description: Authenticate via Email and Password.
 ---
 
-# Email Login
+# Web2 Authentication
+
+Moralis allows you to authenticate your users using email and password and then connect wallets to their user profiles.
 
 {% embed url="https://www.youtube.com/watch?v=aYi1_moT4kI" %}
 

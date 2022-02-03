@@ -8,10 +8,10 @@ As you introduce passwords into a system, users will forget them. In such cases,
 
 ### Server Setup
 
-In order to send the password reset email, the email provider first needs to be set up on your Moralis Server. You'll also need to create a template. See the [Sending Email](../tools/sending-email.md) page:
+In order to send the password reset email, the email provider first needs to be set up on your Moralis Server. You'll also need to create a template. See the [Sending Email](../../tools/sending-email.md) page:
 
-{% content-ref url="../tools/sending-email.md" %}
-[sending-email.md](../tools/sending-email.md)
+{% content-ref url="../../tools/sending-email.md" %}
+[sending-email.md](../../tools/sending-email.md)
 {% endcontent-ref %}
 
 ### Password Reset Request
