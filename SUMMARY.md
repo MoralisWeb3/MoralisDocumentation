@@ -18,6 +18,7 @@
 * [👥 Users](moralis-server/users/README.md)
   * [Intro](moralis-server/users/intro.md)
   * [Web3 Authentication](moralis-server/users/crypto-login.md)
+    * [🦊 Metamask](moralis-server/users/crypto-login/metamask.md)
     * [📲 WalletConnect](moralis-server/users/crypto-login/walletconnect.md)
     * [🪄 Magic](moralis-server/users/crypto-login/magic.md)
   * [Email Login](moralis-server/users/email-login.md)

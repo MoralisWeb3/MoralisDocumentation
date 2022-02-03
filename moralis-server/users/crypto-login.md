@@ -8,35 +8,17 @@ description: >-
 
 ## Moralis Authentication
 
-Moralis allows you to authenticate users on any blockchain with just one line of code. All assets, tokens, and NFTs of your users are automatically synced into your Moralis database and are updated in real-time as your users make on-chain transactions.
+Moralis allows you to authenticate users on any blockchain with just one line of code.&#x20;
+
+**All assets, tokens, and NFTs of your users are automatically synced into your Moralis database and are updated in real-time as your users make on-chain transactions.**
 
 ## Easy Web3 Login Flow
 
+Using `Moralis.authenticate()` you can login users on any chain using any wallet. Moralis supports WalletConnect, Web3Auth, Magic and other custom authentication methods.
+
 ### MetaMask
 
-Authenticating users is simple:
-
-```javascript
-Moralis.authenticate().then(function (user) {
-    console.log(user.get('ethAddress'))
-})
-```
-
-This will connect [MetaMask](https://metamask.io) and request a signature (no gas required!).
-
-We use the signature as proof the user is owner of account, if no signature is provided, anyone can gain the credentials necessary to read /write to users private data in Moralis Database. The signing is no different than entering a username and password. If a user wants to use the authenticated features of an app they need to “log in”. They choose when to do so by pressing the “login” button.
-
-![](<../../.gitbook/assets/Metamask\_Login (1).png>)
-
-It works the same way for all Ethereum Virtual Machine (EVM) compatible chains such as Binance Smart Chain and Polygon (Matic), as they all share the same Ethereum addresses.
-
-As soon as the user is logged in all their assets, tokens, NFTs and past transactions are instantly synced into your Moralis Database. The database updates if the users are moving assets on-chain.
-
-![Once the user logs in - all their assets are seen in the database. The database updates if the users move assets on chain.](<../../.gitbook/assets/image (117) (1) (1).png>)
-
-{% embed url="https://youtu.be/SYWdSg9KLCQ" %}
-Logging in your first users on Ethereum, Polygon, Avalanche (or any other chain) using Moralis.
-{% endembed %}
+The easiest way to authenticate web3 users is via Metamask wallet. If you are new to Moralis you should start learning [how MetaMask authentication works](crypto-login.md#metamask).
 
 ### WalletConnect
 
@@ -55,93 +37,6 @@ Learn how to do it by [reading this guide](crypto-login.md#walletconnect).
 Moralis is fully integrated with [Magic](https://magic.link) which allows you to authenticate your users with their email or other types of social login such as Google or Twitter.
 
 Learn how the integration works [here](crypto-login/magic.md).
-
-### Custom Wallet Login
-
-Although Moralis offers native support for MetaMask and WalletConnect, it's possible to use any Web3 provider. The scope of this guide is to demonstrate how to supply any provider.
-
-This guide will use `Tourus` and Binance Smart Chain. The `Tourus` documentation is available at this url: [https://docs.tor.us/](https://docs.tor.us).
-
-Moralis connects to a provider via a `connector`, to implement your own connector you can extend the `AbstractConnector` and implement the functions.
-
-**Import the Provider**
-
-```javascript
-<script src="https://cdn.jsdelivr.net/npm/@toruslabs/torus-embed"></script>
-```
-
-**Extending the Moralis AbstractWeb3Connector class**
-
-```javascript
-class TorusConnector extends Moralis.AbstractWeb3Connector {
-  // A name for the connector to reference it easy later on
-  type = "Torus";
-
-  /**
-   * A function to connect to the provider
-   * This function should return an EIP1193 provider (which is the case with most wallets)
-   * It should also return the account and chainId, if possible
-   */
-  async activate() {
-    this.torus = new Torus();
-
-    await this.torus.init({
-      enableLogging: true,
-      network: {
-        host: "https://speedy-nodes-nyc.moralis.io/7ac501390ca7c7a0b65f90e7/bsc/testnet",
-        networkName: "Smart Chain - Testnet",
-        chainId: 97,
-        blockExplorer: "https://testnet.bscscan.com",
-        ticker: "BNB",
-        tickerName: "BNB",
-      },
-    });
-
-    // Store the EIP-1193 provider, account and chainId
-    const accounts = await this.torus.login();
-    this.account = accounts[0]
-    this.chainId = "0x61" // Should be in hex format
-    this.provider = this.torus.provider;
-
-    // Call the subscribeToEvents from AbstractWeb3Connector to handle events like accountsChange and chainChange
-    this.subscribeToEvents(this.provider);
-
-    // Return the provider, account and chainId
-    return {
-      provider: this.provider,
-      chainId: this.chainId,
-      account: this.account,
-    };
-  }
-
-  // Cleanup any references to torus
-  async deactivate() {
-    // Call the unsubscribeToEvents from AbstractWeb3Connector to handle events like accountsChange and chainChange
-    this.unsubscribeToEvents(this.provider);
-
-    if (this.torus) {
-      await this.torus.cleanUp();
-    }
-
-    this.account = null;
-    this.chainId = null;
-    this.torus = null;
-    this.provider = null
-  }
-}
-```
-
-**Call authenticate/enableWeb3 with the connector**
-
-You are good to go, you can now enable Moralis and connect to Web3 by:
-
-```javascript
-window.web3 = await Moralis.enableWeb3({
-    connector: TorusConnector
-});
-```
-
-![](../../.gitbook/assets/custom.png)
 
 ## Non-EVM Chain Login
 
