@@ -23,6 +23,28 @@ const resolve = await Moralis.Web3API.resolve.resolveDomain(options );
 }
 ```
 
+## resolveAddress
+
+Reverse resolves an address and returns the ENS domain (if exists).
+
+#### Options:
+
+*  `address` (required): Ethereum address to be reverse resolved.
+
+```javascript
+// get ENS domain of an address
+const options = { address: '0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045' };
+const resolve = await Moralis.Web3API.resolve.resolveAddress(options);
+```
+
+#### Example result:
+
+```javascript
+{
+  "name": "vitalik.eth"
+}
+```
+
 ## Demo: Resolving ENS and Unstoppable Domains
 
 {% embed url="https://www.youtube.com/watch?v=CvtEciDhcuY" %}
