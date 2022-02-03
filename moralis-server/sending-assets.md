@@ -84,7 +84,7 @@ let transaction = await Moralis.transfer(options)
 
 You can do this via `transaction.wait()` to wait for 1 confirmation (or `transaction.wait(5)` to wait for 5 confirmations for example):
 
-```js
+```javascript
 const transaction = await Moralis.transfer(options)
 const result = await transaction.wait()
 ```

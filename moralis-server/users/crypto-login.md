@@ -46,11 +46,13 @@ Practical Demo how to login your users to you dapp with any wallet.
 
 Moralis also supports authentication using WalletConnect. First add the provider by adding the script (make sure to use the latest version, see [https://github.com/WalletConnect/walletconnect-monorepo/releases](https://github.com/WalletConnect/walletconnect-monorepo/releases)):
 
+*When you imported moralis via CDN:*
 ```javascript
-<script src="https://github.com/WalletConnect/walletconnect-monorepo/releases/download/1.6.2/web3-provider.min.js"></script>
+<script src="https://github.com/WalletConnect/walletconnect-monorepo/releases/download/1.7.1/web3-provider.min.js"></script>
 ```
+> Make sure to check if you use the latest stable version of the WalletConnect web3-provider, and update the version accordingly. Check for their latest release the [releases on Github](https://github.com/WalletConnect/walletconnect-monorepo/releases/)
 
-Or install the `@walletconnect/web3-provider` package when you use npm (or another package manager):
+*When you imported moralis via NPM or another package manager:*
 
 ```bash
 npm install @walletconnect/web3-provider
@@ -88,13 +90,52 @@ const user = await Moralis.authenticate({
 })
 ```
 
-### Custom Wallet Login
+### MagicLink
 
+Moralis also supports authentication using MagicLink. That way a user can use a crypto-login by using only an email.
+
+To get started, you will need to make an account on https://magic.link/ to get an publishable api-key. This key looks like:
+```javascript
+pk_xxxxxxx
+```
+> Note: do not use the secret api-key, that one should never be used on the client-side of your app. This key starts with sk_xxxxxx
+
+
+Next, add the sdk by adding the script:
+
+*When you imported moralis via CDN:*
+```javascript
+<script src="https://auth.magic.link/sdk"></script>
+```
+
+*When you imported moralis via NPM or another package manager:*
+
+```bash
+npm install magic-sdk
+```
+
+Then call authenticate like above, but with a provider option, and the required params. The `email`, `apiKey` and `network` are all required params.
+
+- `email`: the email of the user that wants to login
+- `apiKey` the publishable api-key that you can get in yout magicLink dashboard on http://magic.link
+- `network`: one of mainnet, rinkeby, kovan, or ropsten
+
+```javascript
+const user = await Moralis.authenticate({ 
+  provider: "magicLink",
+  email: "example@email.com",
+  apiKey: "pk_xxxxx",
+  network: "kovan",
+})
+```
+
+
+### Custom Wallet Login
 Although Moralis offers native support for MetaMask and WalletConnect, it's possible to use any Web3 provider. The scope of this guide is to demonstrate how to supply any provider.
 
 This guide will use `Tourus` and Binance Smart Chain. The `Tourus` documentation is available at this url: [https://docs.tor.us/](https://docs.tor.us).
 
-The `Moralis` class has a method called `enable`. The first step is to overwrite this method in order to use a custom `Moralis wallet provider` class.
+Moralis connects to a provider via a `connector`, to implement your own connector you can extend the `AbstractConnector` and implement the functions.
 
 **Import the Provider**
 
@@ -102,58 +143,75 @@ The `Moralis` class has a method called `enable`. The first step is to overwrite
 <script src="https://cdn.jsdelivr.net/npm/@toruslabs/torus-embed"></script>
 ```
 
-**Create the Torus Provider**
 
+**Extending the Moralis AbstractWeb3Connector class**
 ```javascript
-class MoralisTorusProvider {
+class TorusConnector extends Moralis.AbstractWeb3Connector {
+  // A name for the connector to reference it easy later on
+  type = "Torus";
 
-    torus = new Torus({})
-    
-    async activate() {
+  /**
+   * A function to connect to the provider
+   * This function should return an EIP1193 provider (which is the case with most wallets)
+   * It should also return the account and chainId, if possible
+   */
+  async activate() {
+    this.torus = new Torus();
 
-        this.provider = await this.torus.init(
-            {
-                enableLogging: true,
-                network: {
-                    host: "<YOUR BINANCE SPEEDY NODE>",
-                    networkName: "Smart Chain - Testnet",
-                    chainId: 97,
-                    blockExplorer: "https://testnet.bscscan.com",
-                    ticker: 'BNB',
-                    tickerName: 'BNB',
-                },
-            })
-        await this.torus.login();
-        
-        const MWeb3 = typeof Web3 === 'function' ? Web3 : window.Web3;
-        this.web3 = new MWeb3(this.torus.provider);
-        this.isActivated = true;
+    await this.torus.init({
+      enableLogging: true,
+      network: {
+        host: "https://speedy-nodes-nyc.moralis.io/7ac501390ca7c7a0b65f90e7/bsc/testnet",
+        networkName: "Smart Chain - Testnet",
+        chainId: 97,
+        blockExplorer: "https://testnet.bscscan.com",
+        ticker: "BNB",
+        tickerName: "BNB",
+      },
+    });
 
-        return this.web3;
+    // Store the EIP-1193 provider, account and chainId
+    const accounts = await this.torus.login();
+    this.account = accounts[0]
+    this.chainId = "0x61" // Should be in hex format
+    this.provider = this.torus.provider;
+
+    // Call the subscribeToEvents from AbstractWeb3Connector to handle events like accountsChange and chainChange
+    this.subscribeToEvents(this.provider);
+
+    // Return the provider, account and chainId
+    return {
+      provider: this.provider,
+      chainId: this.chainId,
+      account: this.account,
+    };
+  }
+
+  // Cleanup any references to torus
+  async deactivate() {
+    // Call the unsubscribeToEvents from AbstractWeb3Connector to handle events like accountsChange and chainChange
+    this.unsubscribeToEvents(this.provider);
+
+    if (this.torus) {
+      await this.torus.cleanUp();
     }
+
+    this.account = null;
+    this.chainId = null;
+    this.torus = null;
+    this.provider = null
+  }
 }
 ```
 
-**Create a custom "enable" function**
-
-```javascript
-const customEnable = async () => {
-    const web3Provider = new MoralisTorusProvider();
-    const web3 = await web3Provider.activate();
-    return web3;
-}
-```
-
-Set `customEnable` as provider
-
-```javascript
-Moralis.setEnableWeb3(customEnable )
-```
+**Call authenticate/enableWeb3 with the connector**
 
 You are good to go, you can now enable Moralis and connect to Web3 by:
 
 ```javascript
-window.web3 = await Moralis.enableWeb3();
+window.web3 = await Moralis.enableWeb3({
+    connector: TorusConnector
+});
 ```
 
 ![](../../.gitbook/assets/custom.png)
