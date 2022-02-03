@@ -23,7 +23,7 @@
     * [🪄 Magic](moralis-server/users/crypto-login/magic.md)
     * [🤖 Custom Auth (any EIP1193 provider)](moralis-server/users/crypto-login/custom-auth-any-eip1193-provider.md)
     * [✨ Phantom (Solana)](moralis-server/users/crypto-login/phantom-solana.md)
-  * [Web2 Authentication](moralis-server/users/email-login/README.md)
+  * [Email Authentication](moralis-server/users/email-login/README.md)
     * [Reset Password](moralis-server/users/email-login/reset-password.md)
   * [Merging Addresses](moralis-server/users/merging-addresses.md)
   * [Current User](moralis-server/users/current-user.md)
