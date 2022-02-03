@@ -117,7 +117,7 @@ npm install magic-sdk
 Then call authenticate like above, but with a provider option, and the required params. The `email`, `apiKey` and `network` are all required params.
 
 - `email`: the email of the user that wants to login
-- `apiKey` the publishable api-key that you can get in yout magicLink dashboard on http://magic.link
+- `apiKey` the publishable api-key that you can get in your Magic dashboard on http://magic.link
 - `network`: one of mainnet, rinkeby, kovan, or ropsten
 
 ```javascript
