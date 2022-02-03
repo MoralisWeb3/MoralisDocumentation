@@ -32,7 +32,7 @@ Here is where all of your data will be stored. For example, when a user signs in
 
 You can then use this data instantaneously in your dApp frontend.
 
-You can read more under the sections: [Moralis Server Database](moralis-server/database/) and [User Authentication](moralis-server/users/crypto-login/).
+You can read more under the sections: [Moralis Server Database](moralis-server/database/) and [User Authentication](moralis-server/users/crypto-login.md).
 
 ### Cloud Code
 

@@ -538,7 +538,7 @@ The `unlink` function removes the given address from the user's profile.
 await Moralis.unlink(address);
 ```
 
-Also, see the [Crypto Login](../users/crypto-login/) page for more info.
+Also, see the [Crypto Login](../users/crypto-login.md) page for more info.
 
 ## Changing Linking Message
 

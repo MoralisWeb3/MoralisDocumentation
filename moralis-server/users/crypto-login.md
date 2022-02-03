@@ -4,13 +4,13 @@ description: >-
   and Many Others to Come!
 ---
 
-# Crypto Login
+# Web3 Authentication
 
 ## Moralis Authentication
 
 Moralis allows you to authenticate users on any blockchain with just one line of code. All assets, tokens, and NFTs of your users are automatically synced into your Moralis database and are updated in real-time as your users make on-chain transactions.
 
-## Ethereum, BSC, and Polygon Login
+## Easy Web3 Login Flow
 
 ### MetaMask
 
@@ -26,13 +26,13 @@ This will connect [MetaMask](https://metamask.io) and request a signature (no ga
 
 We use the signature as proof the user is owner of account, if no signature is provided, anyone can gain the credentials necessary to read /write to users private data in Moralis Database. The signing is no different than entering a username and password. If a user wants to use the authenticated features of an app they need to “log in”. They choose when to do so by pressing the “login” button.
 
-![](<../../../.gitbook/assets/Metamask\_Login (1).png>)
+![](<../../.gitbook/assets/Metamask\_Login (1).png>)
 
 It works the same way for all Ethereum Virtual Machine (EVM) compatible chains such as Binance Smart Chain and Polygon (Matic), as they all share the same Ethereum addresses.
 
 As soon as the user is logged in all their assets, tokens, NFTs and past transactions are instantly synced into your Moralis Database. The database updates if the users are moving assets on-chain.
 
-![Once the user logs in - all their assets are seen in the database. The database updates if the users move assets on chain.](<../../../.gitbook/assets/image (117) (1) (1).png>)
+![Once the user logs in - all their assets are seen in the database. The database updates if the users move assets on chain.](<../../.gitbook/assets/image (117) (1) (1).png>)
 
 {% embed url="https://youtu.be/SYWdSg9KLCQ" %}
 Logging in your first users on Ethereum, Polygon, Avalanche (or any other chain) using Moralis.
@@ -44,61 +44,17 @@ Logging in your first users on Ethereum, Polygon, Avalanche (or any other chain)
 Practical Demo how to login your users to you dapp with any wallet.
 {% endembed %}
 
-Moralis also supports authentication using WalletConnect. First add the provider by adding the script (make sure to use the latest version, see [https://github.com/WalletConnect/walletconnect-monorepo/releases](https://github.com/WalletConnect/walletconnect-monorepo/releases)):
+Moralis is natively integrated with [WalletConnect](https://walletconnect.com). WalletConnect allows you to easily login to any dapp using your mobile wallet.
 
-_When you imported moralis via CDN:_
-
-```javascript
-<script src="https://github.com/WalletConnect/walletconnect-monorepo/releases/download/1.7.1/web3-provider.min.js"></script>
-```
-
-> Make sure to check if you use the latest stable version of the WalletConnect web3-provider, and update the version accordingly. Check for their latest release the [releases on Github](https://github.com/WalletConnect/walletconnect-monorepo/releases/)
-
-_When you imported moralis via NPM or another package manager:_
-
-```bash
-npm install @walletconnect/web3-provider
-```
-
-Then call authenticate like above, but with a provider option:
-
-```javascript
-const user = await Moralis.authenticate({ provider: "walletconnect" })
-```
-
-#### Specify the `chainId`.
-
-You might want to specify the chain id that WalletConnect will use by default. You can do this by providing the `chainId` as an extra option:
-
-```javascript
-const user = await Moralis.authenticate({ provider: "walletconnect", chainId: 56 })
-```
-
-#### Filter Mobile Linking Options
-
-If you would like to reduce the number of mobile linking options or customize its order, you can provide an array of wallet names to the `mobileLinks` option .
-
-```javascript
-const user = await Moralis.authenticate({ 
-    provider: "walletconnect", 
-    mobileLinks: [
-      "rainbow",
-      "metamask",
-      "argent",
-      "trust",
-      "imtoken",
-      "pillar",
-    ] 
-})
-```
+Learn how to do it by [reading this guide](crypto-login.md#walletconnect).
 
 ### Magic
 
-![Login web3 users with their email or other social login.](<../../../.gitbook/assets/Screenshot 2022-02-03 at 21.40.14.png>)
+![Login web3 users with their email or other social login.](<../../.gitbook/assets/Screenshot 2022-02-03 at 21.40.14.png>)
 
 Moralis is fully integrated with [Magic](https://magic.link) which allows you to authenticate your users with their email or other types of social login such as Google or Twitter.
 
-Learn how the integration works [here](magic.md).
+Learn how the integration works [here](crypto-login/magic.md).
 
 ### Custom Wallet Login
 
@@ -185,7 +141,7 @@ window.web3 = await Moralis.enableWeb3({
 });
 ```
 
-![](../../../.gitbook/assets/custom.png)
+![](../../.gitbook/assets/custom.png)
 
 ## Non-EVM Chain Login
 
@@ -246,7 +202,7 @@ After the signature is completed the promise will resolve with a `User` object. 
 }
 ```
 
-For new users, the `username` will be a randomly generated alphanumeric string and the `email` property will not exist. This can be set or changed by the app. See the "[Objects](../../database/objects.md#saving-objects)" and "[Intro](https://docs.moralis.io/users/intro)" docs.
+For new users, the `username` will be a randomly generated alphanumeric string and the `email` property will not exist. This can be set or changed by the app. See the "[Objects](../database/objects.md#saving-objects)" and "[Intro](https://docs.moralis.io/users/intro)" docs.
 
 It will also create a new entry in the `Moralis._EthAddress` class, corresponding to the Ethereum address used for this user. The schema of the created entry in the `Moralis._EthAddress` object looks like this:
 
@@ -309,7 +265,7 @@ The message the user sees when signing in with Web3 can be changed by doing the 
 Moralis.authenticate({signingMessage:"hello"})
 ```
 
-![](<../../../.gitbook/assets/image (57).png>)
+![](<../../.gitbook/assets/image (57).png>)
 
 ## Changing App Icon in MetaMask
 
