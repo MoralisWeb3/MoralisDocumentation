@@ -21,6 +21,7 @@
     * [🦊 Metamask](moralis-server/users/crypto-login/metamask.md)
     * [📲 WalletConnect](moralis-server/users/crypto-login/walletconnect.md)
     * [🪄 Magic](moralis-server/users/crypto-login/magic.md)
+    * [🤖 Custom Auth (any EIP1193 provider)](moralis-server/users/crypto-login/custom-auth-any-eip1193-provider.md)
     * [✨ Phantom (Solana)](moralis-server/users/crypto-login/phantom-solana.md)
   * [Email Login](moralis-server/users/email-login.md)
   * [Reset Password](moralis-server/users/reset-password.md)
