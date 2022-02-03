@@ -92,7 +92,7 @@ const user = await Moralis.authenticate({
 
 ### Magic
 
-Moralis also supports authentication using MagicLink. That way a user can use a crypto-login by using only an email.
+Moralis also supports authentication using Magic. That way a user can use a crypto-login by using only an email.
 
 To get started, you will need to make an account on https://magic.link/ to get an publishable api-key. This key looks like:
 ```javascript
