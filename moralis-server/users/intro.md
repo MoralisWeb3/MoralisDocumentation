@@ -14,7 +14,7 @@ Authentication of users can be done in different ways. You can authenticate via 
 
 Let's start by learning how to login user via their crypto wallet - no matter which wallet or blockchain they use! 🤯
 
-{% content-ref url="crypto-login.md" %}
-[crypto-login.md](crypto-login.md)
+{% content-ref url="crypto-login/" %}
+[crypto-login](crypto-login/)
 {% endcontent-ref %}
 
