@@ -90,7 +90,7 @@ const user = await Moralis.authenticate({
 })
 ```
 
-### MagicLink
+### Magic
 
 Moralis also supports authentication using MagicLink. That way a user can use a crypto-login by using only an email.
 
