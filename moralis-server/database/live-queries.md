@@ -8,7 +8,7 @@ description: >-
 
 ## Standard API
 
-We maintain a WebSocket connection to communicate with the Moralis LiveQuery server. When used server-side, we use the [`ws`](https://www.npmjs.com/package/ws) package and in the browser we use [`window.WebSocket`](https://developer.mozilla.org/en-US%7B%7B%20site.baseUrl%20%7D%7D/Web/API/WebSockets_API). We think that in most cases it isn't necessary to deal with the WebSocket connection directly. Thus, we developed a simple API to let you focus on your own business logic.
+We maintain a WebSocket connection to communicate with the Moralis LiveQuery server. When used server-side, we use the [`ws`](https://www.npmjs.com/package/ws) package and in the browser we use [`window.WebSocket`](https://developer.mozilla.org/en-US%7B%7B%20site.baseUrl%20%7D%7D/Web/API/WebSockets\_API). We think that in most cases it isn't necessary to deal with the WebSocket connection directly. Thus, we developed a simple API to let you focus on your own business logic.
 
 ## Create a Subscription
 
@@ -20,6 +20,10 @@ let subscription = await query.subscribe();
 ```
 
 The subscription you get is actually an event emitter. For more information on event emitter, check [here](https://nodejs.org/api/events.html). You'll get the LiveQuery events through this `subscription`. The first time you call subscribe, we'll try to open the WebSocket connection to the LiveQuery server for you.
+
+{% hint style="info" %}
+Important note! Currently LiveQuery doesn't support CLP permissions. If you use LiveQuery please ensure your data is protected with ACL on each row.
+{% endhint %}
 
 ## Event Handling
 
