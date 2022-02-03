@@ -4,7 +4,7 @@ description: Moralis Metamask Authentication
 
 # 🦊 Metamask
 
-Authenticating users is simple:
+Authenticating users using MetaMask is simple:
 
 ```javascript
 Moralis.authenticate().then(function (user) {
