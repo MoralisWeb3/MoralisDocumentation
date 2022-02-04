@@ -21,10 +21,6 @@ let subscription = await query.subscribe();
 
 The subscription you get is actually an event emitter. For more information on event emitter, check [here](https://nodejs.org/api/events.html). You'll get the LiveQuery events through this `subscription`. The first time you call subscribe, we'll try to open the WebSocket connection to the LiveQuery server for you.
 
-{% hint style="info" %}
-Important note! Currently LiveQuery doesn't support CLP permissions. If you use LiveQuery please ensure your data is protected with ACL on each row.
-{% endhint %}
-
 ## Event Handling
 
 We define several types of events you'll get through a subscription object:
