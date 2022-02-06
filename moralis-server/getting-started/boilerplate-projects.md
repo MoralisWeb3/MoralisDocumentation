@@ -22,6 +22,14 @@ This React Boilerplate has all the features to start your new dapp such as:
 Cross-chain web3 boilerplate.
 {% endembed %}
 
+## Web3 Unity Boilerplate
+
+The Unity Boilerplate include C# Moralis SDK and has an example Unity scene allowing you to login your users via their wallets, read their tokens and NFTs, interact with smart contracts and much more.
+
+{% embed url="https://github.com/ethereum-boilerplate/ethereum-unity-boilerplate" %}
+Web3 Unity Boilerplate
+{% endembed %}
+
 ## Web3 React Native Boilerplate
 
 This React Native Boilerplate has all the features to start your new iOS or Android web3 app such as:
