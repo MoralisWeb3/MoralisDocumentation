@@ -6,6 +6,59 @@ description: >-
 
 # 🔥 Boilerplate Projects
 
+## Web3 Vanilla Javascript Starter Project
+
+This simple app logs in user, creates a user profile in Moralis Database and syncs user transactions into Moralis Database.
+
+```html
+<!-- index.html -->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Vanilla Boilerplate</title>
+    <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
+    <script src="https://unpkg.com/moralis/dist/moralis.js"></script>
+  </head>
+
+  <body>
+    <button id="btn-login">Moralis Metamask Login</button>
+    <button id="btn-logout">Logout</button>
+    <script type="text/javascript" src="./main.js"></script>
+  </body>
+</html>
+```
+
+```javascript
+// main.js
+
+const serverUrl = "https://xxxxx.yourserver.com:2053/server";
+const appId = "YOUR_APP_ID";
+Moralis.start({ serverUrl, appId });
+
+/** Add from here down */
+async function login() {
+  let user = Moralis.User.current();
+  if (!user) {
+   try {
+      user = await Moralis.authenticate({ signingMessage: "Hello World!" })
+      console.log(user)
+      console.log(user.get('ethAddress'))
+   } catch(error) {
+     console.log(error)
+   }
+  }
+}
+
+async function logOut() {
+  await Moralis.User.logOut();
+  console.log("logged out");
+}
+
+document.getElementById("btn-login").onclick = login;
+document.getElementById("btn-logout").onclick = logOut;
+```
+
 ## Web3 React Boilerplate
 
 This React Boilerplate has all the features to start your new dapp such as:
@@ -58,11 +111,4 @@ A simple NFT Marketplace allowing user to do the following:
 {% embed url="https://github.com/ethereum-boilerplate/ethereum-nft-marketplace-boilerplate" %}
 NFT Marketplace Boilerplate
 {% endembed %}
-
-## Other Boilerplates
-
-* [Moralis Vanilla JS Boilerplate](https://github.com/MoralisWeb3/demo-apps/tree/main/moralis-vanilla-boilerplate).
-* [Moralis Angular Boilerplate](https://github.com/MoralisWeb3/demo-apps/tree/main/moralis-angular-app) ([video demo](https://www.youtube.com/watch?v=3WU8ple4zsM)).
-* [Moralis VueJS 3 Boilerplate (Javascript)](https://github.com/MoralisWeb3/demo-apps/tree/main/moralis-vue3-boilerplate).
-* [Moralis VueJS 3 Boilerplate (Typescript Alternative)](https://github.com/MoralisWeb3/demo-apps/tree/main/vue3-boiler-plate).
 
