@@ -41,6 +41,7 @@ Then call authenticate like above, but with a provider option, and the required 
 
 ```javascript
 const user = await Moralis.authenticate({
+	provider: "web3Auth",
 	clientId: "ABC*****************",
 })
 ```
