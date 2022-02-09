@@ -20,50 +20,33 @@ Moralis supports authentication using [Web3Auth](https://web3auth.io/). This all
 
 To get started, make an account [here](https://dashboard.web3auth.io/)  and get the publishable clinetId. 
 ```javascript
-
 clinetId: 'ABC*****************'
-
 ```
 Next, add the sdk into your app.
 
 _If you import moralis via a CDN:_
 ```javascript
-<script  src="https://unpkg.com/@web3auth/base@0.2.2/dist/base.umd.min.js"></script>
-
 <script  src="https://unpkg.com/@web3auth/web3auth@0.2.3/dist/web3auth.umd.min.js"></script>
 ```
 _If you import moralis via a NPM or another package manager:_
 
 ```bash
 npm install --save @web3auth/web3auth
-
-npm i --save @web3auth/base
 ```
 
-Then call authenticate like above, but with a provider option, and the required params. The `chainId`, `rpcTarget`, and `clientId` are all required params.
+Then call authenticate like above, but with a provider option, and the required params. The `clientId` is the only required param.
 
-* `chainId`: The chainId of the supported network you are looking to connect to. 
-	*Supported networks are highlighted below*
 * `clinetId`: The publishable clientId that you got from the web3Auth [dashboard](https://web3auth.io/).
-* `rpcTarget`: An RPC target for your corresponding chain. Moralis speedy nodes provide quick and easy access to RPC URLs.
-
+*  `chainId`: (Optional)  The chainId of the supported network you are looking to connect to. *By default Ethereum mainet `0x1`*
+* `theme`: (Optional) The theme of the login modal. Can be one of `light` or `dark`. *By default  dark*
+* `appLogo` :(Optional) Url of the logo to be shown at the top of the modal. *By default  Moralis Logo*
+* `appLogo` :(Optional) Url of the logo to be shown at the top of the modal. *By default  Moralis Logo*
+* `loginMethodsOrder`:(Optional) An array of strings, which containes the socail logins that you want to allow, and the order of which they show up.
+	* Default: `["google", "facebook", "twitter", "reddit", "discord", "twitch", "apple", "line", "github", "kakao", "linkedin", "weibo", "wechat", "email_passwordless"]`
   
 
 ```javascript
-
 const user = await Moralis.authenticate({
-	provider: "web3Auth",
-	chainId: Moralis.Chains.ETH_ROPSTEN,
 	clientId: "ABC*****************",
-	rpcTarget: "htttps:.../eth/ropsten",
 })
-
 ```
-Supported Chains
-* Eth Mainent 
-* Eth Ropsten 
-* Eth Rinkbey 
-* Eth Kovan 
-* Eth Goerli 
-* Matic Mainet 
- > Note: Chain IDs for corresponding chains can be found within Moralis.Chains. See the example above.
