@@ -3,7 +3,7 @@ description: Moralis is now fully integrated with Web3Auth.
 ---
 
 
-# Web3️⃣Auth
+# 🔑 Web3️Auth
 
 ## Integrating Morlais and Web3Auth
 
