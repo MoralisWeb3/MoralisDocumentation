@@ -20,6 +20,7 @@
   * [Web3 Authentication](moralis-server/users/crypto-login.md)
     * [🦊 Metamask](moralis-server/users/crypto-login/metamask.md)
     * [📲 WalletConnect](moralis-server/users/crypto-login/walletconnect.md)
+    * [🔑 Web3Auth](moralis-server/users/crypto-login/web3Auth.md)
     * [🪄 Magic](moralis-server/users/crypto-login/magic.md)
     * [🤖 Custom Auth (any EIP1193 provider)](moralis-server/users/crypto-login/custom-auth-any-eip1193-provider.md)
     * [✨ Phantom (Solana)](moralis-server/users/crypto-login/phantom-solana.md)
