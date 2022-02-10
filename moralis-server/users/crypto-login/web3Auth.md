@@ -4,11 +4,12 @@ description: Moralis is now fully integrated with Web3Auth.
 
 # 🔑 Web3Auth.io
 
+{% embed url="https://youtu.be/44ItBuw86AA" %}
+
 ## Integrating Moralis and Web3Auth
 
 Moralis supports authentication using [Web3Auth](https://web3auth.io). This allows for user onboarding through both social logins, and web3 wallets.
 
-{% embed url="https://www.youtube.com/watch?v=44ItBuw86AA" %}
 
 To get started, make an account [here](https://dashboard.web3auth.io) and get the publishable clinetId.
 
