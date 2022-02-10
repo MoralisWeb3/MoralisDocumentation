@@ -3,8 +3,9 @@ description: Moralis is now fully integrated with Web3Auth.
 ---
 
 # 🔑 Web3Auth.io
-
-{% embed url="https://youtu.be/44ItBuw86AA" %}
+{% embed url="https://youtu.be/gLJ4YejmG2E" %}
+Moralis and Web3Auth Integration
+{% endembed %}
 
 ## Integrating Moralis and Web3Auth
 
