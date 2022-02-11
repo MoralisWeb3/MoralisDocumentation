@@ -38,7 +38,7 @@ Then call authenticate like above, but with a provider option, and the required 
 * `chainId`: (Optional) The chainId of the supported network you are looking to connect to. _By default Ethereum mainet `0x1`_
 * `theme`: (Optional) The theme of the login modal. Can be one of `light` or `dark`. _By default dark_
 * `appLogo` :(Optional) Url of the logo to be shown at the top of the modal. _By default Moralis Logo_
-* `loginMethodsOrder`:(Optional) An array of strings, which containes the social logins that you want to allow, and the order of which they show up.
+* `loginMethodsOrder`:(Optional) An array of strings, which contains the social logins that you want to allow, and the order of which they show up.
   * Default: `["google", "facebook", "twitter", "reddit", "discord", "twitch", "apple", "line", "github", "kakao", "linkedin", "weibo", "wechat", "email_passwordless"]`
 
 ```javascript
