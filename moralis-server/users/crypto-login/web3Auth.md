@@ -3,7 +3,8 @@ description: Moralis is now fully integrated with Web3Auth.
 ---
 
 # 🔑 Web3Auth.io
-{% embed url="https://youtu.be/gLJ4YejmG2E" %}
+
+{% embed url="https://www.youtube.com/watch?v=44ItBuw86AA" %}
 Moralis and Web3Auth Integration
 {% endembed %}
 
@@ -11,11 +12,10 @@ Moralis and Web3Auth Integration
 
 Moralis supports authentication using [Web3Auth](https://web3auth.io). This allows for user onboarding through both social logins, and web3 wallets.
 
-
-To get started, make an account [here](https://dashboard.web3auth.io) and get the publishable clinetId.
+To get started, make an account [here](https://dashboard.web3auth.io) and get the publishable clientId.
 
 ```javascript
-clinetId: 'ABC*****************'
+clientId: 'ABC*****************'
 ```
 
 Next, add the sdk into your app.
@@ -34,7 +34,7 @@ npm install --save @web3auth/web3auth
 
 Then call authenticate like above, but with a provider option, and the required params. The `clientId` is the only required param.
 
-* `clinetId`: The publishable clientId that you got from the web3Auth [dashboard](https://web3auth.io).
+* `clientId`: The publishable clientId that you got from the web3Auth [dashboard](https://web3auth.io).
 * `chainId`: (Optional) The chainId of the supported network you are looking to connect to. _By default Ethereum mainet `0x1`_
 * `theme`: (Optional) The theme of the login modal. Can be one of `light` or `dark`. _By default dark_
 * `appLogo` :(Optional) Url of the logo to be shown at the top of the modal. _By default Moralis Logo_
