@@ -204,6 +204,8 @@ If an event has wei denominated values you can use `<name>_decimals` fields to r
 
 Moralis Server has a special cloud function called `watchContractEvent(options)`. You can call it using the master key.
 
+_Note: limit parameter is available only for Nitro servers (those one that have coreservices plugin). If limit parameter is not provided then the default value is 500000._
+
 _Note: at the moment the events created via code won't be seen in the admin UI, you can only see them in the database, we are working on connecting the admin UI properly_
 
 ```javascript
@@ -211,16 +213,17 @@ _Note: at the moment the events created via code won't be seen in the admin UI, 
 let options = {
     "chainId": "0x1",
     "address": "0x5c69bee701ef814a2b6a3edd4b1652cb9cc5aa6f",
-    "topic": "PairCreated(address, address, address, uint)",
+    "topic": "PairCreated(address, address, address, uint256)",
     "abi":   {
       "anonymous": false,
       "inputs": [
         { "indexed": true, "internalType": "address", "name": "token0", "type": "address" },
         { "indexed": true, "internalType": "address", "name": "token1", "type": "address" },
         { "indexed": false, "internalType": "address", "name": "pair", "type": "address" },
-        { "indexed": false, "internalType": "uint256", "name": "", "type": "uint256" }
+        { "indexed": false, "internalType": "uint256", "name": "test", "type": "uint256" }
       ],
       "name": "PairCreated",
+      "limit": 500000,
       "type": "event"
     },
     "tableName": "UniPairCreated",
