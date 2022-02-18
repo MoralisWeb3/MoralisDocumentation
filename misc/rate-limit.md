@@ -43,7 +43,7 @@ See the tables below for details about Speedy Node methods and API Endpoints tha
 | eth_uninstallFilter                     | 1 request    |
 | eth_accounts                            | 1 request    |
 | eth_blockNumber                         | 1 request    |
-| eth_chainId                             | 1 requst     |
+| eth_chainId                             | 1 request    |
 | eth_protocolVersion                     | 1 request    |
 | eth_syncing                             | 1 request    |
 | net_listening                           | 1 request    |
