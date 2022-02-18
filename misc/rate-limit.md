@@ -37,42 +37,93 @@ See the tables below for details about Speedy Node methods and API Endpoints tha
 
 ### Speedy Node Requests
 
-| Method                         | Cost         |
-| ------------------------------ | ------------ |
-| All methods not on this list   | 1 request    |
-| eth\_estimateGas               | 10 requests  |
-| eth\_sendRawTransaction        | 30 requests  |
-| debug\_traceTransaction        | 30 requests  |
-| trace\_replayTransaction       | 200 requests |
-| trace\_replayBlockTransactions | 200 requests |
+| Method                                  | Cost         |
+| --------------------------------------- | ------------ |
+| All methods not on this list            | 1 request    |
+| eth_uninstallFilter                     | 1 request    |
+| eth_accounts                            | 1 request    |
+| eth_blockNumber                         | 1 request    |
+| eth_chainId                             | 1 requst     |
+| eth_protocolVersion                     | 1 request    |
+| eth_syncing                             | 1 request    |
+| net_listening                           | 1 request    |
+| net_version                             | 1 request    |
+| eth_subscribe                           | 1 request    |
+| eth_unsubscribe                         | 1 request    |
+| eth_feeHistory                          | 1 request    |
+| eth_maxPriorityFeePerGas                | 1 request    |
+| eth_getTransactionReceipt               | 3 requests   |
+| eth_getUncleByBlockHashAndIndex         | 3 requests   |
+| eth_getUncleByBlockNumberAndIndex       | 3 requests   |
+| eth_getTransactionByBlockHashAndIndex   | 3 requests   |
+| eth_getTransactionByBlockNumberAndIndex | 3 requests   |
+| eth_getUncleCountByBlockHash            | 3 requests   |
+| eth_getUncleCountByBlockNumber          | 3 requests   |
+| web3_clientVersion                      | 3 requests   |
+| web3_sha3                               | 3 requests   |
+| alchemy_getTokenMetadata                | 3 requests   |
+| eth_getBlockByNumber                    | 3 requests   |
+| eth_getStorageAt                        | 3 requests   |
+| eth_getTransactionByHash                | 3 requests   |
+| trace_get                               | 3 requests   |
+| alchemy_getTokenAllowance               | 3 requests   |
+| eth_gasPrice                            | 3 requests   |
+| eth_getBalance                          | 3 requests   |
+| eth_getCode                             | 3 requests   |
+| eth_getFilterChanges                    | 3 requests   |
+| eth_newBlockFilter                      | 3 requests   |
+| eth_newFilter                           | 3 requests   |
+| eth_newPendingTransactionFilter         | 3 requests   |
+| eth_getBlockTransactionCountByHash      | 3 requests   |
+| eth_getBlockTransactionCountByNumber    | 3 requests   |
+| eth_getProof                            | 3 requests   |
+| eth_getBlockByHash                      | 3 requests   |
+| trace_block                             | 3 requests   |
+| parity_getBlockReceipts                 | 3 requests   |
+| eth_getTransactionCount                 | 3 requests   |
+| eth_call                                | 3 requests   |
+| alchemy_getTokenBalances                | 3 requests   |
+| trace_transaction                       | 3 requests   |
+| eth_getFilterLogs                       | 8 requests   |
+| eth_getLogs                             | 8 requests   |
+| trace_call                              | 8 requests   |
+| trace_callMany                          | 8 requests   |
+| trace_rawTransaction                    | 8 requests   |
+| trace_filter                            | 8 requests   |
+| eth_estimateGas                         | 9 requests   |
+| debug_traceTransaction                  | 31 requests  |
+| alchemy_getAssetTransfers               | 35 requests  |
+| eth_sendRawTransaction                  | 35 requests  |
+| trace_replayTransaction                 | 398 requests |
+| trace_replayBlockTransactions           | 398 requests |
 
 ### API Requests
 
-| Endpoint                                       | Cost        |
-| ---------------------------------------------- | ----------- |
-| All endpoints not on this list                 | 1 request   |
-| /{address}/events                              | 2 requests  |
-| /{address}/erc20/transfers                     | 2 requests  |
-| /block/{block\_number\_or\_hash}/nft/transfers | 2 requests  |
-| /nft/{address}/{token\_id}                     | 2 requests  |
-| /nft/{address}/{token\_id}/owners              | 2 requests  |
-| /nft/{address}/{token\_id}/transfers           | 2 requests  |
-| /{address}/logs                                | 2 requests  |
-| /transaction/{transaction\_hash}               | 2 requests  |
-| /{address}/function                            | 2 requests  |
-| /erc20/{address}/price                         | 3 requests  |
-| /nft/{address}/lowestprice                     | 4 requests  |
-| /nft/{address}/trades                          | 4 requests  |
-| /{address}/erc20                               | 5 requests  |
-| /{address}/nft/{token\_address}                | 5 requests  |
-| /{address}/nft/transfers                       | 5 requests  |
-| /nft/{address}/transfers                       | 5 requests  |
-| /nft/{address}/owners                          | 5 requests  |
-| /nft/{address}                                 | 5 requests  |
-| /nft/{address}/metadata                        | 5 requests  |
-| /nft/transfers                                 | 5 requests  |
-| /nft/search                                    | 5 requests  |
-| uploadIPFSFolder                               | 25 requests |
+| Endpoint                                    | Cost        |
+| ------------------------------------------- | ----------- |
+| All endpoints not on this list              | 1 request   |
+| /{address}/events                           | 2 requests  |
+| /{address}/erc20/transfers                  | 2 requests  |
+| /block/{block_number_or_hash}/nft/transfers | 2 requests  |
+| /nft/{address}/{token_id}                   | 2 requests  |
+| /nft/{address}/{token_id}/owners            | 2 requests  |
+| /nft/{address}/{token_id}/transfers         | 2 requests  |
+| /{address}/logs                             | 2 requests  |
+| /transaction/{transaction_hash}             | 2 requests  |
+| /{address}/function                         | 2 requests  |
+| /erc20/{address}/price                      | 3 requests  |
+| /nft/{address}/lowestprice                  | 4 requests  |
+| /nft/{address}/trades                       | 4 requests  |
+| /{address}/erc20                            | 5 requests  |
+| /{address}/nft/{token_address}              | 5 requests  |
+| /{address}/nft/transfers                    | 5 requests  |
+| /nft/{address}/transfers                    | 5 requests  |
+| /nft/{address}/owners                       | 5 requests  |
+| /nft/{address}                              | 5 requests  |
+| /nft/{address}/metadata                     | 5 requests  |
+| /nft/transfers                              | 5 requests  |
+| /nft/search                                 | 5 requests  |
+| uploadIPFSFolder                            | 25 requests |
 
 ## Why am I rate limited?
 
