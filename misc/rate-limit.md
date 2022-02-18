@@ -39,7 +39,7 @@ See the tables below for details about Speedy Node methods and API Endpoints tha
 
 | Method                                  | Cost         |
 | --------------------------------------- | ------------ |
-| All methods not on this list            | 1 request    |
+| All methods not on this list            | 5 requests   |
 | eth_uninstallFilter                     | 1 request    |
 | eth_accounts                            | 1 request    |
 | eth_blockNumber                         | 1 request    |
