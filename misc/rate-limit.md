@@ -61,12 +61,10 @@ See the tables below for details about Speedy Node methods and API Endpoints tha
 | eth_getUncleCountByBlockNumber          | 3 requests   |
 | web3_clientVersion                      | 3 requests   |
 | web3_sha3                               | 3 requests   |
-| alchemy_getTokenMetadata                | 3 requests   |
 | eth_getBlockByNumber                    | 3 requests   |
 | eth_getStorageAt                        | 3 requests   |
 | eth_getTransactionByHash                | 3 requests   |
 | trace_get                               | 3 requests   |
-| alchemy_getTokenAllowance               | 3 requests   |
 | eth_gasPrice                            | 3 requests   |
 | eth_getBalance                          | 3 requests   |
 | eth_getCode                             | 3 requests   |
@@ -82,7 +80,6 @@ See the tables below for details about Speedy Node methods and API Endpoints tha
 | parity_getBlockReceipts                 | 3 requests   |
 | eth_getTransactionCount                 | 3 requests   |
 | eth_call                                | 3 requests   |
-| alchemy_getTokenBalances                | 3 requests   |
 | trace_transaction                       | 3 requests   |
 | eth_getFilterLogs                       | 8 requests   |
 | eth_getLogs                             | 8 requests   |
@@ -92,7 +89,6 @@ See the tables below for details about Speedy Node methods and API Endpoints tha
 | trace_filter                            | 8 requests   |
 | eth_estimateGas                         | 9 requests   |
 | debug_traceTransaction                  | 31 requests  |
-| alchemy_getAssetTransfers               | 35 requests  |
 | eth_sendRawTransaction                  | 35 requests  |
 | trace_replayTransaction                 | 398 requests |
 | trace_replayBlockTransactions           | 398 requests |
