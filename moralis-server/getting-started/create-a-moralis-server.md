@@ -44,4 +44,12 @@ Next, select which networks you want your dApp to fetch data from. For the purpo
 
 Now you will see your server in your dashboard, and we can move on and create a web app that talks to the server and is able to login users, fetch user data (tokens, NFTs, historical transactions), and so much more! All cross-chain by default, of course 🤯
 
-![](<../../.gitbook/assets/Screenshot 2021-10-15 at 16.14.30.png>)
+![](<../../.gitbook/assets/Screenshot 2022-02-18 at 13.07.35.png>)
+
+The server displays several important **indicators** as shown in the image above:
+
+- `Network`: Network traffic per second
+- `CPU`: Server's CPU Usage
+- `RAM`: Server's RAM Usage
+- `DISK`: Server's Disk Usage
+- `Number of Users`: The number of users that has been authenticated in the server
