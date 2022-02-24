@@ -4,7 +4,7 @@ description: >-
   query data from the Solana blockchain. Read more in order to understand how it works.
 ---
 
-# ☀️ Solana API
+# ☀️ Solana API (Token, Balances, NFTs)
 
 Moralis Solana API is a powerful way of getting all kinds of blockchain data. In the following topics, you can explore the capabilities of Moralis Solana API in detail.
 
