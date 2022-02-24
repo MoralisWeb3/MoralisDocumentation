@@ -12,7 +12,7 @@ You find all of these powerful functions in the `Moralis.SolanaAPI` namespace in
 
 It's also possible to access all of this functionality through REST API from your own backend.
 
-### Configuring Web3API
+### Configuring SolanaAPI
 
 After you have initialized your application with `Moralis.start()`, it will automatically load the SolanaAPI module. You don't need to make any additional steps to start using SolanaAPI.
 

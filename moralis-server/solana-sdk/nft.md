@@ -6,7 +6,7 @@ Returns the metadata of a SPL NFT.
 
 #### Options:
 
-- `network`: The network cluster to get data from. Valid values are listed on the [intro page in Supported Networks section](https://docs.moralis.io/moralis-server/solana-sdk/intro). Default value `mainnet`.
+- `network`: The network cluster to get data from. Valid values are listed on the [intro page in Supported Networks section](https://docs.moralis.io/moralis-server/solana-sdk/intro#supported-networks). Default value `mainnet`.
 - `address`: A SPL NFT address (i.e. `HsXZnAba2...`).
 
 ```javascript
