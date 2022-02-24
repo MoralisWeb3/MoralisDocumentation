@@ -6,19 +6,19 @@ Returns SOL balance of an address.
 
 #### Options:
 
-- `network`: The blockchain to get data from. Valid values are listed on the [intro page in the Transactions and Balances section](https://docs.moralis.io/transactions-and-balances/intro). Default value `Eth`.
+- `network`: The network cluster to get data from. Valid values are listed on the [intro page in Supported Networks section](https://docs.moralis.io/moralis-server/solana-sdk/intro). Default value `mainnet`.
 - `address`: A user address (i.e. `HsXZnAba2...`). If specified, the user attached to the query is ignored and the address will be used instead.
 
 ```javascript
 // get mainnet SOL balance for the current user
-const balance = await Moralis.SolanaAPI.account.balance();
+const solBalance = await Moralis.SolanaAPI.account.balance();
 
 // get devnet SOL balance for a given address
 const options = {
   network: "devnet",
   address: "HsXZnAba2...",
 };
-const balance = await Moralis.SolanaAPI.account.balance(options);
+const solBalance = await Moralis.SolanaAPI.account.balance(options);
 ```
 
 #### Example result:
@@ -36,19 +36,19 @@ Returns SPL token balance of an address.
 
 #### Options:
 
-- `network`: The blockchain to get data from. Valid values are listed on the [intro page in the Transactions and Balances section](https://docs.moralis.io/transactions-and-balances/intro). Default value `Eth`.
+- `network`: The network cluster to get data from. Valid values are listed on the [intro page in Supported Networks section](https://docs.moralis.io/moralis-server/solana-sdk/intro). Default value `mainnet`.
 - `address`: A user address (i.e. `HsXZnAba2...`). If specified, the user attached to the query is ignored and the address will be used instead.
 
 ```javascript
 // get mainnet SPL token balance for the current user
-const balance = await Moralis.SolanaAPI.account.getSPL();
+const tokenBalance = await Moralis.SolanaAPI.account.getSPL();
 
 // get devnet SPL token balance for a given address
 const options = {
   network: "devnet",
   address: "HsXZnAba2...",
 };
-const balance = await Moralis.SolanaAPI.account.getSPL(options);
+const tokenBalance = await Moralis.SolanaAPI.account.getSPL(options);
 ```
 
 #### Example result:
@@ -71,19 +71,19 @@ Returns SPL NFT balance of an address.
 
 #### Options:
 
-- `network`: The blockchain to get data from. Valid values are listed on the [intro page in the Transactions and Balances section](https://docs.moralis.io/transactions-and-balances/intro). Default value `Eth`.
+- `network`: The network cluster to get data from. Valid values are listed on the [intro page in Supported Networks section](https://docs.moralis.io/moralis-server/solana-sdk/intro). Default value `mainnet`.
 - `address`: A user address (i.e. `HsXZnAba2...`). If specified, the user attached to the query is ignored and the address will be used instead.
 
 ```javascript
 // get mainnet SPL NFT balance for the current user
-const balance = await Moralis.SolanaAPI.account.getNFTs();
+const nftBalance = await Moralis.SolanaAPI.account.getNFTs();
 
 // get devnet SPL NFT balance for a given address
 const options = {
   network: "devnet",
   address: "HsXZnAba2...",
 };
-const balance = await Moralis.SolanaAPI.account.getNFTs(options);
+const nftBalance = await Moralis.SolanaAPI.account.getNFTs(options);
 ```
 
 #### Example result:
@@ -106,19 +106,19 @@ Returns the portfolio (SOL balance, SPL token blanace, SPL NFT balance) of an ad
 
 #### Options:
 
-- `network`: The blockchain to get data from. Valid values are listed on the [intro page in the Transactions and Balances section](https://docs.moralis.io/transactions-and-balances/intro). Default value `Eth`.
+- `network`: The network cluster to get data from. Valid values are listed on the [intro page in Supported Networks section](https://docs.moralis.io/moralis-server/solana-sdk/intro). Default value `mainnet`.
 - `address`: A user address (i.e. `HsXZnAba2...`). If specified, the user attached to the query is ignored and the address will be used instead.
 
 ```javascript
 // get mainnet NFT balance for the current user
-const balance = await Moralis.SolanaAPI.account.getPortfolio();
+const portfolio = await Moralis.SolanaAPI.account.getPortfolio();
 
 // get devnet NFT balance for a given address
 const options = {
   network: "devnet",
   address: "HsXZnAba2...",
 };
-const balance = await Moralis.SolanaAPI.account.getPortfolio(options);
+const portfolio = await Moralis.SolanaAPI.account.getPortfolio(options);
 ```
 
 #### Example result:
