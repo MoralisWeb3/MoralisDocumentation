@@ -42,7 +42,7 @@
   - [REST API](moralis-server/web3-sdk/moralis-web3-api-rest.md)
   - [😼 NFT API](moralis-server/web3-sdk/nft-api.md)
   - [Rate limit](moralis-server/web3-sdk/rate-limit.md)
-- [🪄 Solana API](moralis-server/solana-sdk/README.md)
+- [☀️ Solana API (Token, Balances, NFTs)](moralis-server/solana-sdk/README.md)
   - [Intro](moralis-server/solana-sdk/intro.md)
   - [Account](moralis-server/solana-sdk/account.md)
   - [NFT](moralis-server/solana-sdk/nft.md)
