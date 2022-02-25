@@ -223,9 +223,9 @@ let options = {
         { "indexed": false, "internalType": "uint256", "name": "test", "type": "uint256" }
       ],
       "name": "PairCreated",
-      "limit": 500000,
       "type": "event"
     },
+    "limit": 500000,
     "tableName": "UniPairCreated",
     "sync_historical": false
 }
