@@ -53,3 +53,16 @@ The server displays several important **indicators** as shown in the image above
 - `RAM`: Server's RAM Usage
 - `DISK`: Server's Disk Usage
 - `Number of Users`: The number of users that has been authenticated in the server
+
+# Migration from Legacy to Nitro Server
+
+Every new server created in Moralis now will be Nitro by default. However, for those servers created before the launch of Moralis Nitro might still be using the legacy server. In order to upgrade the server to Nitro, simply install the coreservices plugin by clicking [here](https://admin.moralis.io/install/plugin/coreservices).
+
+Keep in mind that once the coreservices plugin has been added, it can't be removed. This means that the migration from Legacy to Nitro will be irreversible. From your server, you can see `coreservices` as one of the plugins.
+
+![](<../../.gitbook/assets/Screenshot 2022-02-26 at 20.52.10.png>)
+
+Moralis Nitro server has a number of breaking changes that that are listed [here](https://forum.moralis.io/t/moralis-nitro-is-out/9267). One **important** changes when migrating from legacy to Nitro would be the removal of `TokenBalance` and `NFTOwners` tables from the database. This means once the server has been migrated, these tables will disappear, therefore you should instead replace any queries to these tables with some of our available [Web3APIs](https://docs.moralis.io/moralis-server/web3-sdk) to do the same job:
+
+- `TokenBalance` -> [`getTokenBalances`](https://docs.moralis.io/moralis-server/web3-sdk/account#gettokenbalances)
+- `NFTOwners` -> [`getNFTOwners`](https://docs.moralis.io/moralis-server/web3-sdk/token#getnftowners)
