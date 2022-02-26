@@ -27,6 +27,14 @@ for (let i = 0; i < results.length; i++) {
 }
 ```
 
+## Using Master Key
+
+There are cases when master key is needed for a query, for example if you want to get the list of all the users, you can only do that in a cloud function and using master key, that is because a user can not read the info for the other users because of ACL.
+
+```javascript
+query.find({useMasterKey:true});
+```
+
 ## Query Constraints
 
 {% embed url="https://youtu.be/XgGpXSYu2Us" %}
