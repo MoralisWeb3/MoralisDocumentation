@@ -51,6 +51,7 @@ async function handleNewTransaction(subscription) {
 ```
 
 Now, whenever the user makes a new transaction on the mainnet, it will print a message.
+Note: on new nitro servers (the ones that have coreservices plugin), update instead of create should be used for subscription.
 
 ### Outstanding!
 
