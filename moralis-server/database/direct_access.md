@@ -2,7 +2,7 @@
 description: How to access the database directly.
 ---
 
-# Direct access
+# Direct access to database
 
 ## How to connect directly to the Mongo DB instance that runs on your Moralis Server
 
