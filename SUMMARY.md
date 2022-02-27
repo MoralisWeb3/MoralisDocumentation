@@ -59,6 +59,7 @@
   - [Roles](moralis-server/database/roles.md)
   - [Security](moralis-server/database/security.md)
   - [Data](moralis-server/database/data.md)
+  - [Direct Access](moralis-server/database/direct_access.md)
 - [☁ Cloud Code](moralis-server/cloud-code/README.md)
   - [Cloud Functions](moralis-server/cloud-code/cloud-functions.md)
   - [httpRequest](moralis-server/cloud-code/httprequest.md)
