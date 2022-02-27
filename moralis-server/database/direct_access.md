@@ -1,5 +1,10 @@
+---
+description: How to access the database directly.
+---
 
-# How to connect directly to the Mongo DB instance that runs on your Moralis Server
+# Direct access
+
+## How to connect directly to the Mongo DB instance that runs on your Moralis Server
 
 You find the IP and port where to connect to Mongo DB in your Moralis server settings, 
 you will also need to whitelist the IP that will connect to that mongo db instance (also in server settings).
