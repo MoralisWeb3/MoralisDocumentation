@@ -32,10 +32,10 @@ import { useMoralisSolanaApi, useMoralisSolanaCall } from "react-moralis";
 
 const { account } = useMoralisSolanaApi();
 
-// get mainnet SPL NFT balance for the current user
+// get mainnet SOL balance for the current user
 const { fetch, data, isLoading } = useMoralisSolanaCall(account.balance);
 
-// get devnet SPL NFT balance for a given address
+// get devnet SOL balance for a given address
 const options = {
   network: "devnet",
   address: "HsXZnAba2...",
