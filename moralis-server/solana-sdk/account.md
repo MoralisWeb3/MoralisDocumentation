@@ -90,6 +90,22 @@ const nftBalance = await Moralis.SolanaAPI.account.getNFTs(options);
 ```
 
 {% endtab %}
+{% tab title="React" %}
+
+```javascript
+// get mainnet SPL NFT balance for the current user
+const nftBalance = await Moralis.SolanaAPI.account.getNFTs();
+
+// get devnet SPL NFT balance for a given address
+const options = {
+  network: "devnet",
+  address: "HsXZnAba2...",
+};
+const nftBalance = await Moralis.SolanaAPI.account.getNFTs(options);
+```
+
+{% endtab %}
+{% endtabs %}
 
 #### Example result:
 
