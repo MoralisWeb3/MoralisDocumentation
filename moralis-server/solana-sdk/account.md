@@ -74,6 +74,9 @@ Returns SPL NFT balance of an address.
 - `network`: The network cluster to get data from. Valid values are listed on the [intro page in Supported Networks section](https://docs.moralis.io/moralis-server/solana-sdk/intro#supported-networks). Default value `mainnet`.
 - `address`: A user address (i.e. `HsXZnAba2...`). If specified, the user attached to the query is ignored and the address will be used instead.
 
+{% tabs %}
+{% tab title="JS" %}
+
 ```javascript
 // get mainnet SPL NFT balance for the current user
 const nftBalance = await Moralis.SolanaAPI.account.getNFTs();
@@ -85,6 +88,8 @@ const options = {
 };
 const nftBalance = await Moralis.SolanaAPI.account.getNFTs(options);
 ```
+
+{% endtab %}
 
 #### Example result:
 
