@@ -51,7 +51,7 @@ If you need to programmatically get the address and decimals of a token you can 
 
 ## Transferring ERC721 Tokens (Non-Fungible)
 
-When sending an ERC721 token you have to specify the `contactAddress `of the NFT and the specific `tokenId `you are interested in.
+When sending an ERC721 token you have to specify the `contractAddress `of the NFT and the specific `tokenId `you are interested in.
 
 As it's only possible to transfer one ERC721 at a time, no `amount `is needed.
 
@@ -66,7 +66,7 @@ let transaction = await Moralis.transfer(options)
 
 ## Transferring ERC1155 Tokens (Semi-Fungible)
 
-When sending an ERC1155 token you have to specify the `contactAddress `of the NFT and the specific`tokenId`you are interested in. Additionally, you have to specify the`amount`of the token you want to transfer.
+When sending an ERC1155 token you have to specify the `contractAddress `of the NFT and the specific`tokenId`you are interested in. Additionally, you have to specify the`amount`of the token you want to transfer.
 
 ```javascript
 // sending 15 tokens with token id = 1
