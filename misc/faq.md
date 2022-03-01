@@ -44,7 +44,7 @@ To learn more about how to lock down your app, see the [Security docs](https://d
 
 This is the general standard for verifying that you really own the wallet. It is used, for example, by Opensea, Rarible and so on.
 
-Authorization through Moralis gives for user access to his [user object](https://docs.moralis.io/moralis-server/users/crypto-login#user-object), in which, for example, private information can be stored, and the user also gets the right to change his data. For this we use sigining messages. This is an absolutely safe way: It does not export private keys, does not allow the spending of tokens, and does not require gas fees.&#x20;
+Authorization through Moralis gives for user access to his [user object](https://docs.moralis.io/moralis-server/users/crypto-login#user-object), in which, for example, private information can be stored, and the user also gets the right to change his data. For this we use signing messages. This is an absolutely safe way: It does not export private keys, does not allow the spending of tokens, and does not require gas fees.&#x20;
 
 If you do not need users to be stored in the database, you can use `enableWeb3()` and get eth\_address of users using default web3 methods.
 
@@ -85,7 +85,7 @@ The goal of Moralis is to always offer you fully resolved metadata so that you d
 
 ### Why is it null?
 
-Some NFTs have their metadata is hosted on centralised servers. These servers sometimes have rate limits preventing Moralis to fully index the collections that have their metadata stored on such servers. In such cases the metadata may not be resolved. We are working all the time to extend our coverage of metadata.
+Some NFTs have their metadata hosted on centralised servers. These servers sometimes have rate limits preventing Moralis to fully index the collections that have their metadata stored on such servers. In such cases the metadata may not be resolved. We are working all the time to extend our coverage of metadata.
 
 ### How to get metadata?
 
