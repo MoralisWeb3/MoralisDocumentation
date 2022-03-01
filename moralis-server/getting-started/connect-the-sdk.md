@@ -61,7 +61,9 @@ In order to initialize the SDK you need to fetch _Server URL_ and _APP ID_ from 
 
 Next you can initialize your server using _`Moralis.start`_ function.
 
-#### **`main.js`**
+{% tabs %}
+{% tab title="JS/TS" %}
+
 ```javascript
 /* Moralis init code */
 const serverUrl = "https://xxxxx/server";
@@ -71,6 +73,26 @@ Moralis.start({ serverUrl, appId });
 /* TODO: Add Moralis Authentication code */
 ```
 
+{% endtab %}
+{% tab title="React" %}
+```javascript
+/* Moralis init code */
+import React from 'react';
+import { MoralisProvider } from "react-moralis";
+
+function App() {
+  return (
+    <MoralisProvider serverUrl="https://xxxxx/server" appId="YOUR_APP_ID">
+    </MoralisProvider>
+  );
+}
+
+export default App;
+
+/* TODO: Add Moralis Authentication code */
+```
+{% endtab %}
+{% endtabs %}
 
 ### Authentication Demo
 
