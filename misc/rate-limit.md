@@ -119,7 +119,24 @@ See the tables below for details about Speedy Node methods and API Endpoints tha
 | /nft/{address}/metadata                     | 5 requests  |
 | /nft/transfers                              | 5 requests  |
 | /nft/search                                 | 5 requests  |
+| /nft/{address}/sync                         | 5 requests  |
 | uploadIPFSFolder                            | 25 requests |
+
+Note: /nft/{address}/sync has 5 requests but it will use 60 requests from throttle limit,
+for example, you could get this response when using this endpoing once:
+```javascript
+  'x-rate-limit-remaining-ttl': '60',
+  'x-rate-limit-remaining-ip-ttl': '60',
+  'x-rate-limit-used': '5',
+  'x-rate-limit-ip-used': '5',
+  'x-rate-limit-limit': '3500',
+  'x-rate-limit-throttle-remaining-ttl': '1',
+  'x-rate-limit-throttle-remaining-ip-ttl': '1',
+  'x-rate-limit-throttle-used': '60',
+  'x-rate-limit-throttle-ip-used': '60',
+  'x-rate-limit-throttle-limit': '88',
+  'x-request-weight': '5',
+  ```
 
 ## Why am I rate limited?
 
