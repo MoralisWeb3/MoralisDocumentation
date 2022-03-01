@@ -262,7 +262,7 @@ const Web3Api = useMoralisWeb3Api();
 
 const fetchDateToBlock = async () => {
   const options = { chain: "bsc", date: "2021-09-29T13:09:15+00:00" };
-  const date = await Moralis.Web3API.native.getDateToBlock(options);
+  const date = await Web3Api.native.getDateToBlock(options);
   console.log(date);
 };
 ```
@@ -332,7 +332,7 @@ const fetchLogsByAddress = async () => {
     topic2:
       "0x000000000000000000000000d25943be09f968ba740e0782a34e710100defae9",
   };
-  const logs = await Moralis.Web3API.native.getLogsByAddress(options);
+  const logs = await Web3Api.native.getLogsByAddress(options);
   console.log(logs);
 };
 ```
@@ -441,7 +441,7 @@ const fetchContractEvents = async () => {
     topic: "0x1c411e9a96e071241c2f21f7726b17ae89e3cab4c78be50e062b03a9fffbbad1",
     abi: ABI,
   };
-  const events = await Moralis.Web3API.native.getContractEvents(options);
+  const events = await Web3Api.native.getContractEvents(options);
   console.log(events);
 };
 ```
@@ -500,9 +500,7 @@ const fetchNFTTransfersByBlock = async () => {
   // get NFT transfers by block number or block hash
   const options = { chain: "bsc", block_number_or_hash: "11284830" };
 
-  const NFTTransfers = await Moralis.Web3API.native.getNFTTransfersByBlock(
-    options
-  );
+  const NFTTransfers = await Web3Api.native.getNFTTransfersByBlock(options);
   console.log(NFTTransfers);
 };
 ```
@@ -570,7 +568,7 @@ const fetchTransaction = async () => {
     transaction_hash:
       "0x1ed85b3757a6d31d01a4d6677fc52fd3911d649a0af21fe5ca3f886b153773ed",
   };
-  const transaction = await Moralis.Web3API.native.getTransaction(options);
+  const transaction = await Web3Api.native.getTransaction(options);
   console.log(transaction);
 };
 ```
