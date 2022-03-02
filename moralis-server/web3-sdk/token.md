@@ -9,6 +9,9 @@ Returns metadata (name, symbol, decimals, logo) for a given token contract addre
 - `chain`(optional): The blockchain to get data from. Valid values are listed on the [intro page in the Transactions and Balances section](https://docs.moralis.io/transactions-and-balances/intro). Default value `Eth`.
 - `addresses` (required): The address or an array of addresses to get metadata for
 
+{% tabs %}
+{% tab title="JS/TS" %}
+
 ```javascript
 //Get metadata for one token
 const options = { chain: "bsc", addresses: "0xe...556" };
@@ -18,6 +21,31 @@ const tokenMetadata = await Moralis.Web3API.token.getTokenMetadata(options);
 const options = { chain: "bsc", addresses: ["0xe...556", "0xe...742"] };
 const tokenMetadata = await Moralis.Web3API.token.getTokenMetadata(options);
 ```
+
+{% endtab %}
+{% tab title="React" %}
+
+```javascript
+import React from "react";
+import { useMoralisWeb3Api } from "react-moralis";
+
+const Web3Api = useMoralisWeb3Api();
+
+const fetchTokenMetadata = async () => {
+  //Get metadata for one token
+  const options = { chain: "bsc", addresses: "0xe...556" };
+  const tokenMetadata = await Web3Api.token.getTokenMetadata(options);
+  console.log(tokenMetadata);
+
+  //Get metadata for an array of tokens
+  const options = { chain: "bsc", addresses: ["0xe...556", "0xe...742"] };
+  const tokenArrayMetadata = await Web3Api.token.getTokenMetadata(options);
+  console.log(tokenArrayMetadata);
+};
+```
+
+{% endtab %}
+{% endtabs %}
 
 #### Example result:
 
@@ -49,6 +77,9 @@ Returns metadata (name, address, decimals, logo) for given symbols (asynchronous
 - `chain`(optional): The blockchain to get data from. Valid values are listed on the [intro page in the Transactions and Balances section](https://docs.moralis.io/transactions-and-balances/intro). Default value `Eth`.
 - `symbols` (required): The token symbol or an array of symbols to get metadata for
 
+{% tabs %}
+{% tab title="JS/TS" %}
+
 ```javascript
 //Get metadata for one token
 const options = { chain: "bsc", symbols: "LINK" };
@@ -62,6 +93,33 @@ const tokenMetadata = await Moralis.Web3API.token.getTokenMetadataBySymbol(
   options
 );
 ```
+
+{% endtab %}
+{% tab title="React" %}
+
+```javascript
+import React from "react";
+import { useMoralisWeb3Api } from "react-moralis";
+
+const Web3Api = useMoralisWeb3Api();
+
+const fetchTokenMetadataBySymbol = async () => {
+  //Get metadata for one token
+  const options = { chain: "bsc", symbols: "LINK" };
+  const tokenMetadata = await Web3Api.token.getTokenMetadataBySymbol(options);
+  console.log(tokenMetadata);
+
+  //Get metadata for an array of tokens
+  const options = { chain: "bsc", symbols: ["LINK", "AAVE"] };
+  const tokenArrayMetadata = await Web3Api.token.getTokenMetadataBySymbol(
+    options
+  );
+  console.log(tokenArrayMetadata);
+};
+```
+
+{% endtab %}
+{% endtabs %}
 
 #### Example result:
 
@@ -95,6 +153,9 @@ Returns the amount which the spender is allowed to withdraw from the spender (as
 - `spender_address` (required): The address of the token spender
 - `address`(required): The address of the token contract
 
+{% tabs %}
+{% tab title="JS/TS" %}
+
 ```javascript
 //Get token allowace on ETH
 const options = {
@@ -104,6 +165,30 @@ const options = {
 };
 const allowance = await Moralis.Web3API.token.getTokenAllowance(options);
 ```
+
+{% endtab %}
+{% tab title="React" %}
+
+```javascript
+import React from "react";
+import { useMoralisWeb3Api } from "react-moralis";
+
+const Web3Api = useMoralisWeb3Api();
+
+const fetchTokenAllowance = async () => {
+  //Get token allowace on ETH
+  const options = {
+    owner_address: "0xe...556",
+    spender_address: "0xe...556",
+    address: "0xe...556",
+  };
+  const allowance = await Web3Api.token.getTokenAllowance(options);
+  console.log(allowance);
+};
+```
+
+{% endtab %}
+{% endtabs %}
 
 #### Example result:
 
@@ -128,6 +213,9 @@ Returns the price nominated in the native token and usd for a given token contra
 - `address`(required): The address of the token contract
 - `to_block`(optional): Returns the price for a given blocknumber (historical price-data)
 
+{% tabs %}
+{% tab title="JS/TS" %}
+
 ```javascript
 //Get token price on PancakeSwap v2 BSC
 const options = {
@@ -137,6 +225,30 @@ const options = {
 };
 const price = await Moralis.Web3API.token.getTokenPrice(options);
 ```
+
+{% endtab %}
+{% tab title="React" %}
+
+```javascript
+import React from "react";
+import { useMoralisWeb3Api } from "react-moralis";
+
+const Web3Api = useMoralisWeb3Api();
+
+const fetchTokenPrice = async () => {
+  //Get token price on PancakeSwap v2 BSC
+  const options = {
+    address: "0x7...2",
+    chain: "bsc",
+    exchange: "PancakeSwapv2",
+  };
+  const price = await Web3Api.token.getTokenPrice(options);
+  console.log(price);
+};
+```
+
+{% endtab %}
+{% endtabs %}
 
 #### Example result:
 
@@ -166,10 +278,32 @@ Returns an object with a number of NFTs and an array with NFT metadata (name, sy
 - `limit`(optional): limit.
 - `address`(required): The address of the token contract.
 
+{% tabs %}
+{% tab title="JS/TS" %}
+
 ```javascript
 const options = { address: "0xd...07", chain: "bsc" };
 const NFTs = await Moralis.Web3API.token.getAllTokenIds(options);
 ```
+
+{% endtab %}
+{% tab title="React" %}
+
+```javascript
+import React from "react";
+import { useMoralisWeb3Api } from "react-moralis";
+
+const Web3Api = useMoralisWeb3Api();
+
+const fetchAllTokenIds = async () => {
+  const options = { address: "0xd...07", chain: "bsc" };
+  const NFTs = await Web3Api.token.getAllTokenIds(options);
+  console.log(NFTs);
+};
+```
+
+{% endtab %}
+{% endtabs %}
 
 #### Example result:
 
@@ -205,10 +339,32 @@ Returns the contract level metadata (name, symbol, base token uri) for the given
 - `chain`(optional): The blockchain to get data from. Valid values are listed on the [intro page in the Transactions and Balances section](https://docs.moralis.io/transactions-and-balances/intro). Default value `Eth`.
 - `address`(required): The address of the token contract.
 
+{% tabs %}
+{% tab title="JS/TS" %}
+
 ```javascript
 const options = { address: "0xd...07", chain: "bsc" };
 const metaData = await Moralis.Web3API.token.getNFTMetadata(options);
 ```
+
+{% endtab %}
+{% tab title="React" %}
+
+```javascript
+import React from "react";
+import { useMoralisWeb3Api } from "react-moralis";
+
+const Web3Api = useMoralisWeb3Api();
+
+const fetchNFTMetadata = async () => {
+  const options = { address: "0xd...07", chain: "bsc" };
+  const metaData = await Web3Api.token.getNFTMetadata(options);
+  console.log(metaData);
+};
+```
+
+{% endtab %}
+{% endtabs %}
 
 {% hint style="info" %}
 Requests for contract addresses not yet indexed will automatically start the indexing process for that NFT collection
@@ -241,15 +397,59 @@ Returns an object with a number of NFT owners and an array with NFT metadata (na
 - `limit`(optional): limit.
 - `address`(required): Address of the contract
 
+{% tabs %}
+{% tab title="JS/TS" %}
+
 ```javascript
 const options = { address: "0xd...07", chain: "bsc" };
 const nftOwners = await Moralis.Web3API.token.getNFTOwners(options);
 ```
 
+{% endtab %}
+{% tab title="React" %}
+
+```javascript
+import React from "react";
+import { useMoralisWeb3Api } from "react-moralis";
+
+const Web3Api = useMoralisWeb3Api();
+
+const fetchNFTOwners = async () => {
+  const options = { address: "0xd...07", chain: "bsc" };
+  const nftOwners = await Web3Api.token.getNFTOwners(options);
+  console.log(nftOwners);
+};
+```
+
+{% endtab %}
+{% endtabs %}
+
+{% tabs %}
+{% tab title="JS/TS" %}
+
 ```javascript
 const options = { address: "0xd...07" };
 const nftOwners = await Moralis.Web3API.token.getNFTOwners(options);
 ```
+
+{% endtab %}
+{% tab title="React" %}
+
+```javascript
+import React from "react";
+import { useMoralisWeb3Api } from "react-moralis";
+
+const Web3Api = useMoralisWeb3Api();
+
+const fetchNFTOwners = async () => {
+  const options = { address: "0xd...07" };
+  const nftOwners = await Web3Api.token.getNFTOwners(options);
+  console.log(nftOwners);
+};
+```
+
+{% endtab %}
+{% endtabs %}
 
 {% hint style="info" %}
 Make sure to include a sort parm on a column like token_id for consistent pagination results
@@ -293,10 +493,32 @@ Very powerful and fast tool for getting the NFT data based on a metadata search 
 - `q` (required): The search string parameter
 - `filter`(required): What fields the search should match on. To look into the entire metadata set the value to `global`. To have a better response time you can look into a specific field like name. Available values : `name`; `description`; `attributes`; `global`; `name,description`; `name,attributes`; `description,attributes`; `name,description,attributes`
 
+{% tabs %}
+{% tab title="JS/TS" %}
+
 ```javascript
 const options = { q: "Pancake", chain: "bsc", filter: "name" };
 const NFTs = await Moralis.Web3API.token.searchNFTs(options);
 ```
+
+{% endtab %}
+{% tab title="React" %}
+
+```javascript
+import React from "react";
+import { useMoralisWeb3Api } from "react-moralis";
+
+const Web3Api = useMoralisWeb3Api();
+
+const fetchSearchNFTs = async () => {
+  const options = { q: "Pancake", chain: "bsc", filter: "name" };
+  const NFTs = await Web3Api.token.searchNFTs(options);
+  console.log(NFTs);
+};
+```
+
+{% endtab %}
+{% endtabs %}
 
 #### Example result:
 
@@ -319,12 +541,37 @@ const NFTs = await Moralis.Web3API.token.searchNFTs(options);
 
 #### Searching by `global`:
 
+{% tabs %}
+{% tab title="JS/TS" %}
+
 ```javascript
 const options = { q: "bored ape", chain: "bsc", filter: "global" };
 const NFTs = await Moralis.Web3API.token.searchNFTs(options);
 ```
 
+{% endtab %}
+{% tab title="React" %}
+
+```javascript
+import React from "react";
+import { useMoralisWeb3Api } from "react-moralis";
+
+const Web3Api = useMoralisWeb3Api();
+
+const fetchSearchNFTs = async () => {
+  const options = { q: "bored ape", chain: "bsc", filter: "global" };
+  const NFTs = await Web3Api.token.searchNFTs(options);
+  console.log(NFTs);
+};
+```
+
+{% endtab %}
+{% endtabs %}
+
 #### Searching by `description,attributes`:
+
+{% tabs %}
+{% tab title="JS/TS" %}
 
 ```javascript
 const options = {
@@ -334,6 +581,29 @@ const options = {
 };
 const NFTs = await Moralis.Web3API.token.searchNFTs(options);
 ```
+
+{% endtab %}
+{% tab title="React" %}
+
+```javascript
+import React from "react";
+import { useMoralisWeb3Api } from "react-moralis";
+
+const Web3Api = useMoralisWeb3Api();
+
+const fetchSearchNFTs = async () => {
+  const options = {
+    q: "loves bananas",
+    chain: "bsc",
+    filter: "description,attributes",
+  };
+  const NFTs = await Web3Api.token.searchNFTs(options);
+  console.log(NFTs);
+};
+```
+
+{% endtab %}
+{% endtabs %}
 
 ## getContractNFTTransfers
 
@@ -350,12 +620,34 @@ Returns an object with number of NFT transfers and an array with NFT transfers f
 
 - `address`(required): Address of the contract
 
+{% tabs %}
+{% tab title="JS/TS" %}
+
 ```javascript
 const options = { address: "0xd...07", chain: "bsc" };
 const nftTransfers = await Moralis.Web3API.token.getContractNFTTransfers(
   options
 );
 ```
+
+{% endtab %}
+{% tab title="React" %}
+
+```javascript
+import React from "react";
+import { useMoralisWeb3Api } from "react-moralis";
+
+const Web3Api = useMoralisWeb3Api();
+
+const fetchContractNFTTransfers = async () => {
+  const options = { address: "0xd...07", chain: "bsc" };
+  const nftTransfers = await Web3Api.token.getContractNFTTransfers(options);
+  console.log(NFTs);
+};
+```
+
+{% endtab %}
+{% endtabs %}
 
 #### Example result:
 
@@ -392,10 +684,32 @@ Returns data, including fully resolved metadata for the given token id of the gi
 - `address`(required): Address of the contract
 - `token_id` (required): The id of the token
 
+{% tabs %}
+{% tab title="JS/TS" %}
+
 ```javascript
 const options = { address: "0xd...07", token_id: "1", chain: "bsc" };
 const tokenIdMetadata = await Moralis.Web3API.token.getTokenIdMetadata(options);
 ```
+
+{% endtab %}
+{% tab title="React" %}
+
+```javascript
+import React from "react";
+import { useMoralisWeb3Api } from "react-moralis";
+
+const Web3Api = useMoralisWeb3Api();
+
+const fetchTokenIdMetadata = async () => {
+  const options = { address: "0xd...07", token_id: "1", chain: "bsc" };
+  const tokenIdMetadata = await Web3Api.token.getTokenIdMetadata(options);
+  console.log(tokenIdMetadata);
+};
+```
+
+{% endtab %}
+{% endtabs %}
 
 #### Example result:
 
@@ -426,10 +740,32 @@ Returns an object with number of NFT transfers and an array with all owners of N
 - `address`(required): Address of the contract.
 - `token_id`(requierd): The id of the token.
 
+{% tabs %}
+{% tab title="JS/TS" %}
+
 ```javascript
 const options = { address: "0xd...07", token_id: "1", chain: "bsc" };
 const tokenIdOwners = await Moralis.Web3API.token.getTokenIdOwners(options);
 ```
+
+{% endtab %}
+{% tab title="React" %}
+
+```javascript
+import React from "react";
+import { useMoralisWeb3Api } from "react-moralis";
+
+const Web3Api = useMoralisWeb3Api();
+
+const fetchTokenIdOwners = async () => {
+  const options = { address: "0xd...07", token_id: "1", chain: "bsc" };
+  const tokenIdOwners = await Web3Api.token.getTokenIdOwners(options);
+  console.log(tokenIdOwners);
+};
+```
+
+{% endtab %}
+{% endtabs %}
 
 #### Example result:
 
@@ -465,12 +801,34 @@ Returns an object with number of NFT transfers and an array with all transfers o
 - `address`(required): Address of the contract.
 - `token_id`(requierd): The id of the token.
 
+{% tabs %}
+{% tab title="JS/TS" %}
+
 ```javascript
 const options = { address: "0xd...07", token_id: "1", chain: "bsc" };
 const transfers = await Moralis.Web3API.token.getWalletTokenIdTransfers(
   options
 );
 ```
+
+{% endtab %}
+{% tab title="React" %}
+
+```javascript
+import React from "react";
+import { useMoralisWeb3Api } from "react-moralis";
+
+const Web3Api = useMoralisWeb3Api();
+
+const fetchWalletTokenIdTransfers = async () => {
+  const options = { address: "0xd...07", token_id: "1", chain: "bsc" };
+  const transfers = await Web3Api.token.getWalletTokenIdTransfers(options);
+  console.log(transfers);
+};
+```
+
+{% endtab %}
+{% endtabs %}
 
 #### Example result:
 
@@ -510,10 +868,32 @@ Returns an object with NFT trades for a given contract and marketplace
 - `marketplace` (optional): Marketplace from where to get the trades (only opensea is supported at the moment).
 - `address` (required): Address of the contract(i.e. `0x1a2b3x...`).
 
+{% tabs %}
+{% tab title="JS/TS" %}
+
 ```javascript
 const options = { address: "0xd...07", limit: "10", chain: "bsc" };
 const NFTTrades = await Moralis.Web3API.token.getNFTTrades(options);
 ```
+
+{% endtab %}
+{% tab title="React" %}
+
+```javascript
+import React from "react";
+import { useMoralisWeb3Api } from "react-moralis";
+
+const Web3Api = useMoralisWeb3Api();
+
+const fetchNFTTrades = async () => {
+  const options = { address: "0xd...07", limit: "10", chain: "bsc" };
+  const NFTTrades = await Web3Api.token.getNFTTrades(options);
+  console.log(NFTTrades);
+};
+```
+
+{% endtab %}
+{% endtabs %}
 
 #### Example result:
 
@@ -549,10 +929,32 @@ Returns an object with the lowest price found for a NFT token contract for the l
 - `marketplace` (optional): Marketplace from where to get the trades (only opensea is supported at the moment).
 - `address` (required): Address of the contract(i.e. `0x1a2b3x...`).
 
+{% tabs %}
+{% tab title="JS/TS" %}
+
 ```javascript
 const options = { address: "0xd...07", days: "3" };
 const NFTLowestPrice = await Moralis.Web3API.token.getNFTLowestPrice(options);
 ```
+
+{% endtab %}
+{% tab title="React" %}
+
+```javascript
+import React from "react";
+import { useMoralisWeb3Api } from "react-moralis";
+
+const Web3Api = useMoralisWeb3Api();
+
+const fetchNFTLowestPrice = async () => {
+  const options = { address: "0xd...07", days: "3" };
+  const NFTLowestPrice = await Web3Api.token.getNFTLowestPrice(options);
+  console.log(NFTLowestPrice);
+};
+```
+
+{% endtab %}
+{% endtabs %}
 
 #### Example result:
 
@@ -586,10 +988,32 @@ Resync the metadata for a given token_id
 - `token_id`(requierd): The id of the token.
 - `flag` (optional): The type of resync to operate. Available values : `uri`, `metadata`. Default value : `metadata.` The metadata flag will resync of the metadata of nft. The uri flag will resync the token_uri of NFT.
 
+{% tabs %}
+{% tab title="JS/TS" %}
+
 ```javascript
 const options = { address: "0xd...07", token_id: "1", flag: "metadata" };
 const NFTLowestPrice = await Moralis.Web3API.token.reSyncMetadata(options);
 ```
+
+{% endtab %}
+{% tab title="React" %}
+
+```javascript
+import React from "react";
+import { useMoralisWeb3Api } from "react-moralis";
+
+const Web3Api = useMoralisWeb3Api();
+
+const reSyncMetadata = async () => {
+  const options = { address: "0xd...07", token_id: "1", flag: "metadata" };
+  const result = await Web3Api.token.reSyncMetadata(options);
+  console.log(result);
+};
+```
+
+{% endtab %}
+{% endtabs %}
 
 #### Example result:
 
