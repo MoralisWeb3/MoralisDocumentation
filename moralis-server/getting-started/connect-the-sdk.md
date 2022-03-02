@@ -13,7 +13,7 @@ This guide will show you the process using Vanilla Javascript. Moralis has dedic
 [boilerplate-projects.md](boilerplate-projects.md)
 {% endcontent-ref %}
 
-## Adding Moralis to Your Web Page
+## Adding Moralis to Your Web Page using Javascript
 
 ### Creating an empty page
 
@@ -61,9 +61,6 @@ In order to initialize the SDK you need to fetch _Server URL_ and _APP ID_ from 
 
 Next you can initialize your server using _`Moralis.start`_ function.
 
-{% tabs %}
-{% tab title="JS/TS" %}
-
 ```javascript
 /* Moralis init code */
 const serverUrl = "https://xxxxx/server";
@@ -72,27 +69,6 @@ Moralis.start({ serverUrl, appId });
 
 /* TODO: Add Moralis Authentication code */
 ```
-
-{% endtab %}
-{% tab title="React" %}
-```javascript
-/* Moralis init code */
-import React from 'react';
-import { MoralisProvider } from "react-moralis";
-
-function App() {
-  return (
-    <MoralisProvider serverUrl="https://xxxxx/server" appId="YOUR_APP_ID">
-    </MoralisProvider>
-  );
-}
-
-export default App;
-
-/* TODO: Add Moralis Authentication code */
-```
-{% endtab %}
-{% endtabs %}
 
 ### Authentication Demo
 
@@ -127,6 +103,39 @@ async function logOut() {
 
 document.getElementById("btn-login").onclick = login;
 document.getElementById("btn-logout").onclick = logOut;
+```
+
+## Adding Moralis to Your React app with Typescript
+
+Make sure to have `react`, `react-dom` and `moralis` installed as dependencies. Then install react-moralis:
+
+```
+npm install react-moralis
+```
+
+or:
+
+```
+yarn add react-moralis
+```
+
+Then add `<MoralisProvider>` to `App.tsx` with your `serverUrl` and `appId`
+
+```javascript
+/* Moralis init code */
+import React from 'react';
+import { MoralisProvider } from "react-moralis";
+
+function App() {
+  return (
+    <MoralisProvider serverUrl="https://xxxxx/server" appId="YOUR_APP_ID">
+    </MoralisProvider>
+  );
+}
+
+export default App;
+
+/* TODO: Add Moralis Authentication code */
 ```
 
 ### View the page from localhost
