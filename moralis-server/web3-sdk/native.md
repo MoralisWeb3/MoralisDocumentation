@@ -22,41 +22,14 @@ Runs a given function of a contract abi and returns readonly data (asynchronous)
 {% tab title="JS/TS" %}
 
 ```javascript
-const ABI = [
-  {
-    constant: true,
-    inputs: [
-      {
-        internalType: "address",
-        name: "owner",
-        type: "address",
-      },
-      {
-        internalType: "address",
-        name: "spender",
-        type: "address",
-      },
-    ],
-    name: "allowance",
-    outputs: [
-      {
-        internalType: "uint256",
-        name: "",
-        type: "uint256",
-      },
-    ],
-    payable: false,
-    stateMutability: "view",
-    type: "function",
-  },
-];
+const ABI = []; // Add ABI of 0xdAC17F958D2ee523a2206206994597C13D831ec7
 
 const options = {
-  chain: "bsc",
-  address: "0x...16",
-  function_name: "allowance",
+  chain: "eth",
+  address: "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+  function_name: "balanceOf",
   abi: ABI,
-  params: { owner: "0x1...2", spender: "0x1...2" },
+  params: { who: "0x3355d6E71585d4e619f4dB4C7c5Bfe549b278299" },
 };
 const allowance = await Moralis.Web3API.native.runContractFunction(options);
 ```
@@ -66,57 +39,40 @@ const allowance = await Moralis.Web3API.native.runContractFunction(options);
 
 ```javascript
 import React from "react";
-import { useWeb3ExecuteFunction } from "react-moralis";
+import { useMoralisWeb3Api } from "react-moralis";
 
-const ABI = [
-  {
-    constant: true,
-    inputs: [
-      {
-        internalType: "address",
-        name: "owner",
-        type: "address",
-      },
-      {
-        internalType: "address",
-        name: "spender",
-        type: "address",
-      },
-    ],
-    name: "allowance",
-    outputs: [
-      {
-        internalType: "uint256",
-        name: "",
-        type: "uint256",
-      },
-    ],
-    payable: false,
-    stateMutability: "view",
-    type: "function",
-  },
-];
+const GetAddressBalanceOfUSDT = () => {
+  // 0xdAC17F958D2ee523a2206206994597C13D831ec7 = contract address of USDT
+  const { native } = useMoralisWeb3Api();
 
-const ShowUniswapObserveValues = () => {
-  const { data, error, fetch, isFetching, isLoading } =
-    useWeb3ExecuteFunction();
+  const ABI = []; // Add ABI of 0xdAC17F958D2ee523a2206206994597C13D831ec7
 
   const options = {
-    chain: "bsc",
-    address: "0x...16",
-    function_name: "allowance",
+    chain: "eth",
+    address: "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+    function_name: "balanceOf",
     abi: ABI,
-    params: { owner: "0x1...2", spender: "0x1...2" },
+    params: { who: "0x3355d6E71585d4e619f4dB4C7c5Bfe549b278299" },
   };
+
+  const { fetch, data, error, isLoading } = useMoralisWeb3ApiCall(
+    native.runContractFunction,
+    { ...options }
+  );
 
   return (
     // Use your custom error component to show errors
-    <div>
-      {error && <ErrorMessage error={error} />}
-      <button onClick={() => fetch({ params: options })} disabled={isFetching}>
-        Fetch data
-      </button>
-      {data && <pre>{JSON.stringify(data)}</pre>}
+    <div style={{ height: "100vh", overflow: "auto" }}>
+      <div>
+        {error && <ErrorMessage error={error} />}
+        <button
+          onClick={() => {
+            fetch({ params: options });
+          }}>
+          Fetch data
+        </button>
+        {data && <pre>{JSON.stringify(data)}</pre>}
+      </div>
     </div>
   );
 };
@@ -128,7 +84,7 @@ const ShowUniswapObserveValues = () => {
 #### Example result:
 
 ```javascript
-"string";
+{"result":"3716840038"}
 ```
 
 ## getBlock
