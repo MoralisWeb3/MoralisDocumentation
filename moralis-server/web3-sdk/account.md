@@ -25,7 +25,7 @@ const transactions = await Moralis.Web3API.account.getTransactions();
 // get BSC transactions for a given address
 // with most recent transactions appearing first
 const options = {
-  chain: "eth",
+  chain: "bsc",
   address: "0x3d6c0e79a1239df0039ec16Cc80f7A343b6C530e",
   order: "desc",
   from_block: "0",
@@ -50,7 +50,7 @@ const fetchTransactions = async () => {
   // get BSC transactions for a given address
   // with most recent transactions appearing first
   const options = {
-    chain: "eth",
+    chain: "bsc",
     address: "0x3d6c0e79a1239df0039ec16Cc80f7A343b6C530e",
     order: "desc",
     from_block: "0",
@@ -66,7 +66,7 @@ const fetchTransactions = async () => {
 
 ```sh
 curl -X 'GET' \
-  'https://deep-index.moralis.io/api/v2/0x3d6c0e79a1239df0039ec16Cc80f7A343b6C530e?chain=eth&from_block=0' \
+  'https://deep-index.moralis.io/api/v2/0x3d6c0e79a1239df0039ec16Cc80f7A343b6C530e?chain=bsc&from_block=0' \
   -H 'accept: application/json' \
   -H 'X-API-Key: MY-API-KEY'
 ```
