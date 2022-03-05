@@ -20,14 +20,15 @@ Uploads multiple files and place them in a folder directory. Returns path (async
 
 ```javascript
 const options = {
-    abi": [
+  abi: [
     {
-      "path": "moralis/logo.jpg",
-      "content": "iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAApgAAAKYB3X3"
-    }
-  ]
-   };
-  const path = await Moralis.Web3API.storage.uploadFolder(options);
+      path: "moralis/logo.jpg",
+      content:
+        "iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAApgAAAKYB3X3",
+    },
+  ],
+};
+const path = await Moralis.Web3API.storage.uploadFolder(options);
 ```
 
 {% endtab %}
@@ -39,21 +40,39 @@ import { useMoralisWeb3Api } from "react-moralis";
 
 const Web3Api = useMoralisWeb3Api();
 
-const fetchTransactions = async () => {
+const uploadFolder = async () => {
   const options = {
-    abi": [
-    {
-      "path": "moralis/logo.jpg",
-      "content": "iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAApgAAAKYB3X3"
-    }
-  ]
-   };
+    abi: [
+      {
+        path: "moralis/logo.jpg",
+        content:
+          "iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAApgAAAKYB3X3",
+      },
+    ],
+  };
   const path = await Web3Api.storage.uploadFolder(options);
-  console.log(path)
+  console.log(path);
 };
 ```
 
 {% endtab %}
+{% tab title="curl" %}
+
+```sh
+curl -X 'POST' \
+  'https://deep-index.moralis.io/api/v2/ipfs/uploadFolder' \
+  -H 'accept: application/json' \
+  -H 'X-API-Key: MY-API-KEY' \
+  -H 'Content-Type: application/json' \
+  -d '[
+  {
+    "path": "moralis/logo.jpg",
+    "content": "iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAApgAAAKYB3X3"
+  }
+]'
+```
+
+{% endtab}
 {% endtabs %}
 
 #### Example result:
