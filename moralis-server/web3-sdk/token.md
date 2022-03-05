@@ -1017,4 +1017,8 @@ const reSyncMetadata = async () => {
 
 #### Example result:
 
-/// empty result
+```javascript
+{
+  status: "Request initiated";
+}
+```
