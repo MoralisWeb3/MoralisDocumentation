@@ -132,5 +132,5 @@ const fetchTransactions = async () => {
 {
   "reserve0": "168322120697847448277111",
   "reserve1": "7119912071113173800533"
-
+}
 ```
