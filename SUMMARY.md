@@ -12,7 +12,7 @@
 - [🛠 Getting Started](moralis-server/getting-started/README.md)
   - [Create a Moralis Server](moralis-server/getting-started/create-a-moralis-server.md)
   - [Connect the SDK](moralis-server/getting-started/connect-the-sdk.md)
-    - [Connect using vanialla js](moralis-server/getting-started/connect-using-js.md)
+    - [Connect using Vanilla JS](moralis-server/getting-started/connect-using-js.md)
     - [Connect using Reactjs](moralis-server/getting-started/connect-using-react.md)
   - [🔥 Boilerplate Projects](moralis-server/getting-started/boilerplate-projects.md)
   - [Code Snippets](moralis-server/getting-started/snippets.md)
