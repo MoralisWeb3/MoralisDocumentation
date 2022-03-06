@@ -73,7 +73,7 @@ curl -X 'GET' \
   -H 'X-API-Key: MY-API-KEY'
 ```
 
-{% endtab}
+{% endtab %}
 {% endtabs %}
 
 #### Example result:
@@ -169,8 +169,7 @@ curl -X 'GET' \
   -H 'X-API-Key: MY-API-KEY'
 ```
 
-{% endtab}
-
+{% endtab %}
 {% endtabs %}
 
 #### Example result:
@@ -257,7 +256,7 @@ curl -X 'GET' \
 
 ```
 
-{% endtab}
+{% endtab %}
 {% endtabs %}
 
 #### Example result:
@@ -330,7 +329,7 @@ curl -X 'GET' \
 
 ```
 
-{% endtab}
+{% endtab %}
 {% endtabs %}
 
 #### Example result:
@@ -404,7 +403,7 @@ curl -X 'GET' \
 
 ```
 
-{% endtab}
+{% endtab %}
 {% endtabs %}
 
 #### Example result:
@@ -478,7 +477,7 @@ curl -X 'GET' \
 
 ```
 
-{% endtab}
+{% endtab %}
 {% endtabs %}
 
 {% hint style="info" %}
@@ -551,7 +550,7 @@ curl -X 'GET' \
 
 ```
 
-{% endtab}
+{% endtab %}
 {% endtabs %}
 
 {% hint style="info" %}
@@ -632,7 +631,7 @@ curl -X 'GET' \
 
 ```
 
-{% endtab}
+{% endtab %}
 {% endtabs %}
 
 #### Example result:
@@ -691,7 +690,7 @@ curl -X 'GET' \
 
 ```
 
-{% endtab}
+{% endtab %}
 {% endtabs %}
 
 #### Searching by `description,attributes`:
@@ -739,7 +738,7 @@ curl -X 'GET' \
   -H 'X-API-Key: MY-API-KEY'
 ```
 
-{% endtab}
+{% endtab %}
 {% endtabs %}
 
 ## getContractNFTTransfers
@@ -800,7 +799,7 @@ curl -X 'GET' \
   -H 'X-API-Key: MY-API-KEY'
 ```
 
-{% endtab}
+{% endtab %}
 {% endtabs %}
 
 #### Example result:
@@ -884,7 +883,7 @@ curl -X 'GET' \
   -H 'X-API-Key: MY-API-KEY'
 ```
 
-{% endtab}
+{% endtab %}
 {% endtabs %}
 
 #### Example result:
@@ -966,7 +965,7 @@ curl -X 'GET' \
   -H 'X-API-Key: MY-API-KEY'
 ```
 
-{% endtab}
+{% endtab %}
 {% endtabs %}
 
 #### Example result:
@@ -1048,7 +1047,7 @@ curl -X 'GET' \
   -H 'X-API-Key: MY-API-KEY'
 ```
 
-{% endtab}
+{% endtab %}
 {% endtabs %}
 
 #### Example result:
@@ -1137,7 +1136,7 @@ curl -X 'GET' \
 
 ```
 
-{% endtab}
+{% endtab %}
 {% endtabs %}
 
 #### Example result:
@@ -1215,7 +1214,7 @@ curl -X 'GET' \
   -H 'X-API-Key: MY-API-KEY'
 ```
 
-{% endtab}
+{% endtab %}
 {% endtabs %}
 
 #### Example result:
@@ -1294,7 +1293,7 @@ curl -X 'PUT' \
   -H 'X-API-Key: MY-API-KEY'
 ```
 
-{% endtab}
+{% endtab %}
 {% endtabs %}
 
 #### Example result:

@@ -61,7 +61,6 @@ const fetchTransactions = async () => {
 ```
 
 {% endtab %}
-
 {% tab title="curl" %}
 
 ```sh
@@ -71,8 +70,7 @@ curl -X 'GET' \
   -H 'X-API-Key: MY-API-KEY'
 ```
 
-{% endtab}
-
+{% endtab %}
 {% endtabs %}
 
 #### Example result:
@@ -162,8 +160,7 @@ curl -X 'GET' \
   -H 'X-API-Key: MY-API-KEY'
 ```
 
-{% endtab}
-
+{% endtab %}
 {% endtabs %}
 
 #### Example result:
@@ -217,7 +214,7 @@ curl -X 'GET' \
   -H 'X-API-Key: MY-API-KEY'
 ```
 
-{% endtab}
+{% endtab %}
 {% endtabs %}
 
 Without any parameters specified, it defaults to 'Eth' as chain and the current user, but you can also specify the `chain` and `address`in an options object:
@@ -262,8 +259,6 @@ curl -X 'GET' \
   -H 'accept: application/json' \
   -H 'X-API-Key: MY-API-KEY'
 ```
-
-{% endtab}
 
 {% endtab %}
 {% endtabs %}
@@ -356,8 +351,7 @@ curl -X 'GET' \
   -H 'X-API-Key: MY-API-KEY'
 ```
 
-{% endtab}
-
+{% endtab %}
 {% endtabs %}
 
 #### Example result:
@@ -436,7 +430,6 @@ console.log(polygonNFTs);
 ```
 
 {% endtab %}
-
 {% tab title="curl" %}
 
 ```sh
@@ -446,7 +439,7 @@ curl -X 'GET' \
   -H 'X-API-Key: MY-API-KEY'
 ```
 
-{% endtab}
+{% endtab %}
 {% endtabs %}
 
 #### Example result:
@@ -537,7 +530,7 @@ curl -X 'GET' \
   -H 'X-API-Key: MY-API-KEY'
 ```
 
-{% endtab}
+{% endtab %}
 {% endtabs %}
 
 {% hint style="info" %}
@@ -628,7 +621,7 @@ curl -X 'GET' \
 
 ```
 
-{% endtab}
+{% endtab %}
 {% endtabs %}
 
 {% hint style="info" %}
