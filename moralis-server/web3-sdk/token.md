@@ -13,12 +13,21 @@ Returns metadata (name, symbol, decimals, logo) for a given token contract addre
 {% tab title="JS/TS" %}
 
 ```javascript
-//Get metadata for one token
-const options = { chain: "bsc", addresses: "0xe...556" };
+//Get metadata for one token. Ex: USDT token on ETH
+const options = {
+  chain: "eth",
+  addresses: "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+};
 const tokenMetadata = await Moralis.Web3API.token.getTokenMetadata(options);
 
-//Get metadata for an array of tokens
-const options = { chain: "bsc", addresses: ["0xe...556", "0xe...742"] };
+//Get metadata for an array of tokens. Ex: USDT and USDC tokens on BSC
+const options = {
+  chain: "bsc",
+  addresses: [
+    "0x55d398326f99059ff775485246999027b3197955",
+    "0x0a385f86059e0b2a048171d78afd1f38558121f3",
+  ],
+};
 const tokenMetadata = await Moralis.Web3API.token.getTokenMetadata(options);
 ```
 
@@ -32,19 +41,39 @@ import { useMoralisWeb3Api } from "react-moralis";
 const Web3Api = useMoralisWeb3Api();
 
 const fetchTokenMetadata = async () => {
-  //Get metadata for one token
-  const options = { chain: "bsc", addresses: "0xe...556" };
+  //Get metadata for one token. Ex: USDT token on ETH
+  const options = {
+    chain: "eth",
+    addresses: "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+  };
   const tokenMetadata = await Web3Api.token.getTokenMetadata(options);
   console.log(tokenMetadata);
 
-  //Get metadata for an array of tokens
-  const options = { chain: "bsc", addresses: ["0xe...556", "0xe...742"] };
+  //Get metadata for an array of tokens. Ex: USDT and USDC tokens on BSC
+  const options = {
+    chain: "bsc",
+    addresses: [
+      "0x55d398326f99059ff775485246999027b3197955",
+      "0x0a385f86059e0b2a048171d78afd1f38558121f3",
+    ],
+  };
   const tokenArrayMetadata = await Web3Api.token.getTokenMetadata(options);
   console.log(tokenArrayMetadata);
 };
 ```
 
 {% endtab %}
+
+{% tab title="curl" %}
+
+```sh
+curl -X 'GET' \
+  'https://deep-index.moralis.io/api/v2/erc20/metadata?chain=bsc&addresses=0x55d398326f99059ff775485246999027b3197955&addresses=0x0a385f86059e0b2a048171d78afd1f38558121f3' \
+  -H 'accept: application/json' \
+  -H 'X-API-Key: MY-API-KEY'
+```
+
+{% endtab}
 {% endtabs %}
 
 #### Example result:
@@ -52,18 +81,28 @@ const fetchTokenMetadata = async () => {
 ```javascript
 [
   {
-    address:
-      "0x2d30ca6f024dbc1307ac8a1a44ca27de6f797ec22ef20627a1307243b0ab7d09",
-    name: "Kylin Network",
-    symbol: "KYL",
+    address: "0x0a385f86059e0b2a048171d78afd1f38558121f3",
+    name: "USD Coin on BSC",
+    symbol: "USDC",
+    logo: null,
+    logo_hash: null,
+    thumbnail: null,
+    decimals: "6",
+    block_number: "8242108",
+    validated: 1,
+    created_at: "2022-01-20T10:41:03.034Z",
+  },
+  {
+    address: "0x55d398326f99059ff775485246999027b3197955",
+    name: "Tether USD",
+    symbol: "USDT",
+    logo: null,
+    logo_hash: null,
+    thumbnail: null,
     decimals: "18",
-    logo: "https://cdn.moralis.io/eth/0x67b6d479c7bb412c54e03dca8e1bc6740ce6b99c.png",
-    logo_hash:
-      "ee7aa2cdf100649a3521a082116258e862e6971261a39b5cd4e4354fcccbc54d",
-    thumbnail:
-      "https://cdn.moralis.io/eth/0x67b6d479c7bb412c54e03dca8e1bc6740ce6b99c_thumb.png",
-    block_number: "string",
-    validated: "string",
+    block_number: "8242108",
+    validated: 1,
+    created_at: "2022-01-20T10:41:03.034Z",
   },
 ];
 ```
@@ -95,6 +134,7 @@ const tokenMetadata = await Moralis.Web3API.token.getTokenMetadataBySymbol(
 ```
 
 {% endtab %}
+
 {% tab title="React" %}
 
 ```javascript
@@ -119,6 +159,18 @@ const fetchTokenMetadataBySymbol = async () => {
 ```
 
 {% endtab %}
+
+{% tab title="curl" %}
+
+```sh
+curl -X 'GET' \
+  'https://deep-index.moralis.io/api/v2/erc20/metadata/symbols?chain=bsc&symbols=LINK&symbols=AAVE' \
+  -H 'accept: application/json' \
+  -H 'X-API-Key: MY-API-KEY'
+```
+
+{% endtab}
+
 {% endtabs %}
 
 #### Example result:
@@ -159,9 +211,12 @@ Returns the amount which the spender is allowed to withdraw from the spender (as
 ```javascript
 //Get token allowace on ETH
 const options = {
-  owner_address: "0xe...556",
-  spender_address: "0xe...556",
-  address: "0xe...556",
+  //token holder
+  owner_address: "0xd1628228ffaede220cd583da5f9262355682210a",
+  //uniswap v3 router 2 contract address
+  spender_address: "0x68b3465833fb72A70ecDF485E0e4C7bD8665Fc45",
+  //ENS token contract address
+  address: "0xC18360217D8F7Ab5e7c516566761Ea12Ce7F9D72",
 };
 const allowance = await Moralis.Web3API.token.getTokenAllowance(options);
 ```
@@ -178,9 +233,12 @@ const Web3Api = useMoralisWeb3Api();
 const fetchTokenAllowance = async () => {
   //Get token allowace on ETH
   const options = {
-    owner_address: "0xe...556",
-    spender_address: "0xe...556",
-    address: "0xe...556",
+    //token holder
+    owner_address: "0xd1628228ffaede220cd583da5f9262355682210a",
+    //uniswap v3 router 2 contract address
+    spender_address: "0x68b3465833fb72A70ecDF485E0e4C7bD8665Fc45",
+    //ENS token contract address
+    address: "0xC18360217D8F7Ab5e7c516566761Ea12Ce7F9D72",
   };
   const allowance = await Web3Api.token.getTokenAllowance(options);
   console.log(allowance);
@@ -188,13 +246,25 @@ const fetchTokenAllowance = async () => {
 ```
 
 {% endtab %}
+
+{% tab title="curl" %}
+
+```sh
+curl -X 'GET' \
+  'https://deep-index.moralis.io/api/v2/erc20/0xC18360217D8F7Ab5e7c516566761Ea12Ce7F9D72/allowance?chain=eth&owner_address=0xd1628228ffaede220cd583da5f9262355682210a&spender_address=0x68b3465833fb72A70ecDF485E0e4C7bD8665Fc45' \
+  -H 'accept: application/json' \
+  -H 'X-API-Key: MY-API-KEY'
+
+```
+
+{% endtab}
 {% endtabs %}
 
 #### Example result:
 
 ```javascript
 {
-  "allowance": "string"
+  "allowance": "115792089237316195423570985008687907853269984665640564039457584007913129639935"
 }
 ```
 
@@ -219,7 +289,7 @@ Returns the price nominated in the native token and usd for a given token contra
 ```javascript
 //Get token price on PancakeSwap v2 BSC
 const options = {
-  address: "0x7...2",
+  address: "0x42F6f551ae042cBe50C739158b4f0CAC0Edb9096",
   chain: "bsc",
   exchange: "PancakeSwapv2",
 };
@@ -238,7 +308,7 @@ const Web3Api = useMoralisWeb3Api();
 const fetchTokenPrice = async () => {
   //Get token price on PancakeSwap v2 BSC
   const options = {
-    address: "0x7...2",
+    address: "0x42F6f551ae042cBe50C739158b4f0CAC0Edb9096",
     chain: "bsc",
     exchange: "PancakeSwapv2",
   };
@@ -248,6 +318,19 @@ const fetchTokenPrice = async () => {
 ```
 
 {% endtab %}
+
+{% tab title="curl" %}
+
+```sh
+
+curl -X 'GET' \
+  'https://deep-index.moralis.io/api/v2/erc20/0x42F6f551ae042cBe50C739158b4f0CAC0Edb9096/price?chain=bsc&exchange=PancakeSwapv2' \
+  -H 'accept: application/json' \
+  -H 'X-API-Key: MY-API-KEY'
+
+```
+
+{% endtab}
 {% endtabs %}
 
 #### Example result:
@@ -282,7 +365,10 @@ Returns an object with a number of NFTs and an array with NFT metadata (name, sy
 {% tab title="JS/TS" %}
 
 ```javascript
-const options = { address: "0xd...07", chain: "bsc" };
+const options = {
+  address: "0x7dE3085b3190B3a787822Ee16F23be010f5F8686",
+  chain: "eth",
+};
 const NFTs = await Moralis.Web3API.token.getAllTokenIds(options);
 ```
 
@@ -296,13 +382,29 @@ import { useMoralisWeb3Api } from "react-moralis";
 const Web3Api = useMoralisWeb3Api();
 
 const fetchAllTokenIds = async () => {
-  const options = { address: "0xd...07", chain: "bsc" };
+  const options = {
+    address: "0x7dE3085b3190B3a787822Ee16F23be010f5F8686",
+    chain: "eth",
+  };
   const NFTs = await Web3Api.token.getAllTokenIds(options);
   console.log(NFTs);
 };
 ```
 
 {% endtab %}
+
+{% tab title="curl" %}
+
+```sh
+
+curl -X 'GET' \
+  'https://deep-index.moralis.io/api/v2/nft/0x7dE3085b3190B3a787822Ee16F23be010f5F8686?chain=eth&format=decimal' \
+  -H 'accept: application/json' \
+  -H 'X-API-Key: MY-API-KEY'
+
+```
+
+{% endtab}
 {% endtabs %}
 
 #### Example result:
@@ -310,22 +412,17 @@ const fetchAllTokenIds = async () => {
 ```javascript
 [
   {
-    token_address: "0xdf7952b35f24acf7fc0487d01c8d5690a60dba07",
-    token_id: "384165",
+    token_address: "0x7de3085b3190b3a787822ee16f23be010f5f8686",
+    token_id: "728",
     amount: "1",
-    block_number: "10111462",
-    block_number_minted: "10111462",
     contract_type: "ERC721",
-    name: "Pancake Bunnies",
-    symbol: "PB",
+    name: "Baby Ape Mutant Club",
+    symbol: "BAMC",
     token_uri:
-      "https://ipfs.moralis.io:2053/ipfs/QmSs1sgcU57XeAsZneMsivFx3cgxhn3QZrswbwZxwpnuaJ/lottie.json",
+      "https://gateway.moralisipfs.com/ipfs/QmajSqgxY3cWBgBeRm38vasJAcTit1kp5EwqVHxszJYgUC/728.json",
     metadata:
-      '{\n    "name": "Lottie",\n    "description": "Lottie\'s looking hotto for lotto!",\n    "mp4_url": "ipfs://QmWnhyxSrD8v9bx5tE9mDkwW853bpjoCXGd7o2fe1BtQJ8/lottie.mp4",\n    "gif_url": "ipfs://QmWnhyxSrD8v9bx5tE9mDkwW853bpjoCXGd7o2fe1BtQJ8/lottie.gif",\n    "webm_url": "ipfs://QmWnhyxSrD8v9bx5tE9mDkwW853bpjoCXGd7o2fe1BtQJ8/lottie.webm",\n    "image": "ipfs://QmWnhyxSrD8v9bx5tE9mDkwW853bpjoCXGd7o2fe1BtQJ8/lottie.png",\n    "attributes": {\n      "bunnyId": "18"\n    }\n  }',
-    is_valid: 1,
-    syncing: 2,
-    synced_at: "2021-12-04T07:36:07.567Z",
-    frozen: 0,
+      '{\n  "name": "Baby Mutant #728",\n  "description": "",\n  "image": "ipfs://QmPUDVLP9W1pWpCTpGvpPbMu4nVpCuu2A7M6tQovDpVDoD/728.png",\n  "dna": "172bef0b78106072e4eacb26db57ae70fb17b37b",\n  "edition": 728,\n  "date": 1645023568505,\n  "artist": "Skurvydogg",\n  "attributes": [\n    {\n      "trait_type": "BackGrounds",\n      "value": "Putrid_Purple"\n    },\n    {\n      "trait_type": "Furs",\n      "value": "Red_rum"\n    },\n    {\n      "trait_type": "Eyes",\n      "value": "Robot_M1"\n    },\n    {\n      "trait_type": "Hats",\n      "value": "Bunny_Ears_M2"\n    },\n    {\n      "trait_type": "Mouths",\n      "value": "Xenomorf_M1"\n    }\n  ]\n}',
+    synced_at: "2022-03-05T02:29:18.441Z",
   },
 ];
 ```
@@ -343,7 +440,10 @@ Returns the contract level metadata (name, symbol, base token uri) for the given
 {% tab title="JS/TS" %}
 
 ```javascript
-const options = { address: "0xd...07", chain: "bsc" };
+const options = {
+  address: "0x7dE3085b3190B3a787822Ee16F23be010f5F8686",
+  chain: "eth",
+};
 const metaData = await Moralis.Web3API.token.getNFTMetadata(options);
 ```
 
@@ -357,13 +457,28 @@ import { useMoralisWeb3Api } from "react-moralis";
 const Web3Api = useMoralisWeb3Api();
 
 const fetchNFTMetadata = async () => {
-  const options = { address: "0xd...07", chain: "bsc" };
+  const options = {
+    address: "0x7dE3085b3190B3a787822Ee16F23be010f5F8686",
+    chain: "eth",
+  };
   const metaData = await Web3Api.token.getNFTMetadata(options);
   console.log(metaData);
 };
 ```
 
 {% endtab %}
+
+{% tab title="curl" %}
+
+```sh
+curl -X 'GET' \
+  'https://deep-index.moralis.io/api/v2/nft/0x7dE3085b3190B3a787822Ee16F23be010f5F8686/metadata?chain=eth' \
+  -H 'accept: application/json' \
+  -H 'X-API-Key: MY-API-KEY'
+
+```
+
+{% endtab}
 {% endtabs %}
 
 {% hint style="info" %}
@@ -374,14 +489,11 @@ Requests for contract addresses not yet indexed will automatically start the ind
 
 ```javascript
 {
-  token_address: "0xdf7952b35f24acf7fc0487d01c8d5690a60dba07",
-  name: "Pancake Bunnies",
-  symbol: "PB",
-  abi: null,
-  contract_type: "ERC721",
-  supports_token_uri: null,
-  synced_at: "2021-09-16",
-
+  "token_address": "0x7de3085b3190b3a787822ee16f23be010f5f8686",
+  "name": "Baby Ape Mutant Club",
+  "symbol": "BAMC",
+  "contract_type": "ERC721",
+  "synced_at": "2022-02-19"
 }
 ```
 
@@ -401,7 +513,10 @@ Returns an object with a number of NFT owners and an array with NFT metadata (na
 {% tab title="JS/TS" %}
 
 ```javascript
-const options = { address: "0xd...07", chain: "bsc" };
+const options = {
+  address: "0x7de3085b3190b3a787822ee16f23be010f5f8686",
+  chain: "eth",
+};
 const nftOwners = await Moralis.Web3API.token.getNFTOwners(options);
 ```
 
@@ -415,40 +530,28 @@ import { useMoralisWeb3Api } from "react-moralis";
 const Web3Api = useMoralisWeb3Api();
 
 const fetchNFTOwners = async () => {
-  const options = { address: "0xd...07", chain: "bsc" };
+  const options = {
+    address: "0x7de3085b3190b3a787822ee16f23be010f5f8686",
+    chain: "eth",
+  };
   const nftOwners = await Web3Api.token.getNFTOwners(options);
   console.log(nftOwners);
 };
 ```
 
 {% endtab %}
-{% endtabs %}
 
-{% tabs %}
-{% tab title="JS/TS" %}
+{% tab title="curl" %}
 
-```javascript
-const options = { address: "0xd...07" };
-const nftOwners = await Moralis.Web3API.token.getNFTOwners(options);
+```sh
+curl -X 'GET' \
+  'https://deep-index.moralis.io/api/v2/nft/0x7de3085b3190b3a787822ee16f23be010f5f8686/owners?chain=eth&format=decimal' \
+  -H 'accept: application/json' \
+  -H 'X-API-Key: MY-API-KEY'
+
 ```
 
-{% endtab %}
-{% tab title="React" %}
-
-```javascript
-import React from "react";
-import { useMoralisWeb3Api } from "react-moralis";
-
-const Web3Api = useMoralisWeb3Api();
-
-const fetchNFTOwners = async () => {
-  const options = { address: "0xd...07" };
-  const nftOwners = await Web3Api.token.getNFTOwners(options);
-  console.log(nftOwners);
-};
-```
-
-{% endtab %}
+{% endtab}
 {% endtabs %}
 
 {% hint style="info" %}
@@ -518,6 +621,18 @@ const fetchSearchNFTs = async () => {
 ```
 
 {% endtab %}
+
+{% tab title="curl" %}
+
+```sh
+curl -X 'GET' \
+  'https://deep-index.moralis.io/api/v2/nft/search?chain=bsc&format=decimal&q=Pancake&filter=name' \
+  -H 'accept: application/json' \
+  -H 'X-API-Key: MY-API-KEY'
+
+```
+
+{% endtab}
 {% endtabs %}
 
 #### Example result:
@@ -566,6 +681,17 @@ const fetchSearchNFTs = async () => {
 ```
 
 {% endtab %}
+{% tab title="curl" %}
+
+```sh
+curl -X 'GET' \
+  'https://deep-index.moralis.io/api/v2/nft/search?chain=bsc&format=decimal&q=Pancake&filter=global' \
+  -H 'accept: application/json' \
+  -H 'X-API-Key: MY-API-KEY'
+
+```
+
+{% endtab}
 {% endtabs %}
 
 #### Searching by `description,attributes`:
@@ -603,6 +729,17 @@ const fetchSearchNFTs = async () => {
 ```
 
 {% endtab %}
+
+{% tab title="curl" %}
+
+```sh
+curl -X 'GET' \
+  'https://deep-index.moralis.io/api/v2/nft/search?chain=bsc&format=decimal&q=Pancake&filter=description%2Cattributes' \
+  -H 'accept: application/json' \
+  -H 'X-API-Key: MY-API-KEY'
+```
+
+{% endtab}
 {% endtabs %}
 
 ## getContractNFTTransfers
@@ -624,7 +761,10 @@ Returns an object with number of NFT transfers and an array with NFT transfers f
 {% tab title="JS/TS" %}
 
 ```javascript
-const options = { address: "0xd...07", chain: "bsc" };
+const options = {
+  address: "0x7de3085b3190b3a787822ee16f23be010f5f8686",
+  chain: "eth",
+};
 const nftTransfers = await Moralis.Web3API.token.getContractNFTTransfers(
   options
 );
@@ -640,13 +780,27 @@ import { useMoralisWeb3Api } from "react-moralis";
 const Web3Api = useMoralisWeb3Api();
 
 const fetchContractNFTTransfers = async () => {
-  const options = { address: "0xd...07", chain: "bsc" };
+  const options = {
+    address: "0x7de3085b3190b3a787822ee16f23be010f5f8686",
+    chain: "eth",
+  };
   const nftTransfers = await Web3Api.token.getContractNFTTransfers(options);
   console.log(NFTs);
 };
 ```
 
 {% endtab %}
+
+{% tab title="curl" %}
+
+```sh
+curl -X 'GET' \
+  'https://deep-index.moralis.io/api/v2/nft/0x7de3085b3190b3a787822ee16f23be010f5f8686/1/transfers?chain=eth&format=decimal' \
+  -H 'accept: application/json' \
+  -H 'X-API-Key: MY-API-KEY'
+```
+
+{% endtab}
 {% endtabs %}
 
 #### Example result:
@@ -654,21 +808,24 @@ const fetchContractNFTTransfers = async () => {
 ```javascript
 [
   {
-    token_address: "0xdf7952b35f24acf7fc0487d01c8d5690a60dba07",
-    token_id: "191123",
-    from_address: "0x0000000000000000000000000000000000000000",
-    to_address: "0xccbc6f1df01bad0f477fe085760571572d115eed",
-    amount: "1",
-    contract_type: "ERC721",
-    block_number: "6827111",
-    block_timestamp: "2021-04-23T22:25:35.000Z",
+    block_number: "14238158",
+    block_timestamp: "2022-02-19T18:49:02.000Z",
     block_hash:
-      "0x79b8618df3d5b62ee4f230386284ea78037bc61f36418488db71564d2aca583c",
+      "0x8124f4a126996d306a90fa00b871b6ed9669a1a9806106b34fa28f3de61e5f8b",
     transaction_hash:
-      "0x9dedbb0fa63eba77634564ef6682826ccfdd1cb58be6e7b2f44cdf0aada07733",
+      "0x2db36892fc17bf99a3f6dd8a639f3c704f772858f3961cbcd26b3a42a2cd561e",
+    transaction_index: 162,
+    log_index: 419,
+    value: "0",
+    contract_type: "ERC721",
     transaction_type: "Single",
-    transaction_index: 129,
-    log_index: 415,
+    token_address: "0x7de3085b3190b3a787822ee16f23be010f5f8686",
+    token_id: "1",
+    from_address: "0x0000000000000000000000000000000000000000",
+    to_address: "0x324fb4a58674758e00c3a49409b815de1398bfe8",
+    amount: "1",
+    verified: 1,
+    operator: null,
   },
 ];
 ```
@@ -688,7 +845,11 @@ Returns data, including fully resolved metadata for the given token id of the gi
 {% tab title="JS/TS" %}
 
 ```javascript
-const options = { address: "0xd...07", token_id: "1", chain: "bsc" };
+const options = {
+  address: "0x7de3085b3190b3a787822ee16f23be010f5f8686",
+  token_id: "1",
+  chain: "eth",
+};
 const tokenIdMetadata = await Moralis.Web3API.token.getTokenIdMetadata(options);
 ```
 
@@ -702,28 +863,49 @@ import { useMoralisWeb3Api } from "react-moralis";
 const Web3Api = useMoralisWeb3Api();
 
 const fetchTokenIdMetadata = async () => {
-  const options = { address: "0xd...07", token_id: "1", chain: "bsc" };
+  const options = {
+    address: "0x7de3085b3190b3a787822ee16f23be010f5f8686",
+    token_id: "1",
+    chain: "eth",
+  };
   const tokenIdMetadata = await Web3Api.token.getTokenIdMetadata(options);
   console.log(tokenIdMetadata);
 };
 ```
 
 {% endtab %}
+
+{% tab title="curl" %}
+
+```sh
+curl -X 'GET' \
+  'https://deep-index.moralis.io/api/v2/nft/0x7de3085b3190b3a787822ee16f23be010f5f8686/1?chain=eth&format=decimal' \
+  -H 'accept: application/json' \
+  -H 'X-API-Key: MY-API-KEY'
+```
+
+{% endtab}
 {% endtabs %}
 
 #### Example result:
 
 ```javascript
 {
-  "token_address": "0xdf7952b35f24acf7fc0487d01c8d5690a60dba07",
-  "token_id": "222",
-  "contract_type": "ERC721",
-  "token_uri": "ipfs://QmYu9WwPNKNSZQiTCDfRk7aCR472GURavR9M1qosDmqpev/sparkle.json",
-  "metadata": "{\n    \"name\": \"Sparkle\",\n    \"description\": \"It’s sparkling syrup, pancakes, and even lottery tickets! This bunny really loves it.\",\n    \"image\": \"ipfs://QmXdHqg3nywpNJWDevJQPtkz93vpfoHcZWQovFz2nmtPf5/sparkle.png\",\n    \"attributes\": {\n        \"bunnyId\": \"4\"\n    }\n}",
-  "synced_at": "2021-08-19T10:49:00.324Z",
+  "token_address": "0x7de3085b3190b3a787822ee16f23be010f5f8686",
+  "token_id": "1",
+  "block_number_minted": "14238158",
+  "owner_of": "0x324fb4a58674758e00c3a49409b815de1398bfe8",
+  "block_number": "14238158",
   "amount": "1",
-  "name": "Pancake Bunnies",
-  "symbol": "PB"
+  "contract_type": "ERC721",
+  "name": "Baby Ape Mutant Club",
+  "symbol": "BAMC",
+  "token_uri": "https://ipfs.moralis.io:2053/ipfs/QmYuHVS98nZxzYmuk9E6HA1TNr2W6PpV4fvE4MDfCFgfCP",
+  "metadata": "{\n  \"name\": \"Baby Ape Mutant Club\",\n  \"description\": \"Wait for reveal\",\n  \"image\": \"ipfs://QmPS5CMBd9Zwidies964iHb9hcdDmXZkWBGZyaJ9c1Gmif\"\n}\n",
+  "synced_at": "2022-02-19T18:50:43.217Z",
+  "is_valid": 1,
+  "syncing": 2,
+  "frozen": 0
 }
 ```
 
@@ -744,7 +926,11 @@ Returns an object with number of NFT transfers and an array with all owners of N
 {% tab title="JS/TS" %}
 
 ```javascript
-const options = { address: "0xd...07", token_id: "1", chain: "bsc" };
+const options = {
+  address: "0x7de3085b3190b3a787822ee16f23be010f5f8686",
+  token_id: "1",
+  chain: "eth",
+};
 const tokenIdOwners = await Moralis.Web3API.token.getTokenIdOwners(options);
 ```
 
@@ -758,13 +944,29 @@ import { useMoralisWeb3Api } from "react-moralis";
 const Web3Api = useMoralisWeb3Api();
 
 const fetchTokenIdOwners = async () => {
-  const options = { address: "0xd...07", token_id: "1", chain: "bsc" };
+  const options = {
+    address: "0x7de3085b3190b3a787822ee16f23be010f5f8686",
+    token_id: "1",
+    chain: "eth",
+  };
   const tokenIdOwners = await Web3Api.token.getTokenIdOwners(options);
   console.log(tokenIdOwners);
 };
 ```
 
 {% endtab %}
+
+{% tab title="curl" %}
+
+```sh
+
+curl -X 'GET' \
+  'https://deep-index.moralis.io/api/v2/nft/0x7de3085b3190b3a787822ee16f23be010f5f8686/1/owners?chain=eth&format=decimal' \
+  -H 'accept: application/json' \
+  -H 'X-API-Key: MY-API-KEY'
+```
+
+{% endtab}
 {% endtabs %}
 
 #### Example result:
@@ -805,7 +1007,11 @@ Returns an object with number of NFT transfers and an array with all transfers o
 {% tab title="JS/TS" %}
 
 ```javascript
-const options = { address: "0xd...07", token_id: "1", chain: "bsc" };
+const options = {
+  address: "0x7de3085b3190b3a787822ee16f23be010f5f8686",
+  token_id: "1",
+  chain: "eth",
+};
 const transfers = await Moralis.Web3API.token.getWalletTokenIdTransfers(
   options
 );
@@ -821,13 +1027,28 @@ import { useMoralisWeb3Api } from "react-moralis";
 const Web3Api = useMoralisWeb3Api();
 
 const fetchWalletTokenIdTransfers = async () => {
-  const options = { address: "0xd...07", token_id: "1", chain: "bsc" };
+  const options = {
+    address: "0x7de3085b3190b3a787822ee16f23be010f5f8686",
+    token_id: "1",
+    chain: "eth",
+  };
   const transfers = await Web3Api.token.getWalletTokenIdTransfers(options);
   console.log(transfers);
 };
 ```
 
 {% endtab %}
+
+{% tab title="curl" %}
+
+```sh
+curl -X 'GET' \
+  'https://deep-index.moralis.io/api/v2/nft/0x7de3085b3190b3a787822ee16f23be010f5f8686/1/transfers?chain=eth&format=decimal' \
+  -H 'accept: application/json' \
+  -H 'X-API-Key: MY-API-KEY'
+```
+
+{% endtab}
 {% endtabs %}
 
 #### Example result:
@@ -835,19 +1056,24 @@ const fetchWalletTokenIdTransfers = async () => {
 ```javascript
 [
   {
-    token_address: "0x057Ec652A4F150f7FF94f089A38008f49a0DF88e",
-    token_id: "15",
-    from_address: "0x057Ec652A4F150f7FF94f089A38008f49a0DF88e",
-    to_address: "0x057Ec652A4F150f7FF94f089A38008f49a0DF88e",
-    amount: "1",
+    block_number: "14238158",
+    block_timestamp: "2022-02-19T18:49:02.000Z",
+    block_hash:
+      "0x8124f4a126996d306a90fa00b871b6ed9669a1a9806106b34fa28f3de61e5f8b",
+    transaction_hash:
+      "0x2db36892fc17bf99a3f6dd8a639f3c704f772858f3961cbcd26b3a42a2cd561e",
+    transaction_index: 162,
+    log_index: 419,
+    value: "0",
     contract_type: "ERC721",
-    block_number: "88256",
-    block_timestamp: "2021-06-04T16:00:15",
-    block_hash: "string",
-    transaction_hash: "0x057Ec652A4F150f7FF94f089A38008f49a0DF88e",
-    transaction_type: "string",
-    transaction_index: "string",
-    log_index: 0,
+    transaction_type: "Single",
+    token_address: "0x7de3085b3190b3a787822ee16f23be010f5f8686",
+    token_id: "1",
+    from_address: "0x0000000000000000000000000000000000000000",
+    to_address: "0x324fb4a58674758e00c3a49409b815de1398bfe8",
+    amount: "1",
+    verified: 1,
+    operator: null,
   },
 ];
 ```
@@ -872,7 +1098,11 @@ Returns an object with NFT trades for a given contract and marketplace
 {% tab title="JS/TS" %}
 
 ```javascript
-const options = { address: "0xd...07", limit: "10", chain: "bsc" };
+const options = {
+  address: "0x7de3085b3190b3a787822ee16f23be010f5f8686",
+  limit: "10",
+  chain: "eth",
+};
 const NFTTrades = await Moralis.Web3API.token.getNFTTrades(options);
 ```
 
@@ -886,13 +1116,28 @@ import { useMoralisWeb3Api } from "react-moralis";
 const Web3Api = useMoralisWeb3Api();
 
 const fetchNFTTrades = async () => {
-  const options = { address: "0xd...07", limit: "10", chain: "bsc" };
+  const options = {
+    address: "0x7de3085b3190b3a787822ee16f23be010f5f8686",
+    limit: "10",
+    chain: "eth",
+  };
   const NFTTrades = await Web3Api.token.getNFTTrades(options);
   console.log(NFTTrades);
 };
 ```
 
 {% endtab %}
+{% tab title="curl" %}
+
+```sh
+curl -X 'GET' \
+  'https://deep-index.moralis.io/api/v2/nft/0x7de3085b3190b3a787822ee16f23be010f5f8686/trades?chain=eth&marketplace=opensea' \
+  -H 'accept: application/json' \
+  -H 'X-API-Key: MY-API-KEY'
+
+```
+
+{% endtab}
 {% endtabs %}
 
 #### Example result:
@@ -933,7 +1178,10 @@ Returns an object with the lowest price found for a NFT token contract for the l
 {% tab title="JS/TS" %}
 
 ```javascript
-const options = { address: "0xd...07", days: "3" };
+const options = {
+  address: "0x7de3085b3190b3a787822ee16f23be010f5f8686",
+  days: "3",
+};
 const NFTLowestPrice = await Moralis.Web3API.token.getNFTLowestPrice(options);
 ```
 
@@ -947,13 +1195,27 @@ import { useMoralisWeb3Api } from "react-moralis";
 const Web3Api = useMoralisWeb3Api();
 
 const fetchNFTLowestPrice = async () => {
-  const options = { address: "0xd...07", days: "3" };
+  const options = {
+    address: "0x7de3085b3190b3a787822ee16f23be010f5f8686",
+    days: "3",
+  };
   const NFTLowestPrice = await Web3Api.token.getNFTLowestPrice(options);
   console.log(NFTLowestPrice);
 };
 ```
 
 {% endtab %}
+
+{% tab title="curl" %}
+
+```sh
+curl -X 'GET' \
+  'https://deep-index.moralis.io/api/v2/nft/0x7de3085b3190b3a787822ee16f23be010f5f8686/lowestprice?chain=eth&days=3&marketplace=opensea' \
+  -H 'accept: application/json' \
+  -H 'X-API-Key: MY-API-KEY'
+```
+
+{% endtab}
 {% endtabs %}
 
 #### Example result:
@@ -961,18 +1223,19 @@ const fetchNFTLowestPrice = async () => {
 ```javascript
 [
   {
-    token_ids: ["15", "54"],
-    from_address: "0x057Ec652A4F150f7FF94f089A38008f49a0DF88e",
-    to_address: "0x057Ec652A4F150f7FF94f089A38008f49a0DF88e",
-    value: "1000000000000000",
-    gas: "6721975",
-    gas_price: "20000000000",
-    receipt_cumulative_gas_used: "1340925",
-    receipt_gas_used: "1340925",
-    block_number: "88256",
-    block_timestamp: "2021-06-04T16:00:15",
-    transaction_hash: "0x057Ec652A4F150f7FF94f089A38008f49a0DF88e",
-    transaction_index: "string",
+    transaction_hash:
+      "0xda5f3337eb74b56e99aebb5d9ebfc1e82b1c0aacc3b9b7cc606d4112ba12801d",
+    transaction_index: "168",
+    token_ids: ["254"],
+    seller_address: "0x8a04cea099e2d2886aea08e33446b5a52b9cf900",
+    buyer_address: "0xcf806faa913b3ac7bcb7b57b1199411a76d96646",
+    token_address: "0x7de3085b3190b3a787822ee16f23be010f5f8686",
+    marketplace_address: "0x7be8076f4ea4a4ad08075c2508e481d6c946d12b",
+    price: "0",
+    block_timestamp: "2022-02-26T17:19:23.000Z",
+    block_number: "14283046",
+    block_hash:
+      "0x997713ef27375f735f7017824958c0f0093236fe7515f8759bead1ce21d554fb",
   },
 ];
 ```
@@ -992,7 +1255,11 @@ Resync the metadata for a given token_id
 {% tab title="JS/TS" %}
 
 ```javascript
-const options = { address: "0xd...07", token_id: "1", flag: "metadata" };
+const options = {
+  address: "0x7de3085b3190b3a787822ee16f23be010f5f8686",
+  token_id: "1",
+  flag: "metadata",
+};
 const NFTLowestPrice = await Moralis.Web3API.token.reSyncMetadata(options);
 ```
 
@@ -1006,15 +1273,34 @@ import { useMoralisWeb3Api } from "react-moralis";
 const Web3Api = useMoralisWeb3Api();
 
 const reSyncMetadata = async () => {
-  const options = { address: "0xd...07", token_id: "1", flag: "metadata" };
+  const options = {
+    address: "0x7de3085b3190b3a787822ee16f23be010f5f8686",
+    token_id: "1",
+    flag: "metadata",
+  };
   const result = await Web3Api.token.reSyncMetadata(options);
   console.log(result);
 };
 ```
 
 {% endtab %}
+
+{% tab title="curl" %}
+
+```sh
+curl -X 'PUT' \
+  'https://deep-index.moralis.io/api/v2/nft/0x7de3085b3190b3a787822ee16f23be010f5f8686/sync?chain=eth' \
+  -H 'accept: */*' \
+  -H 'X-API-Key: MY-API-KEY'
+```
+
+{% endtab}
 {% endtabs %}
 
 #### Example result:
 
-/// empty result
+```javascript
+{
+  status: "Request initiated";
+}
+```

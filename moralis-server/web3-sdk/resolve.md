@@ -36,6 +36,16 @@ const fetchDomain = async () => {
 ```
 
 {% endtab %}
+{% tab title="curl" %}
+
+```sh
+curl -X 'GET' \
+  'https://deep-index.moralis.io/api/v2/resolve/brad.crypto?currency=eth' \
+  -H 'accept: application/json' \
+  -H 'X-API-Key: MY-API-KEY'
+```
+
+{% endtab}
 {% endtabs %}
 
 #### Example result:
@@ -81,6 +91,16 @@ const fetchAddress = async () => {
 ```
 
 {% endtab %}
+{% tab title="curl" %}
+
+```sh
+curl -X 'GET' \
+  'https://deep-index.moralis.io/api/v2/resolve/0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045/reverse' \
+  -H 'accept: application/json' \
+  -H 'X-API-Key: MY-API-KEY'
+```
+
+{% endtab}
 {% endtabs %}
 
 #### Example result:
