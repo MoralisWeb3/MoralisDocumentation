@@ -445,8 +445,7 @@ curl -X 'POST' \
 
 ```
 
-{% endtab}
-
+{% endtab %}
 {% endtabs %}
 
 <details>
@@ -550,8 +549,7 @@ curl -X 'GET' \
   -H 'X-API-Key: MY-API-KEY'
 ```
 
-{% endtab}
-
+{% endtab %}
 {% endtabs %}
 
 #### Example result:

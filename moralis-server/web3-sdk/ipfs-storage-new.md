@@ -72,7 +72,7 @@ curl -X 'POST' \
 ]'
 ```
 
-{% endtab}
+{% endtab %}
 {% endtabs %}
 
 #### Example result:
