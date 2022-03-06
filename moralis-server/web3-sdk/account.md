@@ -251,6 +251,7 @@ const fetchTokenBalances = async () => {
 };
 ```
 
+{% endtab %}
 {% tab title="curl" %}
 
 ```sh
