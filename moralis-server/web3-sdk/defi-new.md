@@ -50,6 +50,16 @@ const fetchPairAddress = async () => {
 ```
 
 {% endtab %}
+{% tab title="curl" %}
+
+```sh
+curl -X 'GET' \
+  'https://deep-index.moralis.io/api/v2/0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c/0xe9e7cea3dedca5984780bafc599bd69add087d56/pairAddress?chain=bsc&exchange=pancakeswapv2' \
+  -H 'accept: application/json' \
+  -H 'X-API-Key: MY-API-KEY'
+```
+
+{% endtab}
 {% endtabs %}
 
 #### Example result:
@@ -98,7 +108,7 @@ Get the liquidity reserves for a given pair address (asynchronous).&#x20;
 
 ```javascript
 const options = {
-  pair_address: "0xa527a61703d82139f8a06bc30097cc9caa2df5a6",
+  pair_address: "0x58f876857a02d6762e0101bb5c46a8c1ed44dc16",
   chain: "bsc",
 };
 const reserves = await Moralis.Web3API.defi.getPairReserves(options);
@@ -115,7 +125,7 @@ const Web3Api = useMoralisWeb3Api();
 
 const fetchTransactions = async () => {
   const options = {
-    pair_address: "0xa527a61703d82139f8a06bc30097cc9caa2df5a6",
+    pair_address: "0x58f876857a02d6762e0101bb5c46a8c1ed44dc16",
     chain: "bsc",
   };
   const reserves = await Web3Api.defi.getPairReserves(options);
@@ -124,13 +134,23 @@ const fetchTransactions = async () => {
 ```
 
 {% endtab %}
+{% tab title="curl" %}
+
+```sh
+curl -X 'GET' \
+  'https://deep-index.moralis.io/api/v2/0x58f876857a02d6762e0101bb5c46a8c1ed44dc16/reserves?chain=bsc' \
+  -H 'accept: application/json' \
+  -H 'X-API-Key: MY-API-KEY'
+```
+
+{% endtab}
 {% endtabs %}
 
 #### Example result:
 
 ```javascript
 {
-  "reserve0": "168322120697847448277111",
-  "reserve1": "7119912071113173800533"
-
+  "reserve0": "412342701316335044600434",
+  "reserve1": "156921226397095561306301741"
+}
 ```
