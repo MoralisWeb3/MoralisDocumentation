@@ -68,7 +68,8 @@ const GetAddressBalanceOfUSDT = () => {
         <button
           onClick={() => {
             fetch({ params: options });
-          }}>
+          }}
+        >
           Fetch data
         </button>
         {data && <pre>{JSON.stringify(data)}</pre>}
@@ -79,7 +80,6 @@ const GetAddressBalanceOfUSDT = () => {
 ```
 
 {% endtab %}
-
 {%tab title="curl" %}
 
 ```sh
@@ -138,6 +138,7 @@ const fetchBlock = async () => {
 };
 ```
 
+{% endtab %}
 {% tab title="curl" %}
 
 ```sh
@@ -146,8 +147,6 @@ curl -X 'GET' \
   -H 'accept: application/json' \
   -H 'X-API-Key: MY-API-KEY'
 ```
-
-{% endtab}
 
 {% endtab %}
 {% endtabs %}
@@ -251,7 +250,6 @@ const fetchDateToBlock = async () => {
 ```
 
 {% endtab %}
-
 {% tab title="curl" %}
 
 ```sh
@@ -261,8 +259,7 @@ curl -X 'GET' \
   -H 'X-API-Key: MY-API-KEY'
 ```
 
-{% endtab}
-
+{% endtab %}
 {% endtabs %}
 
 #### Example result:
@@ -333,7 +330,6 @@ const fetchLogsByAddress = async () => {
 ```
 
 {% endtab %}
-
 {% tab title="curl" %}
 
 ```sh
@@ -343,8 +339,7 @@ curl -X 'GET' \
   -H 'X-API-Key: MY-API-KEY'
 ```
 
-{% endtab}
-
+{% endtab %}
 {% endtabs %}
 
 #### Example result:
@@ -625,7 +620,6 @@ const fetchTransaction = async () => {
 ```
 
 {% endtab %}
-
 {% tab title="curl" %}
 
 ```sh
@@ -635,8 +629,7 @@ curl -X 'GET' \
   -H 'X-API-Key: MY-API-KEY'
 ```
 
-{% endtab}
-
+{% endtab %}
 {% endtabs %}
 
 #### Example result:
