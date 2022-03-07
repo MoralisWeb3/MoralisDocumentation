@@ -26,9 +26,11 @@ Then navigate to the releases and select the lastest version of the sdk. downlao
 
 * Create a new Unity project with Unity HUB, you can select any template of your choice, add a name to your project and a location.
 * When the project is created, navigate to the folder you downloaded the package, drag and drop the package into the Assets folder in unity, an importing menu will popup and then click import to import the package into your project
+
 ![](<../../.gitbook/assets/importingthesdk.gif>)
 
  > NOTE: If after importing but before running the package, you see an error that describes something as "unsafe", it is probably due to a block of code in Nethereum SCrypt.cs. Open Build Settings -> Player Settings, scroll a bit to the bottom and check "Allow unsafe Code".
+ 
  ![](<../../.gitbook/assets/unsafe.gif>)
 ### Configuring the project
 
