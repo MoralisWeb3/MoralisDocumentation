@@ -13,7 +13,7 @@
   - [Create a Moralis Server](moralis-server/getting-started/create-a-moralis-server.md)
   - [Connect the SDK](moralis-server/getting-started/connect-the-sdk.md)
     - [Connect with Vanilla JS](moralis-server/getting-started/connect-the-sdk/connect-with-js.md)
-    - [Connect with Reactjs](moralis-server/getting-started/connect-the-sdk/connect-with-react.md)
+    - [Connect with React](moralis-server/getting-started/connect-the-sdk/connect-with-react.md)
     - [Connect with Unity3D](moralis-server/getting-started/connect-the-sdk/connect-with-unity.md)
   - [🔥 Boilerplate Projects](moralis-server/getting-started/boilerplate-projects.md)
   - [Code Snippets](moralis-server/getting-started/snippets.md)
