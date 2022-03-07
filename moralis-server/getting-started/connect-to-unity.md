@@ -30,7 +30,7 @@ Then navigate to the releases and select the lastest version of the sdk. downlao
 ![](<../../.gitbook/assets/importingthesdk.gif>)
 
  > NOTE: If after importing but before running the package, you see an error that describes something as "unsafe", it is probably due to a block of code in Nethereum SCrypt.cs. Open Build Settings -> Player Settings, scroll a bit to the bottom and check "Allow unsafe Code".
- 
+
  ![](<../../.gitbook/assets/unsafe.gif>)
 ### Configuring the project
 
@@ -62,6 +62,8 @@ You will see the database of that server once you click _Dashboard_. Moralis fet
 ![Moralis Database fetches all user data from all chains and updates it in real time in case users move their assets on chain.](<../../.gitbook/assets/Screenshot 2021-10-15 at 18.44.04 (1).png>)
 
 ## Tutorial guides
+Guides on how to use the moralis unity sdk in unity on various platform.
+
 {% embed url="https://www.youtube.com/watch?v=FY77ImUpciI" %}
 Unity WEBGL Metamask Wallet Connection
 {% endembed %}
