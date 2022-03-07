@@ -141,9 +141,21 @@ export default App;
 
 ### View the page from localhost
 
-Run your app on `localhost`. The easiest way is by using the [live server extension](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer)  Visual Studio Code. Just right click on `index.html` and select `Open with Live Server`.
 
-![Serve your page on localhost](<../../.gitbook/assets/Screenshot 2021-10-15 at 17.42.14.png>)
+Run your app on `localhost` with following command in your project directory where `package.json` is located
+
+```
+npm run start
+```
+
+or
+
+incase you are using `yarn`
+
+```
+yarn start
+```
+
 
 ### Login with Metamask
 
