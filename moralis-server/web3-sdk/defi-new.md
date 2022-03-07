@@ -16,7 +16,7 @@ The token0 and token1 options are interchangable (ie. there is no different outc
 - `token1_address` (required): Token1 address
 
 {% tabs %}
-{% tab title="JS/TS" %}
+{% tab title="JS" %}
 
 ```javascript
 const options = {
@@ -104,7 +104,7 @@ Get the liquidity reserves for a given pair address (asynchronous).&#x20;
 - `pair_address` (required): Liquidity pair address
 
 {% tabs %}
-{% tab title="JS/TS" %}
+{% tab title="JS" %}
 
 ```javascript
 const options = {

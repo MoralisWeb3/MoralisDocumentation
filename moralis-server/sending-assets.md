@@ -25,7 +25,7 @@ Next, you have to tell Moralis the amount you want to transfer, to do that you n
 Finally, you have to specify the`receiver`of the funds. You do so by specifying the address as a string as demonstrated below.
 
 {% tabs %}
-{% tab title="JS/TS" %}
+{% tab title="JS" %}
 
 ```javascript
 // sending 0.5 ETH
@@ -71,7 +71,7 @@ const TransferEth = () => {
 When sending an ERC20 you need to know the contract address of the token and the number of decimals.&#x20;
 
 {% tabs %}
-{% tab title="JS/TS" %}
+{% tab title="JS" %}
 
 ```javascript
 // sending 0.5 tokens with 18 decimals
@@ -127,7 +127,7 @@ When sending an ERC721 token you have to specify the `contractAddress `of the NF
 As it's only possible to transfer one ERC721 at a time, no `amount `is needed.
 
 {% tabs %}
-{% tab title="JS/TS" %}
+{% tab title="JS" %}
 
 ```javascript
 // sending a token with token id = 1
@@ -175,7 +175,7 @@ const TransferNFT = () => {
 When sending an ERC1155 token you have to specify the `contractAddress `of the NFT and the specific`tokenId`you are interested in. Additionally, you have to specify the`amount`of the token you want to transfer.
 
 {% tabs %}
-{% tab title="JS/TS" %}
+{% tab title="JS" %}
 
 ```javascript
 // sending 15 tokens with token id = 1

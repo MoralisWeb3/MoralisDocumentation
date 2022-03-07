@@ -10,7 +10,7 @@ Returns metadata (name, symbol, decimals, logo) for a given token contract addre
 - `addresses` (required): The address or an array of addresses to get metadata for
 
 {% tabs %}
-{% tab title="JS/TS" %}
+{% tab title="JS" %}
 
 ```javascript
 //Get metadata for one token. Ex: USDT token on ETH
@@ -117,7 +117,7 @@ Returns metadata (name, address, decimals, logo) for given symbols (asynchronous
 - `symbols` (required): The token symbol or an array of symbols to get metadata for
 
 {% tabs %}
-{% tab title="JS/TS" %}
+{% tab title="JS" %}
 
 ```javascript
 //Get metadata for one token
@@ -205,7 +205,7 @@ Returns the amount which the spender is allowed to withdraw from the spender (as
 - `address`(required): The address of the token contract
 
 {% tabs %}
-{% tab title="JS/TS" %}
+{% tab title="JS" %}
 
 ```javascript
 //Get token allowace on ETH
@@ -283,7 +283,7 @@ Returns the price nominated in the native token and usd for a given token contra
 - `to_block`(optional): Returns the price for a given blocknumber (historical price-data)
 
 {% tabs %}
-{% tab title="JS/TS" %}
+{% tab title="JS" %}
 
 ```javascript
 //Get token price on PancakeSwap v2 BSC
@@ -361,7 +361,7 @@ Returns an object with a number of NFTs and an array with NFT metadata (name, sy
 - `address`(required): The address of the token contract.
 
 {% tabs %}
-{% tab title="JS/TS" %}
+{% tab title="JS" %}
 
 ```javascript
 const options = {
@@ -436,7 +436,7 @@ Returns the contract level metadata (name, symbol, base token uri) for the given
 - `address`(required): The address of the token contract.
 
 {% tabs %}
-{% tab title="JS/TS" %}
+{% tab title="JS" %}
 
 ```javascript
 const options = {
@@ -509,7 +509,7 @@ Returns an object with a number of NFT owners and an array with NFT metadata (na
 - `address`(required): Address of the contract
 
 {% tabs %}
-{% tab title="JS/TS" %}
+{% tab title="JS" %}
 
 ```javascript
 const options = {
@@ -596,7 +596,7 @@ Very powerful and fast tool for getting the NFT data based on a metadata search 
 - `filter`(required): What fields the search should match on. To look into the entire metadata set the value to `global`. To have a better response time you can look into a specific field like name. Available values : `name`; `description`; `attributes`; `global`; `name,description`; `name,attributes`; `description,attributes`; `name,description,attributes`
 
 {% tabs %}
-{% tab title="JS/TS" %}
+{% tab title="JS" %}
 
 ```javascript
 const options = { q: "Pancake", chain: "bsc", filter: "name" };
@@ -656,7 +656,7 @@ curl -X 'GET' \
 #### Searching by `global`:
 
 {% tabs %}
-{% tab title="JS/TS" %}
+{% tab title="JS" %}
 
 ```javascript
 const options = { q: "bored ape", chain: "bsc", filter: "global" };
@@ -696,7 +696,7 @@ curl -X 'GET' \
 #### Searching by `description,attributes`:
 
 {% tabs %}
-{% tab title="JS/TS" %}
+{% tab title="JS" %}
 
 ```javascript
 const options = {
@@ -757,7 +757,7 @@ Returns an object with number of NFT transfers and an array with NFT transfers f
 - `address`(required): Address of the contract
 
 {% tabs %}
-{% tab title="JS/TS" %}
+{% tab title="JS" %}
 
 ```javascript
 const options = {
@@ -841,7 +841,7 @@ Returns data, including fully resolved metadata for the given token id of the gi
 - `token_id` (required): The id of the token
 
 {% tabs %}
-{% tab title="JS/TS" %}
+{% tab title="JS" %}
 
 ```javascript
 const options = {
@@ -922,7 +922,7 @@ Returns an object with number of NFT transfers and an array with all owners of N
 - `token_id`(requierd): The id of the token.
 
 {% tabs %}
-{% tab title="JS/TS" %}
+{% tab title="JS" %}
 
 ```javascript
 const options = {
@@ -1003,7 +1003,7 @@ Returns an object with number of NFT transfers and an array with all transfers o
 - `token_id`(requierd): The id of the token.
 
 {% tabs %}
-{% tab title="JS/TS" %}
+{% tab title="JS" %}
 
 ```javascript
 const options = {
@@ -1094,7 +1094,7 @@ Returns an object with NFT trades for a given contract and marketplace
 - `address` (required): Address of the contract(i.e. `0x1a2b3x...`).
 
 {% tabs %}
-{% tab title="JS/TS" %}
+{% tab title="JS" %}
 
 ```javascript
 const options = {
@@ -1174,7 +1174,7 @@ Returns an object with the lowest price found for a NFT token contract for the l
 - `address` (required): Address of the contract(i.e. `0x1a2b3x...`).
 
 {% tabs %}
-{% tab title="JS/TS" %}
+{% tab title="JS" %}
 
 ```javascript
 const options = {
@@ -1251,7 +1251,7 @@ Resync the metadata for a given token_id
 - `flag` (optional): The type of resync to operate. Available values : `uri`, `metadata`. Default value : `metadata.` The metadata flag will resync of the metadata of nft. The uri flag will resync the token_uri of NFT.
 
 {% tabs %}
-{% tab title="JS/TS" %}
+{% tab title="JS" %}
 
 ```javascript
 const options = {

@@ -16,7 +16,7 @@ Uploads multiple files and place them in a folder directory. Returns path (async
 
 - `abi`(required): Array of JSON and Base64 Supported
 - {% tabs %}
-  {% tab title="JS/TS" %}
+  {% tab title="JS" %}
 
 ```javascript
 const options = {

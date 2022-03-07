@@ -16,7 +16,7 @@ Returns the transactions from the current user or address. Returns an object wit
 - `limit`(optional): Limit
 
 {% tabs %}
-{% tab title="JS/TS" %}
+{% tab title="JS" %}
 
 ```javascript
 // get mainnet transactions for the current user
@@ -111,7 +111,7 @@ Returns native balance for a specific address (asynchronous).
 - `address` (optional): The address for which the native balance will be checked. If specified, the user attached to the query is ignored and the address will be used instead. If user is not authenticated with a Wallet, then address has to be specified.
 
 {% tabs %}
-{% tab title="JS/TS" %}
+{% tab title="JS" %}
 
 ```javascript
 // get mainnet native balance for the current user
@@ -182,7 +182,7 @@ Retrieve all token balances of a current user or specified address. Returns an o
 - `to_block` (optional): The block number on which the balances should be checked
 
 {% tabs %}
-{% tab title="JS/TS" %}
+{% tab title="JS" %}
 
 ```javascript
 const balances = await Moralis.Web3API.account.getTokenBalances();
@@ -220,7 +220,7 @@ curl -X 'GET' \
 Without any parameters specified, it defaults to 'Eth' as chain and the current user, but you can also specify the `chain` and `address`in an options object:
 
 {% tabs %}
-{% tab title="JS/TS" %}
+{% tab title="JS" %}
 
 ```javascript
 const options = {
@@ -298,7 +298,7 @@ Get ERC20 token transfers from the current user or address. Returns an object wi
 - `limit`(optional): Limit
 
 {% tabs %}
-{% tab title="JS/TS" %}
+{% tab title="JS" %}
 
 ```javascript
 // get mainnet transfers for the current user
@@ -384,7 +384,7 @@ Get all NFTs from the current user or address. Supports both ERC721 and ERC1155.
 - &#x20;`address` (optional): A user address (i.e. `0x1a2b3x...`). If specified, the user attached to the query is ignored and the address will be used instead.
 
 {% tabs %}
-{% tab title="JS/TS" %}
+{% tab title="JS" %}
 
 ```javascript
 // get NFTs for current user on Mainnet
@@ -479,7 +479,7 @@ Get the NFT transfers. Returns an object with the number of NFT transfers and th
 - `address` (optional): A user address (i.e. `0x1a2b3x...`). If specified, the user attached to the query is ignored and the address will be used instead.
 
 {% tabs %}
-{% tab title="JS/TS" %}
+{% tab title="JS" %}
 
 ```javascript
 // get mainnet NFT transfers for the current user
@@ -579,7 +579,7 @@ Returns an object with the NFT count for the specified contract and an NFT array
 - `token_address`(required): Address of the contract
 
 {% tabs %}
-{% tab title="JS/TS" %}
+{% tab title="JS" %}
 
 ```javascript
 const options = {

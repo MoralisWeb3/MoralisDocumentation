@@ -10,7 +10,7 @@ Returns SOL balance of an address.
 - `address`: A user address (i.e. `HsXZnAba2...`). If specified, the user attached to the query is ignored and the address will be used instead.
 
 {% tabs %}
-{% tab title="JS/TS" %}
+{% tab title="JS" %}
 
 ```javascript
 // get mainnet SOL balance for the current user
@@ -68,7 +68,7 @@ Returns SPL token balance of an address.
 - `address`: A user address (i.e. `HsXZnAba2...`). If specified, the user attached to the query is ignored and the address will be used instead.
 
 {% tabs %}
-{% tab title="JS/TS" %}
+{% tab title="JS" %}
 
 ```javascript
 // get mainnet SPL token balance for the current user
@@ -131,7 +131,7 @@ Returns SPL NFT balance of an address.
 - `address`: A user address (i.e. `HsXZnAba2...`). If specified, the user attached to the query is ignored and the address will be used instead.
 
 {% tabs %}
-{% tab title="JS/TS" %}
+{% tab title="JS" %}
 
 ```javascript
 // get mainnet SPL NFT balance for the current user
@@ -194,7 +194,7 @@ Returns the portfolio (SOL balance, SPL token blanace, SPL NFT balance) of an ad
 - `address`: A user address (i.e. `HsXZnAba2...`). If specified, the user attached to the query is ignored and the address will be used instead.
 
 {% tabs %}
-{% tab title="JS/TS" %}
+{% tab title="JS" %}
 
 ```javascript
 // get mainnet NFT balance for the current user
