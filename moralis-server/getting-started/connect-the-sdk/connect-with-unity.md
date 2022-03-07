@@ -25,10 +25,12 @@ Then navigate to the releases and select the lastest version of the sdk. downlao
 ### Creating a unity project
 
 * Create a new Unity project with Unity HUB, you can select any template of your choice, add a name to your project and a location.
-* When the project is created, navigate to the folder you downloaded the package, drag and drop the package into the Assets folder in unity, an importing menu will popup and then click import to import the package into your project
+* When the project is created, navigate to the folder you downloaded the package, drag and drop the package into the Assets folder in unity, an importing menu will popup and then click import to import the package into your project.
+
 ![](<../../.gitbook/assets/importingthesdk.gif>)
 
  > NOTE: If after importing but before running the package, you see an error that describes something as "unsafe", it is probably due to a block of code in Nethereum SCrypt.cs. Open Build Settings -> Player Settings, scroll a bit to the bottom and check "Allow unsafe Code".
+
  ![](<../../.gitbook/assets/unsafe.gif>)
 ### Configuring the project
 
@@ -39,7 +41,7 @@ Then navigate to the releases and select the lastest version of the sdk. downlao
 ![](<../../.gitbook/assets/addingserverkeys.gif>)
 
 #### For WEBGL
-* In Player Settings change the WebGL template to the Moralis WebGL Template 
+* In Player Settings change the WebGL template to the Moralis WebGL Template. 
 
 ![](<../../.gitbook/assets/buildingforwebgl.gif>)
 
@@ -60,6 +62,8 @@ You will see the database of that server once you click _Dashboard_. Moralis fet
 ![Moralis Database fetches all user data from all chains and updates it in real time in case users move their assets on chain.](<../../.gitbook/assets/Screenshot 2021-10-15 at 18.44.04 (1).png>)
 
 ## Tutorial guides
+Guides on how to use the moralis unity sdk in unity on various platform.
+
 {% embed url="https://www.youtube.com/watch?v=FY77ImUpciI" %}
 Unity WEBGL Metamask Wallet Connection
 {% endembed %}
