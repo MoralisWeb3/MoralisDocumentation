@@ -14,6 +14,7 @@
   - [Connect the SDK](moralis-server/getting-started/connect-the-sdk.md)
     - [Connect using Vanilla JS](moralis-server/getting-started/connect-using-js.md)
     - [Connect using Reactjs](moralis-server/getting-started/connect-using-react.md)
+    - [Connect to Unity3D](moralis-server/getting-started/connect-to-unity.md)
   - [🔥 Boilerplate Projects](moralis-server/getting-started/boilerplate-projects.md)
   - [Code Snippets](moralis-server/getting-started/snippets.md)
   - [Demos](moralis-server/getting-started/demos.md)
