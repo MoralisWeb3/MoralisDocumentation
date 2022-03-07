@@ -14,26 +14,73 @@ Uploads multiple files and place them in a folder directory. Returns path (async
 
 #### Options:
 
-* `abi`(required): Array of JSON and Base64 Supported
+- `abi`(required): Array of JSON and Base64 Supported
+- {% tabs %}
+  {% tab title="JS/TS" %}
 
 ```javascript
 const options = {
-    abi": [
+  abi: [
     {
-      "path": "moralis/logo.jpg",
-      "content": "iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAApgAAAKYB3X3"
-    }
-  ]
-   };
-  const path = await Moralis.Web3API.storage.uploadFolder(options);
+      path: "moralis/logo.jpg",
+      content:
+        "iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAApgAAAKYB3X3",
+    },
+  ],
+};
+const path = await Moralis.Web3API.storage.uploadFolder(options);
 ```
+
+{% endtab %}
+{% tab title="React" %}
+
+```javascript
+import React from "react";
+import { useMoralisWeb3Api } from "react-moralis";
+
+const Web3Api = useMoralisWeb3Api();
+
+const uploadFolder = async () => {
+  const options = {
+    abi: [
+      {
+        path: "moralis/logo.jpg",
+        content:
+          "iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAApgAAAKYB3X3",
+      },
+    ],
+  };
+  const path = await Web3Api.storage.uploadFolder(options);
+  console.log(path);
+};
+```
+
+{% endtab %}
+{% tab title="curl" %}
+
+```sh
+curl -X 'POST' \
+  'https://deep-index.moralis.io/api/v2/ipfs/uploadFolder' \
+  -H 'accept: application/json' \
+  -H 'X-API-Key: MY-API-KEY' \
+  -H 'Content-Type: application/json' \
+  -d '[
+  {
+    "path": "moralis/logo.jpg",
+    "content": "iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAApgAAAKYB3X3"
+  }
+]'
+```
+
+{% endtab %}
+{% endtabs %}
 
 #### Example result:
 
 ```javascript
 [
   {
-    "path": "https://ipfs.moralis.io/QmPQ3YJ3hgfsBzJ1U4MGyV2C1GhDy6MWCENr1qMdMpKVnY/moralis/logo.jpg"
-  }
-]
+    path: "https://ipfs.moralis.io/QmPQ3YJ3hgfsBzJ1U4MGyV2C1GhDy6MWCENr1qMdMpKVnY/moralis/logo.jpg",
+  },
+];
 ```

@@ -14,23 +14,25 @@ To start a new Create React App project with TypeScript, you can run:
 ```
 npx create-react-app my-app --template typescript
 ```
+
 or
+
 ```
 yarn create react-app my-app --template typescript
 ```
 
 ### Installing the SDK
 
-
 Make sure to have react, react-dom and moralis installed as dependencies. Then install react-moralis:
 
 ```
-npm install react-moralis
+npm install moralis react-moralis
 ```
+
 or
 
 ```
-yarn add react-moralis
+yarn add moralis react-moralis
 ```
 
 ### Initialize the SDK
@@ -44,49 +46,43 @@ src/index.tsx
 You will see the following code:
 
 ```javascript
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom";
+import "./index.css";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
 
 ReactDOM.render(
   <React.StrictMode>
     <App />
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById("root")
 );
-
 ```
-
 
 Import `Moralis Provider` in your project and add `<MoralisProvider>` component as shown below
 
-
 ```javascript
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom";
+import "./index.css";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
 import { MoralisProvider } from "react-moralis";
 
 ReactDOM.render(
   <React.StrictMode>
     <MoralisProvider serverUrl="https://xxxxx/server" appId="YOUR_APP_ID">
       <App />
-    </MoralisProvider>  
+    </MoralisProvider>
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById("root")
 );
-
 ```
- 
- 
+
 _Server URL_ and _APP ID_ you can get from your Moralis Dashboard. Go to your Moralis Dashboard and click on _View Details_ next to the server name of your server.
 
 ![](<../../.gitbook/assets/Screenshot 2021-10-15 at 17.10.09.png>)
-
 
 ### Authentication Demo
 
@@ -94,9 +90,8 @@ Now that the SDK is successfully connected we can use the power of Moralis. Let'
 
 Call the `useMoralis` hooks inside your app in `App.tsx` enter the below code:
 
-
-
 #### **`App.tsx`**
+
 ```javascript
 import React from 'react';
 import logo from './logo.svg';
@@ -106,10 +101,10 @@ import { useMoralis } from "react-moralis";
 function App() {
 
     const { authenticate, isAuthenticated, isAuthenticating, user, account, logout } = useMoralis();
-    
+
     const login = async () => {
       if (!isAuthenticated) {
-        
+
         await authenticate({signingMessage: "Log in using Moralis" })
           .then(function (user) {
             console.log("logged in user:", user);
@@ -120,18 +115,18 @@ function App() {
           });
       }
     }
-  
+
     const logOut = async () => {
       await logout();
       console.log("logged out");
-    } 
+    }
 
   return (
     <div>
       <h1>Moralis Hello World!</h1>
       <button onClick={login}>Moralis Metamask Login</button>
       <button onClick={logOut} disabled={isAuthenticating}>Logout</button>
-    </div>  
+    </div>
   );
 }
 
@@ -140,7 +135,6 @@ export default App;
 ```
 
 ### View the page from localhost
-
 
 Run your app on `localhost` with following command in your project directory where `package.json` is located
 
@@ -181,7 +175,4 @@ Try moving the assets in your Metamask Wallet and observe how the Moralis Databa
 
 As you can probably already see Moralis is true superpower for blockchain developers. But this small demo is just the tip of the iceberg. Moralis provides endless tools and features for any blockchain use-case. Most importantly, every thing is cross-chain by default.
 
-
-
 Feel free to explore the rest of the documentation in order to grasp the full power of Moralis.
-
