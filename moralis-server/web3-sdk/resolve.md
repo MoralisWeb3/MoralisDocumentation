@@ -10,7 +10,7 @@ Resolves an Unstoppable domain and returns the address (asynchronous).
 - `domain` (required): Domain to be resolved.
 
 {% tabs %}
-{% tab title="JS/TS" %}
+{% tab title="JS" %}
 
 ```javascript
 // get polygon NFTs for address
@@ -65,7 +65,7 @@ Reverse resolves an address and returns the ENS domain (if exists).
 - `address` (required): Ethereum address to be reverse resolved.
 
 {% tabs %}
-{% tab title="JS/TS" %}
+{% tab title="JS" %}
 
 ```javascript
 // get ENS domain of an address

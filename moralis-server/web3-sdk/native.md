@@ -19,7 +19,7 @@ Runs a given function of a contract abi and returns readonly data (asynchronous)
 - `params` (optional): Parameters needed for your specific function
 
 {% tabs %}
-{% tab title="JS/TS" %}
+{% tab title="JS" %}
 
 ```javascript
 const ABI = []; // Add ABI of 0xdAC17F958D2ee523a2206206994597C13D831ec7
@@ -113,7 +113,7 @@ Retrieve the contents of a block by block hash. Returns a block object (asynchro
 - &#x20;`block_number_or_hash` (required): The block hash or block number.
 
 {% tabs %}
-{% tab title="JS/TS" %}
+{% tab title="JS" %}
 
 ```javascript
 const options = { chain: "bsc", block_number_or_hash: "2" };
@@ -223,7 +223,7 @@ Retrieve the closest block of the provided date (asynchronous).&#x20;
 - &#x20;`date` (required): Unix date in miliseconds or a datestring (any format that is accepted by momentjs)
 
 {% tabs %}
-{% tab title="JS/TS" %}
+{% tab title="JS" %}
 
 ```javascript
 const options = {
@@ -290,7 +290,7 @@ Retrieve the logs from an address (asynchronous).&#x20;
 - `topic3` (optional): Event topic
 
 {% tabs %}
-{% tab title="JS/TS" %}
+{% tab title="JS" %}
 
 ```javascript
 const options = {
@@ -375,7 +375,7 @@ Get the events in descending order based on block number. Returns an object with
 - `abi` (required): Event ABI (do not insert the ABI of the whole smart contract). ABI has a JSON format.
 
 {% tabs %}
-{% tab title="JS/TS" %}
+{% tab title="JS" %}
 
 ```javascript
 const ABI = {
@@ -509,7 +509,7 @@ Retrieve NFT transfers by block number or block hash. Returns an array of NFT tr
 - &#x20;`block_number_or_hash` (required): The block hash or block number.
 
 {% tabs %}
-{% tab title="JS/TS" %}
+{% tab title="JS" %}
 
 ```javascript
 const options = { chain: "bsc", block_number_or_hash: "11284830" };
@@ -586,7 +586,7 @@ Get the transaction by transaction hash. Returns a transaction object (asynchron
 - &#x20;`transaction_hash` (required): The transaction hash.
 
 {% tabs %}
-{% tab title="JS/TS" %}
+{% tab title="JS" %}
 
 ```javascript
 const options = {
