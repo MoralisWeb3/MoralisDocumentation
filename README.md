@@ -1,6 +1,4 @@
----
-description: Moralis is a Life-Changing Ethereum SDK and Server Solution.
----
+# Page 1
 
 # Why use Moralis?
 
