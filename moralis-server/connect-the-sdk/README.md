@@ -5,13 +5,13 @@ description: >-
   steps.
 ---
 
-# Connect the SDK
+# 🔮 Connect the SDK
 
 This guide will show you the process of connecting Moralis server with various frameworks, including Vanilla Javascript, React, and Unity3D.
 
-- [Vanilla Javascript](https://docs.moralis.io/moralis-server/getting-started/connect-the-sdk/connect-with-js)
-- [React](https://docs.moralis.io/moralis-server/getting-started/connect-the-sdk/connect-with-react)
-- [Unity3D](https://docs.moralis.io/moralis-server/getting-started/connect-the-sdk/connect-with-unity)
+* [Vanilla Javascript](https://docs.moralis.io/moralis-server/getting-started/connect-the-sdk/connect-with-js)
+* [React](https://docs.moralis.io/moralis-server/getting-started/connect-the-sdk/connect-with-react)
+* [Unity3D](https://docs.moralis.io/moralis-server/getting-started/connect-the-sdk/connect-with-unity)
 
 In addition, Moralis has numerous dedicated boilerplates for NextJS, Angular and other popular frameworks.
 
