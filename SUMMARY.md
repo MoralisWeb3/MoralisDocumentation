@@ -11,7 +11,7 @@
 
 * [🛠 Getting Started](moralis-server/getting-started/README.md)
   * [Create a Moralis Server](moralis-server/getting-started/create-a-moralis-server.md)
-* [🔮 Connect the SDK](moralis-server/connect-the-sdk/README.md)
+* [🔮 SDK](moralis-server/connect-the-sdk/README.md)
   * [🍦 Connect with Vanilla JS](moralis-server/connect-the-sdk/connect-with-js.md)
   * [⚛ Connect with React](moralis-server/connect-the-sdk/connect-with-react.md)
   * [🎮 Connect with Unity3D](moralis-server/connect-the-sdk/connect-with-unity.md)
