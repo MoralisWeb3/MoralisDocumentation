@@ -1,5 +1,3 @@
-# Page 1
-
 # Why use Moralis?
 
 ## What is Moralis?
