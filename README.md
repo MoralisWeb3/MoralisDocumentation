@@ -54,14 +54,14 @@ We're excited for you to discover all the cool things you can build using Morali
 
 ## Expectations
 
-* The docs assume that you have some programming knowledge.
-* The docs are a work in progress and receive regular updates.
-* If you find something confusing in the docs or have suggestions for improvements let us know by posting in the [Moralis forum](https://forum.moralis.io).
-* If you find a bug in the Moralis SDK or server dashboard, please report it in [this GitHub repo](https://github.com/MoralisWeb3/issue-tracker), along with a detailed description and steps to reproduce the issue. For technical questions, or if you need help with your code, then please create a post in the [Moralis forum.](https://forum.moralis.io) If you're unsure where to post, then please ask by creating a post in the [Moralis forum](https://forum.moralis.io) or on the ["FAQ & How to Get Help" ](https://forum.moralis.io/c/faq/12)page.
+- The docs assume that you have some programming knowledge.
+- The docs are a work in progress and receive regular updates.
+- If you find something confusing in the docs or have suggestions for improvements let us know by posting in the [Moralis forum](https://forum.moralis.io).
+- If you find a bug in the Moralis SDK or server dashboard, please report it in [this GitHub repo](https://github.com/MoralisWeb3/issue-tracker), along with a detailed description and steps to reproduce the issue. For technical questions, or if you need help with your code, then please create a post in the [Moralis forum.](https://forum.moralis.io) If you're unsure where to post, then please ask by creating a post in the [Moralis forum](https://forum.moralis.io) or on the [FAQ & How to Get Help](https://forum.moralis.io/c/faq/12) page.
 
 ## Prerequisites
 
-The documentation assumes that you have some type of knowledge with JavaScript, working with objects, querying databases, and some Web3 development. See the "[Prerequisites](introduction/pre-requisites.md)" page for more details.
+The documentation assumes that you have some type of knowledge with JavaScript, working with objects, querying databases, and some Web3 development. See the [Prerequisites](introduction/pre-requisites.md) page for more details.
 
 {% content-ref url="introduction/pre-requisites.md" %}
 [pre-requisites.md](introduction/pre-requisites.md)
