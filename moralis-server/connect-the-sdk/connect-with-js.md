@@ -5,7 +5,7 @@ description: >-
   steps.
 ---
 
-# Connect with Vanilla JS
+# 🍦 Connect with Vanilla JS
 
 ### Adding Moralis to Your Web Page using Javascript
 
@@ -48,7 +48,7 @@ The first step is to create an empty page we call `index.html` and `main.js` in 
 
 In order to initialize the SDK you need to fetch _Server URL_ and _APP ID_ from your Moralis Dashboard. Go to your Moralis Dashboard and click on _View Details_ next to the server name of your server.
 
-![](<../../.gitbook/assets/Screenshot 2021-10-15 at 17.10.09.png>)
+![](<../../.gitbook/assets/Screenshot 2021-10-15 at 17.10.09 (1).png>)
 
 Next you can initialize your server using _`Moralis.start`_ function.
 
@@ -117,7 +117,7 @@ As soon as the user logs in Moralis fetches all the on-chain data about that use
 
 You will see the database of that server once you click _Dashboard_. Moralis fetches data from all blockchain where the address of the user has been active and you can see and query all tokens, NFTs and past transactions of the user all in one database.
 
-![Moralis Database fetches all user data from all chains and updates it in real time in case users move their assets on chain.](<../../.gitbook/assets/Screenshot 2021-10-15 at 18.44.04 (1).png>)
+![Moralis Database fetches all user data from all chains and updates it in real time in case users move their assets on chain.](<../../.gitbook/assets/Screenshot 2021-10-15 at 18.44.04.png>)
 
 #### Move Assets
 

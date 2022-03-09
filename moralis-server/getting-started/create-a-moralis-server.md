@@ -7,7 +7,9 @@ description: >-
 
 # Create a Moralis Server
 
-## What is a Moralis Server?
+## Create a Moralis Server
+
+### What is a Moralis Server?
 
 Each dApp is usually divided into 2 parts:
 
@@ -20,23 +22,23 @@ Moralis Server is used in order to speed up the implementation of the **off-chai
 See this video if you want to understand the power of Moralis Server and how it can help you build cross-chain dApps.
 {% endembed %}
 
-## Launching a Moralis Server
+### Launching a Moralis Server
 
 {% embed url="https://youtu.be/SYWdSg9KLCQ" %}
 If you prefer to follow a video tutorial - this video covers a lot of what's covered in this article.
 {% endembed %}
 
-### Sign up for a free account
+#### Sign up for a free account
 
 Go to [Moralis](https://moralis.io) and sign up for a free account.
 
-### Create a Moralis Server
+#### Create a Moralis Server
 
 Click **Create new server** in the top right corner. You can use Moralis to develop dApps for mainnets, testnets and local devchains (for example Hardhat and Ganache).
 
 For now, please select **Mainnet Server**.
 
-![](<../../.gitbook/assets/Screenshot 2021-10-15 at 16.00.55.png>)
+![](<../../.gitbook/assets/Screenshot 2021-10-15 at 16.00.55 (1).png>)
 
 Next, select which networks you want your dApp to fetch data from. For the purpose of this demo we select Ethereum, Polygon, BSC and Avalanche.
 
@@ -48,13 +50,13 @@ Now you will see your server in your dashboard, and we can move on and create a 
 
 The server displays several important **indicators** as shown in the image above:
 
-- `Network`: Network traffic per second
-- `CPU`: Server's CPU Usage
-- `RAM`: Server's RAM Usage
-- `DISK`: Server's Disk Usage
-- `Number of Users`: The number of users that has been authenticated in the server
+* `Network`: Network traffic per second
+* `CPU`: Server's CPU Usage
+* `RAM`: Server's RAM Usage
+* `DISK`: Server's Disk Usage
+* `Number of Users`: The number of users that has been authenticated in the server
 
-# Migration from Legacy to Nitro Server
+## Migration from Legacy to Nitro Server
 
 Every new server created in Moralis now will be Nitro by default. However, for those servers created before the launch of Moralis Nitro might still be using the legacy server. In order to upgrade the server to Nitro, simply install the coreservices plugin by clicking [here](https://admin.moralis.io/install/plugin/coreservices).
 
@@ -64,5 +66,5 @@ Keep in mind that once the coreservices plugin has been added, it can't be remov
 
 Moralis Nitro server has a number of breaking changes that that are listed [here](https://forum.moralis.io/t/moralis-nitro-is-out/9267). One **important** changes when migrating from legacy to Nitro would be the removal of `TokenBalance` and `NFTOwners` tables from the database. This means once the server has been migrated, these tables will disappear, therefore you should instead replace any queries to these tables with some of our available [Web3APIs](https://docs.moralis.io/moralis-server/web3-sdk) to do the same job:
 
-- `TokenBalance` -> [`getTokenBalances`](https://docs.moralis.io/moralis-server/web3-sdk/account#gettokenbalances)
-- `NFTOwners` -> [`getNFTOwners`](https://docs.moralis.io/moralis-server/web3-sdk/token#getnftowners)
+* `TokenBalance` -> [`getTokenBalances`](https://docs.moralis.io/moralis-server/web3-sdk/account#gettokenbalances)
+* `NFTOwners` -> [`getNFTOwners`](https://docs.moralis.io/moralis-server/web3-sdk/token#getnftowners)
