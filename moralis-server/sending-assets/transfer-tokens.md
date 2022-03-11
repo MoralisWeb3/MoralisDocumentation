@@ -12,7 +12,7 @@ To transfer ERC20 tokens, follow the steps:&#x20;
 
 1. Construct an`options`object and set
    1. `type:"erc20"`&#x20;
-   2. `amount: Moralis.Units.Token("0.5", "18") //Converts to`[`wei`](https://ethdocs.org/en/latest/ether.html#denominations)``
+   2. `amount: Moralis.Units.Token("0.5", "18") //Converts to`[`wei`](https://ethdocs.org/en/latest/ether.html#denominations)
    3. `receiver: "0x000..." //wallet address`
    4. `contractAddress: "0x..." //contract of the ERC20 token`
 2. Call the Moralis transfer function as shown below
