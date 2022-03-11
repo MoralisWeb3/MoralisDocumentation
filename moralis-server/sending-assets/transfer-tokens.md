@@ -4,9 +4,9 @@ description: >-
   Chain), MATIC  (Polygon)
 ---
 
-# Transfer Tokens
+# 🎴 Transfer Tokens
 
-## Transferring ERC20 Tokens
+### Transferring ERC20 Tokens
 
 To transfer ERC20 tokens, follow the steps:&#x20;
 
@@ -70,3 +70,10 @@ The _**contract address**_ and the _**number of decimals**_ for a token can norm
 Get the address and decimals programmatically of a token by using Moralis SDK  [Moralis.Web3API.token.getTokenMetadataBySymbol()](https://docs.moralis.io/moralis-server/web3-sdk/token#gettokenmetadatabysymbol).&#x20;
 {% endhint %}
 
+### Resolving the results
+
+`Moralis.transfer()` returns a [transaction response](https://docs.ethers.io/v5/api/providers/types/#providers-TransactionResponse) after it is executed. The below page shows how to consume the data returned.
+
+{% content-ref url="resolve-transfer.md" %}
+[resolve-transfer.md](resolve-transfer.md)
+{% endcontent-ref %}

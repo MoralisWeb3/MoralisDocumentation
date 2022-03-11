@@ -4,11 +4,11 @@ description: >-
   Chain), MATIC  (Polygon)
 ---
 
-# Transfer ETH
+# 🪙 Transfer ETH
 
 ### Transfer Native Assets (ETH/BNB/MATIC etc)
 
-To transfer native assets of the blockchain  follow the steps:&#x20;
+To transfer native assets of the blockchain follow the steps:&#x20;
 
 1. Construct an`options`object and set
    1. `type:"native"`&#x20;
@@ -60,3 +60,11 @@ Use `Moralis.Units.ETH` to specify the amount in ETH (same goes for BSC and Poly
 {% hint style="info" %}
 **``**[**`Moralis.Units.ETH`**](../tools/moralis-units.md#converting-native-asset-eth-bnb-matic-etc-to-wei)is a helper function that will convert your ETH amount to [_wei_](https://ethdocs.org/en/latest/ether.html#denominations) which is required in order to construct the transaction.
 {% endhint %}
+
+### Resolving the results
+
+`Moralis.transfer()` returns a [transaction response](https://docs.ethers.io/v5/api/providers/types/#providers-TransactionResponse) after it is executed. The below page shows how to consume the data returned.
+
+{% content-ref url="resolve-transfer.md" %}
+[resolve-transfer.md](resolve-transfer.md)
+{% endcontent-ref %}

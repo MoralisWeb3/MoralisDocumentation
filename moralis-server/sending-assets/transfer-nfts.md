@@ -1,14 +1,28 @@
-# Transfer NFTs
+---
+description: >-
+  Transfer NFTs on any blockchain - ETH (Ethereum), BNB (Binance Smart Chain),
+  MATIC  (Polygon)
+---
 
-## Transferring ERC721 Tokens (Non-Fungible)
+# 🖼 Transfer NFTs
 
-When sending an ERC721 token you have to specify the `contractAddress `of the NFT and the specific `tokenId `you are interested in.
+### Transferring ERC721 Tokens (Non-Fungible)
 
-As it's only possible to transfer one ERC721 at a time, no `amount `is needed.
+To transfer [ERC721](https://ethereum.org/en/developers/docs/standards/tokens/erc-721/) tokens, follow the steps:&#x20;
+
+1. Construct an`options`object and set
+   1. `type:"erc721"`&#x20;
+   2. `receiver: "0x000..." //wallet address`
+   3. `contractAddress: "0x..." //contract of the ERC721 token`
+   4. `tokenId: 1` &#x20;
+2. Call the Moralis transfer function as shown below
+
+{% hint style="info" %}
+As it's only possible to transfer one ERC721 at a time, no _**`amount`**_`is`needed.
+{% endhint %}
 
 {% tabs %}
 {% tab title="JS" %}
-
 ```javascript
 // sending a token with token id = 1
 const options = {
@@ -19,10 +33,9 @@ const options = {
 };
 let transaction = await Moralis.transfer(options);
 ```
-
 {% endtab %}
-{% tab title="React" %}
 
+{% tab title="React" %}
 ```javascript
 import React from "react";
 import { useWeb3Transfer } from "react-moralis";
@@ -46,17 +59,23 @@ const TransferNFT = () => {
   );
 };
 ```
-
 {% endtab %}
 {% endtabs %}
 
-## Transferring ERC1155 Tokens (Semi-Fungible)
+### Transferring ERC1155 Tokens (Semi-Fungible)
 
-When sending an ERC1155 token you have to specify the `contractAddress `of the NFT and the specific`tokenId`you are interested in. Additionally, you have to specify the`amount`of the token you want to transfer.
+To transfer [ERC1155](https://ethereum.org/en/developers/docs/standards/tokens/erc-1155/) tokens, follow the steps:&#x20;
+
+1. Construct an`options`object and set
+   1. `type:"erc721"`&#x20;
+   2. `receiver: "0x000..." //wallet address`
+   3. `contractAddress: "0x..." //contract of the ERC721 token`
+   4. `tokenId: 1` &#x20;
+   5. `amount: 15 //number of tokens to transfer`
+2. Call the Moralis transfer function as shown below
 
 {% tabs %}
 {% tab title="JS" %}
-
 ```javascript
 // sending 15 tokens with token id = 1
 const options = {
@@ -68,10 +87,9 @@ const options = {
 };
 let transaction = await Moralis.transfer(options);
 ```
-
 {% endtab %}
-{% tab title="React" %}
 
+{% tab title="React" %}
 ```javascript
 import React from "react";
 import { useWeb3Transfer } from "react-moralis";
@@ -96,17 +114,13 @@ const TransferNFT = () => {
   );
 };
 ```
-
 {% endtab %}
 {% endtabs %}
 
 ### Resolving the results
 
-`Moralis.transfer()` returns a [transaction response](https://docs.ethers.io/v5/api/providers/types/#providers-TransactionResponse). This object contains all data about the transaction. If you need data about the **result** of the transation, then you need to wait for the transaction to be **confirmed**.
+`Moralis.transfer()` returns a [transaction response](https://docs.ethers.io/v5/api/providers/types/#providers-TransactionResponse) after it is executed. The below page shows how to consume the data returned.
 
-You can do this via `transaction.wait()` to wait for 1 confirmation (or `transaction.wait(5)` to wait for 5 confirmations for example):
-
-```javascript
-const transaction = await Moralis.transfer(options);
-const result = await transaction.wait();
-```
+{% content-ref url="resolve-transfer.md" %}
+[resolve-transfer.md](resolve-transfer.md)
+{% endcontent-ref %}
