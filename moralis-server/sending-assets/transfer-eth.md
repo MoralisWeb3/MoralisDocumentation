@@ -58,7 +58,7 @@ const TransferEth = () => {
 Use `Moralis.Units.ETH` to specify the amount in ETH (same goes for BSC and Polygon).&#x20;
 
 {% hint style="info" %}
-**[**`Moralis.Units.ETH`**](../tools/moralis-units.md#converting-native-asset-eth-bnb-matic-etc-to-wei)is a helper function that will convert your ETH amount to [_wei_](https://ethdocs.org/en/latest/ether.html#denominations) which is required in order to construct the transaction.
+[**`Moralis.Units.ETH`**](../tools/moralis-units.md#converting-native-asset-eth-bnb-matic-etc-to-wei)is a helper function that will convert your ETH amount to [_wei_](https://ethdocs.org/en/latest/ether.html#denominations) which is required in order to construct the transaction.
 {% endhint %}
 
 ### Resolving the results
