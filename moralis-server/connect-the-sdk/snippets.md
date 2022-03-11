@@ -1,10 +1,10 @@
 ---
 description: >-
-  Since Moralis focuses heavily on ease of use and supporting developers,
-  we bundled many code snippets in our extension.
+  Since Moralis focuses heavily on ease of use and supporting developers, we
+  bundled many code snippets in our extension.
 ---
 
-# Moralis Snippets
+# 📔 Code Snippets
 
 To help you code fast you can make use of [Moralis Snippets](https://marketplace.visualstudio.com/items?itemName=MoralisWeb3.moralis-snippets) available as an extension to Visual Studio Code.
 

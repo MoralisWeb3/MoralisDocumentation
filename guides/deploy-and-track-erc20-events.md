@@ -24,8 +24,6 @@ Click the MetaMask icon on the browser, and select the network drop-down menu. H
 
 ![](<../.gitbook/assets/image (12).png>)
 
-
-
 * **Network Name**: Ganache
 * **New RPC URL**: http://localhost:7545
 * **Chain Id**: 1337
@@ -52,7 +50,7 @@ Now, we can create our mintable token on Remix. Open Remix on your browser, or g
 
 Click on "New File."
 
-![](<../.gitbook/assets/image (14).png>)
+![](<../.gitbook/assets/image (13).png>)
 
 Give it a name, we called it "_**erc20.sol".**_
 
@@ -108,7 +106,7 @@ Enter your address and an amount in WEI. For example, I will mint 1000 MOR tokes
 
 ![](<../.gitbook/assets/image (30).png>)
 
-After clicking on transact, confirm the transaction with MetaMask and the tokens should now have arrived at the proper address.&#x20;
+After clicking on transact, confirm the transaction with MetaMask and the tokens should now have arrived at the proper address.
 
 ### Add Token to MetaMask
 
@@ -165,7 +163,7 @@ The next step will be to create a new plugin in the admin panel to sync and watc
 * **"address" -** "**0x4F27558d3F86670a9E2EfF294b7d10600266533F**" (our MOR contract address).
 * **"tableName" -** "_**MORTransferEvent**",_ it's the name of the table that will be created in our database with all the events.
 
-To get the abi from Remix, just go to the "Solidity Compiler" tab, choose the "**ERC20PresetMinterPauser.sol"**  contract and click on the abi icon. The full abi will be copied to the clipboard, make sure you use only the abi for the event you are syncing:
+To get the abi from Remix, just go to the "Solidity Compiler" tab, choose the "**ERC20PresetMinterPauser.sol"** contract and click on the abi icon. The full abi will be copied to the clipboard, make sure you use only the abi for the event you are syncing:
 
 ![](<../.gitbook/assets/image (34).png>)
 

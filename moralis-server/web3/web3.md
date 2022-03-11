@@ -89,6 +89,14 @@ You enable web3 with any connector (such as WalletConnect, Metamask, Network etc
 const web3 = await Moralis.enableWeb3({ provider: "walletconnect" });
 ```
 
+### NodeJs Enviroment
+
+When using moralis in a nodejs environment, you can optionally use the `privateKey` option to sign transactions:
+
+```javascript
+const web3 = await Moralis.enableWeb3({ privateKey: "your_private_key" });
+```
+
 ### In Cloud Functions
 
 It's also possible to get a Web3 instance inside cloud functions, but the syntax is a bit different. See the [Cloud Functions Web3](../cloud-code/cloud-functions.md#web3) page for more info.
