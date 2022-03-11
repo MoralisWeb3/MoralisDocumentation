@@ -6,7 +6,7 @@ description: >-
 
 # 🖼 Transfer NFTs
 
-### Transferring ERC721 Tokens (Non-Fungible)
+### Transfer ERC721 Tokens (Non-Fungible)
 
 To transfer [ERC721](https://ethereum.org/en/developers/docs/standards/tokens/erc-721/) tokens, follow the steps:&#x20;
 

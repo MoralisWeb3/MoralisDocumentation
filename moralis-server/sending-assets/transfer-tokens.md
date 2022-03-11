@@ -6,7 +6,7 @@ description: >-
 
 # 🎴 Transfer Tokens
 
-### Transferring ERC20 Tokens
+### Transfer ERC20 Tokens
 
 To transfer ERC20 tokens, follow the steps:&#x20;
 
