@@ -1,12 +1,24 @@
+---
+description: >-
+  Transfer ERC20 tokens on any blockchain - ETH (Ethereum), BNB (Binance Smart
+  Chain), MATIC  (Polygon)
+---
+
 # Transfer Tokens
 
 ## Transferring ERC20 Tokens
 
-When sending an ERC20 you need to know the contract address of the token and the number of decimals.&#x20;
+To transfer ERC20 tokens, follow the steps:&#x20;
+
+1. Construct an`options`object and set
+   1. `type:"erc20"`&#x20;
+   2. `amount: Moralis.Units.Token("0.5", "18") //Converts to`[`wei`](https://ethdocs.org/en/latest/ether.html#denominations)``
+   3. `receiver: "0x000..." //wallet address`
+   4. `contractAddress: "0x..." //contract of the ERC20 token`
+2. Call the Moralis transfer function as shown below
 
 {% tabs %}
 {% tab title="JS" %}
-
 ```javascript
 // sending 0.5 tokens with 18 decimals
 const options = {
@@ -17,10 +29,9 @@ const options = {
 };
 let result = await Moralis.transfer(options);
 ```
-
 {% endtab %}
-{% tab title="React" %}
 
+{% tab title="React" %}
 ```javascript
 import React from "react";
 import { useWeb3Transfer } from "react-moralis";
@@ -44,13 +55,18 @@ const TransferWeth = () => {
   );
 };
 ```
-
 {% endtab %}
 {% endtabs %}
 
-The contract address and the number of decimals for a token can normally be found on Etherscan or on the website of the project.
+{% hint style="info" %}
+By using [`Moralis.Units.Token`](../tools/moralis-units.md#converting-erc20-token-to-wei)helper function you can multiply the amount you want to send by the number of decimals. This is **required** to construct an ERC20 transaction.
+{% endhint %}
 
-By using `Moralis.Units.Token`helper function you can multiply the amount you want to send by the number of decimals. This is required to construct an ERC20 transaction.
+{% hint style="info" %}
+The _**contract address**_ and the _**number of decimals**_ for a token can normally be found on [Etherscan](https://etherscan.io) or on the website of the project.
+{% endhint %}
 
-If you need to programmatically get the address and decimals of a token you can use Moralis SDK [Moralis.Web3API.token.getTokenMetadataBySymbol()](https://docs.moralis.io/moralis-server/web3-sdk/token#gettokenmetadatabysymbol).
+{% hint style="success" %}
+Get the address and decimals programmatically of a token by using Moralis SDK  [Moralis.Web3API.token.getTokenMetadataBySymbol()](https://docs.moralis.io/moralis-server/web3-sdk/token#gettokenmetadatabysymbol).&#x20;
+{% endhint %}
 
