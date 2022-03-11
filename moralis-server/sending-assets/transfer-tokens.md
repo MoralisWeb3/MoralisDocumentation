@@ -8,10 +8,10 @@ description: >-
 
 ### Transfer ERC20 Tokens
 
-To transfer ERC20 tokens, follow the steps:&#x20;
+To transfer [ERC20 tokens](https://ethereum.org/en/developers/docs/standards/tokens/erc-20/), follow the steps:
 
 1. Construct an`options`object and set
-   1. `type:"erc20"`&#x20;
+   1. `type:"erc20"`
    2. `amount: Moralis.Units.Token("0.5", "18") //Converts to`[`wei`](https://ethdocs.org/en/latest/ether.html#denominations)
    3. `receiver: "0x000..." //wallet address`
    4. `contractAddress: "0x..." //contract of the ERC20 token`
@@ -67,7 +67,7 @@ The _**contract address**_ and the _**number of decimals**_ for a token can norm
 {% endhint %}
 
 {% hint style="success" %}
-Get the address and decimals programmatically of a token by using Moralis SDK  [Moralis.Web3API.token.getTokenMetadataBySymbol()](https://docs.moralis.io/moralis-server/web3-sdk/token#gettokenmetadatabysymbol).&#x20;
+Get the address and decimals programmatically of a token by using Moralis SDK [Moralis.Web3API.token.getTokenMetadataBySymbol()](https://docs.moralis.io/moralis-server/web3-sdk/token#gettokenmetadatabysymbol).
 {% endhint %}
 
 ### Resolving the results
