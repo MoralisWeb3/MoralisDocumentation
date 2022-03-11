@@ -1,38 +1,44 @@
+---
+description: >-
+  Transfer Native assets on any blockchain - ETH (Ethereum), BNB (Binance Smart
+  Chain), MATIC  (Polygon)
+---
+
 # Transfer ETH
 
-## Transferring Native Asset (ETH/BNB/MATIC etc)
+### Transfer Native Assets (ETH/BNB/MATIC etc)
 
-In order to transfer native assets of the blockchain (ETH on Ethereum, BNB on Binance Smart Chain, etc) you have to construct an`options`object where you set`type:native`to tell Moralis that you are sending the native asset (and not an ERC20 token or NFT).
+To transfer native assets of the blockchain  follow the steps:&#x20;
 
-Next, you have to tell Moralis the amount you want to transfer, to do that you need to use `Moralis.Units.ETH` (even when sending on BSC or Polygon) and specify the amount as a string denominated in ETH. `Moralis.Units.ETH`is a helper function that will convert your sting to wei which is required in order to construct the transaction.
-
-Finally, you have to specify the`receiver`of the funds. You do so by specifying the address as a string as demonstrated below.
+1. Construct an`options`object and set
+   1. `type:"native"`&#x20;
+   2. `amount: "3425435345" //in wei`
+   3. `receiver: "0x000..." //wallet address`
+2. Call the Moralis transfer function as shown below
 
 {% tabs %}
 {% tab title="JS" %}
-
 ```javascript
 // sending 0.5 ETH
 const options = {
   type: "native",
   amount: Moralis.Units.ETH("0.5"),
-  receiver: "0x..",
+  receiver: "0x.."
 };
 let result = await Moralis.transfer(options);
 ```
-
 {% endtab %}
-{% tab title="React" %}
 
+{% tab title="React" %}
 ```javascript
 import React from "react";
 import { useWeb3Transfer } from "react-moralis";
 
 const TransferEth = () => {
   const { fetch, error, isFetching } = useWeb3Transfer({
-    amount: Moralis.Units.ETH(0.5),
-    receiver: "0x0000000000000000000000000000000000000000",
     type: "native",
+    amount: Moralis.Units.ETH(0.5),
+    receiver: "0x0000000000000000000000000000000000000000"
   });
 
   return (
@@ -46,6 +52,11 @@ const TransferEth = () => {
   );
 };
 ```
-
 {% endtab %}
 {% endtabs %}
+
+Use `Moralis.Units.ETH` to specify the amount in ETH (same goes for BSC and Polygon).&#x20;
+
+{% hint style="info" %}
+**``**[**`Moralis.Units.ETH`**](../tools/moralis-units.md#converting-native-asset-eth-bnb-matic-etc-to-wei)is a helper function that will convert your ETH amount to _wei_ which is required in order to construct the transaction.
+{% endhint %}
