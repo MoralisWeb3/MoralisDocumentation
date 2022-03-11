@@ -12,7 +12,7 @@ To transfer native assets of the blockchain follow the steps:&#x20;
 
 1. Construct an`options`object and set
    1. `type:"native"`&#x20;
-   2. `amount: "3425435345" //in`[`wei`](https://ethdocs.org/en/latest/ether.html#denominations)``
+   2. `amount: "3425435345" //in`[`wei`](https://ethdocs.org/en/latest/ether.html#denominations)
    3. `receiver: "0x000..." //wallet address`
 2. Call the Moralis transfer function as shown below
 
@@ -58,7 +58,7 @@ const TransferEth = () => {
 Use `Moralis.Units.ETH` to specify the amount in ETH (same goes for BSC and Polygon).&#x20;
 
 {% hint style="info" %}
-**``**[**`Moralis.Units.ETH`**](../tools/moralis-units.md#converting-native-asset-eth-bnb-matic-etc-to-wei)is a helper function that will convert your ETH amount to [_wei_](https://ethdocs.org/en/latest/ether.html#denominations) which is required in order to construct the transaction.
+[**`Moralis.Units.ETH`**](../tools/moralis-units.md#converting-native-asset-eth-bnb-matic-etc-to-wei)is a helper function that will convert your ETH amount to [_wei_](https://ethdocs.org/en/latest/ether.html#denominations) which is required in order to construct the transaction.
 {% endhint %}
 
 ### Resolving the results
