@@ -81,8 +81,8 @@ using Moralis.Web3Api.Models;
 using MoralisWeb3ApiSdk;
 
 
-   public async void fetchPairReserves()
-    {
+  public async void fetchPairReserves()
+  {
      // Define file information.
       IpfsFileRequest req = new IpfsFileRequest()
       {
@@ -94,11 +94,11 @@ using MoralisWeb3ApiSdk;
       // Add requests to request list.
       reqs.Add(req);
       List<IpfsFile> resp = await web3Api.Storage.UploadFolder(reqs);  
-       foreach (IpfsFile file in resp)
-        {
-            print(file.ToJson());
-        }
-    }
+      foreach (IpfsFile file in resp)
+      {
+        print(file.ToJson());
+      }
+  }
 ```
 
 {% endtab %}

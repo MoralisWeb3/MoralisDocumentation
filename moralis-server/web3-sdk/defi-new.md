@@ -67,12 +67,11 @@ using System.Collections.Generic;
 using Moralis.Web3Api.Models;
 using MoralisWeb3ApiSdk;
 
-
-   public async void fetchPairAddress()
-    {
-      ReservesCollection pairAddress = await MoralisInterface.GetClient().Web3Api.Defi.GetPairAddress(exchange:"pancakeswapv2" , token0Address:"0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c" , token1Address:"0xe9e7cea3dedca5984780bafc599bd69add087d56", chain:ChainList.bsc);       
-      print(pairAddress.ToJson());     
-    }
+  public async void fetchPairAddress()
+  {
+    ReservesCollection pairAddress = await MoralisInterface.GetClient().Web3Api.Defi.GetPairAddress(exchange:"pancakeswapv2" , token0Address:"0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c" , token1Address:"0xe9e7cea3dedca5984780bafc599bd69add087d56", chain:ChainList.bsc);       
+    print(pairAddress.ToJson());     
+  }
 ```
 
 {% endtab %}
@@ -167,12 +166,11 @@ using System.Collections.Generic;
 using Moralis.Web3Api.Models;
 using MoralisWeb3ApiSdk;
 
-
-   public async void fetchPairReserves()
-    {
-      ReservesCollection reserves = await MoralisInterface.GetClient().Web3Api.Defi.GetPairReserves(pairAddress:"0x58f876857a02d6762e0101bb5c46a8c1ed44dc16" , ChainList.bsc);          
-      print(reserves.ToJson());     
-    }
+  public async void fetchPairReserves()
+  {
+    ReservesCollection reserves = await MoralisInterface.GetClient().Web3Api.Defi.GetPairReserves(pairAddress:"0x58f876857a02d6762e0101bb5c46a8c1ed44dc16" , ChainList.bsc);          
+    print(reserves.ToJson());     
+  }
 ```
 
 {% endtab %}

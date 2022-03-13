@@ -30,10 +30,10 @@ using MoralisWeb3ApiSdk;
 
   // get mainnet metadata for a given SPL NFT address
   public async void GetSPLNftMetadata()
-    {   
-      NftMetadata nftmetadata = await MoralisSolanaClient.SolanaApi.Nft.GetNFTMetadata(NetworkTypes.mainnet, "6XU36wCxWobLx5Rtsb58kmgAJKVYmMVqy4SHXxENAyAe");
-      print(nftmetadata);    
-    }
+  {   
+    NftMetadata nftmetadata = await MoralisSolanaClient.SolanaApi.Nft.GetNFTMetadata(NetworkTypes.mainnet, "6XU36wCxWobLx5Rtsb58kmgAJKVYmMVqy4SHXxENAyAe");
+    print(nftmetadata);    
+  }
 ```
 
 {% endtab %}
