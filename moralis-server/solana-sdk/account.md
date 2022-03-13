@@ -130,13 +130,13 @@ using Moralis.SolanaApi.Models;
 using Moralis.SolanaApi;
 using MoralisWeb3ApiSdk;
 
-   public async void GetSPLTokens()
-    {    
-      List<SplTokenBalanace> spltokens = await MoralisSolanaClient.SolanaApi.Account.GetSplTokens(NetworkTypes.mainnet, "6XU36wCxWobLx5Rtsb58kmgAJKVYmMVqy4SHXxENAyAe");
-      foreach(SplTokenBalanace spltoken in spltokens){
+public async void GetSPLTokens()
+ {    
+     List<SplTokenBalanace> spltokens = await MoralisSolanaClient.SolanaApi.Account.GetSplTokens(NetworkTypes.mainnet, "6XU36wCxWobLx5Rtsb58kmgAJKVYmMVqy4SHXxENAyAe");
+    foreach(SplTokenBalanace spltoken in spltokens){
         print(spltoken);   
-      }    
-    }
+   }    
+}
 ```
 
 {% endtab %}
