@@ -46,6 +46,22 @@ curl -X 'GET' \
 ```
 
 {% endtab %}
+{% tab title="Unity"%}
+
+```cs
+using System.Collections.Generic;
+using Moralis.Web3Api.Models;
+using MoralisWeb3ApiSdk;
+
+
+   public async void fetchDomain()
+    {
+      Resolve resolve = await MoralisInterface.GetClient().Web3Api.Resolve.ResolveDomain(domain: "brad.crypto" currency: "eth");
+      print(resolve.ToJson());
+   }
+```
+
+{% endtab %}
 {% endtabs %}
 
 #### Example result:
@@ -98,6 +114,22 @@ curl -X 'GET' \
   'https://deep-index.moralis.io/api/v2/resolve/0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045/reverse' \
   -H 'accept: application/json' \
   -H 'X-API-Key: MY-API-KEY'
+```
+
+{% endtab %}
+{% tab title="Unity"%}
+
+```cs
+using System.Collections.Generic;
+using Moralis.Web3Api.Models;
+using MoralisWeb3ApiSdk;
+
+
+   public async void fetchAddress()
+    {
+      Ens result = MoralisInterface.GetClient().Web3Api.Resolve.ResolveAddress(address: "0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045");   
+      print(result.ToJson());
+   }
 ```
 
 {% endtab %}
