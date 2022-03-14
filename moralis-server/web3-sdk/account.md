@@ -507,7 +507,23 @@ curl -X 'GET' \
 ```
 
 {% endtab %}
+{% tab title="Unity"%}
+
+```cs
+using System.Collections.Generic;
+using Moralis.Web3Api.Models;
+using MoralisWeb3ApiSdk;
+
+  public async void fetchNFTs()
+  {
+    NftOwnerCollection polygonNFTs = MoralisInterface.GetClient().Web3Api.Account.GetNFTs("0x75e3e9c92162e62000425c98769965a76c2e387a".ToLower(), ChainList.polygon);
+    print(polygonNFTs.ToJson());      
+  }
+```
+
+{% endtab %}
 {% endtabs %}
+
 
 #### Example result:
 
