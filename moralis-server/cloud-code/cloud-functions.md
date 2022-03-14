@@ -159,11 +159,44 @@ After you've run the command, the cloud code will be updated automatically on th
 
 ## Calling Cloud Functions
 
+{% tabs %}
+{% tab title="JS" %}
+
 ```javascript
 const params =  { movie: "The Matrix" };
 const ratings = await Moralis.Cloud.run("averageStars", params);
 // ratings should be 4.5
 ```
+
+{% endtab %}
+{% tab title="React" %}
+
+```javascript
+import { useMoralisCloudFunction } from "react-moralis";
+
+function App() {
+    const { fetch } = useMoralisCloudFunction(
+        "averageStars",
+        { movie: "The Moralis" },
+        { autoFetch: false }
+    );
+
+    const cloudCall = () => {
+        fetch({
+            onSuccess: (data) => console.log(data), // ratings should be 4.5
+        });
+    };
+
+    return (
+        <button onClick={cloudCall}>Make Cloud Call</button>
+    );
+}
+
+export default App;
+```
+
+{% endtab %}
+{% endtabs %}
 
 In general, two arguments will be passed into Cloud Functions:
 

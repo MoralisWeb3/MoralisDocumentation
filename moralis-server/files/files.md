@@ -12,10 +12,36 @@ description: Managing Files in Moralis Server.
 
 Getting started with `Moralis.File` is easy. There are a couple of ways to create a file. The first is with a base64-encoded String:
 
+{% tabs %}
+{% tab title="JS" %}
+
 ```javascript
 const base64 = "V29ya2luZyBhdCBQYXJzZSBpcyBncmVhdCE=";
 const file = new Moralis.File("myfile.txt", { base64: base64 });
 ```
+
+{% endtab %}
+{% tab title="React" %}
+
+```javascript
+const { saveFile } = useMoralisFile();
+
+const uploadFile = () => {
+    const base64 = "V29ya2luZyBhdCBQYXJzZSBpcyBncmVhdCE=";
+    saveFile(
+        "myfile.txt",
+        { base64 },
+        {
+            type: "base64",
+            onSuccess: (result) => console.log(result),
+            onError: (error) => console.log(error),
+        }
+    );
+};
+```
+
+{% endtab %}
+{% endtabs %}
 
 Alternatively, you can create a file from an array of byte values:
 
@@ -42,6 +68,9 @@ Then, in a click handler or other function, get a reference to that file:
 
 > note this is using JQuery, for JS, (see vid)[https://youtu.be/I_wxIshq4WA?t=93] or getElementById 
 
+{% tabs %}
+{% tab title="JS" %}
+
 ```javascript
 const fileUploadControl = $("#profilePhotoFileUpload")[0];
 if (fileUploadControl.files.length > 0) {
@@ -51,6 +80,41 @@ if (fileUploadControl.files.length > 0) {
   const moralisFile = new Moralis.File(name, file);
 }
 ```
+
+{% endtab %}
+{% tab title="React" %}
+
+```javascript
+import { useState } from "react";
+import { useMoralisFile } from "react-moralis";
+
+function App() {
+    const [fileTarget, setFileTarget] = useState("");
+    const { saveFile } = useMoralisFile();
+
+    const uploadFile = () => {
+        saveFile("photo.jpg", fileTarget, {
+            type: "image/png",
+            onSuccess: (result) => console.log(result),
+            onError: (error) => console.log(error),
+        });
+    };
+
+    const fileInput = (e) => setFileTarget(e.target.files[0]);
+
+    return (
+        <div>
+            <input type="file" onChange={fileInput} />
+            <button onClick={uploadFile}>Call The Code</button>
+        </div>
+    );
+}
+
+export default App;
+```
+
+{% endtab %}
+{% endtabs %}
 
 Notice in this example that we give the file a name of `photo.jpg`. There are two things to note here:
 
