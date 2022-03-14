@@ -73,6 +73,35 @@ curl -X 'POST' \
 ```
 
 {% endtab %}
+{% tab title="Unity"%}
+
+```cs
+using System.Collections.Generic;
+using Moralis.Web3Api.Models;
+using MoralisWeb3ApiSdk;
+
+
+  public async void fetchPairReserves()
+  {
+     // Define file information.
+      IpfsFileRequest req = new IpfsFileRequest()
+      {
+        Path = "moralis/logo.jpg",
+        Content = "iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAApgAAAKYB3X3"
+      };
+      // Multiple requests can be sent via a List so define the request list.
+      List<IpfsFileRequest> reqs = new List<IpfsFileRequest>();
+      // Add requests to request list.
+      reqs.Add(req);
+      List<IpfsFile> resp = await web3Api.Storage.UploadFolder(reqs);  
+      foreach (IpfsFile file in resp)
+      {
+        print(file.ToJson());
+      }
+  }
+```
+
+{% endtab %}
 {% endtabs %}
 
 #### Example result:

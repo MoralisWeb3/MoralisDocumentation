@@ -149,6 +149,21 @@ curl -X 'GET' \
 ```
 
 {% endtab %}
+{% tab title="Unity"%}
+
+```cs
+using System.Collections.Generic;
+using Moralis.Web3Api.Models;
+using MoralisWeb3ApiSdk;
+
+  public async void fetchBlock()
+  {
+    Block block = await MoralisInterface.GetClient().Web3Api.Native.GetBlock(blockNumberOrHash: "2", ChainList.bsc);         
+    print(block.ToJson());     
+  }
+```
+
+{% endtab %}
 {% endtabs %}
 
 #### Example result:
@@ -260,6 +275,21 @@ curl -X 'GET' \
 ```
 
 {% endtab %}
+{% tab title="Unity"%}
+
+```cs
+using System.Collections.Generic;
+using Moralis.Web3Api.Models;
+using MoralisWeb3ApiSdk;
+
+  public async void fetchDateToBlock()
+  {
+    BlockDate blockDate = await MoralisInterface.GetClient().Web3Api.Native.GetDateToBlock(date:"2021-09-29T13:09:15+00:00", ChainList.eth);         
+    print(blockDate.ToJson());     
+  }
+```
+
+{% endtab %}
 {% endtabs %}
 
 #### Example result:
@@ -337,6 +367,21 @@ curl -X 'GET' \
   'https://deep-index.moralis.io/api/v2/0x057Ec652A4F150f7FF94f089A38008f49a0DF88e/logs?chain=bsc&topic0=0x2caecd17d02f56fa897705dcc740da2d237c373f70686f4e0d9bd3bf0400ea7a&topic1=0x000000000000000000000000031002d15b0d0cd7c9129d6f644446368deae391&topic2=0x000000000000000000000000d25943be09f968ba740e0782a34e710100defae9' \
   -H 'accept: application/json' \
   -H 'X-API-Key: MY-API-KEY'
+```
+
+{% endtab %}
+{% tab title="Unity"%}
+
+```cs
+using System.Collections.Generic;
+using Moralis.Web3Api.Models;
+using MoralisWeb3ApiSdk;
+
+  public async void fetchLogsByAddress()
+  {
+    LogEventByAddress logEvents = await MoralisInterface.GetClient().Web3Api.Native.GetLogsByAddress(address: "0x057Ec652A4F150f7FF94f089A38008f49a0DF88e", ChainList.bsc, topic0:"0x2caecd17d02f56fa897705dcc740da2d237c373f70686f4e0d9bd3bf0400ea7a",topic1:"0x000000000000000000000000031002d15b0d0cd7c9129d6f644446368deae391", topic2:"0x000000000000000000000000d25943be09f968ba740e0782a34e710100defae9");       
+    print(logEvents.ToJson());     
+  }
 ```
 
 {% endtab %}
@@ -446,6 +491,24 @@ curl -X 'POST' \
 ```
 
 {% endtab %}
+{% tab title="Unity"%}
+
+```cs
+using System.Collections.Generic;
+using Moralis.Web3Api.Models;
+using MoralisWeb3ApiSdk;
+
+  public async void fetchContractEvents()
+  {
+    List<LogEvent> logEvents = MoralisInterface.GetClient().Web3Api.Native.GetContractEvents(address: "0xdAC17F958D2ee523a2206206994597C13D831ec7", topic: "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef", ChainList.eth);
+    foreach (LogEvent event in logsEvents)
+    {
+      print(event.ToJson()); 
+    }         
+  }
+```
+
+{% endtab %}
 {% endtabs %}
 
 <details>
@@ -550,6 +613,21 @@ curl -X 'GET' \
 ```
 
 {% endtab %}
+{% tab title="Unity"%}
+
+```cs
+using System.Collections.Generic;
+using Moralis.Web3Api.Models;
+using MoralisWeb3ApiSdk;
+
+  public async void fetchNFTTransfersByBlock()
+  {
+    NftTransferCollection nftTransfers = MoralisInterface.GetClient().Web3Api.Native.GetNFTTransfersByBlock(blockNumberOrHash: "11284830", ChainList.bsc);
+    print(nftTransfers.ToJson());
+  }
+```
+
+{% endtab %}
 {% endtabs %}
 
 #### Example result:
@@ -625,6 +703,21 @@ curl -X 'GET' \
   'https://deep-index.moralis.io/api/v2/transaction/0x5e519cd5117aea6ed9d51d4f235b4badb2e3f69377a4e2f945e13feb20af4db3?chain=eth' \
   -H 'accept: application/json' \
   -H 'X-API-Key: MY-API-KEY'
+```
+
+{% endtab %}
+{% tab title="Unity"%}
+
+```cs
+using System.Collections.Generic;
+using Moralis.Web3Api.Models;
+using MoralisWeb3ApiSdk;
+
+  public async void fetchTransaction()
+  {
+    BlockTransaction blockTransaction = MoralisInterface.GetClient().Web3Api.Native.GetTransaction(transactionHash:"0x5e519cd5117aea6ed9d51d4f235b4badb2e3f69377a4e2f945e13feb20af4db3", ChainList.eth);
+    print(blockTransaction.ToJson());
+  }
 ```
 
 {% endtab %}
