@@ -210,6 +210,9 @@ Adding metadata and tags to your files allows you to add additional bits of data
 
 Note: not all storage adapters support metadata and tags. Check the documentation for the storage adapter you’re using for compatibility.
 
+{% tabs %}
+{% tab title="JS" %}
+
 ```javascript
 // Init with metadata and tags
 const metadata = { createdById: 'some-user-id' };
@@ -221,3 +224,25 @@ const file = new Moralis.File('myfile.zzz', fileData, 'image/png');
 file.addMetadata('createdById', 'some-user-id');
 file.addTag('groupId', 'some-group-id');
 ```
+
+{% endtab %}
+{% tab title="React" %}
+
+```javascript
+const metadata = { createdById: "some-user-id" };
+const tags = { groupId: "some-group-id" };
+saveFile(
+    "myfile.png",
+    { fileData },
+    {
+        type: "image/png",
+        metadata,
+        tags,
+        onSuccess: (result) => console.log(result.ipfs()),
+        onError: (error) => console.log(error),
+    }
+);
+```
+
+{% endtab %}
+{% endtabs %}
