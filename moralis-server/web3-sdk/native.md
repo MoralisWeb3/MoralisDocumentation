@@ -500,10 +500,11 @@ using MoralisWeb3ApiSdk;
 
   public async void fetchContractEvents()
   {
-    List<LogEvent> logEvents = MoralisInterface.GetClient().Web3Api.Native.GetContractEvents(address: "0xdAC17F958D2ee523a2206206994597C13D831ec7", topic: "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef", ChainList.eth);
-    foreach (LogEvent event in logsEvents)
+    string abi = "{anonymous: false, inputs:[{ indexed: true, name: \"from\", type: \"address\" },{ indexed: true, name: \"to\", type: \"address\" },{ indexed: false, name: \"value\", type: \"uint256\" },],name: \"Transfer\", type: \"event\" }";
+    List<LogEvent> logEvents = await MoralisInterface.GetClient().Web3Api.Native.GetContractEvents(address: "0xdAC17F958D2ee523a2206206994597C13D831ec7", topic: "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef",abi: abi, ChainList.eth);
+    foreach (LogEvent eventlog in logEvents)
     {
-      print(event.ToJson()); 
+      print(eventlog.ToJson()); 
     }         
   }
 ```
