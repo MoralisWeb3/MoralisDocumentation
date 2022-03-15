@@ -20,10 +20,8 @@ Moralis.authenticate().then(function (user) {
 
 This will connect :fox: [MetaMask](https://metamask.io) and request a signature **(no** [**gas**](https://ethereum.org/en/developers/docs/gas/) **required!)**.
 
-We use the signature as proof the user is the owner of the account
-
-{% hint style="danger" %}
-If no signature is provided, anyone can gain the credentials necessary to read /write to users' private data in [Moralis Database](../../database/).&#x20;
+{% hint style="info" %}
+We use the signature as proof that the user is the account owner
 {% endhint %}
 
 The signing is no different than entering a username and password. If a user wants to use the authenticated features of an app they need to “log in”.&#x20;
