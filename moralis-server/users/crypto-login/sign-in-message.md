@@ -12,4 +12,4 @@ The message the user sees when signing in with Web3 can be changed by doing the 
 Moralis.authenticate({signingMessage:"My custom message"})
 ```
 
-![](<../../../.gitbook/assets/image (57).png>)
+![MetaMask Popup with custom message](<../../../.gitbook/assets/Screenshot 2022-03-14 at 11.35.41 PM.png>)
