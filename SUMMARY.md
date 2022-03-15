@@ -18,7 +18,6 @@
   * [🔥 Boilerplate Projects](moralis-server/connect-the-sdk/boilerplate-projects.md)
   * [📔 Code Snippets](moralis-server/connect-the-sdk/snippets.md)
 * [👥 Users](moralis-server/users/README.md)
-  * [Intro](moralis-server/users/intro.md)
   * [Web3 Authentication](moralis-server/users/crypto-login.md)
     * [🦊 Metamask](moralis-server/users/crypto-login/metamask.md)
     * [📲 WalletConnect](moralis-server/users/crypto-login/walletconnect.md)
