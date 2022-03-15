@@ -7,7 +7,7 @@
 * [Prerequisites](introduction/pre-requisites.md)
 * [Contribute to Docs](introduction/contribute-to-docs.md)
 
-## 🧙 Server <a href="#moralis-server" id="moralis-server"></a>
+## 🧙 Platform <a href="#moralis-server" id="moralis-server"></a>
 
 * [🛠 Getting Started](moralis-server/getting-started/README.md)
   * [Create a Moralis Server](moralis-server/getting-started/create-a-moralis-server.md)
