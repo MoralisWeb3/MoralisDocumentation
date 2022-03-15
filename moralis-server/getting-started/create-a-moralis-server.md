@@ -38,7 +38,7 @@ Click **Create new server** in the top right corner. You can use Moralis to deve
 
 For now, please select **Mainnet Server**.
 
-![](<../../.gitbook/assets/Screenshot 2021-10-15 at 16.00.55 (1).png>)
+![](<../../.gitbook/assets/Screenshot 2021-10-15 at 16.00.55.png>)
 
 Next, select which networks you want your dApp to fetch data from. For the purpose of this demo we select Ethereum, Polygon, BSC and Avalanche.
 

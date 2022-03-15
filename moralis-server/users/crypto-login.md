@@ -8,54 +8,43 @@ description: >-
 
 ## Moralis Authentication
 
-Moralis allows you to authenticate users on any blockchain with just one line of code.&#x20;
+Moralis allows you to authenticate users on any blockchain with **just one line of code.**
 
-**All assets, tokens, and NFTs of your users are automatically synced into your Moralis database and are updated in real-time as your users make on-chain transactions.**
+{% hint style="success" %}
+`Moralis.authenticate()`
+{% endhint %}
+
+All **Assets, Tokens, and NFTs** of your users are **automatically synced** into your [**Moralis database**](../database/)**.**
+
+{% hint style="info" %}
+These **Assets, Tokens, and NFTs** are updated in <mark style="color:green;">real-time</mark> as your users make on-chain transactions.
+{% endhint %}
 
 ## Easy Web3 Login Flow
 
-Using `Moralis.authenticate()` you can login users on any chain using any wallet. Moralis supports WalletConnect, Web3Auth, Magic and other custom authentication methods.
+Use `Moralis.authenticate()` to login users on **any chain** using **any wallet**. Follow the guides for code examples and tutorials:
 
-### MetaMask
+{% content-ref url="crypto-login/metamask.md" %}
+[metamask.md](crypto-login/metamask.md)
+{% endcontent-ref %}
 
-The easiest way to authenticate web3 users is via Metamask wallet. If you are new to Moralis you should start learning [how MetaMask authentication works](crypto-login.md#metamask).
+{% content-ref url="crypto-login/walletconnect.md" %}
+[walletconnect.md](crypto-login/walletconnect.md)
+{% endcontent-ref %}
 
-### WalletConnect
+{% content-ref url="crypto-login/phantom-solana.md" %}
+[phantom-solana.md](crypto-login/phantom-solana.md)
+{% endcontent-ref %}
 
-{% embed url="https://www.youtube.com/watch?v=UP6MfkU3Bkg" %}
-Practical Demo how to login your users to you dapp with any wallet.
-{% endembed %}
+{% content-ref url="crypto-login/web3Auth.md" %}
+[web3Auth.md](crypto-login/web3Auth.md)
+{% endcontent-ref %}
 
-Moralis is natively integrated with [WalletConnect](https://walletconnect.com). WalletConnect allows you to easily login to any dapp using your mobile wallet.
+{% content-ref url="crypto-login/custom-auth-any-eip1193-provider.md" %}
+[custom-auth-any-eip1193-provider.md](crypto-login/custom-auth-any-eip1193-provider.md)
+{% endcontent-ref %}
 
-Learn how to do it by [reading this guide](crypto-login.md#walletconnect).
-
-### Magic
-
-![Login web3 users with their email or other social login.](<../../.gitbook/assets/Screenshot 2022-02-03 at 21.40.14.png>)
-
-Moralis is fully integrated with [Magic](https://magic.link) which allows you to authenticate your users with their email or other types of social login such as Google or Twitter.
-
-Learn how the integration works [here](crypto-login/magic.md).
-
-## Changing Sign-In Message
-
-The message the user sees when signing in with Web3 can be changed by doing the following in the browser:
-
-```javascript
-Moralis.authenticate({signingMessage:"hello"})
-```
-
-![](<../../.gitbook/assets/image (57).png>)
-
-## Changing App Icon in MetaMask
-
-It's possible to change the icon a user sees when interacting with your smart contract. To accomplish this, you'll have to add a favicon to your dApp. Follow the instructions in the [MetaMask docs](https://docs.metamask.io/guide/defining-your-icon.html).
-
-### Manually Deleting Users
-
-During testing, if you manually delete a user, then make sure to delete the corresponding rows in the following collections (where "xxx" is the chain prefix). Not doing so may cause unexpected behavior when authenticating via Web3 from the address that was just deleted.
-
-* Session
-* \_xxxAddress
+{% hint style="info" %}
+**For new developers:  Begin with** [metamask.md](crypto-login/metamask.md "mention")&#x20;
+{% endhint %}
 
