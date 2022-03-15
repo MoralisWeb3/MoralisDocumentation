@@ -1,6 +1,6 @@
 # REST API
 
-## [_**See Full API Documentation**_](https://deep-index.moralis.io/api-docs/)_****_
+## [_**See Full API Documentation**_](https://deep-index.moralis.io/api-docs/)
 
 All of the functions described above can be accessed directly through the REST API instead of through the Javascript SDK.
 
@@ -8,4 +8,4 @@ All of the functions described above can be accessed directly through the REST A
 How to use Moralis Web3 API
 {% endembed %}
 
-
+

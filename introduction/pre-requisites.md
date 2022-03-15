@@ -6,7 +6,6 @@ description: The Docs Assume Some JavaScript and Web3 Programming Knowledge.
 
 Explaining the concepts of JavaScript and Web3 from scratch is beyond the scope of the docs. You don't need to be an expert in Web3 to try Moralis, but some basic knowledge will help you understand it better.
 
-
 ## JavaScript Knowledge
 
 * You have worked with Objects, JSON and MongoDB.
@@ -18,15 +17,13 @@ Explaining the concepts of JavaScript and Web3 from scratch is beyond the scope 
 
 {% embed url="https://youtu.be/vn3tm0quoqE" %}
 
-
 ## Web3 Knowledge
 
 * Understanding of how the blockchain works.
-* You have worked with the Ethereum [Web3 API](https://web3js.readthedocs.io/en/v1.4.0/).
+* You have worked with the [ethers.js](https://docs.ethers.io/v5/) Library.
 * You have used [MetaMask ](https://metamask.io)in your browser. MetaMask is not only a wallet, it allows websites to interact with your wallet, and sign to verify that you are the owner of that wallet.
 * You are familiar with smart contracts and smart contract events.
 * You have worked with different chains such as mainnet, testnet, or [Ganache](https://www.trufflesuite.com/ganache) (Ganache is your own local development chain).
-
 
 ## Software
 
@@ -37,4 +34,4 @@ Explaining the concepts of JavaScript and Web3 from scratch is beyond the scope 
   * You can also use [Python's built-in web server](https://wtmatter.com/python-simple-http-server/).
 * The demo code is hosted on [GitHub](https://github.com). A basic understanding of [git](https://git-scm.com/doc) will be helpful but not necessary.
   * You can find the demos [here](https://github.com/MoralisWeb3/demo-apps).
-  * The demos use [NodeJS](https://nodejs.org/en/),  [Ganache, ](https://www.trufflesuite.com/ganache)and [Truffle](https://www.trufflesuite.com/truffle).
+  * The demos use [NodeJS](https://nodejs.org/en/), [Ganache, ](https://www.trufflesuite.com/ganache)and [Truffle](https://www.trufflesuite.com/truffle).

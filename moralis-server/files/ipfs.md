@@ -57,11 +57,38 @@ await file.saveIPFS();
 
 By uploading base64, you could also upload other base64 encoded files such as images.
 
+{% tabs %}
+{% tab title="JS" %}
+
 ```javascript
 const image = "data:image/png;base64,iVBORw0KGgoAAA...."
 const file = new Moralis.File("image.png", {base64 : image });
 await file.saveIPFS();
 ```
+
+{% endtab %}
+{% tab title="React" %}
+
+```javascript
+const { saveFile } = useMoralisFile();
+
+const uploadFile = () => {
+    const base64 = "V29ya2luZyBhdCBQYXJzZSBpcyBncmVhdCE=";
+    saveFile(
+        "myfile.txt",
+        { base64 },
+        {
+            type: "base64",
+            saveIPFS: true,
+            onSuccess: (result) => console.log(result.ipfs()),
+            onError: (error) => console.log(error),
+        }
+    );
+};
+```
+
+{% endtab %}
+{% endtabs %}
 
 {% embed url="https://youtu.be/jPa0a7-6uUw" %}
 

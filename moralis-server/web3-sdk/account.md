@@ -61,13 +61,30 @@ const fetchTransactions = async () => {
 ```
 
 {% endtab %}
-{% tab title="curl" %}
+{% tab title="Curl" %}
 
 ```sh
 curl -X 'GET' \
   'https://deep-index.moralis.io/api/v2/0x3d6c0e79a1239df0039ec16Cc80f7A343b6C530e?chain=bsc&from_block=0' \
   -H 'accept: application/json' \
   -H 'X-API-Key: MY-API-KEY'
+```
+
+{% endtab %}
+{% tab title="Unity"%}
+
+```cs
+using System.Collections.Generic;
+using Moralis.Web3Api.Models;
+using MoralisWeb3ApiSdk;
+
+
+  public async void GetTransactions()
+  {    
+    // get BSC transactions for a given address
+    TransactionCollection BSCtransactions = await MoralisInterface.GetClient().Web3Api.Account.GetTransactions("0x3d6c0e79a1239df0039ec16Cc80f7A343b6C530e".ToLower(), ChainList.bsc);
+    print(BSCtransactions.ToJson());
+  }
 ```
 
 {% endtab %}
@@ -150,14 +167,30 @@ const fetchNativeBalance = async () => {
 ```
 
 {% endtab %}
-
-{% tab title="curl" %}
+{% tab title="Curl" %}
 
 ```sh
 curl -X 'GET' \
   'https://deep-index.moralis.io/api/v2/0x3d6c0e79a1239df0039ec16Cc80f7A343b6C530e/balance?chain=bsc' \
   -H 'accept: application/json' \
   -H 'X-API-Key: MY-API-KEY'
+```
+
+{% endtab %}
+{% tab title="Unity"%}
+
+```cs
+using System.Collections.Generic;
+using Moralis.Web3Api.Models;
+using MoralisWeb3ApiSdk;
+
+
+  public async void GetNativeBalance()
+  {
+    // get BSC native balance for a given address
+    NativeBalance BSCbalance = await MoralisInterface.GetClient().Web3Api.Account.GetNativeBalance("0x4c6Ec2448C243B39Cd1e9E6db0F9bF7436c0c93f".ToLower(), ChainList.bsc);
+    print(BSCbalance.ToJson());
+  }
 ```
 
 {% endtab %}
@@ -212,6 +245,24 @@ curl -X 'GET' \
   'https://deep-index.moralis.io/api/v2/0x3d6c0e79a1239df0039ec16Cc80f7A343b6C530e/erc20' \
   -H 'accept: application/json' \
   -H 'X-API-Key: MY-API-KEY'
+```
+
+{% endtab %}
+{% tab title="Unity"%}
+
+```cs
+using System.Collections.Generic;
+using Moralis.Web3Api.Models;
+using MoralisWeb3ApiSdk;
+
+  public async void fetchTokenBalance()
+  {
+    List<Erc20TokenBalance> balance = await MoralisInterface.GetClient().Web3Api.Account.GetTokenBalances("0x3d6c0e79a1239df0039ec16Cc80f7A343b6C530e".ToLower(), ChainList.bsc);        
+    foreach (Erc20TokenBalance erc20bal in balance)
+    {
+      print(erc20bal.ToJson());
+    }
+  }
 ```
 
 {% endtab %}
@@ -353,6 +404,21 @@ curl -X 'GET' \
 ```
 
 {% endtab %}
+{% tab title="Unity"%}
+
+```cs
+using System.Collections.Generic;
+using Moralis.Web3Api.Models;
+using MoralisWeb3ApiSdk;
+
+  public async void fetchTokenTransfers()
+  {
+    Erc20TransactionCollection transfers = await MoralisInterface.GetClient().Web3Api.Account.GetTokenTransfers("0x3d6c0e79a1239df0039ec16Cc80f7A343b6C530e".ToLower(), ChainList.bsc);
+    print(transfers.ToJson());     
+  }
+```
+
+{% endtab %}
 {% endtabs %}
 
 #### Example result:
@@ -441,7 +507,23 @@ curl -X 'GET' \
 ```
 
 {% endtab %}
+{% tab title="Unity"%}
+
+```cs
+using System.Collections.Generic;
+using Moralis.Web3Api.Models;
+using MoralisWeb3ApiSdk;
+
+  public async void fetchNFTs()
+  {
+    NftOwnerCollection polygonNFTs = MoralisInterface.GetClient().Web3Api.Account.GetNFTs("0x75e3e9c92162e62000425c98769965a76c2e387a".ToLower(), ChainList.polygon);
+    print(polygonNFTs.ToJson());      
+  }
+```
+
+{% endtab %}
 {% endtabs %}
+
 
 #### Example result:
 
@@ -529,6 +611,21 @@ curl -X 'GET' \
   'https://deep-index.moralis.io/api/v2/0x75e3e9c92162e62000425c98769965a76c2e387a/nft/transfers?chain=polygon&format=decimal&direction=both&limit=5' \
   -H 'accept: application/json' \
   -H 'X-API-Key: MY-API-KEY'
+```
+
+{% endtab %}
+{% tab title="Unity"%}
+
+```cs
+using System.Collections.Generic;
+using Moralis.Web3Api.Models;
+using MoralisWeb3ApiSdk;
+
+  public async void fetchNFTTransfers()
+  {
+    NftTransferCollection BSCnfttransfers = await MoralisInterface.GetClient().Web3Api.Account.GetNFTTransfers("0x3d6c0e79a1239df0039ec16Cc80f7A343b6C530e".ToLower(), ChainList.bsc);
+    print(BSCnfttransfers.ToJson());      
+  }
 ```
 
 {% endtab %}
@@ -620,6 +717,21 @@ curl -X 'GET' \
   -H 'accept: application/json' \
   -H 'X-API-Key: My-API-KEY'
 
+```
+
+{% endtab %}
+{% tab title="Unity"%}
+
+```cs
+using System.Collections.Generic;
+using Moralis.Web3Api.Models;
+using MoralisWeb3ApiSdk;
+
+  public async void fetchNFTsForContract()
+  {
+    NftOwnerCollection polygonNFTs = await MoralisInterface.GetClient().Web3Api.Account.GetNFTsForContract("0x3d6c0e79a1239df0039ec16Cc80f7A343b6C530e".ToLower(),"0x2953399124F0cBB46d2CbACD8A89cF0599974963", ChainList.polygon);      
+    print(polygonNFTs.ToJson());     
+  }
 ```
 
 {% endtab %}
