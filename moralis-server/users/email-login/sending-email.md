@@ -4,20 +4,28 @@ description: Sending Emails from Moralis Server.
 
 # Setup Email
 
-## Server Setup
+### Setup email service in Dapp
 
-{% embed url="https://youtu.be/SY30AUb8144" %}
+**Moralis can send emails on your behalf.** We can achieve this by integrating [SendGrid](https://sendgrid.com) into the Dapp.
 
-Moralis supports sending emails to users. Click the "View Details" button on your server instance, then the "Email Configuration" tab. You'll need to sign up for a [SendGrid](https://sendgrid.com) account and provide the following:
+You would need an email service to do the following:
 
-![](<../../../.gitbook/assets/image (86).png>)
+1. &#x20;Send Welcome emails upon user sign up.
+2. Send password reset emails upon user password resetting&#x20;
+3. Send verification emails for new users
+
+### 1. Configure Email details&#x20;
+
+Click the "View Details" button on your server instance, then the "Email Configuration" tab. You'll need to sign up for a [SendGrid](https://sendgrid.com) account and provide the following:
 
 * **API Key**
 * **From Email: T**his will appear as the "from" address on emails received by users (must be authorized by SendGrid as a single sender or domain).
 * **Sendgrid Verification Email Template ID**: The template to use for the verification email.
 * **Sendgrid Password Reset Template ID**: The template to use for the password reset email.
 
-### Email Template
+![Moralis email configuration](<../../../.gitbook/assets/Screenshot 2022-03-15 at 4.40.18 PM.png>)
+
+### 2. Apply Email Template
 
 To enable sending a verification email, or a password reset link, some additional setup is required. Both of these operations require a [SendGrid Dynamic Template](https://sendgrid.com/solutions/email-api/dynamic-email-templates/).
 
@@ -29,15 +37,15 @@ To enable sending a verification email, or a password reset link, some additiona
 
 Repeat the steps above to create templates for both email verification and password resets.
 
-### Dynamic Template Data
+### 3. Create Dynamic Template Data
 
 When creating dynamic templates, the following parameters are sent to the template:
 
-\{{ link \}} -> (confirmation link or reset password link)
+`{{ link }}` -> (confirmation link or reset password link)
 
-\{{ email \}} -> the email of the user
+`{{ email }}` -> the email of the user
 
-## Sending
+### 4. Send Email
 
 Sending an email must be done on the server-side via cloud code as it requires the `MasterKey`. This is to help prevent the domain from being blacklisted for spam by bad actors.
 
@@ -52,4 +60,10 @@ Moralis.Cloud.define("sendEmailToUser", function (request) {
 });
 ```
 
+### Tutorial
+
 {% embed url="https://youtu.be/Q6IQRe4yUrM" %}
+
+{% embed url="https://www.youtube.com/watch?v=PByFsb6t4Vo&ab_channel=MoralisWeb3" %}
+Moralis User Email Verification using Sendrid
+{% endembed %}
