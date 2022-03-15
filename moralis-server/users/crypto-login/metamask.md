@@ -1,8 +1,14 @@
 ---
-description: Moralis Metamask Authentication
+description: Moralis is natively integrated with Metamask.
 ---
 
 # 🦊 Metamask
+
+## Integrate Moralis with MetaMask&#x20;
+
+The default authentication in Moralis is the MetaMask wallet authentication. It is the most popular wallet to connect Dapps built on any EVM chain.&#x20;
+
+### 1. Call the authenticate function
 
 Authenticating users using MetaMask is simple:
 
@@ -12,21 +18,45 @@ Moralis.authenticate().then(function (user) {
 })
 ```
 
-This will connect [MetaMask](https://metamask.io) and request a signature (no gas required!).
+This will connect :fox: [MetaMask](https://metamask.io) and request a signature **(no** [**gas**](https://ethereum.org/en/developers/docs/gas/) **required!)**.
 
-We use the signature as proof the user is owner of account, if no signature is provided, anyone can gain the credentials necessary to read /write to users private data in Moralis Database. The signing is no different than entering a username and password. If a user wants to use the authenticated features of an app they need to “log in”. They choose when to do so by pressing the “login” button.
+We use the signature as proof the user is the owner of the account
 
-![](<../../../.gitbook/assets/Metamask\_Login (1).png>)
+{% hint style="danger" %}
+If no signature is provided, anyone can gain the credentials necessary to read /write to users' private data in [Moralis Database](../../database/).&#x20;
+{% endhint %}
 
+The signing is no different than entering a username and password. If a user wants to use the authenticated features of an app they need to “log in”.&#x20;
+
+![MetMask login authentication](<../../../.gitbook/assets/MetaMask Authentication 2.gif>)
+
+{% hint style="info" %}
 It works the same way for all Ethereum Virtual Machine (EVM) compatible chains such as Binance Smart Chain and Polygon (Matic), as they all share the same Ethereum addresses.
+{% endhint %}
 
-As soon as the user is logged in all their assets, tokens, NFTs and past transactions are instantly synced into your Moralis Database. The database updates if the users are moving assets on-chain.
+As soon as the user is logged in all their **Assets, Tokens, NFTs** and **past transactions** are instantly synced into your [Moralis Database](../../database/). The database updates if the users are moving assets on-chain.
 
 ![Once the user logs in - all their assets are seen in the database. The database updates if the users move assets on chain.](<../../../.gitbook/assets/image (117) (1) (1).png>)
 
-### Change MetaMask App Icon
+### 2. Change MetaMask App Icon
 
 It's possible to change the icon a user sees when interacting with your smart contract. To accomplish this, you'll have to add a favicon to your dApp. Follow the instructions in the [MetaMask docs](https://docs.metamask.io/guide/defining-your-icon.html).
+
+### 3. Add custom Sign-in Message
+
+To change the authentication message on MetaMask. Just follow:&#x20;
+
+{% content-ref url="sign-in-message.md" %}
+[sign-in-message.md](sign-in-message.md)
+{% endcontent-ref %}
+
+### 4. Example code
+
+The following code demonstrates a working example
+
+{% content-ref url="../../connect-the-sdk/connect-with-js.md" %}
+[connect-with-js.md](../../connect-the-sdk/connect-with-js.md)
+{% endcontent-ref %}
 
 ### Tutorial
 
