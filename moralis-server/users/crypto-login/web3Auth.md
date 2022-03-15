@@ -23,7 +23,7 @@ Import the SDK based on how moralis was imported into the project - CDN, npm, or
 {% tabs %}
 {% tab title="CDN" %}
 ```html
-<script src="https://github.com/WalletConnect/walletconnect-monorepo/releases/download/1.7.1/web3-provider.min.js"></script>
+<script src="https://unpkg.com/@web3auth/web3auth@0.2.3/dist/web3auth.umd.min.js"></script>
 ```
 {% endtab %}
 
