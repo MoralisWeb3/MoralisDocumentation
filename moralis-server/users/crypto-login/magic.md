@@ -4,13 +4,21 @@ description: Moralis is fully integrated with Magic (also known as Magic Link)
 
 # 🪄 Magic
 
+### Magic
+
+![Login web3 users with their email or other social login.](<../../../.gitbook/assets/Screenshot 2022-02-03 at 21.40.14.png>)
+
+Moralis is fully integrated with [Magic](https://magic.link) which allows you to authenticate your users with their email or other types of social login such as Google or Twitter.
+
+Learn how the integration works [here](magic.md).
+
 ## Integrating Moralis and Magic
 
 {% embed url="https://youtu.be/gLJ4YejmG2E" %}
 Moralis and Magic Integration
 {% endembed %}
 
-Moralis supports authentication using [Magic](https://go.magic.link/moralis-web3-magic). That way a user can use a crypto-login by using only an email.
+Moralis supports authentication using [Magic](https://go.magic.link/moralis-web3-magic). That way a user can use a crypto-login by using only an email or any other type of social login such as Google or Twitter&#x20;
 
 To get started, you will need to make an account on [here](https://go.magic.link/moralis-web3-magic) to get an publishable api-key. This key looks like:
 
