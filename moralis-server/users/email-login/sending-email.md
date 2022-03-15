@@ -2,7 +2,7 @@
 description: Sending Emails from Moralis Server.
 ---
 
-# Sending Emails
+# Setup Email
 
 ## Server Setup
 
@@ -10,7 +10,7 @@ description: Sending Emails from Moralis Server.
 
 Moralis supports sending emails to users. Click the "View Details" button on your server instance, then the "Email Configuration" tab. You'll need to sign up for a [SendGrid](https://sendgrid.com) account and provide the following:
 
-![](<../../.gitbook/assets/image (86).png>)
+![](<../../../.gitbook/assets/image (86).png>)
 
 * **API Key**
 * **From Email: T**his will appear as the "from" address on emails received by users (must be authorized by SendGrid as a single sender or domain).
@@ -21,21 +21,21 @@ Moralis supports sending emails to users. Click the "View Details" button on you
 
 To enable sending a verification email, or a password reset link, some additional setup is required. Both of these operations require a [SendGrid Dynamic Template](https://sendgrid.com/solutions/email-api/dynamic-email-templates/).
 
-![Press the "Create a Dynamic Template" button.](<../../.gitbook/assets/image (88).png>)
+![Press the "Create a Dynamic Template" button.](<../../../.gitbook/assets/image (88).png>)
 
-![Design the look of the email. Your template must include a {{ link }} tag. When done press "Save".](<../../.gitbook/assets/image (89).png>)
+![Design the look of the email. Your template must include a \{{ link \}} tag. When done press "Save".](<../../../.gitbook/assets/image (89).png>)
 
-![After saving, it will look something like this. Copy the "Template ID" you see here into your Moralis Server Email Configuration above.](<../../.gitbook/assets/image (87).png>)
+![After saving, it will look something like this. Copy the "Template ID" you see here into your Moralis Server Email Configuration above.](<../../../.gitbook/assets/image (87).png>)
 
 Repeat the steps above to create templates for both email verification and password resets.
 
-### Dynamic Template Data 
+### Dynamic Template Data
 
 When creating dynamic templates, the following parameters are sent to the template:
 
-{{ link }} -> (confirmation link or reset password link)
+\{{ link \}} -> (confirmation link or reset password link)
 
-{{ email }} -> the email of the user
+\{{ email \}} -> the email of the user
 
 ## Sending
 

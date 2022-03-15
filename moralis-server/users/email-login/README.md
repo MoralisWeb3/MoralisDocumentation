@@ -76,6 +76,10 @@ const user = await Moralis.User.logIn("myname", "mypass", { usePost: true });
 
 ### Verify Emails
 
+{% hint style="info" %}
+To use this feature, first [Setup Email Service](sending-email.md)&#x20;
+{% endhint %}
+
 Enabling email verification in an application’s settings allows the application to reserve part of its experience for users with confirmed email addresses.
 
 Email verification adds the **`emailVerified`** key to the `Moralis.User` object. When a `Moralis.User`’s `email` is set or modified, `emailVerified` is set to `false`. `Moralis`then emails the user a link which will set `emailVerified` to `true`.
@@ -87,6 +91,39 @@ There are three **`emailVerified`** states to consider:
 3. **`undefined (missing)`**- This `Moralis.User` was created when <mark style="color:red;">**email verification was not set up**</mark> or `Moralis.User` <mark style="color:red;">**does not have an email**</mark> when signing up.
 
 ![User class in Moralis Database ](<../../../.gitbook/assets/Screenshot 2022-03-15 at 1.33.58 PM.png>)
+
+### Reset Password
+
+{% hint style="info" %}
+To use this feature, first [Setup Email Service](sending-email.md)&#x20;
+{% endhint %}
+
+As you introduce passwords into a system, users will forget them. In such cases, our library provides a way to let them securely reset their password by sending an email with a reset link.
+
+To kick off the password reset flow, ask the user for their email address, and call:
+
+```javascript
+Moralis.User.requestPasswordReset("email@example.com")
+.then(() => {
+  // Password reset request was sent successfully
+}).catch((error) => {
+  // Show the error message somewhere
+  alert("Error: " + error.code + " " + error.message);
+});
+```
+
+This will attempt to match the given email with the user’s email or username field, and will send them a password reset email. By doing this, you can opt to have users use their email as their username, or you can collect it separately and store it in the email field.
+
+The flow for password reset is as follows:
+
+1. User requests that their password be reset by typing in their email.
+2. Moralis sends an email to their address, with a special password reset link.
+3. User clicks on the reset link and is directed to a special Moralis page that will allow them to type in a new password.
+4. User types in a new password. Their password has now been reset to a value they specify.
+
+{% hint style="info" %}
+Note that the messaging in this flow will reference your app by the name that you specified when you created this app on Moralis.
+{% endhint %}
 
 ### Tutorial
 
