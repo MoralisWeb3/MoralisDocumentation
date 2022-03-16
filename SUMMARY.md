@@ -7,7 +7,7 @@
 * [Prerequisites](introduction/pre-requisites.md)
 * [Contribute to Docs](introduction/contribute-to-docs.md)
 
-## 🧙 Server <a href="#moralis-server" id="moralis-server"></a>
+## 🧙 Platform <a href="#moralis-server" id="moralis-server"></a>
 
 * [🛠 Getting Started](moralis-server/getting-started/README.md)
   * [Create a Moralis Server](moralis-server/getting-started/create-a-moralis-server.md)
@@ -27,7 +27,7 @@
     * [✨ Phantom (Solana)](moralis-server/users/crypto-login/phantom-solana.md)
     * [🖊 Sign-in Message](moralis-server/users/crypto-login/sign-in-message.md)
   * [📧 Email Authentication](moralis-server/users/email-login/README.md)
-    * [Reset Password](moralis-server/users/email-login/reset-password.md)
+    * [Setup Email](moralis-server/users/email-login/sending-email.md)
   * [Merging Addresses](moralis-server/users/merging-addresses.md)
   * [Current User](moralis-server/users/current-user.md)
   * [Delete User](moralis-server/users/delete-user.md)
@@ -85,7 +85,6 @@
   * [Moralis Units](moralis-server/tools/moralis-units.md)
   * [CLI](moralis-server/tools/moralis-admin-cli.md)
   * [Website Hosting](moralis-server/tools/hosting.md)
-  * [Sending Emails](moralis-server/tools/sending-email.md)
   * [React Moralis](moralis-server/tools/react-moralis.md)
 * [🔌 Plugins](moralis-server/plugins/README.md)
   * [Install and Remove Plugins](moralis-server/plugins/untitled.md)

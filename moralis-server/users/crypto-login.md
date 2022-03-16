@@ -4,7 +4,7 @@ description: >-
   and Many Others to Come!
 ---
 
-# Web3 Authentication
+# 🔐 Web3 Authentication
 
 ## Moralis Authentication
 
