@@ -1,5 +1,5 @@
 ---
-description: Sending Emails from Moralis Server.
+description: Send Emails from your Dapp.
 ---
 
 # Setup Email
@@ -65,5 +65,5 @@ Moralis.Cloud.define("sendEmailToUser", function (request) {
 {% embed url="https://youtu.be/Q6IQRe4yUrM" %}
 
 {% embed url="https://www.youtube.com/watch?v=PByFsb6t4Vo&ab_channel=MoralisWeb3" %}
-Moralis User Email Verification using Sendrid
+Moralis User Email Verification using Sendrid and ReactJs
 {% endembed %}
