@@ -22,7 +22,7 @@ Moralis.onAccountChanged( async (account) => {
 ```
 
 {% hint style="warning" %}
-Note: Calling **`link()`**on an address already associated with a user will throw an error.
+Note: Calling**`link()`**on an address already associated with a user will throw an error.&#x20;
 
 You can see which addresses the user has already linked by querying the **`user.attributes.accounts`**array (will return**`undefined`**if the user has not yet linked or authenticated an address).
 {% endhint %}
