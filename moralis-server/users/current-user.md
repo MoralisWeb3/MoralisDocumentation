@@ -7,7 +7,7 @@ description: The Current User Object to Access the Logged-In User.
 It would be bothersome if the user had to log in every time they open your app. You can avoid this by using the cached current **`Moralis.User`** object.
 
 {% hint style="info" %}
-Note that this functionality is disabled by default on Node.js environments (such as React Native) to discourage stateful usages on server-side configurations.
+Note that this functionality is disabled by default on Node.js environments (such as React Native) to discourage stateful usages on server-side configurations.&#x20;
 
 To bypass this behaviour in this particular use case, call once **`Moralis.User.enableUnsafeCurrentUser()`**right before using any cached-user-related functionalities.
 {% endhint %}
@@ -56,7 +56,7 @@ Moralis.User.become("session-token-here").then(function (user) {
 ### Security For User Objects
 
 {% hint style="success" %}
-The **`Moralis.User`**class is ** **<mark style="color:green;">**secured**</mark>:closed\_lock\_with\_key:by default. Data stored in a **`Moralis.User`**can only be read or modified by that user.
+The **`Moralis.User`**class is <mark style="color:green;">**secured**</mark>:closed\_lock\_with\_key:by default. Data stored in a**`Moralis.User`**can only be read or modified by that user.
 {% endhint %}
 
 A [Cloud Function](../cloud-code/cloud-functions.md#using-the-master-key-in-cloud-code) can be used to bypass this restriction by using the `useMasterKey` option.
