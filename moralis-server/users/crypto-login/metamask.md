@@ -32,9 +32,9 @@ The signing is no different than entering a username and password. If a user wan
 It works the same way for all Ethereum Virtual Machine (EVM) compatible chains such as Binance Smart Chain and Polygon (Matic), as they all share the same Ethereum addresses.
 {% endhint %}
 
-As soon as the user is logged in all their **Assets, Tokens, NFTs** and **past transactions** are instantly synced into your [Moralis Database](../../database/). The database updates if the users are moving assets on-chain.
+As soon as the user is logged in all their **on-chain data** is instantly synced into your [Moralis Database](../../database/). The database updates if the users are moving assets on-chain.
 
-![Once the user logs in - all their assets are seen in the database. The database updates if the users move assets on chain.](<../../../.gitbook/assets/image (117) (1) (1).png>)
+![Once the user logs in - all their assets are seen in the database. The database updates if the users move assets on chain.](<../../../.gitbook/assets/Screenshot 2022-03-15 at 1.29.16 PM.png>)
 
 ### 2. Change MetaMask App Icon
 
