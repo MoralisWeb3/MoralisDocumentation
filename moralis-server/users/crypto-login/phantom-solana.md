@@ -1,11 +1,16 @@
 ---
-description: Authenticating Solana users using Phantom Wallet.
+description: Authenticate Solana users with Phantom Wallet.
 ---
 
 # ✨ Phantom (Solana)
 
-If your user has Phantom Wallet installed you can use the following code in order to log them into your Moralis dapp.
+If your user has [Phantom Wallet](https://phantom.app) installed you can use the following code in order to log them into your Moralis dapp.
 
-`Moralis.authenticate({type: ‘sol’})`
+```javascript
+Moralis.authenticate({type: "sol"})
+```
 
-It's important to mention that Solana integration is still in development and Solana users won't get their transactions synced into the database.
+{% hint style="warning" %}
+It's important to mention that Solana integration is still in development and Solana users won't get their transactions synced into the [Moralis database](../../database/).
+{% endhint %}
+

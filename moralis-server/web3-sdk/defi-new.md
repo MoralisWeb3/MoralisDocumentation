@@ -60,6 +60,21 @@ curl -X 'GET' \
 ```
 
 {% endtab %}
+{% tab title="Unity"%}
+
+```cs
+using System.Collections.Generic;
+using Moralis.Web3Api.Models;
+using MoralisWeb3ApiSdk;
+
+  public async void fetchPairAddress()
+  {
+    ReservesCollection pairAddress = await MoralisInterface.GetClient().Web3Api.Defi.GetPairAddress(exchange:"pancakeswapv2" , token0Address:"0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c" , token1Address:"0xe9e7cea3dedca5984780bafc599bd69add087d56", chain:ChainList.bsc);       
+    print(pairAddress.ToJson());     
+  }
+```
+
+{% endtab %}
 {% endtabs %}
 
 #### Example result:
@@ -123,7 +138,7 @@ import { useMoralisWeb3Api } from "react-moralis";
 
 const Web3Api = useMoralisWeb3Api();
 
-const fetchTransactions = async () => {
+const fetchPairReserves = async () => {
   const options = {
     pair_address: "0x58f876857a02d6762e0101bb5c46a8c1ed44dc16",
     chain: "bsc",
@@ -141,6 +156,21 @@ curl -X 'GET' \
   'https://deep-index.moralis.io/api/v2/0x58f876857a02d6762e0101bb5c46a8c1ed44dc16/reserves?chain=bsc' \
   -H 'accept: application/json' \
   -H 'X-API-Key: MY-API-KEY'
+```
+
+{% endtab %}
+{% tab title="Unity"%}
+
+```cs
+using System.Collections.Generic;
+using Moralis.Web3Api.Models;
+using MoralisWeb3ApiSdk;
+
+  public async void fetchPairReserves()
+  {
+    ReservesCollection reserves = await MoralisInterface.GetClient().Web3Api.Defi.GetPairReserves(pairAddress:"0x58f876857a02d6762e0101bb5c46a8c1ed44dc16" , ChainList.bsc);          
+    print(reserves.ToJson());     
+  }
 ```
 
 {% endtab %}

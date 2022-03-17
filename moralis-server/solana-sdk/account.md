@@ -7,7 +7,7 @@ Returns SOL balance of an address.
 #### Options:
 
 - `network`: The network cluster to get data from. Valid values are listed on the [intro page in Supported Networks section](https://docs.moralis.io/moralis-server/solana-sdk/intro#supported-networks). Default value `mainnet`.
-- `address`: A user address (i.e. `HsXZnAba2...`). If specified, the user attached to the query is ignored and the address will be used instead.
+- `address`: A user address (i.e. `6XU36wCxWobLx5Rtsb58kmgAJKVYmMVqy4SHXxENAyAe`). If specified, the user attached to the query is ignored and the address will be used instead.
 
 {% tabs %}
 {% tab title="JS" %}
@@ -19,7 +19,7 @@ const solBalance = await Moralis.SolanaAPI.account.balance();
 // get devnet SOL balance for a given address
 const options = {
   network: "devnet",
-  address: "HsXZnAba2...",
+  address: "6XU36wCxWobLx5Rtsb58kmgAJKVYmMVqy4SHXxENAyAe",
 };
 const solBalance = await Moralis.SolanaAPI.account.balance(options);
 ```
@@ -38,12 +38,28 @@ const { fetch, data, isLoading } = useMoralisSolanaCall(account.balance);
 // get devnet SOL balance for a given address
 const options = {
   network: "devnet",
-  address: "HsXZnAba2...",
+  address: "6XU36wCxWobLx5Rtsb58kmgAJKVYmMVqy4SHXxENAyAe",
 };
 const { fetch, data, isLoading } = useMoralisSolanaCall(
   account.balance,
   options
 );
+```
+
+{% endtab %}
+{% tab title="Unity"%}
+
+```cs
+using System.Collections.Generic;
+using Moralis.SolanaApi.Models;
+using Moralis.SolanaApi;
+using MoralisWeb3ApiSdk;
+
+  public async void GetSolNativeBalance()
+  {    
+    NativeBalance solBalance = await MoralisSolanaClient.SolanaApi.Account.Balance(NetworkTypes.mainnet, "6XU36wCxWobLx5Rtsb58kmgAJKVYmMVqy4SHXxENAyAe");           
+    print(solBalance);     
+  }
 ```
 
 {% endtab %}
@@ -77,7 +93,7 @@ const tokenBalance = await Moralis.SolanaAPI.account.getSPL();
 // get devnet SPL token balance for a given address
 const options = {
   network: "devnet",
-  address: "HsXZnAba2...",
+  address: "6XU36wCxWobLx5Rtsb58kmgAJKVYmMVqy4SHXxENAyAe",
 };
 const tokenBalance = await Moralis.SolanaAPI.account.getSPL(options);
 ```
@@ -96,12 +112,30 @@ const { fetch, data, isLoading } = useMoralisSolanaCall(account.getSPL);
 // get devnet SPL token balance for a given address
 const options = {
   network: "devnet",
-  address: "HsXZnAba2...",
+  address: "6XU36wCxWobLx5Rtsb58kmgAJKVYmMVqy4SHXxENAyAe",
 };
 const { fetch, data, isLoading } = useMoralisSolanaCall(
   account.getSPL,
   options
 );
+```
+
+{% endtab %}
+{% tab title="Unity"%}
+
+```cs
+using System.Collections.Generic;
+using Moralis.SolanaApi.Models;
+using Moralis.SolanaApi;
+using MoralisWeb3ApiSdk;
+
+  public async void GetSPLTokens()
+  {    
+    List<SplTokenBalanace> spltokens = await MoralisSolanaClient.SolanaApi.Account.GetSplTokens(NetworkTypes.mainnet, "6XU36wCxWobLx5Rtsb58kmgAJKVYmMVqy4SHXxENAyAe");
+    foreach(SplTokenBalanace spltoken in spltokens){
+      print(spltoken);   
+   }    
+  }
 ```
 
 {% endtab %}
@@ -140,7 +174,7 @@ const nftBalance = await Moralis.SolanaAPI.account.getNFTs();
 // get devnet SPL NFT balance for a given address
 const options = {
   network: "devnet",
-  address: "HsXZnAba2...",
+  address: "6XU36wCxWobLx5Rtsb58kmgAJKVYmMVqy4SHXxENAyAe",
 };
 const nftBalance = await Moralis.SolanaAPI.account.getNFTs(options);
 ```
@@ -159,12 +193,30 @@ const { fetch, data, isLoading } = useMoralisSolanaCall(account.getNFTs);
 // get devnet SPL NFT balance for a given address
 const options = {
   network: "devnet",
-  address: "HsXZnAba2...",
+  address: "6XU36wCxWobLx5Rtsb58kmgAJKVYmMVqy4SHXxENAyAe",
 };
 const { fetch, data, isLoading } = useMoralisSolanaCall(
   account.getNFTs,
   options
 );
+```
+
+{% endtab %}
+{% tab title="Unity"%}
+
+```cs
+using System.Collections.Generic;
+using Moralis.SolanaApi.Models;
+using Moralis.SolanaApi;
+using MoralisWeb3ApiSdk;
+
+  public async void GetSPLNft()
+  {   
+    List<SplNft> SplNFTbal = await MoralisSolanaClient.SolanaApi.Account.GetNFTs(NetworkTypes.mainnet, "6XU36wCxWobLx5Rtsb58kmgAJKVYmMVqy4SHXxENAyAe");     
+    foreach(SplNft splnft in SplNFTbal){
+      print(splnft);   
+    }    
+  }
 ```
 
 {% endtab %}
@@ -203,7 +255,7 @@ const portfolio = await Moralis.SolanaAPI.account.getPortfolio();
 // get devnet NFT balance for a given address
 const options = {
   network: "devnet",
-  address: "HsXZnAba2...",
+  address: "6XU36wCxWobLx5Rtsb58kmgAJKVYmMVqy4SHXxENAyAe",
 };
 const portfolio = await Moralis.SolanaAPI.account.getPortfolio(options);
 ```
@@ -222,12 +274,28 @@ const { fetch, data, isLoading } = useMoralisSolanaCall(account.getPortfolio);
 // get devnet SPL NFT balance for a given address
 const options = {
   network: "devnet",
-  address: "HsXZnAba2...",
+  address: "6XU36wCxWobLx5Rtsb58kmgAJKVYmMVqy4SHXxENAyAe",
 };
 const { fetch, data, isLoading } = useMoralisSolanaCall(
   account.getPortfolio,
   options
 );
+```
+
+{% endtab %}
+{% tab title="Unity"%}
+
+```cs
+using System.Collections.Generic;
+using Moralis.SolanaApi.Models;
+using Moralis.SolanaApi;
+using MoralisWeb3ApiSdk;
+
+  public async void GetSPLPortfolioBal()
+  {   
+    Portfolio PortfolioBal = await MoralisSolanaClient.SolanaApi.Account.GetPortfolio(NetworkTypes.mainnet, "6XU36wCxWobLx5Rtsb58kmgAJKVYmMVqy4SHXxENAyAe");   
+    print(PortfolioBal);    
+  }
 ```
 
 {% endtab %}
