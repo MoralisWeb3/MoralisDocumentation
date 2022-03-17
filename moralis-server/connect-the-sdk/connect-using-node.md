@@ -173,8 +173,9 @@ const Auth = async () => {
     const serverUrl = "YOUR-SERVER-URL";
     const appId = "YOUR-APP-ID";
     const masterKey = "YOUR-MASTER-KEY";
+    const moralisSecret = "YOUR MORALIS SECRET";
 
-    await Moralis.start({ serverUrl, appId, masterKey });
+    await Moralis.start({ serverUrl, appId, masterKey, moralisSecret });
 
     const web3Provider = await Moralis.enableWeb3({ privateKey: "YOUR-PRIVATE-KEY" });
     console.log(web3Provider);
@@ -196,8 +197,6 @@ const port = 8080; // default port to listen
 
 // define a route handler for the default home page
 app.get( "/", ( req, res ) => {
-    // render the index template
-    res.sendFile(path.join(__dirname, "../src/views/index.html"));
     Auth();
 });
 
@@ -210,7 +209,15 @@ Then run the following command in your terminal
 npm run start
 ```
 
-you will see the following result:
+You will see the server running at port `8080`
+
+![](<images/localhost.png>)
+
+Go to your favorite browser and enter the following url:
+
+`http://localhost:8080/`
+
+Go back to your terminal you will see the following result:
 
 ![](<images/result2.png>)
 
@@ -237,7 +244,7 @@ const moralisSecret = "YOUR MORALIS SECRET";
 
 await Moralis.start({ serverUrl, appId, moralisSecret });
 
-    //calling `getTokenPrice({address:"tokenAddress", chain:"chainID"})` from web3API token
+    //calling `getTokenPrice({address:"tokenAddress", chain:"chainID"})` from web3API
     const price = await Moralis.Web3API.token.getTokenPrice(
     {address: "0xe9e7cea3dedca5984780bafc599bd69add087d56", chain: "bsc"})
     console.log(price);
@@ -257,8 +264,6 @@ const port = 8080; // default port to listen
 
 // define a route handler for the default home page
 app.get( "/", ( req, res ) => {
-    // render the index template
-    res.sendFile(path.join(__dirname, "../src/views/index.html"));
     web3API();
 });
 
@@ -270,7 +275,15 @@ Then run the following command in your terminal
 npm run start
 ```
 
-you will see the following result:
+You will see the server running at port `8080`
+
+![](<images/localhost.png>)
+
+Go to your favorite browser and enter the following url:
+
+`http://localhost:8080/`
+
+Go back to your terminal you will see the following result:
 
 ![](<images/result1.png>)
 
