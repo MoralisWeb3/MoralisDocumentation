@@ -50,7 +50,7 @@ Now, we can create our mintable token on Remix. Open Remix on your browser, or g
 
 Click on "New File."
 
-![](<../.gitbook/assets/image (13).png>)
+![](<../.gitbook/assets/image (14).png>)
 
 Give it a name, we called it "_**erc20.sol".**_
 

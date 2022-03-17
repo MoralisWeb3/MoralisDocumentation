@@ -86,7 +86,6 @@
   * [Moralis Units](moralis-server/tools/moralis-units.md)
   * [CLI](moralis-server/tools/moralis-admin-cli.md)
   * [Website Hosting](moralis-server/tools/hosting.md)
-  * [React Moralis](moralis-server/tools/react-moralis.md)
 * [🔌 Plugins](moralis-server/plugins/README.md)
   * [Install and Remove Plugins](moralis-server/plugins/untitled.md)
 
