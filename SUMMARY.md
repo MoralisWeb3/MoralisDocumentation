@@ -14,6 +14,7 @@
 * [🔮 Connect with SDK](moralis-server/connect-the-sdk/README.md)
   * [🍦 Connect with Vanilla JS](moralis-server/connect-the-sdk/connect-with-js.md)
   * [⚛ Connect with React](moralis-server/connect-the-sdk/connect-with-react.md)
+  * [Connect using Node.js](moralis-server/getting-started/connect-using-node.md)
   * [🎮 Connect with Unity3D](moralis-server/connect-the-sdk/connect-with-unity.md)
   * [🔥 Boilerplate Projects](moralis-server/connect-the-sdk/boilerplate-projects.md)
   * [📔 Code Snippets](moralis-server/connect-the-sdk/snippets.md)
