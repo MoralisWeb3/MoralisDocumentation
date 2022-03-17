@@ -8,11 +8,11 @@ description: >-
 # 🍦 Connect with Vanilla JS
 
 {% hint style="info" %}
-Make sure to create your own server before beginning this guide - [**Create a Moralis Server**](../getting-started/create-a-moralis-server.md)****
+Make sure to create your own server before beginning this guide - [**Create a Moralis Server**](../getting-started/create-a-moralis-server.md)
 {% endhint %}
 
 {% hint style="success" %}
-<mark style="color:green;">**Check out the live code here:**</mark> [**Working Code**](connect-with-js.md#working-code)&#x20;
+<mark style="color:green;">**Check out the live code here:**</mark> [**Working Code**](connect-with-js.md#working-code)
 {% endhint %}
 
 ### Adding Moralis to Your Web Page using Javascript
@@ -43,11 +43,11 @@ The first step is to create an empty page we call `index.html` and `main.js` in 
 {% endcode %}
 
 {% hint style="info" %}
-The above example imports the **latest** version of Moralis. When running your code in production, It's always better to specify a version in this way:&#x20;
+The above example imports the **latest** version of Moralis. When running your code in production, It's always better to specify a version in this way:
 
-_**https://unpkg.com/moralis@\<VERSION>/dist/moralis.js**_&#x20;
+_**https://unpkg.com/moralis@\<VERSION>/dist/moralis.js**_
 
-For the latest release version, you can check the [Releases on GitHub](https://github.com/MoralisWeb3/Moralis-JS-SDK/releases). For example:&#x20;
+For the latest release version, you can check the [Releases on GitHub](https://github.com/MoralisWeb3/Moralis-JS-SDK/releases). For example:
 
 _**\<script src="https://unpkg.com/moralis@1.0.3/dist/moralis.js">\</script>**_
 {% endhint %}
@@ -55,7 +55,7 @@ _**\<script src="https://unpkg.com/moralis@1.0.3/dist/moralis.js">\</script>**_
 ### 2. Initialize the SDK
 
 {% hint style="success" %}
-&#x20;Initialize your server using **`Moralis.start()`** function
+Initialize your server using **`Moralis.start()`** function
 {% endhint %}
 
 {% code title="main.js" %}
@@ -75,7 +75,7 @@ In order to initialize the SDK, you need to fetch _**Server URL**_ and _**APP ID
 
 ![Pick the server url and app id from the details page](<../../.gitbook/assets/Screenshot 2022-03-16 at 12.05.32 PM.png>)
 
-### 3. Add Authentication&#x20;
+### 3. Add Authentication
 
 Now that the SDK is successfully connected we can use the power of Moralis. Let's login a user and instantly get all their tokens, transactions and NFTs from all chains in your Moralis Database.
 
@@ -122,14 +122,14 @@ Run `index.html` on `localhost` as a web page. The easiest way is by using the [
 Visit the webpage and click `Login`. Your Metamask will popup and ask you to sign in.
 
 {% hint style="success" %}
-To connect other wallets other than MetaMask, check out: [**Web3 Authentication**](../users/crypto-login.md)****
+To connect other wallets other than MetaMask, check out: [**Web3 Authentication**](../users/crypto-login.md)
 {% endhint %}
 
 ![Metamask popping up when user clicks Login.](<../../.gitbook/assets/MetaMask Authentication 2.gif>)
 
 ### 6. See all User Assets in the Moralis Database
 
-As soon as the user logs in Moralis fetches all the on-chain data about that user from all chains and puts it into the **** [**Moralis Database**](../database/). To see the Moralis Database go to your server and click on _**Dashboard**_.
+As soon as the user logs in Moralis fetches all the on-chain data about that user from all chains and puts it into the [**Moralis Database**](../database/). To see the Moralis Database go to your server and click on _**Dashboard**_.
 
 ![Click on Dashboard in order to see the database of your server.](<../../.gitbook/assets/Screenshot 2022-03-16 at 12.49.38 PM.png>)
 
@@ -170,4 +170,3 @@ const Moralis = require('moralis');
 {% hint style="success" %}
 For React Projects: Please follow the [Connect with React](connect-with-react.md) Guide
 {% endhint %}
-
