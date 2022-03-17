@@ -69,7 +69,7 @@ Moralis.start({ serverUrl, appId });
 ```
 {% endcode %}
 
-In order to initialize the SDK, you need to fetch _**Server URL**_ and _**APP ID**_ from your Moralis Dashboard. Go to your Moralis Dashboard:
+In order to initialize the SDK, you need to fetch _**Server URL**_ and _**APP ID**_ from your Moralis Dashboard. Go to your Moralis Server Details:
 
 ![Click on View Details next to the server name of your server.](<../../.gitbook/assets/Screenshot 2022-03-16 at 12.03.37 PM.png>)
 
@@ -120,6 +120,10 @@ Run `index.html` on `localhost` as a web page. The easiest way is by using the [
 ### 5. Login with Metamask
 
 Visit the webpage and click `Login`. Your Metamask will popup and ask you to sign in.
+
+{% hint style="success" %}
+To connect other wallets other than MetaMask, check out: [**Web3 Authentication**](../users/crypto-login.md)****
+{% endhint %}
 
 ![Metamask popping up when user clicks Login.](<../../.gitbook/assets/MetaMask Authentication 2.gif>)
 
