@@ -44,7 +44,7 @@
   * [🪙 Web3API.native](moralis-server/web3-sdk/native.md)
   * [🦹♂ Web3API.account](moralis-server/web3-sdk/account.md)
   * [🎴 Web3API.token](moralis-server/web3-sdk/token.md)
-  * [🤖 Web3API.defi (new)](moralis-server/web3-sdk/defi-new.md)
+  * [🤖 Web3API.defi](moralis-server/web3-sdk/defi-new.md)
   * [🏪 Web3API.storage (IPFS)](moralis-server/web3-sdk/ipfs-storage-new.md)
   * [🤝 Web3API.resolve](moralis-server/web3-sdk/resolve.md)
   * [REST API](moralis-server/web3-sdk/moralis-web3-api-rest.md)
