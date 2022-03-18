@@ -5,16 +5,15 @@ description: >-
   steps.
 ---
 
-## Adding Moralis to Node.js
+# 🖨 Connect using Node.js
 
-### Difference between Node.js and Front-end
+## Difference between Node.js and Front-end
 
-#### Authentication
+### Authentication
 
 Authentication in node.js is performed via seed i.e. private key and not with browser based wallets such as metamask and walletconnect because wallets are on browser side and node.js runs on server side. For example follow the tutorial mentioned below.
 
-
-#### API usage
+### API usage
 
 With node.js you can call web3/Solana API directly without making request to the Moralis server since there is a rate limit to the number of request you can make from front-end.
 
@@ -27,25 +26,23 @@ const appId = "YOUR-APP-ID";
 const moralisSecret = "YOUR MORALIS SECRET";
 
 await Moralis.start({ serverUrl, appId, moralisSecret });
-
 ```
+
 with `moralisSecret` all API calls go directly to the API instead of passing through the Moralis Server.
 
 Note: While making request for web3/Solana API from front-end you can set rate limits for users, check [here](https://docs.moralis.io/moralis-server/web3-sdk/rate-limit) for more info
 
 To get `moralisSecret` you need to go to account settings as shown in image below
 
-![](<images/moralisSecret1.png>)
+![](images/moralisSecret1.png)
 
 then API and copy your `moralisSecret` key
 
-![](<images/moralisSecret2.png>)
+![](images/moralisSecret2.png)
 
-
-#### Node.js version
+### Node.js version
 
 Check your node.js version, Open up a terminal (Mac/Linux) or a command prompt (Windows) and type the following command to check version:
-
 
 ```
 node --version
@@ -55,8 +52,7 @@ Node.js version should be greater than 16
 
 If you get an error, or the version of Node.js you have is less than version 14, you’ll need to install Node.js. On Mac or Linux, I recommend you first install nvm and use nvm to install Node.js. For more information regarding nodejs installation you can refer [here](https://nodejs.dev/learn/how-to-install-nodejs)
 
-
-### Create Your Node.js project
+## Create Your Node.js project
 
 After ensuring you have a recent version of Node.js installed, create a folder for your project.
 
@@ -71,16 +67,15 @@ Use `npm` to initialize a `package.json` file.
 npm init -y
 ```
 
-In this node application, [Express](https://expressjs.com/) is used to serve web pages and implement an API. Dependencies are installed using npm. Add Express to your project with the following command.
+In this node application, [Express](https://expressjs.com) is used to serve web pages and implement an API. Dependencies are installed using npm. Add Express to your project with the following command.
 
 ```
 npm install express@4
 ```
 
-### Add Typescript to your project
+## Add Typescript to your project
 
 The first step is to add the TypeScript compiler. You can install the compiler as a developer dependency using the `--save-dev` flag.
-
 
 ```
 npm install --save-dev typescript@4
@@ -119,7 +114,6 @@ Install `tslint` as a developer dependency.
 
 ```
 npm install --save-dev tslint
-
 ```
 
 Next, create a new file in the root folder named `tslint.json` file and add the following configuration.
@@ -150,9 +144,9 @@ Next, update your `package.json` to change `main` to point to the new `dist` fol
     "start": "node .",
     "test": "echo \"Error: no test specified\" && exit 1"
   }
-```  
+```
 
-### Installing Moralis SDK
+## Installing Moralis SDK
 
 Run the following command to install Moralis SDK
 
@@ -160,7 +154,7 @@ Run the following command to install Moralis SDK
 npm install moralis
 ```
 
-### Authentication Demo
+## Authentication Demo
 
 Create a folder named src, create a file named `auth.ts` in your `src` folder and add the following code:
 
@@ -187,7 +181,6 @@ export default Auth;
 
 Create a file named `index.ts` in your `src` folder and add the following code:
 
-
 ```javascript
 import express from "express";
 import path from "path";
@@ -199,9 +192,7 @@ const port = 8080; // default port to listen
 app.get( "/", ( req, res ) => {
     Auth();
 });
-
 ```
-
 
 Then run the following command in your terminal
 
@@ -211,7 +202,7 @@ npm run start
 
 You will see the server running at port `8080`
 
-![](<images/localhost.png>)
+![](images/localhost.png)
 
 Go to your favorite browser and enter the following url:
 
@@ -219,20 +210,17 @@ Go to your favorite browser and enter the following url:
 
 Go back to your terminal you will see the following result:
 
-![](<images/result2.png>)
-
+![](images/result2.png)
 
 Note: With `Moralis.enableWeb3` you get access to only `provider` functions in ethersjs library and not to all `Providers` functions
 
-
-#### API usage
-
+### API usage
 
 Create a file named `web3api.ts` in your `src` folder and add the following code:
 
-#### **`web3api.ts`**
-```javascript
+### **`web3api.ts`**
 
+```javascript
 import Moralis from "moralis/node";
 
 const web3API = async () => {
@@ -266,7 +254,6 @@ const port = 8080; // default port to listen
 app.get( "/", ( req, res ) => {
     web3API();
 });
-
 ```
 
 Then run the following command in your terminal
@@ -277,7 +264,7 @@ npm run start
 
 You will see the server running at port `8080`
 
-![](<images/localhost.png>)
+![](images/localhost.png)
 
 Go to your favorite browser and enter the following url:
 
@@ -285,8 +272,8 @@ Go to your favorite browser and enter the following url:
 
 Go back to your terminal you will see the following result:
 
-![](<images/result1.png>)
+![](images/result1.png)
 
-###
+##
 
-###
+##

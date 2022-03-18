@@ -1,4 +1,4 @@
-# Resolve
+# 🤝 Web3API.resolve
 
 ## resolveDomain
 
@@ -6,21 +6,19 @@ Resolves an Unstoppable domain and returns the address (asynchronous).
 
 #### Options:
 
-- `currency`(optional): The currency to query. Available values : `eth`, `0x1`. Default value : `eth`.
-- `domain` (required): Domain to be resolved.
+* `currency`(optional): The currency to query. Available values : `eth`, `0x1`. Default value : `eth`.
+* `domain` (required): Domain to be resolved.
 
 {% tabs %}
 {% tab title="JS" %}
-
 ```javascript
 // get polygon NFTs for address
 const options = { currency: "eth", domain: "brad.crypto" };
 const resolve = await Moralis.Web3API.resolve.resolveDomain(options);
 ```
-
 {% endtab %}
-{% tab title="React" %}
 
+{% tab title="React" %}
 ```javascript
 import React from "react";
 import { useMoralisWeb3Api } from "react-moralis";
@@ -34,20 +32,18 @@ const fetchDomain = async () => {
   console.log(resolve);
 };
 ```
-
 {% endtab %}
-{% tab title="curl" %}
 
-```sh
+{% tab title="curl" %}
+```
 curl -X 'GET' \
   'https://deep-index.moralis.io/api/v2/resolve/brad.crypto?currency=eth' \
   -H 'accept: application/json' \
   -H 'X-API-Key: MY-API-KEY'
 ```
-
 {% endtab %}
-{% tab title="Unity"%}
 
+{% tab title="Unity" %}
 ```cs
 using System.Collections.Generic;
 using Moralis.Web3Api.Models;
@@ -59,7 +55,6 @@ using MoralisWeb3ApiSdk;
     print(resolve.ToJson());
   }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -77,20 +72,18 @@ Reverse resolves an address and returns the ENS domain (if exists).
 
 #### Options:
 
-- `address` (required): Ethereum address to be reverse resolved.
+* `address` (required): Ethereum address to be reverse resolved.
 
 {% tabs %}
 {% tab title="JS" %}
-
 ```javascript
 // get ENS domain of an address
 const options = { address: "0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045" };
 const resolve = await Moralis.Web3API.resolve.resolveAddress(options);
 ```
-
 {% endtab %}
-{% tab title="React" %}
 
+{% tab title="React" %}
 ```javascript
 import React from "react";
 import { useMoralisWeb3Api } from "react-moralis";
@@ -104,20 +97,18 @@ const fetchAddress = async () => {
   console.log(resolve);
 };
 ```
-
 {% endtab %}
-{% tab title="curl" %}
 
-```sh
+{% tab title="curl" %}
+```
 curl -X 'GET' \
   'https://deep-index.moralis.io/api/v2/resolve/0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045/reverse' \
   -H 'accept: application/json' \
   -H 'X-API-Key: MY-API-KEY'
 ```
-
 {% endtab %}
-{% tab title="Unity"%}
 
+{% tab title="Unity" %}
 ```cs
 using System.Collections.Generic;
 using Moralis.Web3Api.Models;
@@ -129,7 +120,6 @@ using MoralisWeb3ApiSdk;
     print(result.ToJson());
   }
 ```
-
 {% endtab %}
 {% endtabs %}
 

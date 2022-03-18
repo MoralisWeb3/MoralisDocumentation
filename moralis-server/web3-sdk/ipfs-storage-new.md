@@ -2,7 +2,7 @@
 description: Upload multiple files and place them in a folder directory (ERC1155 Compliant)
 ---
 
-# 🔥IPFS Storage (new)
+# 🏪 Web3API.storage (IPFS)
 
 {% embed url="https://www.youtube.com/watch?v=VglTdr0n5ZQ" %}
 **Bulk Mint NFTs on OpenSea Using IPFS folders (ERC1155 Compliant)**
@@ -14,10 +14,11 @@ Uploads multiple files and place them in a folder directory. Returns path (async
 
 #### Options:
 
-- `abi`(required): Array of JSON and Base64 Supported
-- {% tabs %}
-  {% tab title="JS" %}
+* `abi`(required): Array of JSON and Base64 Supported
+*
 
+{% tabs %}
+{% tab title="JS" %}
 ```javascript
 const options = {
   abi: [
@@ -30,10 +31,9 @@ const options = {
 };
 const path = await Moralis.Web3API.storage.uploadFolder(options);
 ```
-
 {% endtab %}
-{% tab title="React" %}
 
+{% tab title="React" %}
 ```javascript
 import React from "react";
 import { useMoralisWeb3Api } from "react-moralis";
@@ -54,11 +54,10 @@ const uploadFolder = async () => {
   console.log(path);
 };
 ```
-
 {% endtab %}
-{% tab title="curl" %}
 
-```sh
+{% tab title="curl" %}
+```
 curl -X 'POST' \
   'https://deep-index.moralis.io/api/v2/ipfs/uploadFolder' \
   -H 'accept: application/json' \
@@ -71,10 +70,9 @@ curl -X 'POST' \
   }
 ]'
 ```
-
 {% endtab %}
-{% tab title="Unity"%}
 
+{% tab title="Unity" %}
 ```cs
 using System.Collections.Generic;
 using Moralis.Web3Api.Models;
@@ -100,7 +98,6 @@ using MoralisWeb3ApiSdk;
       }
   }
 ```
-
 {% endtab %}
 {% endtabs %}
 
