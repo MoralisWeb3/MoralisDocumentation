@@ -11,6 +11,7 @@ Returns the metadata of a SPL NFT.
 
 {% tabs %}
 {% tab title="JS" %}
+
 ```javascript
 // get devnet metadata for a given SPL NFT address
 const options = {
@@ -19,10 +20,11 @@ const options = {
 };
 const nftMetadata = await Moralis.SolanaAPI.nft.getNFTMetadata(options);
 ```
+
 {% endtab %}
 {% tab title="Unity"%}
 
-```cs
+```csharp
 using System.Collections.Generic;
 using Moralis.SolanaApi.Models;
 using Moralis.SolanaApi;
@@ -30,9 +32,9 @@ using MoralisWeb3ApiSdk;
 
   // get mainnet metadata for a given SPL NFT address
   public async void GetSPLNftMetadata()
-  {   
+  {
     NftMetadata nftmetadata = await MoralisSolanaClient.SolanaApi.Nft.GetNFTMetadata(NetworkTypes.mainnet, "6XU36wCxWobLx5Rtsb58kmgAJKVYmMVqy4SHXxENAyAe");
-    print(nftmetadata);    
+    print(nftmetadata);
   }
 ```
 

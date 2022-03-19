@@ -8,15 +8,16 @@ The token0 and token1 options are interchangable (ie. there is no different outc
 
 #### Options:
 
-* `chain`(optional): The blockchain to get data from. Valid values are listed on the [intro page in the Transactions and Balances section](https://docs.moralis.io/transactions-and-balances/intro). Default value `Eth`.
-* `to_date` (optional): Get the pair address to this date (any format that is accepted by momentjs) Provide the param 'to\_block' or 'to\_date' If 'to\_date' and 'to\_block' are provided, 'to\_block' will be used.
-* `to_block` (optional): To get the pair address at this block number
-* `exchange` (required): The factory name or address of the token exchange. Available values : uniswapv2, uniswapv3, sushiswapv2, pancakeswapv2, pancakeswapv1, quickswap
-* `token0_address` (required): Token0 address
-* `token1_address` (required): Token1 address
+- `chain`(optional): The blockchain to get data from. Valid values are listed on the [intro page in the Transactions and Balances section](https://docs.moralis.io/transactions-and-balances/intro). Default value `Eth`.
+- `to_date` (optional): Get the pair address to this date (any format that is accepted by momentjs) Provide the param 'to_block' or 'to_date' If 'to_date' and 'to_block' are provided, 'to_block' will be used.
+- `to_block` (optional): To get the pair address at this block number
+- `exchange` (required): The factory name or address of the token exchange. Available values : uniswapv2, uniswapv3, sushiswapv2, pancakeswapv2, pancakeswapv1, quickswap
+- `token0_address` (required): Token0 address
+- `token1_address` (required): Token1 address
 
 {% tabs %}
 {% tab title="JS" %}
+
 ```javascript
 const options = {
   token0_address: "0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c",
@@ -26,9 +27,11 @@ const options = {
 };
 const pairAddress = await Moralis.Web3API.defi.getPairAddress(options);
 ```
+
 {% endtab %}
 
 {% tab title="React" %}
+
 ```javascript
 import React from "react";
 import { useMoralisWeb3Api } from "react-moralis";
@@ -46,29 +49,34 @@ const fetchPairAddress = async () => {
   console.log(pairAddress);
 };
 ```
+
 {% endtab %}
 
 {% tab title="curl" %}
+
 ```
 curl -X 'GET' \
   'https://deep-index.moralis.io/api/v2/0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c/0xe9e7cea3dedca5984780bafc599bd69add087d56/pairAddress?chain=bsc&exchange=pancakeswapv2' \
   -H 'accept: application/json' \
   -H 'X-API-Key: MY-API-KEY'
 ```
+
 {% endtab %}
 
 {% tab title="Unity" %}
-```cs
+
+```csharp
 using System.Collections.Generic;
 using Moralis.Web3Api.Models;
 using MoralisWeb3ApiSdk;
 
   public async void fetchPairAddress()
   {
-    ReservesCollection pairAddress = await MoralisInterface.GetClient().Web3Api.Defi.GetPairAddress(exchange:"pancakeswapv2" , token0Address:"0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c" , token1Address:"0xe9e7cea3dedca5984780bafc599bd69add087d56", chain:ChainList.bsc);       
-    print(pairAddress.ToJson());     
+    ReservesCollection pairAddress = await MoralisInterface.GetClient().Web3Api.Defi.GetPairAddress(exchange:"pancakeswapv2" , token0Address:"0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c" , token1Address:"0xe9e7cea3dedca5984780bafc599bd69add087d56", chain:ChainList.bsc);
+    print(pairAddress.ToJson());
   }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -108,13 +116,14 @@ Get the liquidity reserves for a given pair address (asynchronous).
 
 #### Options:
 
-* `chain`(optional): The blockchain to get data from. Valid values are listed on the [intro page in the Transactions and Balances section](https://docs.moralis.io/transactions-and-balances/intro). Default value `Eth`.
-* `to_date` (optional): Get the reserves to this date (any format that is accepted by momentjs) Provide the param 'to\_block' or 'to\_date' If 'to\_date' and 'to\_block' are provided, 'to\_block' will be used.
-* `to_block` (optional): To get the reserves at this block number
-* `pair_address` (required): Liquidity pair address
+- `chain`(optional): The blockchain to get data from. Valid values are listed on the [intro page in the Transactions and Balances section](https://docs.moralis.io/transactions-and-balances/intro). Default value `Eth`.
+- `to_date` (optional): Get the reserves to this date (any format that is accepted by momentjs) Provide the param 'to_block' or 'to_date' If 'to_date' and 'to_block' are provided, 'to_block' will be used.
+- `to_block` (optional): To get the reserves at this block number
+- `pair_address` (required): Liquidity pair address
 
 {% tabs %}
 {% tab title="JS" %}
+
 ```javascript
 const options = {
   pair_address: "0x58f876857a02d6762e0101bb5c46a8c1ed44dc16",
@@ -122,9 +131,11 @@ const options = {
 };
 const reserves = await Moralis.Web3API.defi.getPairReserves(options);
 ```
+
 {% endtab %}
 
 {% tab title="React" %}
+
 ```javascript
 import React from "react";
 import { useMoralisWeb3Api } from "react-moralis";
@@ -140,29 +151,34 @@ const fetchPairReserves = async () => {
   console.log(reserves);
 };
 ```
+
 {% endtab %}
 
 {% tab title="curl" %}
+
 ```
 curl -X 'GET' \
   'https://deep-index.moralis.io/api/v2/0x58f876857a02d6762e0101bb5c46a8c1ed44dc16/reserves?chain=bsc' \
   -H 'accept: application/json' \
   -H 'X-API-Key: MY-API-KEY'
 ```
+
 {% endtab %}
 
 {% tab title="Unity" %}
-```cs
+
+```csharp
 using System.Collections.Generic;
 using Moralis.Web3Api.Models;
 using MoralisWeb3ApiSdk;
 
   public async void fetchPairReserves()
   {
-    ReservesCollection reserves = await MoralisInterface.GetClient().Web3Api.Defi.GetPairReserves(pairAddress:"0x58f876857a02d6762e0101bb5c46a8c1ed44dc16" , ChainList.bsc);          
-    print(reserves.ToJson());     
+    ReservesCollection reserves = await MoralisInterface.GetClient().Web3Api.Defi.GetPairReserves(pairAddress:"0x58f876857a02d6762e0101bb5c46a8c1ed44dc16" , ChainList.bsc);
+    print(reserves.ToJson());
   }
 ```
+
 {% endtab %}
 {% endtabs %}
 
