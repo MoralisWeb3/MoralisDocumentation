@@ -156,7 +156,7 @@ curl -X 'GET' \
 
 {% tab title="Unity" %}
 
-```csharpharp
+```csharp
 using System.Collections.Generic;
 using Moralis.Web3Api.Models;
 using MoralisWeb3ApiSdk;
