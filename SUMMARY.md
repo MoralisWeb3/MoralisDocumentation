@@ -41,7 +41,7 @@
 * [🪄 Web3 API](moralis-server/web3-sdk/README.md)
   * [⛓ Supported Chains](moralis-server/web3-sdk/supported-chains.md)
   * [🪙 Web3API.native](moralis-server/web3-sdk/native.md)
-  * [🦹♂ Web3API.account](moralis-server/web3-sdk/account.md)
+  * [� Web3API.account](moralis-server/web3-sdk/account.md)
   * [🎴 Web3API.token](moralis-server/web3-sdk/token.md)
   * [🤖 Web3API.defi](moralis-server/web3-sdk/defi-new.md)
   * [🏪 Web3API.storage (IPFS)](moralis-server/web3-sdk/ipfs-storage-new.md)
