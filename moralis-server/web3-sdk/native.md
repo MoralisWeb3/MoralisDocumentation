@@ -12,14 +12,15 @@ Runs a given function of a contract abi and returns readonly data (asynchronous)
 
 #### Options:
 
-* `chain`(optional): The blockchain to get data from. Valid values are listed on the [intro page in the Transactions and Balances section](https://docs.moralis.io/transactions-and-balances/intro). Default value `Eth`.
-* `function_name` (required): The function name
-* `address` (required): A smart contract address
-* `abi` (required): contract or function ABI(should be provided as an array)
-* `params` (optional): Parameters needed for your specific function
+- `chain`(optional): The blockchain to get data from. Valid values are listed on the [intro page in the Transactions and Balances section](https://docs.moralis.io/transactions-and-balances/intro). Default value `Eth`.
+- `function_name` (required): The function name
+- `address` (required): A smart contract address
+- `abi` (required): contract or function ABI(should be provided as an array)
+- `params` (optional): Parameters needed for your specific function
 
 {% tabs %}
 {% tab title="JS" %}
+
 ```javascript
 const ABI = []; // Add ABI of 0xdAC17F958D2ee523a2206206994597C13D831ec7
 
@@ -32,9 +33,11 @@ const options = {
 };
 const allowance = await Moralis.Web3API.native.runContractFunction(options);
 ```
+
 {% endtab %}
 
 {% tab title="React" %}
+
 ```javascript
 import React from "react";
 import { useMoralisWeb3Api } from "react-moralis";
@@ -76,9 +79,11 @@ const GetAddressBalanceOfUSDT = () => {
   );
 };
 ```
+
 {% endtab %}
 
 {% tab title="curl" %}
+
 ```
 curl -X 'POST' \
  'https://deep-index.moralis.io/api/v2/0xdAC17F958D2ee523a2206206994597C13D831ec7/function?chain=eth&function_name=balanceOf' \
@@ -90,6 +95,7 @@ curl -X 'POST' \
 "params": {"who": "0x3355d6E71585d4e619f4dB4C7c5Bfe549b278299" }
 }'
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -105,20 +111,23 @@ Retrieve the contents of a block by block hash. Returns a block object (asynchro
 
 #### Options:
 
-* `chain`(optional): The blockchain to get data from. Valid values are listed on the [intro page in the Transactions and Balances section](https://docs.moralis.io/transactions-and-balances/intro). Default value `Eth`.
-* `block_number_or_hash` (required): The block hash or block number.
+- `chain`(optional): The blockchain to get data from. Valid values are listed on the [intro page in the Transactions and Balances section](https://docs.moralis.io/transactions-and-balances/intro). Default value `Eth`.
+- `block_number_or_hash` (required): The block hash or block number.
 
 {% tabs %}
 {% tab title="JS" %}
+
 ```javascript
 const options = { chain: "bsc", block_number_or_hash: "2" };
 
 // get block content on BSC
 const transactions = await Moralis.Web3API.native.getBlock(options);
 ```
+
 {% endtab %}
 
 {% tab title="React" %}
+
 ```javascript
 import React from "react";
 import { useMoralisWeb3Api } from "react-moralis";
@@ -131,29 +140,34 @@ const fetchBlock = async () => {
   console.log(result);
 };
 ```
+
 {% endtab %}
 
 {% tab title="curl" %}
+
 ```
 curl -X 'GET' \
   'https://deep-index.moralis.io/api/v2/block/2?chain=bsc' \
   -H 'accept: application/json' \
   -H 'X-API-Key: MY-API-KEY'
 ```
+
 {% endtab %}
 
 {% tab title="Unity" %}
-```cs
+
+```csharpharp
 using System.Collections.Generic;
 using Moralis.Web3Api.Models;
 using MoralisWeb3ApiSdk;
 
   public async void fetchBlock()
   {
-    Block block = await MoralisInterface.GetClient().Web3Api.Native.GetBlock(blockNumberOrHash: "2", ChainList.bsc);         
-    print(block.ToJson());     
+    Block block = await MoralisInterface.GetClient().Web3Api.Native.GetBlock(blockNumberOrHash: "2", ChainList.bsc);
+    print(block.ToJson());
   }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -225,11 +239,12 @@ Retrieve the closest block of the provided date (asynchronous).
 
 #### Options:
 
-* `chain`(optional): The blockchain to get data from. Valid values are listed on the [intro page in the Transactions and Balances section](https://docs.moralis.io/transactions-and-balances/intro). Default value `Eth`.
-* `date` (required): Unix date in miliseconds or a datestring (any format that is accepted by momentjs)
+- `chain`(optional): The blockchain to get data from. Valid values are listed on the [intro page in the Transactions and Balances section](https://docs.moralis.io/transactions-and-balances/intro). Default value `Eth`.
+- `date` (required): Unix date in miliseconds or a datestring (any format that is accepted by momentjs)
 
 {% tabs %}
 {% tab title="JS" %}
+
 ```javascript
 const options = {
   chain: "bsc",
@@ -237,9 +252,11 @@ const options = {
 };
 const date = await Moralis.Web3API.native.getDateToBlock(options);
 ```
+
 {% endtab %}
 
 {% tab title="React" %}
+
 ```javascript
 import React from "react";
 import { useMoralisWeb3Api } from "react-moralis";
@@ -252,29 +269,34 @@ const fetchDateToBlock = async () => {
   console.log(date);
 };
 ```
+
 {% endtab %}
 
 {% tab title="curl" %}
+
 ```
 curl -X 'GET' \
   'https://deep-index.moralis.io/api/v2/dateToBlock?chain=bsc&date=2021-09-29T13%3A09%3A15%2B00%3A00' \
   -H 'accept: application/json' \
   -H 'X-API-Key: MY-API-KEY'
 ```
+
 {% endtab %}
 
 {% tab title="Unity" %}
-```cs
+
+```csharp
 using System.Collections.Generic;
 using Moralis.Web3Api.Models;
 using MoralisWeb3ApiSdk;
 
   public async void fetchDateToBlock()
   {
-    BlockDate blockDate = await MoralisInterface.GetClient().Web3Api.Native.GetDateToBlock(date:"2021-09-29T13:09:15+00:00", ChainList.eth);         
-    print(blockDate.ToJson());     
+    BlockDate blockDate = await MoralisInterface.GetClient().Web3Api.Native.GetDateToBlock(date:"2021-09-29T13:09:15+00:00", ChainList.eth);
+    print(blockDate.ToJson());
   }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -294,19 +316,20 @@ Retrieve the logs from an address (asynchronous).
 
 #### Options:
 
-* `chain`(optional): The blockchain to get data from. Valid values are listed on the [intro page in the Transactions and Balances section](https://docs.moralis.io/transactions-and-balances/intro). Default value `Eth`.
-* `from_date` (optional): The date from where to get the transactions (any format that is accepted by momentjs). Provide the param 'from\_block' or 'from\_date' If 'from\_date' and 'from\_block' are provided, 'from\_block' will be used.
-* `to_date` (optional): Get the transactions to this date (any format that is accepted by momentjs). Provide the param 'to\_block' or 'to\_date' If 'to\_date' and 'to\_block' are provided, 'to\_block' will be used.
-* `from_block` (optional): The minimum block number from where to get the transactions Provide the param 'from\_block' or 'from\_date' If 'from\_date' and 'from\_block' are provided, 'from\_block' will be used.
-* `to_block` (optional): The maximum block number from where to get the transactions. Provide the param 'to\_block' or 'to\_date' If 'to\_date' and 'to\_block' are provided, 'to\_block' will be used.
-* `address` (required): A smart contract address
-* `topic0` (optional): Event topic
-* `topic1` (optional): Event topic
-* `topic2` (optional): Event topic
-* `topic3` (optional): Event topic
+- `chain`(optional): The blockchain to get data from. Valid values are listed on the [intro page in the Transactions and Balances section](https://docs.moralis.io/transactions-and-balances/intro). Default value `Eth`.
+- `from_date` (optional): The date from where to get the transactions (any format that is accepted by momentjs). Provide the param 'from_block' or 'from_date' If 'from_date' and 'from_block' are provided, 'from_block' will be used.
+- `to_date` (optional): Get the transactions to this date (any format that is accepted by momentjs). Provide the param 'to_block' or 'to_date' If 'to_date' and 'to_block' are provided, 'to_block' will be used.
+- `from_block` (optional): The minimum block number from where to get the transactions Provide the param 'from_block' or 'from_date' If 'from_date' and 'from_block' are provided, 'from_block' will be used.
+- `to_block` (optional): The maximum block number from where to get the transactions. Provide the param 'to_block' or 'to_date' If 'to_date' and 'to_block' are provided, 'to_block' will be used.
+- `address` (required): A smart contract address
+- `topic0` (optional): Event topic
+- `topic1` (optional): Event topic
+- `topic2` (optional): Event topic
+- `topic3` (optional): Event topic
 
 {% tabs %}
 {% tab title="JS" %}
+
 ```javascript
 const options = {
   address: "0x057Ec652A4F150f7FF94f089A38008f49a0DF88e",
@@ -318,9 +341,11 @@ const options = {
 
 const logs = await Moralis.Web3API.native.getLogsByAddress(options);
 ```
+
 {% endtab %}
 
 {% tab title="React" %}
+
 ```javascript
 import React from "react";
 import { useMoralisWeb3Api } from "react-moralis";
@@ -342,29 +367,34 @@ const fetchLogsByAddress = async () => {
   console.log(logs);
 };
 ```
+
 {% endtab %}
 
 {% tab title="curl" %}
+
 ```
 curl -X 'GET' \
   'https://deep-index.moralis.io/api/v2/0x057Ec652A4F150f7FF94f089A38008f49a0DF88e/logs?chain=bsc&topic0=0x2caecd17d02f56fa897705dcc740da2d237c373f70686f4e0d9bd3bf0400ea7a&topic1=0x000000000000000000000000031002d15b0d0cd7c9129d6f644446368deae391&topic2=0x000000000000000000000000d25943be09f968ba740e0782a34e710100defae9' \
   -H 'accept: application/json' \
   -H 'X-API-Key: MY-API-KEY'
 ```
+
 {% endtab %}
 
 {% tab title="Unity" %}
-```cs
+
+```csharp
 using System.Collections.Generic;
 using Moralis.Web3Api.Models;
 using MoralisWeb3ApiSdk;
 
   public async void fetchLogsByAddress()
   {
-    LogEventByAddress logEvents = await MoralisInterface.GetClient().Web3Api.Native.GetLogsByAddress(address: "0x057Ec652A4F150f7FF94f089A38008f49a0DF88e", ChainList.bsc, topic0:"0x2caecd17d02f56fa897705dcc740da2d237c373f70686f4e0d9bd3bf0400ea7a",topic1:"0x000000000000000000000000031002d15b0d0cd7c9129d6f644446368deae391", topic2:"0x000000000000000000000000d25943be09f968ba740e0782a34e710100defae9");       
-    print(logEvents.ToJson());     
+    LogEventByAddress logEvents = await MoralisInterface.GetClient().Web3Api.Native.GetLogsByAddress(address: "0x057Ec652A4F150f7FF94f089A38008f49a0DF88e", ChainList.bsc, topic0:"0x2caecd17d02f56fa897705dcc740da2d237c373f70686f4e0d9bd3bf0400ea7a",topic1:"0x000000000000000000000000031002d15b0d0cd7c9129d6f644446368deae391", topic2:"0x000000000000000000000000d25943be09f968ba740e0782a34e710100defae9");
+    print(logEvents.ToJson());
   }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -391,17 +421,18 @@ Get the events in descending order based on block number. Returns an object with
 
 #### Options:
 
-* `chain`(optional): The blockchain to get data from. Valid values are listed on the [intro page in the Transactions and Balances section](https://docs.moralis.io/transactions-and-balances/intro). Default value `Eth`.
-* `offset`(optional): Offset.
-* `limit`(optional): Limit.
-* `from_block` (optional): To get contract events starting from this block
-* `to_block` (optional): To get contract events up to this block
-* `topic` (required): The topic of the event
-* `address` (required): A smart contract address
-* `abi` (required): Event ABI (do not insert the ABI of the whole smart contract). ABI has a JSON format.
+- `chain`(optional): The blockchain to get data from. Valid values are listed on the [intro page in the Transactions and Balances section](https://docs.moralis.io/transactions-and-balances/intro). Default value `Eth`.
+- `offset`(optional): Offset.
+- `limit`(optional): Limit.
+- `from_block` (optional): To get contract events starting from this block
+- `to_block` (optional): To get contract events up to this block
+- `topic` (required): The topic of the event
+- `address` (required): A smart contract address
+- `abi` (required): Event ABI (do not insert the ABI of the whole smart contract). ABI has a JSON format.
 
 {% tabs %}
 {% tab title="JS" %}
+
 ```javascript
 const ABI = {
   anonymous: false,
@@ -423,9 +454,11 @@ const options = {
 };
 const events = await Moralis.Web3API.native.getContractEvents(options);
 ```
+
 {% endtab %}
 
 {% tab title="React" %}
+
 ```javascript
 import React from "react";
 import { useMoralisWeb3Api } from "react-moralis";
@@ -455,9 +488,11 @@ const fetchContractEvents = async () => {
   console.log(events);
 };
 ```
+
 {% endtab %}
 
 {% tab title="curl" %}
+
 ```
 curl -X 'POST' \
   'https://deep-index.moralis.io/api/v2/0xdAC17F958D2ee523a2206206994597C13D831ec7/events?chain=eth&topic=0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef&limit=3' \
@@ -466,10 +501,12 @@ curl -X 'POST' \
   -H 'Content-Type: application/json' \
   -d '{"anonymous":false,"inputs":[{"indexed":true,"name":"from","type":"address"},{"indexed":true,"name":"to","type":"address"},{"indexed":false,"name":"value","type":"uint256"}],"name":"Transfer","type":"event"}'
 ```
+
 {% endtab %}
 
 {% tab title="Unity" %}
-```cs
+
+```csharp
 using System.Collections.Generic;
 using Moralis.Web3Api.Models;
 using MoralisWeb3ApiSdk;
@@ -480,10 +517,11 @@ using MoralisWeb3ApiSdk;
     List<LogEvent> logEvents = await MoralisInterface.GetClient().Web3Api.Native.GetContractEvents(address: "0xdAC17F958D2ee523a2206206994597C13D831ec7", topic: "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef",abi: abi, ChainList.eth);
     foreach (LogEvent eventlog in logEvents)
     {
-      print(eventlog.ToJson()); 
-    }         
+      print(eventlog.ToJson());
+    }
   }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -545,11 +583,12 @@ Retrieve NFT transfers by block number or block hash. Returns an array of NFT tr
 
 #### Options:
 
-* `chain`(optional): The blockchain to get data from. Valid values are listed on the [intro page in the Transactions and Balances section](https://docs.moralis.io/transactions-and-balances/intro). Default value `Eth`.
-* `block_number_or_hash` (required): The block hash or block number.
+- `chain`(optional): The blockchain to get data from. Valid values are listed on the [intro page in the Transactions and Balances section](https://docs.moralis.io/transactions-and-balances/intro). Default value `Eth`.
+- `block_number_or_hash` (required): The block hash or block number.
 
 {% tabs %}
 {% tab title="JS" %}
+
 ```javascript
 const options = { chain: "bsc", block_number_or_hash: "11284830" };
 
@@ -558,9 +597,11 @@ const NFTTransfers = await Moralis.Web3API.native.getNFTTransfersByBlock(
   options
 );
 ```
+
 {% endtab %}
 
 {% tab title="React" %}
+
 ```javascript
 import React from "react";
 import { useMoralisWeb3Api } from "react-moralis";
@@ -575,19 +616,23 @@ const fetchNFTTransfersByBlock = async () => {
   console.log(NFTTransfers);
 };
 ```
+
 {% endtab %}
 
 {% tab title="curl" %}
+
 ```
 curl -X 'GET' \
   'https://deep-index.moralis.io/api/v2/block/11284830/nft/transfers?chain=bsc&limit=500' \
   -H 'accept: application/json' \
   -H 'X-API-Key: MY-API-KEY'
 ```
+
 {% endtab %}
 
 {% tab title="Unity" %}
-```cs
+
+```csharp
 using System.Collections.Generic;
 using Moralis.Web3Api.Models;
 using MoralisWeb3ApiSdk;
@@ -598,6 +643,7 @@ using MoralisWeb3ApiSdk;
     print(nftTransfers.ToJson());
   }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -631,11 +677,12 @@ Get the transaction by transaction hash. Returns a transaction object (asynchron
 
 #### Options:
 
-* `chain`(optional): The blockchain to get data from. Valid values are listed on the [intro page in the Transactions and Balances section](https://docs.moralis.io/transactions-and-balances/intro). Default value `Eth`.
-* `transaction_hash` (required): The transaction hash.
+- `chain`(optional): The blockchain to get data from. Valid values are listed on the [intro page in the Transactions and Balances section](https://docs.moralis.io/transactions-and-balances/intro). Default value `Eth`.
+- `transaction_hash` (required): The transaction hash.
 
 {% tabs %}
 {% tab title="JS" %}
+
 ```javascript
 const options = {
   chain: "eth",
@@ -644,9 +691,11 @@ const options = {
 };
 const transaction = await Moralis.Web3API.native.getTransaction(options);
 ```
+
 {% endtab %}
 
 {% tab title="React" %}
+
 ```javascript
 import React from "react";
 import { useMoralisWeb3Api } from "react-moralis";
@@ -663,19 +712,23 @@ const fetchTransaction = async () => {
   console.log(transaction);
 };
 ```
+
 {% endtab %}
 
 {% tab title="curl" %}
+
 ```
 curl -X 'GET' \
   'https://deep-index.moralis.io/api/v2/transaction/0x5e519cd5117aea6ed9d51d4f235b4badb2e3f69377a4e2f945e13feb20af4db3?chain=eth' \
   -H 'accept: application/json' \
   -H 'X-API-Key: MY-API-KEY'
 ```
+
 {% endtab %}
 
 {% tab title="Unity" %}
-```cs
+
+```csharp
 using System.Collections.Generic;
 using Moralis.Web3Api.Models;
 using MoralisWeb3ApiSdk;
@@ -686,6 +739,7 @@ using MoralisWeb3ApiSdk;
     print(blockTransaction.ToJson());
   }
 ```
+
 {% endtab %}
 {% endtabs %}
 
