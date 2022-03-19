@@ -54,7 +54,7 @@ const fetchPairAddress = async () => {
 
 {% tab title="curl" %}
 
-```
+```bash
 curl -X 'GET' \
   'https://deep-index.moralis.io/api/v2/0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c/0xe9e7cea3dedca5984780bafc599bd69add087d56/pairAddress?chain=bsc&exchange=pancakeswapv2' \
   -H 'accept: application/json' \
@@ -156,7 +156,7 @@ const fetchPairReserves = async () => {
 
 {% tab title="curl" %}
 
-```
+```bash
 curl -X 'GET' \
   'https://deep-index.moralis.io/api/v2/0x58f876857a02d6762e0101bb5c46a8c1ed44dc16/reserves?chain=bsc' \
   -H 'accept: application/json' \

@@ -40,7 +40,7 @@ const fetchDomain = async () => {
 
 {% tab title="curl" %}
 
-```
+```bash
 curl -X 'GET' \
   'https://deep-index.moralis.io/api/v2/resolve/brad.crypto?currency=eth' \
   -H 'accept: application/json' \
@@ -113,7 +113,7 @@ const fetchAddress = async () => {
 
 {% tab title="curl" %}
 
-```
+```bash
 curl -X 'GET' \
   'https://deep-index.moralis.io/api/v2/resolve/0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045/reverse' \
   -H 'accept: application/json' \

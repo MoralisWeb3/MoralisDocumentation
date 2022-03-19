@@ -63,7 +63,7 @@ const fetchTransactions = async () => {
 {% endtab %}
 {% tab title="Curl" %}
 
-```sh
+```bash
 curl -X 'GET' \
   'https://deep-index.moralis.io/api/v2/0x3d6c0e79a1239df0039ec16Cc80f7A343b6C530e?chain=bsc&from_block=0' \
   -H 'accept: application/json' \
@@ -169,7 +169,7 @@ const fetchNativeBalance = async () => {
 {% endtab %}
 {% tab title="Curl" %}
 
-```sh
+```bash
 curl -X 'GET' \
   'https://deep-index.moralis.io/api/v2/0x3d6c0e79a1239df0039ec16Cc80f7A343b6C530e/balance?chain=bsc' \
   -H 'accept: application/json' \
@@ -240,7 +240,7 @@ const fetchTokenBalances = async () => {
 
 {% tab title="curl" %}
 
-```sh
+```bash
 curl -X 'GET' \
   'https://deep-index.moralis.io/api/v2/0x3d6c0e79a1239df0039ec16Cc80f7A343b6C530e/erc20' \
   -H 'accept: application/json' \
@@ -305,7 +305,7 @@ const fetchTokenBalances = async () => {
 {% endtab %}
 {% tab title="curl" %}
 
-```sh
+```bash
 curl -X 'GET' \
   'https://deep-index.moralis.io/api/v2/0x3d6c0e79a1239df0039ec16Cc80f7A343b6C530e/erc20?chain=bsc&to_block=10253391' \
   -H 'accept: application/json' \
@@ -396,7 +396,7 @@ const fetchTokenTransfers = async () => {
 
 {% tab title="curl" %}
 
-```sh
+```bash
 curl -X 'GET' \
   'https://deep-index.moralis.io/api/v2/0x3d6c0e79a1239df0039ec16Cc80f7A343b6C530e/erc20/transfers?chain=bsc&from_block=0' \
   -H 'accept: application/json' \
@@ -499,7 +499,7 @@ console.log(polygonNFTs);
 {% endtab %}
 {% tab title="curl" %}
 
-```sh
+```bash
 curl -X 'GET' \
   'https://deep-index.moralis.io/api/v2/0x75e3e9c92162e62000425c98769965a76c2e387a/nft?chain=polygon&format=decimal' \
   -H 'accept: application/json' \
@@ -605,7 +605,7 @@ const fetchNFTTransfers = async () => {
 
 {% tab title="curl" %}
 
-```sh
+```bash
 curl -X 'GET' \
   'https://deep-index.moralis.io/api/v2/0x75e3e9c92162e62000425c98769965a76c2e387a/nft/transfers?chain=polygon&format=decimal&direction=both&limit=5' \
   -H 'accept: application/json' \
@@ -710,7 +710,7 @@ const fetchNFTsForContract = async () => {
 
 {% tab title="curl" %}
 
-```sh
+```bash
 curl -X 'GET' \
   'https://deep-index.moralis.io/api/v2/0x75e3e9c92162e62000425c98769965a76c2e387a/nft/0x2953399124F0cBB46d2CbACD8A89cF0599974963?chain=polygon&format=decimal' \
   -H 'accept: application/json' \

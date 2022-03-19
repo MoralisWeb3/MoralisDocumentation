@@ -84,7 +84,7 @@ const GetAddressBalanceOfUSDT = () => {
 
 {% tab title="curl" %}
 
-```
+```bash
 curl -X 'POST' \
  'https://deep-index.moralis.io/api/v2/0xdAC17F958D2ee523a2206206994597C13D831ec7/function?chain=eth&function_name=balanceOf' \
  -H 'accept: application/json' \
@@ -145,7 +145,7 @@ const fetchBlock = async () => {
 
 {% tab title="curl" %}
 
-```
+```bash
 curl -X 'GET' \
   'https://deep-index.moralis.io/api/v2/block/2?chain=bsc' \
   -H 'accept: application/json' \
@@ -274,7 +274,7 @@ const fetchDateToBlock = async () => {
 
 {% tab title="curl" %}
 
-```
+```bash
 curl -X 'GET' \
   'https://deep-index.moralis.io/api/v2/dateToBlock?chain=bsc&date=2021-09-29T13%3A09%3A15%2B00%3A00' \
   -H 'accept: application/json' \
@@ -372,7 +372,7 @@ const fetchLogsByAddress = async () => {
 
 {% tab title="curl" %}
 
-```
+```bash
 curl -X 'GET' \
   'https://deep-index.moralis.io/api/v2/0x057Ec652A4F150f7FF94f089A38008f49a0DF88e/logs?chain=bsc&topic0=0x2caecd17d02f56fa897705dcc740da2d237c373f70686f4e0d9bd3bf0400ea7a&topic1=0x000000000000000000000000031002d15b0d0cd7c9129d6f644446368deae391&topic2=0x000000000000000000000000d25943be09f968ba740e0782a34e710100defae9' \
   -H 'accept: application/json' \
@@ -493,7 +493,7 @@ const fetchContractEvents = async () => {
 
 {% tab title="curl" %}
 
-```
+```bash
 curl -X 'POST' \
   'https://deep-index.moralis.io/api/v2/0xdAC17F958D2ee523a2206206994597C13D831ec7/events?chain=eth&topic=0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef&limit=3' \
   -H 'accept: application/json' \
@@ -621,7 +621,7 @@ const fetchNFTTransfersByBlock = async () => {
 
 {% tab title="curl" %}
 
-```
+```bash
 curl -X 'GET' \
   'https://deep-index.moralis.io/api/v2/block/11284830/nft/transfers?chain=bsc&limit=500' \
   -H 'accept: application/json' \
@@ -717,7 +717,7 @@ const fetchTransaction = async () => {
 
 {% tab title="curl" %}
 
-```
+```bash
 curl -X 'GET' \
   'https://deep-index.moralis.io/api/v2/transaction/0x5e519cd5117aea6ed9d51d4f235b4badb2e3f69377a4e2f945e13feb20af4db3?chain=eth' \
   -H 'accept: application/json' \

@@ -62,7 +62,7 @@ const uploadFolder = async () => {
 
 {% tab title="curl" %}
 
-```
+```bash
 curl -X 'POST' \
   'https://deep-index.moralis.io/api/v2/ipfs/uploadFolder' \
   -H 'accept: application/json' \

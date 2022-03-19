@@ -67,7 +67,7 @@ const fetchTokenMetadata = async () => {
 
 {% tab title="curl" %}
 
-```
+```bash
 curl -X 'GET' \
   'https://deep-index.moralis.io/api/v2/erc20/metadata?chain=bsc&addresses=0x55d398326f99059ff775485246999027b3197955&addresses=0x0a385f86059e0b2a048171d78afd1f38558121f3' \
   -H 'accept: application/json' \
@@ -184,7 +184,7 @@ const fetchTokenMetadataBySymbol = async () => {
 
 {% tab title="curl" %}
 
-```
+```bash
 curl -X 'GET' \
   'https://deep-index.moralis.io/api/v2/erc20/metadata/symbols?chain=bsc&symbols=LINK&symbols=AAVE' \
   -H 'accept: application/json' \
@@ -292,7 +292,7 @@ const fetchTokenAllowance = async () => {
 
 {% tab title="curl" %}
 
-```
+```bash
 curl -X 'GET' \
   'https://deep-index.moralis.io/api/v2/erc20/0xC18360217D8F7Ab5e7c516566761Ea12Ce7F9D72/allowance?chain=eth&owner_address=0xd1628228ffaede220cd583da5f9262355682210a&spender_address=0x68b3465833fb72A70ecDF485E0e4C7bD8665Fc45' \
   -H 'accept: application/json' \
@@ -380,7 +380,7 @@ const fetchTokenPrice = async () => {
 
 {% tab title="curl" %}
 
-```
+```bash
 curl -X 'GET' \
   'https://deep-index.moralis.io/api/v2/erc20/0x42F6f551ae042cBe50C739158b4f0CAC0Edb9096/price?chain=bsc&exchange=PancakeSwapv2' \
   -H 'accept: application/json' \
@@ -453,7 +453,7 @@ const fetchAllTokenIds = async () => {
 
 {% tab title="curl" %}
 
-```
+```bash
 curl -X 'GET' \
   'https://deep-index.moralis.io/api/v2/nft/0x7dE3085b3190B3a787822Ee16F23be010f5F8686?chain=eth&format=decimal' \
   -H 'accept: application/json' \
@@ -543,7 +543,7 @@ const fetchNFTMetadata = async () => {
 
 {% tab title="curl" %}
 
-```
+```bash
 curl -X 'GET' \
   'https://deep-index.moralis.io/api/v2/nft/0x7dE3085b3190B3a787822Ee16F23be010f5F8686/metadata?chain=eth' \
   -H 'accept: application/json' \
@@ -632,7 +632,7 @@ const fetchNFTOwners = async () => {
 
 {% tab title="curl" %}
 
-```
+```bash
 curl -X 'GET' \
   'https://deep-index.moralis.io/api/v2/nft/0x7de3085b3190b3a787822ee16f23be010f5f8686/owners?chain=eth&format=decimal' \
   -H 'accept: application/json' \
@@ -729,7 +729,7 @@ const fetchSearchNFTs = async () => {
 
 {% tab title="curl" %}
 
-```
+```bash
 curl -X 'GET' \
   'https://deep-index.moralis.io/api/v2/nft/search?chain=bsc&format=decimal&q=Pancake&filter=name' \
   -H 'accept: application/json' \
@@ -805,7 +805,7 @@ const fetchSearchNFTs = async () => {
 
 {% tab title="curl" %}
 
-```
+```bash
 curl -X 'GET' \
   'https://deep-index.moralis.io/api/v2/nft/search?chain=bsc&format=decimal&q=Pancake&filter=global' \
   -H 'accept: application/json' \
@@ -870,7 +870,7 @@ const fetchSearchNFTs = async () => {
 
 {% tab title="curl" %}
 
-```
+```bash
 curl -X 'GET' \
   'https://deep-index.moralis.io/api/v2/nft/search?chain=bsc&format=decimal&q=Pancake&filter=description%2Cattributes' \
   -H 'accept: application/json' \
@@ -948,7 +948,7 @@ const fetchContractNFTTransfers = async () => {
 
 {% tab title="curl" %}
 
-```
+```bash
 curl -X 'GET' \
   'https://deep-index.moralis.io/api/v2/nft/0x7de3085b3190b3a787822ee16f23be010f5f8686/1/transfers?chain=eth&format=decimal' \
   -H 'accept: application/json' \
@@ -1049,7 +1049,7 @@ const fetchTokenIdMetadata = async () => {
 
 {% tab title="curl" %}
 
-```
+```bash
 curl -X 'GET' \
   'https://deep-index.moralis.io/api/v2/nft/0x7de3085b3190b3a787822ee16f23be010f5f8686/1?chain=eth&format=decimal' \
   -H 'accept: application/json' \
@@ -1147,7 +1147,7 @@ const fetchTokenIdOwners = async () => {
 
 {% tab title="curl" %}
 
-```
+```bash
 curl -X 'GET' \
   'https://deep-index.moralis.io/api/v2/nft/0x7de3085b3190b3a787822ee16f23be010f5f8686/1/owners?chain=eth&format=decimal' \
   -H 'accept: application/json' \
@@ -1246,7 +1246,7 @@ const fetchWalletTokenIdTransfers = async () => {
 
 {% tab title="curl" %}
 
-```
+```bash
 curl -X 'GET' \
   'https://deep-index.moralis.io/api/v2/nft/0x7de3085b3190b3a787822ee16f23be010f5f8686/1/transfers?chain=eth&format=decimal' \
   -H 'accept: application/json' \
@@ -1352,7 +1352,7 @@ const fetchNFTTrades = async () => {
 
 {% tab title="curl" %}
 
-```
+```bash
 curl -X 'GET' \
   'https://deep-index.moralis.io/api/v2/nft/0x7de3085b3190b3a787822ee16f23be010f5f8686/trades?chain=eth&marketplace=opensea' \
   -H 'accept: application/json' \
@@ -1447,7 +1447,7 @@ const fetchNFTLowestPrice = async () => {
 
 {% tab title="curl" %}
 
-```
+```bash
 curl -X 'GET' \
   'https://deep-index.moralis.io/api/v2/nft/0x7de3085b3190b3a787822ee16f23be010f5f8686/lowestprice?chain=eth&days=3&marketplace=opensea' \
   -H 'accept: application/json' \
@@ -1543,7 +1543,7 @@ const reSyncMetadata = async () => {
 
 {% tab title="curl" %}
 
-```
+```bash
 curl -X 'PUT' \
   'https://deep-index.moralis.io/api/v2/nft/0x7de3085b3190b3a787822ee16f23be010f5f8686/sync?chain=eth' \
   -H 'accept: */*' \
