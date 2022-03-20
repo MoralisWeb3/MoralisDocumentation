@@ -6,7 +6,7 @@ Returns the transactions from the current user or address. Returns an object wit
 
 #### Options:
 
-- `chain`(optional): The blockchain to get data from. Valid values are listed on the [intro page in the Transactions and Balances section](https://docs.moralis.io/transactions-and-balances/intro). Default value `Eth`.
+- `chain`(optional): The blockchain to get data from. Valid values are listed on the [supported chains page](https://docs.moralis.io/moralis-server/web3-sdk/supported-chains). Default value `Eth`.
 - `address` (optional): A user address (i.e. `0x1a2b3x...`). If specified, the user attached to the query is ignored and the address will be used instead.
 - `from_date` (optional): The date from where to get the transactions (any format that is accepted by momentjs). Provide the param 'from_block' or 'from_date' If 'from_date' and 'from_block' are provided, 'from_block' will be used.
 - `to_date` (optional): Get the transactions to this date (any format that is accepted by momentjs). Provide the param 'to_block' or 'to_date' If 'to_date' and 'to_block' are provided, 'to_block' will be used.
@@ -106,7 +106,7 @@ Returns native balance for a specific address (asynchronous).
 
 #### Options:
 
-- `chain`(optional): The blockchain to get data from. Valid values are listed on the [intro page in the Transactions and Balances section](https://docs.moralis.io/transactions-and-balances/intro). Default value `Eth`.
+- `chain`(optional): The blockchain to get data from. Valid values are listed on the [supported chains page](https://docs.moralis.io/moralis-server/web3-sdk/supported-chains). Default value `Eth`.
 - `to_block `(optional): The block number on which the balances should be checked.
 - `address` (optional): The address for which the native balance will be checked. If specified, the user attached to the query is ignored and the address will be used instead. If user is not authenticated with a Wallet, then address has to be specified.
 
@@ -177,7 +177,7 @@ Retrieve all token balances of a current user or specified address. Returns an o
 
 #### Options:
 
-- `chain`(optional): The blockchain to get data from. Valid values are listed on the [intro page in the Transactions and Balances section](https://docs.moralis.io/transactions-and-balances/intro). Default value `Eth`.
+- `chain`(optional): The blockchain to get data from. Valid values are listed on the [supported chains page](https://docs.moralis.io/moralis-server/web3-sdk/supported-chains). Default value `Eth`.
 - &#x20;`address` (optional): A user address (i.e. `0x1a2b3x...`). If specified, the user attached to the query is ignored and the address will be used instead.
 - `to_block` (optional): The block number on which the balances should be checked
 
@@ -288,7 +288,7 @@ Get ERC20 token transfers from the current user or address. Returns an object wi
 
 #### Options:
 
-- `chain`(optional): The blockchain to get data from. Valid values are listed on the [intro page in the Transactions and Balances section](https://docs.moralis.io/transactions-and-balances/intro). Default value `Eth`.
+- `chain`(optional): The blockchain to get data from. Valid values are listed on the [supported chains page](https://docs.moralis.io/moralis-server/web3-sdk/supported-chains). Default value `Eth`.
 - `address` (optional): A user address (i.e. `0x1a2b3x...`). If specified, the user attached to the query is ignored and the address will be used instead.
 - `from_date` (optional): The date from where to get the transactions (any format that is accepted by momentjs). Provide the param 'from_block' or 'from_date' If 'from_date' and 'from_block' are provided, 'from_block' will be used.
 - `to_date` (optional): Get the transactions to this date (any format that is accepted by momentjs). Provide the param 'to_block' or 'to_date' If 'to_date' and 'to_block' are provided, 'to_block' will be used.
@@ -380,7 +380,7 @@ Get all NFTs from the current user or address. Supports both ERC721 and ERC1155.
 
 #### Options:
 
-- `chain`(optional): The blockchain to get data from. Valid values are listed on the [intro page in the Transactions and Balances section](https://docs.moralis.io/transactions-and-balances/intro). Default value `Eth`.
+- `chain`(optional): The blockchain to get data from. Valid values are listed on the [supported chains page](https://docs.moralis.io/moralis-server/web3-sdk/supported-chains). Default value `Eth`.
 - &#x20;`address` (optional): A user address (i.e. `0x1a2b3x...`). If specified, the user attached to the query is ignored and the address will be used instead.
 
 {% tabs %}
@@ -470,7 +470,7 @@ Get the NFT transfers. Returns an object with the number of NFT transfers and th
 
 #### Options:
 
-- `chain`(optional): The blockchain to get data from. Valid values are listed on the [intro page in the Transactions and Balances section](https://docs.moralis.io/transactions-and-balances/intro). Default value `Eth`.
+- `chain`(optional): The blockchain to get data from. Valid values are listed on the [supported chains page](https://docs.moralis.io/moralis-server/web3-sdk/supported-chains). Default value `Eth`.
 - `format` (optional): The format of the token id. Available values : `decimal`, `hex`. Default value : `decimal.`
 - `offset`(optional): Offset.
 - `direction`(optional): The transfer direction. Available values : `both`, `to`, `from` . Default value : `both`.
@@ -570,7 +570,7 @@ Returns an object with the NFT count for the specified contract and an NFT array
 
 #### Options:
 
-- `chain`(optional): The blockchain to get data from. Valid values are listed on the [intro page in the Transactions and Balances section](https://docs.moralis.io/transactions-and-balances/intro). Default value `Eth`.
+- `chain`(optional): The blockchain to get data from. Valid values are listed on the [supported chains page](https://docs.moralis.io/moralis-server/web3-sdk/supported-chains). Default value `Eth`.
 - `format` (optional): The format of the token id. Available values : `decimal`, `hex`. Default value : `decimal.`
 - `offset`(optional): Offset.
 - `limit`(optional): Limit.

@@ -12,7 +12,7 @@ Runs a given function of a contract abi and returns readonly data (asynchronous)
 
 #### Options:
 
-- `chain`(optional): The blockchain to get data from. Valid values are listed on the [intro page in the Transactions and Balances section](https://docs.moralis.io/transactions-and-balances/intro). Default value `Eth`.
+- `chain`(optional): The blockchain to get data from. Valid values are listed on the [supported chains page](https://docs.moralis.io/moralis-server/web3-sdk/supported-chains). Default value `Eth`.
 - `function_name `(required): The function name
 - `address` (required): A smart contract address
 - `abi` (required): contract or function ABI(should be provided as an array)
@@ -109,7 +109,7 @@ Retrieve the contents of a block by block hash. Returns a block object (asynchro
 
 #### Options:
 
-- `chain`(optional): The blockchain to get data from. Valid values are listed on the [intro page in the Transactions and Balances section](https://docs.moralis.io/transactions-and-balances/intro). Default value `Eth`.
+- `chain`(optional): The blockchain to get data from. Valid values are listed on the [supported chains page](https://docs.moralis.io/moralis-server/web3-sdk/supported-chains). Default value `Eth`.
 - &#x20;`block_number_or_hash` (required): The block hash or block number.
 
 {% tabs %}
@@ -219,7 +219,7 @@ Retrieve the closest block of the provided date (asynchronous).&#x20;
 
 #### Options:
 
-- `chain`(optional): The blockchain to get data from. Valid values are listed on the [intro page in the Transactions and Balances section](https://docs.moralis.io/transactions-and-balances/intro). Default value `Eth`.
+- `chain`(optional): The blockchain to get data from. Valid values are listed on the [supported chains page](https://docs.moralis.io/moralis-server/web3-sdk/supported-chains). Default value `Eth`.
 - &#x20;`date` (required): Unix date in miliseconds or a datestring (any format that is accepted by momentjs)
 
 {% tabs %}
@@ -278,7 +278,7 @@ Retrieve the logs from an address (asynchronous).&#x20;
 
 #### Options:
 
-- `chain`(optional): The blockchain to get data from. Valid values are listed on the [intro page in the Transactions and Balances section](https://docs.moralis.io/transactions-and-balances/intro). Default value `Eth`.
+- `chain`(optional): The blockchain to get data from. Valid values are listed on the [supported chains page](https://docs.moralis.io/moralis-server/web3-sdk/supported-chains). Default value `Eth`.
 - `from_date` (optional): The date from where to get the transactions (any format that is accepted by momentjs). Provide the param 'from_block' or 'from_date' If 'from_date' and 'from_block' are provided, 'from_block' will be used.
 - `to_date` (optional): Get the transactions to this date (any format that is accepted by momentjs). Provide the param 'to_block' or 'to_date' If 'to_date' and 'to_block' are provided, 'to_block' will be used.
 - `from_block` (optional): The minimum block number from where to get the transactions Provide the param 'from_block' or 'from_date' If 'from_date' and 'from_block' are provided, 'from_block' will be used.
@@ -365,7 +365,7 @@ Get the events in descending order based on block number. Returns an object with
 
 #### Options:
 
-- `chain`(optional): The blockchain to get data from. Valid values are listed on the [intro page in the Transactions and Balances section](https://docs.moralis.io/transactions-and-balances/intro). Default value `Eth`.
+- `chain`(optional): The blockchain to get data from. Valid values are listed on the [supported chains page](https://docs.moralis.io/moralis-server/web3-sdk/supported-chains). Default value `Eth`.
 - `offset`(optional): Offset.
 - `limit`(optional): Limit.
 - `from_block` (optional): To get contract events starting from this block&#x20;
@@ -505,7 +505,7 @@ Retrieve NFT transfers by block number or block hash. Returns an array of NFT tr
 
 #### Options:
 
-- `chain`(optional): The blockchain to get data from. Valid values are listed on the [intro page in the Transactions and Balances section](https://docs.moralis.io/transactions-and-balances/intro). Default value `Eth`.
+- `chain`(optional): The blockchain to get data from. Valid values are listed on the [supported chains page](https://docs.moralis.io/moralis-server/web3-sdk/supported-chains). Default value `Eth`.
 - &#x20;`block_number_or_hash` (required): The block hash or block number.
 
 {% tabs %}
@@ -582,7 +582,7 @@ Get the transaction by transaction hash. Returns a transaction object (asynchron
 
 #### Options:
 
-- `chain`(optional): The blockchain to get data from. Valid values are listed on the [intro page in the Transactions and Balances section](https://docs.moralis.io/transactions-and-balances/intro). Default value `Eth`.
+- `chain`(optional): The blockchain to get data from. Valid values are listed on the [supported chains page](https://docs.moralis.io/moralis-server/web3-sdk/supported-chains). Default value `Eth`.
 - &#x20;`transaction_hash` (required): The transaction hash.
 
 {% tabs %}

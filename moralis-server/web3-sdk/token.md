@@ -6,7 +6,7 @@ Returns metadata (name, symbol, decimals, logo) for a given token contract addre
 
 #### Options:
 
-- `chain`(optional): The blockchain to get data from. Valid values are listed on the [intro page in the Transactions and Balances section](https://docs.moralis.io/transactions-and-balances/intro). Default value `Eth`.
+- `chain`(optional): The blockchain to get data from. Valid values are listed on the [supported chains page](https://docs.moralis.io/moralis-server/web3-sdk/supported-chains). Default value `Eth`.
 - `addresses` (required): The address or an array of addresses to get metadata for
 
 {% tabs %}
@@ -113,7 +113,7 @@ Returns metadata (name, address, decimals, logo) for given symbols (asynchronous
 
 #### Options:
 
-- `chain`(optional): The blockchain to get data from. Valid values are listed on the [intro page in the Transactions and Balances section](https://docs.moralis.io/transactions-and-balances/intro). Default value `Eth`.
+- `chain`(optional): The blockchain to get data from. Valid values are listed on the [supported chains page](https://docs.moralis.io/moralis-server/web3-sdk/supported-chains). Default value `Eth`.
 - `symbols` (required): The token symbol or an array of symbols to get metadata for
 
 {% tabs %}
@@ -199,7 +199,7 @@ Returns the amount which the spender is allowed to withdraw from the spender (as
 
 #### Options:
 
-- `chain`(optional): The blockchain to get data from. Valid values are listed on the [intro page in the Transactions and Balances section](https://docs.moralis.io/transactions-and-balances/intro). Default value `Eth`.
+- `chain`(optional): The blockchain to get data from. Valid values are listed on the [supported chains page](https://docs.moralis.io/moralis-server/web3-sdk/supported-chains). Default value `Eth`.
 - `owner_address` (required): The address of the token owner
 - `spender_address` (required): The address of the token spender
 - `address`(required): The address of the token contract
@@ -273,7 +273,7 @@ Returns the price nominated in the native token and usd for a given token contra
 
 #### Options:
 
-- `chain`(optional): The blockchain to get data from. Valid values are listed on the [intro page in the Transactions and Balances section](https://docs.moralis.io/transactions-and-balances/intro). Default value `Eth`.
+- `chain`(optional): The blockchain to get data from. Valid values are listed on the [supported chains page](https://docs.moralis.io/moralis-server/web3-sdk/supported-chains). Default value `Eth`.
 - `exchange`(optional): The factory name or address of the token exchange. Possible exchanges, for different chains are:\
   ETH mainnet: `uniswap-v3`, `sushiswap`, `uniswap-v2`\
   BSC mainnet: `pancakeswap-v2, pancakeswap-v1`\
@@ -354,7 +354,7 @@ Returns an object with a number of NFTs and an array with NFT metadata (name, sy
 
 #### Options:
 
-- `chain`(optional): The blockchain to get data from. Valid values are listed on the [intro page in the Transactions and Balances section](https://docs.moralis.io/transactions-and-balances/intro). Default value `Eth`.
+- `chain`(optional): The blockchain to get data from. Valid values are listed on the [supported chains page](https://docs.moralis.io/moralis-server/web3-sdk/supported-chains). Default value `Eth`.
 - `format` (optional): The format of the token id. Available values : `decimal`, `hex`. Default value : `decimal.`
 - `offset` (optional): offset.
 - `limit`(optional): limit.
@@ -432,7 +432,7 @@ Returns the contract level metadata (name, symbol, base token uri) for the given
 
 #### Options:
 
-- `chain`(optional): The blockchain to get data from. Valid values are listed on the [intro page in the Transactions and Balances section](https://docs.moralis.io/transactions-and-balances/intro). Default value `Eth`.
+- `chain`(optional): The blockchain to get data from. Valid values are listed on the [supported chains page](https://docs.moralis.io/moralis-server/web3-sdk/supported-chains). Default value `Eth`.
 - `address`(required): The address of the token contract.
 
 {% tabs %}
@@ -502,7 +502,7 @@ Returns an object with a number of NFT owners and an array with NFT metadata (na
 
 #### Options:
 
-- `chain`(optional): The blockchain to get data from. Valid values are listed on the [intro page in the Transactions and Balances section](https://docs.moralis.io/transactions-and-balances/intro). Default value `Eth`.
+- `chain`(optional): The blockchain to get data from. Valid values are listed on the [supported chains page](https://docs.moralis.io/moralis-server/web3-sdk/supported-chains). Default value `Eth`.
 - `format` (optional): The format of the token id. Available values : `decimal`, `hex`. Default value : `decimal.`
 - `offset` (optional): offset.
 - `limit`(optional): limit.
@@ -588,7 +588,7 @@ Very powerful and fast tool for getting the NFT data based on a metadata search 
 
 #### Options:
 
-- `chain`(optional): The blockchain to get data from. Valid values are listed on the [intro page in the Transactions and Balances section](https://docs.moralis.io/transactions-and-balances/intro). Default value `Eth`.
+- `chain`(optional): The blockchain to get data from. Valid values are listed on the [supported chains page](https://docs.moralis.io/moralis-server/web3-sdk/supported-chains). Default value `Eth`.
 - `format` (optional): The format of the token id. Available values : `decimal`, `hex`. Default value : `decimal.`
 - `offset` (optional): offset.
 - `limit`(optional): limit.
@@ -747,7 +747,7 @@ Returns an object with number of NFT transfers and an array with NFT transfers f
 
 #### Options:
 
-- `chain`(optional): The blockchain to get data from. Valid values are listed on the [intro page in the Transactions and Balances section](https://docs.moralis.io/transactions-and-balances/intro). Default value `Eth`.
+- `chain`(optional): The blockchain to get data from. Valid values are listed on the [supported chains page](https://docs.moralis.io/moralis-server/web3-sdk/supported-chains). Default value `Eth`.
 - `format` (optional): The format of the token id. Available values : `decimal`, `hex`. Default value is `decimal.`
 - `offset` (optional): offset.
 - `limit`(optional): limit.
@@ -835,7 +835,7 @@ Returns data, including fully resolved metadata for the given token id of the gi
 
 #### Options:
 
-- `chain`(optional): The blockchain to get data from. Valid values are listed on the [intro page in the Transactions and Balances section](https://docs.moralis.io/transactions-and-balances/intro). Default value `Eth`.
+- `chain`(optional): The blockchain to get data from. Valid values are listed on the [supported chains page](https://docs.moralis.io/moralis-server/web3-sdk/supported-chains). Default value `Eth`.
 - `format` (optional): The format of the token id. Available values : `decimal`, `hex`. Default value is `decimal.`
 - `address`(required): Address of the contract
 - `token_id` (required): The id of the token
@@ -914,7 +914,7 @@ Returns an object with number of NFT transfers and an array with all owners of N
 
 #### Options:
 
-- `chain`(optional): The blockchain to get data from. Valid values are listed on the [intro page in the Transactions and Balances section](https://docs.moralis.io/transactions-and-balances/intro). Default value `Eth`.
+- `chain`(optional): The blockchain to get data from. Valid values are listed on the [supported chains page](https://docs.moralis.io/moralis-server/web3-sdk/supported-chains). Default value `Eth`.
 - `format` (optional): The format of the token id. Available values : `decimal`, `hex`. Default value is `decimal`
 - `offset` (optional): offset.
 - `limit`(optional): limit.
@@ -995,7 +995,7 @@ Returns an object with number of NFT transfers and an array with all transfers o
 
 #### Options:
 
-- `chain`(optional): The blockchain to get data from. Valid values are listed on the [intro page in the Transactions and Balances section](https://docs.moralis.io/transactions-and-balances/intro). Default value `Eth`.
+- `chain`(optional): The blockchain to get data from. Valid values are listed on the [supported chains page](https://docs.moralis.io/moralis-server/web3-sdk/supported-chains). Default value `Eth`.
 - `format` (optional): The format of the token id. Available values : `decimal`, `hex`. Default value is `decimal`
 - `offset` (optional): offset.
 - `limit`(optional): limit.
@@ -1083,7 +1083,7 @@ Returns an object with NFT trades for a given contract and marketplace
 
 #### Options:
 
-- `chain`(optional): The blockchain to get data from. Valid values are listed on the [intro page in the Transactions and Balances section](https://docs.moralis.io/transactions-and-balances/intro). Default value `Eth`.
+- `chain`(optional): The blockchain to get data from. Valid values are listed on the [supported chains page](https://docs.moralis.io/moralis-server/web3-sdk/supported-chains). Default value `Eth`.
 - `from_date` (optional): The date from where to get the trades(any format that is accepted by momentjs). Provide the param 'from_block' or 'from_date' If 'from_date' and 'from_block' are provided, 'from_block' will be used.
 - `to_date` (optional): Get the trades to this date (any format that is accepted by momentjs). Provide the param 'to_block' or 'to_date' If 'to_date' and 'to_block' are provided, 'to_block' will be used.
 - `from_block` (optional): The minimum block number from where to get the tradesProvide the param 'from_block' or 'from_date' If 'from_date' and 'from_block' are provided, 'from_block' will be used.
@@ -1168,7 +1168,7 @@ Returns an object with the lowest price found for a NFT token contract for the l
 
 #### Options:
 
-- `chain`(optional): The blockchain to get data from. Valid values are listed on the [intro page in the Transactions and Balances section](https://docs.moralis.io/transactions-and-balances/intro). Default value `Eth`.
+- `chain`(optional): The blockchain to get data from. Valid values are listed on the [supported chains page](https://docs.moralis.io/moralis-server/web3-sdk/supported-chains). Default value `Eth`.
 - `days` (optional): The number of days to look back to find the lowest price If not provided 7 days will be the default
 - `marketplace` (optional): Marketplace from where to get the trades (only opensea is supported at the moment).
 - `address` (required): Address of the contract(i.e. `0x1a2b3x...`).
@@ -1245,7 +1245,7 @@ Resync the metadata for a given token_id
 
 #### Options:
 
-- `chain`(optional): The blockchain to get data from. Valid values are listed on the [intro page in the Transactions and Balances section](https://docs.moralis.io/transactions-and-balances/intro). Default value `Eth`.
+- `chain`(optional): The blockchain to get data from. Valid values are listed on the [supported chains page](https://docs.moralis.io/moralis-server/web3-sdk/supported-chains). Default value `Eth`.
 - `address`(required): Address of the contract.
 - `token_id`(requierd): The id of the token.
 - `flag` (optional): The type of resync to operate. Available values : `uri`, `metadata`. Default value : `metadata.` The metadata flag will resync of the metadata of nft. The uri flag will resync the token_uri of NFT.
