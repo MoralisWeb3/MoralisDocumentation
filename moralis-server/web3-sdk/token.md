@@ -1,4 +1,4 @@
-# Token
+# 🎴 Web3API.token
 
 ## getTokenMetadata
 
@@ -32,6 +32,7 @@ const tokenMetadata = await Moralis.Web3API.token.getTokenMetadata(options);
 ```
 
 {% endtab %}
+
 {% tab title="React" %}
 
 ```javascript
@@ -66,11 +67,32 @@ const fetchTokenMetadata = async () => {
 
 {% tab title="curl" %}
 
-```sh
+```bash
 curl -X 'GET' \
   'https://deep-index.moralis.io/api/v2/erc20/metadata?chain=bsc&addresses=0x55d398326f99059ff775485246999027b3197955&addresses=0x0a385f86059e0b2a048171d78afd1f38558121f3' \
   -H 'accept: application/json' \
   -H 'X-API-Key: MY-API-KEY'
+```
+
+{% endtab %}
+
+{% tab title="Unity" %}
+
+```csharp
+using System.Collections.Generic;
+using Moralis.Web3Api.Models;
+using MoralisWeb3ApiSdk;
+
+  public async void fetchTokenMetadata()
+  {
+    List<string> addresses = new List<string>();
+    addresses.Add("0xdAC17F958D2ee523a2206206994597C13D831ec7");
+    addresses.Add("0x0a385f86059e0b2a048171d78afd1f38558121f3");
+    List<Erc20Metadata> resp = await web3Api.Token.GetTokenMetadata(addresses, ChainList.eth);
+    foreach(Erc20Metadata erc20metadata in resp){
+      print(erc20metadata.ToJson());
+    }
+  }
 ```
 
 {% endtab %}
@@ -162,11 +184,32 @@ const fetchTokenMetadataBySymbol = async () => {
 
 {% tab title="curl" %}
 
-```sh
+```bash
 curl -X 'GET' \
   'https://deep-index.moralis.io/api/v2/erc20/metadata/symbols?chain=bsc&symbols=LINK&symbols=AAVE' \
   -H 'accept: application/json' \
   -H 'X-API-Key: MY-API-KEY'
+```
+
+{% endtab %}
+
+{% tab title="Unity" %}
+
+```csharp
+using System.Collections.Generic;
+using Moralis.Web3Api.Models;
+using MoralisWeb3ApiSdk;
+
+  public async void fetchTokenMetadataBySymbol()
+  {
+    List<string> symbols = new List<string>();
+    symbols.Add("AAVE");
+    symbols.Add("LINK");
+    List<Erc20Metadata> resp = await web3Api.Token.GetTokenMetadataBySymbol(symbols, ChainList.bsc);
+    foreach(Erc20Metadata erc20metadata in resp){
+      print(erc20metadata.ToJson());
+    }
+  }
 ```
 
 {% endtab %}
@@ -221,6 +264,7 @@ const allowance = await Moralis.Web3API.token.getTokenAllowance(options);
 ```
 
 {% endtab %}
+
 {% tab title="React" %}
 
 ```javascript
@@ -248,12 +292,27 @@ const fetchTokenAllowance = async () => {
 
 {% tab title="curl" %}
 
-```sh
+```bash
 curl -X 'GET' \
   'https://deep-index.moralis.io/api/v2/erc20/0xC18360217D8F7Ab5e7c516566761Ea12Ce7F9D72/allowance?chain=eth&owner_address=0xd1628228ffaede220cd583da5f9262355682210a&spender_address=0x68b3465833fb72A70ecDF485E0e4C7bD8665Fc45' \
   -H 'accept: application/json' \
   -H 'X-API-Key: MY-API-KEY'
+```
 
+{% endtab %}
+
+{% tab title="Unity" %}
+
+```csharp
+using System.Collections.Generic;
+using Moralis.Web3Api.Models;
+using MoralisWeb3ApiSdk;
+
+  public async void fetchTokenMetadataBySymbol()
+  {
+    Erc20Allowance allowance = await MoralisInterface.GetClient().Web3Api.Token.GetTokenAllowance(address: "0xC18360217D8F7Ab5e7c516566761Ea12Ce7F9D72", ownerAddress: "0xd1628228ffaede220cd583da5f9262355682210a", spenderAddress: "0x68b3465833fb72A70ecDF485E0e4C7bD8665Fc45", ChainList.eth);
+    print(allowance.ToJson());
+  }
 ```
 
 {% endtab %}
@@ -296,6 +355,7 @@ const price = await Moralis.Web3API.token.getTokenPrice(options);
 ```
 
 {% endtab %}
+
 {% tab title="React" %}
 
 ```javascript
@@ -320,13 +380,11 @@ const fetchTokenPrice = async () => {
 
 {% tab title="curl" %}
 
-```sh
-
+```bash
 curl -X 'GET' \
   'https://deep-index.moralis.io/api/v2/erc20/0x42F6f551ae042cBe50C739158b4f0CAC0Edb9096/price?chain=bsc&exchange=PancakeSwapv2' \
   -H 'accept: application/json' \
   -H 'X-API-Key: MY-API-KEY'
-
 ```
 
 {% endtab %}
@@ -372,6 +430,7 @@ const NFTs = await Moralis.Web3API.token.getAllTokenIds(options);
 ```
 
 {% endtab %}
+
 {% tab title="React" %}
 
 ```javascript
@@ -394,13 +453,27 @@ const fetchAllTokenIds = async () => {
 
 {% tab title="curl" %}
 
-```sh
-
+```bash
 curl -X 'GET' \
   'https://deep-index.moralis.io/api/v2/nft/0x7dE3085b3190B3a787822Ee16F23be010f5F8686?chain=eth&format=decimal' \
   -H 'accept: application/json' \
   -H 'X-API-Key: MY-API-KEY'
+```
 
+{% endtab %}
+
+{% tab title="Unity" %}
+
+```csharp
+using System.Collections.Generic;
+using Moralis.Web3Api.Models;
+using MoralisWeb3ApiSdk;
+
+  public async void fetchAllTokenIds()
+  {
+    NftCollection nfts = await MoralisInterface.GetClient().Web3Api.Token.GetAllTokenIds(address: "0x7dE3085b3190B3a787822Ee16F23be010f5F8686" , ChainList.eth);
+    print(nfts.ToJson());
+  }
 ```
 
 {% endtab %}
@@ -447,6 +520,7 @@ const metaData = await Moralis.Web3API.token.getNFTMetadata(options);
 ```
 
 {% endtab %}
+
 {% tab title="React" %}
 
 ```javascript
@@ -469,12 +543,27 @@ const fetchNFTMetadata = async () => {
 
 {% tab title="curl" %}
 
-```sh
+```bash
 curl -X 'GET' \
   'https://deep-index.moralis.io/api/v2/nft/0x7dE3085b3190B3a787822Ee16F23be010f5F8686/metadata?chain=eth' \
   -H 'accept: application/json' \
   -H 'X-API-Key: MY-API-KEY'
+```
 
+{% endtab %}
+
+{% tab title="Unity" %}
+
+```csharp
+using System.Collections.Generic;
+using Moralis.Web3Api.Models;
+using MoralisWeb3ApiSdk;
+
+  public async void fetchNFTMetadata()
+  {
+    NftContractMetadata metadata = await MoralisInterface.GetClient().Web3Api.Token.GetNFTMetadata(address: "0x7dE3085b3190B3a787822Ee16F23be010f5F8686", ChainList.eth);
+    print(metadata.ToJson());
+  }
 ```
 
 {% endtab %}
@@ -520,6 +609,7 @@ const nftOwners = await Moralis.Web3API.token.getNFTOwners(options);
 ```
 
 {% endtab %}
+
 {% tab title="React" %}
 
 ```javascript
@@ -542,12 +632,27 @@ const fetchNFTOwners = async () => {
 
 {% tab title="curl" %}
 
-```sh
+```bash
 curl -X 'GET' \
   'https://deep-index.moralis.io/api/v2/nft/0x7de3085b3190b3a787822ee16f23be010f5f8686/owners?chain=eth&format=decimal' \
   -H 'accept: application/json' \
   -H 'X-API-Key: MY-API-KEY'
+```
 
+{% endtab %}
+
+{% tab title="Unity" %}
+
+```csharp
+using System.Collections.Generic;
+using Moralis.Web3Api.Models;
+using MoralisWeb3ApiSdk;
+
+  public async void fetchNFTOwners()
+  {
+    NftOwnerCollection nftowners = await MoralisInterface.GetClient().Web3Api.Token.GetNFTOwners(address: "0x7de3085b3190b3a787822ee16f23be010f5f8686", ChainList.eth);
+    print(nftowners.ToJson());
+  }
 ```
 
 {% endtab %}
@@ -604,6 +709,7 @@ const NFTs = await Moralis.Web3API.token.searchNFTs(options);
 ```
 
 {% endtab %}
+
 {% tab title="React" %}
 
 ```javascript
@@ -623,12 +729,27 @@ const fetchSearchNFTs = async () => {
 
 {% tab title="curl" %}
 
-```sh
+```bash
 curl -X 'GET' \
   'https://deep-index.moralis.io/api/v2/nft/search?chain=bsc&format=decimal&q=Pancake&filter=name' \
   -H 'accept: application/json' \
   -H 'X-API-Key: MY-API-KEY'
+```
 
+{% endtab %}
+
+{% tab title="Unity" %}
+
+```csharp
+using System.Collections.Generic;
+using Moralis.Web3Api.Models;
+using MoralisWeb3ApiSdk;
+
+  public async void fetchSearchNFTs()
+  {
+    NftMetadataCollection nft = await MoralisInterface.GetClient().Web3Api.Token.SearchNFTs(q: "Pancake", ChainList.bsc, filter: "name");
+    print(nft.ToJson());
+  }
 ```
 
 {% endtab %}
@@ -664,6 +785,7 @@ const NFTs = await Moralis.Web3API.token.searchNFTs(options);
 ```
 
 {% endtab %}
+
 {% tab title="React" %}
 
 ```javascript
@@ -680,14 +802,30 @@ const fetchSearchNFTs = async () => {
 ```
 
 {% endtab %}
+
 {% tab title="curl" %}
 
-```sh
+```bash
 curl -X 'GET' \
   'https://deep-index.moralis.io/api/v2/nft/search?chain=bsc&format=decimal&q=Pancake&filter=global' \
   -H 'accept: application/json' \
   -H 'X-API-Key: MY-API-KEY'
+```
 
+{% endtab %}
+
+{% tab title="Unity" %}
+
+```csharp
+using System.Collections.Generic;
+using Moralis.Web3Api.Models;
+using MoralisWeb3ApiSdk;
+
+  public async void fetchSearchNFTs()
+  {
+    NftMetadataCollection nft = await MoralisInterface.GetClient().Web3Api.Token.SearchNFTs(q: "Pancake", ChainList.bsc, filter: "global");
+    print(nft.ToJson());
+  }
 ```
 
 {% endtab %}
@@ -708,6 +846,7 @@ const NFTs = await Moralis.Web3API.token.searchNFTs(options);
 ```
 
 {% endtab %}
+
 {% tab title="React" %}
 
 ```javascript
@@ -731,11 +870,27 @@ const fetchSearchNFTs = async () => {
 
 {% tab title="curl" %}
 
-```sh
+```bash
 curl -X 'GET' \
   'https://deep-index.moralis.io/api/v2/nft/search?chain=bsc&format=decimal&q=Pancake&filter=description%2Cattributes' \
   -H 'accept: application/json' \
   -H 'X-API-Key: MY-API-KEY'
+```
+
+{% endtab %}
+
+{% tab title="Unity" %}
+
+```csharp
+using System.Collections.Generic;
+using Moralis.Web3Api.Models;
+using MoralisWeb3ApiSdk;
+
+  public async void fetchSearchNFTs()
+  {
+    NftMetadataCollection nft = await MoralisInterface.GetClient().Web3Api.Token.SearchNFTs(q: "Pancake", ChainList.bsc, filter: "description,attributes");
+    print(nft.ToJson());
+  }
 ```
 
 {% endtab %}
@@ -752,7 +907,7 @@ Returns an object with number of NFT transfers and an array with NFT transfers f
 - `offset` (optional): offset.
 - `limit`(optional): limit.
 
-``
+\`\`
 
 - `address`(required): Address of the contract
 
@@ -770,6 +925,7 @@ const nftTransfers = await Moralis.Web3API.token.getContractNFTTransfers(
 ```
 
 {% endtab %}
+
 {% tab title="React" %}
 
 ```javascript
@@ -792,11 +948,27 @@ const fetchContractNFTTransfers = async () => {
 
 {% tab title="curl" %}
 
-```sh
+```bash
 curl -X 'GET' \
   'https://deep-index.moralis.io/api/v2/nft/0x7de3085b3190b3a787822ee16f23be010f5f8686/1/transfers?chain=eth&format=decimal' \
   -H 'accept: application/json' \
   -H 'X-API-Key: MY-API-KEY'
+```
+
+{% endtab %}
+
+{% tab title="Unity" %}
+
+```csharp
+using System.Collections.Generic;
+using Moralis.Web3Api.Models;
+using MoralisWeb3ApiSdk;
+
+  public async void fetchContractNFTTransfers()
+  {
+    NftTransferCollection nftTransers = await MoralisInterface.GetClient().Web3Api.Token.GetContractNFTTransfers(address: "0x7de3085b3190b3a787822ee16f23be010f5f8686", ChainList.eth);
+    print(nftTransfers.ToJson());
+  }
 ```
 
 {% endtab %}
@@ -853,6 +1025,7 @@ const tokenIdMetadata = await Moralis.Web3API.token.getTokenIdMetadata(options);
 ```
 
 {% endtab %}
+
 {% tab title="React" %}
 
 ```javascript
@@ -876,11 +1049,27 @@ const fetchTokenIdMetadata = async () => {
 
 {% tab title="curl" %}
 
-```sh
+```bash
 curl -X 'GET' \
   'https://deep-index.moralis.io/api/v2/nft/0x7de3085b3190b3a787822ee16f23be010f5f8686/1?chain=eth&format=decimal' \
   -H 'accept: application/json' \
   -H 'X-API-Key: MY-API-KEY'
+```
+
+{% endtab %}
+
+{% tab title="Unity" %}
+
+```csharp
+using System.Collections.Generic;
+using Moralis.Web3Api.Models;
+using MoralisWeb3ApiSdk;
+
+  public async void fetchTokenIdMetadata()
+  {
+    Nft tokenIdMetadata = await MoralisInterface.GetClient().Web3Api.Token.GetTokenIdMetadata(address: "0x7de3085b3190b3a787822ee16f23be010f5f8686", tokenId: "1", ChainList.eth);
+    print(tokenIdMetadata.ToJson());
+  }
 ```
 
 {% endtab %}
@@ -934,6 +1123,7 @@ const tokenIdOwners = await Moralis.Web3API.token.getTokenIdOwners(options);
 ```
 
 {% endtab %}
+
 {% tab title="React" %}
 
 ```javascript
@@ -957,12 +1147,27 @@ const fetchTokenIdOwners = async () => {
 
 {% tab title="curl" %}
 
-```sh
-
+```bash
 curl -X 'GET' \
   'https://deep-index.moralis.io/api/v2/nft/0x7de3085b3190b3a787822ee16f23be010f5f8686/1/owners?chain=eth&format=decimal' \
   -H 'accept: application/json' \
   -H 'X-API-Key: MY-API-KEY'
+```
+
+{% endtab %}
+
+{% tab title="Unity" %}
+
+```csharp
+using System.Collections.Generic;
+using Moralis.Web3Api.Models;
+using MoralisWeb3ApiSdk;
+
+  public async void fetchTokenIdOwners()
+  {
+    NftOwnerCollection tokenIdOwners = await MoralisInterface.GetClient().Web3Api.Token.GetTokenIdOwners(address: "0x7de3085b3190b3a787822ee16f23be010f5f8686", tokenId: "1" , ChainList.eth);
+    print(tokenIdOwners.ToJson());
+  }
 ```
 
 {% endtab %}
@@ -1017,6 +1222,7 @@ const transfers = await Moralis.Web3API.token.getWalletTokenIdTransfers(
 ```
 
 {% endtab %}
+
 {% tab title="React" %}
 
 ```javascript
@@ -1040,11 +1246,27 @@ const fetchWalletTokenIdTransfers = async () => {
 
 {% tab title="curl" %}
 
-```sh
+```bash
 curl -X 'GET' \
   'https://deep-index.moralis.io/api/v2/nft/0x7de3085b3190b3a787822ee16f23be010f5f8686/1/transfers?chain=eth&format=decimal' \
   -H 'accept: application/json' \
   -H 'X-API-Key: MY-API-KEY'
+```
+
+{% endtab %}
+
+{% tab title="Unity" %}
+
+```csharp
+using System.Collections.Generic;
+using Moralis.Web3Api.Models;
+using MoralisWeb3ApiSdk;
+
+  public async void fetchWalletTokenIdTransfers()
+  {
+    NftTransferCollection transfers = await  MoralisInterface.GetClient().Web3Api.Token.GetWalletTokenIdTransfers(address: "0x7de3085b3190b3a787822ee16f23be010f5f8686", tokenId: "1", ChainList.eth);
+    print(transfers.ToJson());
+  }
 ```
 
 {% endtab %}
@@ -1077,7 +1299,7 @@ curl -X 'GET' \
 ];
 ```
 
-## 🔥 getNFTTrades&#x20;
+## 🔥 getNFTTrades
 
 Returns an object with NFT trades for a given contract and marketplace
 
@@ -1106,6 +1328,7 @@ const NFTTrades = await Moralis.Web3API.token.getNFTTrades(options);
 ```
 
 {% endtab %}
+
 {% tab title="React" %}
 
 ```javascript
@@ -1126,14 +1349,30 @@ const fetchNFTTrades = async () => {
 ```
 
 {% endtab %}
+
 {% tab title="curl" %}
 
-```sh
+```bash
 curl -X 'GET' \
   'https://deep-index.moralis.io/api/v2/nft/0x7de3085b3190b3a787822ee16f23be010f5f8686/trades?chain=eth&marketplace=opensea' \
   -H 'accept: application/json' \
   -H 'X-API-Key: MY-API-KEY'
+```
 
+{% endtab %}
+
+{% tab title="Unity" %}
+
+```csharp
+using System.Collections.Generic;
+using Moralis.Web3Api.Models;
+using MoralisWeb3ApiSdk;
+
+  public async void fetchNFTTrades()
+  {
+    TradeCollection trades = await MoralisInterface.GetClient().Web3Api.Token.GetNFTTrades(address: "0x7de3085b3190b3a787822ee16f23be010f5f8686", ChainList.eth, limit: 10);
+    print(trades.ToJson());
+  }
 ```
 
 {% endtab %}
@@ -1162,7 +1401,7 @@ curl -X 'GET' \
 ];
 ```
 
-## 🔥 getNFTLowestPrice&#x20;
+## 🔥 getNFTLowestPrice
 
 Returns an object with the lowest price found for a NFT token contract for the last x days (only trades paid in ETH)
 
@@ -1185,6 +1424,7 @@ const NFTLowestPrice = await Moralis.Web3API.token.getNFTLowestPrice(options);
 ```
 
 {% endtab %}
+
 {% tab title="React" %}
 
 ```javascript
@@ -1207,11 +1447,27 @@ const fetchNFTLowestPrice = async () => {
 
 {% tab title="curl" %}
 
-```sh
+```bash
 curl -X 'GET' \
   'https://deep-index.moralis.io/api/v2/nft/0x7de3085b3190b3a787822ee16f23be010f5f8686/lowestprice?chain=eth&days=3&marketplace=opensea' \
   -H 'accept: application/json' \
   -H 'X-API-Key: MY-API-KEY'
+```
+
+{% endtab %}
+
+{% tab title="Unity" %}
+
+```csharp
+using System.Collections.Generic;
+using Moralis.Web3Api.Models;
+using MoralisWeb3ApiSdk;
+
+  public async void fetchNFTLowestPrice()
+  {
+    Trade NFTLowestPrice = await MoralisInterface.GetClient().Web3Api.Token.GetNFTLowestPrice(address: "0x7de3085b3190b3a787822ee16f23be010f5f8686", ChainList.eth, days: 2);
+    print(NFTLowestPrice.ToJson());
+  }
 ```
 
 {% endtab %}
@@ -1263,6 +1519,7 @@ const NFTLowestPrice = await Moralis.Web3API.token.reSyncMetadata(options);
 ```
 
 {% endtab %}
+
 {% tab title="React" %}
 
 ```javascript
@@ -1286,7 +1543,7 @@ const reSyncMetadata = async () => {
 
 {% tab title="curl" %}
 
-```sh
+```bash
 curl -X 'PUT' \
   'https://deep-index.moralis.io/api/v2/nft/0x7de3085b3190b3a787822ee16f23be010f5f8686/sync?chain=eth' \
   -H 'accept: */*' \

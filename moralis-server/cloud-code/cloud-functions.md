@@ -385,16 +385,30 @@ The URL has the following structure:
 
 ## Web3
 
-Web3 functions are available within Cloud Code including the ability to call contract methods. Moralis uses the [Web3.js](https://web3js.readthedocs.io) library.
+Web3 functions are available within Cloud Code including the ability to call contract methods. Moralis uses the [Web3.js](https://web3js.readthedocs.io) and [ethers.js](https://docs.ethers.io) libraries.
 
 ```javascript
 // get a web3 instance for a specific chain
 const web3 = Moralis.web3ByChain("0x1"); // mainnet
 ```
 
+```javascript
+// get an ethers instance for a specific chain and ethersjs library
+const web3 = Moralis.ethersByChain("0x4"); // rinkeby
+```
+
+When you call `Moralis.ethersByChain()`, you'll get an object with the `provider` and `ethers` libraries.
+
+```javascript
+{
+  provider: //A provider with the supplied chainId,
+  ethers: //ethers.js library,
+}
+```
+
 Ask for a `web3` object by supplying the `chainId` for the blockchain you wish to connect to. The following is a list of the currently supported chains.
 
-**Note:** the `web3` instance returned by `Moralis.web3ByChain()` cannot sign transactions. There is a way to sign a transaction using a private key, but this is NOT recommended for security reasons.
+**Note:** the `web3` instance returned by `Moralis.web3ByChain()` or `Moralis.ethersByChain()` cannot sign transactions. There is a way to sign a transaction using a private key, but this is NOT recommended for security reasons.
 
 | Chain Name                    | ChainId   |
 | ----------------------------- | --------- |

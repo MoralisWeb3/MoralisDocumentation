@@ -1,4 +1,4 @@
-# Resolve
+# 🤝 Web3API.resolve
 
 ## resolveDomain
 
@@ -19,6 +19,7 @@ const resolve = await Moralis.Web3API.resolve.resolveDomain(options);
 ```
 
 {% endtab %}
+
 {% tab title="React" %}
 
 ```javascript
@@ -36,13 +37,30 @@ const fetchDomain = async () => {
 ```
 
 {% endtab %}
+
 {% tab title="curl" %}
 
-```sh
+```bash
 curl -X 'GET' \
   'https://deep-index.moralis.io/api/v2/resolve/brad.crypto?currency=eth' \
   -H 'accept: application/json' \
   -H 'X-API-Key: MY-API-KEY'
+```
+
+{% endtab %}
+
+{% tab title="Unity" %}
+
+```csharp
+using System.Collections.Generic;
+using Moralis.Web3Api.Models;
+using MoralisWeb3ApiSdk;
+
+  public async void fetchDomain()
+  {
+    Resolve resolve = await MoralisInterface.GetClient().Web3Api.Resolve.ResolveDomain(domain: "brad.crypto" currency: "eth");
+    print(resolve.ToJson());
+  }
 ```
 
 {% endtab %}
@@ -74,6 +92,7 @@ const resolve = await Moralis.Web3API.resolve.resolveAddress(options);
 ```
 
 {% endtab %}
+
 {% tab title="React" %}
 
 ```javascript
@@ -91,13 +110,30 @@ const fetchAddress = async () => {
 ```
 
 {% endtab %}
+
 {% tab title="curl" %}
 
-```sh
+```bash
 curl -X 'GET' \
   'https://deep-index.moralis.io/api/v2/resolve/0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045/reverse' \
   -H 'accept: application/json' \
   -H 'X-API-Key: MY-API-KEY'
+```
+
+{% endtab %}
+
+{% tab title="Unity" %}
+
+```csharp
+using System.Collections.Generic;
+using Moralis.Web3Api.Models;
+using MoralisWeb3ApiSdk;
+
+  public async void fetchAddress()
+  {
+    Ens result = await MoralisInterface.GetClient().Web3Api.Resolve.ResolveAddress(address: "0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045");
+    print(result.ToJson());
+  }
 ```
 
 {% endtab %}

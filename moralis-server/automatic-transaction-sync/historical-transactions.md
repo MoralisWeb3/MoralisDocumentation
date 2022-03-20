@@ -59,6 +59,10 @@ subscription.on("create", function(data) {
 });
 ```
 
+Note: on a new Nitro server the subscription will be on update instead of create
+
+Note: the table name in latest version of the server will be `_AddressSyncStatus` instead of `WatchedXxxAddress`
+
 Keep in mind that watching an address with a lot of transaction volume will result in a lot of data being stored if the `Sync_historical` option is enabled.
 
 See the [Cloud Functions](../cloud-code/cloud-functions.md) and [Live Query](../database/live-queries.md) sections for more details on these topics.

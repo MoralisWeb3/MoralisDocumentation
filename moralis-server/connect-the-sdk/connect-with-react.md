@@ -7,44 +7,47 @@ description: >-
 
 # ⚛ Connect with React
 
-## Creating React App
+### 1. Creating React App
 
 To start a new Create React App project with TypeScript, you can run:
 
+{% tabs %}
+{% tab title="npx" %}
 ```
 npx create-react-app my-app --template typescript
 ```
+{% endtab %}
 
-or
-
+{% tab title="yarn" %}
+```bash
+yarn create-react-app my-app --template typescript
 ```
-yarn create react-app my-app --template typescript
-```
+{% endtab %}
+{% endtabs %}
 
-## Installing the SDK
+### 2. Install the SDK
 
-Make sure to have react, react-dom and moralis installed as dependencies. Then install react-moralis:
+Make sure to have **react**, **react-dom** and **moralis** installed as dependencies. Then install **react-moralis**:
 
+{% tabs %}
+{% tab title="npm" %}
 ```
 npm install moralis react-moralis
 ```
+{% endtab %}
 
-or
-
+{% tab title="yarn" %}
 ```
 yarn add moralis react-moralis
 ```
+{% endtab %}
+{% endtabs %}
 
-## Initialize the SDK
-
-Go to following file in your folder
-
-```
-src/index.tsx
-```
+### 3. Initialize the SDK
 
 You will see the following code:
 
+{% code title="src/index.tsx" %}
 ```javascript
 import React from "react";
 import ReactDOM from "react-dom";
@@ -59,9 +62,11 @@ ReactDOM.render(
   document.getElementById("root")
 );
 ```
+{% endcode %}
 
-Import `Moralis Provider` in your project and add `<MoralisProvider>` component as shown below
+Import Moralis Provider in your project and add **`<MoralisProvider>`** component as shown below
 
+{% code title="src/index.tsx" %}
 ```javascript
 import React from "react";
 import ReactDOM from "react-dom";
@@ -79,19 +84,21 @@ ReactDOM.render(
   document.getElementById("root")
 );
 ```
+{% endcode %}
 
 _Server URL_ and _APP ID_ you can get from your Moralis Dashboard. Go to your Moralis Dashboard and click on _View Details_ next to the server name of your server.
 
-![](<../../.gitbook/assets/Screenshot 2021-10-15 at 17.10.09.png>)
+![Click On View Details to get serverUrl and AppId](<../../.gitbook/assets/Screenshot 2022-03-16 at 12.03.37 PM.png>)
 
-## Authentication Demo
+![Dapp Details](<../../.gitbook/assets/Screenshot 2022-03-16 at 12.05.32 PM (1).png>)
+
+### 4. Authenticate User
 
 Now that the SDK is successfully connected we can use the power of Moralis. Let's login a user and instantly get all their tokens, transactions and NFTs from all chains in your Moralis Database.
 
-Call the `useMoralis` hooks inside your app in `App.tsx` enter the below code:
+Call the **`useMoralis`** hooks inside your app in `App.tsx` enter the below code:
 
-### **`App.tsx`**
-
+{% code title="src/App.tsx" %}
 ```javascript
 import React from 'react';
 import logo from './logo.svg';
@@ -132,45 +139,62 @@ function App() {
 
 export default App;
 ```
+{% endcode %}
 
-## View the page from localhost
+### 5. View the page from localhost
 
-Run your app on `localhost` with following command in your project directory where `package.json` is located
+Run your app on `localhost` with the following command in your project directory where `package.json` is located
 
+{% tabs %}
+{% tab title="npm" %}
+```bash
+npm start
 ```
-npm run start
-```
+{% endtab %}
 
-or
-
-incase you are using `yarn`
-
+{% tab title="yarn" %}
 ```
 yarn start
 ```
+{% endtab %}
+{% endtabs %}
 
-## Login with Metamask
+### 6. Login with Metamask
 
 Visit the webpage and click `Login`. Your Metamask will popup and ask you to sign in.
 
-![Metamask popping up when user clicks Login.](<../../.gitbook/assets/Screenshot 2021-10-15 at 17.54.03.png>)
+{% hint style="success" %}
+To connect other wallets other than MetaMask, check out: [**Web3 Authentication**](../users/crypto-login.md)****
+{% endhint %}
 
-## See all User Assets in the Moralis Database
+![Metamask popping up when user clicks Login.](<../../.gitbook/assets/Screenshot 2022-03-16 at 12.46.56 PM.png>)
 
-As soon as the user logs in Moralis fetches all the on-chain data about that user from all chains and puts it into the Moralis Database. To see the Moralis Database go your server and click on _Dashboard_.
+### 7. See all User Assets in the Moralis Database
 
-![Click on Dashboard in order to see the database of your server.](<../../.gitbook/assets/Screenshot 2021-10-15 at 18.38.52.png>)
+As soon as the user logs in Moralis fetches all the on-chain data about that user from all chains and puts it into the [Moralis Database](../database/). To see the Moralis Database go to your server and click on _Dashboard_.
 
-You will see the database of that server once you click _Dashboard_. Moralis fetches data from all blockchain where the address of the user has been active and you can see and query all tokens, NFTs and past transactions of the user all in one database.
+![Click on Dashboard in order to see the database of your server.](<../../.gitbook/assets/Screenshot 2022-03-16 at 12.49.38 PM.png>)
 
-![Moralis Database fetches all user data from all chains and updates it in real time in case users move their assets on chain.](<../../.gitbook/assets/Screenshot 2021-10-15 at 18.44.04 (1).png>)
+You will see the database of that server once you click _Dashboard_. Moralis fetches data from all blockchains where the address of the user has been active and you can see and query all tokens, NFTs and past transactions of the user all in one database.
 
-## Move Assets
+![Moralis Database fetches all user data from all chains and updates it in real time in case users move their assets on chain.](<../../.gitbook/assets/Screenshot 2022-03-15 at 1.29.16 PM.png>)
 
-Try moving the assets in your Metamask Wallet and observe how the Moralis Database will update the records in real time.
+### Working code
+
+{% embed url="https://codesandbox.io/embed/cool-ardinghelli-4qvpk3?fontsize=14&hidenavigation=1&theme=dark" %}
+Live Demo
+{% endembed %}
+
+### Move Assets
+
+Try moving the assets in your Metamask Wallet and observe how the Moralis Database will update the records in real-time.
 
 ## Tip of the iceberg
 
-As you can probably already see Moralis is true superpower for blockchain developers. But this small demo is just the tip of the iceberg. Moralis provides endless tools and features for any blockchain use-case. Most importantly, every thing is cross-chain by default.
+As you can probably already see Moralis is a true superpower for blockchain developers. But this small demo is just the tip of the iceberg. Moralis provides endless tools and features for any blockchain use-case. Most importantly, <mark style="color:green;">**everything is cross-chain by default**</mark>.
 
 Feel free to explore the rest of the documentation in order to grasp the full power of Moralis.
+
+{% hint style="success" %}
+Check out [**React Boilerplate**](boilerplate-projects.md#web3-react-boilerplate) for instant setup and all features built-in! :rocket:
+{% endhint %}

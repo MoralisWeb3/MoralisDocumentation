@@ -4,7 +4,7 @@ description: >-
   number.
 ---
 
-# Native
+# 🪙 Web3API.native
 
 ## runContractFunction
 
@@ -35,6 +35,7 @@ const allowance = await Moralis.Web3API.native.runContractFunction(options);
 ```
 
 {% endtab %}
+
 {% tab title="React" %}
 
 ```javascript
@@ -80,9 +81,10 @@ const GetAddressBalanceOfUSDT = () => {
 ```
 
 {% endtab %}
-{%tab title="curl" %}
 
-```sh
+{% tab title="curl" %}
+
+```bash
 curl -X 'POST' \
  'https://deep-index.moralis.io/api/v2/0xdAC17F958D2ee523a2206206994597C13D831ec7/function?chain=eth&function_name=balanceOf' \
  -H 'accept: application/json' \
@@ -105,7 +107,7 @@ curl -X 'POST' \
 
 ## getBlock
 
-Retrieve the contents of a block by block hash. Returns a block object (asynchronous).&#x20;
+Retrieve the contents of a block by block hash. Returns a block object (asynchronous).
 
 #### Options:
 
@@ -123,6 +125,7 @@ const transactions = await Moralis.Web3API.native.getBlock(options);
 ```
 
 {% endtab %}
+
 {% tab title="React" %}
 
 ```javascript
@@ -139,13 +142,30 @@ const fetchBlock = async () => {
 ```
 
 {% endtab %}
+
 {% tab title="curl" %}
 
-```sh
+```bash
 curl -X 'GET' \
   'https://deep-index.moralis.io/api/v2/block/2?chain=bsc' \
   -H 'accept: application/json' \
   -H 'X-API-Key: MY-API-KEY'
+```
+
+{% endtab %}
+
+{% tab title="Unity" %}
+
+```csharp
+using System.Collections.Generic;
+using Moralis.Web3Api.Models;
+using MoralisWeb3ApiSdk;
+
+  public async void fetchBlock()
+  {
+    Block block = await MoralisInterface.GetClient().Web3Api.Native.GetBlock(blockNumberOrHash: "2", ChainList.bsc);
+    print(block.ToJson());
+  }
 ```
 
 {% endtab %}
@@ -215,7 +235,7 @@ curl -X 'GET' \
 
 ## getDateToBlock
 
-Retrieve the closest block of the provided date (asynchronous).&#x20;
+Retrieve the closest block of the provided date (asynchronous).
 
 #### Options:
 
@@ -234,6 +254,7 @@ const date = await Moralis.Web3API.native.getDateToBlock(options);
 ```
 
 {% endtab %}
+
 {% tab title="React" %}
 
 ```javascript
@@ -250,13 +271,30 @@ const fetchDateToBlock = async () => {
 ```
 
 {% endtab %}
+
 {% tab title="curl" %}
 
-```sh
+```bash
 curl -X 'GET' \
   'https://deep-index.moralis.io/api/v2/dateToBlock?chain=bsc&date=2021-09-29T13%3A09%3A15%2B00%3A00' \
   -H 'accept: application/json' \
   -H 'X-API-Key: MY-API-KEY'
+```
+
+{% endtab %}
+
+{% tab title="Unity" %}
+
+```csharp
+using System.Collections.Generic;
+using Moralis.Web3Api.Models;
+using MoralisWeb3ApiSdk;
+
+  public async void fetchDateToBlock()
+  {
+    BlockDate blockDate = await MoralisInterface.GetClient().Web3Api.Native.GetDateToBlock(date:"2021-09-29T13:09:15+00:00", ChainList.eth);
+    print(blockDate.ToJson());
+  }
 ```
 
 {% endtab %}
@@ -274,7 +312,7 @@ curl -X 'GET' \
 
 ## 🔥 getLogsByAddress (new)
 
-Retrieve the logs from an address (asynchronous).&#x20;
+Retrieve the logs from an address (asynchronous).
 
 #### Options:
 
@@ -305,6 +343,7 @@ const logs = await Moralis.Web3API.native.getLogsByAddress(options);
 ```
 
 {% endtab %}
+
 {% tab title="React" %}
 
 ```javascript
@@ -330,13 +369,30 @@ const fetchLogsByAddress = async () => {
 ```
 
 {% endtab %}
+
 {% tab title="curl" %}
 
-```sh
+```bash
 curl -X 'GET' \
   'https://deep-index.moralis.io/api/v2/0x057Ec652A4F150f7FF94f089A38008f49a0DF88e/logs?chain=bsc&topic0=0x2caecd17d02f56fa897705dcc740da2d237c373f70686f4e0d9bd3bf0400ea7a&topic1=0x000000000000000000000000031002d15b0d0cd7c9129d6f644446368deae391&topic2=0x000000000000000000000000d25943be09f968ba740e0782a34e710100defae9' \
   -H 'accept: application/json' \
   -H 'X-API-Key: MY-API-KEY'
+```
+
+{% endtab %}
+
+{% tab title="Unity" %}
+
+```csharp
+using System.Collections.Generic;
+using Moralis.Web3Api.Models;
+using MoralisWeb3ApiSdk;
+
+  public async void fetchLogsByAddress()
+  {
+    LogEventByAddress logEvents = await MoralisInterface.GetClient().Web3Api.Native.GetLogsByAddress(address: "0x057Ec652A4F150f7FF94f089A38008f49a0DF88e", ChainList.bsc, topic0:"0x2caecd17d02f56fa897705dcc740da2d237c373f70686f4e0d9bd3bf0400ea7a",topic1:"0x000000000000000000000000031002d15b0d0cd7c9129d6f644446368deae391", topic2:"0x000000000000000000000000d25943be09f968ba740e0782a34e710100defae9");
+    print(logEvents.ToJson());
+  }
 ```
 
 {% endtab %}
@@ -368,9 +424,9 @@ Get the events in descending order based on block number. Returns an object with
 - `chain`(optional): The blockchain to get data from. Valid values are listed on the [supported chains page](https://docs.moralis.io/moralis-server/web3-sdk/supported-chains). Default value `Eth`.
 - `offset`(optional): Offset.
 - `limit`(optional): Limit.
-- `from_block` (optional): To get contract events starting from this block&#x20;
+- `from_block` (optional): To get contract events starting from this block
 - `to_block` (optional): To get contract events up to this block
-- `topic `(required): The topic of the event
+- `topic` (required): The topic of the event
 - `address` (required): A smart contract address
 - `abi` (required): Event ABI (do not insert the ABI of the whole smart contract). ABI has a JSON format.
 
@@ -400,6 +456,7 @@ const events = await Moralis.Web3API.native.getContractEvents(options);
 ```
 
 {% endtab %}
+
 {% tab title="React" %}
 
 ```javascript
@@ -433,22 +490,43 @@ const fetchContractEvents = async () => {
 ```
 
 {% endtab %}
+
 {% tab title="curl" %}
 
-```sh
+```bash
 curl -X 'POST' \
   'https://deep-index.moralis.io/api/v2/0xdAC17F958D2ee523a2206206994597C13D831ec7/events?chain=eth&topic=0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef&limit=3' \
   -H 'accept: application/json' \
   -H 'X-API-Key: MY-API-KEY' \
   -H 'Content-Type: application/json' \
   -d '{"anonymous":false,"inputs":[{"indexed":true,"name":"from","type":"address"},{"indexed":true,"name":"to","type":"address"},{"indexed":false,"name":"value","type":"uint256"}],"name":"Transfer","type":"event"}'
+```
 
+{% endtab %}
+
+{% tab title="Unity" %}
+
+```csharp
+using System.Collections.Generic;
+using Moralis.Web3Api.Models;
+using MoralisWeb3ApiSdk;
+
+  public async void fetchContractEvents()
+  {
+    string abi = "{anonymous: false, inputs:[{ indexed: true, name: \"from\", type: \"address\" },{ indexed: true, name: \"to\", type: \"address\" },{ indexed: false, name: \"value\", type: \"uint256\" },],name: \"Transfer\", type: \"event\" }";
+    List<LogEvent> logEvents = await MoralisInterface.GetClient().Web3Api.Native.GetContractEvents(address: "0xdAC17F958D2ee523a2206206994597C13D831ec7", topic: "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef",abi: abi, ChainList.eth);
+    foreach (LogEvent eventlog in logEvents)
+    {
+      print(eventlog.ToJson());
+    }
+  }
 ```
 
 {% endtab %}
 {% endtabs %}
 
 <details>
+
 <summary>Example result:</summary>
 
 ```javascript
@@ -501,7 +579,7 @@ curl -X 'POST' \
 
 ## getNFTTransfersByBlock
 
-Retrieve NFT transfers by block number or block hash. Returns an array of NFT transfers (asynchronous).&#x20;
+Retrieve NFT transfers by block number or block hash. Returns an array of NFT transfers (asynchronous).
 
 #### Options:
 
@@ -521,6 +599,7 @@ const NFTTransfers = await Moralis.Web3API.native.getNFTTransfersByBlock(
 ```
 
 {% endtab %}
+
 {% tab title="React" %}
 
 ```javascript
@@ -542,11 +621,27 @@ const fetchNFTTransfersByBlock = async () => {
 
 {% tab title="curl" %}
 
-```sh
+```bash
 curl -X 'GET' \
   'https://deep-index.moralis.io/api/v2/block/11284830/nft/transfers?chain=bsc&limit=500' \
   -H 'accept: application/json' \
   -H 'X-API-Key: MY-API-KEY'
+```
+
+{% endtab %}
+
+{% tab title="Unity" %}
+
+```csharp
+using System.Collections.Generic;
+using Moralis.Web3Api.Models;
+using MoralisWeb3ApiSdk;
+
+  public async void fetchNFTTransfersByBlock()
+  {
+    NftTransferCollection nftTransfers = MoralisInterface.GetClient().Web3Api.Native.GetNFTTransfersByBlock(blockNumberOrHash: "11284830", ChainList.bsc);
+    print(nftTransfers.ToJson());
+  }
 ```
 
 {% endtab %}
@@ -578,7 +673,7 @@ curl -X 'GET' \
 
 ## 🔥 getTransaction (new)
 
-Get the transaction by transaction hash. Returns a transaction object (asynchronous).&#x20;
+Get the transaction by transaction hash. Returns a transaction object (asynchronous).
 
 #### Options:
 
@@ -598,6 +693,7 @@ const transaction = await Moralis.Web3API.native.getTransaction(options);
 ```
 
 {% endtab %}
+
 {% tab title="React" %}
 
 ```javascript
@@ -618,13 +714,30 @@ const fetchTransaction = async () => {
 ```
 
 {% endtab %}
+
 {% tab title="curl" %}
 
-```sh
+```bash
 curl -X 'GET' \
   'https://deep-index.moralis.io/api/v2/transaction/0x5e519cd5117aea6ed9d51d4f235b4badb2e3f69377a4e2f945e13feb20af4db3?chain=eth' \
   -H 'accept: application/json' \
   -H 'X-API-Key: MY-API-KEY'
+```
+
+{% endtab %}
+
+{% tab title="Unity" %}
+
+```csharp
+using System.Collections.Generic;
+using Moralis.Web3Api.Models;
+using MoralisWeb3ApiSdk;
+
+  public async void fetchTransaction()
+  {
+    BlockTransaction blockTransaction = MoralisInterface.GetClient().Web3Api.Native.GetTransaction(transactionHash:"0x5e519cd5117aea6ed9d51d4f235b4badb2e3f69377a4e2f945e13feb20af4db3", ChainList.eth);
+    print(blockTransaction.ToJson());
+  }
 ```
 
 {% endtab %}

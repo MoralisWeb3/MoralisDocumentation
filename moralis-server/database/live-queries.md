@@ -47,6 +47,8 @@ subscription.on('create', (object) => {
 
 When a new `MoralisObject` is created and it fulfills the `MoralisQuery` you subscribe, you'll get this event. The `object` is the `MoralisObject` which was created.
 
+Note: on a new Nitro server, for tables that are automatically synced, for example for syncing events, update will work instead of create.
+
 ### Update Event
 
 ```javascript

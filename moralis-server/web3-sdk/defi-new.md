@@ -1,4 +1,4 @@
-# 🔥DeFi (new)
+# 🤖 Web3API.defi (new)
 
 ## 🔥 getPairAddress (new)
 
@@ -29,6 +29,7 @@ const pairAddress = await Moralis.Web3API.defi.getPairAddress(options);
 ```
 
 {% endtab %}
+
 {% tab title="React" %}
 
 ```javascript
@@ -50,13 +51,30 @@ const fetchPairAddress = async () => {
 ```
 
 {% endtab %}
+
 {% tab title="curl" %}
 
-```sh
+```bash
 curl -X 'GET' \
   'https://deep-index.moralis.io/api/v2/0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c/0xe9e7cea3dedca5984780bafc599bd69add087d56/pairAddress?chain=bsc&exchange=pancakeswapv2' \
   -H 'accept: application/json' \
   -H 'X-API-Key: MY-API-KEY'
+```
+
+{% endtab %}
+
+{% tab title="Unity" %}
+
+```csharp
+using System.Collections.Generic;
+using Moralis.Web3Api.Models;
+using MoralisWeb3ApiSdk;
+
+  public async void fetchPairAddress()
+  {
+    ReservesCollection pairAddress = await MoralisInterface.GetClient().Web3Api.Defi.GetPairAddress(exchange:"pancakeswapv2" , token0Address:"0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c" , token1Address:"0xe9e7cea3dedca5984780bafc599bd69add087d56", chain:ChainList.bsc);
+    print(pairAddress.ToJson());
+  }
 ```
 
 {% endtab %}
@@ -94,7 +112,7 @@ curl -X 'GET' \
 
 ## 🔥 getPairReserves (new)
 
-Get the liquidity reserves for a given pair address (asynchronous).&#x20;
+Get the liquidity reserves for a given pair address (asynchronous).
 
 #### Options:
 
@@ -115,6 +133,7 @@ const reserves = await Moralis.Web3API.defi.getPairReserves(options);
 ```
 
 {% endtab %}
+
 {% tab title="React" %}
 
 ```javascript
@@ -123,7 +142,7 @@ import { useMoralisWeb3Api } from "react-moralis";
 
 const Web3Api = useMoralisWeb3Api();
 
-const fetchTransactions = async () => {
+const fetchPairReserves = async () => {
   const options = {
     pair_address: "0x58f876857a02d6762e0101bb5c46a8c1ed44dc16",
     chain: "bsc",
@@ -134,13 +153,30 @@ const fetchTransactions = async () => {
 ```
 
 {% endtab %}
+
 {% tab title="curl" %}
 
-```sh
+```bash
 curl -X 'GET' \
   'https://deep-index.moralis.io/api/v2/0x58f876857a02d6762e0101bb5c46a8c1ed44dc16/reserves?chain=bsc' \
   -H 'accept: application/json' \
   -H 'X-API-Key: MY-API-KEY'
+```
+
+{% endtab %}
+
+{% tab title="Unity" %}
+
+```csharp
+using System.Collections.Generic;
+using Moralis.Web3Api.Models;
+using MoralisWeb3ApiSdk;
+
+  public async void fetchPairReserves()
+  {
+    ReservesCollection reserves = await MoralisInterface.GetClient().Web3Api.Defi.GetPairReserves(pairAddress:"0x58f876857a02d6762e0101bb5c46a8c1ed44dc16" , ChainList.bsc);
+    print(reserves.ToJson());
+  }
 ```
 
 {% endtab %}
