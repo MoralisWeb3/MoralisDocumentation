@@ -57,7 +57,7 @@ To save object with data copy paste the following code:
 Run the following command in your terminal:
 
 ```
-npx ts-node start.ts
+npx ts-node index.ts
 ```
 
 Go to your moralis dashboard and you will see the data saved in the database:
