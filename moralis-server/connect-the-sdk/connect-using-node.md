@@ -162,17 +162,6 @@ You will see the following result:
 
 
 
-
-
-
-
-
-
-
-
-
-
-
 ###
 
 ###
