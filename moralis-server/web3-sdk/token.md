@@ -6,12 +6,11 @@ Returns metadata (name, symbol, decimals, logo) for a given token contract addre
 
 #### Options:
 
-- `chain`(optional): The blockchain to get data from. Valid values are listed on the [intro page in the Transactions and Balances section](https://docs.moralis.io/transactions-and-balances/intro). Default value `Eth`.
-- `addresses` (required): The address or an array of addresses to get metadata for
+* `chain`(optional): The blockchain to get data from. Valid values are listed on [Supported Chains](supported-chains.md). Default value `Eth`.
+* `addresses` (required): The address or an array of addresses to get metadata for
 
 {% tabs %}
 {% tab title="JS" %}
-
 ```javascript
 //Get metadata for one token. Ex: USDT token on ETH
 const options = {
@@ -30,11 +29,9 @@ const options = {
 };
 const tokenMetadata = await Moralis.Web3API.token.getTokenMetadata(options);
 ```
-
 {% endtab %}
 
 {% tab title="React" %}
-
 ```javascript
 import React from "react";
 import { useMoralisWeb3Api } from "react-moralis";
@@ -62,22 +59,18 @@ const fetchTokenMetadata = async () => {
   console.log(tokenArrayMetadata);
 };
 ```
-
 {% endtab %}
 
 {% tab title="curl" %}
-
 ```bash
 curl -X 'GET' \
   'https://deep-index.moralis.io/api/v2/erc20/metadata?chain=bsc&addresses=0x55d398326f99059ff775485246999027b3197955&addresses=0x0a385f86059e0b2a048171d78afd1f38558121f3' \
   -H 'accept: application/json' \
   -H 'X-API-Key: MY-API-KEY'
 ```
-
 {% endtab %}
 
 {% tab title="Unity" %}
-
 ```csharp
 using System.Collections.Generic;
 using Moralis.Web3Api.Models;
@@ -94,7 +87,6 @@ using MoralisWeb3ApiSdk;
     }
   }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -135,12 +127,11 @@ Returns metadata (name, address, decimals, logo) for given symbols (asynchronous
 
 #### Options:
 
-- `chain`(optional): The blockchain to get data from. Valid values are listed on the [intro page in the Transactions and Balances section](https://docs.moralis.io/transactions-and-balances/intro). Default value `Eth`.
-- `symbols` (required): The token symbol or an array of symbols to get metadata for
+* `chain`(optional): The blockchain to get data from. Valid values are listed on [Supported Chains](supported-chains.md). Default value `Eth`.
+* `symbols` (required): The token symbol or an array of symbols to get metadata for
 
 {% tabs %}
 {% tab title="JS" %}
-
 ```javascript
 //Get metadata for one token
 const options = { chain: "bsc", symbols: "LINK" };
@@ -154,11 +145,9 @@ const tokenMetadata = await Moralis.Web3API.token.getTokenMetadataBySymbol(
   options
 );
 ```
-
 {% endtab %}
 
 {% tab title="React" %}
-
 ```javascript
 import React from "react";
 import { useMoralisWeb3Api } from "react-moralis";
@@ -179,22 +168,18 @@ const fetchTokenMetadataBySymbol = async () => {
   console.log(tokenArrayMetadata);
 };
 ```
-
 {% endtab %}
 
 {% tab title="curl" %}
-
 ```bash
 curl -X 'GET' \
   'https://deep-index.moralis.io/api/v2/erc20/metadata/symbols?chain=bsc&symbols=LINK&symbols=AAVE' \
   -H 'accept: application/json' \
   -H 'X-API-Key: MY-API-KEY'
 ```
-
 {% endtab %}
 
 {% tab title="Unity" %}
-
 ```csharp
 using System.Collections.Generic;
 using Moralis.Web3Api.Models;
@@ -211,7 +196,6 @@ using MoralisWeb3ApiSdk;
     }
   }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -242,14 +226,13 @@ Returns the amount which the spender is allowed to withdraw from the spender (as
 
 #### Options:
 
-- `chain`(optional): The blockchain to get data from. Valid values are listed on the [intro page in the Transactions and Balances section](https://docs.moralis.io/transactions-and-balances/intro). Default value `Eth`.
-- `owner_address` (required): The address of the token owner
-- `spender_address` (required): The address of the token spender
-- `address`(required): The address of the token contract
+* `chain`(optional): The blockchain to get data from. Valid values are listed on [Supported Chains](supported-chains.md). Default value `Eth`.
+* `owner_address` (required): The address of the token owner
+* `spender_address` (required): The address of the token spender
+* `address`(required): The address of the token contract
 
 {% tabs %}
 {% tab title="JS" %}
-
 ```javascript
 //Get token allowace on ETH
 const options = {
@@ -262,11 +245,9 @@ const options = {
 };
 const allowance = await Moralis.Web3API.token.getTokenAllowance(options);
 ```
-
 {% endtab %}
 
 {% tab title="React" %}
-
 ```javascript
 import React from "react";
 import { useMoralisWeb3Api } from "react-moralis";
@@ -287,22 +268,18 @@ const fetchTokenAllowance = async () => {
   console.log(allowance);
 };
 ```
-
 {% endtab %}
 
 {% tab title="curl" %}
-
 ```bash
 curl -X 'GET' \
   'https://deep-index.moralis.io/api/v2/erc20/0xC18360217D8F7Ab5e7c516566761Ea12Ce7F9D72/allowance?chain=eth&owner_address=0xd1628228ffaede220cd583da5f9262355682210a&spender_address=0x68b3465833fb72A70ecDF485E0e4C7bD8665Fc45' \
   -H 'accept: application/json' \
   -H 'X-API-Key: MY-API-KEY'
 ```
-
 {% endtab %}
 
 {% tab title="Unity" %}
-
 ```csharp
 using System.Collections.Generic;
 using Moralis.Web3Api.Models;
@@ -314,7 +291,6 @@ using MoralisWeb3ApiSdk;
     print(allowance.ToJson());
   }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -332,18 +308,17 @@ Returns the price nominated in the native token and usd for a given token contra
 
 #### Options:
 
-- `chain`(optional): The blockchain to get data from. Valid values are listed on the [intro page in the Transactions and Balances section](https://docs.moralis.io/transactions-and-balances/intro). Default value `Eth`.
-- `exchange`(optional): The factory name or address of the token exchange. Possible exchanges, for different chains are:\
+* `chain`(optional): The blockchain to get data from. Valid values are listed on [Supported Chains](supported-chains.md). Default value `Eth`.
+* `exchange`(optional): The factory name or address of the token exchange. Possible exchanges, for different chains are:\
   ETH mainnet: `uniswap-v3`, `sushiswap`, `uniswap-v2`\
   BSC mainnet: `pancakeswap-v2, pancakeswap-v1`\
   Polygon mainnet: `quickswap`\
   _If no `exchange` is specified, all exchanges are checked (in the order as listed above) until a valid pool has been found. Note that this request can take more time. So specifying the `exchange` will result in faster responses most of the time._
-- `address`(required): The address of the token contract
-- `to_block`(optional): Returns the price for a given blocknumber (historical price-data)
+* `address`(required): The address of the token contract
+* `to_block`(optional): Returns the price for a given blocknumber (historical price-data)
 
 {% tabs %}
 {% tab title="JS" %}
-
 ```javascript
 //Get token price on PancakeSwap v2 BSC
 const options = {
@@ -353,11 +328,9 @@ const options = {
 };
 const price = await Moralis.Web3API.token.getTokenPrice(options);
 ```
-
 {% endtab %}
 
 {% tab title="React" %}
-
 ```javascript
 import React from "react";
 import { useMoralisWeb3Api } from "react-moralis";
@@ -375,18 +348,15 @@ const fetchTokenPrice = async () => {
   console.log(price);
 };
 ```
-
 {% endtab %}
 
 {% tab title="curl" %}
-
 ```bash
 curl -X 'GET' \
   'https://deep-index.moralis.io/api/v2/erc20/0x42F6f551ae042cBe50C739158b4f0CAC0Edb9096/price?chain=bsc&exchange=PancakeSwapv2' \
   -H 'accept: application/json' \
   -H 'X-API-Key: MY-API-KEY'
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -412,15 +382,14 @@ Returns an object with a number of NFTs and an array with NFT metadata (name, sy
 
 #### Options:
 
-- `chain`(optional): The blockchain to get data from. Valid values are listed on the [intro page in the Transactions and Balances section](https://docs.moralis.io/transactions-and-balances/intro). Default value `Eth`.
-- `format` (optional): The format of the token id. Available values : `decimal`, `hex`. Default value : `decimal.`
-- `offset` (optional): offset.
-- `limit`(optional): limit.
-- `address`(required): The address of the token contract.
+* `chain`(optional): The blockchain to get data from. Valid values are listed on [Supported Chains](supported-chains.md). Default value `Eth`.
+* `format` (optional): The format of the token id. Available values : `decimal`, `hex`. Default value : `decimal.`
+* `offset` (optional): offset.
+* `limit`(optional): limit.
+* `address`(required): The address of the token contract.
 
 {% tabs %}
 {% tab title="JS" %}
-
 ```javascript
 const options = {
   address: "0x7dE3085b3190B3a787822Ee16F23be010f5F8686",
@@ -428,11 +397,9 @@ const options = {
 };
 const NFTs = await Moralis.Web3API.token.getAllTokenIds(options);
 ```
-
 {% endtab %}
 
 {% tab title="React" %}
-
 ```javascript
 import React from "react";
 import { useMoralisWeb3Api } from "react-moralis";
@@ -448,22 +415,18 @@ const fetchAllTokenIds = async () => {
   console.log(NFTs);
 };
 ```
-
 {% endtab %}
 
 {% tab title="curl" %}
-
 ```bash
 curl -X 'GET' \
   'https://deep-index.moralis.io/api/v2/nft/0x7dE3085b3190B3a787822Ee16F23be010f5F8686?chain=eth&format=decimal' \
   -H 'accept: application/json' \
   -H 'X-API-Key: MY-API-KEY'
 ```
-
 {% endtab %}
 
 {% tab title="Unity" %}
-
 ```csharp
 using System.Collections.Generic;
 using Moralis.Web3Api.Models;
@@ -475,7 +438,6 @@ using MoralisWeb3ApiSdk;
     print(nfts.ToJson());
   }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -505,12 +467,11 @@ Returns the contract level metadata (name, symbol, base token uri) for the given
 
 #### Options:
 
-- `chain`(optional): The blockchain to get data from. Valid values are listed on the [intro page in the Transactions and Balances section](https://docs.moralis.io/transactions-and-balances/intro). Default value `Eth`.
-- `address`(required): The address of the token contract.
+* `chain`(optional): The blockchain to get data from. Valid values are listed on [Supported Chains](supported-chains.md). Default value `Eth`.
+* `address`(required): The address of the token contract.
 
 {% tabs %}
 {% tab title="JS" %}
-
 ```javascript
 const options = {
   address: "0x7dE3085b3190B3a787822Ee16F23be010f5F8686",
@@ -518,11 +479,9 @@ const options = {
 };
 const metaData = await Moralis.Web3API.token.getNFTMetadata(options);
 ```
-
 {% endtab %}
 
 {% tab title="React" %}
-
 ```javascript
 import React from "react";
 import { useMoralisWeb3Api } from "react-moralis";
@@ -538,22 +497,18 @@ const fetchNFTMetadata = async () => {
   console.log(metaData);
 };
 ```
-
 {% endtab %}
 
 {% tab title="curl" %}
-
 ```bash
 curl -X 'GET' \
   'https://deep-index.moralis.io/api/v2/nft/0x7dE3085b3190B3a787822Ee16F23be010f5F8686/metadata?chain=eth' \
   -H 'accept: application/json' \
   -H 'X-API-Key: MY-API-KEY'
 ```
-
 {% endtab %}
 
 {% tab title="Unity" %}
-
 ```csharp
 using System.Collections.Generic;
 using Moralis.Web3Api.Models;
@@ -565,7 +520,6 @@ using MoralisWeb3ApiSdk;
     print(metadata.ToJson());
   }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -591,15 +545,14 @@ Returns an object with a number of NFT owners and an array with NFT metadata (na
 
 #### Options:
 
-- `chain`(optional): The blockchain to get data from. Valid values are listed on the [intro page in the Transactions and Balances section](https://docs.moralis.io/transactions-and-balances/intro). Default value `Eth`.
-- `format` (optional): The format of the token id. Available values : `decimal`, `hex`. Default value : `decimal.`
-- `offset` (optional): offset.
-- `limit`(optional): limit.
-- `address`(required): Address of the contract
+* `chain`(optional): The blockchain to get data from. Valid values are listed on [Supported Chains](supported-chains.md). Default value `Eth`.
+* `format` (optional): The format of the token id. Available values : `decimal`, `hex`. Default value : `decimal.`
+* `offset` (optional): offset.
+* `limit`(optional): limit.
+* `address`(required): Address of the contract
 
 {% tabs %}
 {% tab title="JS" %}
-
 ```javascript
 const options = {
   address: "0x7de3085b3190b3a787822ee16f23be010f5f8686",
@@ -607,11 +560,9 @@ const options = {
 };
 const nftOwners = await Moralis.Web3API.token.getNFTOwners(options);
 ```
-
 {% endtab %}
 
 {% tab title="React" %}
-
 ```javascript
 import React from "react";
 import { useMoralisWeb3Api } from "react-moralis";
@@ -627,22 +578,18 @@ const fetchNFTOwners = async () => {
   console.log(nftOwners);
 };
 ```
-
 {% endtab %}
 
 {% tab title="curl" %}
-
 ```bash
 curl -X 'GET' \
   'https://deep-index.moralis.io/api/v2/nft/0x7de3085b3190b3a787822ee16f23be010f5f8686/owners?chain=eth&format=decimal' \
   -H 'accept: application/json' \
   -H 'X-API-Key: MY-API-KEY'
 ```
-
 {% endtab %}
 
 {% tab title="Unity" %}
-
 ```csharp
 using System.Collections.Generic;
 using Moralis.Web3Api.Models;
@@ -654,12 +601,11 @@ using MoralisWeb3ApiSdk;
     print(nftowners.ToJson());
   }
 ```
-
 {% endtab %}
 {% endtabs %}
 
 {% hint style="info" %}
-Make sure to include a sort parm on a column like token_id for consistent pagination results
+Make sure to include a sort parm on a column like token\_id for consistent pagination results
 {% endhint %}
 
 {% hint style="info" %}
@@ -693,25 +639,22 @@ Very powerful and fast tool for getting the NFT data based on a metadata search 
 
 #### Options:
 
-- `chain`(optional): The blockchain to get data from. Valid values are listed on the [intro page in the Transactions and Balances section](https://docs.moralis.io/transactions-and-balances/intro). Default value `Eth`.
-- `format` (optional): The format of the token id. Available values : `decimal`, `hex`. Default value : `decimal.`
-- `offset` (optional): offset.
-- `limit`(optional): limit.
-- `q` (required): The search string parameter
-- `filter`(required): What fields the search should match on. To look into the entire metadata set the value to `global`. To have a better response time you can look into a specific field like name. Available values : `name`; `description`; `attributes`; `global`; `name,description`; `name,attributes`; `description,attributes`; `name,description,attributes`
+* `chain`(optional): The blockchain to get data from. Valid values are listed on [Supported Chains](supported-chains.md). Default value `Eth`.
+* `format` (optional): The format of the token id. Available values : `decimal`, `hex`. Default value : `decimal.`
+* `offset` (optional): offset.
+* `limit`(optional): limit.
+* `q` (required): The search string parameter
+* `filter`(required): What fields the search should match on. To look into the entire metadata set the value to `global`. To have a better response time you can look into a specific field like name. Available values : `name`; `description`; `attributes`; `global`; `name,description`; `name,attributes`; `description,attributes`; `name,description,attributes`
 
 {% tabs %}
 {% tab title="JS" %}
-
 ```javascript
 const options = { q: "Pancake", chain: "bsc", filter: "name" };
 const NFTs = await Moralis.Web3API.token.searchNFTs(options);
 ```
-
 {% endtab %}
 
 {% tab title="React" %}
-
 ```javascript
 import React from "react";
 import { useMoralisWeb3Api } from "react-moralis";
@@ -724,22 +667,18 @@ const fetchSearchNFTs = async () => {
   console.log(NFTs);
 };
 ```
-
 {% endtab %}
 
 {% tab title="curl" %}
-
 ```bash
 curl -X 'GET' \
   'https://deep-index.moralis.io/api/v2/nft/search?chain=bsc&format=decimal&q=Pancake&filter=name' \
   -H 'accept: application/json' \
   -H 'X-API-Key: MY-API-KEY'
 ```
-
 {% endtab %}
 
 {% tab title="Unity" %}
-
 ```csharp
 using System.Collections.Generic;
 using Moralis.Web3Api.Models;
@@ -751,7 +690,6 @@ using MoralisWeb3ApiSdk;
     print(nft.ToJson());
   }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -778,16 +716,13 @@ using MoralisWeb3ApiSdk;
 
 {% tabs %}
 {% tab title="JS" %}
-
 ```javascript
 const options = { q: "bored ape", chain: "bsc", filter: "global" };
 const NFTs = await Moralis.Web3API.token.searchNFTs(options);
 ```
-
 {% endtab %}
 
 {% tab title="React" %}
-
 ```javascript
 import React from "react";
 import { useMoralisWeb3Api } from "react-moralis";
@@ -800,22 +735,18 @@ const fetchSearchNFTs = async () => {
   console.log(NFTs);
 };
 ```
-
 {% endtab %}
 
 {% tab title="curl" %}
-
 ```bash
 curl -X 'GET' \
   'https://deep-index.moralis.io/api/v2/nft/search?chain=bsc&format=decimal&q=Pancake&filter=global' \
   -H 'accept: application/json' \
   -H 'X-API-Key: MY-API-KEY'
 ```
-
 {% endtab %}
 
 {% tab title="Unity" %}
-
 ```csharp
 using System.Collections.Generic;
 using Moralis.Web3Api.Models;
@@ -827,7 +758,6 @@ using MoralisWeb3ApiSdk;
     print(nft.ToJson());
   }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -835,7 +765,6 @@ using MoralisWeb3ApiSdk;
 
 {% tabs %}
 {% tab title="JS" %}
-
 ```javascript
 const options = {
   q: "loves bananas",
@@ -844,11 +773,9 @@ const options = {
 };
 const NFTs = await Moralis.Web3API.token.searchNFTs(options);
 ```
-
 {% endtab %}
 
 {% tab title="React" %}
-
 ```javascript
 import React from "react";
 import { useMoralisWeb3Api } from "react-moralis";
@@ -865,22 +792,18 @@ const fetchSearchNFTs = async () => {
   console.log(NFTs);
 };
 ```
-
 {% endtab %}
 
 {% tab title="curl" %}
-
 ```bash
 curl -X 'GET' \
   'https://deep-index.moralis.io/api/v2/nft/search?chain=bsc&format=decimal&q=Pancake&filter=description%2Cattributes' \
   -H 'accept: application/json' \
   -H 'X-API-Key: MY-API-KEY'
 ```
-
 {% endtab %}
 
 {% tab title="Unity" %}
-
 ```csharp
 using System.Collections.Generic;
 using Moralis.Web3Api.Models;
@@ -892,7 +815,6 @@ using MoralisWeb3ApiSdk;
     print(nft.ToJson());
   }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -902,18 +824,17 @@ Returns an object with number of NFT transfers and an array with NFT transfers f
 
 #### Options:
 
-- `chain`(optional): The blockchain to get data from. Valid values are listed on the [intro page in the Transactions and Balances section](https://docs.moralis.io/transactions-and-balances/intro). Default value `Eth`.
-- `format` (optional): The format of the token id. Available values : `decimal`, `hex`. Default value is `decimal.`
-- `offset` (optional): offset.
-- `limit`(optional): limit.
+* `chain`(optional): The blockchain to get data from. Valid values are listed on [Supported Chains](supported-chains.md). Default value `Eth`.
+* `format` (optional): The format of the token id. Available values : `decimal`, `hex`. Default value is `decimal.`
+* `offset` (optional): offset.
+* `limit`(optional): limit.
 
 \`\`
 
-- `address`(required): Address of the contract
+* `address`(required): Address of the contract
 
 {% tabs %}
 {% tab title="JS" %}
-
 ```javascript
 const options = {
   address: "0x7de3085b3190b3a787822ee16f23be010f5f8686",
@@ -923,11 +844,9 @@ const nftTransfers = await Moralis.Web3API.token.getContractNFTTransfers(
   options
 );
 ```
-
 {% endtab %}
 
 {% tab title="React" %}
-
 ```javascript
 import React from "react";
 import { useMoralisWeb3Api } from "react-moralis";
@@ -943,22 +862,18 @@ const fetchContractNFTTransfers = async () => {
   console.log(NFTs);
 };
 ```
-
 {% endtab %}
 
 {% tab title="curl" %}
-
 ```bash
 curl -X 'GET' \
   'https://deep-index.moralis.io/api/v2/nft/0x7de3085b3190b3a787822ee16f23be010f5f8686/1/transfers?chain=eth&format=decimal' \
   -H 'accept: application/json' \
   -H 'X-API-Key: MY-API-KEY'
 ```
-
 {% endtab %}
 
 {% tab title="Unity" %}
-
 ```csharp
 using System.Collections.Generic;
 using Moralis.Web3Api.Models;
@@ -970,7 +885,6 @@ using MoralisWeb3ApiSdk;
     print(nftTransfers.ToJson());
   }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -1007,14 +921,13 @@ Returns data, including fully resolved metadata for the given token id of the gi
 
 #### Options:
 
-- `chain`(optional): The blockchain to get data from. Valid values are listed on the [intro page in the Transactions and Balances section](https://docs.moralis.io/transactions-and-balances/intro). Default value `Eth`.
-- `format` (optional): The format of the token id. Available values : `decimal`, `hex`. Default value is `decimal.`
-- `address`(required): Address of the contract
-- `token_id` (required): The id of the token
+* `chain`(optional): The blockchain to get data from. Valid values are listed on [Supported Chains](supported-chains.md). Default value `Eth`.
+* `format` (optional): The format of the token id. Available values : `decimal`, `hex`. Default value is `decimal.`
+* `address`(required): Address of the contract
+* `token_id` (required): The id of the token
 
 {% tabs %}
 {% tab title="JS" %}
-
 ```javascript
 const options = {
   address: "0x7de3085b3190b3a787822ee16f23be010f5f8686",
@@ -1023,11 +936,9 @@ const options = {
 };
 const tokenIdMetadata = await Moralis.Web3API.token.getTokenIdMetadata(options);
 ```
-
 {% endtab %}
 
 {% tab title="React" %}
-
 ```javascript
 import React from "react";
 import { useMoralisWeb3Api } from "react-moralis";
@@ -1044,22 +955,18 @@ const fetchTokenIdMetadata = async () => {
   console.log(tokenIdMetadata);
 };
 ```
-
 {% endtab %}
 
 {% tab title="curl" %}
-
 ```bash
 curl -X 'GET' \
   'https://deep-index.moralis.io/api/v2/nft/0x7de3085b3190b3a787822ee16f23be010f5f8686/1?chain=eth&format=decimal' \
   -H 'accept: application/json' \
   -H 'X-API-Key: MY-API-KEY'
 ```
-
 {% endtab %}
 
 {% tab title="Unity" %}
-
 ```csharp
 using System.Collections.Generic;
 using Moralis.Web3Api.Models;
@@ -1071,7 +978,6 @@ using MoralisWeb3ApiSdk;
     print(tokenIdMetadata.ToJson());
   }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -1103,16 +1009,15 @@ Returns an object with number of NFT transfers and an array with all owners of N
 
 #### Options:
 
-- `chain`(optional): The blockchain to get data from. Valid values are listed on the [intro page in the Transactions and Balances section](https://docs.moralis.io/transactions-and-balances/intro). Default value `Eth`.
-- `format` (optional): The format of the token id. Available values : `decimal`, `hex`. Default value is `decimal`
-- `offset` (optional): offset.
-- `limit`(optional): limit.
-- `address`(required): Address of the contract.
-- `token_id`(requierd): The id of the token.
+* `chain`(optional): The blockchain to get data from. Valid values are listed on [Supported Chains](supported-chains.md). Default value `Eth`.
+* `format` (optional): The format of the token id. Available values : `decimal`, `hex`. Default value is `decimal`
+* `offset` (optional): offset.
+* `limit`(optional): limit.
+* `address`(required): Address of the contract.
+* `token_id`(requierd): The id of the token.
 
 {% tabs %}
 {% tab title="JS" %}
-
 ```javascript
 const options = {
   address: "0x7de3085b3190b3a787822ee16f23be010f5f8686",
@@ -1121,11 +1026,9 @@ const options = {
 };
 const tokenIdOwners = await Moralis.Web3API.token.getTokenIdOwners(options);
 ```
-
 {% endtab %}
 
 {% tab title="React" %}
-
 ```javascript
 import React from "react";
 import { useMoralisWeb3Api } from "react-moralis";
@@ -1142,22 +1045,18 @@ const fetchTokenIdOwners = async () => {
   console.log(tokenIdOwners);
 };
 ```
-
 {% endtab %}
 
 {% tab title="curl" %}
-
 ```bash
 curl -X 'GET' \
   'https://deep-index.moralis.io/api/v2/nft/0x7de3085b3190b3a787822ee16f23be010f5f8686/1/owners?chain=eth&format=decimal' \
   -H 'accept: application/json' \
   -H 'X-API-Key: MY-API-KEY'
 ```
-
 {% endtab %}
 
 {% tab title="Unity" %}
-
 ```csharp
 using System.Collections.Generic;
 using Moralis.Web3Api.Models;
@@ -1169,7 +1068,6 @@ using MoralisWeb3ApiSdk;
     print(tokenIdOwners.ToJson());
   }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -1200,16 +1098,15 @@ Returns an object with number of NFT transfers and an array with all transfers o
 
 #### Options:
 
-- `chain`(optional): The blockchain to get data from. Valid values are listed on the [intro page in the Transactions and Balances section](https://docs.moralis.io/transactions-and-balances/intro). Default value `Eth`.
-- `format` (optional): The format of the token id. Available values : `decimal`, `hex`. Default value is `decimal`
-- `offset` (optional): offset.
-- `limit`(optional): limit.
-- `address`(required): Address of the contract.
-- `token_id`(requierd): The id of the token.
+* `chain`(optional): The blockchain to get data from. Valid values are listed on [Supported Chains](supported-chains.md). Default value `Eth`.
+* `format` (optional): The format of the token id. Available values : `decimal`, `hex`. Default value is `decimal`
+* `offset` (optional): offset.
+* `limit`(optional): limit.
+* `address`(required): Address of the contract.
+* `token_id`(requierd): The id of the token.
 
 {% tabs %}
 {% tab title="JS" %}
-
 ```javascript
 const options = {
   address: "0x7de3085b3190b3a787822ee16f23be010f5f8686",
@@ -1220,11 +1117,9 @@ const transfers = await Moralis.Web3API.token.getWalletTokenIdTransfers(
   options
 );
 ```
-
 {% endtab %}
 
 {% tab title="React" %}
-
 ```javascript
 import React from "react";
 import { useMoralisWeb3Api } from "react-moralis";
@@ -1241,22 +1136,18 @@ const fetchWalletTokenIdTransfers = async () => {
   console.log(transfers);
 };
 ```
-
 {% endtab %}
 
 {% tab title="curl" %}
-
 ```bash
 curl -X 'GET' \
   'https://deep-index.moralis.io/api/v2/nft/0x7de3085b3190b3a787822ee16f23be010f5f8686/1/transfers?chain=eth&format=decimal' \
   -H 'accept: application/json' \
   -H 'X-API-Key: MY-API-KEY'
 ```
-
 {% endtab %}
 
 {% tab title="Unity" %}
-
 ```csharp
 using System.Collections.Generic;
 using Moralis.Web3Api.Models;
@@ -1268,7 +1159,6 @@ using MoralisWeb3ApiSdk;
     print(transfers.ToJson());
   }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -1305,19 +1195,18 @@ Returns an object with NFT trades for a given contract and marketplace
 
 #### Options:
 
-- `chain`(optional): The blockchain to get data from. Valid values are listed on the [intro page in the Transactions and Balances section](https://docs.moralis.io/transactions-and-balances/intro). Default value `Eth`.
-- `from_date` (optional): The date from where to get the trades(any format that is accepted by momentjs). Provide the param 'from_block' or 'from_date' If 'from_date' and 'from_block' are provided, 'from_block' will be used.
-- `to_date` (optional): Get the trades to this date (any format that is accepted by momentjs). Provide the param 'to_block' or 'to_date' If 'to_date' and 'to_block' are provided, 'to_block' will be used.
-- `from_block` (optional): The minimum block number from where to get the tradesProvide the param 'from_block' or 'from_date' If 'from_date' and 'from_block' are provided, 'from_block' will be used.
-- `to_block` (optional): The maximum block number from where to get the trades. Provide the param 'to_block' or 'to_date' If 'to_date' and 'to_block' are provided, 'to_block' will be used.
-- `offset`(optional): Offset.
-- `limit`(optional): Limit.
-- `marketplace` (optional): Marketplace from where to get the trades (only opensea is supported at the moment).
-- `address` (required): Address of the contract(i.e. `0x1a2b3x...`).
+* `chain`(optional): The blockchain to get data from. Valid values are listed on [Supported Chains](supported-chains.md). Default value `Eth`.
+* `from_date` (optional): The date from where to get the trades(any format that is accepted by momentjs). Provide the param 'from\_block' or 'from\_date' If 'from\_date' and 'from\_block' are provided, 'from\_block' will be used.
+* `to_date` (optional): Get the trades to this date (any format that is accepted by momentjs). Provide the param 'to\_block' or 'to\_date' If 'to\_date' and 'to\_block' are provided, 'to\_block' will be used.
+* `from_block` (optional): The minimum block number from where to get the tradesProvide the param 'from\_block' or 'from\_date' If 'from\_date' and 'from\_block' are provided, 'from\_block' will be used.
+* `to_block` (optional): The maximum block number from where to get the trades. Provide the param 'to\_block' or 'to\_date' If 'to\_date' and 'to\_block' are provided, 'to\_block' will be used.
+* `offset`(optional): Offset.
+* `limit`(optional): Limit.
+* `marketplace` (optional): Marketplace from where to get the trades (only opensea is supported at the moment).
+* `address` (required): Address of the contract(i.e. `0x1a2b3x...`).
 
 {% tabs %}
 {% tab title="JS" %}
-
 ```javascript
 const options = {
   address: "0x7de3085b3190b3a787822ee16f23be010f5f8686",
@@ -1326,11 +1215,9 @@ const options = {
 };
 const NFTTrades = await Moralis.Web3API.token.getNFTTrades(options);
 ```
-
 {% endtab %}
 
 {% tab title="React" %}
-
 ```javascript
 import React from "react";
 import { useMoralisWeb3Api } from "react-moralis";
@@ -1347,22 +1234,18 @@ const fetchNFTTrades = async () => {
   console.log(NFTTrades);
 };
 ```
-
 {% endtab %}
 
 {% tab title="curl" %}
-
 ```bash
 curl -X 'GET' \
   'https://deep-index.moralis.io/api/v2/nft/0x7de3085b3190b3a787822ee16f23be010f5f8686/trades?chain=eth&marketplace=opensea' \
   -H 'accept: application/json' \
   -H 'X-API-Key: MY-API-KEY'
 ```
-
 {% endtab %}
 
 {% tab title="Unity" %}
-
 ```csharp
 using System.Collections.Generic;
 using Moralis.Web3Api.Models;
@@ -1374,7 +1257,6 @@ using MoralisWeb3ApiSdk;
     print(trades.ToJson());
   }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -1407,14 +1289,13 @@ Returns an object with the lowest price found for a NFT token contract for the l
 
 #### Options:
 
-- `chain`(optional): The blockchain to get data from. Valid values are listed on the [intro page in the Transactions and Balances section](https://docs.moralis.io/transactions-and-balances/intro). Default value `Eth`.
-- `days` (optional): The number of days to look back to find the lowest price If not provided 7 days will be the default
-- `marketplace` (optional): Marketplace from where to get the trades (only opensea is supported at the moment).
-- `address` (required): Address of the contract(i.e. `0x1a2b3x...`).
+* `chain`(optional): The blockchain to get data from. Valid values are listed on [Supported Chains](supported-chains.md). Default value `Eth`.
+* `days` (optional): The number of days to look back to find the lowest price If not provided 7 days will be the default
+* `marketplace` (optional): Marketplace from where to get the trades (only opensea is supported at the moment).
+* `address` (required): Address of the contract(i.e. `0x1a2b3x...`).
 
 {% tabs %}
 {% tab title="JS" %}
-
 ```javascript
 const options = {
   address: "0x7de3085b3190b3a787822ee16f23be010f5f8686",
@@ -1422,11 +1303,9 @@ const options = {
 };
 const NFTLowestPrice = await Moralis.Web3API.token.getNFTLowestPrice(options);
 ```
-
 {% endtab %}
 
 {% tab title="React" %}
-
 ```javascript
 import React from "react";
 import { useMoralisWeb3Api } from "react-moralis";
@@ -1442,22 +1321,18 @@ const fetchNFTLowestPrice = async () => {
   console.log(NFTLowestPrice);
 };
 ```
-
 {% endtab %}
 
 {% tab title="curl" %}
-
 ```bash
 curl -X 'GET' \
   'https://deep-index.moralis.io/api/v2/nft/0x7de3085b3190b3a787822ee16f23be010f5f8686/lowestprice?chain=eth&days=3&marketplace=opensea' \
   -H 'accept: application/json' \
   -H 'X-API-Key: MY-API-KEY'
 ```
-
 {% endtab %}
 
 {% tab title="Unity" %}
-
 ```csharp
 using System.Collections.Generic;
 using Moralis.Web3Api.Models;
@@ -1469,7 +1344,6 @@ using MoralisWeb3ApiSdk;
     print(NFTLowestPrice.ToJson());
   }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -1497,18 +1371,17 @@ using MoralisWeb3ApiSdk;
 
 ## reSyncMetadata
 
-Resync the metadata for a given token_id
+Resync the metadata for a given token\_id
 
 #### Options:
 
-- `chain`(optional): The blockchain to get data from. Valid values are listed on the [intro page in the Transactions and Balances section](https://docs.moralis.io/transactions-and-balances/intro). Default value `Eth`.
-- `address`(required): Address of the contract.
-- `token_id`(requierd): The id of the token.
-- `flag` (optional): The type of resync to operate. Available values : `uri`, `metadata`. Default value : `metadata.` The metadata flag will resync of the metadata of nft. The uri flag will resync the token_uri of NFT.
+* `chain`(optional): The blockchain to get data from. Valid values are listed on [Supported Chains](supported-chains.md). Default value `Eth`.
+* `address`(required): Address of the contract.
+* `token_id`(requierd): The id of the token.
+* `flag` (optional): The type of resync to operate. Available values : `uri`, `metadata`. Default value : `metadata.` The metadata flag will resync of the metadata of nft. The uri flag will resync the token\_uri of NFT.
 
 {% tabs %}
 {% tab title="JS" %}
-
 ```javascript
 const options = {
   address: "0x7de3085b3190b3a787822ee16f23be010f5f8686",
@@ -1517,11 +1390,9 @@ const options = {
 };
 const NFTLowestPrice = await Moralis.Web3API.token.reSyncMetadata(options);
 ```
-
 {% endtab %}
 
 {% tab title="React" %}
-
 ```javascript
 import React from "react";
 import { useMoralisWeb3Api } from "react-moralis";
@@ -1538,18 +1409,15 @@ const reSyncMetadata = async () => {
   console.log(result);
 };
 ```
-
 {% endtab %}
 
 {% tab title="curl" %}
-
 ```bash
 curl -X 'PUT' \
   'https://deep-index.moralis.io/api/v2/nft/0x7de3085b3190b3a787822ee16f23be010f5f8686/sync?chain=eth' \
   -H 'accept: */*' \
   -H 'X-API-Key: MY-API-KEY'
 ```
-
 {% endtab %}
 {% endtabs %}
 
