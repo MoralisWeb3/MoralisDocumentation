@@ -17,9 +17,9 @@ npm install moralis
 
 ### SDK Initialization
 
-Create a file `index.ts`.
-
 You need to initialize Moralis SDK with the following syntax in node.js:
+
+Create a file `index.ts` and add below code:
 
 ```javascript
   /* Moralis init code */
@@ -42,7 +42,7 @@ with `masterKey` you can directly access the moralis dashbaord without the need 
 
 To save object with data copy paste the following code:
 
-Create a file `SaveData.ts`.
+Create a file `SaveData.ts` and add below code:
 
 ```javascript
 const SaveData = async () => {
@@ -74,7 +74,7 @@ Go to your moralis dashboard and you will see the data saved in the database:
 
 #### Query
 
-Create a file `FindQuery.ts`.
+Create a file `FindQuery.ts` and add below code:
 
 ```javascript
 const FindQuery = async () => {
@@ -173,7 +173,7 @@ For more info on Live Queries click [here](https://docs.moralis.io/moralis-serve
 
 ### Web3API use
 
-Create a file `Web3API.ts`.
+Create a file `Web3API.ts` and add below code:
 
 ```javascript
 const serverUrl = "YOUR-SERVER-URL";
@@ -226,7 +226,7 @@ You will see the following result:
 
 ### Enable Moralis with Private key
 
-Create a file `tranx.ts`.
+Create a file `tranx.ts` and add below code:
 
 #### `Moralis.Transfer`
 
@@ -292,7 +292,7 @@ You will see the `result` in your terminal:
 
 #### `Moralis.executeFunction`
 
-Create a file `execute.ts`.
+Create a file `execute.ts` and add below code:
 
 ```javascript
 const execute = async () => {
