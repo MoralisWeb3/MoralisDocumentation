@@ -43,8 +43,9 @@ with `masterKey` you can directly access the moralis dashbaord without the need 
 To save object with data copy paste the following code:
 
 ```javascript
+const Start = async () => {
     await Moralis.start({ serverUrl, appId, masterKey, moralisSecret })
-    
+
     const Monster = Moralis.Object.extend("Monster");
     const monster = new Monster();
 
@@ -53,6 +54,9 @@ To save object with data copy paste the following code:
     monster.set("canFly", true);
 
     await monster.save()
+}
+
+Start();
 ```
 
 Run the following command in your terminal:
@@ -69,11 +73,13 @@ Go to your moralis dashboard and you will see the data saved in the database:
 #### Query
 
 ```javascript
+const FindQuery = async () => {
     const Monster = Moralis.Object.extend("Monster");
     const query = new Moralis.Query("Monster");
-    
+
     const results = await query.find();
     console.log(results);
+}
 ```
 
 Run:
@@ -95,12 +101,13 @@ Subscribing to Queries to Get Real-Time Alerts Whenever Data in the Query Result
 add the following code in your file:
 
 ```javascript
+const LiveQuery = async () => {
     const Monster = Moralis.Object.extend("Monster");
     const query = new Moralis.Query(Monster);
 
     let subscription = await query.subscribe();
     console.log(subscription);
-
+}
 ```
 Run:
 
@@ -123,14 +130,17 @@ const serverUrl = "YOUR-SERVER-URL";
 const appId = "YOUR-APP-ID";
 const moralisSecret = "YOUR MORALIS SECRET";
 
-await Moralis.start({ serverUrl, appId, moralisSecret });
-
+const web3API = async () => {
+    
+    await Moralis.start({ serverUrl, appId, moralisSecret });
+    
     //calling `getTokenPrice({address:"tokenAddress", chain:"chainID"})` from web3API
     const price = await Moralis.Web3API.token.getTokenPrice(
     {address: "0xe9e7cea3dedca5984780bafc599bd69add087d56", chain: "bsc"})
     console.log(price);
 }
 
+web3API();
 ```
 
 with `moralisSecret` all API calls go directly to the API instead of passing through the Moralis Server.
