@@ -246,6 +246,7 @@ You will see the `result` in your terminal:
 For more info on `executeFunction` check [here](https://docs.moralis.io/moralis-server/web3/web3#executefunction)
 
 
+![](images/result1.png)
 
 ##
 
