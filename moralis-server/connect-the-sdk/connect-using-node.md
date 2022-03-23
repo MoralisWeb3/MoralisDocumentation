@@ -226,11 +226,11 @@ You will see the following result:
 
 ### Enable Moralis with Private key
 
-Create a file `tranx.ts` and add below code:
-
 #### `Moralis.Transfer`
 
 We can transfer using private key in the backend any `'native' | 'erc20' | 'erc721' | 'erc1155'` tokens.
+
+Create a file `tranx.ts` and add below code:
 
 ```javascript
 const tranx = async () => {
