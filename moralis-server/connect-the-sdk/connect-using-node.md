@@ -17,7 +17,7 @@ npm install moralis
 
 ### SDK Initialization
 
-Create a folder `moralis-node-app` and a file `index.ts` inside it.
+Create a file `index.ts`.
 
 You need to initialize Moralis SDK with the following syntax in node.js:
 
@@ -42,9 +42,11 @@ with `masterKey` you can directly access the moralis dashbaord without the need 
 
 To save object with data copy paste the following code:
 
+Create a file `SaveData.ts`.
+
 ```javascript
 const SaveData = async () => {
-    await Moralis.start({ serverUrl, appId, masterKey, moralisSecret })
+    await Moralis.start({ serverUrl, appId, masterKey })
 
     const Monster = Moralis.Object.extend("Monster");
     const monster = new Monster();
@@ -62,7 +64,7 @@ SaveData();
 Run the following command in your terminal:
 
 ```
-npx ts-node index.ts
+ts-node SaveData.ts
 ```
 
 Go to your moralis dashboard and you will see the data saved in the database:
@@ -71,6 +73,8 @@ Go to your moralis dashboard and you will see the data saved in the database:
 
 
 #### Query
+
+Create a file `FindQuery.ts`.
 
 ```javascript
 const FindQuery = async () => {
@@ -85,12 +89,20 @@ const FindQuery = async () => {
 Run:
 
 ```
-npx ts-node index.ts
+ts-node FindQuery.ts
 ```
 
 In your console you will see:
 
-![](<images/node2.png>)
+```
+[
+  ParseObjectSubclass {
+    className: 'Monster',
+    _objCount: 0,
+    id: 'I3tbPplP8T531e0vgBrFVj5O'
+  }
+]
+```
 
 For more info on DB Queries click [here](https://docs.moralis.io/moralis-server/database/queries)
 
@@ -98,7 +110,7 @@ For more info on DB Queries click [here](https://docs.moralis.io/moralis-server/
 
 Subscribing to Queries to Get Real-Time Alerts Whenever Data in the Query Result Set Changes.
 
-add the following code in your file:
+Create a file `LiveQuery.ts` add the following code in your file:
 
 ```javascript
 const LiveQuery = async () => {
@@ -108,22 +120,60 @@ const LiveQuery = async () => {
     let subscription = await query.subscribe();
     console.log(subscription);
 }
+
+LiveQuery();
 ```
 Run:
 
 ```
-npx ts-node index.ts
+ts-node LiveQuery.ts
 ```
 
 In your console you will see:
 
-![](<images/node3.png>)
+```
+Subscription {
+  _events: [Object: null prototype] { error: [Function (anonymous)] },
+  _eventsCount: 1,
+  _maxListeners: undefined,
+  id: 1,
+  query: ParseQuery {
+    className: 'Monster',
+    _where: {},
+    _include: [],
+    _exclude: [],
+    _select: undefined,
+    _limit: -1,
+    _skip: 0,
+    _count: false,
+    _order: undefined,
+    _readPreference: null,
+    _includeReadPreference: null,
+    _subqueryReadPreference: null,
+    _queriesLocalDatastore: false,
+    _localDatastorePinName: null,
+    _extraOptions: {},
+    _hint: undefined,
+    _explain: undefined,
+    _xhrRequest: { task: null, onchange: [Function: onchange] }
+  },
+  sessionToken: undefined,
+  subscribePromise: Promise {
+    undefined,
+    resolve: [Function (anonymous)],
+    reject: [Function (anonymous)]
+  },
+  subscribed: true,
+  [Symbol(kCapture)]: false
+}
+```
 
 For more info on Live Queries click [here](https://docs.moralis.io/moralis-server/database/live-queries)
 
 
 ### Web3API use
 
+Create a file `Web3API.ts`.
 
 ```javascript
 const serverUrl = "YOUR-SERVER-URL";
@@ -134,7 +184,6 @@ const web3API = async () => {
     
     await Moralis.start({ serverUrl, appId, moralisSecret });
     
-    //calling `getTokenPrice({address:"tokenAddress", chain:"chainID"})` from web3API
     const price = await Moralis.Web3API.token.getTokenPrice(
     {address: "0xe9e7cea3dedca5984780bafc599bd69add087d56", chain: "bsc"})
     console.log(price);
@@ -156,14 +205,28 @@ then API and copy your `moralisSecret` key
 Run:
 
 ```
-npx ts-node index.ts
+ts-node Web3API.ts
 ```
 
 You will see the following result:
 
-![](<images/result1.png>)
+```
+{
+  nativePrice: {
+    value: '2492486316397403',
+    decimals: 18,
+    name: 'Binance Coin',
+    symbol: 'BNB'
+  },
+  usdPrice: 1.000879782388469,
+  exchangeAddress: '0xcA143Ce32Fe78f1f7019d7d551a6402fC5350c73',
+  exchangeName: 'PancakeSwap v2'
+}
+```
 
 ### Enable Moralis with Private key
+
+Create a file `tranx.ts`.
 
 #### `Moralis.Transfer`
 
@@ -202,14 +265,34 @@ Note: Private key should never be exposed to front-end or browser or on cloud or
 Run:
 
 ```
-npx ts-node index.ts
+ts-node tranx.ts
 ```
 
 You will see the `result` in your terminal:
 
-![](<images/result3.png>)
+```
+{
+  nonce: 9,
+  gasPrice: BigNumber { _hex: '0x012a05f200', _isBigNumber: true },
+  gasLimit: BigNumber { _hex: '0x8d07', _isBigNumber: true },
+  to: '0x1AF3F329e8BE154074D8769D1FFa4eE058B1DBc3',
+  value: BigNumber { _hex: '0x00', _isBigNumber: true },
+  data: '0xa9059cbb00000000000000000000000093905fd3f9b8732015f2b3ca6c16cbcb60ecf89500000000000000000000000000000000000000000000000006f05b59d3b20000',
+  chainId: 56,
+  v: 147,
+  r: '0x2715e0d05fdf82f7e129c1d0608de4629d15fffa557d43339d78489d80f78a0f',
+  s: '0x12ab674095e18b1e81525e30826b55ebcc24cddfceed855c26819aafdd4f78d3',
+  from: '0x7094F8B1a2a1EeA360D79Be99bAeF18175aa30Ca',
+  hash: '0xc53417f3f584680ad81046195c64edf59f8a2eb6826793765676ebe304f74760',
+  type: null,
+  confirmations: 0,
+  wait: [Function (anonymous)]
+}
+```
 
 #### `Moralis.executeFunction`
+
+Create a file `execute.ts`.
 
 ```javascript
 const execute = async () => {
@@ -245,24 +328,24 @@ execute();
 Run:
 
 ```
-npx ts-node index.ts
+ts-node execute.ts
 ```
 
 
 You will see the `result` in your terminal:
 
-![](<images/result4.png>)
+```
+https://hatch.capsulehouse.io/api/metadata/700
+```
 
 For more info on `executeFunction` check [here](https://docs.moralis.io/moralis-server/web3/web3#executefunction)
 
-
-![](images/result1.png)
 
 ### Add New Address Sync From Code
 
 The `Sync and Watch Address` plugin calls a Cloud Function called watchXxxAddressunder the hood, where "Xxx" are the chain names [here](https://docs.moralis.io/moralis-server/automatic-transaction-sync/historical-transactions#chain-prefixes). These cloud functions can also be called directly from your own code!
 
-Add below code to your `index.ts` file in node application:
+Create a file `watchAddr.ts` and add below code:
 
 ```javascript
 const watchAddr = async () => {
@@ -283,12 +366,14 @@ watchAddr();
 Run:
 
 ```
-npx ts-node index.ts
+ts-node watchAddr.ts
 ```
 
 in Terminal you will see:
 
-![](images/result5.png)
+```
+{ status: 200, data: { success: true, result: true } }
+```
 
 The transaction data is stored in Moralis Dashboard:
 
@@ -307,6 +392,7 @@ Moralis Server has a special cloud function called `watchContractEvent(options)`
 Note: limit parameter is available only for Nitro servers (those one that have coreservices plugin). If limit parameter is not provided then the default value is 500000.
 Note: at the moment the events created via code won't be seen in the admin UI, you can only see them in the database, we are working on connecting the admin UI properly
 
+Create a file `watchEvent.ts` and add below code:
 
 ```javascript
 const watchEvent = async () => {
@@ -345,12 +431,14 @@ watchEvent();
 Run:
 
 ```
-npx ts-node index.ts
+ts-node watchEvent.ts
 ```
 
 In terminal you will see:
 
-![](images/result6.png)
+```
+{ success: true }
+```
 
 The Event data is stored in Moralis Dashboard:
 
