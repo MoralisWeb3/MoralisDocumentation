@@ -34,7 +34,7 @@ with `masterKey` you can directly access the moralis dashbaord without the need 
 
 **Note: With master key you can use the API, RPC nodes and other features of your moralis account using the SDK straight from your backend.**
 
-**Please remember to never leak your master key because once someone gets your master key they will have full access to your moralis account**
+**Please remember to never leak your master key because once someone gets your master key they will have full access to your moralis account.**
 
 ### DB query
 
