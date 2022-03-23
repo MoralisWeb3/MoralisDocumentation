@@ -9,7 +9,7 @@ It would be bothersome if the user had to log in every time they open your app. 
 {% hint style="info" %}
 Note that this functionality is disabled by default on Node.js environments (such as React Native) to discourage stateful usages on server-side configurations.
 
-To bypass this behaviour in this particular use case, call once \*\*`Moralis.User.enableUnsafeCurrentUser()`\*\* right before using any cached-user-related functionalities.
+To bypass this behaviour in this particular use case, call once \_`Moralis.User.enableUnsafeCurrentUser()_` right before using any cached-user-related functionalities.
 {% endhint %}
 
 ### Managing Current User
