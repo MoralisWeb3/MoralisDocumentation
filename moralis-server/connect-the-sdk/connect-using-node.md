@@ -287,6 +287,7 @@ npx ts-node index.ts
 ```
 
 in Terminal you will see:
+
 ![](images/result5.png)
 
 The transaction data is stored in Moralis Dashboard:
