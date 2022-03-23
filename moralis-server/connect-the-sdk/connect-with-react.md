@@ -163,6 +163,10 @@ yarn start
 
 Visit the webpage and click `Login`. Your Metamask will popup and ask you to sign in.
 
+{% hint style="success" %}
+To connect other wallets other than MetaMask, check out: [**Web3 Authentication**](../users/crypto-login.md)****
+{% endhint %}
+
 ![Metamask popping up when user clicks Login.](<../../.gitbook/assets/Screenshot 2022-03-16 at 12.46.56 PM.png>)
 
 ### 7. See all User Assets in the Moralis Database

@@ -2,7 +2,7 @@
 description: Upload multiple files and place them in a folder directory (ERC1155 Compliant)
 ---
 
-# 🔥IPFS Storage (new)
+# 🏪 Web3API.storage (IPFS)
 
 {% embed url="https://www.youtube.com/watch?v=VglTdr0n5ZQ" %}
 **Bulk Mint NFTs on OpenSea Using IPFS folders (ERC1155 Compliant)**
@@ -15,8 +15,9 @@ Uploads multiple files and place them in a folder directory. Returns path (async
 #### Options:
 
 - `abi`(required): Array of JSON and Base64 Supported
-- {% tabs %}
-  {% tab title="JS" %}
+
+{% tabs %}
+{% tab title="JS" %}
 
 ```javascript
 const options = {
@@ -32,6 +33,7 @@ const path = await Moralis.Web3API.storage.uploadFolder(options);
 ```
 
 {% endtab %}
+
 {% tab title="React" %}
 
 ```javascript
@@ -56,9 +58,10 @@ const uploadFolder = async () => {
 ```
 
 {% endtab %}
+
 {% tab title="curl" %}
 
-```sh
+```bash
 curl -X 'POST' \
   'https://deep-index.moralis.io/api/v2/ipfs/uploadFolder' \
   -H 'accept: application/json' \
@@ -73,9 +76,10 @@ curl -X 'POST' \
 ```
 
 {% endtab %}
-{% tab title="Unity"%}
 
-```cs
+{% tab title="Unity" %}
+
+```csharp
 using System.Collections.Generic;
 using Moralis.Web3Api.Models;
 using MoralisWeb3ApiSdk;
@@ -93,7 +97,7 @@ using MoralisWeb3ApiSdk;
       List<IpfsFileRequest> reqs = new List<IpfsFileRequest>();
       // Add requests to request list.
       reqs.Add(req);
-      List<IpfsFile> resp = await web3Api.Storage.UploadFolder(reqs);  
+      List<IpfsFile> resp = await web3Api.Storage.UploadFolder(reqs);
       foreach (IpfsFile file in resp)
       {
         print(file.ToJson());

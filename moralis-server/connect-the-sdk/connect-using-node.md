@@ -7,7 +7,6 @@ description: >-
 
 # 🖨 Connect using Node.js
 
-
 ### Installing Moralis SDK
 
 Run the following command to install Moralis SDK
