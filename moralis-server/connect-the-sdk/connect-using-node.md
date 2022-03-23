@@ -260,6 +260,8 @@ const tranx = async () => {
 tranx();
 ```
 
+with `moralisSecret` all API calls go directly to the API instead of passing through the Moralis Server.
+
 Note: Private key should never be exposed to front-end or browser or on cloud orelse will result in loss of funds
 
 Run:
@@ -324,6 +326,9 @@ const execute = async () => {
 
 execute();
 ```
+
+with `moralisSecret` all API calls go directly to the API instead of passing through the Moralis Server.
+
 
 Run:
 
