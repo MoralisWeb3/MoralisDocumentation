@@ -43,7 +43,7 @@ with `masterKey` you can directly access the moralis dashbaord without the need 
 To save object with data copy paste the following code:
 
 ```javascript
-const Start = async () => {
+const SaveData = async () => {
     await Moralis.start({ serverUrl, appId, masterKey, moralisSecret })
 
     const Monster = Moralis.Object.extend("Monster");
@@ -56,7 +56,7 @@ const Start = async () => {
     await monster.save()
 }
 
-Start();
+SaveData();
 ```
 
 Run the following command in your terminal:
