@@ -248,6 +248,102 @@ For more info on `executeFunction` check [here](https://docs.moralis.io/moralis-
 
 ![](images/result1.png)
 
+### Add New Address Sync From Code
+
+The `Sync and Watch Address` plugin calls a Cloud Function called watchXxxAddressunder the hood, where "Xxx" are the chain names [here](https://docs.moralis.io/moralis-server/automatic-transaction-sync/historical-transactions#chain-prefixes). These cloud functions can also be called directly from your own code!
+
+Add below code to your `index.ts` file in node application:
+
+```javascript
+const watchAddr = async () => {
+  
+    await Moralis.start({ serverUrl, appId, masterKey })
+
+    await Moralis.Cloud.run("watchBscAddress", {address: "0x..."},{ useMasterKey: true })
+        .then((result) => {
+        console.log(result);
+        });
+    }
+
+watchAddr();
+
+```
+
+
+Run:
+
+```
+npx ts-node index.ts
+```
+
+in Terminal you will see:
+![](images/result5.png)
+
+The transaction data is stored in Moralis Dashboard:
+
+![](images/db1.png)
+
+By default, only new transactions made by addresses being watched by using this cloud function will be added to the database. If you also want to add historical data for addresses that you want to watch, you can add `sync_historical:true`
+
+Note: The watch address functions return no value as they start a job. They are still asynchronous though! Once the promise returns the synced transactions, they should be in the XxxTransactions table for the corresponding chain.
+
+
+### Add New Event Sync From Code
+
+#### Watch new smart contract event
+
+Moralis Server has a special cloud function called `watchContractEvent(options)`. You can call it using the master key.
+Note: limit parameter is available only for Nitro servers (those one that have coreservices plugin). If limit parameter is not provided then the default value is 500000.
+Note: at the moment the events created via code won't be seen in the admin UI, you can only see them in the database, we are working on connecting the admin UI properly
+
+
+```javascript
+const watchEvent = async () => {
+  await Moralis.start({ serverUrl, appId, masterKey })
+    // code example of creating a sync event from cloud code
+    let options = {
+      "chainId": "42",
+      // UniswapV2Factory contract
+      "address": "0x5c69bee701ef814a2b6a3edd4b1652cb9cc5aa6f",
+      "topic": "PairCreated(address, address, address, uint256)",
+      "abi":   {
+        "anonymous": false,
+        "inputs": [
+          { "indexed": true, "internalType": "address", "name": "token0", "type": "address" },
+          { "indexed": true, "internalType": "address", "name": "token1", "type": "address" },
+          { "indexed": false, "internalType": "address", "name": "pair", "type": "address" },
+          { "indexed": false, "internalType": "uint256", "name": "test", "type": "uint256" }
+        ],
+        "name": "PairCreated",
+        "type": "event"
+      },
+      "limit": 500000,
+      "tableName": "UniPairCreated",
+      "sync_historical": false
+    }
+
+    Moralis.Cloud.run("watchContractEvent", options, {useMasterKey:true})
+      .then((result) => {
+      console.log(result);
+      })
+  }
+
+watchEvent();
+```
+
+Run:
+
+```
+npx ts-node index.ts
+```
+
+In terminal you will see:
+
+![](images/result6.png)
+
+The Event data is stored in Moralis Dashboard:
+
+![](images/db2.png)
 ##
 
 ##
