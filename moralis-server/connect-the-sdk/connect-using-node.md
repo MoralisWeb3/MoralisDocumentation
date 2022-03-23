@@ -5,8 +5,7 @@ description: >-
   steps.
 ---
 
-## Adding Moralis to Node.js
-
+# 🖨 Connect using Node.js
 
 ### Installing Moralis SDK
 
@@ -248,6 +247,6 @@ For more info on `executeFunction` check [here](https://docs.moralis.io/moralis-
 
 
 
-###
+##
 
-###
+##

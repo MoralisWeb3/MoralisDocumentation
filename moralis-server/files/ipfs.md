@@ -96,13 +96,13 @@ const uploadFile = () => {
 
 An IPFS file can be retrieved with a `GET` request to a public gateway. The URL for the Moralis gateway is:
 
-* `https://ipfs.moralis.io:2053/ipfs/`.
+* `https://gateway.moralisipfs.com/ipfs/`.
 
-For example, [https://ipfs.moralis.io:2053/ipfs/QmUfpsyqc4hwozotRo4woyi5fJqvfcej5GcFvKiWoY6xr6](https://ipfs.moralis.io:2053/ipfs/QmUfpsyqc4hwozotRo4woyi5fJqvfcej5GcFvKiWoY6xr6). A function to fetch a JSON document in IPFS from the browser could be written as the following:
+For example, [https://gateway.moralisipfs.com/ipfs/QmUfpsyqc4hwozotRo4woyi5fJqvfcej5GcFvKiWoY6xr6](https://gateway.moralisipfs.com/ipfs/QmUfpsyqc4hwozotRo4woyi5fJqvfcej5GcFvKiWoY6xr6). A function to fetch a JSON document in IPFS from the browser could be written as the following:
 
 ```javascript
 async function fetchIPFSDoc(ipfsHash) {
-  const url = `https://ipfs.moralis.io:2053/ipfs/${ipfsHash}`;
+  const url = `https://gateway.moralisipfs.com/ipfs/${ipfsHash}`;
   const response = await fetch(url);
   return await response.json();
 }
