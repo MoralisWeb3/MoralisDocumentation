@@ -7,146 +7,7 @@ description: >-
 
 # 🖨 Connect using Node.js
 
-## Difference between Node.js and Front-end
-
-### Authentication
-
-Authentication in node.js is performed via seed i.e. private key and not with browser based wallets such as metamask and walletconnect because wallets are on browser side and node.js runs on server side. For example follow the tutorial mentioned below.
-
-### API usage
-
-With node.js you can call web3/Solana API directly without making request to the Moralis server since there is a rate limit to the number of request you can make from front-end.
-
-You need to initialize Moralis SDK with the following syntax in node.js:
-
-```javascript
-  /* Moralis init code */
-const serverUrl = "YOUR-SERVER-URL";
-const appId = "YOUR-APP-ID";
-const moralisSecret = "YOUR MORALIS SECRET";
-
-await Moralis.start({ serverUrl, appId, moralisSecret });
-```
-
-with `moralisSecret` all API calls go directly to the API instead of passing through the Moralis Server.
-
-Note: While making request for web3/Solana API from front-end you can set rate limits for users, check [here](https://docs.moralis.io/moralis-server/web3-sdk/rate-limit) for more info
-
-To get `moralisSecret` you need to go to account settings as shown in image below
-
-![](images/moralisSecret1.png)
-
-then API and copy your `moralisSecret` key
-
-![](images/moralisSecret2.png)
-
-### Node.js version
-
-Check your node.js version, Open up a terminal (Mac/Linux) or a command prompt (Windows) and type the following command to check version:
-
-```
-node --version
-```
-
-Node.js version should be greater than 16
-
-If you get an error, or the version of Node.js you have is less than version 14, you’ll need to install Node.js. On Mac or Linux, I recommend you first install nvm and use nvm to install Node.js. For more information regarding nodejs installation you can refer [here](https://nodejs.dev/learn/how-to-install-nodejs)
-
-## Create Your Node.js project
-
-After ensuring you have a recent version of Node.js installed, create a folder for your project.
-
-```
-mkdir moralis-app
-cd moralis-app
-```
-
-Use `npm` to initialize a `package.json` file.
-
-```
-npm init -y
-```
-
-In this node application, [Express](https://expressjs.com) is used to serve web pages and implement an API. Dependencies are installed using npm. Add Express to your project with the following command.
-
-```
-npm install express@4
-```
-
-## Add Typescript to your project
-
-The first step is to add the TypeScript compiler. You can install the compiler as a developer dependency using the `--save-dev` flag.
-
-```
-npm install --save-dev typescript@4
-```
-
-The next step is to add a `tsconfig.json` file. This file instructs TypeScript how to compile (transpile) your TypeScript code into plain JavaScript.
-
-```javascript
-{
-    "compilerOptions": {
-        "module": "commonjs",
-        "esModuleInterop": true,
-        "target": "es6",
-        "noImplicitAny": true,
-        "moduleResolution": "node",
-        "sourceMap": true,
-        "outDir": "dist",
-        "baseUrl": ".",
-        "paths": {
-            "*": [
-                "node_modules/*"
-            ]
-        }
-    },
-    "include": [
-        "src/**/*"
-    ]
-}
-```
-
-Based on this `tsconfig.json` file, the TypeScript compiler will (attempt to) compile any files ending with .ts it finds and store the results in a folder named `dist`. Node.js uses the CommonJS module system, so the value for the `module` setting is `commonjs`. Also, the target version of JavaScript is ES6 (ES2015), which is compatible with modern versions of Node.js.
-
-It’s also a great idea to add `tslint` and create a `tslint.json` file that instructs TypeScript how to lint your code. If you’re not familiar with linting, it is a code analysis tool to alert you to potential problems in your code beyond syntax issues.
-
-Install `tslint` as a developer dependency.
-
-```
-npm install --save-dev tslint
-```
-
-Next, create a new file in the root folder named `tslint.json` file and add the following configuration.
-
-```javascript
-{
-    "defaultSeverity": "error",
-    "extends": [
-        "tslint:recommended"
-    ],
-    "jsRules": {},
-    "rules": {
-        "trailing-comma": [ false ],
-        "no-console": false
-    },
-    "rulesDirectory": []
-}
-```
-
-Next, update your `package.json` to change `main` to point to the new `dist` folder created by the TypeScript compiler. Also, add a couple of scripts to execute TSLint and the TypeScript compiler just before starting the Node.js server.
-
-```
-  "main": "dist/index.js",
-  "scripts": {
-    "prebuild": "tslint -c tslint.json -p tsconfig.json --fix",
-    "build": "tsc",
-    "prestart": "npm run build",
-    "start": "node .",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  }
-```
-
-## Installing Moralis SDK
+### Installing Moralis SDK
 
 Run the following command to install Moralis SDK
 
@@ -154,126 +15,439 @@ Run the following command to install Moralis SDK
 npm install moralis
 ```
 
-## Authentication Demo
+### SDK Initialization
 
-Create a folder named src, create a file named `auth.ts` in your `src` folder and add the following code:
+You need to initialize Moralis SDK with the following syntax in node.js:
+
+Create a file `index.ts` and add below code:
 
 ```javascript
-import Moralis from "moralis/node";
+  /* Moralis init code */
+const serverUrl = "YOUR-SERVER-URL";
+const appId = "YOUR-APP-ID";
+const masterKey = "YOUR-MASTER-KEY";
 
-const Auth = async () => {
+await Moralis.start({ serverUrl, appId, masterKey });
 
-    /* Moralis init code */
-    const serverUrl = "YOUR-SERVER-URL";
-    const appId = "YOUR-APP-ID";
-    const masterKey = "YOUR-MASTER-KEY";
-    const moralisSecret = "YOUR MORALIS SECRET";
+```
+with `masterKey` you can directly access the moralis dashbaord without the need for authentication.
 
-    await Moralis.start({ serverUrl, appId, masterKey, moralisSecret });
+**Note: With master key you can use the API, RPC nodes and other features of your moralis account using the SDK straight from your backend.**
 
-    const web3Provider = await Moralis.enableWeb3({ privateKey: "YOUR-PRIVATE-KEY" });
-    console.log(web3Provider);
+**Please remember to never leak your master key because once someone gets your master key they will have full access to your moralis account.**
 
+### DB query
+
+#### Saving data
+
+To save object with data copy paste the following code:
+
+Create a file `SaveData.ts` and add below code:
+
+```javascript
+const SaveData = async () => {
+    await Moralis.start({ serverUrl, appId, masterKey })
+
+    const Monster = Moralis.Object.extend("Monster");
+    const monster = new Monster();
+
+    monster.set("strength", 1024);
+    monster.set("ownerName", "Aegon");
+    monster.set("canFly", true);
+
+    await monster.save()
 }
 
-export default Auth;
+SaveData();
 ```
 
-Create a file named `index.ts` in your `src` folder and add the following code:
+Run the following command in your terminal:
+
+```
+ts-node SaveData.ts
+```
+
+Go to your moralis dashboard and you will see the data saved in the database:
+
+![](<images/node1.png>)
+
+
+#### Query
+
+Create a file `FindQuery.ts` and add below code:
 
 ```javascript
-import express from "express";
-import path from "path";
+const FindQuery = async () => {
+    const Monster = Moralis.Object.extend("Monster");
+    const query = new Moralis.Query("Monster");
 
-const app = express();
-const port = 8080; // default port to listen
-
-// define a route handler for the default home page
-app.get( "/", ( req, res ) => {
-    Auth();
-});
+    const results = await query.find();
+    console.log(results);
+}
 ```
 
-Then run the following command in your terminal
+Run:
 
 ```
-npm run start
+ts-node FindQuery.ts
 ```
 
-You will see the server running at port `8080`
+In your console you will see:
 
-![](images/localhost.png)
+```
+[
+  ParseObjectSubclass {
+    className: 'Monster',
+    _objCount: 0,
+    id: 'I3tbPplP8T531e0vgBrFVj5O'
+  }
+]
+```
 
-Go to your favorite browser and enter the following url:
+For more info on DB Queries click [here](https://docs.moralis.io/moralis-server/database/queries)
 
-`http://localhost:8080/`
+### Live Query
 
-Go back to your terminal you will see the following result:
+Subscribing to Queries to Get Real-Time Alerts Whenever Data in the Query Result Set Changes.
 
-![](images/result2.png)
-
-Note: With `Moralis.enableWeb3` you get access to only `provider` functions in ethersjs library and not to all `Providers` functions
-
-### API usage
-
-Create a file named `web3api.ts` in your `src` folder and add the following code:
-
-### **`web3api.ts`**
+Create a file `LiveQuery.ts` add the following code in your file:
 
 ```javascript
-import Moralis from "moralis/node";
+const LiveQuery = async () => {
+    const Monster = Moralis.Object.extend("Monster");
+    const query = new Moralis.Query(Monster);
 
-const web3API = async () => {
+    let subscription = await query.subscribe();
+    console.log(subscription);
+}
 
-/* Moralis init code */
+LiveQuery();
+```
+Run:
+
+```
+ts-node LiveQuery.ts
+```
+
+In your console you will see:
+
+```
+Subscription {
+  _events: [Object: null prototype] { error: [Function (anonymous)] },
+  _eventsCount: 1,
+  _maxListeners: undefined,
+  id: 1,
+  query: ParseQuery {
+    className: 'Monster',
+    _where: {},
+    _include: [],
+    _exclude: [],
+    _select: undefined,
+    _limit: -1,
+    _skip: 0,
+    _count: false,
+    _order: undefined,
+    _readPreference: null,
+    _includeReadPreference: null,
+    _subqueryReadPreference: null,
+    _queriesLocalDatastore: false,
+    _localDatastorePinName: null,
+    _extraOptions: {},
+    _hint: undefined,
+    _explain: undefined,
+    _xhrRequest: { task: null, onchange: [Function: onchange] }
+  },
+  sessionToken: undefined,
+  subscribePromise: Promise {
+    undefined,
+    resolve: [Function (anonymous)],
+    reject: [Function (anonymous)]
+  },
+  subscribed: true,
+  [Symbol(kCapture)]: false
+}
+```
+
+For more info on Live Queries click [here](https://docs.moralis.io/moralis-server/database/live-queries)
+
+
+### Web3API use
+
+Create a file `Web3API.ts` and add below code:
+
+```javascript
 const serverUrl = "YOUR-SERVER-URL";
 const appId = "YOUR-APP-ID";
 const moralisSecret = "YOUR MORALIS SECRET";
 
-await Moralis.start({ serverUrl, appId, moralisSecret });
-
-    //calling `getTokenPrice({address:"tokenAddress", chain:"chainID"})` from web3API
+const web3API = async () => {
+    
+    await Moralis.start({ serverUrl, appId, moralisSecret });
+    
     const price = await Moralis.Web3API.token.getTokenPrice(
     {address: "0xe9e7cea3dedca5984780bafc599bd69add087d56", chain: "bsc"})
     console.log(price);
 }
 
-export default web3API;
+web3API();
 ```
 
-In `index.ts` do the following changes:
+with `moralisSecret` all API calls go directly to the API instead of passing through the Moralis Server.
+
+To get `moralisSecret` you need to go to account settings as shown in image below
+
+![](<images/moralisSecret1.png>)
+
+then API and copy your `moralisSecret` key
+
+![](<images/moralisSecret2.png>)
+
+Run:
+
+```
+ts-node Web3API.ts
+```
+
+You will see the following result:
+
+```
+{
+  nativePrice: {
+    value: '2492486316397403',
+    decimals: 18,
+    name: 'Binance Coin',
+    symbol: 'BNB'
+  },
+  usdPrice: 1.000879782388469,
+  exchangeAddress: '0xcA143Ce32Fe78f1f7019d7d551a6402fC5350c73',
+  exchangeName: 'PancakeSwap v2'
+}
+```
+
+### Enable Moralis with Private key
+
+#### `Moralis.Transfer`
+
+We can transfer using private key in the backend any `'native' | 'erc20' | 'erc721' | 'erc1155'` tokens.
+
+Create a file `tranx.ts` and add below code:
 
 ```javascript
-import express from "express";
-import path from "path";
+const tranx = async () => {
+    
+    await Moralis.start({ serverUrl, appId, moralisSecret })
 
-const app = express();
-const port = 8080; // default port to listen
+    // Enable web3
+    await Moralis.enableWeb3({
+        //BSC mainnet
+        chainId: 0x38,
+        privateKey: "YOUR-PRIVATE KEY",
+    });
 
-// define a route handler for the default home page
-app.get( "/", ( req, res ) => {
-    web3API();
-});
+    // sending 0.5 DAI tokens with 18 decimals on BSC mainnet
+    const options: Moralis.TransferOptions = {
+            type: "erc20", 
+            amount: Moralis.Units.Token("0.5", 18),
+            receiver: "0x93905fd3f9b8732015f2b3Ca6c16Cbcb60ECf895",
+            contractAddress: "0x1AF3F329e8BE154074D8769D1FFa4eE058B1DBc3",
+        };
+    await Moralis.transfer(options)
+        .then((result) => {
+            console.log(result);
+    });
+}
+
+tranx();
 ```
 
-Then run the following command in your terminal
+with `moralisSecret` all API calls go directly to the API instead of passing through the Moralis Server.
+
+Note: Private key should never be exposed to front-end or browser or on cloud orelse will result in loss of funds
+
+Run:
 
 ```
-npm run start
+ts-node tranx.ts
 ```
 
-You will see the server running at port `8080`
+You will see the `result` in your terminal:
 
-![](images/localhost.png)
+```
+{
+  nonce: 9,
+  gasPrice: BigNumber { _hex: '0x012a05f200', _isBigNumber: true },
+  gasLimit: BigNumber { _hex: '0x8d07', _isBigNumber: true },
+  to: '0x1AF3F329e8BE154074D8769D1FFa4eE058B1DBc3',
+  value: BigNumber { _hex: '0x00', _isBigNumber: true },
+  data: '0xa9059cbb00000000000000000000000093905fd3f9b8732015f2b3ca6c16cbcb60ecf89500000000000000000000000000000000000000000000000006f05b59d3b20000',
+  chainId: 56,
+  v: 147,
+  r: '0x2715e0d05fdf82f7e129c1d0608de4629d15fffa557d43339d78489d80f78a0f',
+  s: '0x12ab674095e18b1e81525e30826b55ebcc24cddfceed855c26819aafdd4f78d3',
+  from: '0x7094F8B1a2a1EeA360D79Be99bAeF18175aa30Ca',
+  hash: '0xc53417f3f584680ad81046195c64edf59f8a2eb6826793765676ebe304f74760',
+  type: null,
+  confirmations: 0,
+  wait: [Function (anonymous)]
+}
+```
 
-Go to your favorite browser and enter the following url:
+#### `Moralis.executeFunction`
 
-`http://localhost:8080/`
+Create a file `execute.ts` and add below code:
 
-Go back to your terminal you will see the following result:
+```javascript
+const execute = async () => {
+  
+        await Moralis.start({ serverUrl, appId, moralisSecret })
+        
+        // Enable web3
+        await Moralis.enableWeb3({
+            chainId: 0x1,
+            privateKey:
+            "afcf6a8d1a2b9e20bd322850afb28085693f436427fe8da3d0e40954cfb2d0dc",
+        });
 
-![](images/result1.png)
+        const options = {
+            // CAPSULE contract
+            contractAddress: '0xfcb1315c4273954f74cb16d5b663dbf479eec62e',
+            // calling tokenURI function
+            functionName: 'tokenURI',
+            // contract ABI
+            abi: [{"inputs":[{"internalType":"uint256","name":"tokenId","type":"uint256"}],"name":"tokenURI","outputs":[{"internalType":"string","name":"","type":"string"}],"stateMutability":"view","type":"function"}],
+            // token URI of token ID 700
+            params: { tokenId: 700 }
+        };
+        await Moralis.executeFunction(options)
+        .then((result) => {
+            console.log(result);
+        });
+};
 
+execute();
+```
+
+with `moralisSecret` all API calls go directly to the API instead of passing through the Moralis Server.
+
+
+Run:
+
+```
+ts-node execute.ts
+```
+
+
+You will see the `result` in your terminal:
+
+```
+https://hatch.capsulehouse.io/api/metadata/700
+```
+
+For more info on `executeFunction` check [here](https://docs.moralis.io/moralis-server/web3/web3#executefunction)
+
+
+### Add New Address Sync From Code
+
+The `Sync and Watch Address` plugin calls a Cloud Function called watchXxxAddressunder the hood, where "Xxx" are the chain names [here](https://docs.moralis.io/moralis-server/automatic-transaction-sync/historical-transactions#chain-prefixes). These cloud functions can also be called directly from your own code!
+
+Create a file `watchAddr.ts` and add below code:
+
+```javascript
+const watchAddr = async () => {
+  
+    await Moralis.start({ serverUrl, appId, masterKey })
+
+    await Moralis.Cloud.run("watchBscAddress", {address: "0x..."},{ useMasterKey: true })
+        .then((result) => {
+        console.log(result);
+        });
+    }
+
+watchAddr();
+
+```
+
+
+Run:
+
+```
+ts-node watchAddr.ts
+```
+
+in Terminal you will see:
+
+```
+{ status: 200, data: { success: true, result: true } }
+```
+
+The transaction data is stored in Moralis Dashboard:
+
+![](images/db1.png)
+
+By default, only new transactions made by addresses being watched by using this cloud function will be added to the database. If you also want to add historical data for addresses that you want to watch, you can add `sync_historical:true`
+
+Note: The watch address functions return no value as they start a job. They are still asynchronous though! Once the promise returns the synced transactions, they should be in the XxxTransactions table for the corresponding chain.
+
+
+### Add New Event Sync From Code
+
+#### Watch new smart contract event
+
+Moralis Server has a special cloud function called `watchContractEvent(options)`. You can call it using the master key.
+Note: limit parameter is available only for Nitro servers (those one that have coreservices plugin). If limit parameter is not provided then the default value is 500000.
+Note: at the moment the events created via code won't be seen in the admin UI, you can only see them in the database, we are working on connecting the admin UI properly
+
+Create a file `watchEvent.ts` and add below code:
+
+```javascript
+const watchEvent = async () => {
+  await Moralis.start({ serverUrl, appId, masterKey })
+    // code example of creating a sync event from cloud code
+    let options = {
+      "chainId": "42",
+      // UniswapV2Factory contract
+      "address": "0x5c69bee701ef814a2b6a3edd4b1652cb9cc5aa6f",
+      "topic": "PairCreated(address, address, address, uint256)",
+      "abi":   {
+        "anonymous": false,
+        "inputs": [
+          { "indexed": true, "internalType": "address", "name": "token0", "type": "address" },
+          { "indexed": true, "internalType": "address", "name": "token1", "type": "address" },
+          { "indexed": false, "internalType": "address", "name": "pair", "type": "address" },
+          { "indexed": false, "internalType": "uint256", "name": "test", "type": "uint256" }
+        ],
+        "name": "PairCreated",
+        "type": "event"
+      },
+      "limit": 500000,
+      "tableName": "UniPairCreated",
+      "sync_historical": false
+    }
+
+    Moralis.Cloud.run("watchContractEvent", options, {useMasterKey:true})
+      .then((result) => {
+      console.log(result);
+      })
+  }
+
+watchEvent();
+```
+
+Run:
+
+```
+ts-node watchEvent.ts
+```
+
+In terminal you will see:
+
+```
+{ success: true }
+```
+
+The Event data is stored in Moralis Dashboard:
+
+![](images/db2.png)
 ##
 
 ##
