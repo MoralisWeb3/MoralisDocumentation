@@ -13,3 +13,25 @@ redirects:
   moralis-server/connect-the-sdk/connect-using-node: moralis-dapp/connect-the-sdk/connect-using-node.md
   moralis-server/connect-the-sdk/connect-with-unity: moralis-dapp/connect-the-sdk/connect-with-unity.md
   moralis-server/connect-the-sdk/boilerplate-projects: moralis-dapp/connect-the-sdk/boilerplate-projects.md
+  moralis-server/users: moralis-dapp/users/README.md
+  moralis-server/users/crypto-login: moralis-dapp/users/crypto-login.md
+  moralis-server/users/crypto-login/metamask: moralis-dapp/users/crypto-login/metamask.md
+  moralis-server/users/crypto-login/walletconnect: moralis-dapp/users/crypto-login/walletconnect.md
+  moralis-server/users/crypto-login/web3Auth: moralis-dapp/users/crypto-login/web3Auth.md
+  moralis-server/users/crypto-login/magic: moralis-dapp/users/crypto-login/magic.md
+  moralis-server/users/crypto-login/custom-auth-any-eip1193-provider: moralis-dapp/users/crypto-login/custom-auth-any-eip1193-provider.md
+  moralis-server/users/crypto-login/phantom-solana: moralis-dapp/users/crypto-login/phantom-solana.md
+  moralis-server/users/crypto-login/sign-in-message: moralis-dapp/users/crypto-login/sign-in-message.md
+  moralis-server/users/email-login: moralis-dapp/users/email-login/README.md
+  moralis-server/users/email-login/sending-email: moralis-dapp/users/email-login/sending-email.md
+  moralis-server/users/merging-addresses: moralis-dapp/users/merging-addresses.md
+  moralis-server/users/current-user: moralis-dapp/users/current-user.md
+  moralis-server/users/delete-user: moralis-dapp/users/delete-user.md
+  moralis-server/users/security-for-other-objects: moralis-dapp/users/security-for-other-objects.md
+  moralis-server/users/sessions: moralis-dapp/users/sessions.md
+  moralis-server/sending-assets: moralis-dapp/sending-assets/README.md
+  moralis-server/sending-assets/transfer-eth: moralis-dapp/sending-assets/transfer-eth.md
+  moralis-server/sending-assets/transfer-tokens: moralis-dapp/sending-assets/transfer-tokens.md
+  moralis-server/sending-assets/transfer-nfts: moralis-dapp/sending-assets/transfer-nfts.md
+  moralis-server/sending-assets/resolve-transfer: moralis-dapp/sending-assets/resolve-transfer.md
+  moralis-server/web3-sdk/README: moralis-dapp/web3-sdk/README.md
