@@ -10,7 +10,7 @@
 ## 🧙 Platform <a href="#moralis-dapp" id="moralis-dapp"></a>
 
 - [🛠 Getting Started](moralis-dapp/getting-started/README.md)
-  - [Create a Moralis Server](moralis-dapp/getting-started/create-a-moralis-dapp.md)
+  - [Create a Moralis Server](moralis-dapp/getting-started/create-a-moralis-server.md)
 - [🔮 Connect with SDK](moralis-dapp/connect-the-sdk/README.md)
   - [🍦 Connect with Vanilla JS](moralis-dapp/connect-the-sdk/connect-with-js.md)
   - [⚛ Connect with React](moralis-dapp/connect-the-sdk/connect-with-react.md)
