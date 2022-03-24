@@ -6,3 +6,10 @@ root: ./
 
 redirects:
   - moralis-server/getting-started/README.md: moralis-dapp/getting-started/README.md
+  - moralis-server/getting-started/create-a-moralis-server.md: moralis-dapp/getting-started/create-a-moralis-server.md
+  - moralis-server/connect-the-sdk/README.md: moralis-dapp/connect-the-sdk/README.md
+  - moralis-server/connect-the-sdk/connect-with-js.md: moralis-dapp/connect-the-sdk/connect-with-js.md
+  - moralis-server/connect-the-sdk/connect-with-react.md: moralis-dapp/connect-the-sdk/connect-with-react.md
+  - moralis-server/connect-the-sdk/connect-using-node.md: moralis-dapp/connect-the-sdk/connect-using-node.md
+  - moralis-server/connect-the-sdk/connect-with-unity.md: moralis-dapp/connect-the-sdk/connect-with-unity.md
+  - moralis-server/connect-the-sdk/boilerplate-projects.md: moralis-dapp/connect-the-sdk/boilerplate-projects.md
