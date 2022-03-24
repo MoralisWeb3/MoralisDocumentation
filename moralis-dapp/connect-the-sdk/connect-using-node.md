@@ -22,14 +22,14 @@ You need to initialize Moralis SDK with the following syntax in node.js:
 Create a file `index.ts` and add below code:
 
 ```javascript
-  /* Moralis init code */
+/* Moralis init code */
 const serverUrl = "YOUR-SERVER-URL";
 const appId = "YOUR-APP-ID";
 const masterKey = "YOUR-MASTER-KEY";
 
 await Moralis.start({ serverUrl, appId, masterKey });
-
 ```
+
 with `masterKey` you can directly access the moralis dashbaord without the need for authentication.
 
 **Note: With master key you can use the API, RPC nodes and other features of your moralis account using the SDK straight from your backend.**
@@ -46,17 +46,17 @@ Create a file `SaveData.ts` and add below code:
 
 ```javascript
 const SaveData = async () => {
-    await Moralis.start({ serverUrl, appId, masterKey })
+  await Moralis.start({ serverUrl, appId, masterKey });
 
-    const Monster = Moralis.Object.extend("Monster");
-    const monster = new Monster();
+  const Monster = Moralis.Object.extend("Monster");
+  const monster = new Monster();
 
-    monster.set("strength", 1024);
-    monster.set("ownerName", "Aegon");
-    monster.set("canFly", true);
+  monster.set("strength", 1024);
+  monster.set("ownerName", "Aegon");
+  monster.set("canFly", true);
 
-    await monster.save()
-}
+  await monster.save();
+};
 
 SaveData();
 ```
@@ -69,8 +69,7 @@ ts-node SaveData.ts
 
 Go to your moralis dashboard and you will see the data saved in the database:
 
-![](<images/node1.png>)
-
+![](images/node1.png)
 
 #### Query
 
@@ -78,12 +77,12 @@ Create a file `FindQuery.ts` and add below code:
 
 ```javascript
 const FindQuery = async () => {
-    const Monster = Moralis.Object.extend("Monster");
-    const query = new Moralis.Query("Monster");
+  const Monster = Moralis.Object.extend("Monster");
+  const query = new Moralis.Query("Monster");
 
-    const results = await query.find();
-    console.log(results);
-}
+  const results = await query.find();
+  console.log(results);
+};
 ```
 
 Run:
@@ -104,7 +103,7 @@ In your console you will see:
 ]
 ```
 
-For more info on DB Queries click [here](https://docs.moralis.io/moralis-server/database/queries)
+For more info on DB Queries click [here](https://docs.moralis.io/moralis-dapp/database/queries)
 
 ### Live Query
 
@@ -114,15 +113,16 @@ Create a file `LiveQuery.ts` add the following code in your file:
 
 ```javascript
 const LiveQuery = async () => {
-    const Monster = Moralis.Object.extend("Monster");
-    const query = new Moralis.Query(Monster);
+  const Monster = Moralis.Object.extend("Monster");
+  const query = new Moralis.Query(Monster);
 
-    let subscription = await query.subscribe();
-    console.log(subscription);
-}
+  let subscription = await query.subscribe();
+  console.log(subscription);
+};
 
 LiveQuery();
 ```
+
 Run:
 
 ```
@@ -168,8 +168,7 @@ Subscription {
 }
 ```
 
-For more info on Live Queries click [here](https://docs.moralis.io/moralis-server/database/live-queries)
-
+For more info on Live Queries click [here](https://docs.moralis.io/moralis-dapp/database/live-queries)
 
 ### Web3API use
 
@@ -181,13 +180,14 @@ const appId = "YOUR-APP-ID";
 const moralisSecret = "YOUR MORALIS SECRET";
 
 const web3API = async () => {
-    
-    await Moralis.start({ serverUrl, appId, moralisSecret });
-    
-    const price = await Moralis.Web3API.token.getTokenPrice(
-    {address: "0xe9e7cea3dedca5984780bafc599bd69add087d56", chain: "bsc"})
-    console.log(price);
-}
+  await Moralis.start({ serverUrl, appId, moralisSecret });
+
+  const price = await Moralis.Web3API.token.getTokenPrice({
+    address: "0xe9e7cea3dedca5984780bafc599bd69add087d56",
+    chain: "bsc",
+  });
+  console.log(price);
+};
 
 web3API();
 ```
@@ -196,11 +196,11 @@ with `moralisSecret` all API calls go directly to the API instead of passing thr
 
 To get `moralisSecret` you need to go to account settings as shown in image below
 
-![](<images/moralisSecret1.png>)
+![](images/moralisSecret1.png)
 
 then API and copy your `moralisSecret` key
 
-![](<images/moralisSecret2.png>)
+![](images/moralisSecret2.png)
 
 Run:
 
@@ -234,28 +234,26 @@ Create a file `tranx.ts` and add below code:
 
 ```javascript
 const tranx = async () => {
-    
-    await Moralis.start({ serverUrl, appId, moralisSecret })
+  await Moralis.start({ serverUrl, appId, moralisSecret });
 
-    // Enable web3
-    await Moralis.enableWeb3({
-        //BSC mainnet
-        chainId: 0x38,
-        privateKey: "YOUR-PRIVATE KEY",
-    });
+  // Enable web3
+  await Moralis.enableWeb3({
+    //BSC mainnet
+    chainId: 0x38,
+    privateKey: "YOUR-PRIVATE KEY",
+  });
 
-    // sending 0.5 DAI tokens with 18 decimals on BSC mainnet
-    const options: Moralis.TransferOptions = {
-            type: "erc20", 
-            amount: Moralis.Units.Token("0.5", 18),
-            receiver: "0x93905fd3f9b8732015f2b3Ca6c16Cbcb60ECf895",
-            contractAddress: "0x1AF3F329e8BE154074D8769D1FFa4eE058B1DBc3",
-        };
-    await Moralis.transfer(options)
-        .then((result) => {
-            console.log(result);
-    });
-}
+  // sending 0.5 DAI tokens with 18 decimals on BSC mainnet
+  const options: Moralis.TransferOptions = {
+    type: "erc20",
+    amount: Moralis.Units.Token("0.5", 18),
+    receiver: "0x93905fd3f9b8732015f2b3Ca6c16Cbcb60ECf895",
+    contractAddress: "0x1AF3F329e8BE154074D8769D1FFa4eE058B1DBc3",
+  };
+  await Moralis.transfer(options).then((result) => {
+    console.log(result);
+  });
+};
 
 tranx();
 ```
@@ -298,30 +296,36 @@ Create a file `execute.ts` and add below code:
 
 ```javascript
 const execute = async () => {
-  
-        await Moralis.start({ serverUrl, appId, moralisSecret })
-        
-        // Enable web3
-        await Moralis.enableWeb3({
-            chainId: 0x1,
-            privateKey:
-            "afcf6a8d1a2b9e20bd322850afb28085693f436427fe8da3d0e40954cfb2d0dc",
-        });
+  await Moralis.start({ serverUrl, appId, moralisSecret });
 
-        const options = {
-            // CAPSULE contract
-            contractAddress: '0xfcb1315c4273954f74cb16d5b663dbf479eec62e',
-            // calling tokenURI function
-            functionName: 'tokenURI',
-            // contract ABI
-            abi: [{"inputs":[{"internalType":"uint256","name":"tokenId","type":"uint256"}],"name":"tokenURI","outputs":[{"internalType":"string","name":"","type":"string"}],"stateMutability":"view","type":"function"}],
-            // token URI of token ID 700
-            params: { tokenId: 700 }
-        };
-        await Moralis.executeFunction(options)
-        .then((result) => {
-            console.log(result);
-        });
+  // Enable web3
+  await Moralis.enableWeb3({
+    chainId: 0x1,
+    privateKey:
+      "afcf6a8d1a2b9e20bd322850afb28085693f436427fe8da3d0e40954cfb2d0dc",
+  });
+
+  const options = {
+    // CAPSULE contract
+    contractAddress: "0xfcb1315c4273954f74cb16d5b663dbf479eec62e",
+    // calling tokenURI function
+    functionName: "tokenURI",
+    // contract ABI
+    abi: [
+      {
+        inputs: [{ internalType: "uint256", name: "tokenId", type: "uint256" }],
+        name: "tokenURI",
+        outputs: [{ internalType: "string", name: "", type: "string" }],
+        stateMutability: "view",
+        type: "function",
+      },
+    ],
+    // token URI of token ID 700
+    params: { tokenId: 700 },
+  };
+  await Moralis.executeFunction(options).then((result) => {
+    console.log(result);
+  });
 };
 
 execute();
@@ -329,13 +333,11 @@ execute();
 
 with `moralisSecret` all API calls go directly to the API instead of passing through the Moralis Server.
 
-
 Run:
 
 ```
 ts-node execute.ts
 ```
-
 
 You will see the `result` in your terminal:
 
@@ -343,30 +345,29 @@ You will see the `result` in your terminal:
 https://hatch.capsulehouse.io/api/metadata/700
 ```
 
-For more info on `executeFunction` check [here](https://docs.moralis.io/moralis-server/web3/web3#executefunction)
-
+For more info on `executeFunction` check [here](https://docs.moralis.io/moralis-dapp/web3/web3#executefunction)
 
 ### Add New Address Sync From Code
 
-The `Sync and Watch Address` plugin calls a Cloud Function called watchXxxAddressunder the hood, where "Xxx" are the chain names [here](https://docs.moralis.io/moralis-server/automatic-transaction-sync/historical-transactions#chain-prefixes). These cloud functions can also be called directly from your own code!
+The `Sync and Watch Address` plugin calls a Cloud Function called watchXxxAddressunder the hood, where "Xxx" are the chain names [here](https://docs.moralis.io/moralis-dapp/automatic-transaction-sync/historical-transactions#chain-prefixes). These cloud functions can also be called directly from your own code!
 
 Create a file `watchAddr.ts` and add below code:
 
 ```javascript
 const watchAddr = async () => {
-  
-    await Moralis.start({ serverUrl, appId, masterKey })
+  await Moralis.start({ serverUrl, appId, masterKey });
 
-    await Moralis.Cloud.run("watchBscAddress", {address: "0x..."},{ useMasterKey: true })
-        .then((result) => {
-        console.log(result);
-        });
-    }
+  await Moralis.Cloud.run(
+    "watchBscAddress",
+    { address: "0x..." },
+    { useMasterKey: true }
+  ).then((result) => {
+    console.log(result);
+  });
+};
 
 watchAddr();
-
 ```
-
 
 Run:
 
@@ -388,7 +389,6 @@ By default, only new transactions made by addresses being watched by using this 
 
 Note: The watch address functions return no value as they start a job. They are still asynchronous though! Once the promise returns the synced transactions, they should be in the XxxTransactions table for the corresponding chain.
 
-
 ### Add New Event Sync From Code
 
 #### Watch new smart contract event
@@ -401,34 +401,55 @@ Create a file `watchEvent.ts` and add below code:
 
 ```javascript
 const watchEvent = async () => {
-  await Moralis.start({ serverUrl, appId, masterKey })
-    // code example of creating a sync event from cloud code
-    let options = {
-      "chainId": "42",
-      // UniswapV2Factory contract
-      "address": "0x5c69bee701ef814a2b6a3edd4b1652cb9cc5aa6f",
-      "topic": "PairCreated(address, address, address, uint256)",
-      "abi":   {
-        "anonymous": false,
-        "inputs": [
-          { "indexed": true, "internalType": "address", "name": "token0", "type": "address" },
-          { "indexed": true, "internalType": "address", "name": "token1", "type": "address" },
-          { "indexed": false, "internalType": "address", "name": "pair", "type": "address" },
-          { "indexed": false, "internalType": "uint256", "name": "test", "type": "uint256" }
-        ],
-        "name": "PairCreated",
-        "type": "event"
-      },
-      "limit": 500000,
-      "tableName": "UniPairCreated",
-      "sync_historical": false
-    }
+  await Moralis.start({ serverUrl, appId, masterKey });
+  // code example of creating a sync event from cloud code
+  let options = {
+    chainId: "42",
+    // UniswapV2Factory contract
+    address: "0x5c69bee701ef814a2b6a3edd4b1652cb9cc5aa6f",
+    topic: "PairCreated(address, address, address, uint256)",
+    abi: {
+      anonymous: false,
+      inputs: [
+        {
+          indexed: true,
+          internalType: "address",
+          name: "token0",
+          type: "address",
+        },
+        {
+          indexed: true,
+          internalType: "address",
+          name: "token1",
+          type: "address",
+        },
+        {
+          indexed: false,
+          internalType: "address",
+          name: "pair",
+          type: "address",
+        },
+        {
+          indexed: false,
+          internalType: "uint256",
+          name: "test",
+          type: "uint256",
+        },
+      ],
+      name: "PairCreated",
+      type: "event",
+    },
+    limit: 500000,
+    tableName: "UniPairCreated",
+    sync_historical: false,
+  };
 
-    Moralis.Cloud.run("watchContractEvent", options, {useMasterKey:true})
-      .then((result) => {
+  Moralis.Cloud.run("watchContractEvent", options, { useMasterKey: true }).then(
+    (result) => {
       console.log(result);
-      })
-  }
+    }
+  );
+};
 
 watchEvent();
 ```
@@ -448,6 +469,7 @@ In terminal you will see:
 The Event data is stored in Moralis Dashboard:
 
 ![](images/db2.png)
+
 ##
 
 ##

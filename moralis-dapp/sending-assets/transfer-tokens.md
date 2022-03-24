@@ -19,6 +19,7 @@ To transfer [ERC20 tokens](https://ethereum.org/en/developers/docs/standards/tok
 
 {% tabs %}
 {% tab title="JS" %}
+
 ```javascript
 // sending 0.5 tokens with 18 decimals
 const options = {
@@ -29,9 +30,11 @@ const options = {
 };
 let result = await Moralis.transfer(options);
 ```
+
 {% endtab %}
 
 {% tab title="React" %}
+
 ```javascript
 import React from "react";
 import { useWeb3Transfer } from "react-moralis";
@@ -55,6 +58,7 @@ const TransferWeth = () => {
   );
 };
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -67,7 +71,7 @@ The _**contract address**_ and the _**number of decimals**_ for a token can norm
 {% endhint %}
 
 {% hint style="success" %}
-Get the address and decimals programmatically of a token by using Moralis SDK [Moralis.Web3API.token.getTokenMetadataBySymbol()](https://docs.moralis.io/moralis-server/web3-sdk/token#gettokenmetadatabysymbol).
+Get the address and decimals programmatically of a token by using Moralis SDK [Moralis.Web3API.token.getTokenMetadataBySymbol()](https://docs.moralis.io/moralis-dapp/web3-sdk/token#gettokenmetadatabysymbol).
 {% endhint %}
 
 ### Resolving the results

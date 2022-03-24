@@ -31,9 +31,9 @@ A final note: It is recommended to set up HTTPS and SSL in your server, to avoid
 
 The second level of security is at the schema and data level. Enforcing security measures at this level will restrict how and when client applications can access and create data on Moralis. When you first begin developing your Moralis application, all of the defaults are set so that you can be a more productive developer. For example:
 
-* A client application can create new classes on Moralis.
-* A client application can add fields to classes.
-* A client application can modify or query for objects on Moralis.
+- A client application can create new classes on Moralis.
+- A client application can add fields to classes.
+- A client application can modify or query for objects on Moralis.
 
 You can configure any of these permissions to apply to everyone, no one, or to specific users or roles in your app. Roles are groups that contain users or other roles, which you can assign to an object to restrict its use. Any permission granted to a role is also granted to any of its children, whether they are users or other roles, enabling you to create an access hierarchy for your apps.&#x20;
 
@@ -47,14 +47,14 @@ Moralis lets you specify what operations are allowed per class. This lets you re
 
 You can configure the client’s ability to perform each of the following operations for the selected class:
 
-* **Read**:
-  * **Get**: With Get permission, users can fetch objects in this table if they know their objectIds.
-  * **Find**: Anyone with Find permission can query all of the objects in the table, even if they don’t know their objectIds. Any table with public Find permission will be completely readable by the public unless you put an ACL on each object.
-* **Write**:
-  * **Update**: Anyone with Update permission can modify the fields of any object in the table that doesn’t have an ACL. For publicly readable data, such as game levels or assets, you should disable this permission.
-  * **Create**: Like Update, anyone with Create permission can create new objects of a class. As with the Update permission, you’ll probably want to turn this off for publicly readable data.
-  * **Delete**: With this permission, people can delete any object in the table that doesn’t have an ACL. All they need is its objectId.
-* **Add fields**: Moralis classes have schemas that are inferred when objects are created. While you’re developing your app, this is great, because you can add a new field to your object without having to make any changes on the back-end. But once you ship your app, it’s very rare to need to add new fields to your classes automatically. You should pretty much always turn off this permission for all of your classes when you submit your app to the public.
+- **Read**:
+  - **Get**: With Get permission, users can fetch objects in this table if they know their objectIds.
+  - **Find**: Anyone with Find permission can query all of the objects in the table, even if they don’t know their objectIds. Any table with public Find permission will be completely readable by the public unless you put an ACL on each object.
+- **Write**:
+  - **Update**: Anyone with Update permission can modify the fields of any object in the table that doesn’t have an ACL. For publicly readable data, such as game levels or assets, you should disable this permission.
+  - **Create**: Like Update, anyone with Create permission can create new objects of a class. As with the Update permission, you’ll probably want to turn this off for publicly readable data.
+  - **Delete**: With this permission, people can delete any object in the table that doesn’t have an ACL. All they need is its objectId.
+- **Add fields**: Moralis classes have schemas that are inferred when objects are created. While you’re developing your app, this is great, because you can add a new field to your object without having to make any changes on the back-end. But once you ship your app, it’s very rare to need to add new fields to your classes automatically. You should pretty much always turn off this permission for all of your classes when you submit your app to the public.
 
 For each of the above actions, you can grant permission to all users (which is the default), or lock permissions down to a list of roles and users. For example, a class that should be available to all users would be set to read-only by only enabling get and find. A logging class could be set to write-only by only allowing creates. You could enable moderation of user-generated content by providing an update and delete access to a particular set of users or roles.
 
@@ -103,11 +103,11 @@ Of course, this snippet assumes you’ve already created a role named “admins�
 
 All of this is just the beginning. Applications can enforce all sorts of complex access patterns through ACLs and class-level permissions. For example:
 
-* For private data, read and write access can be restricted to the owner.
-* For a post on a message board, the author and members of the “Moderators” role can have “write” access, and the general public can have “read” access.
-* For logging data that will only be accessed by the developer through the REST API using the master key, the ACL can deny all permissions.
-* Data created by a privileged group of users or the developer, like a global message of the day, can have public read access but restrict write access to an “Administrators” role.
-* A message sent from one user to another can give “read” and “write” access just to those users.
+- For private data, read and write access can be restricted to the owner.
+- For a post on a message board, the author and members of the “Moderators” role can have “write” access, and the general public can have “read” access.
+- For logging data that will only be accessed by the developer through the REST API using the master key, the ACL can deny all permissions.
+- Data created by a privileged group of users or the developer, like a global message of the day, can have public read access but restrict write access to an “Administrators” role.
+- A message sent from one user to another can give “read” and “write” access just to those users.
 
 For the curious, here’s the format for an ACL that restricts read and write permissions to the owner (whose `objectId` is identified by `"aSaMpLeUsErId"`) and enables other users to read the object:
 
@@ -156,7 +156,7 @@ The CLP `requiresAuthentication` prevents any non-authenticated user from perfor
 For example, if you want to allow your **authenticated users** to `find` and `get` `Announcement`’s from your application and your **admin role** to have all privileged, you would set the CLP:
 
 ```
-📋// POST https://my-moralis-server.com/schemas/Announcement
+📋// POST https://my-moralis-dapp.com/schemas/Announcement
 // Note: You need to use PUT http method if the class already exists
 // Set the X-Parse-Application-Id and X-Parse-Master-Key header
 // body:
@@ -180,9 +180,9 @@ For example, if you want to allow your **authenticated users** to `find` and `ge
 
 Effects:
 
-* Non-authenticated users won’t be able to do anything.
-* Authenticated users (any user with a valid sessionToken) will be able to read all the objects in that class.
-* Users belonging to the admin role will be able to perform all operations.
+- Non-authenticated users won’t be able to do anything.
+- Authenticated users (any user with a valid sessionToken) will be able to read all the objects in that class.
+- Users belonging to the admin role will be able to perform all operations.
 
 **Warning:** Note that this is in no way securing your content, if you allow anyone to login to your server, every client will still be able to query this object.
 
@@ -190,7 +190,7 @@ Effects:
 
 Class-Level Permissions (CLPs) and Access Control Lists (ACLs) are both powerful tools for securing your app, but they don’t always interact exactly how you might expect. They actually represent two separate layers of security that each request has to pass through to return the correct information or make the intended change. These layers, one at the class level, and one at the object level are shown below. A request must pass through BOTH layers of checks in order to be authorized. Note that despite acting similarly to ACLs, [Pointer Permissions](objects.md#relational-data) are a type of class level permission, so a request must pass the pointer permission check in order to pass the CLP check.
 
-![CLP vs ACL Diagram](https://docs.parseplatform.org/assets/images/clp\_vs\_acl\_diagram.png)
+![CLP vs ACL Diagram](https://docs.parseplatform.org/assets/images/clp_vs_acl_diagram.png)
 
 As you can see, whether a user is authorized to make a request can become complicated when you use both CLPs and ACLs. Let’s look at an example to get a better sense of how CLPs and ACLs can interact. Say we have a `Photo` class, with an object, `photoObject`. There are 2 users in our app, `user1` and `user2`. Now let's say we set a Get CLP on the `Photo` class, disabling public Get, but allowing `user1` to perform Get. Now let’s also set an ACL on `photoObject` to allow Read - which includes GET - for only `user2`.
 
@@ -243,12 +243,12 @@ Validations can lock down your app so that only certain values are acceptable. Y
 
 Common scenarios that warrant validation include:
 
-* Making sure phone numbers have the right format.
-* Sanitizing data so that its format is normalized.
-* Making sure that an email address looks like a real email address.
-* Requiring that every user specifies an age within a particular range.
-* Not letting users directly change a calculated field.
-* Not letting users delete specific objects unless certain conditions are met.
+- Making sure phone numbers have the right format.
+- Sanitizing data so that its format is normalized.
+- Making sure that an email address looks like a real email address.
+- Requiring that every user specifies an age within a particular range.
+- Not letting users directly change a calculated field.
+- Not letting users delete specific objects unless certain conditions are met.
 
 ### Implementing Business Logic in Cloud Code <a href="implementing-business-logic-in-cloud-code" id="implementing-business-logic-in-cloud-code"></a>
 

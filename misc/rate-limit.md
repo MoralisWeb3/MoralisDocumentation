@@ -124,6 +124,7 @@ See the tables below for details about Speedy Node methods and API Endpoints tha
 
 Note: /nft/{address}/sync has 5 requests but it will use 60 requests from throttle limit,
 for example, you could get this response when using this endpoing once:
+
 ```javascript
   'x-rate-limit-remaining-ttl': '60',
   'x-rate-limit-remaining-ip-ttl': '60',
@@ -136,7 +137,7 @@ for example, you could get this response when using this endpoing once:
   'x-rate-limit-throttle-ip-used': '60',
   'x-rate-limit-throttle-limit': '88',
   'x-request-weight': '5',
-  ```
+```
 
 ## Why am I rate limited?
 
@@ -148,15 +149,15 @@ There are 2 different types of rate-limits you need to know about.
 
 The first type of rate limit is protecting your Moralis Server from spam requests from your clients.
 
-As you know - anyone can use the Moralis SDK and call the [Web3 API](../moralis-server/web3-sdk/) using your server.
+As you know - anyone can use the Moralis SDK and call the [Web3 API](../moralis-dapp/web3-sdk/) using your server.
 
 Your server has built-in rate limits you can adjust that dictate how many requests different types of users can do before they are rate limited. You have full control over these rate limits and can adjust them with a few lines of code in your Cloud Code.
 
-Read more [here](https://docs.moralis.io/moralis-server/web3-sdk/rate-limit).
+Read more [here](https://docs.moralis.io/moralis-dapp/web3-sdk/rate-limit).
 
 If your clients go above the allowed rate-limit you set they will see the following error:
 
-`Error 141: Too many requests to Web3API from this particular client, the clients needs to wait before sending more requests. This can be adjusted using Moralis.settings.setAPIRateLimit. Read More:` [`https://docs.moralis.io/moralis-server/web3-sdk/rate-limit`](https://docs.moralis.io/moralis-server/web3-sdk/rate-limit)`.`
+`Error 141: Too many requests to Web3API from this particular client, the clients needs to wait before sending more requests. This can be adjusted using Moralis.settings.setAPIRateLimit. Read More:` [`https://docs.moralis.io/moralis-dapp/web3-sdk/rate-limit`](https://docs.moralis.io/moralis-dapp/web3-sdk/rate-limit)`.`
 
 _When this error can happen:_
 

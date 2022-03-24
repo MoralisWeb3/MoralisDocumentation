@@ -17,7 +17,7 @@ It's also possible to access all of this functionality through REST API from you
 After you have initialized your application with `Moralis.start()`, it will automatically load the SolanaAPI module. You don't need to make any additional steps to start using SolanaAPI.
 
 {% hint style="info" %}
-[Initialize Moralis guide](https://docs.moralis.io/moralis-server/getting-started/connect-the-sdk#initialize-the-sdk)
+[Initialize Moralis guide](https://docs.moralis.io/moralis-dapp/getting-started/connect-the-sdk#initialize-the-sdk)
 {% endhint %}
 
 ### Supported Networks

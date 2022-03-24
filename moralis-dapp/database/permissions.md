@@ -24,7 +24,7 @@ This is great when you are developing your dapp as you can alter the structure o
 
 Of course, this kind of permission should be turned off when you go to production.
 
-[Read this](https://docs.moralis.io/moralis-server/database/security#client-class-creation) to disable Client Class Creation.
+[Read this](https://docs.moralis.io/moralis-dapp/database/security#client-class-creation) to disable Client Class Creation.
 
 ### Class Permissions
 
@@ -55,7 +55,7 @@ If your app has no use for files they should be completely disabled. You can dis
 ```javascript
 Moralis.Cloud.beforeSaveFile((request) => {
   throw "Not Allowed";
- });
+});
 ```
 
 You can do any custom logic you want in order to determine wether a file should be allowed to save or not. For example you can analyze the `request` object in order to see which user is trying to save the file.

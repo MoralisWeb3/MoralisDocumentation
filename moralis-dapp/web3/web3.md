@@ -15,7 +15,7 @@ Similar to `window.ethereum.enable()` but returns a promise that resolves to a `
 _Example_
 
 ```javascript
-// Get a (ethers.js) web3Provider 
+// Get a (ethers.js) web3Provider
 const web3Provider = await Moralis.enableWeb3();
 ```
 
@@ -44,7 +44,7 @@ import Web3 from "web3"; // Only when using npm/yarn
 
 // Enable web3 and get the initialized web3 instance from Web3.js
 await Moralis.enableWeb3();
-const web3Js = new Web3(Moralis.provider)
+const web3Js = new Web3(Moralis.provider);
 ```
 
 See for more info on how to use web3.js, in the [Web3.js docs](https://web3js.readthedocs.io)
@@ -56,13 +56,13 @@ See for more info on how to use web3.js, in the [Web3.js docs](https://web3js.re
 You can have access to the Ethers.js library, that Moralis is using:
 
 ```javascript
-const ethers = Moralis.web3Library
+const ethers = Moralis.web3Library;
 ```
 
 With this instance, you can use any methods from Ethers.js, for example:
 
 ```javascript
-const ethers = Moralis.web3Library
+const ethers = Moralis.web3Library;
 
 const daiAddress = "dai.tokens.ethers.eth";
 const daiAbi = [
@@ -70,12 +70,12 @@ const daiAbi = [
   "function symbol() view returns (string)",
   "function balanceOf(address) view returns (uint)",
   "function transfer(address to, uint amount)",
-  "event Transfer(address indexed from, address indexed to, uint amount)"
+  "event Transfer(address indexed from, address indexed to, uint amount)",
 ];
 const daiContract = new ethers.Contract(daiAddress, daiAbi, provider);
 
-const name = await daiContract.name()
-console.log(name)
+const name = await daiContract.name();
+console.log(name);
 // 'Dai Stablecoin'
 ```
 
@@ -83,7 +83,7 @@ See for more info on how to use Ethers.js, in the [Ethers.js docs](https://docs.
 
 ### Connectors
 
-You enable web3 with any connector (such as WalletConnect, Metamask, Network etc.), the [same way as with Moralis.authenticate](https://docs.moralis.io/moralis-server/users/crypto-login#ethereum-bsc-and-polygon-login)), with the `provider` option:
+You enable web3 with any connector (such as WalletConnect, Metamask, Network etc.), the [same way as with Moralis.authenticate](https://docs.moralis.io/moralis-dapp/users/crypto-login#ethereum-bsc-and-polygon-login)), with the `provider` option:
 
 ```javascript
 const web3 = await Moralis.enableWeb3({ provider: "walletconnect" });
@@ -109,11 +109,11 @@ Via `executeFunction`, you can execute read-only (view) functions, and write met
 
 Options:
 
-* contractAddress (required): A smart contract address
-* abi (required): Contract's or function ABI(should be provided as an array)
-* functionName (required): A function name
-* params (required): Parameters needed for your specific function
-* msgValue(optional): Number|String|BN|BigNumber. The value transferred for the transaction in wei.
+- contractAddress (required): A smart contract address
+- abi (required): Contract's or function ABI(should be provided as an array)
+- functionName (required): A function name
+- params (required): Parameters needed for your specific function
+- msgValue(optional): Number|String|BN|BigNumber. The value transferred for the transaction in wei.
 
 ### Read-only functions
 
@@ -121,7 +121,7 @@ For read-only functions, you will need to wait for the execution to be completed
 
 ```javascript
 const ABI = [
- {
+  {
     inputs: [],
     name: "message",
     outputs: [
@@ -146,17 +146,17 @@ const ABI = [
     outputs: [],
     stateMutability: "nonpayable",
     type: "function",
-  }
+  },
 ];
 
 const readOptions = {
   contractAddress: "0xe...56",
   functionName: "message",
-  abi: ABI
+  abi: ABI,
 };
 
 const message = await Moralis.executeFunction(readOptions);
-console.log(message)
+console.log(message);
 // -> "Hello World"
 ```
 
@@ -165,7 +165,7 @@ Requires an enabled web3 provider. Before executing the function, make sure that
 {% endhint %}
 
 {% hint style="info" %}
-You can recieve this information without an active web3 provider using our Web3API: [Moralis.Web3API.token.getAllowance()](https://docs.moralis.io/moralis-server/web3-sdk/token#gettokenallowance)
+You can recieve this information without an active web3 provider using our Web3API: [Moralis.Web3API.token.getAllowance()](https://docs.moralis.io/moralis-dapp/web3-sdk/token#gettokenallowance)
 {% endhint %}
 
 ### Example of calling a write contract method
@@ -174,7 +174,7 @@ An example of calling setting a message via a `setMessage` function.
 
 ```javascript
 const ABI = [
- {
+  {
     inputs: [],
     name: "message",
     outputs: [
@@ -199,7 +199,7 @@ const ABI = [
     outputs: [],
     stateMutability: "nonpayable",
     type: "function",
-  }
+  },
 ];
 
 const sendOptions = {
@@ -212,7 +212,7 @@ const sendOptions = {
 };
 
 const transaction = await Moralis.executeFunction(sendOptions);
-console.log(transaction.hash)
+console.log(transaction.hash);
 // --> "0x39af55979f5b690fdce14eb23f91dfb0357cb1a27f387656e197636e597b5b7c"
 
 // Wait until the transaction is confirmed
@@ -220,7 +220,7 @@ await transaction.wait();
 
 // Read new value
 const message = await Moralis.executeFunction(readOptions);
-console.log(message)
+console.log(message);
 // --> "Hello Moralis"
 ```
 
@@ -272,7 +272,7 @@ You will get back a [transaction response from Ethers.js](https://docs.ethers.io
 If you want to wait until the transaction has been confirmed by the chain, then you can call `transaction.wait()`. That will resolve into a [transaction receipt](https://docs.ethers.io/v5/api/providers/types/#providers-TransactionReceipt). This receipt will also include a log of all the events that have been fired in the transaction. For example here we wait for 3 confirmations:
 
 ```javascript
-const receipt = await transaction.wait(3)
+const receipt = await transaction.wait(3);
 ```
 
 **Example receipt**
@@ -317,12 +317,12 @@ const options = {
   contractAddress: "0xe...56",
   functionName: "swapNativeForTokens",
   abi: ABI,
-  msgValue: Moralis.Units.ETH("0.1")
+  msgValue: Moralis.Units.ETH("0.1"),
 };
 
 const transaction = await Moralis.executeFunction(options);
 const receipt = await transaction.wait();
-console.log(receipt)
+console.log(receipt);
 ```
 
 ### Example of creating reusable options
@@ -335,17 +335,26 @@ const options = {
   abi: ABI,
 };
 
-const symbol = await Moralis.executeFunction({ functionName: 'symbol', ...options })
-const decimals = await Moralis.executeFunction({ functionName: 'decimals', ...options })
-const name = await Moralis.executeFunction({ functionName: 'name', ...options })
+const symbol = await Moralis.executeFunction({
+  functionName: "symbol",
+  ...options,
+});
+const decimals = await Moralis.executeFunction({
+  functionName: "decimals",
+  ...options,
+});
+const name = await Moralis.executeFunction({
+  functionName: "name",
+  ...options,
+});
 ```
 
 ### Resolve transaction result
 
 `Moralis.executeFunction()` returns:
 
-* The return value if the function is read-only
-* A [transaction response](https://docs.ethers.io/v5/api/providers/types/#providers-TransactionResponse), if the function writes on-chain.
+- The return value if the function is read-only
+- A [transaction response](https://docs.ethers.io/v5/api/providers/types/#providers-TransactionResponse), if the function writes on-chain.
 
 You can resolve the transaction response into a receipt, by waiting until the transaction has been confirmed. For example, to wait for 3 confirmations:
 
@@ -355,21 +364,21 @@ const options = {
   functionName: "swapNativeForTokens",
   abi: ABI,
   msgValue: Moralis.Units.ETH("0.1"),
-}
-const transaction = await Moralis.executeFunction(options)
-const result = await transaction.wait()
+};
+const transaction = await Moralis.executeFunction(options);
+const result = await transaction.wait();
 ```
 
 ## Events
 
 There are several events, that you can listen to on Moralis, in order to check the web3 connection of the user:
 
-* onWeb3Enabled
-* onWeb3Deactivated
-* onChainChanged
-* onAccountChanged
-* onConnect (fired from the EIP1193 provider)
-* onDisconnect (fired from the EIP1193 provider)
+- onWeb3Enabled
+- onWeb3Deactivated
+- onChainChanged
+- onAccountChanged
+- onConnect (fired from the EIP1193 provider)
+- onDisconnect (fired from the EIP1193 provider)
 
 ### Moralis.onWeb3Enabled()
 
@@ -378,11 +387,11 @@ Listen to events when a user connects to a chain (via `Moralis.authenticate()` /
 ```javascript
 // Subscribe to onWeb3Enabled events
 const unsubscribe = Moralis.onWeb3Enabled((result) => {
-  console.log(result)
+  console.log(result);
 });
 
 // Unsubscribe to onWeb3Enabled events
-unsubscribe()
+unsubscribe();
 ```
 
 **Result object**
@@ -404,19 +413,21 @@ Listen to events when a user disconnects to a chain (via `Moralis.deactivateWeb3
 ```javascript
 // Subscribe to onWeb3Deactivated events
 const unsubscribe = Moralis.onWeb3Deactivated((result) => {
-  console.log(result)
+  console.log(result);
 });
 
 // Unsubscribe to onWeb3Deactivated events
-unsubscribe()
+unsubscribe();
 ```
 
 **Result object**
 
 ```javascript
 {
-  connector: {} // the connector instance
-  provider: {} // the EIP1193-provider, used to connect
+  connector: {
+  } // the connector instance
+  provider: {
+  } // the EIP1193-provider, used to connect
 }
 ```
 
@@ -427,12 +438,12 @@ Listen to events when the user changes a chain, after web3 has been enabled.
 ```javascript
 // Subscribe to onChainChanged events
 const unsubscribe = Moralis.onChainChanged((chain) => {
-  console.log(chain)
+  console.log(chain);
   // returns the new chain --> ex. "0x1"
 });
 
 // Unsubscribe to onChainChanged events
-unsubscribe()
+unsubscribe();
 ```
 
 ### Moralis.onAccountChanged()
@@ -442,12 +453,12 @@ Listen to events when the user changes an account, after web3 has been enabled.
 ```javascript
 // Subscribe to onAccountChanged events
 const unsubscribe = Moralis.onAccountChanged((chain) => {
-  console.log(chain)
+  console.log(chain);
   // returns the new account --> ex. "0x1a2b3c4d..."
 });
 
 // Unsubscribe to onAccountChanged events
-unsubscribe()
+unsubscribe();
 ```
 
 ### Moralis.onConnect()
@@ -460,18 +471,18 @@ From [the specification](https://eips.ethereum.org/EIPS/eip-1193):
 
 > The Provider emits connect when it:
 >
-> * first connects to a chain after being initialized.
-> * first connects to a chain, after the disconnect event was emitted.
+> - first connects to a chain after being initialized.
+> - first connects to a chain, after the disconnect event was emitted.
 
 ```javascript
 // Subscribe to onConnect events
 const unsubscribe = Moralis.onConnect((provider) => {
-  console.log(provider)
+  console.log(provider);
   // returns the EIP-1193 provider
 });
 
 // Unsubscribe to onConnect events
-unsubscribe()
+unsubscribe();
 ```
 
 ### Moralis.onDisconnect()
@@ -487,18 +498,18 @@ From [the specification](https://eips.ethereum.org/EIPS/eip-1193):
 ```javascript
 // Subscribe to onDisconnect events
 const unsubscribe = Moralis.onDisconnect((error) => {
-  console.log(error)
+  console.log(error);
   // returns a ProviderRpcError
 });
 
 // Unsubscribe to onDisconnect events
-unsubscribe()
+unsubscribe();
 ```
 
 To listen to these events you just need to call `Moralis.onXXX`. For example:
 
 ```javascript
-const unsubscribe = Moralis.onAccountChanged(function(account) {
+const unsubscribe = Moralis.onAccountChanged(function (account) {
   console.log(account);
 });
 // "0x1a2b3c4d..."
@@ -525,17 +536,17 @@ Other wallets have similar implementations, please look at the documentation of 
 
 Link (unlink) an address to the current user.
 
-* link(address)
-* unlink(address)
+- link(address)
+- unlink(address)
 
 The user may have multiple addresses they wish to associate with their profile. This can be done with the `link` function after the user has been authenticated.
 
 ```javascript
 Moralis.onAccountChanged(async function (account) {
-  const confirmed = confirm('Link this address to your account?');
+  const confirmed = confirm("Link this address to your account?");
   if (confirmed) {
     await Moralis.link(account);
-    alert('Address added!');
+    alert("Address added!");
   }
 });
 ```
@@ -553,7 +564,7 @@ Also, see the [Crypto Login](../users/crypto-login.md) page for more info.
 The message the user sees when links an address to the current user can be changed by providing the `signingMessage` option:
 
 ```javascript
-await Moralis.link(accounts[0], { signingMessage: "Custom Linking Message"} );
+await Moralis.link(accounts[0], { signingMessage: "Custom Linking Message" });
 ```
 
 ## ensureWeb3IsInstalled
@@ -563,7 +574,7 @@ Detect if web3 provider is activated.
 Returns: `True` or `False`
 
 ```javascript
-const isWeb3Active = Moralis.ensureWeb3IsInstalled()
+const isWeb3Active = Moralis.ensureWeb3IsInstalled();
 
 if (isWeb3Active) {
   console.log("Activated");
@@ -577,13 +588,13 @@ if (isWeb3Active) {
 Returns details of the connector or the connector type, that is used to authenticate or enable web3:
 
 ```javascript
-const connectorType =  Moralis.Web3.connectorType;
-if(connectorType === 'injected'){
-  console.log("Metamask or an injected provider is used")
+const connectorType = Moralis.Web3.connectorType;
+if (connectorType === "injected") {
+  console.log("Metamask or an injected provider is used");
 }
 
 const connector = Moralis.Web3.connector;
-console.log(connector)
+console.log(connector);
 ```
 
 ## chainId
@@ -612,11 +623,11 @@ Function to change the current network
 
 #### Options:
 
-* `chain`(required): The chain id to switch to. Accepts values in numbers or in hex strings. Valid values are listed on the [intro page in the Transactions and Balances section](https://docs.moralis.io/moralis-server/web3-sdk/intro#supported-chains). Examples: `56`, `"0x38"`
+- `chain`(required): The chain id to switch to. Accepts values in numbers or in hex strings. Valid values are listed on the [intro page in the Transactions and Balances section](https://docs.moralis.io/moralis-dapp/web3-sdk/intro#supported-chains). Examples: `56`, `"0x38"`
 
 ```javascript
 const chainId = "0x1"; //Ethereum Mainnet
-const chainIdHex = await Moralis.switchNetwork(chainId); 
+const chainIdHex = await Moralis.switchNetwork(chainId);
 ```
 
 {% hint style="info" %}
@@ -631,12 +642,12 @@ The function for adding a new network to the wallet. You can find the network co
 
 #### Options:
 
-* `chainid`(required): Network Chain Id
-* `chainName`(required): Network name
-* `currencyName`(required): Name of native currency
-* `currencySymbol`(required): Currency Symbol
-* `rpcUrl`(required): New RPC URL
-* `blockExplorerUrl`(required): BLock Explorer URL
+- `chainid`(required): Network Chain Id
+- `chainName`(required): Network name
+- `currencyName`(required): Name of native currency
+- `currencySymbol`(required): Currency Symbol
+- `rpcUrl`(required): New RPC URL
+- `blockExplorerUrl`(required): BLock Explorer URL
 
 ```javascript
 const chainId = 43114;
@@ -647,10 +658,10 @@ const rpcUrl = "https://api.avax.network/ext/bc/C/rpc";
 const blockExplorerUrl = "https://cchain.explorer.avax.network/";
 
 await Moralis.addNetwork(
-  chainId, 
-  chainName, 
-  currencyName, 
-  currencySymbol, 
+  chainId,
+  chainName,
+  currencyName,
+  currencySymbol,
   rpcUrl,
   blockExplorerUrl
 );

@@ -6,7 +6,7 @@ Returns SOL balance of an address.
 
 #### Options:
 
-- `network`: The network cluster to get data from. Valid values are listed on the [intro page in Supported Networks section](https://docs.moralis.io/moralis-server/solana-sdk/intro#supported-networks). Default value `mainnet`.
+- `network`: The network cluster to get data from. Valid values are listed on the [intro page in Supported Networks section](https://docs.moralis.io/moralis-dapp/solana-sdk/intro#supported-networks). Default value `mainnet`.
 - `address`: A user address (i.e. `6XU36wCxWobLx5Rtsb58kmgAJKVYmMVqy4SHXxENAyAe`). If specified, the user attached to the query is ignored and the address will be used instead.
 
 {% tabs %}
@@ -80,7 +80,7 @@ Returns SPL token balance of an address.
 
 #### Options:
 
-- `network`: The network cluster to get data from. Valid values are listed on the [intro page in Supported Networks section](https://docs.moralis.io/moralis-server/solana-sdk/intro#supported-networks). Default value `mainnet`.
+- `network`: The network cluster to get data from. Valid values are listed on the [intro page in Supported Networks section](https://docs.moralis.io/moralis-dapp/solana-sdk/intro#supported-networks). Default value `mainnet`.
 - `address`: A user address (i.e. `HsXZnAba2...`). If specified, the user attached to the query is ignored and the address will be used instead.
 
 {% tabs %}
@@ -161,7 +161,7 @@ Returns SPL NFT balance of an address.
 
 #### Options:
 
-- `network`: The network cluster to get data from. Valid values are listed on the [intro page in Supported Networks section](https://docs.moralis.io/moralis-server/solana-sdk/intro#supported-networks). Default value `mainnet`.
+- `network`: The network cluster to get data from. Valid values are listed on the [intro page in Supported Networks section](https://docs.moralis.io/moralis-dapp/solana-sdk/intro#supported-networks). Default value `mainnet`.
 - `address`: A user address (i.e. `HsXZnAba2...`). If specified, the user attached to the query is ignored and the address will be used instead.
 
 {% tabs %}
@@ -242,7 +242,7 @@ Returns the portfolio (SOL balance, SPL token blanace, SPL NFT balance) of an ad
 
 #### Options:
 
-- `network`: The network cluster to get data from. Valid values are listed on the [intro page in Supported Networks section](https://docs.moralis.io/moralis-server/solana-sdk/intro#supported-networks). Default value `mainnet`.
+- `network`: The network cluster to get data from. Valid values are listed on the [intro page in Supported Networks section](https://docs.moralis.io/moralis-dapp/solana-sdk/intro#supported-networks). Default value `mainnet`.
 - `address`: A user address (i.e. `HsXZnAba2...`). If specified, the user attached to the query is ignored and the address will be used instead.
 
 {% tabs %}

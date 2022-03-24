@@ -50,11 +50,11 @@ Now you will see your server in your dashboard, and we can move on and create a 
 
 The server displays several important **indicators** as shown in the image above:
 
-* `Network`: Network traffic per second
-* `CPU`: Server's CPU Usage
-* `RAM`: Server's RAM Usage
-* `DISK`: Server's Disk Usage
-* `Number of Users`: The number of users that has been authenticated in the server
+- `Network`: Network traffic per second
+- `CPU`: Server's CPU Usage
+- `RAM`: Server's RAM Usage
+- `DISK`: Server's Disk Usage
+- `Number of Users`: The number of users that has been authenticated in the server
 
 ## Migration from Legacy to Nitro Server
 
@@ -64,7 +64,7 @@ Keep in mind that once the coreservices plugin has been added, it can't be remov
 
 ![](<../../.gitbook/assets/Screenshot 2022-02-26 at 20.52.10.png>)
 
-Moralis Nitro server has a number of breaking changes that that are listed [here](https://forum.moralis.io/t/moralis-nitro-is-out/9267). One **important** changes when migrating from legacy to Nitro would be the removal of `TokenBalance` and `NFTOwners` tables from the database. This means once the server has been migrated, these tables will disappear, therefore you should instead replace any queries to these tables with some of our available [Web3APIs](https://docs.moralis.io/moralis-server/web3-sdk) to do the same job:
+Moralis Nitro server has a number of breaking changes that that are listed [here](https://forum.moralis.io/t/moralis-nitro-is-out/9267). One **important** changes when migrating from legacy to Nitro would be the removal of `TokenBalance` and `NFTOwners` tables from the database. This means once the server has been migrated, these tables will disappear, therefore you should instead replace any queries to these tables with some of our available [Web3APIs](https://docs.moralis.io/moralis-dapp/web3-sdk) to do the same job:
 
-* `TokenBalance` -> [`getTokenBalances`](https://docs.moralis.io/moralis-server/web3-sdk/account#gettokenbalances)
-* `NFTOwners` -> [`getNFTOwners`](https://docs.moralis.io/moralis-server/web3-sdk/token#getnftowners)
+- `TokenBalance` -> [`getTokenBalances`](https://docs.moralis.io/moralis-dapp/web3-sdk/account#gettokenbalances)
+- `NFTOwners` -> [`getNFTOwners`](https://docs.moralis.io/moralis-dapp/web3-sdk/token#getnftowners)
