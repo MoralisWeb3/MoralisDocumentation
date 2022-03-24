@@ -5,11 +5,11 @@ root: ./
   summary: SUMMARY.md​
 
 redirects:
-  - moralis-server/getting-started: moralis-dapp/getting-started/README.md
-  - moralis-server/getting-started/create-a-moralis-server: ./moralis-dapp/getting-started/create-a-moralis-server.md
-  - moralis-server/connect-the-sdk: ./moralis-dapp/connect-the-sdk/README.md
-  - moralis-server/connect-the-sdk/connect-with-js: ./moralis-dapp/connect-the-sdk/connect-with-js.md
-  - moralis-server/connect-the-sdk/connect-with-react: ./moralis-dapp/connect-the-sdk/connect-with-react.md
-  - moralis-server/connect-the-sdk/connect-using-node: ./moralis-dapp/connect-the-sdk/connect-using-node.md
-  - moralis-server/connect-the-sdk/connect-with-unity: ./moralis-dapp/connect-the-sdk/connect-with-unity.md
-  - moralis-server/connect-the-sdk/boilerplate-projects: ./moralis-dapp/connect-the-sdk/boilerplate-projects.md
+  moralis-server/getting-started: moralis-dapp/getting-started/README.md
+  moralis-server/getting-started/create-a-moralis-server: moralis-dapp/getting-started/create-a-moralis-server.md
+  moralis-server/connect-the-sdk: moralis-dapp/connect-the-sdk/README.md
+  moralis-server/connect-the-sdk/connect-with-js: moralis-dapp/connect-the-sdk/connect-with-js.md
+  moralis-server/connect-the-sdk/connect-with-react: moralis-dapp/connect-the-sdk/connect-with-react.md
+  moralis-server/connect-the-sdk/connect-using-node: moralis-dapp/connect-the-sdk/connect-using-node.md
+  moralis-server/connect-the-sdk/connect-with-unity: moralis-dapp/connect-the-sdk/connect-with-unity.md
+  moralis-server/connect-the-sdk/boilerplate-projects: moralis-dapp/connect-the-sdk/boilerplate-projects.md
