@@ -3,3 +3,6 @@ root: ./
 ​structure:
   readme: README.md
   summary: SUMMARY.md​
+
+redirects:
+  - moralis-server/getting-started/README.md: moralis-dapp/getting-started/README.md
