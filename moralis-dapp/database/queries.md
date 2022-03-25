@@ -217,7 +217,7 @@ query.first().then(function(result) {
 });
 ```
 
-Remember to make sure that addresses are in lowercase when making query constraints against an address column as described in the casing subheading in the [Web3 section](../web3/web3.md)
+Remember to make sure that addresses are in lowercase when making query constraints against an address column as described in the casing subheading in the [Web3 section](broken-reference)
 
 ## Queries on Array Values
 

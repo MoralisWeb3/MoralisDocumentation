@@ -34,12 +34,12 @@ Let's start by learning how to login user via their crypto wallet - no matter wh
 
 ### Manage Users
 
-{% content-ref url="merging-addresses.md" %}
-[merging-addresses.md](merging-addresses.md)
+{% content-ref url="broken-reference" %}
+[Broken link](broken-reference)
 {% endcontent-ref %}
 
-{% content-ref url="current-user.md" %}
-[current-user.md](current-user.md)
+{% content-ref url="broken-reference" %}
+[Broken link](broken-reference)
 {% endcontent-ref %}
 
 {% content-ref url="delete-user.md" %}

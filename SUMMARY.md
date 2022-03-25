@@ -50,7 +50,7 @@
   * [😼 NFT API](moralis-dapp/web3-sdk/nft-api.md)
   * [Rate limit](moralis-dapp/web3-sdk/rate-limit.md)
 * [☀ Solana API](moralis-dapp/solana-sdk/README.md)
-  * [Intro](moralis-dapp/solana-sdk/intro.md)
+  * [Supported Networks](moralis-dapp/solana-sdk/supported-networks.md)
   * [Account](moralis-dapp/solana-sdk/account.md)
   * [NFT](moralis-dapp/solana-sdk/nft.md)
 * [♻ Automatic Sync](moralis-dapp/automatic-transaction-sync/README.md)

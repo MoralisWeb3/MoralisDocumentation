@@ -179,7 +179,7 @@ monster.save({
 
 #### IMPORTANT SECURITY NOTE
 
-By default the classes you create will have no permissions set meaning that anyone can write data into the class and read data from the class. Please see [Security Docs](security.md) about securing your classes and adding permissions.
+By default the classes you create will have no permissions set meaning that anyone can write data into the class and read data from the class. Please see [Security Docs](broken-reference) about securing your classes and adding permissions.
 
 #### SAVING NESTED OBJECTS
 
@@ -333,7 +333,7 @@ monster.save();
 
 You can also increment by any amount by passing in a second argument to `increment`. When no amount is specified, 1 is used by default.
 
-#### ARRAYS <a href="arrays" id="arrays"></a>
+#### ARRAYS <a href="#arrays" id="arrays"></a>
 
 To help with storing array data, there are three operations that can be used to automatically change an array associated with a given key:
 
@@ -381,7 +381,7 @@ Please note that the use of object.set(null) to remove a field from an object is
 
 Objects may have relationships with other objects. For example, in a blogging application, a `Post` object may have many `Comment` objects. Moralis supports all kinds of relationships, including one-to-one, one-to-many, and many-to-many.
 
-#### ONE-TO-ONE AND ONE-TO-MANY RELATIONSHIPS <a href="one-to-one-and-one-to-many-relationships" id="one-to-one-and-one-to-many-relationships"></a>
+#### ONE-TO-ONE AND ONE-TO-MANY RELATIONSHIPS <a href="#one-to-one-and-one-to-many-relationships" id="one-to-one-and-one-to-many-relationships"></a>
 
 One-to-one and one-to-many relationships are modeled by saving a `Moralis.Object` as a value in the other object. For example, each `Comment` in a blogging app might correspond to one `Post`.
 
@@ -425,7 +425,7 @@ await post.fetch();
 const title = post.get("title");
 ```
 
-#### MANY-TO-MANY RELATIONSHIPS <a href="many-to-many-relationships" id="many-to-many-relationships"></a>
+#### MANY-TO-MANY RELATIONSHIPS <a href="#many-to-many-relationships" id="many-to-many-relationships"></a>
 
 Many-to-many relationships are modeled using `Moralis.Relation`. This works similar to storing an array of `Moralis.Object`'s in a key, except that you don’t need to fetch all of the objects in a relation at once. In addition, this allows `Moralis.Relation` to scale to many more objects than the array of `Moralis.Object` approach. For example, a `User` may have many `Posts` that she might like. In this case, you can store the set of `Posts` that a `User` likes using `relation`. In order to add a `Post` to the “likes” list of the `User`, you can do:
 
