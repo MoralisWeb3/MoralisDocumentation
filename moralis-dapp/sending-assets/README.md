@@ -16,8 +16,8 @@ Moralis SDK removes all this complexity. **Transferring assets with Moralis SDK 
 [transfer-eth.md](transfer-eth.md)
 {% endcontent-ref %}
 
-{% content-ref url="transfer-tokens.md" %}
-[transfer-tokens.md](transfer-tokens.md)
+{% content-ref url="broken-reference" %}
+[Broken link](broken-reference)
 {% endcontent-ref %}
 
 {% content-ref url="transfer-nfts.md" %}

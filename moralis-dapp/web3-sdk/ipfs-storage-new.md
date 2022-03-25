@@ -4,21 +4,16 @@ description: Upload multiple files and place them in a folder directory (ERC1155
 
 # 🏪 Web3API.storage (IPFS)
 
-{% embed url="https://www.youtube.com/watch?v=VglTdr0n5ZQ" %}
-**Bulk Mint NFTs on OpenSea Using IPFS folders (ERC1155 Compliant)**
-{% endembed %}
-
 ## 🔥 uploadFolder (new)
 
 Uploads multiple files and place them in a folder directory. Returns path (asynchronous).
 
 #### Options:
 
-- `abi`(required): Array of JSON and Base64 Supported
+* `abi`(required): Array of JSON and Base64 Supported
 
 {% tabs %}
 {% tab title="JS" %}
-
 ```javascript
 const options = {
   abi: [
@@ -31,11 +26,9 @@ const options = {
 };
 const path = await Moralis.Web3API.storage.uploadFolder(options);
 ```
-
 {% endtab %}
 
 {% tab title="React" %}
-
 ```javascript
 import React from "react";
 import { useMoralisWeb3Api } from "react-moralis";
@@ -56,11 +49,9 @@ const uploadFolder = async () => {
   console.log(path);
 };
 ```
-
 {% endtab %}
 
 {% tab title="curl" %}
-
 ```bash
 curl -X 'POST' \
   'https://deep-index.moralis.io/api/v2/ipfs/uploadFolder' \
@@ -74,11 +65,9 @@ curl -X 'POST' \
   }
 ]'
 ```
-
 {% endtab %}
 
 {% tab title="Unity" %}
-
 ```csharp
 using System.Collections.Generic;
 using Moralis.Web3Api.Models;
@@ -104,7 +93,6 @@ using MoralisWeb3ApiSdk;
       }
   }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -117,3 +105,9 @@ using MoralisWeb3ApiSdk;
   },
 ];
 ```
+
+### Tutorial
+
+{% embed url="https://www.youtube.com/watch?v=VglTdr0n5ZQ" %}
+**Bulk Mint NFTs on OpenSea Using IPFS folders (ERC1155 Compliant)**
+{% endembed %}

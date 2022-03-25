@@ -22,7 +22,7 @@ Already installed plugins will have an "Installed" badge.‌
 
 In the Moralis Plugin Store, you can find a bunch of plugins that will make your dApp development easier. This tab provides information about the plugin author, its purpose and rating.
 
-![](<../../.gitbook/assets/image (101).png>)
+![](<../../.gitbook/assets/image (102).png>)
 
 If you want to know more details about the plugin or install it click on the "Read More" button.
 

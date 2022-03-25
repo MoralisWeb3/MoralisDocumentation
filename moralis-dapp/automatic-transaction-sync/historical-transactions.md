@@ -13,8 +13,8 @@ description: >-
 
 You can get all historical transactions and listen to new transactions in real-time. It requires the following information:
 
-* `ChainId `(required): The chain to sync
-* `Address `(required): The address you will listen to for this event.
+* `ChainId` (required): The chain to sync
+* `Address` (required): The address you will listen to for this event.
 * `Sync_historical` (optional): Sync Historical Data option. Default value `true`
 
 ![](<../../.gitbook/assets/image (115).png>)
@@ -23,15 +23,15 @@ You can get all historical transactions and listen to new transactions in real-t
 
 ### Historical Event Limit
 
-If a sync job is created that would result in retrieving 500k or more historical events, then the `"Sync_historical (Optional)`option will be disabled and no historical data will be saved. It is possible to contact support to upgrade your account to enable saving it anyway but think hard about whether it's actually necessary before doing so. It's possible to handle the events in real-time without saving the data to the database.&#x20;
+If a sync job is created that would result in retrieving 500k or more historical events, then the `"Sync_historical (Optional)`option will be disabled and no historical data will be saved. It is possible to contact support to upgrade your account to enable saving it anyway but think hard about whether it's actually necessary before doing so. It's possible to handle the events in real-time without saving the data to the database.
 
 ## Monitoring Authenticated Users
 
 Moralis Server syncs all transactions and balances for users that at some point authenticated with your app in real-time. You don't have to do anything to enable this feature as it's enabled by default in all Moralis Servers.
 
-As always we want you to focus on the user experience and leave this mundane and complex task of syncing blockchain data to us [🧙](https://emojipedia.org/mage/).&#x20;
+As always we want you to focus on the user experience and leave this mundane and complex task of syncing blockchain data to us [🧙](https://emojipedia.org/mage/).
 
-Moralis Server will in real-time insert and update data into your database so that you can get all the latest transactions and balances of your users with a simple database query.&#x20;
+Moralis Server will in real-time insert and update data into your database so that you can get all the latest transactions and balances of your users with a simple database query.
 
 {% embed url="https://www.youtube.com/watch?v=Z8Ik3TyubvU" %}
 In this video we demonstrate this functionality.
@@ -69,7 +69,7 @@ See the [Cloud Functions](../cloud-code/cloud-functions.md) and [Live Query](../
 
 ### Historical Transaction Limit
 
-If an address is watched that would result in retrieving 500k or more historical transactions, then the `Sync_historical` option will be disabled and no historical data will be saved. It is possible to contact support to upgrade your account to enable saving it anyway but think hard about whether it's actually necessary before doing so. It's possible to handle new transactions in real-time without saving the data to the database. You can also call the [Deep Index API](broken-reference) to selectively query the historical data. See below for more details.
+If an address is watched that would result in retrieving 500k or more historical transactions, then the `Sync_historical` option will be disabled and no historical data will be saved. It is possible to contact support to upgrade your account to enable saving it anyway but think hard about whether it's actually necessary before doing so. It's possible to handle new transactions in real-time without saving the data to the database. You can also call the [Deep Index API](../../moralis-server/automatic-transaction-sync/broken-reference/) to selectively query the historical data. See below for more details.
 
 ### Watch Address From Code
 
@@ -125,11 +125,11 @@ Please remember that disabling historic sync only means that your database won't
 
 You can still get all historic data using the [Web3 API functions](../web3-sdk/). Web3 API are completely independent from the contents of your database.
 
-Therefore please check out the features of the Web3 API and if the historical endpoints in the Web3 API are enough for your use-case then you should disable historic sync in your server as you won't use it.&#x20;
+Therefore please check out the features of the Web3 API and if the historical endpoints in the Web3 API are enough for your use-case then you should disable historic sync in your server as you won't use it.
 
 ### When should you not disable historic sync?
 
-In case you need to run some specific queries that the Web3 API doesn't offer you need to have historic sync enabled so that you can run custom queries on the historical data using the [Database Queries](../database/queries.md) Moralis offers.&#x20;
+In case you need to run some specific queries that the Web3 API doesn't offer you need to have historic sync enabled so that you can run custom queries on the historical data using the [Database Queries](../database/queries.md) Moralis offers.
 
 ### Smart Contract Historical Events Will Still Work
 
@@ -143,7 +143,7 @@ In this section we will give concrete optimisation examples that can save you a 
 
 ### History and activity related only to your contract
 
-Let's say you have an NFT contract and you only care about the user history and user real-time transactions that are related to that contract.&#x20;
+Let's say you have an NFT contract and you only care about the user history and user real-time transactions that are related to that contract.
 
 In this case you should disable historic sync as explained above and instead just add a smart [contract event sync](historical-transactions.md#sync-and-watch-address) for your NFT token contract. This way you will only be keeping history and watching real time transactions for your smart contract and nothing else.
 

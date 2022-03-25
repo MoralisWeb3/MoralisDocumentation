@@ -6,13 +6,29 @@ description: >-
 
 # ☀ Solana API
 
-Moralis Solana API is a powerful way of getting all kinds of blockchain data. In the following topics, you can explore the capabilities of Moralis Solana API in detail.
+### Configuring SolanaAPI
 
-Topics are divided into categories, depending on what is the main parameter for obtaining information:
+After you have initialized your application with `Moralis.start()`, it will automatically load the SolanaAPI module. Please follow the below guide before proceeding:
 
-* Account
-* NFT
+{% content-ref url="../getting-started/create-a-moralis-server.md" %}
+[create-a-moralis-server.md](../getting-started/create-a-moralis-server.md)
+{% endcontent-ref %}
 
-Most of the information in this section will contain methods for getting data from blockchains using our SDK.
+### Solana SDK
 
-Infromation about how to fetch data using `REST API` is described in the "REST API" topic. It has similar functionality as SDK.
+You find all of these powerful functions in the `Moralis.SolanaAPI` namespace in the Moralis SDK.
+
+The namespace is divided into two categories, depending on what is the main parameter for obtaining information:
+
+{% content-ref url="account.md" %}
+[account.md](account.md)
+{% endcontent-ref %}
+
+{% content-ref url="nft.md" %}
+[nft.md](nft.md)
+{% endcontent-ref %}
+
+{% hint style="info" %}
+It's also possible to access all of this functionality through REST API from your own backend. Information about how to fetch data using `REST API` is described in the [REST API](../web3-sdk/moralis-web3-api-rest.md) topic. It has similar functionality as SDK.
+{% endhint %}
+
