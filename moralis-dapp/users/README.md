@@ -9,7 +9,7 @@ At the core of many apps, it is of great importance that users can access their 
 With this class, you'll be able to add user account functionality to your app.
 
 {% hint style="success" %}
-`Moralis.User` is a subclass of  [`Moralis.Object`](../database/objects.md), and has all the same features:
+`Moralis.User` is a subclass of [`Moralis.Object`](../database/objects.md), and has all the same features:
 
 1. Flexible schema
 2. Automatic persistence
@@ -18,7 +18,7 @@ With this class, you'll be able to add user account functionality to your app.
 
 All the methods that are on [`Moralis.Object`](../database/objects.md) also exist in `Moralis.User`. The difference is that `Moralis.User` has some special additions specific to user accounts.
 
-Authentication of users can be done in different ways. You can authenticate via an [email login](email-login/) or  via a [crypto wallet](crypto-login.md).
+Authentication of users can be done in different ways. You can authenticate via an [email login](email-login/) or via a [crypto wallet](crypto-login.md).
 
 Let's start by learning how to login user via their crypto wallet - no matter which wallet or blockchain they use! 🤯
 
@@ -34,12 +34,12 @@ Let's start by learning how to login user via their crypto wallet - no matter wh
 
 ### Manage Users
 
-{% content-ref url="broken-reference" %}
-[Broken link](broken-reference)
+{% content-ref url="merging-addresses.md" %}
+[merging-addresses.md](merging-addresses.md)
 {% endcontent-ref %}
 
-{% content-ref url="broken-reference" %}
-[Broken link](broken-reference)
+{% content-ref url="current-user.md" %}
+[current-user.md](current-user.md)
 {% endcontent-ref %}
 
 {% content-ref url="delete-user.md" %}
