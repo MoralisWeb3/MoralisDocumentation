@@ -1,7 +1,8 @@
 ---
 description: >-
-  Moralis Solana API is a powerful way of getting all kinds of Solana blockchain data.
-  You can see all of the different functions documented in the sections below.
+  Moralis Solana API is a powerful way of getting all kinds of Solana blockchain
+  data. You can see all of the different functions documented in the sections
+  below.
 ---
 
 # Intro
@@ -14,10 +15,10 @@ It's also possible to access all of this functionality through REST API from you
 
 ### Configuring SolanaAPI
 
-After you have initialized your application with `Moralis.start()`, it will automatically load the SolanaAPI module. You don't need to make any additional steps to start using SolanaAPI.
+After you have initialized your application with `Moralis.start()`, it will automatically load the SolanaAPI module. You don't need to take any additional steps to start using SolanaAPI.
 
 {% hint style="info" %}
-[Initialize Moralis guide](https://docs.moralis.io/moralis-dapp/getting-started/connect-the-sdk#initialize-the-sdk)
+[Initialize Moralis guide](../getting-started/create-a-moralis-server.md)
 {% endhint %}
 
 ### Supported Networks
