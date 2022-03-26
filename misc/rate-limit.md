@@ -95,32 +95,45 @@ See the tables below for details about Speedy Node methods and API Endpoints tha
 
 ### API Requests
 
-| Endpoint                                    | Cost        |
+| Path                                        | Weight      |
 | ------------------------------------------- | ----------- |
 | All endpoints not on this list              | 1 request   |
+| /info/endpointWeights                       | 0 request   |
+| /block/{block_number_or_hash}               | 1 request   |
+| /{address}                                  | 1 request   |
+| /{address}/balance                          | 1 request   |
+| /erc20/metadata                             | 1 request   |
+| /erc20/metadata/symbols                     | 1 request   |
+| /erc20/{address}/allowance                  | 1 request   |
+| /resolve/{domain}                           | 1 request   |
+| /{pair_address}/reserves                    | 1 request   |
+| /resolve/{address}/reverse                  | 1 request   |
+| /web3/version                               | 1 request   |
 | /{address}/events                           | 2 requests  |
 | /{address}/erc20/transfers                  | 2 requests  |
+| /erc20/{address}/transfers                  | 2 requests  |
 | /block/{block_number_or_hash}/nft/transfers | 2 requests  |
 | /nft/{address}/{token_id}                   | 2 requests  |
-| /nft/{address}/{token_id}/owners            | 2 requests  |
 | /nft/{address}/{token_id}/transfers         | 2 requests  |
 | /{address}/logs                             | 2 requests  |
-| /transaction/{transaction_hash}             | 2 requests  |
 | /{address}/function                         | 2 requests  |
+| /{address}                                  | 2 requests  |
 | /erc20/{address}/price                      | 3 requests  |
-| /nft/{address}/lowestprice                  | 4 requests  |
 | /nft/{address}/trades                       | 4 requests  |
+| /nft/{address}/lowestprice                  | 4 requests  |
 | /{address}/erc20                            | 5 requests  |
-| /{address}/nft/{token_address}              | 5 requests  |
+| /nft/search                                 | 5 requests  |
+| /{address}/nft                              | 5 requests  |
 | /{address}/nft/transfers                    | 5 requests  |
+| /{address}/nft/{token_address}              | 5 requests  |
+| /nft/{address}                              | 5 requests  |
 | /nft/{address}/transfers                    | 5 requests  |
 | /nft/{address}/owners                       | 5 requests  |
-| /nft/{address}                              | 5 requests  |
 | /nft/{address}/metadata                     | 5 requests  |
-| /nft/transfers                              | 5 requests  |
-| /nft/search                                 | 5 requests  |
 | /nft/{address}/sync                         | 5 requests  |
-| uploadIPFSFolder                            | 25 requests |
+| /nft/{address}/{token_id}/metadata/resync   | 5 requests  |
+| /nft/transfers                              | 5 requests  |
+| /nft/{address}/{token_id}/owners            | 20 requests |
 
 Note: /nft/{address}/sync has 5 requests but it will use 60 requests from throttle limit,
 for example, you could get this response when using this endpoing once:
