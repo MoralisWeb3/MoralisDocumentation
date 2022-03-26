@@ -15,38 +15,40 @@ No. The app ID ("Application ID") is meant to be public and is included in all r
     Each dapp by default welcomes any user to sign up. If you have app id and server url you can try to sign up as a user.&#x20;
 
     To control how new users are created you can use use a "[beforeSave" trigger](https://docs.moralis.io/triggers#beforesave) on the user collection.
+
 2.  **Try to call Cloud Functions**.&#x20;
 
     Think of Cloud Functions as endpoints in an API.&#x20;
 
-    Anyone can try calling them. You can setup [Roles](../moralis-server/database/security.md) in your dapp in order to control which Cloud Functions can be called by which users.&#x20;
+    Anyone can try calling them. You can setup [Roles](../moralis-dapp/database/security.md) in your dapp in order to control which Cloud Functions can be called by which users.&#x20;
 
     For example you can ensure that some Cloud Functions can be called by anyone - even if they don't have an account in your dapp.&#x20;
 
     Then you can specify that some other Cloud Functions can only called by registered users.
 
     And finally you can specify that some specific Cloud Functions can only be called by registered users with a specific role. See the [Security docs](https://docs.moralis.io/security) for more details.
+
 3.  **Try to add new Classes or Columns to the database.**&#x20;
 
     By default Moralis allows clients to create new Classes in the database and to add columns to existing Classes. This speeds up the development a lot.&#x20;
 
     Of course this should be disabled when you go to production.
 
-    Read here about disabling [Client Class Creation](https://docs.moralis.io/moralis-server/database/security#client-class-creation).
+    Read here about disabling [Client Class Creation](https://docs.moralis.io/moralis-dapp/database/security#client-class-creation).
 
 To learn more about how to lock down your app, see the [Security docs](https://docs.moralis.io/security).
 
 ### ALWAYS PROTECT THE MASTER KEY
 
-<mark style="color:red;">**Please Note: You want to protect the**</mark>** **<mark style="color:red;background-color:yellow;">**master key**</mark>** **<mark style="color:red;">**since it can override all permissions and has full access to read, write, and delete. It's best to use the master key only on the server (i.e., cloud functions). Never use the master key on the frontend.**</mark>
+<mark style="color:red;">**Please Note: You want to protect the**</mark>\*\* **<mark style="color:red;background-color:yellow;">**master key**</mark>** **<mark style="color:red;">**since it can override all permissions and has full access to read, write, and delete. It's best to use the master key only on the server (i.e., cloud functions). Never use the master key on the frontend.\*\*</mark>
 
 ## Why do you use the signing messages and other Dapps don't?
 
 This is the general standard for verifying that you really own the wallet. It is used, for example, by Opensea, Rarible and so on.
 
-Authorization through Moralis gives for user access to his [user object](https://docs.moralis.io/moralis-server/users/crypto-login#user-object), in which, for example, private information can be stored, and the user also gets the right to change his data. For this we use signing messages. This is an absolutely safe way: It does not export private keys, does not allow the spending of tokens, and does not require gas fees.&#x20;
+Authorization through Moralis gives for user access to his [user object](https://docs.moralis.io/moralis-dapp/users/crypto-login#user-object), in which, for example, private information can be stored, and the user also gets the right to change his data. For this we use signing messages. This is an absolutely safe way: It does not export private keys, does not allow the spending of tokens, and does not require gas fees.&#x20;
 
-If you do not need users to be stored in the database, you can use `enableWeb3()` and get eth\_address of users using default web3 methods.
+If you do not need users to be stored in the database, you can use `enableWeb3()` and get eth_address of users using default web3 methods.
 
 ## How to ask for help on the forum and Discord
 
@@ -101,7 +103,7 @@ If no - make a request to `token_uri` provided and get the metadata yourself.
 
 There are millions of NFTs across the different blockchains that Moralis supports. The vast majority of NFTs never change metadata, therefore Moralis doesn't automatically re-sync metadata. This is something we may do in the future!
 
-For now, Moralis have [`reSyncMetadata`](https://docs.moralis.io/moralis-server/web3-sdk/token#resyncmetadata) API that can help you to manually trigger metadata re-sync on specific token. We know that this feature is important when you develop your NFT and you may be experimenting with different metadata and update it often during the development of your app
+For now, Moralis have [`reSyncMetadata`](https://docs.moralis.io/moralis-dapp/web3-sdk/token#resyncmetadata) API that can help you to manually trigger metadata re-sync on specific token. We know that this feature is important when you develop your NFT and you may be experimenting with different metadata and update it often during the development of your app
 
 Join our [Discord](https://moralis.io/mage) to be updated when this feature is released!&#x20;
 
@@ -111,21 +113,21 @@ If you really want us to add the auto re-sync feature - add it or upvote it here
 
 ### What version should I use on Mac?
 
-* frp\_x.xx.x\_darwin\_amd64.tar.gz
+- frp_x.xx.x_darwin_amd64.tar.gz
 
 ### How should I run frpc on Mac?
 
-* Open a terminal.
-* Navigate to frpc directory.
-* Type `./frpc -c frpc.ini`.
+- Open a terminal.
+- Navigate to frpc directory.
+- Type `./frpc -c frpc.ini`.
 
 ### Why does Mac say that `frpc` is from an "Unidentified Developer"?
 
 This is because `frpc` is not signed for Mac. To allow it to run, follow these steps:
 
-* Navigate to `frpc` folder in Finder.
-* Right-click on the `frpc` executable while pressing the "**Ctrl"** key.
-* Select **Open**.
+- Navigate to `frpc` folder in Finder.
+- Right-click on the `frpc` executable while pressing the "**Ctrl"** key.
+- Select **Open**.
 
 Mac will give you information about the risks of overriding the system's security. Please read it carefully and click "**Open"** in the pop-up if you agree.
 

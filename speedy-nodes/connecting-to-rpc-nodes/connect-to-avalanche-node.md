@@ -10,7 +10,7 @@ Need a fast and reliable full node, but already have your own backend? Then Mora
 
 Once you log into your account, go to the "Speedy Nodes" section. Click on the "Endpoints" button for the Avalanche Network. You will see separate URLs for each network and each archive version.
 
-![](<../../.gitbook/assets/image (113).png>)
+![](<../../.gitbook/assets/image (114).png>)
 
 ### JSON RPC
 
