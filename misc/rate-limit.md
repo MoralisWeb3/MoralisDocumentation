@@ -97,7 +97,6 @@ See the tables below for details about Speedy Node methods and API Endpoints tha
 
 | Path                                        | Weight      |
 | ------------------------------------------- | ----------- |
-| All endpoints not on this list              | 1 request   |
 | /info/endpointWeights                       | 0 request   |
 | /block/{block_number_or_hash}               | 1 request   |
 | /{address}                                  | 1 request   |
