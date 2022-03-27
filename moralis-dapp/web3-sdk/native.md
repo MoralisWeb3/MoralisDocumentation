@@ -91,12 +91,40 @@ curl -X 'POST' \
 }'
 ```
 {% endtab %}
+{% tab title="Unity" %}
+```csharp
+using System.Collections.Generic;
+using Moralis.Web3Api.Models;
+using MoralisWeb3ApiSdk;
+
+   public async void ReadFunction()
+   {
+      // Function ABI input parameters
+      object[] inputParams = new object[1];
+      inputParams[0] = new { internalType = "address", name = "account", type = "address"};
+      // Function ABI Output parameters
+      object[] outputParams = new object[1];
+      outputParams[0] = new { internalType = "uint256", name = "", type = "uint256"};
+      // Function ABI
+      object[] abi = new object[1];
+      abi[0] = new { inputs = inputParams, name = "balanceOf", outputs = outputParams, stateMutability = "view", type = "function" };
+      // Define request object
+      RunContractDto rcd = new RunContractDto()
+      {
+          Abi = abi,
+          Params = new { account = "0x3355d6E71585d4e619f4dB4C7c5Bfe549b278299" }
+      };
+      string resp = await MoralisInterface.GetClient().Web3Api.Native.RunContractFunction("0xdAC17F958D2ee523a2206206994597C13D831ec7", "balanceOf", rcd, ChainList.eth);
+      print(resp);
+   }
+```
+{% endtab %}
 {% endtabs %}
 
 #### Example result:
 
 ```javascript
-{"result":"3716840038"}
+{"result":"5691150038"}
 ```
 
 ## getBlock
