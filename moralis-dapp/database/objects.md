@@ -179,7 +179,7 @@ monster.save({
 
 #### IMPORTANT SECURITY NOTE
 
-By default the classes you create will have no permissions set meaning that anyone can write data into the class and read data from the class. Please see [Security Docs](broken-reference) about securing your classes and adding permissions.
+By default the classes you create will have no permissions set meaning that anyone can write data into the class and read data from the class. Please see [Security Docs](https://docs.moralis.io/moralis-dapp/database/security) about securing your classes and adding permissions.
 
 #### SAVING NESTED OBJECTS
 
