@@ -76,7 +76,7 @@ To attain the same functionality, all queries to these tables should be replaced
 ### Tutorial
 
 {% embed url="https://www.youtube.com/watch?v=txHnWDRB728" %}
-See this video if you want to understand the power of Moralis Server and how it can help you build cross-chain dApps.
+See this video if you want to understand the power of Moralis Dapps and how it can help you build cross-chain dApps.
 {% endembed %}
 
 {% embed url="https://youtu.be/SYWdSg9KLCQ" %}
