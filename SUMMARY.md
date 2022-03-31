@@ -61,7 +61,7 @@
   * [Objects](moralis-dapp/database/objects.md)
   * [Permissions](moralis-dapp/database/permissions.md)
   * [Queries](moralis-dapp/database/queries.md)
-  * [⚡ Bulk Queries](moralis-dapp/database/bulk-queries.md)
+  * [Bulk Queries](moralis-dapp/database/bulk-queries.md)
   * [Live Queries](moralis-dapp/database/live-queries.md)
   * [Roles](moralis-dapp/database/roles.md)
   * [Security](moralis-dapp/database/security.md)
