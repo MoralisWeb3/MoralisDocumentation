@@ -59,7 +59,7 @@
   * [Address Casing](moralis-dapp/automatic-transaction-sync/address-casing.md)
 * [🗃 Database](moralis-dapp/database/README.md)
   * [Objects](moralis-dapp/database/objects.md)
-  * [⚠ Permissions](moralis-dapp/database/permissions.md)
+  * [Permissions](moralis-dapp/database/permissions.md)
   * [Queries](moralis-dapp/database/queries.md)
   * [⚡ Bulk Queries](moralis-dapp/database/bulk-queries.md)
   * [Live Queries](moralis-dapp/database/live-queries.md)
