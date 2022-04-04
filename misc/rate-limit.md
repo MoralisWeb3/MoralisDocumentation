@@ -136,6 +136,8 @@ See the tables below for details about Speedy Node methods and API Endpoints tha
 
 Note: for exact rate limit values the endpoint `https://deep-index.moralis.io/api/v2/info/endpointWeights` can be used.
 
+Note: `/nft/{address}/{token_id}/metadata/resync` has a billing cost of 5 and a rate limit cost of 25, meaning that you can call it only once per second with a free plan and twice a second with a Pro plan
+
 example of output:
 ```
 [
