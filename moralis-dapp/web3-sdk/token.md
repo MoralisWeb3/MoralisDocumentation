@@ -1014,7 +1014,7 @@ Returns an object with number of NFT transfers and an array with all owners of N
 * `offset` (optional): offset.
 * `limit`(optional): limit.
 * `address`(required): Address of the contract.
-* `token_id`(requierd): The id of the token.
+* `token_id`(required): The id of the token.
 
 {% tabs %}
 {% tab title="JS" %}
@@ -1103,7 +1103,7 @@ Returns an object with number of NFT transfers and an array with all transfers o
 * `offset` (optional): offset.
 * `limit`(optional): limit.
 * `address`(required): Address of the contract.
-* `token_id`(requierd): The id of the token.
+* `token_id`(required): The id of the token.
 
 {% tabs %}
 {% tab title="JS" %}
@@ -1377,7 +1377,7 @@ Resync the metadata for a given token\_id
 
 * `chain`(optional): The blockchain to get data from. Valid values are listed on [Supported Chains](supported-chains.md). Default value `Eth`.
 * `address`(required): Address of the contract.
-* `token_id`(requierd): The id of the token.
+* `token_id`(required): The id of the token.
 * `flag` (optional): The type of resync to operate. Available values : `uri`, `metadata`. Default value : `metadata.` The metadata flag will resync of the metadata of nft. The uri flag will resync the token\_uri of NFT.
 
 {% tabs %}
