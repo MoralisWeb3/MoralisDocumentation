@@ -10,7 +10,7 @@ description: >-
 
 After you have initialized your application with `Moralis.start()`, it will automatically load the SolanaAPI module. Please follow the below guide before proceeding:
 
-{% content-ref url="../getting-started/create-a-moralis-server.md" %}
+{% content-ref url="../getting-started/create-a-moralis-dapp.md" %}
 [create-a-moralis-dapp.md](../getting-started/create-a-moralis-dapp.md)
 {% endcontent-ref %}
 
