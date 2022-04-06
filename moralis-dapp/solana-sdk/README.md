@@ -11,7 +11,7 @@ description: >-
 After you have initialized your application with `Moralis.start()`, it will automatically load the SolanaAPI module. Please follow the below guide before proceeding:
 
 {% content-ref url="../getting-started/create-a-moralis-server.md" %}
-[create-a-moralis-server.md](../getting-started/create-a-moralis-server.md)
+[create-a-moralis-dapp.md](../getting-started/create-a-moralis-dapp.md)
 {% endcontent-ref %}
 
 ### Solana SDK
@@ -31,4 +31,3 @@ The namespace is divided into two categories, depending on what is the main para
 {% hint style="info" %}
 It's also possible to access all of this functionality through REST API from your own backend. Information about how to fetch data using `REST API` is described in the [REST API](../web3-sdk/moralis-web3-api-rest.md) topic. It has similar functionality as SDK.
 {% endhint %}
-
