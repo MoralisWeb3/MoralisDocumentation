@@ -47,7 +47,7 @@
   * [🏪 Web3API.storage (IPFS)](moralis-dapp/web3-sdk/ipfs-storage-new.md)
   * [🤝 Web3API.resolve](moralis-dapp/web3-sdk/resolve.md)
   * [REST API](moralis-dapp/web3-sdk/moralis-web3-api-rest.md)
-  * [😼 NFT API](moralis-dapp/web3-sdk/nft-api.md)
+  * [NFT API](moralis-dapp/web3-sdk/nft-api.md)
   * [Rate limit](moralis-dapp/web3-sdk/rate-limit.md)
 * [☀ Solana API](moralis-dapp/solana-sdk/README.md)
   * [Supported Networks](moralis-dapp/solana-sdk/supported-networks.md)
