@@ -1,7 +1,5 @@
 ---
-description: >-
-  Ensure you lock down your dapp before going to production. This article
-  explains the best practices.
+description: Ensure you lock down your Dapp before going to production.
 ---
 
 # Permissions
@@ -22,11 +20,13 @@ Below is a checklist of the most important steps to take before going to product
 
 By default, Moralis allows any client to create new Classes in the database and add new columns to existing classes.
 
-This is great when you are developing your dapp as you can alter the structure of the database very fast straight from the SDK. This increases developer productivity substantially.
+This is great when you are developing your Dapp as you can alter the structure of the database very fast straight from the SDK. This increases developer productivity substantially.
 
 Of course, this kind of permission should be turned off when you go to production.
 
-[Read this](https://docs.moralis.io/moralis-dapp/database/security#client-class-creation) to disable Client Class Creation.
+{% hint style="info" %}
+[Read this](permissions.md#1.-client-class-creation) to disable Client Class Creation.
+{% endhint %}
 
 ### 2. Class Permissions
 
@@ -34,19 +34,19 @@ When you create a new Class in the database - it has no permission so that you c
 
 This is explained when you create a new Class via the UI.
 
-![Default Class Permission Warning](<../../.gitbook/assets/Screenshot 2021-11-29 at 12.24.30.png>)
+![Default Class Permission Warning](../../.gitbook/assets/Moralis\_dashboard\_create\_class.png)
 
-This should be locked down before going to production.
+This should be locked down before going to production. The default system Classes such as `User` and `Session` are locked down by default.
 
-The default system Classes such as `User` and `Session` are locked down by default.
+But for all other Classes, you need to set CLP and/or ACL policies to ensure no unauthorised users write and/or read the data.
 
-But for all other Classes you need to set CLP and/or ACL policies to ensure no unauthorised users write and/or read the data.
-
-Learn by watching the video below and reading [Security Docs](security.md).
+{% hint style="info" %}
+Learn by watching the [video](permissions.md#tutorial) below and reading [Security Docs](security.md).
+{% endhint %}
 
 ### 3. Restricting File Uploads
 
-By default Moralis allows any authenticated user to upload [Files](../files/). It's a good idea to put in logic that restricts file uploads.
+By default Moralis allows any authenticated user to upload [**Files**](../files/). It's a good idea to put in logic that restricts file uploads.
 
 If your app has no use for files they should be completely disabled. You can disable all file uploads by including the following trigger in your cloud code.
 
@@ -56,9 +56,7 @@ Moralis.Cloud.beforeSaveFile((request) => {
 });
 ```
 
-You can do any custom logic you want in order to determine whether a file should be allowed to save or not. For example, you can analyze the `request` object in order to see which user is trying to save the file.
-
-Read more in [File Triggers](../cloud-code/triggers.md#file-triggers).
+You can do any custom logic you want in order to determine whether a file should be allowed to save or not. For example, you can analyze the `request` object in order to see which user is trying to save the file. Read more here: [**File Triggers**](../cloud-code/triggers.md#file-triggers).
 
 ## Tutorial&#x20;
 
