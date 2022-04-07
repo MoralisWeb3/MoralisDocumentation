@@ -1,12 +1,14 @@
 ---
-description: Create and Schedule Jobs to Be Run On the Moralis Server.
+description: Create and Schedule Jobs to Be Run On the Moralis Dapp.
 ---
 
 # Jobs
 
-Sometimes you want to execute long-running functions, and you don’t want to wait for the response. "Cloud Jobs" are meant for just that.
+Sometimes you want to execute long-running functions, and you don’t want to wait for a response. <mark style="color:green;">**Cloud Jobs**</mark> are meant for just that.
 
-## Define a Job
+### Define a Job
+
+Define the job in your cloud functions.&#x20;
 
 ```javascript
     Moralis.Cloud.job("myJob", (request) =>  {
@@ -20,7 +22,7 @@ Sometimes you want to execute long-running functions, and you don’t want to wa
     });
 ```
 
-## Scheduling a Job
+### Schedule a Job
 
 You can schedule a job in the "Jobs" section in the dashboard by clicking "Schedule a job" in the top right corner.
 
