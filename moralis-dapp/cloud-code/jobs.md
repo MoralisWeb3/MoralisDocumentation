@@ -26,12 +26,10 @@ Define the job in your cloud functions.&#x20;
 
 You can schedule a job in the "Jobs" section in the dashboard by clicking "Schedule a job" in the top right corner.
 
-![](<../../.gitbook/assets/image (44).png>)
+![Click on Schedule a Job](../../.gitbook/assets/Moralis\_dashboard\_Schedule\_Job.png)
 
 Pick a description, the job to run and provide parameters if needed
 
-![](<../../.gitbook/assets/image (46).png>)
+![](../../.gitbook/assets/Moralis\_dashboard\_schedule\_job\_options.png)
 
 When you have configured your job, you confirm it by pressing "Schedule" in the bottom right corner.
-
-![](<../../.gitbook/assets/image (47).png>)
