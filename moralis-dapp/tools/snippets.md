@@ -4,7 +4,7 @@ description: >-
   bundled many code snippets in our extension.
 ---
 
-# 📔 Code Snippets
+# VS Code Snippets
 
 ### Download the VS Code Extension
 

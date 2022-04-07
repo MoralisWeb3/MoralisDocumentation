@@ -85,7 +85,7 @@
 * [🧰 Tools](moralis-dapp/tools/README.md)
   * [Moralis Units](moralis-dapp/tools/moralis-units.md)
   * [CLI](moralis-dapp/tools/moralis-admin-cli.md)
-  * [📔 Code Snippets](moralis-dapp/tools/snippets.md)
+  * [VS Code Snippets](moralis-dapp/tools/snippets.md)
   * [Website Hosting](moralis-dapp/tools/hosting.md)
 * [🔌 Plugins](moralis-dapp/plugins/README.md)
   * [Install and Remove Plugins](moralis-dapp/plugins/untitled.md)
