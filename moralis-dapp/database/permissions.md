@@ -25,7 +25,7 @@ This is great when you are developing your Dapp as you can alter the structure o
 Of course, this kind of permission should be turned off when you go to production.
 
 {% hint style="info" %}
-[Read this](permissions.md#1.-client-class-creation) to disable Client Class Creation.
+[Read this](security.md#client-class-creation) to disable Client Class Creation.
 {% endhint %}
 
 ### 2. Class Permissions
