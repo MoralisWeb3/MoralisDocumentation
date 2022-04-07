@@ -33,6 +33,9 @@ Create a file `index.ts` and add below code:
 
 {% code title="index.ts" %}
 ```javascript
+/* import moralis */
+const Moralis = require("moralis/node");
+
 /* Moralis init code */
 const serverUrl = "YOUR-SERVER-URL";
 const appId = "YOUR-APP-ID";
