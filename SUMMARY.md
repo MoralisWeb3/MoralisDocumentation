@@ -14,7 +14,7 @@
 * [🔮 Connect with SDK](moralis-dapp/connect-the-sdk/README.md)
   * [🍦 Connect with Vanilla JS](moralis-dapp/connect-the-sdk/connect-with-js.md)
   * [⚛ Connect with React](moralis-dapp/connect-the-sdk/connect-with-react.md)
-  * [🖨 Connect using Node.js](moralis-dapp/connect-the-sdk/connect-using-node.md)
+  * [🖨 Connect with Node.js](moralis-dapp/connect-the-sdk/connect-using-node.md)
   * [🎮 Connect with Unity3D](moralis-dapp/connect-the-sdk/connect-with-unity.md)
   * [🔥 Boilerplate Projects](moralis-dapp/connect-the-sdk/boilerplate-projects.md)
 * [👥 Users](moralis-dapp/users/README.md)

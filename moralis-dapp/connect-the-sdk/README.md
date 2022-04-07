@@ -19,8 +19,8 @@ In addition, Moralis has numerous dedicated boilerplates for NextJS, Angular and
 [connect-with-react.md](connect-with-react.md)
 {% endcontent-ref %}
 
-{% content-ref url="connect-with-react.md" %}
-[connect-using-nodeJS.md](connect-with-nodeJS.md)
+{% content-ref url="connect-using-node.md" %}
+[connect-using-node.md](connect-using-node.md)
 {% endcontent-ref %}
 
 {% content-ref url="connect-with-unity.md" %}

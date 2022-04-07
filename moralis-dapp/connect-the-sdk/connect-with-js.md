@@ -8,7 +8,7 @@ description: >-
 # 🍦 Connect with Vanilla JS
 
 {% hint style="info" %}
-Make sure to create your own server before beginning this guide - [**Create a Moralis Dapp**](../getting-started/create-a-moralis-server.md)
+Make sure to create your own server before beginning this guide - [**Create a Moralis Dapp**](../getting-started/create-a-moralis-dapp.md)****
 {% endhint %}
 
 {% hint style="success" %}
