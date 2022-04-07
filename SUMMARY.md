@@ -63,6 +63,7 @@
   * [Queries](moralis-dapp/database/queries.md)
   * [Bulk Queries](moralis-dapp/database/bulk-queries.md)
   * [Live Queries](moralis-dapp/database/live-queries.md)
+  * [Advance Live Queries](moralis-dapp/database/live-queries-1.md)
   * [Roles](moralis-dapp/database/roles.md)
   * [Security](moralis-dapp/database/security.md)
   * [Data](moralis-dapp/database/data.md)
