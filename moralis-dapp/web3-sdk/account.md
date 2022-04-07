@@ -1,4 +1,4 @@
-# 👥 Web3API.account
+# 🦹♂ Web3API.account
 
 ## getTransactions
 

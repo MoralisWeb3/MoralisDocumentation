@@ -26,14 +26,14 @@ for (let i = 0; i < results.length; i++) {
 ```
 
 {% hint style="success" %}
-For an introduction video tutorial [**Click Here**](queries.md#undefined)****
+For an introduction video tutorial [**Click Here**](queries.md#undefined)
 {% endhint %}
 
 ## Using Master Key
 
-There are cases when a master key is needed for a query,&#x20;
+There are cases when a master key is needed for a query,
 
-For example, if you want to get the list of all the users, you can only do that in a cloud function using a master key - <mark style="color:green;"></mark> <mark style="color:green;"></mark><mark style="color:green;">**because a user can not read the info for the other users due to ACL**</mark>.
+For example, if you want to get the list of all the users, you can only do that in a cloud function using a master key - <mark style="color:green;">**because a user can not read the info for the other users due to ACL**</mark>.
 
 {% code title="Example" %}
 ```javascript
@@ -44,7 +44,7 @@ query.find({useMasterKey:true});
 ## Query Constraints
 
 {% hint style="success" %}
-For a Query Constraints video tutorial [**Click Here**](queries.md#undefined)****
+For a Query Constraints video tutorial [**Click Here**](queries.md#undefined)
 {% endhint %}
 
 There are several ways to put constraints on the objects found by a `Moralis.Query`. You can filter out objects with a particular key-value pair with `notEqualTo`:
@@ -82,7 +82,7 @@ query.skip(10); // skip the first 10 results
 ```
 
 {% hint style="success" %}
-For a Query pagination video tutorial [**Click Here**](queries.md#undefined)****
+For a Query pagination video tutorial [**Click Here**](queries.md#undefined)
 {% endhint %}
 
 To get the **total number of rows** in a table satisfying your query, for e.g. pagination purposes - you can use <mark style="color:green;">`withCount`</mark>.
@@ -122,7 +122,7 @@ query.ascending("strength");
 query.descending("strength");
 ```
 
-&#x20;To do **comparisons in queries** for sortable types :
+To do **comparisons in queries** for sortable types :
 
 ```javascript
 // Restricts to wins < 50
@@ -138,7 +138,7 @@ query.greaterThan("wins", 50);
 query.greaterThanOrEqualTo("wins", 50);
 ```
 
-To **retrieve objects matching in a list of values**, you can use <mark style="color:green;">`containedIn`</mark>, providing an array of acceptable values. This is often useful to replace multiple queries with a single query.&#x20;
+To **retrieve objects matching in a list of values**, you can use <mark style="color:green;">`containedIn`</mark>, providing an array of acceptable values. This is often useful to replace multiple queries with a single query.
 
 For example- if you want to retrieve monsters owned by any monster owner in a particular list:
 
@@ -148,7 +148,7 @@ query.containedIn("ownerName",
                   ["Jonathan Walsh", "Dario Wunsch", "Shawn Simon"]);
 ```
 
-To **retrieve objects that do not match any of several values**, you can use <mark style="color:green;">`notContainedIn`</mark>, providing an array of acceptable values.&#x20;
+To **retrieve objects that do not match any of several values**, you can use <mark style="color:green;">`notContainedIn`</mark>, providing an array of acceptable values.
 
 For example, if you want to retrieve monsters from monster owners besides those in a list:
 
@@ -168,7 +168,7 @@ query.exists("strength");
 query.doesNotExist("strength");
 ```
 
-To **get objects where a key matches the value of a key in a set of objects resulting from another query.** You can use the <mark style="color:green;">`matchesKeyInQuery`</mark> method.&#x20;
+To **get objects where a key matches the value of a key in a set of objects resulting from another query.** You can use the <mark style="color:green;">`matchesKeyInQuery`</mark> method.
 
 For example, if you have a class containing sports teams and you store a user's hometown in the user class, you can issue one query to find the list of users whose hometown teams have winning records. The query would look like this:
 
@@ -204,7 +204,7 @@ groupsWithRoleX.find().then(function(results) {
 });
 ```
 
-To **restrict the fields returned** by calling <mark style="color:green;">`select`</mark> with a list of keys.&#x20;
+To **restrict the fields returned** by calling <mark style="color:green;">`select`</mark> with a list of keys.
 
 For example, To retrieve documents that contain only the `strength` and `ownerName` fields (and also special built-in fields such as `objectId`, `createdAt`, and `updatedAt`):
 
@@ -240,7 +240,7 @@ query.first().then(function(result) {
 ```
 
 {% hint style="info" %}
-Remember to make sure that addresses are in lowercase when making query constraints against an address column as described in the casing subheading in the [Web3 section](broken-reference)
+Remember to make sure that addresses are in lowercase when making query constraints against an address column as described in the casing subheading in the [Web3 section](broken-reference/)
 {% endhint %}
 
 ## Queries on Array Values
@@ -330,10 +330,10 @@ For "Case" or "Diacritic Sensitive" search, please use the [REST API](http://doc
 ## Relational Queries
 
 {% hint style="success" %}
-For a Query pagination video tutorial [**Click Here**](queries.md#undefined)****
+For a Query pagination video tutorial [**Click Here**](queries.md#undefined)
 {% endhint %}
 
-There are several ways to issue queries for relational data. **To retrieve objects where a field matches a particular `Moralis.Object`**, you can use <mark style="color:green;">**`equalTo`**</mark> just like for other data types.&#x20;
+There are several ways to issue queries for relational data. **To retrieve objects where a field matches a particular `Moralis.Object`**, you can use <mark style="color:green;">**`equalTo`**</mark> just like for other data types.
 
 For example, if each `Comment` has a `Post` object in its `post` field, you can fetch comments for a particular `Post`:
 
@@ -379,7 +379,7 @@ post.id = "1zEcyElZ80";
 query.equalTo("post", post);
 ```
 
-To **return multiple types of related objects in one query** use the<mark style="color:green;">**`include`**</mark> method.&#x20;
+To **return multiple types of related objects in one query** use the<mark style="color:green;">**`include`**</mark> method.
 
 For example, let's say you are retrieving the last ten comments, and you want to retrieve their related posts at the same time:
 
@@ -422,7 +422,7 @@ You can issue a query with multiple fields included by calling `include` multipl
 **Note**: In the old Moralis hosted backend, count queries were rate limited to a maximum of 160 requests per minute. They also returned inaccurate results for classes with more than 1,000 objects. But, Moralis Dapp has removed both constraints and can count objects well above 1,000.
 {% endhint %}
 
-**To count how many objects match a query, but you do not need to retrieve all the objects that match**, you can use <mark style="color:green;">**`count`**</mark> instead of <mark style="color:green;">**`find`**</mark>.&#x20;
+**To count how many objects match a query, but you do not need to retrieve all the objects that match**, you can use <mark style="color:green;">**`count`**</mark> instead of <mark style="color:green;">**`find`**</mark>.
 
 For example, to count how many monsters have been owned by a particular monster owner:
 
@@ -437,7 +437,7 @@ alert("Aegon has owned " + count + " monsters");
 ## Compound Queries
 
 {% hint style="success" %}
-For an advance Queries video tutorial [**Click Here**](queries.md#undefined)****
+For an advance Queries video tutorial [**Click Here**](queries.md#undefined)
 {% endhint %}
 
 For more complex queries, you might need compound queries. A compound query is a logical combination (e. g. "and" or "or") of subqueries.
@@ -448,7 +448,7 @@ For more complex queries, you might need compound queries. A compound query is a
 
 ### OR-ed Query Constraints
 
-To **find objects that match one of several queries**, you can use <mark style="color:green;">**`Moralis.Query.or`**</mark> method to construct a query that is an OR of the queries passed in.&#x20;
+To **find objects that match one of several queries**, you can use <mark style="color:green;">**`Moralis.Query.or`**</mark> method to construct a query that is an OR of the queries passed in.
 
 For instance, if you want to find players who either have a lot of wins or a few wins, you can do:
 
@@ -486,7 +486,7 @@ query.find()
   });
 ```
 
-Sometimes the world is more complex than this simple example and you may need a compound query of subqueries. You can use `Moralis.Query.and` method to construct a query that is an AND of the queries passed in.&#x20;
+Sometimes the world is more complex than this simple example and you may need a compound query of subqueries. You can use `Moralis.Query.and` method to construct a query that is an AND of the queries passed in.
 
 For instance, if you want to find users in the age of 16 or 18 who have either no friends or at least two friends, you can do:
 
@@ -540,7 +540,7 @@ const pipelineArray = [
 ```
 
 {% hint style="success" %}
-For a Query aggregates video tutorial [**Click Here**](queries.md#undefined)****
+For a Query aggregates video tutorial [**Click Here**](queries.md#undefined)
 {% endhint %}
 
 For a list of available stages please refer to [Mongo Aggregate Documentation](https://docs.mongodb.com/v3.2/reference/operator/aggregation/).
@@ -616,7 +616,7 @@ Token {
 Then you would define a cloud function like this (aggregate queries must be run in cloud code).
 
 {% hint style="success" %}
-**Remember to escape the `$` like `\$` to prevent parsing errors**  <mark style="color:green;">(this is now fixed!)</mark>.
+**Remember to escape the `$` like `\$` to prevent parsing errors** <mark style="color:green;">(this is now fixed!)</mark>.
 {% endhint %}
 
 ```javascript
@@ -906,7 +906,7 @@ Introduction to Queries
 {% endembed %}
 
 {% embed url="https://youtu.be/XgGpXSYu2Us" %}
-&#x20;Query Constraints
+Query Constraints
 {% endembed %}
 
 {% embed url="https://youtu.be/2CaHZhgtsZc" %}

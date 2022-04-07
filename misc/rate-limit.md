@@ -136,6 +136,8 @@ See the tables below for details about Speedy Node methods and API Endpoints tha
 
 Note: for exact rate limit values the endpoint `https://deep-index.moralis.io/api/v2/info/endpointWeights` can be used.
 
+Note: `/nft/{address}/{token_id}/metadata/resync` has a billing cost of 5 and a rate limit cost of 25, meaning that you can call it only once per second with a free plan and twice a second with a Pro plan
+
 example of output:
 ```
 [
@@ -262,3 +264,43 @@ In order to not get rate-limited pay attention to `x-rate-limit-used` and `x-rat
 The way to fix this error is to upgrade your Moralis plan.
 
 _(If you are using NFT endpoints with offset - please_ [_read this_](https://forum.moralis.io/t/nft-endpoints-temporary-offset-rate-limit/5867/16?u=ivan) _as they have temporarily different special weights)._
+
+
+## Example of how to use cursor (python)
+```py
+import requests
+import time
+
+
+def get_nft_owners(offset, cursor):
+    print("offset", offset)
+    url = 'https://deep-index.moralis.io/api/v2/nft/<address_here>/owners?chain=polygon&format=decimal'
+    if cursor:
+      url = url + "&cursor=%s" % cursor
+
+    print("api_url", url)
+    headers = {
+        "Content-Type": "application/json",
+        "X-API-Key": "API_KEY_HERE"
+    }
+    statusResponse = requests.request("GET", url, headers=headers)
+    data = statusResponse.json()
+    print("HTTP headers:", statusResponse.headers)
+    try:
+        print("nr results", len(data['result']))
+    except:
+        print(repr(data))
+        print("exiting")
+        raise SystemExit
+
+    cursor = data['cursor']
+    print(data['page'], data['total'])
+    return cursor
+
+
+cursor = None
+for j in range(0, 10):
+    cursor = get_nft_owners(j*500, cursor)
+    print()
+    time.sleep(1.1)
+```
