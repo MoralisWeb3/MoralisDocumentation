@@ -26,7 +26,7 @@ for (let i = 0; i < results.length; i++) {
 ```
 
 {% hint style="success" %}
-For an introduction video tutorial [**Click Here**](queries.md#undefined)
+For an introduction video tutorial [**Click Here**](queries.md#tutorials)****
 {% endhint %}
 
 ## Using Master Key
@@ -44,7 +44,7 @@ query.find({useMasterKey:true});
 ## Query Constraints
 
 {% hint style="success" %}
-For a Query Constraints video tutorial [**Click Here**](queries.md#undefined)
+For a Query Constraints video tutorial [**Click Here**](queries.md#tutorials)****
 {% endhint %}
 
 There are several ways to put constraints on the objects found by a `Moralis.Query`. You can filter out objects with a particular key-value pair with `notEqualTo`:
@@ -82,7 +82,7 @@ query.skip(10); // skip the first 10 results
 ```
 
 {% hint style="success" %}
-For a Query pagination video tutorial [**Click Here**](queries.md#undefined)
+For a Query pagination video tutorial [**Click Here**](queries.md#tutorials)****
 {% endhint %}
 
 To get the **total number of rows** in a table satisfying your query, for e.g. pagination purposes - you can use <mark style="color:green;">`withCount`</mark>.
@@ -240,7 +240,7 @@ query.first().then(function(result) {
 ```
 
 {% hint style="info" %}
-Remember to make sure that addresses are in lowercase when making query constraints against an address column as described in the casing subheading in the [Web3 section](broken-reference/)
+Remember to make sure that addresses are in lowercase when making query constraints against an address column as described in [**Address Casing**](../automatic-transaction-sync/address-casing.md)****
 {% endhint %}
 
 ## Queries on Array Values
@@ -330,7 +330,7 @@ For "Case" or "Diacritic Sensitive" search, please use the [REST API](http://doc
 ## Relational Queries
 
 {% hint style="success" %}
-For a Query pagination video tutorial [**Click Here**](queries.md#undefined)
+For a Query pagination video tutorial [**Click Here**](queries.md#tutorials)****
 {% endhint %}
 
 There are several ways to issue queries for relational data. **To retrieve objects where a field matches a particular `Moralis.Object`**, you can use <mark style="color:green;">**`equalTo`**</mark> just like for other data types.
@@ -437,7 +437,7 @@ alert("Aegon has owned " + count + " monsters");
 ## Compound Queries
 
 {% hint style="success" %}
-For an advance Queries video tutorial [**Click Here**](queries.md#undefined)
+For an advance Queries video tutorial [**Click Here**](queries.md#tutorials)****
 {% endhint %}
 
 For more complex queries, you might need compound queries. A compound query is a logical combination (e. g. "and" or "or") of subqueries.
@@ -540,7 +540,7 @@ const pipelineArray = [
 ```
 
 {% hint style="success" %}
-For a Query aggregates video tutorial [**Click Here**](queries.md#undefined)
+For a Query aggregates video tutorial [**Click Here**](queries.md#tutorials)****
 {% endhint %}
 
 For a list of available stages please refer to [Mongo Aggregate Documentation](https://docs.mongodb.com/v3.2/reference/operator/aggregation/).

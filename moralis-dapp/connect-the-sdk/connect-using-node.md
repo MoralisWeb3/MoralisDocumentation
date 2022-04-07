@@ -5,15 +5,25 @@ description: >-
   steps.
 ---
 
-# 🖨 Connect using Node.js
+# 🖨 Connect with Node.js
 
 ### Installing Moralis SDK
 
 Run the following command to install Moralis SDK
 
-```
+{% tabs %}
+{% tab title="npm" %}
+```shell
 npm install moralis
 ```
+{% endtab %}
+
+{% tab title="yarn" %}
+```shell
+yarn add moralis
+```
+{% endtab %}
+{% endtabs %}
 
 ### SDK Initialization
 
@@ -21,6 +31,7 @@ You need to initialize Moralis SDK with the following syntax in node.js:
 
 Create a file `index.ts` and add below code:
 
+{% code title="index.ts" %}
 ```javascript
 /* Moralis init code */
 const serverUrl = "YOUR-SERVER-URL";
@@ -29,21 +40,27 @@ const masterKey = "YOUR-MASTER-KEY";
 
 await Moralis.start({ serverUrl, appId, masterKey });
 ```
+{% endcode %}
 
-with `masterKey` you can directly access the moralis dashbaord without the need for authentication.
+with `masterKey` you can directly access the Moralis dashboard without the need for authentication.
 
-**Note: With master key you can use the API, RPC nodes and other features of your moralis account using the SDK straight from your backend.**
+{% hint style="info" %}
+**Note:** With the master key you can use the API, RPC nodes and other features of your Moralis account using the SDK straight from your backend**.**
+{% endhint %}
 
-**Please remember to never leak your master key because once someone gets your master key they will have full access to your moralis account.**
+{% hint style="warning" %}
+Please remember to never leak your master key because once someone gets your master key they will have full access to your Moralis account.
+{% endhint %}
 
 ### DB query
 
 #### Saving data
 
-To save object with data copy paste the following code:
+To save object with data copy-paste the following code:
 
 Create a file `SaveData.ts` and add below code:
 
+{% code title="SaveData.ts" %}
 ```javascript
 const SaveData = async () => {
   await Moralis.start({ serverUrl, appId, masterKey });
@@ -60,6 +77,7 @@ const SaveData = async () => {
 
 SaveData();
 ```
+{% endcode %}
 
 Run the following command in your terminal:
 
@@ -67,7 +85,7 @@ Run the following command in your terminal:
 ts-node SaveData.ts
 ```
 
-Go to your moralis dashboard and you will see the data saved in the database:
+Go to your Mrsoralis dashboard and you will see the data saved in the database:
 
 ![](images/node1.png)
 
@@ -75,6 +93,7 @@ Go to your moralis dashboard and you will see the data saved in the database:
 
 Create a file `FindQuery.ts` and add below code:
 
+{% code title="FindQuery.ts" %}
 ```javascript
 const FindQuery = async () => {
   const Monster = Moralis.Object.extend("Monster");
@@ -84,6 +103,7 @@ const FindQuery = async () => {
   console.log(results);
 };
 ```
+{% endcode %}
 
 Run:
 
@@ -111,17 +131,19 @@ Subscribing to Queries to Get Real-Time Alerts Whenever Data in the Query Result
 
 Create a file `LiveQuery.ts` add the following code in your file:
 
+{% code title="LiveQuery.ts" %}
 ```javascript
 const LiveQuery = async () => {
   const Monster = Moralis.Object.extend("Monster");
   const query = new Moralis.Query(Monster);
 
   let subscription = await query.subscribe();
-  console.log(subscription);
+  console.lIog(subscription);
 };
 
 LiveQuery();
 ```
+{% endcode %}
 
 Run:
 
@@ -172,8 +194,9 @@ For more info on Live Queries click [here](https://docs.moralis.io/moralis-dapp/
 
 ### Web3API use
 
-Create a file `Web3API.ts` and add below code:
+Create a file `Web3API.ts` and add the below code:
 
+{% code title="Web3API.ts" %}
 ```javascript
 const serverUrl = "YOUR-SERVER-URL";
 const appId = "YOUR-APP-ID";
@@ -191,6 +214,7 @@ const web3API = async () => {
 
 web3API();
 ```
+{% endcode %}
 
 with `moralisSecret` all API calls go directly to the API instead of passing through the Moralis Server.
 
@@ -228,10 +252,11 @@ You will see the following result:
 
 #### `Moralis.Transfer`
 
-We can transfer using private key in the backend any `'native' | 'erc20' | 'erc721' | 'erc1155'` tokens.
+We can transfer using a private key in the backend any `'native' | 'erc20' | 'erc721' | 'erc1155'` tokens.
 
 Create a file `tranx.ts` and add below code:
 
+{% code title="tranx.ts" %}
 ```javascript
 const tranx = async () => {
   await Moralis.start({ serverUrl, appId, moralisSecret });
@@ -257,10 +282,13 @@ const tranx = async () => {
 
 tranx();
 ```
+{% endcode %}
 
 with `moralisSecret` all API calls go directly to the API instead of passing through the Moralis Server.
 
-Note: Private key should never be exposed to front-end or browser or on cloud orelse will result in loss of funds
+{% hint style="info" %}
+**Note**: Private key should never be exposed to front-end or browser or on cloud orelse will result in loss of funds
+{% endhint %}
 
 Run:
 
@@ -294,6 +322,7 @@ You will see the `result` in your terminal:
 
 Create a file `execute.ts` and add below code:
 
+{% code title="execute.ts" %}
 ```javascript
 const execute = async () => {
   await Moralis.start({ serverUrl, appId, moralisSecret });
@@ -330,6 +359,7 @@ const execute = async () => {
 
 execute();
 ```
+{% endcode %}
 
 with `moralisSecret` all API calls go directly to the API instead of passing through the Moralis Server.
 
@@ -353,6 +383,7 @@ The `Sync and Watch Address` plugin calls a Cloud Function called watchXxxAddres
 
 Create a file `watchAddr.ts` and add below code:
 
+{% code title="watchAddr.ts" %}
 ```javascript
 const watchAddr = async () => {
   await Moralis.start({ serverUrl, appId, masterKey });
@@ -368,6 +399,7 @@ const watchAddr = async () => {
 
 watchAddr();
 ```
+{% endcode %}
 
 Run:
 
@@ -393,12 +425,17 @@ Note: The watch address functions return no value as they start a job. They are 
 
 #### Watch new smart contract event
 
-Moralis Server has a special cloud function called `watchContractEvent(options)`. You can call it using the master key.
-Note: limit parameter is available only for Nitro servers (those one that have coreservices plugin). If limit parameter is not provided then the default value is 500000.
+Moralis Server has a special cloud function called `watchContractEvent(options)`. You can call it using the master key.&#x20;
+
+{% hint style="info" %}
+**Note**: limit parameter is available only for Nitro servers (those that have the coreservices plugin). If the limit parameter is not provided then the <mark style="color:green;">**default value is 500000**</mark>.&#x20;
+{% endhint %}
+
 Note: at the moment the events created via code won't be seen in the admin UI, you can only see them in the database, we are working on connecting the admin UI properly
 
 Create a file `watchEvent.ts` and add below code:
 
+{% code title="watchEvent.ts" %}
 ```javascript
 const watchEvent = async () => {
   await Moralis.start({ serverUrl, appId, masterKey });
@@ -453,6 +490,7 @@ const watchEvent = async () => {
 
 watchEvent();
 ```
+{% endcode %}
 
 Run:
 
@@ -460,16 +498,14 @@ Run:
 ts-node watchEvent.ts
 ```
 
-In terminal you will see:
+In the terminal you will see:
 
 ```
 { success: true }
 ```
 
-The Event data is stored in Moralis Dashboard:
+{% hint style="success" %}
+<mark style="color:green;">The Event data is succesfully stored in Moralis Dashboard</mark>
+{% endhint %}
 
 ![](images/db2.png)
-
-##
-
-##
