@@ -13,7 +13,7 @@ We maintain a WebSocket connection to communicate with the Moralis LiveQuery ser
 ## Create a Subscription
 
 {% hint style="info" %}
-Follow this tutorial for a step by step procedure: [**Tutorial**](live-queries.md#undefined)****
+Follow this tutorial for a step by step procedure: [**Tutorial**](live-queries.md#tutorial)****
 {% endhint %}
 
 ```javascript
