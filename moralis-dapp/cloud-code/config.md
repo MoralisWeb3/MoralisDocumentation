@@ -4,7 +4,7 @@ description: Environment Variables.
 
 # Config
 
-## Add Config <a href="#config" id="config"></a>
+### Add Config <a href="#config" id="config"></a>
 
 Moralis Config offers a convenient way to configure parameters in Cloud Code.
 
