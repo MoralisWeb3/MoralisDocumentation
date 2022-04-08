@@ -33,6 +33,9 @@ Create a file `index.ts` and add below code:
 
 {% code title="index.ts" %}
 ```javascript
+/* import moralis */
+const Moralis = require("moralis/node");
+
 /* Moralis init code */
 const serverUrl = "YOUR-SERVER-URL";
 const appId = "YOUR-APP-ID";
@@ -45,7 +48,7 @@ await Moralis.start({ serverUrl, appId, masterKey });
 with `masterKey` you can directly access the Moralis dashboard without the need for authentication.
 
 {% hint style="info" %}
-**Note:** With the master key you can use the API, RPC nodes and other features of your Moralis account using the SDK straight from your backend**.**
+**Note:** With the master key you can use the API, RPC nodes and other features of your Moralis account using the SDK straight from your backend\*\*.\*\*
 {% endhint %}
 
 {% hint style="warning" %}
@@ -287,7 +290,7 @@ tranx();
 with `moralisSecret` all API calls go directly to the API instead of passing through the Moralis Server.
 
 {% hint style="info" %}
-**Note**: Private key should never be exposed to front-end or browser or on cloud orelse will result in loss of funds
+**Note**: Private key should never be exposed to front-end or browser or on cloud or else will result in loss of funds
 {% endhint %}
 
 Run:
@@ -425,10 +428,10 @@ Note: The watch address functions return no value as they start a job. They are 
 
 #### Watch new smart contract event
 
-Moralis Server has a special cloud function called `watchContractEvent(options)`. You can call it using the master key.&#x20;
+Moralis Server has a special cloud function called `watchContractEvent(options)`. You can call it using the master key.
 
 {% hint style="info" %}
-**Note**: limit parameter is available only for Nitro servers (those that have the coreservices plugin). If the limit parameter is not provided then the <mark style="color:green;">**default value is 500000**</mark>.&#x20;
+**Note**: limit parameter is available only for Nitro servers (those that have the coreservices plugin). If the limit parameter is not provided then the <mark style="color:green;">**default value is 500000**</mark>.
 {% endhint %}
 
 Note: at the moment the events created via code won't be seen in the admin UI, you can only see them in the database, we are working on connecting the admin UI properly

@@ -13,7 +13,7 @@ We maintain a WebSocket connection to communicate with the Moralis LiveQuery ser
 ## Create a Subscription
 
 {% hint style="info" %}
-Follow this tutorial for a step by step procedure: [**Tutorial**](live-queries.md#tutorial)****
+Follow this tutorial for a step by step procedure: [**Tutorial**](live-queries.md#tutorial)
 {% endhint %}
 
 ```javascript
@@ -161,9 +161,9 @@ When a network error or LiveQuery server error happens, you'll get this event.
 
 ## Reconnect
 
-Since the whole LiveQuery feature relies on the WebSocket connection to the LiveQuery server, we always try to maintain an open WebSocket connection.&#x20;
+Since the whole LiveQuery feature relies on the WebSocket connection to the LiveQuery server, we always try to maintain an open WebSocket connection.
 
-Thus, when the connection is lost to the LiveQuery server, we try to auto-reconnect. We do [exponential back off](https://en.wikipedia.org/wiki/Exponential\_backoff) under the hood.&#x20;
+Thus, when the connection is lost to the LiveQuery server, we try to auto-reconnect. We do [exponential back off](https://en.wikipedia.org/wiki/Exponential\_backoff) under the hood.
 
 However, if the WebSocket connection is closed due to `Moralis.LiveQuery.close()` or `client.close()`, we'll cancel the auto-reconnect.
 
