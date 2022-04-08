@@ -7,7 +7,7 @@ description: Offload Compute Intensive or Security Sensitive Functions to the Se
 ## Define Cloud Functions
 
 {% hint style="success" %}
-Follow the tutorial for an introduction to Cloud Functions: [**Tutorial**](cloud-functions.md#tutorial)****
+Follow the tutorial for an introduction to Cloud Functions: [**Tutorial**](cloud-functions.md#tutorial)
 {% endhint %}
 
 <mark style="color:green;">**For complex apps, sometimes you need a bit of logic that isn’t running on a mobile device. Cloud Code makes this possible.**</mark>
@@ -22,7 +22,7 @@ You can either edit cloud code on the dashboard directly or [**set up IDE**](clo
 
 ![Edit Cloud Code as required](../../.gitbook/assets/Moralis\_dashboard\_cloudfunction.png)
 
-Let’s look at a slightly more complex example where Cloud Code is useful. One reason to do the computation in the cloud is so that you don’t have to send a huge list of objects down to a device if you only want a little bit of information.&#x20;
+Let’s look at a slightly more complex example where Cloud Code is useful. One reason to do the computation in the cloud is so that you don’t have to send a huge list of objects down to a device if you only want a little bit of information.
 
 For example, let’s say you’re writing an app that lets people review movies. A single `Review` object could look like this:
 
@@ -438,7 +438,7 @@ When you call `Moralis.ethersByChain()`, you'll get an object with the `provider
 }
 ```
 
-Ask for an `web3` object by supplying the `chainId` for the blockchain you wish to connect to.&#x20;
+Ask for an `web3` object by supplying the `chainId` for the blockchain you wish to connect to.
 
 {% hint style="info" %}
 **Note:** the `web3` instance returned by `Moralis.web3ByChain()` or `Moralis.ethersByChain()` cannot sign transactions. There is a way to sign a transaction using a private key, but <mark style="color:red;">**this is NOT recommended for security reasons**</mark>.
@@ -656,7 +656,7 @@ return result;
 
 <mark style="color:green;">**Result**</mark>: `{ "path": "https://ipfs.moralis.io:2053/ipfs/QmeYY26fCN4t2Apo9Nqix5ZDhJwcjoyDVLLz85TLkoiqpn" }`
 
-## Tutorial&#x20;
+## Tutorial
 
 Introduction to Cloud functions:
 
