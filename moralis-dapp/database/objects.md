@@ -357,7 +357,7 @@ if (!myObject.isDataAvailable()) {
 
 Updating an object is simple. Just set some new data on it and call the save method. For example:
 
-% tabs %}
+{% tabs %}
 {% tab title="JS" %}
 
 ```javascript
