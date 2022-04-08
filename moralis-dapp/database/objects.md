@@ -132,6 +132,9 @@ customUser.signUp().then((user) => {
 
 Let’s say you want to save the `Monster` described above to the Moralis Cloud. The interface is similar to a `Backbone.Model`, including the `save` method:
 
+{% tabs %}
+{% tab title="JS" %}
+
 ```javascript
 const Monster = Moralis.Object.extend("Monster");
 const monster = new Monster();
@@ -150,6 +153,45 @@ monster.save()
   alert('Failed to create new object, with error code: ' + error.message);
 });
 ```
+
+{% endtab %}
+{% tab title="React" %}
+
+```javascript
+import { useNewMoralisObject } from "react-moralis";
+
+export default function App() {
+    const { save } = useNewMoralisObject("Monster");
+
+    const saveObject = async () => {
+        const data = {
+            strength: 1024,
+            ownerName: "Aegon",
+            canFly: true,
+        };
+
+        save(data, {
+            onSuccess: (monster) => {
+                // Execute any logic that should take place after the object is saved.
+                alert("New object created with objectId: " + monster.id);
+            },
+            onError: (error) => {
+                // Execute any logic that should take place if the save fails.
+                // error is a Moralis.Error with an error code and message.
+                alert(
+                    "Failed to create new object, with error code: " +
+                        error.message
+                );
+            },
+        });
+    };
+
+    return <button onClick={saveObject}>Call The Code</button>;
+}
+```
+
+{% endtab %}
+{% endtabs %}
 
 After this code runs, you will probably be wondering if anything really happened. To make sure the data was saved, you can look at the "Data Browser" in your "Moralis Dashboard". You should see something like this:
 
@@ -315,6 +357,9 @@ if (!myObject.isDataAvailable()) {
 
 Updating an object is simple. Just set some new data on it and call the save method. For example:
 
+{% tabs %}
+{% tab title="JS" %}
+
 ```javascript
 // Create the object.
 const Monster = Moralis.Object.extend("Monster");
@@ -334,6 +379,40 @@ monster.save().then((monster) => {
   return monster.save();
 });
 ```
+
+{% endtab %}
+{% tab title="React" %}
+
+```javascript
+import { useNewMoralisObject } from "react-moralis";
+
+export default function App() {
+    const { save } = useNewMoralisObject("Monster");
+
+    const updateObject = async () => {
+        const data = {
+            strength: 1024,
+            energy: 1337,
+            owner: "Aegon",
+            canFly: false,
+            skills: ["pwnage", "flying"],
+        };
+
+        save(data, {
+            onSuccess: (monster) => {
+                monster.set("canFly", true);
+                monster.set("strength", 1338);
+                return monster.save();
+            },
+        });
+    };
+
+    return <button onClick={updateObject}>Call The Code</button>;
+}
+```
+
+{% endtab %}
+{% endtabs %}
 
 Moralis automatically figures out which data has changed so only “dirty” fields will be sent to the Moralis Cloud. You don’t need to worry about squashing data that you didn’t intend to update.
 
@@ -418,6 +497,9 @@ For example, each `Comment` in a blogging app might correspond to one `Post`.
 
 To create a new `Post` with a single `Comment`, you could write:
 
+{% tabs %}
+{% tab title="JS" %}
+
 ```javascript
 // Declare the types.
 const Post = Moralis.Object.extend("Post");
@@ -438,6 +520,40 @@ myComment.set("parent", myPost);
 // This will save both myPost and myComment
 myComment.save();
 ```
+
+{% endtab %}
+{% tab title="React" %}
+
+```javascript
+import { useNewMoralisObject } from "react-moralis";
+
+export default function App() {
+    const postObject = useNewMoralisObject("Post");
+    const commentObject = useNewMoralisObject("Comment");
+
+    const makePost = async () => {
+        const postData = {
+            title: "I'm Hungry",
+            content: "Where should we go for lunch?",
+        };
+
+        const commentData = {
+            content: "Let's do Sushirrito.",
+            parent: await postObject.save(postData),
+        };
+
+        commentObject.save(commentData, {
+            onSuccess: (comment) => console.log(comment),
+            onError: (error) => console.log(error),
+        });
+    };
+
+    return <button onClick={makePost}>Call The Code</button>;
+}
+```
+
+{% endtab %}
+{% endtabs %}
 
 Internally, Moralis will store the referred-to object in just one place, to maintain consistency. You can also link objects using just their `objectId`'s like so:
 
