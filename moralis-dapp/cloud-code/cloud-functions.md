@@ -4,17 +4,27 @@ description: Offload Compute Intensive or Security Sensitive Functions to the Se
 
 # Cloud Functions
 
-## Defining Cloud Functions
+## Define Cloud Functions
 
-{% embed url="https://www.youtube.com/watch?v=rJ88MPODVRg&list=PLFPZ8ai7J-iSgXptMiGlnofw4YKgNITgY&index=1&ab_channel=MoralisWeb3" %}
+{% hint style="success" %}
+Follow the tutorial for an introduction to Cloud Functions: [**Tutorial**](cloud-functions.md#tutorial)****
+{% endhint %}
 
-For complex apps, sometimes you just need a bit of logic that isn’t running on a mobile device. Cloud Code makes this possible.
+<mark style="color:green;">**For complex apps, sometimes you need a bit of logic that isn’t running on a mobile device. Cloud Code makes this possible.**</mark>
 
-Cloud Code is easy to use because it’s built on the same Moralis JavaScript SDK that powers thousands of apps. The only difference is that this code runs in your Moralis Server rather than running on the user’s mobile device. When you update your Cloud Code, it becomes available to all mobile environments instantly. You don’t have to wait for a new release of your application. This lets you change app behavior on the fly and add new features faster.
+Cloud Code is easy to use because it’s built on the same Moralis JavaScript SDK that powers thousands of apps. The only difference is that this code runs in your Moralis Dapp rather than running on the user’s mobile device. When you update your Cloud Code, it becomes available to all mobile environments instantly. You don’t have to wait for a new release of your application. This lets you change app behaviour on the fly and add new features faster.
 
 Even if you’re only familiar with mobile development, we hope you’ll find Cloud Code straightforward and easy to use.
 
-Let’s look at a slightly more complex example where Cloud Code is useful. One reason to do computation in the cloud is so that you don’t have to send a huge list of objects down to a device if you only want a little bit of information. For example, let’s say you’re writing an app that lets people review movies. A single `Review` object could look like:
+You can either edit cloud code on the dashboard directly or [**set up IDE**](cloud-functions.md#ide-setup)**.**
+
+![Cloud Functions on Moralis Dashboard](<../../.gitbook/assets/Screenshot 2022-04-08 at 2.26.40 AM.png>)
+
+![Edit Cloud Code as required](../../.gitbook/assets/Moralis\_dashboard\_cloudfunction.png)
+
+Let’s look at a slightly more complex example where Cloud Code is useful. One reason to do the computation in the cloud is so that you don’t have to send a huge list of objects down to a device if you only want a little bit of information.&#x20;
+
+For example, let’s say you’re writing an app that lets people review movies. A single `Review` object could look like this:
 
 ```javascript
 {
@@ -28,6 +38,7 @@ If you wanted to find the average number of stars for The Matrix, you could quer
 
 Cloud Functions accept a JSON parameters dictionary on the `request` object, so we can use that to pass up the movie name. The entire Moralis JavaScript SDK is available in the cloud environment, so we can use that to query over `Review` objects. Together, the code to implement `averageStars` looks like this:
 
+{% code title="cloud.js" %}
 ```javascript
 Moralis.Cloud.define("averageStars", async (request) => {
   const query = new Moralis.Query("Review");
@@ -40,6 +51,7 @@ Moralis.Cloud.define("averageStars", async (request) => {
   return sum / results.length;
 });
 ```
+{% endcode %}
 
 The only difference between using `averageStars` and `hello` is that we have to provide the parameter that will be accessed in `request.params.movie` when we call the Cloud Function. Read on to learn more about how Cloud Functions can be called.
 
@@ -53,6 +65,7 @@ The following packages are available globally within Cloud Function code and can
 
 Cloud Functions cannot have state. They can read and write data to the database but you can't create global variables like in the example below.
 
+{% code title="cloud.js" %}
 ```javascript
 let name = "Satoshi"; // NOT ALLOWED
 
@@ -60,19 +73,21 @@ Moralis.Cloud.define("functionName", async (request) => {
   let age = 20; // allowed
 });
 ```
+{% endcode %}
 
 The reason is that your cloud code will get load balanced across many instances of your server so that Moralis can infinitely scale your app.
 
-The different instances of your server won't share any variables defined outside the function bodies.
+{% hint style="warning" %}
+**Note**: The different instances of your server won't share any variables defined outside the function bodies.
+{% endhint %}
 
-All instances of your server will share the same database.
+All instances of your server will share the same database. Therefore if you need to share data across instances it's recommended you store it in the [database](../database/).
 
-Therefore if you need to share data across instances it's recommended you store it in the [database](../database/).
-
-### What happens if I create global variables?
+#### What happens if I create global variables?
 
 You will get unexpected results. Consider the example below.
 
+{% code title="cloud.js" %}
 ```javascript
 let count = 0; // very bad
 
@@ -93,51 +108,21 @@ Moralis.Cloud.define("increment", async (request) => {
 // 0
 // 2
 ```
+{% endcode %}
 
-Why is the increment function not working properly?
+#### Why is the increment function not working properly?
 
 Because each time the request gets randomly routed to different instances of your server and each instance has its own separate `count` variable.
 
-Therefore we hope you now understand why you should not use global variables 🙌
+<mark style="color:green;">**Therefore we hope you now understand why you should not use global variables**</mark> 🙌
 
-### What about global constants?
+#### What about global constants?
 
 Global constants are ok to use as they will just be copied to all instances and won't change.
-
-## Console.log
-
-For debugging or informational purposes it's often useful to print messages. A logger can be obtained for this purpose. It will print messages to the Moralis Dashboard in the "Logs > Info" section.
-
-```javascript
-const logger = Moralis.Cloud.getLogger();
-logger.info("Hello World"); 
-```
-
-### Printing Logs in Real-Time in the Console
-
-{% embed url="https://youtu.be/r8kWG-9tAXo" %}
-Video explaining how to use the CLI in order to get logs in real-time.
-{% endembed %}
-
-```javascript
-moralis-admin-cli get-logs --moralisApiKey MORALIS_CLI_API_KEY --moralisApiSecret MORALIS_CLI_SECRET_KEY
-```
-
-To learn more about CLI, how to install CLI and how to work with CLI please check the CLI docs using the link below.
-
-To get started, you need to install it by running the following code in the terminal:
-
-{% content-ref url="../tools/moralis-admin-cli.md" %}
-[moralis-admin-cli.md](../tools/moralis-admin-cli.md)
-{% endcontent-ref %}
 
 ## IDE Setup
 
 You can write your Cloud Functions in your preferred IDE by making use of the `moralis-admin-cli`.
-
-{% embed url="https://youtu.be/rJ88MPODVRg?t=437" %}
-Exact time-stamp where we explain how to setup an IDE on your local machine.
-{% endembed %}
 
 To get started, you need to install it by running the following code in the terminal:
 
@@ -157,20 +142,52 @@ moralis-admin-cli watch-cloud-folder --moralisApiKey your_api_key --moralisApiSe
 
 After you've run the command, the cloud code will be updated automatically on the backend with each save!
 
-## Calling Cloud Functions
+{% embed url="https://youtu.be/rJ88MPODVRg?t=437" %}
+Exact time-stamp where we explain how to setup an IDE on your local machine.
+{% endembed %}
+
+## Debugging
+
+For debugging or informational purposes it's often useful to print messages. A logger can be obtained for this purpose. It will print messages to the Moralis Dashboard in the "Logs > Info" section.
+
+{% code title="cloud.js" %}
+```javascript
+const logger = Moralis.Cloud.getLogger();
+logger.info("Hello World"); 
+```
+{% endcode %}
+
+#### Printing Logs in Real-Time in the Console
+
+```shell
+moralis-admin-cli get-logs --moralisApiKey MORALIS_CLI_API_KEY --moralisApiSecret MORALIS_CLI_SECRET_KEY
+```
+
+To learn more about CLI, how to install CLI and how to work with CLI please check the CLI docs using the link below.
+
+{% content-ref url="../tools/moralis-admin-cli.md" %}
+[moralis-admin-cli.md](../tools/moralis-admin-cli.md)
+{% endcontent-ref %}
+
+{% embed url="https://youtu.be/r8kWG-9tAXo" %}
+Video explaining how to use the CLI in order to get logs in real-time.
+{% endembed %}
+
+## Call Cloud Functions
 
 {% tabs %}
 {% tab title="JS" %}
-
+{% code title="index.js" %}
 ```javascript
 const params =  { movie: "The Matrix" };
 const ratings = await Moralis.Cloud.run("averageStars", params);
 // ratings should be 4.5
 ```
-
+{% endcode %}
 {% endtab %}
-{% tab title="React" %}
 
+{% tab title="React" %}
+{% code title="app.js" %}
 ```javascript
 import { useMoralisCloudFunction } from "react-moralis";
 
@@ -194,7 +211,7 @@ function App() {
 
 export default App;
 ```
-
+{% endcode %}
 {% endtab %}
 {% endtabs %}
 
@@ -219,26 +236,57 @@ If there is an error, the response in the client looks like this:
 }
 ```
 
-\
-Using the Master Key in Cloud Code <a href="#using-the-master-key-in-cloud-code" id="using-the-master-key-in-cloud-code"></a>
------------------------------------------------------------------------------------------------------------------------------
+## Call via REST API
+
+Cloud Functions can be called directly using a simple GET request. Add your Moralis App Id and any Cloud Function arguments as query parameters to your Moralis server URL. Say you had the following Cloud Function:
+
+{% code title="cloud.js" %}
+```javascript
+Moralis.Cloud.define("Hello", (request) => {
+return `Hello ${request.params.name}! Cloud functions are cool!`
+});
+```
+{% endcode %}
+
+Then the URL would look something like the following:
+
+```shell
+https://1a2b3c4c5d6f.moralis.io:2053/server/functions/Hello?_ApplicationId=1a2b3c4c5d6f1a2b3c4c5d6f&name=CryptoChad
+```
+
+The URL has the following structure:
+
+1. Full Morlis server url.
+2. `/functions/`.
+3. Cloud Function Name.
+4. `?_ApplicationId=yourMoralisAppId`.
+5. (optional) Cloud Function param key/value pairs: `&param1=value&param2=value`.
+
+## Master Key in Cloud Code <a href="#using-the-master-key-in-cloud-code" id="using-the-master-key-in-cloud-code"></a>
 
 Set `useMasterKey:true` in the requests that require the master key.
 
-### Examples: <a href="#examples-3" id="examples-3"></a>
+#### Examples: <a href="#examples-3" id="examples-3"></a>
 
+{% code title="cloud.js" %}
 ```javascript
 query.find({useMasterKey:true});
 object.save(null,{useMasterKey:true});
 Moralis.Object.saveAll(objects,{useMasterKey:true});
 ```
+{% endcode %}
 
-Note that master key is accessible by default in a cloud function when you use `useMasterKey:true`
+{% hint style="info" %}
+**Note:** The master key is accessible by default in a cloud function when you use `useMasterKey:true`
+{% endhint %}
 
-Important: Master key should not be used on your frontend code as it would be accessible in the user's browser.
+{% hint style="warning" %}
+**Important**: The master key should not be used on your frontend code as it would be accessible in the user's browser.
+{% endhint %}
 
 In case if you are using master key from another backend server that you are controlling you can use the following code to intialize the master key:
 
+{% code title="index.js | Node.js" %}
 ```javascript
 const Moralis = require("moralis/node"); // Node.js
 const appId = "YOUR_MORALIS_APP_ID";
@@ -247,13 +295,15 @@ const masterKey = "YOUR_MORALIS_MASTER_KEY";
 
 Moralis.start({ serverUrl, appId, masterKey });
 ```
+{% endcode %}
 
-## Implementing Cloud Function Validation
+## Cloud Function Validation
 
 It’s important to make sure the parameters required for a Cloud Function are provided and are in the necessary format. you can specify a validator function or object which will be called prior to your Cloud Function.
 
 Let’s take a look at the `averageStars` example. If you wanted to make sure that `request.params.movie` is provided, and that `averageStars` can only be called by logged-in users, you could add a validator object to the function.
 
+{% code title="cloud.js" %}
 ```javascript
 Moralis.Cloud.define("averageStars", async (request) => {
   const query = new Moralis.Query("Review");
@@ -269,13 +319,15 @@ Moralis.Cloud.define("averageStars", async (request) => {
   requireUser: true
 });
 ```
+{% endcode %}
 
 If the rules specified in the validator object aren’t met, the Cloud Function won’t run. This means that you can confidently build your function, knowing that `request.params.movie` is defined, as well as `request.user`.
 
-### More Advanced Validation
+## Advanced Cloud Function Validation
 
 Often, not only is it important that `request.params.movie` is defined, but also that it's the correct data type. You can do this by providing an `Object` to the `fields` parameter in the "Validator."
 
+{% code title="cloud.js" %}
 ```javascript
 Moralis.Cloud.define("averageStars", async (request) => {
   const query = new Moralis.Query("Review");
@@ -305,6 +357,7 @@ Moralis.Cloud.define("averageStars", async (request) => {
   }
 });
 ```
+{% endcode %}
 
 This function will only run if:
 
@@ -314,7 +367,6 @@ This function will only run if:
 * `request.user` is defined.
 * `request.user.get('accType')` is defined.
 * `request.user.get('accType')` is equal to ‘reviewer.’
-
 
 The full range of built-in validation options are:
 
@@ -329,12 +381,13 @@ The full range of built-in validation options on `.fields` are:
 * `type`: The type of the `request.params[field]` or `request.object.get(field)`.
 * `default`: What the field should default to if it’s `null`.
 * `required`: Whether the field is required.
-* `options`: A singular option, an array of options, or custom function of allowed values for the field.
+* `options`: A singular option, an array of options, or a custom function of allowed values for the field.
 * `constant`: Whether the field is immutable.
 * `error`: A custom error message if validation fails.
 
 You can also pass a function to the Validator. This can help you apply reoccurring logic to your Cloud Code.
 
+{% code title="cloud.js" %}
 ```javascript
 const validationRules = request => {
   if (request.master) {
@@ -353,44 +406,23 @@ Moralis.Cloud.define('adminFunctionTwo', request => {
 // do admin code here, confident that request.user.id is masterUser, or masterKey is provided
 },validationRules)
 ```
+{% endcode %}
 
 #### SOME CONSIDERATIONS TO BE AWARE OF
 
 * The validation function will run prior to your Cloud Code Functions. You can use `async` and promises here, but try to keep the validation as simple and fast as possible so your cloud requests resolve quickly.
 * As previously mentioned, cloud validator objects will not validate if a master key is provided, unless `validateMasterKey:true` is set. However, if you set your validator to a function, the function will **always** run.
 
-## Calling via REST API
-
-Cloud Functions can be called directly using a simple GET request. Add your Moralis App Id and any Cloud Function arguments as query parameters to your Moralis server URL. Say you had the following Cloud Function:
-
-```javascript
-Moralis.Cloud.define("Hello", (request) => {
-return `Hello ${request.params.name}! Cloud functions are cool!`
-});
-```
-
-Then the URL would look something like the following:
-
-```
-https://1a2b3c4c5d6f.moralis.io:2053/server/functions/Hello?_ApplicationId=1a2b3c4c5d6f1a2b3c4c5d6f&name=CryptoChad
-```
-
-The URL has the following structure:
-
-1. Full Morlis server url.
-2. `/functions/`.
-3. Cloud Function Name.
-4. `?_ApplicationId=yourMoralisAppId`.
-5. (optional) Cloud Function param key/value pairs: `&param1=value&param2=value`.
-
 ## Web3
 
 Web3 functions are available within Cloud Code including the ability to call contract methods. Moralis uses the [Web3.js](https://web3js.readthedocs.io) and [ethers.js](https://docs.ethers.io) libraries.
 
+{% code title="cloud.js" %}
 ```javascript
 // get a web3 instance for a specific chain
 const web3 = Moralis.web3ByChain("0x1"); // mainnet
 ```
+{% endcode %}
 
 ```javascript
 // get an ethers instance for a specific chain and ethersjs library
@@ -399,16 +431,20 @@ const web3 = Moralis.ethersByChain("0x4"); // rinkeby
 
 When you call `Moralis.ethersByChain()`, you'll get an object with the `provider` and `ethers` libraries.
 
-```javascript
+```json
 {
   provider: //A provider with the supplied chainId,
   ethers: //ethers.js library,
 }
 ```
 
-Ask for a `web3` object by supplying the `chainId` for the blockchain you wish to connect to. The following is a list of the currently supported chains.
+Ask for an `web3` object by supplying the `chainId` for the blockchain you wish to connect to.&#x20;
 
-**Note:** the `web3` instance returned by `Moralis.web3ByChain()` or `Moralis.ethersByChain()` cannot sign transactions. There is a way to sign a transaction using a private key, but this is NOT recommended for security reasons.
+{% hint style="info" %}
+**Note:** the `web3` instance returned by `Moralis.web3ByChain()` or `Moralis.ethersByChain()` cannot sign transactions. There is a way to sign a transaction using a private key, but <mark style="color:red;">**this is NOT recommended for security reasons**</mark>.
+{% endhint %}
+
+The following is a list of the currently supported chains.
 
 | Chain Name                    | ChainId   |
 | ----------------------------- | --------- |
@@ -439,6 +475,7 @@ For convenience, Moralis bundles the [Openzepplin](https://github.com/OpenZeppel
 
 Bringing it all together...
 
+{% code title="cloud.js" %}
 ```javascript
 const web3 = Moralis.web3ByChain("0x38"); // BSC
 const abi = Moralis.Web3.abis.erc20;
@@ -453,8 +490,11 @@ const name = await contract.methods
   .call()
   .catch(() => "");
 ```
+{% endcode %}
 
+{% hint style="info" %}
 For more details on the Web3.js contract interface, see the [`web3.eth.Contract`](https://web3js.readthedocs.io/en/v1.3.4/web3-eth-contract.html) section of the Web3.js docs.
+{% endhint %}
 
 The Web3 instance returned by `Moralis.web3ByChain()` cannot sign transactions. In the near future, it may be possible to do this with custom plugins. For now, if you need to make on-chain contract interactions, consider doing them on the frontend or create a NodeJS backend where you have access to [Truffle's HdWalletProvider](https://github.com/trufflesuite/truffle/tree/develop/packages/hdwallet-provider).
 
@@ -476,6 +516,7 @@ In order to successfully run the `units` function you always need to specify a `
 
 Convert any ether value to wei.
 
+{% code title="cloud.js" %}
 ```javascript
 const result = await Moralis.Cloud.units({
   method: "toWei",
@@ -483,13 +524,15 @@ const result = await Moralis.Cloud.units({
 });
 return result;
 ```
+{% endcode %}
 
-Result: `1000000000000000000`
+<mark style="color:green;">**Result**</mark>: `1000000000000000000`
 
 ### From wei
 
 Convert any wei value to ether.
 
+{% code title="cloud.js" %}
 ```javascript
 const result = Moralis.Cloud.units({
   method: "fromWei",
@@ -497,13 +540,15 @@ const result = Moralis.Cloud.units({
 });
 return result;
 ```
+{% endcode %}
 
-Result: `0.001`
+<mark style="color:green;">**Result**</mark>: `0.001`
 
 ### To hex
 
 Convert any given value to its hexadecimal representation.
 
+{% code title="cloud.js" %}
 ```javascript
  const result = Moralis.Cloud.units({
    method: "toHex",
@@ -511,13 +556,13 @@ Convert any given value to its hexadecimal representation.
  });
  return result;
 ```
+{% endcode %}
 
-Result: `64`
+<mark style="color:green;">**Result**</mark>: `64`
 
 ## IPFS
 
-IPFS functionality is available inside your cloud functions.\
-In order to successfully upload to IPFS you need to specify:
+IPFS functionality is available inside your cloud functions. In order to successfully upload to IPFS you need to specify:
 
 * A source type: `sourceType`
 * A source: `source`
@@ -526,8 +571,9 @@ Below are the supported values of `sourceType`
 
 ### Url
 
-Push the content of a given url to IPFS.
+Push the content of a given URL to IPFS.
 
+{% code title="cloud.js" %}
 ```javascript
 const result = await Moralis.Cloud.toIpfs({
   sourceType: "url",
@@ -535,13 +581,15 @@ const result = await Moralis.Cloud.toIpfs({
 });
 return result;
 ```
+{% endcode %}
 
-Result: `{ "path": "https://ipfs.moralis.io:2053/ipfs/QmYrUVhr1f6ZpZ4jrmi7mSv5X8MGjxxrgaERWde3cFASL6" }`
+<mark style="color:green;">**Result**</mark>: `{ "path": "https://ipfs.moralis.io:2053/ipfs/QmYrUVhr1f6ZpZ4jrmi7mSv5X8MGjxxrgaERWde3cFASL6" }`
 
 ### String
 
 Push a string to IPFS.
 
+{% code title="cloud.js" %}
 ```javascript
  const result = await Moralis.Cloud.toIpfs({
    sourceType: "string",
@@ -549,13 +597,15 @@ Push a string to IPFS.
  });
  return result;
 ```
+{% endcode %}
 
-Result: `{ "path": "https://ipfs.moralis.io:2053/ipfs/QmeYY26fCN4t2Apo9Nqix5ZDhJwcjoyDVLLz85TLkoiqpn" }`
+<mark style="color:green;">**Result**</mark>: `{ "path": "https://ipfs.moralis.io:2053/ipfs/QmeYY26fCN4t2Apo9Nqix5ZDhJwcjoyDVLLz85TLkoiqpn" }`
 
 ### Object
 
 Push an object to IPFS.
 
+{% code title="cloud." %}
 ```javascript
 const result = await Moralis.Cloud.toIpfs({
   sourceType: 'object',
@@ -570,13 +620,15 @@ const result = await Moralis.Cloud.toIpfs({
 });
 return result;
 ```
+{% endcode %}
 
-Result: `{ "path": "https://ipfs.moralis.io:2053/ipfs/QmWowsJ74rYCHUYhag83Puky1qZTSsdj3n7bT2ejE2NvCJ" }`
+<mark style="color:green;">**Result**</mark>: `{ "path": "https://ipfs.moralis.io:2053/ipfs/QmWowsJ74rYCHUYhag83Puky1qZTSsdj3n7bT2ejE2NvCJ" }`
 
 ### Base64 Binary
 
 Push a base64 file to IPFS.
 
+{% code title="cloud.js" %}
 ```javascript
 const result = await Moralis.Cloud.toIpfs({
   sourceType: "base64Binary",
@@ -584,13 +636,15 @@ const result = await Moralis.Cloud.toIpfs({
 });
 return result;
 ```
+{% endcode %}
 
-Result: `{ "path": "https://ipfs.moralis.io:2053/ipfs/QmaZRSn8cHKUN5LsvuY6M8a5LzV76uFKeZ9khthPj2rHhw" }`
+<mark style="color:green;">**Result**</mark>: `{ "path": "https://ipfs.moralis.io:2053/ipfs/QmaZRSn8cHKUN5LsvuY6M8a5LzV76uFKeZ9khthPj2rHhw" }`
 
 ### Base64
 
 Push a base64 string to IPFS.
 
+{% code title="cloud.js" %}
 ```javascript
 const result = await Moralis.Cloud.toIpfs({
   sourceType: "base64",
@@ -598,5 +652,12 @@ const result = await Moralis.Cloud.toIpfs({
 });
 return result;
 ```
+{% endcode %}
 
-Result: `{ "path": "https://ipfs.moralis.io:2053/ipfs/QmeYY26fCN4t2Apo9Nqix5ZDhJwcjoyDVLLz85TLkoiqpn" }`
+<mark style="color:green;">**Result**</mark>: `{ "path": "https://ipfs.moralis.io:2053/ipfs/QmeYY26fCN4t2Apo9Nqix5ZDhJwcjoyDVLLz85TLkoiqpn" }`
+
+## Tutorial&#x20;
+
+Introduction to Cloud functions:
+
+{% embed url="https://www.youtube.com/watch?v=rJ88MPODVRg&list=PLFPZ8ai7J-iSgXptMiGlnofw4YKgNITgY&index=1&ab_channel=MoralisWeb3" %}
