@@ -507,6 +507,38 @@ For your own contracts, the ABI can be found in the build directory after compil
 * Truffle: `/truffle/build/contracts/myContract.json`.
 * Hardhat: `/artifacts/contracts/myContract.sol/myContract.json`.
 
+### Example of how to use a custom RPC url
+
+By using ethers:
+{% code title="cloud.js" %}
+```javascript
+const web3 = Moralis.ethersByChain("0x1")
+var url = 'https://speedy-nodes-nyc.moralis.io/YOUR_ID_HERE/eth/mainnet';
+var customHttpProvider = new web3.ethers.providers.JsonRpcProvider(url);
+customHttpProvider.getBlockNumber().then((result) => {
+    logger.info("Current block number: " + result);
+});
+```
+{% endcode %}
+
+By using web3:
+{% code title="cloud.js" %}
+```javascript
+Moralis.Cloud.define("run_contract_function_with_web3", async (request) => {
+
+  web3 = new Moralis.Web3(new Moralis.Web3.providers.HttpProvider("https://speedy-nodes-nyc.moralis.io/YOUR_ID_HERE/bsc/mainnet"));
+    const abi = [{"constant":true,"inputs":[],"name":"name","outputs":[{"name":"","type":"string"}],"payable":false,"stateMutability":"view","type":"function"}]
+    address = "0x2170Ed0880ac9A755fd29B2688956BD959F933F8"
+    const contract = new web3.eth.Contract(abi, address)
+    const name = await contract.methods
+      .name()
+      .call()
+      .catch((e) => logger.error(`callName: ${e}${JSON.stringify(e, null, 2)}`))
+    return name;    
+});
+```
+{% endcode %}
+
 ## Units
 
 Moralis units are available inside your cloud functions.\
