@@ -8,20 +8,14 @@ description: Run Code on the Server in Response to Server Events.
 
 Triggers are a way to perform operations in response to particular server-side events such as when data is saved to a particular collection. These typically come in two flavors.
 
-* Before X: trigger is called before X happens.
-* After X: trigger is called after X happens.
+- Before X: trigger is called before X happens.
+- After X: trigger is called after X happens.
 
 Triggers operate against a specific collection like `EthTransactions`. For example, to update the status of an order object to "sold" when a particular NFT is transferred, you could define an `afterSave` trigger on `EthNFTTransfers`. The trigger would get called every time a new entry is added to the `EthNFTTransfers` collection, and you could check to see if it matches one of the open orders.
 
 ### Unconfirmed Transactions
 
-Transactions on Testnet and Mainnet can take a while to be confirmed. When Moralis detects a new transaction (or event) in an unconfirmed state, these get put into the collection with `confirmed: false`. For aggregate collections like balances, the unconfirmed transaction entries are put in separate collections post-fixed with "Pending".
-
-* EthBalancePending
-* EthNFTOwnersPending
-* etc.
-
-When the transaction gets confirmed, the status is updated to `confirmed: true` and any corresponding entries in pending collections are merged into their respective main collections.
+Transactions on Testnet and Mainnet can take a while to be confirmed. When Moralis detects a new transaction (or event) in an unconfirmed state, these get put into the collection with `confirmed: false`. When the transaction gets confirmed, the status is updated to `confirmed: true`.
 
 #### Consequences for Triggers
 
@@ -30,7 +24,7 @@ This means if you define an `afterSave` trigger on a collection then the trigger
 The confirmed status can be checked by getting the object that fired the trigger using `request.object`.
 
 ```javascript
-Moralis.Cloud.afterSave("EthTransactions", async function(request) {
+Moralis.Cloud.afterSave("EthTransactions", async function (request) {
   const confirmed = request.object.get("confirmed");
   if (confirmed) {
     // do something
@@ -96,11 +90,13 @@ Moralis.Cloud.beforeSave("Review", (request) => {
 If you want to use `beforeSave` for a predefined class in the Moralis JavaScript SDK, you should not pass a string for the first argument. Instead, you should pass the class itself, for example:
 
 ```javascript
-Moralis.Cloud.beforeSave(Moralis.User, async (request) => {
+Moralis.Cloud.beforeSave(
+  Moralis.User,
+  async (request) => {
     // code here
-},
+  }
   // Validation Object or Validation Function
-)
+);
 ```
 
 ### afterSave <a href="#aftersave" id="aftersave"></a>
@@ -112,12 +108,13 @@ const logger = Moralis.Cloud.getLogger();
 
 Moralis.Cloud.afterSave("Comment", (request) => {
   const query = new Moralis.Query("Post");
-  query.get(request.object.get("post").id)
-    .then(function(post) {
+  query
+    .get(request.object.get("post").id)
+    .then(function (post) {
       post.increment("comments");
       return post.save();
     })
-    .catch(function(error) {
+    .catch(function (error) {
       logger.error("Got an error " + error.code + " : " + error.message);
     });
 });
@@ -135,8 +132,8 @@ If you want to use `afterSave` for a predefined class in the Moralis JavaScript 
 
 ```javascript
 Moralis.Cloud.afterSave(Moralis.User, async (request) => {
-    // code here
-})
+  // code here
+});
 ```
 
 ### Context <a href="#context" id="context"></a>
@@ -149,7 +146,7 @@ The context is also passed from a `beforeSave` handler to an `afterSave` handler
 const beforeSave = function beforeSave(request) {
   const { object: role } = request;
   // Get users that will be added to the users relation.
-  const usersOp = role.op('users');
+  const usersOp = role.op("users");
   if (usersOp && usersOp.relationsToAdd.length > 0) {
     // add the users being added to the request context
     request.context = { buyers: usersOp.relationsToAdd };
@@ -161,7 +158,7 @@ const afterSave = function afterSave(request) {
   if (context && context.buyers) {
     const purchasedItem = getItemFromRole(role);
     const promises = context.buyers.map(emailBuyer.bind(null, purchasedItem));
-    item.increment('orderCount', context.buyers.length);
+    item.increment("orderCount", context.buyers.length);
     promises.push(item.save(null, { useMasterKey: true }));
     Promise.all(promises).catch(request.log.error.bind(request.log));
   }
@@ -178,7 +175,7 @@ You can run custom cloud code before an object is deleted. You can do this with 
 Moralis.Cloud.beforeDelete("Album", async (request) => {
   const query = new Moralis.Query("Photo");
   query.equalTo("album", request.object);
-  const count = await query.count({useMasterKey:true})
+  const count = await query.count({ useMasterKey: true });
   if (count > 0) {
     throw "Can't delete album if it still has photos.";
   }
@@ -193,8 +190,8 @@ If you want to use `beforeDelete` for a predefined class in the Moralis JavaScri
 
 ```javascript
 Moralis.Cloud.beforeDelete(Moralis.User, async (request) => {
-    // code here
-})
+  // code here
+});
 ```
 
 ### afterDelete <a href="#afterdelete" id="afterdelete"></a>
@@ -207,10 +204,13 @@ const logger = Moralis.Cloud.getLogger();
 Moralis.Cloud.afterDelete("Post", (request) => {
   const query = new Moralis.Query("Comment");
   query.equalTo("post", request.object);
-  query.find()
+  query
+    .find()
     .then(Moralis.Object.destroyAll)
     .catch((error) => {
-      logger.error("Error finding related comments " + error.code + ": " + error.message);
+      logger.error(
+        "Error finding related comments " + error.code + ": " + error.message
+      );
     });
 });
 ```
@@ -225,8 +225,8 @@ If you want to use `afterDelete` for a predefined class in the Moralis JavaScrip
 
 ```javascript
 Moralis.Cloud.afterDelete(Moralis.User, async (request) => {
-    // code here
-})
+  // code here
+});
 ```
 
 ## File Triggers <a href="#file-triggers" id="file-triggers"></a>
@@ -242,20 +242,22 @@ With the `beforeSaveFile` method, you can run custom cloud code before any file 
 Moralis.Cloud.beforeSaveFile(async (request) => {
   const { file } = request;
   const fileData = await file.getData();
-  const newFile = new Moralis.File('a-new-file-name.txt', { base64: fileData });
+  const newFile = new Moralis.File("a-new-file-name.txt", { base64: fileData });
   return newFile;
 });
 
 // Returning an already saved file
 Moralis.Cloud.beforeSaveFile((request) => {
   const { user } = request;
-  const avatar = user.get('avatar'); // this is a Moralis.File that is already saved to the user object
+  const avatar = user.get("avatar"); // this is a Moralis.File that is already saved to the user object
   return avatar;
 });
 
 // Saving a different file from uri
 Moralis.Cloud.beforeSaveFile((request) => {
-  const newFile = new Moralis.File('some-file-name.txt', { uri: 'www.somewhere.com/file.txt' });
+  const newFile = new Moralis.File("some-file-name.txt", {
+    uri: "www.somewhere.com/file.txt",
+  });
   return newFile;
 });
 ```
@@ -270,8 +272,8 @@ Note: not all storage adapters support metadata and tags. Check the documentatio
 // Adding metadata and tags
 Moralis.Cloud.beforeSaveFile((request) => {
   const { file, user } = request;
-  file.addMetadata('createdById', user.id);
-  file.addTag('groupId', user.get('groupId'));
+  file.addMetadata("createdById", user.id);
+  file.addTag("groupId", user.get("groupId"));
 });
 ```
 
@@ -282,10 +284,10 @@ The `afterSaveFile` method is a great way to keep track of all the files stored 
 ```javascript
 Moralis.Cloud.afterSaveFile(async (request) => {
   const { file, fileSize, user } = request;
-  const fileObject = new Moralis.Object('FileObject');
-  fileObject.set('file', file);
-  fileObject.set('fileSize', fileSize);
-  fileObject.set('createdBy', user);
+  const fileObject = new Moralis.Object("FileObject");
+  fileObject.set("file", file);
+  fileObject.set("fileSize", fileSize);
+  fileObject.set("createdBy", user);
   const token = { sessionToken: user.getSessionToken() };
   await fileObject.save(null, token);
 });
@@ -322,8 +324,8 @@ In the above `beforeDeleteFile` example, the `FileObject` collection is used to 
 ```javascript
 Moralis.Cloud.afterDeleteFile(async (request) => {
   const { file } = request;
-  const query = new Moralis.Query('FileObject');
-  query.equalTo('fileName', file.name());
+  const query = new Moralis.Query("FileObject");
+  query.equalTo("fileName", file.name());
   const fileObject = await query.first({ useMasterKey: true });
   await fileObject.destroy({ useMasterKey: true });
 });
@@ -339,7 +341,7 @@ In some cases, you may want to transform an incoming query, adding an additional
 
 ```javascript
 // Properties available
-Moralis.Cloud.beforeFind('MyObject', (req) => {
+Moralis.Cloud.beforeFind("MyObject", (req) => {
   let query = req.query; // the Moralis.Query
   let user = req.user; // the user
   let triggerName = req.triggerName; // beforeFind
@@ -350,43 +352,43 @@ Moralis.Cloud.beforeFind('MyObject', (req) => {
 });
 
 // Selecting keys
-Moralis.Cloud.beforeFind('MyObject', (req) => {
+Moralis.Cloud.beforeFind("MyObject", (req) => {
   let query = req.query; // the Moralis.Query
   // Force the selection on some keys
-  query.select(['key1', 'key2']);
+  query.select(["key1", "key2"]);
 });
 
 // Asynchronous support
-Moralis.Cloud.beforeFind('MyObject', (req) => {
+Moralis.Cloud.beforeFind("MyObject", (req) => {
   let query = req.query;
   return aPromise().then((results) => {
     // do something with the results
-    query.containedIn('key', results);
+    query.containedIn("key", results);
   });
 });
 
 // Returning a different query
-Moralis.Cloud.beforeFind('MyObject', (req) => {
+Moralis.Cloud.beforeFind("MyObject", (req) => {
   let query = req.query;
-  let otherQuery = new Moralis.Query('MyObject');
-  otherQuery.equalTo('key', 'value');
+  let otherQuery = new Moralis.Query("MyObject");
+  otherQuery.equalTo("key", "value");
   return Moralis.Query.or(query, otherQuery);
 });
 
 // Rejecting a query
-Moralis.Cloud.beforeFind('MyObject', (req) =>  {
+Moralis.Cloud.beforeFind("MyObject", (req) => {
   // throw an error
-  throw new Moralis.Error(101, 'error');
+  throw new Moralis.Error(101, "error");
 
   // rejecting promise
-  return Promise.reject('error');
+  return Promise.reject("error");
 });
 
 // Setting the read preference for a query
-Moralis.Cloud.beforeFind('MyObject2', (req) => {
-  req.readPreference = 'SECONDARY_PREFERRED';
-  req.subqueryReadPreference = 'SECONDARY';
-  req.includeReadPreference = 'PRIMARY';
+Moralis.Cloud.beforeFind("MyObject2", (req) => {
+  req.readPreference = "SECONDARY_PREFERRED";
+  req.subqueryReadPreference = "SECONDARY";
+  req.includeReadPreference = "PRIMARY";
 });
 ```
 
@@ -396,8 +398,8 @@ If you want to use `beforeFind` for a predefined class in the Moralis JavaScript
 
 ```javascript
 Moralis.Cloud.beforeFind(Moralis.User, async (request) => {
-    // code here
-})
+  // code here
+});
 ```
 
 ### afterFind <a href="#afterfind" id="afterfind"></a>
@@ -405,9 +407,9 @@ Moralis.Cloud.beforeFind(Moralis.User, async (request) => {
 In some cases, you may want to manipulate the results of a query before they are sent to the client. You can do so with the `afterFind` trigger.
 
 ```javascript
-Moralis.Cloud.afterFind('MyCustomClass', async (request) => {
-    // code here
-})
+Moralis.Cloud.afterFind("MyCustomClass", async (request) => {
+  // code here
+});
 ```
 
 #### PREDEFINED CLASSES <a href="#predefined-classes-5" id="predefined-classes-5"></a>
@@ -416,8 +418,8 @@ If you want to use `afterFind` for a predefined class in the Moralis JavaScript 
 
 ```javascript
 Moralis.Cloud.afterFind(Moralis.User, async (request) => {
-    // code here
-})
+  // code here
+});
 ```
 
 ## Session Triggers <a href="#session-triggers" id="session-triggers"></a>
@@ -427,55 +429,55 @@ Moralis.Cloud.afterFind(Moralis.User, async (request) => {
 Sometimes you may want to run custom validation on a login request. The `beforeLogin` trigger can be used for blocking an account from logging in (for example, if they are banned), recording a login event for analytics, notifying a user by email if a login occurred at an unusual IP address and more.
 
 ```javascript
-Moralis.Cloud.beforeLogin(async request => {
-  const { object: user }  = request;
-  if(user.get('isBanned')) {
-   throw new Error('Access denied, you have been banned.')
+Moralis.Cloud.beforeLogin(async (request) => {
+  const { object: user } = request;
+  if (user.get("isBanned")) {
+    throw new Error("Access denied, you have been banned.");
   }
 });
 ```
 
 #### SOME CONSIDERATIONS TO BE AWARE OF <a href="#some-considerations-to-be-aware-of-1" id="some-considerations-to-be-aware-of-1"></a>
 
-* It waits for any promises to resolve.
-* The user is not available on the request object - the user has not yet been provided a session until after `beforeLogin` is successfully completed.
-* Like `afterSave` on `Moralis.User`, it will not save mutations to the user unless explicitly saved.
+- It waits for any promises to resolve.
+- The user is not available on the request object - the user has not yet been provided a session until after `beforeLogin` is successfully completed.
+- Like `afterSave` on `Moralis.User`, it will not save mutations to the user unless explicitly saved.
 
 **THE TRIGGER WILL RUN…**
 
-* On username & password logins.
-* On `authProvider` logins.
+- On username & password logins.
+- On `authProvider` logins.
 
 **THE TRIGGER WON’T RUN…**
 
-* On sign up.
-* If the login credentials are incorrect.
+- On sign up.
+- If the login credentials are incorrect.
 
 ### afterLogout <a href="#afterlogout" id="afterlogout"></a>
 
 Sometimes you may want to run actions after a user logs out. For example, the `afterLogout` trigger can be used for clean-up actions after a user logs out. The triggers contain the session object that has been deleted on logout. From this session object, you can determine the user who logged out to perform user-specific tasks.
 
 ```javascript
-Moralis.Cloud.afterLogout(async request => {
-  const { object: session }  = request;
-  const user = session.get('user');
-  user.set('isOnline', false);
-  user.save(null,{useMasterKey:true});
+Moralis.Cloud.afterLogout(async (request) => {
+  const { object: session } = request;
+  const user = session.get("user");
+  user.set("isOnline", false);
+  user.save(null, { useMasterKey: true });
 });
 ```
 
 #### SOME CONSIDERATIONS TO BE AWARE OF <a href="#some-considerations-to-be-aware-of-2" id="some-considerations-to-be-aware-of-2"></a>
 
-* As with with `afterDelete` triggers, the `_Session` object that is contained in the request has already been deleted.
+- As with with `afterDelete` triggers, the `_Session` object that is contained in the request has already been deleted.
 
 **THE TRIGGER WILL RUN…**
 
-* When the user logs out and a `_Session` object was deleted.
+- When the user logs out and a `_Session` object was deleted.
 
 #### THE TRIGGER WON’T RUN… <a href="#the-trigger-wont-run-1" id="the-trigger-wont-run-1"></a>
 
-* If a user logs out and no `_Session` object was found to delete.
-* If a `_Session` object is deleted without the user logging out by calling the logout method of an SDK.
+- If a user logs out and no `_Session` object was found to delete.
+- If a `_Session` object is deleted without the user logging out by calling the logout method of an SDK.
 
 ## LiveQuery Triggers <a href="#livequery-triggers" id="livequery-triggers"></a>
 
@@ -484,9 +486,9 @@ Moralis.Cloud.afterLogout(async request => {
 You can run custom cloud code before a user attempts to connect to your LiveQuery server with the `beforeConnect` method. For instance, this can be used to only allow users that have logged in to connect to the LiveQuery server.
 
 ```javascript
-Moralis.Cloud.beforeConnect(request => {
+Moralis.Cloud.beforeConnect((request) => {
   if (!request.user) {
-    throw "Please login before you attempt to connect."
+    throw "Please login before you attempt to connect.";
   }
 });
 ```
@@ -496,7 +498,7 @@ In most cases, the `connect` event is called the first time the client calls `su
 ```javascript
 const logger = Moralis.Cloud.getLogger();
 
-Moralis.LiveQuery.on('error', (error) => {
+Moralis.LiveQuery.on("error", (error) => {
   logger.info(error);
 });
 ```
@@ -506,12 +508,15 @@ Moralis.LiveQuery.on('error', (error) => {
 In some cases, you may want to transform the incoming subscription query. Examples include adding an additional limit, increasing the default limit, adding extra includes, or restricting the results to a subset of keys. You can do so with the `beforeSubscribe` trigger.
 
 ```javascript
-Moralis.Cloud.beforeSubscribe('MyObject', request => {
-    if (!request.user.get('Admin')) {
-        throw new Moralis.Error(101, 'You are not authorized to subscribe to MyObject.');
-    }
-    let query = request.query; // the Moralis.Query
-    query.select("name","year")
+Moralis.Cloud.beforeSubscribe("MyObject", (request) => {
+  if (!request.user.get("Admin")) {
+    throw new Moralis.Error(
+      101,
+      "You are not authorized to subscribe to MyObject."
+    );
+  }
+  let query = request.query; // the Moralis.Query
+  query.select("name", "year");
 });
 ```
 
@@ -523,22 +528,22 @@ In some cases, you may want to manipulate the results of a Live Query before the
 
 ```javascript
 // Changing values on object and original
-Moralis.Cloud.afterLiveQueryEvent('MyObject', request => {
+Moralis.Cloud.afterLiveQueryEvent("MyObject", (request) => {
   const object = request.object;
-  object.set('name', '***');
+  object.set("name", "***");
 
   const original = request.original;
-  original.set('name', 'yolo');
+  original.set("name", "yolo");
 });
 
 // Prevent LiveQuery trigger unless 'foo' is modified
-Moralis.Cloud.afterLiveQueryEvent('MyObject', (request) => {
+Moralis.Cloud.afterLiveQueryEvent("MyObject", (request) => {
   const object = request.object;
   const original = request.original;
   if (!original) {
     return;
   }
-  if (object.get('foo') != original.get('foo')) {
+  if (object.get("foo") != original.get("foo")) {
     request.sendEvent = false;
   }
 });
@@ -548,7 +553,7 @@ By default, MoralisLiveQuery does not perform queries that require additional da
 
 ```javascript
 // Including an object on LiveQuery event, on update only.
-Moralis.Cloud.afterLiveQueryEvent('MyObject', async (request) => {
+Moralis.Cloud.afterLiveQueryEvent("MyObject", async (request) => {
   if (request.event != "update") {
     request.sendEvent = false;
     return;
@@ -559,14 +564,14 @@ Moralis.Cloud.afterLiveQueryEvent('MyObject', async (request) => {
 });
 
 // Extend matchesQuery functionality to LiveQuery
-Moralis.Cloud.afterLiveQueryEvent('MyObject', async (request) => {
+Moralis.Cloud.afterLiveQueryEvent("MyObject", async (request) => {
   if (request.event != "create") {
     return;
   }
-  const query = request.object.relation('children').query();
-  query.equalTo('foo','bart');
+  const query = request.object.relation("children").query();
+  query.equalTo("foo", "bart");
   const first = await query.first();
-  if (!first)  {
+  if (!first) {
     request.sendEvent = false;
   }
 });
@@ -574,37 +579,39 @@ Moralis.Cloud.afterLiveQueryEvent('MyObject', async (request) => {
 
 #### SOME CONSIDERATIONS TO BE AWARE OF <a href="#some-considerations-to-be-aware-of-3" id="some-considerations-to-be-aware-of-3"></a>
 
-* Live Query events won’t trigger until the `afterLiveQueryEvent` trigger has been completed. Make sure any functions inside the trigger are efficient and restrictive to prevent bottlenecks.
+- Live Query events won’t trigger until the `afterLiveQueryEvent` trigger has been completed. Make sure any functions inside the trigger are efficient and restrictive to prevent bottlenecks.
 
 ### onLiveQueryEvent <a href="#onlivequeryevent" id="onlivequeryevent"></a>
 
 Sometimes you may want to monitor Live Query Events to be used with a 3rd party such as "Datadog." The `onLiveQueryEvent` trigger can log events triggered, number of clients connected, number of subscriptions and errors.
 
 ```javascript
-Moralis.Cloud.onLiveQueryEvent(({
-  event,
-  client,
-  sessionToken,
-  useMasterKey,
-  installationId,
-  clients,
-  subscriptions,
-  error
-}) => {
-  if (event !== 'ws_disconnect') {
-    return;
+Moralis.Cloud.onLiveQueryEvent(
+  ({
+    event,
+    client,
+    sessionToken,
+    useMasterKey,
+    installationId,
+    clients,
+    subscriptions,
+    error,
+  }) => {
+    if (event !== "ws_disconnect") {
+      return;
+    }
+    // Do your magic
   }
-  // Do your magic
-});
+);
 ```
 
 ### Events <a href="#events" id="events"></a>
 
-* connect
-* subscribe
-* unsubscribe
-* ws\_connect
-* ws\_disconnect
-* ws\_disconnect\_error
+- connect
+- subscribe
+- unsubscribe
+- ws_connect
+- ws_disconnect
+- ws_disconnect_error
 
-“connect” differs from “ws\_connect”, the former means that the client completed the connect procedure as defined by Moralis Live Query protocol, where “ws\_connect” just means that a new websocket was created.
+“connect” differs from “ws_connect”, the former means that the client completed the connect procedure as defined by Moralis Live Query protocol, where “ws_connect” just means that a new websocket was created.

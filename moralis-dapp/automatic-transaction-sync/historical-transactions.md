@@ -106,13 +106,9 @@ const results = await Moralis.Cloud.run("unwatchBscAddress", {
 
 ## Unconfirmed Transactions
 
-Transactions on Testnet and Mainnet can take a while to be confirmed. When Moralis detects a new transaction (or event) in an unconfirmed state, these get put into transaction tables like `EthTransactions` with `confirmed: false`. For aggregate collections like balances, the unconfirmed transaction entries are put in separate collections postfixed with "Pending".
+Transactions on Testnet and Mainnet can take a while to be confirmed. When Moralis detects a new transaction (or event) in an unconfirmed state, these get put into transaction tables like `EthTransactions` with `confirmed: false`. When the transaction gets confirmed, the status is updated to `confirmed: true`.
 
-- EthBalancePending
-- EthNFTOwnersPending
-- etc.
-
-When the transaction gets confirmed, the status is updated to `confirmed: true` and any corresponding entries in pending collections are merged into their respective main collections. It is important to note that different blockchains will have different confirmation numbers to ensure the validity of transactions. This means that in order for transactions to change its `confirmed` value in DB to `true`, it will require certain number of confirmations:
+It is important to note that different blockchains will have different confirmation numbers to ensure the validity of transactions. This means that in order for transactions to change its `confirmed` value in DB to `true`, it will require certain number of confirmations:
 
 - Ethereum: 12
 - Polygon: 100
