@@ -108,6 +108,8 @@ Moralis.Cloud.beforeSave(Moralis.User, async (request) => {
 In some cases, you may want to perform some type of action, such as a push, after an object has been saved. You can do this by registering a handler with the `afterSave` method. For example, suppose you want to keep track of the number of comments on a blog post. You can do that by writing a function like this:
 
 ```javascript
+const logger = Moralis.Cloud.getLogger();
+
 Moralis.Cloud.afterSave("Comment", (request) => {
   const query = new Moralis.Query("Post");
   query.get(request.object.get("post").id)
@@ -116,7 +118,7 @@ Moralis.Cloud.afterSave("Comment", (request) => {
       return post.save();
     })
     .catch(function(error) {
-      console.error("Got an error " + error.code + " : " + error.message);
+      logger.error("Got an error " + error.code + " : " + error.message);
     });
 });
 ```
@@ -200,13 +202,15 @@ Moralis.Cloud.beforeDelete(Moralis.User, async (request) => {
 In some cases, you may want to perform some type of action, such as a push, after an object has been deleted. You can do this by registering a handler with the `afterDelete` method. For example, suppose that after deleting a blog post, you also want to delete all associated comments. You can do that by writing a function like this:
 
 ```javascript
+const logger = Moralis.Cloud.getLogger();
+
 Moralis.Cloud.afterDelete("Post", (request) => {
   const query = new Moralis.Query("Comment");
   query.equalTo("post", request.object);
   query.find()
     .then(Moralis.Object.destroyAll)
     .catch((error) => {
-      console.error("Error finding related comments " + error.code + ": " + error.message);
+      logger.error("Error finding related comments " + error.code + ": " + error.message);
     });
 });
 ```
@@ -490,8 +494,10 @@ Moralis.Cloud.beforeConnect(request => {
 In most cases, the `connect` event is called the first time the client calls `subscribe`. If this is your use case, you can listen for errors using this event.
 
 ```javascript
+const logger = Moralis.Cloud.getLogger();
+
 Moralis.LiveQuery.on('error', (error) => {
-  console.log(error);
+  logger.info(error);
 });
 ```
 

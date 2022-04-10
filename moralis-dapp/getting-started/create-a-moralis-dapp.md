@@ -2,10 +2,10 @@
 description: >-
   Each Dapp has an on-chain part (smart contracts) and an off-chain part
   (server). The server is used in order to collect data from the blockchain and
-  serve it to clients such as web and mobile apps.
+  serve it to clients such as web and mobile apps
 ---
 
-# Create a Moralis Dapp
+# 🚀 Create a Moralis Dapp
 
 ### What is a Moralis Dapp?
 

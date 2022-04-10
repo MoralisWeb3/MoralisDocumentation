@@ -6,13 +6,15 @@ description: >-
 
 # Live Queries
 
-## Standard API
+## Standard Connection
 
 We maintain a WebSocket connection to communicate with the Moralis LiveQuery server. When used server-side, we use the [`ws`](https://www.npmjs.com/package/ws) package and in the browser we use [`window.WebSocket`](https://developer.mozilla.org/en-US%7B%7B%20site.baseUrl%20%7D%7D/Web/API/WebSockets\_API). We think that in most cases it isn't necessary to deal with the WebSocket connection directly. Thus, we developed a simple API to let you focus on your own business logic.
 
 ## Create a Subscription
 
-{% embed url="https://youtu.be/PZDATN_dKAM" %}
+{% hint style="info" %}
+Follow this tutorial for a step by step procedure: [**Tutorial**](live-queries.md#tutorial)
+{% endhint %}
 
 ```javascript
 let query = new Moralis.Query('Game');
@@ -157,107 +159,18 @@ Moralis.LiveQuery.on('error', (error) => {
 
 When a network error or LiveQuery server error happens, you'll get this event.
 
-## Advanced API
-
-In our standard API, we manage a global WebSocket connection for you, which is suitable for most cases. However, for some cases, for instance, when you have multiple LiveQuery servers and want to connect to all of them, a single WebSocket connection isn't enough. We've exposed the `LiveQueryClient` for these scenarios.
-
-## LiveQueryClient
-
-A `LiveQueryClient` is a wrapper of a standard WebSocket client. We add several useful methods to help you connect/disconnect to LiveQueryServer and subscribe/unsubscribe a `MoralisQuery` easily.
-
-### Initialize
-
-```javascript
-let Moralis = require('moralis');
-let LiveQueryClient = Moralis.LiveQueryClient;
-let client = new LiveQueryClient({
-  applicationId: '',
-  serverURL: '',
-  javascriptKey: '',
-  masterKey: ''
-});
-```
-
-* `applicationId` is mandatory, it's the `applicationId` of your Moralis app.
-* `serverURL` is mandatory, it's the URL of your LiveQuery server.
-* `javascriptKey` and `masterKey` are optional, they are used for verifying the `LiveQueryClient` when it tries to connect to the LiveQuery server. If you set them, they should match your Moralis app. You can check the LiveQuery protocol [here](https://github.com/parse-community/parse-server/wiki/Moralis-LiveQuery-Protocol-Specification) for more details.
-
-### Open
-
-```javascript
-client.open();
-```
-
-After you call this, the `LiveQueryClient` will try to send a connect request to the LiveQuery server.
-
-### Subscribe
-
-```javascript
-let query = new Moralis.Query('Game');
-let subscription = client.subscribe(query, sessionToken);
-```
-
-* `query` is mandatory, it is the `MoralisQuery` you'll want to subscribe.
-*   `sessionToken` is optional, if you provide the `sessionToken`, when the LiveQuery server gets `MoralisObject`'s updates from moralis server, it'll try to check whether the `sessionToken` fulfills the `MoralisObject`'s ACL. The LiveQuery server will only send updates to clients whose sessionToken is fit for the `MoralisObject`s ACL. You can check the LiveQuery protocol [here](https://github.com/parse-community/parse-server/wiki/Moralis-LiveQuery-Protocol-Specification) for more details.
-
-    The `subscription` you get is the same `subscription` you receive from our Standard API. You can check our Standard API about how to use the `subscription` to get events.
-
-### Unsubscribe
-
-```javascript
-client.unsubscribe(subscription);
-```
-
-*   `subscription` is mandatory, it's the subscription you want to unsubscribe from.
-
-    After you call this, you won't get any events from the subscription object.
-
-### Close
-
-```javascript
-client.close();
-```
-
-This function will close the WebSocket connection to this `LiveQueryClient`, cancel the auto-reconnect, and unsubscribe all subscriptions based on it.
-
-## Event Handling
-
-We expose three events to help you monitor the status of the `LiveQueryClient`.
-
-### Open Event
-
-```javascript
-client.on('open', () => {
-  console.log('connection opened');
-});
-```
-
-When we establish the WebSocket connection to the LiveQuery server, you'll get this event.
-
-### Close Event
-
-```javascript
-client.on('close', () => {
-  console.log('connection closed');
-});
-```
-
-When we lose the WebSocket connection to the LiveQuery server, you'll get this event.
-
-### Error Event
-
-```javascript
-client.on('error', (error) => {
-  console.log('connection error');
-});
-```
-
-When a network error or LiveQuery server error happens, you'll get this event.
-
 ## Reconnect
 
-Since the whole LiveQuery feature relies on the WebSocket connection to the LiveQuery server, we always try to maintain an open WebSocket connection. Thus, when we find out that we've lost connection to the LiveQuery server, we try to auto-reconnect. We do exponential back off under the hood. However, if the WebSocket connection is closed due to `Moralis.LiveQuery.close()` or `client.close()`, we'll cancel the auto-reconnect.
+Since the whole LiveQuery feature relies on the WebSocket connection to the LiveQuery server, we always try to maintain an open WebSocket connection.
+
+Thus, when the connection is lost to the LiveQuery server, we try to auto-reconnect. We do [exponential back off](https://en.wikipedia.org/wiki/Exponential\_backoff) under the hood.
+
+However, if the WebSocket connection is closed due to `Moralis.LiveQuery.close()` or `client.close()`, we'll cancel the auto-reconnect.
 
 ## SessionToken
 
 We send `sessionToken` to the LiveQuery server when you subscribe to a `MoralisQuery`. For the standard API, we use the `sessionToken` of the current user by default. For the advanced API, you can use any `sessionToken` when you subscribe to a `MoralisQuery`. An important thing to be aware of is when you log out or the `sessionToken` you are using is invalid, you should unsubscribe from the subscription and subscribe to the `MoralisQuery` again. Otherwise, you may face a security issue since you'll get events that shouldn't be sent to you.
+
+## Tutorial
+
+{% embed url="https://youtu.be/PZDATN_dKAM" %}

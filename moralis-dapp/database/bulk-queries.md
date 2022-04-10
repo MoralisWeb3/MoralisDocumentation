@@ -2,25 +2,31 @@
 description: Bulk Queries are optimised to do large numbers of database operations fast.
 ---
 
-# ⚡ Bulk Queries
+# Bulk Queries
 
 If you need to insert, update or delete many rows at once it's recommended to use Bulk Queries.
 
-**Bulk Queries are fast and efficient but they don't trigger any** [**LiveQuery**](live-queries.md) **events nor any** [**Triggers**](../cloud-code/triggers.md)**.**
+{% hint style="info" %}
+**Bulk Queries are fast and efficient but they don't trigger any** [**LiveQuery**](live-queries.md) **events or any** [**Triggers**](../cloud-code/triggers.md)**.**
+{% endhint %}
 
 Because Bulk Queries have no overhead they are very fast and are executed directly on the database.
 
 **When to use:**
 
+{% hint style="success" %}
 If you need to run fast queries on the database without triggering Live Queries or Triggers.
+{% endhint %}
 
 **When not to use:**
 
-If you need Live-Queries or Triggers to work as result of these queries.
+{% hint style="danger" %}
+If you need Live-Queries or Triggers to work as a result of these queries.
+{% endhint %}
 
 ## Bulk Write
 
-Inserts one or several objects into a Class.&#x20;
+Inserts one or several objects into a Class.
 
 #### Options:
 
@@ -44,7 +50,9 @@ Updates one or several columns on the first found object for each filter.
 * `className`: Class name in which you want to insert rows
 * `filters:` Array of updates to make, each update needs to specify `filter` and `update` objects. The former is specifying which column to base the selection on and the latter is specifying which column to update in the selection.
 
+{% hint style="info" %}
 **Note:** this query expects always the filter to return 1 row for each update, if multiple rows are returned only the first one will be updated.
+{% endhint %}
 
 ```javascript
 // update the first Food where name is Apple and set color to red 
@@ -82,7 +90,9 @@ Deletes the first found object for each filter.
 * `className`: Class name in which you want to insert rows
 * `filters:` Array of updates to make, each update needs to specify `filter` and `update` objects. The former is specifying which column to base the selection on and the latter is specifying which column to update in the selection.
 
+{% hint style="info" %}
 **Note:** this query expects always the filter to return 1 row for each update, if multiple rows are returned only the first one will be deleted.
+{% endhint %}
 
 ```javascript
 // delete the first Food where name is Apple

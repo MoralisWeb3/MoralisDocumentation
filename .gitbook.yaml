@@ -6,7 +6,7 @@ root: ./
 
 redirects:
   moralis-server/getting-started: moralis-dapp/getting-started/README.md
-  moralis-server/getting-started/create-a-moralis-server: moralis-dapp/getting-started/create-a-moralis-server.md
+  moralis-server/getting-started/create-a-moralis-server: moralis-dapp/getting-started/create-a-moralis-dapp.md
   moralis-server/connect-the-sdk: moralis-dapp/connect-the-sdk/README.md
   moralis-server/connect-the-sdk/connect-with-js: moralis-dapp/connect-the-sdk/connect-with-js.md
   moralis-server/connect-the-sdk/connect-with-react: moralis-dapp/connect-the-sdk/connect-with-react.md

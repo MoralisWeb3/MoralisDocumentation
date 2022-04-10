@@ -16,17 +16,16 @@ Moralis SDK removes all this complexity. **Transferring assets with Moralis SDK 
 [transfer-eth.md](transfer-eth.md)
 {% endcontent-ref %}
 
-{% content-ref url="broken-reference" %}
-[Broken link](broken-reference)
+{% content-ref url="transfer-tokens.md" %}
+[transfer-tokens.md](transfer-tokens.md)
 {% endcontent-ref %}
 
 {% content-ref url="transfer-nfts.md" %}
 [transfer-nfts.md](transfer-nfts.md)
 {% endcontent-ref %}
 
-### Transfer Assets Tutorial&#x20;
+### Transfer Assets Tutorial
 
 {% embed url="https://www.youtube.com/watch?v=suZYvqrc_Hg&ab_channel=MoralisWeb3" %}
 Tutorial explaining how to transfer ETH, tokens and NFTs with 1 line of code with Moralis SDK.
 {% endembed %}
-
