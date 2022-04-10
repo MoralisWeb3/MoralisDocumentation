@@ -13,7 +13,7 @@ As a blockchain developer, you have to be able to fetch different information su
 You find all of these powerful functions in the <mark style="color:green;">**`Moralis.Web3API`**</mark> namespace in the Moralis SDK.
 
 {% hint style="info" %}
-To access Web3API, make sure to initialise the SDK by following the [**Connect with SDK**](broken-reference) guide. **`Moralis.start()`** will automatically load the <mark style="color:green;">**`Moralis.Web3API`**</mark> module.
+To access Web3API, make sure to initialise the SDK by following the [**Connect with SDK**](../connect-the-sdk/) guide. **`Moralis.start()`** will automatically load the <mark style="color:green;">**`Moralis.Web3API`**</mark> module.
 {% endhint %}
 
 Topics are divided into categories, depending on what is the main parameter for obtaining information:

@@ -2,18 +2,18 @@
 description: Update cloud code without downtime.
 ---
 
-# 🥳 Seamless Updates
+# Seamless Updates
 
 ### Seamless Update explained
 
-You can enable `Seamless updates` in your server settings to avoid downtime each time you update cloud code.
+You can enable `Seamless updates` in your Dapp settings to avoid downtime each time you update cloud code.
 
-Your Moralis app is run by several workers (independent processes).
+Your Moralis Dapp is run by several workers (independent processes).
 
 When the setting is enabled Moralis will roll-out your new cloud code to one worker at a time which will lead to the following side-effects you need to keep in mind:
 
 * Different users will interact with different versions during a short period of time while the updated code is rolled out to all workers.
-* Rolling out an update fully will take much more time (several minutes) as instead of rebooting all workers with new code Moralis reboots only one worker at a time.&#x20;
+* Rolling out an update fully will take much more time (several minutes) as instead of rebooting all workers with new code Moralis reboots only one worker at a time.
 * New Cloud Code can't be saved until the rollout is fully complete.
 
 ### When to use

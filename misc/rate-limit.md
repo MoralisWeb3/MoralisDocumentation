@@ -134,22 +134,74 @@ See the tables below for details about Speedy Node methods and API Endpoints tha
 | /nft/transfers                              | 5 requests  |
 | /nft/{address}/{token_id}/owners            | 20 requests |
 
-Note: /nft/{address}/sync has 5 requests but it will use 60 requests from throttle limit,
-for example, you could get this response when using this endpoing once:
+Note: for exact rate limit values the endpoint `https://deep-index.moralis.io/api/v2/info/endpointWeights` can be used.
 
-```javascript
-  'x-rate-limit-remaining-ttl': '60',
-  'x-rate-limit-remaining-ip-ttl': '60',
-  'x-rate-limit-used': '5',
-  'x-rate-limit-ip-used': '5',
-  'x-rate-limit-limit': '3500',
-  'x-rate-limit-throttle-remaining-ttl': '1',
-  'x-rate-limit-throttle-remaining-ip-ttl': '1',
-  'x-rate-limit-throttle-used': '60',
-  'x-rate-limit-throttle-ip-used': '60',
-  'x-rate-limit-throttle-limit': '88',
-  'x-request-weight': '5',
+Note: `/nft/{address}/{token_id}/metadata/resync` has a billing cost of 5 and a rate limit cost of 25, meaning that you can call it only once per second with a free plan and twice a second with a Pro plan
+
+example of output:
 ```
+[
+  {
+    "endpoint": "getBlock",
+    "path": "/block/{block_number_or_hash}",
+    "price": 1
+  },
+  {
+    "endpoint": "getContractEvents",
+    "path": "/{address}/events",
+    "price": 2
+  },
+  {
+    "endpoint": "getTransactions",
+    "path": "/{address}",
+    "price": 1
+  },
+ ...
+  {
+    "endpoint": "endpointWeights",
+    "path": "/info/endpointWeights",
+    "price": 0
+  }
+]
+```
+
+
+## Impact of using an offset for rate limit is offset / 500 * request-weight
+
+For example, if we have this request:
+```
+https://deep-index.moralis.io/api/v2/0x965F527D9159dCe6288a2219DB51fc6Eef120dD1?chain=bsc&offset=5000
+```
+in headers it returns:
+```
+x-rate-limit-limit: 25
+x-rate-limit-used: 10
+x-request-weight: 1
+x-rate-limit-remaining-ip-ttl: 1
+x-rate-limit-remaining-ttl: 1
+x-rate-limit-ip-used: 10
+```
+that means that one request without offset has a weight of 1 (x-request-weight: 1), and because it used offset 5000 in this case, it was counted for rate limit as a weight of 10 (x-rate-limit-ip-used: 10).
+
+that 10 is computed as 5000/500 * 1
+
+for another endpoint:
+```
+https://deep-index.moralis.io/api/v2/0x965F527D9159dCe6288a2219DB51fc6Eef120dD1/erc20/transfers?chain=bsc&offset=5000
+```
+we have:
+```
+x-rate-limit-limit: 25
+x-rate-limit-used: 20
+x-request-weight: 2
+x-rate-limit-remaining-ip-ttl: 1
+x-rate-limit-remaining-ttl: 1
+x-rate-limit-ip-used: 20
+```
+here the formula is 5000/500 * 2
+
+meaning that the formula is offset / 500 * request-weight
+
 
 ## Why am I rate limited?
 
@@ -212,3 +264,43 @@ In order to not get rate-limited pay attention to `x-rate-limit-used` and `x-rat
 The way to fix this error is to upgrade your Moralis plan.
 
 _(If you are using NFT endpoints with offset - please_ [_read this_](https://forum.moralis.io/t/nft-endpoints-temporary-offset-rate-limit/5867/16?u=ivan) _as they have temporarily different special weights)._
+
+
+## Example of how to use cursor (python)
+```py
+import requests
+import time
+
+
+def get_nft_owners(offset, cursor):
+    print("offset", offset)
+    url = 'https://deep-index.moralis.io/api/v2/nft/<address_here>/owners?chain=polygon&format=decimal'
+    if cursor:
+      url = url + "&cursor=%s" % cursor
+
+    print("api_url", url)
+    headers = {
+        "Content-Type": "application/json",
+        "X-API-Key": "API_KEY_HERE"
+    }
+    statusResponse = requests.request("GET", url, headers=headers)
+    data = statusResponse.json()
+    print("HTTP headers:", statusResponse.headers)
+    try:
+        print("nr results", len(data['result']))
+    except:
+        print(repr(data))
+        print("exiting")
+        raise SystemExit
+
+    cursor = data['cursor']
+    print(data['page'], data['total'])
+    return cursor
+
+
+cursor = None
+for j in range(0, 10):
+    cursor = get_nft_owners(j*500, cursor)
+    print()
+    time.sleep(1.1)
+```
