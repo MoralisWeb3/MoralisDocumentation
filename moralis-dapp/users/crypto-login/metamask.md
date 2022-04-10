@@ -12,12 +12,39 @@ The default authentication in Moralis is the MetaMask wallet authentication. It 
 
 Authenticating users using MetaMask is simple:
 
+{% tabs %}
+{% tab title="JS" %}
 ```javascript
 Moralis.authenticate().then(function (user) {
     console.log(user.get('ethAddress'))
 })
 ```
+{% endtab %}
 
+{% tab title="React" %}
+```javascript
+import { useMoralis } from "react-moralis";
+
+function App() {
+
+    const { authenticate, isAuthenticated, user } = useMoralis();
+
+    const login = async () => {
+      if (!isAuthenticated) {
+
+        await authenticate()
+          .then(function (user) {
+            console.log(user!.get("ethAddress"));
+          })
+          .catch(function (error) {
+            console.log(error);
+          });
+      }
+    }
+}
+```
+{% endtab %}
+{% endtabs %}
 This will connect :fox: [MetaMask](https://metamask.io) and request a signature **(no** [**gas**](https://ethereum.org/en/developers/docs/gas/) **required!)**.
 
 {% hint style="info" %}
@@ -40,7 +67,7 @@ As soon as the user is logged in all their **on-chain data** is instantly synced
 
 It's possible to change the icon a user sees when interacting with your smart contract. To accomplish this, you'll have to add a favicon to your dApp. Follow the instructions in the [MetaMask docs](https://docs.metamask.io/guide/defining-your-icon.html).
 
-### 3. Add a custom Sign-in Message
+### 3. Add custom Sign-in Message
 
 To change the authentication message on MetaMask. Just follow:&#x20;
 
@@ -52,8 +79,8 @@ To change the authentication message on MetaMask. Just follow:&#x20;
 
 The following code demonstrates a working example
 
-{% content-ref url="../../connect-the-sdk/connect-with-js.md" %}
-[connect-with-js.md](../../connect-the-sdk/connect-with-js.md)
+{% content-ref url="broken-reference" %}
+[Broken link](broken-reference)
 {% endcontent-ref %}
 
 ### Tutorial
