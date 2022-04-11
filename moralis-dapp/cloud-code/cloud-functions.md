@@ -510,6 +510,7 @@ For your own contracts, the ABI can be found in the build directory after compil
 ### Example of how to use a custom RPC url
 
 By using ethers:
+
 {% code title="cloud.js" %}
 ```javascript
 const web3 = Moralis.ethersByChain("0x1")
@@ -522,6 +523,7 @@ customHttpProvider.getBlockNumber().then((result) => {
 {% endcode %}
 
 By using web3:
+
 {% code title="cloud.js" %}
 ```javascript
 Moralis.Cloud.define("run_contract_function_with_web3", async (request) => {
@@ -544,7 +546,7 @@ Moralis.Cloud.define("run_contract_function_with_web3", async (request) => {
 Moralis units are available inside your cloud functions.\
 In order to successfully run the `units` function you always need to specify a `method` and a `value`.
 
-### To wei
+#### To wei
 
 Convert any ether value to wei.
 
@@ -560,7 +562,7 @@ return result;
 
 <mark style="color:green;">**Result**</mark>: `1000000000000000000`
 
-### From wei
+#### From wei
 
 Convert any wei value to ether.
 
@@ -576,7 +578,7 @@ return result;
 
 <mark style="color:green;">**Result**</mark>: `0.001`
 
-### To hex
+#### To hex
 
 Convert any given value to its hexadecimal representation.
 
