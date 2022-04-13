@@ -11,7 +11,7 @@ Please email hello@moralis.io if you have any questions!
 
 If you start getting Cloudflare errors - it's most likely you are being flagged by our abuse prevention system and Cloudflare blocks your access on our behalf.
 
-Below are a few scenarios where your IP may get temporarily banned.
+Below are a few scenarios where you get temporarily banned.
 
 1. If you are sending requests although your key is already rate-limited we may temporarily ban your IP. For example, let's say your plan allows you to do 30 requests per second. If you try to do 200 requests in the same second - you will most likely get temporarily banned.
 2. You are allowed to use several keys on the same IP for testing when you are way below your rate limits but it's not recommended for production as our systems may flag it as abuse. For example, if you create 100 free accounts and send requests using the keys from these accounts - they are going to be disabled.
@@ -19,7 +19,7 @@ Below are a few scenarios where your IP may get temporarily banned.
 
 ### How to avoid an IP ban?
 
-1. Ideally don't use more than 1 key on the same IP.
+1. Don't use more than 1 Moralis account.
 2. Implement rate-limiting logic in your app so you don't try doing more requests than your plan allows.
 3. Email us at hello@moralis.io if you have any questions.
 
