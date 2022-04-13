@@ -13,8 +13,8 @@ If you start getting Cloudflare errors - it's most likely you are being flagged 
 
 Below are a few scenarios where your IP may get temporarily banned.
 
-1. If you are sending requests although your key is already rate-limited we may temporarily ban your IP. For example, let's say your plan allows you to do 30 requests per second. If you try to do 200 requests in the same second - you will most likely get temporarily IP-banned.
-2. You are allowed to use several keys on the same IP for testing when you are way below your rate limits but it's not recommended for production as our systems may flag it as abuse. For example, if you create 100 free accounts and send requests using the keys from these accounts from the same IP - it's going to be temporarily disabled.
+1. If you are sending requests although your key is already rate-limited we may temporarily ban your IP. For example, let's say your plan allows you to do 30 requests per second. If you try to do 200 requests in the same second - you will most likely get temporarily banned.
+2. You are allowed to use several keys on the same IP for testing when you are way below your rate limits but it's not recommended for production as our systems may flag it as abuse. For example, if you create 100 free accounts and send requests using the keys from these accounts - they are going to be disabled.
 3. If you think you are temporarily banned by mistake please email hello@moralis.io and we will help you fast.
 
 ### How to avoid an IP ban?
