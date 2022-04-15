@@ -98,7 +98,6 @@ See the tables below for details about Speedy Node methods and API Endpoints tha
 | Path                                        | Weight      |
 | ------------------------------------------- | ----------- |
 | /info/endpointWeights                       | 0 request   |
-| /block/{block_number_or_hash}               | 1 request   |
 | /{address}                                  | 1 request   |
 | /{address}/balance                          | 1 request   |
 | /erc20/metadata                             | 1 request   |
@@ -121,6 +120,7 @@ See the tables below for details about Speedy Node methods and API Endpoints tha
 | /nft/{address}/trades                       | 4 requests  |
 | /nft/{address}/lowestprice                  | 4 requests  |
 | /{address}/erc20                            | 5 requests  |
+| /block/{block_number_or_hash}               | 5 requests  |
 | /nft/search                                 | 5 requests  |
 | /{address}/nft                              | 5 requests  |
 | /{address}/nft/transfers                    | 5 requests  |
@@ -139,6 +139,7 @@ Note: for exact rate limit values the endpoint `https://deep-index.moralis.io/ap
 Note: `/nft/{address}/{token_id}/metadata/resync` has a billing cost of 5 and a rate limit cost of 25, meaning that you can call it only once per second with a free plan and twice a second with a Pro plan
 
 example of output:
+
 ```
 [
   {
@@ -165,14 +166,16 @@ example of output:
 ]
 ```
 
-
-## Impact of using an offset for rate limit is offset / 500 * request-weight
+## Impact of using an offset for rate limit is offset / 500 \* request-weight
 
 For example, if we have this request:
+
 ```
 https://deep-index.moralis.io/api/v2/0x965F527D9159dCe6288a2219DB51fc6Eef120dD1?chain=bsc&offset=5000
 ```
+
 in headers it returns:
+
 ```
 x-rate-limit-limit: 25
 x-rate-limit-used: 10
@@ -181,15 +184,19 @@ x-rate-limit-remaining-ip-ttl: 1
 x-rate-limit-remaining-ttl: 1
 x-rate-limit-ip-used: 10
 ```
+
 that means that one request without offset has a weight of 1 (x-request-weight: 1), and because it used offset 5000 in this case, it was counted for rate limit as a weight of 10 (x-rate-limit-ip-used: 10).
 
-that 10 is computed as 5000/500 * 1
+that 10 is computed as 5000/500 \* 1
 
 for another endpoint:
+
 ```
 https://deep-index.moralis.io/api/v2/0x965F527D9159dCe6288a2219DB51fc6Eef120dD1/erc20/transfers?chain=bsc&offset=5000
 ```
+
 we have:
+
 ```
 x-rate-limit-limit: 25
 x-rate-limit-used: 20
@@ -198,10 +205,10 @@ x-rate-limit-remaining-ip-ttl: 1
 x-rate-limit-remaining-ttl: 1
 x-rate-limit-ip-used: 20
 ```
-here the formula is 5000/500 * 2
 
-meaning that the formula is offset / 500 * request-weight
+here the formula is 5000/500 \* 2
 
+meaning that the formula is offset / 500 \* request-weight
 
 ## Why am I rate limited?
 
@@ -265,8 +272,8 @@ The way to fix this error is to upgrade your Moralis plan.
 
 _(If you are using NFT endpoints with offset - please_ [_read this_](https://forum.moralis.io/t/nft-endpoints-temporary-offset-rate-limit/5867/16?u=ivan) _as they have temporarily different special weights)._
 
-
 ## Example of how to use cursor (python)
+
 ```py
 import requests
 import time
