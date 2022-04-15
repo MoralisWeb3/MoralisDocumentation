@@ -7,19 +7,19 @@ description: Important note regarding rate limits when using Moralis Services.
 It's important you study rate limits for your plan and the different services that you use.\
 Please email hello@moralis.io if you have any questions!
 
-## Abuse prevention
+## Abuse prevention - Cloudflare 1020 Error
 
-As Moralis offers a free tier we have systems in place in order to prevent abuse of our systems.
+If you start getting Cloudflare errors - it's most likely you are being flagged by our abuse prevention system and Cloudflare blocks your access on our behalf.
 
-Below are a few scenarios where your IP may get temporarily banned.
+Below are a few scenarios where you get temporarily banned.
 
-1. If you are sending requests although your key is already rate-limited we may temporarily ban your IP. For example, let's say you are on the free plan and you are allowed to do 3,000 requests per minute using your key. If you try to do 100,000 requests in the same minute using the same key - you will most likely get temporarily IP-banned.
-2. You are allowed to use several keys on the same IP for testing when you are way below your rate limits but it's not recommended for production as our systems may flag it as abuse. For example, if you create 100 free accounts and send requests using the keys from these accounts from the same IP - it's going to be temporarily disabled.
+1. If you are sending requests although your key is already rate-limited we may temporarily ban your IP. For example, let's say your plan allows you to do 30 requests per second. If you try to do 200 requests in the same second - you will most likely get temporarily banned.
+2. You are allowed to use several keys on the same IP for testing when you are way below your rate limits but it's not recommended for production as our systems may flag it as abuse. For example, if you create 100 free accounts and send requests using the keys from these accounts - they are going to be disabled.
 3. If you think you are temporarily banned by mistake please email hello@moralis.io and we will help you fast.
 
 ### How to avoid an IP ban?
 
-1. Ideally don't use more than 1 key on the same IP.
+1. Don't use more than 1 Moralis account.
 2. Implement rate-limiting logic in your app so you don't try doing more requests than your plan allows.
 3. Email us at hello@moralis.io if you have any questions.
 
@@ -98,7 +98,6 @@ See the tables below for details about Speedy Node methods and API Endpoints tha
 | Path                                        | Weight      |
 | ------------------------------------------- | ----------- |
 | /info/endpointWeights                       | 0 request   |
-| /block/{block_number_or_hash}               | 1 request   |
 | /{address}                                  | 1 request   |
 | /{address}/balance                          | 1 request   |
 | /erc20/metadata                             | 1 request   |
@@ -121,6 +120,7 @@ See the tables below for details about Speedy Node methods and API Endpoints tha
 | /nft/{address}/trades                       | 4 requests  |
 | /nft/{address}/lowestprice                  | 4 requests  |
 | /{address}/erc20                            | 5 requests  |
+| /block/{block_number_or_hash}               | 5 requests  |
 | /nft/search                                 | 5 requests  |
 | /{address}/nft                              | 5 requests  |
 | /{address}/nft/transfers                    | 5 requests  |
@@ -139,6 +139,7 @@ Note: for exact rate limit values the endpoint `https://deep-index.moralis.io/ap
 Note: `/nft/{address}/{token_id}/metadata/resync` has a billing cost of 5 and a rate limit cost of 25, meaning that you can call it only once per second with a free plan and twice a second with a Pro plan
 
 example of output:
+
 ```
 [
   {
@@ -165,14 +166,16 @@ example of output:
 ]
 ```
 
-
-## Impact of using an offset for rate limit is offset / 500 * request-weight
+## Impact of using an offset for rate limit is offset / 500 \* request-weight
 
 For example, if we have this request:
+
 ```
 https://deep-index.moralis.io/api/v2/0x965F527D9159dCe6288a2219DB51fc6Eef120dD1?chain=bsc&offset=5000
 ```
+
 in headers it returns:
+
 ```
 x-rate-limit-limit: 25
 x-rate-limit-used: 10
@@ -181,15 +184,19 @@ x-rate-limit-remaining-ip-ttl: 1
 x-rate-limit-remaining-ttl: 1
 x-rate-limit-ip-used: 10
 ```
+
 that means that one request without offset has a weight of 1 (x-request-weight: 1), and because it used offset 5000 in this case, it was counted for rate limit as a weight of 10 (x-rate-limit-ip-used: 10).
 
-that 10 is computed as 5000/500 * 1
+that 10 is computed as 5000/500 \* 1
 
 for another endpoint:
+
 ```
 https://deep-index.moralis.io/api/v2/0x965F527D9159dCe6288a2219DB51fc6Eef120dD1/erc20/transfers?chain=bsc&offset=5000
 ```
+
 we have:
+
 ```
 x-rate-limit-limit: 25
 x-rate-limit-used: 20
@@ -198,10 +205,10 @@ x-rate-limit-remaining-ip-ttl: 1
 x-rate-limit-remaining-ttl: 1
 x-rate-limit-ip-used: 20
 ```
-here the formula is 5000/500 * 2
 
-meaning that the formula is offset / 500 * request-weight
+here the formula is 5000/500 \* 2
 
+meaning that the formula is offset / 500 \* request-weight
 
 ## Why am I rate limited?
 
@@ -237,7 +244,7 @@ When your users are calling the Web3 API from the SDK they may not be rate-limit
 
 _When this error can happen:_
 
-You have many users not doing too many requests individually, but collectively they are doing more requests than your plan allows. For example - your plan allows 1000 request per minute. You have 100 users doing 15 requests per minute.&#x20;
+You have many users not doing too many requests individually, but collectively they are doing more requests than your plan allows. For example - your plan allows 1000 request per minute. You have 100 users doing 15 requests per minute.
 
 The way to fix this error is to upgrade your Moralis plan.
 
@@ -265,8 +272,8 @@ The way to fix this error is to upgrade your Moralis plan.
 
 _(If you are using NFT endpoints with offset - please_ [_read this_](https://forum.moralis.io/t/nft-endpoints-temporary-offset-rate-limit/5867/16?u=ivan) _as they have temporarily different special weights)._
 
-
 ## Example of how to use cursor (python)
+
 ```py
 import requests
 import time
