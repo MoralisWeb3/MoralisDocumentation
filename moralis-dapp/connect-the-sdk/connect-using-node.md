@@ -48,7 +48,7 @@ await Moralis.start({ serverUrl, appId, masterKey });
 with `masterKey` you can directly access the Moralis dashboard without the need for authentication.
 
 {% hint style="info" %}
-**Note:** With the master key you can use the API, RPC nodes and other features of your Moralis account using the SDK straight from your backend\*\*.\*\*
+**Note:** With the master key you can use the API, RPC nodes and other features of your Moralis account using the SDK straight from your backend.
 {% endhint %}
 
 {% hint style="warning" %}
@@ -88,7 +88,7 @@ Run the following command in your terminal:
 ts-node SaveData.ts
 ```
 
-Go to your Mrsoralis dashboard and you will see the data saved in the database:
+Go to your Moralis dashboard and you will see the data saved in the database:
 
 ![](images/node1.png)
 
@@ -429,10 +429,6 @@ Note: The watch address functions return no value as they start a job. They are 
 #### Watch new smart contract event
 
 Moralis Server has a special cloud function called `watchContractEvent(options)`. You can call it using the master key.
-
-{% hint style="info" %}
-**Note**: limit parameter is available only for Nitro servers (those that have the coreservices plugin). If the limit parameter is not provided then the <mark style="color:green;">**default value is 500000**</mark>.
-{% endhint %}
 
 Note: at the moment the events created via code won't be seen in the admin UI, you can only see them in the database, we are working on connecting the admin UI properly
 
