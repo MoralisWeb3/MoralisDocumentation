@@ -16,12 +16,12 @@ When the setting is enabled Moralis will roll-out your new cloud code to one wor
 * Rolling out an update fully will take much more time (several minutes) as instead of rebooting all workers with new code Moralis reboots only one worker at a time.
 * New Cloud Code can't be saved until the rollout is fully complete.
 
-### When to use
+### When to use :white\_check\_mark:
 
-This setting is important if you are in production and don't want downtime when you push new versions of your code. You are fine with the fact that rolling out new code will take a few minutes and that each request to your cloud code may be routed to either the new or the old version during the roll out process.
+This setting is important if you are in production and don't want downtime when you push new versions of your code. You are fine with the fact that rolling out new code will take a few minutes and that each request to your cloud code may be routed to either the new or the old version during the rollout process.
 
-### When not to use
+### When not to use :x:
 
-This setting is not for you if you want as fast updates as possible. For example if you are still developing your app you most likely want fast updates and are not interested in seamless rollouts.
+This setting is not for you if you want as fast updates as possible. For example, if you are still developing your app you most likely want fast updates and are not interested in seamless rollouts.
 
-This setting is also not for you if you are not ok with the fact that old and new versions will be served to different users for a few minutes while the roll out is happening.
+This setting is also not for you if you are not ok with the fact that old and new versions will be served to different users for a few minutes while the rollout is happening.
