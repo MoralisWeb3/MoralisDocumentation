@@ -582,7 +582,15 @@ if (isWeb3Active) {
   await Moralis.enable();
 }
 ```
+## deactivateWeb3
+Deactivates current web3 connection
 
+```javascript
+      await Moralis.enableWeb3();
+      console.log("ENABLED", Moralis.isWeb3Enabled());
+      await Moralis.deactivateWeb3();
+      console.log("DISABLED", Moralis.isWeb3Enabled());
+```
 ## connector / connectorType
 
 Returns details of the connector or the connector type, that is used to authenticate or enable web3:

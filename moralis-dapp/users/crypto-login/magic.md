@@ -6,13 +6,13 @@ description: Moralis is fully integrated with Magic (also known as Magic Link)
 
 ## Integrating Moralis and Magic
 
-Moralis is fully integrated with [Magic](https://magic.link) which allows you to authenticate your users with their email or other types of social login such as Google or Twitter. __ Learn how the integration works [here](magic.md).
+Moralis is fully integrated with [Magic](https://magic.link/docs/introduction/what-is-magic) which allows you to authenticate your users with their email or other types of social login such as Google or Twitter. __ Learn how the integration works [here](magic.md#tutorial).
 
 ![Login web3 users with their email or other social login.](<../../../.gitbook/assets/Screenshot 2022-02-03 at 21.40.14.png>)
 
 ### 1. Create a Magic account
 
-To get started, you will need to make an account on [here](https://go.magic.link/moralis-web3-magic) to get a publishable api-key. This key looks like this:
+To get started, you will need to make an account [here](https://go.magic.link/moralis-web3-magic) to get a publishable api-key. This key looks like this:
 
 ```javascript
 pk_xxxxxxx
@@ -62,6 +62,28 @@ const user = await Moralis.authenticate({
   network: "kovan",
 })
 ```
+
+## User Flow
+
+When users want to sign up or log in to your application:
+
+1. User requests a **magic link** sent to their email address
+2. User clicks on that magic link
+3. User is securely logged into the application
+
+{% hint style="info" %}
+Magic creates a new crypto address and links it to the user's email when the user enters the email for the first time.&#x20;
+{% endhint %}
+
+## Working Code
+
+{% hint style="info" %}
+Make sure to add your Magic API key in the SignIn.js component.&#x20;
+{% endhint %}
+
+{% embed url="https://codesandbox.io/embed/moralis-magic-integration-i5l0b1?fontsize=14&hidenavigation=1&theme=dark" %}
+Magic Integration with React
+{% endembed %}
 
 ## Tutorial
 

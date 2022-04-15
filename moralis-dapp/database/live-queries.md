@@ -171,6 +171,22 @@ However, if the WebSocket connection is closed due to `Moralis.LiveQuery.close()
 
 We send `sessionToken` to the LiveQuery server when you subscribe to a `MoralisQuery`. For the standard API, we use the `sessionToken` of the current user by default. For the advanced API, you can use any `sessionToken` when you subscribe to a `MoralisQuery`. An important thing to be aware of is when you log out or the `sessionToken` you are using is invalid, you should unsubscribe from the subscription and subscribe to the `MoralisQuery` again. Otherwise, you may face a security issue since you'll get events that shouldn't be sent to you.
 
+## Example with using Moralis.Query.or with two queries
+```javascript
+let query1 = new Moralis.Query('test_subscription');
+let query2 = new Moralis.Query('test_subscription');
+query1.equalTo('a', undefined)
+query2.equalTo('a', '10')
+mainQuery = Moralis.Query.or(query1, query2);
+let subscription = await mainQuery.subscribe();
+subscription.on('create', (object) => {
+  console.log('object created', object);
+});
+subscription.on('update', (object) => {
+  console.log('object updated', object);
+});
+```
+
 ## Tutorial
 
 {% embed url="https://youtu.be/PZDATN_dKAM" %}
