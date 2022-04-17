@@ -12,11 +12,12 @@ Returns the metadata of a SPL NFT.
 
 #### Options:
 
-* `network`: The network cluster to get data from. Valid values are listed on the [Supported Networks](supported-networks.md). Default value `mainnet`.
-* `address`: A SPL NFT address (i.e. `HsXZnAba2...`).
+- `network`: The network cluster to get data from. Valid values are listed on the [Supported Networks](supported-networks.md). Default value `mainnet`.
+- `address`: A SPL NFT address (i.e. `HsXZnAba2...`).
 
 {% tabs %}
 {% tab title="JS" %}
+
 ```javascript
 // get devnet metadata for a given SPL NFT address
 const options = {
@@ -25,9 +26,21 @@ const options = {
 };
 const nftMetadata = await Moralis.SolanaAPI.nft.getNFTMetadata(options);
 ```
+
+{% endtab %}
+{% tab title="curl" %}
+
+```bash
+curl -X 'GET' \
+  'https://solana-gateway.moralis.io/nft/devnet/6XU36wCxWobLx5Rtsb58kmgAJKVYmMVqy4SHXxENAyAe/metadata' \
+  -H 'accept: application/json' \
+  -H 'X-API-Key: MY-API-KEY'
+```
+
 {% endtab %}
 
 {% tab title="Unity" %}
+
 ```csharp
 using System.Collections.Generic;
 using Moralis.SolanaApi.Models;
@@ -41,6 +54,7 @@ using MoralisWeb3ApiSdk;
     print(nftmetadata);
   }
 ```
+
 {% endtab %}
 {% endtabs %}
 
