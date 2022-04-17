@@ -28,6 +28,25 @@ const nftMetadata = await Moralis.SolanaAPI.nft.getNFTMetadata(options);
 ```
 
 {% endtab %}
+{% tab title="React" %}
+
+```javascript
+import { useMoralisSolanaApi, useMoralisSolanaCall } from "react-moralis";
+
+const { nft } = useMoralisSolanaApi();
+
+// get devnet SPL NFT metadata for a given address
+const options = {
+  network: "devnet",
+  address: "6XU36wCxWobLx5Rtsb58kmgAJKVYmMVqy4SHXxENAyAe",
+};
+const { fetch, data, isLoading } = useMoralisSolanaCall(
+  nft.getNFTMetadata,
+  options
+);
+```
+
+{% endtab %}
 {% tab title="curl" %}
 
 ```bash
