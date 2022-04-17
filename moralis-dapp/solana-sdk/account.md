@@ -12,11 +12,12 @@ Returns SOL balance of an address.
 
 #### Options:
 
-* `network`: The network cluster to get data from. Valid values are listed on the [Supported Networks](supported-networks.md). Default value `mainnet`.
-* `address`: A user address (i.e. `6XU36wCxWobLx5Rtsb58kmgAJKVYmMVqy4SHXxENAyAe`). If specified, the user attached to the query is ignored and the address will be used instead.
+- `network`: The network cluster to get data from. Valid values are listed on the [Supported Networks](supported-networks.md). Default value `mainnet`.
+- `address`: A user address (i.e. `6XU36wCxWobLx5Rtsb58kmgAJKVYmMVqy4SHXxENAyAe`). If specified, the user attached to the query is ignored and the address will be used instead.
 
 {% tabs %}
 {% tab title="JS" %}
+
 ```javascript
 // get mainnet SOL balance for the current user
 const solBalance = await Moralis.SolanaAPI.account.balance();
@@ -28,9 +29,11 @@ const options = {
 };
 const solBalance = await Moralis.SolanaAPI.account.balance(options);
 ```
+
 {% endtab %}
 
 {% tab title="React" %}
+
 ```javascript
 import { useMoralisSolanaApi, useMoralisSolanaCall } from "react-moralis";
 
@@ -49,9 +52,22 @@ const { fetch, data, isLoading } = useMoralisSolanaCall(
   options
 );
 ```
+
+{% endtab %}
+
+{% tab title="curl" %}
+
+```bash
+curl -X 'GET' \
+  'https://solana-gateway.moralis.io/account/devnet/6XU36wCxWobLx5Rtsb58kmgAJKVYmMVqy4SHXxENAyAe/balance' \
+  -H 'accept: application/json' \
+  -H 'X-API-Key: MY-API-KEY'
+```
+
 {% endtab %}
 
 {% tab title="Unity" %}
+
 ```csharp
 using System.Collections.Generic;
 using Moralis.SolanaApi.Models;
@@ -64,6 +80,7 @@ using MoralisWeb3ApiSdk;
     print(solBalance);
   }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -82,11 +99,12 @@ Returns SPL token balance of an address.
 
 #### Options:
 
-* `network`: The network cluster to get data from. Valid values are listed on the [Supported Networks](supported-networks.md). Default value `mainnet`.
-* `address`: A user address (i.e. `HsXZnAba2...`). If specified, the user attached to the query is ignored and the address will be used instead.
+- `network`: The network cluster to get data from. Valid values are listed on the [Supported Networks](supported-networks.md). Default value `mainnet`.
+- `address`: A user address (i.e. `HsXZnAba2...`). If specified, the user attached to the query is ignored and the address will be used instead.
 
 {% tabs %}
 {% tab title="JS" %}
+
 ```javascript
 // get mainnet SPL token balance for the current user
 const tokenBalance = await Moralis.SolanaAPI.account.getSPL();
@@ -98,9 +116,11 @@ const options = {
 };
 const tokenBalance = await Moralis.SolanaAPI.account.getSPL(options);
 ```
+
 {% endtab %}
 
 {% tab title="React" %}
+
 ```javascript
 import { useMoralisSolanaApi, useMoralisSolanaCall } from "react-moralis";
 
@@ -119,9 +139,22 @@ const { fetch, data, isLoading } = useMoralisSolanaCall(
   options
 );
 ```
+
+{% endtab %}
+
+{% tab title="curl" %}
+
+```bash
+curl -X 'GET' \
+  'https://solana-gateway.moralis.io/account/devnet/6XU36wCxWobLx5Rtsb58kmgAJKVYmMVqy4SHXxENAyAe/tokens' \
+  -H 'accept: application/json' \
+  -H 'X-API-Key: MY-API-KEY'
+```
+
 {% endtab %}
 
 {% tab title="Unity" %}
+
 ```csharp
 using System.Collections.Generic;
 using Moralis.SolanaApi.Models;
@@ -136,6 +169,7 @@ using MoralisWeb3ApiSdk;
    }
   }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -159,11 +193,12 @@ Returns SPL NFT balance of an address.
 
 #### Options:
 
-* `network`: The network cluster to get data from. Valid values are listed on [Supported Networks](supported-networks.md). Default value `mainnet`.
-* `address`: A user address (i.e. `HsXZnAba2...`). If specified, the user attached to the query is ignored and the address will be used instead.
+- `network`: The network cluster to get data from. Valid values are listed on [Supported Networks](supported-networks.md). Default value `mainnet`.
+- `address`: A user address (i.e. `HsXZnAba2...`). If specified, the user attached to the query is ignored and the address will be used instead.
 
 {% tabs %}
 {% tab title="JS" %}
+
 ```javascript
 // get mainnet SPL NFT balance for the current user
 const nftBalance = await Moralis.SolanaAPI.account.getNFTs();
@@ -175,9 +210,11 @@ const options = {
 };
 const nftBalance = await Moralis.SolanaAPI.account.getNFTs(options);
 ```
+
 {% endtab %}
 
 {% tab title="React" %}
+
 ```javascript
 import { useMoralisSolanaApi, useMoralisSolanaCall } from "react-moralis";
 
@@ -196,9 +233,21 @@ const { fetch, data, isLoading } = useMoralisSolanaCall(
   options
 );
 ```
+
+{% endtab %}
+{% tab title="curl" %}
+
+```bash
+curl -X 'GET' \
+  'https://solana-gateway.moralis.io/account/devnet/6XU36wCxWobLx5Rtsb58kmgAJKVYmMVqy4SHXxENAyAe/nft' \
+  -H 'accept: application/json' \
+  -H 'X-API-Key: MY-API-KEY'
+```
+
 {% endtab %}
 
 {% tab title="Unity" %}
+
 ```csharp
 using System.Collections.Generic;
 using Moralis.SolanaApi.Models;
@@ -213,6 +262,7 @@ using MoralisWeb3ApiSdk;
     }
   }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -236,11 +286,12 @@ Returns the portfolio (SOL balance, SPL token blanace, SPL NFT balance) of an ad
 
 #### Options:
 
-* `network`: The network cluster to get data from. Valid values are listed on [Supported Networks](supported-networks.md). Default value `mainnet`.
-* `address`: A user address (i.e. `HsXZnAba2...`). If specified, the user attached to the query is ignored and the address will be used instead.
+- `network`: The network cluster to get data from. Valid values are listed on [Supported Networks](supported-networks.md). Default value `mainnet`.
+- `address`: A user address (i.e. `HsXZnAba2...`). If specified, the user attached to the query is ignored and the address will be used instead.
 
 {% tabs %}
 {% tab title="JS" %}
+
 ```javascript
 // get mainnet NFT balance for the current user
 const portfolio = await Moralis.SolanaAPI.account.getPortfolio();
@@ -252,9 +303,11 @@ const options = {
 };
 const portfolio = await Moralis.SolanaAPI.account.getPortfolio(options);
 ```
+
 {% endtab %}
 
 {% tab title="React" %}
+
 ```javascript
 import { useMoralisSolanaApi, useMoralisSolanaCall } from "react-moralis";
 
@@ -273,9 +326,20 @@ const { fetch, data, isLoading } = useMoralisSolanaCall(
   options
 );
 ```
-{% endtab %}
 
+{% endtab %}
+{% tab title="curl" %}
+
+```bash
+curl -X 'GET' \
+  'https://solana-gateway.moralis.io/account/devnet/6XU36wCxWobLx5Rtsb58kmgAJKVYmMVqy4SHXxENAyAe/portfolio' \
+  -H 'accept: application/json' \
+  -H 'X-API-Key: MY-API-KEY'
+```
+
+{% endtab %}
 {% tab title="Unity" %}
+
 ```csharp
 using System.Collections.Generic;
 using Moralis.SolanaApi.Models;
@@ -288,6 +352,7 @@ using MoralisWeb3ApiSdk;
     print(PortfolioBal);
   }
 ```
+
 {% endtab %}
 {% endtabs %}
 
