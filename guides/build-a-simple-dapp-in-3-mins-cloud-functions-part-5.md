@@ -25,7 +25,7 @@ Moralis.Cloud.define("getAvgGas", async function (request) {
         objectId: "$from_address",
         // add computed property avgGas
         // get average and convert wei to gwei
-        avgGas: { $avg: { $divide: ["$gas_price", 1000000000]} },
+        avgGas: { $avg: { $divide: ["$gas_price", 1000000000] } },
       },
     },
     { sort: { avgGas: -1 } }, // sort by avgGas high to low
@@ -35,7 +35,7 @@ Moralis.Cloud.define("getAvgGas", async function (request) {
   // the master key is required for aggregate queries
   const results = await query.aggregate(pipeline, { useMasterKey: true });
   return results;
-})
+});
 ```
 
 ### Calling the Cloud Function
@@ -220,7 +220,7 @@ Moralis.Cloud.define("getAvgGas", async function (request) {
         objectId: "$from_address",
         // add computed property avgGas
         // get average and convert wei to gwei
-        avgGas: { $avg: { $divide: ["$gas_price", 1000000000]} },
+        avgGas: { $avg: { $divide: ["$gas_price", 1000000000] } },
       },
     },
     { sort: { avgGas: -1 } }, // sort by avgGas high to low
@@ -230,7 +230,7 @@ Moralis.Cloud.define("getAvgGas", async function (request) {
   // the master key is required for aggregate queries
   const results = await query.aggregate(pipeline, { useMasterKey: true });
   return results;
-})
+});
 ```
 
 ## Legendary!
@@ -239,4 +239,4 @@ Wow, you finished! Congratulations on building your first Moralis dApp. You are 
 
 #### 🏁 This is the Finish Line 🏁
 
-Pumped and want more? What's next? Check out all our tutorials on the [Moralis Web3 Youtube channel](https://www.youtube.com/channel/UCgWS9Q3P5AxCWyQLT2kQhBw/featured)! The next guide below called "Deploy and Track ERC20 Events" is a more advanced tutorial so we suggest checking out other "Basics" tutorials on the Youtube channel first, such as "[Learning Solidity Basics](https://www.youtube.com/watch?v=IkCfIE1VoRo\&list=PLFPZ8ai7J-iTJDENUIY40VsU\_5Wmxkr7j)" and "[Moralis Basics](https://www.youtube.com/watch?v=aYi1\_moT4kI\&list=PLFPZ8ai7J-iQ7AruWqKOLUHQqabeSm37I)."
+Pumped and want more? What's next? Check out all our tutorials on the [Moralis Web3 Youtube channel](https://www.youtube.com/channel/UCgWS9Q3P5AxCWyQLT2kQhBw/featured)! The next guide below called "Deploy and Track ERC20 Events" is a more advanced tutorial so we suggest checking out other "Basics" tutorials on the Youtube channel first, such as "[Learning Solidity Basics](https://www.youtube.com/watch?v=IkCfIE1VoRo&list=PLFPZ8ai7J-iTJDENUIY40VsU_5Wmxkr7j)" and "[Moralis Basics](https://www.youtube.com/watch?v=aYi1_moT4kI&list=PLFPZ8ai7J-iQ7AruWqKOLUHQqabeSm37I)."

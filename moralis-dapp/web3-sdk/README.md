@@ -69,7 +69,7 @@ Youtube playlist with all the Applications built using the Web3API
 
 ### Tutorial
 
-Video demonstrating how the latest Web3 API can be accessed through the SDK. Can also be used in the backend through [**REST API**](moralis-web3-api-rest.md)****
+Video demonstrating how the latest Web3 API can be accessed through the SDK. Can also be used in the backend through [**REST API**](moralis-web3-api-rest.md)\*\*\*\*
 
 {% embed url="https://www.youtube.com/watch?v=lX9A6yQXZ_8&ab_channel=MoralisWeb3" %}
 Video demonstrating how the latest Web3 API can be accessed through the SDK.

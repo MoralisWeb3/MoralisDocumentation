@@ -6,11 +6,6 @@ description: >-
 
 # Create and Launch Own NFTs
 
-
-
 {% embed url="https://www.youtube.com/watch?v=tBMk1iZa85Y" %}
 Big NFT Tutorial - Creating, launching, managing NFTs
 {% endembed %}
-
-
-

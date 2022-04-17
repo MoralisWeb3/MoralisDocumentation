@@ -18,27 +18,27 @@ You can upload files with the _saveIPFS()_ method (max file size 1 GB).
 
 ```javascript
 // Save file input to IPFS
-const data = fileInput.files[0]
-const file = new Moralis.File(data.name, data)
+const data = fileInput.files[0];
+const file = new Moralis.File(data.name, data);
 await file.saveIPFS();
 
 //console.log(file.ipfs(), file.hash())
 
 // Save file reference to Moralis
-const jobApplication = new Moralis.Object('Applications')
-jobApplication.set('name', 'Satoshi')
-jobApplication.set('resume', file)
-await jobApplication.save()
+const jobApplication = new Moralis.Object("Applications");
+jobApplication.set("name", "Satoshi");
+jobApplication.set("resume", file);
+await jobApplication.save();
 
 // Retrieve file
-const query = new Moralis.Query('Applications')
-query.equalTo('name', 'Satoshi')
+const query = new Moralis.Query("Applications");
+query.equalTo("name", "Satoshi");
 query.find().then(function ([application]) {
-   const ipfs = application.get('resume').ipfs()
-   const hash = application.get('resume').hash()
-   console.log('IPFS url', ipfs)
-   console.log('IPFS hash', hash)
-})
+  const ipfs = application.get("resume").ipfs();
+  const hash = application.get("resume").hash();
+  console.log("IPFS url", ipfs);
+  console.log("IPFS hash", hash);
+});
 ```
 
 The data is automatically pinned.
@@ -49,9 +49,11 @@ You can also upload JSON objects directly from JavaScript, by saving the base64 
 
 ```javascript
 const object = {
-    "key" : "value"
-  }
-const file = new Moralis.File("file.json", {base64 : btoa(JSON.stringify(object))});
+  key: "value",
+};
+const file = new Moralis.File("file.json", {
+  base64: btoa(JSON.stringify(object)),
+});
 await file.saveIPFS();
 ```
 
@@ -61,8 +63,8 @@ By uploading base64, you could also upload other base64 encoded files such as im
 {% tab title="JS" %}
 
 ```javascript
-const image = "data:image/png;base64,iVBORw0KGgoAAA...."
-const file = new Moralis.File("image.png", {base64 : image });
+const image = "data:image/png;base64,iVBORw0KGgoAAA....";
+const file = new Moralis.File("image.png", { base64: image });
 await file.saveIPFS();
 ```
 
@@ -73,17 +75,17 @@ await file.saveIPFS();
 const { saveFile } = useMoralisFile();
 
 const uploadFile = () => {
-    const base64 = "V29ya2luZyBhdCBQYXJzZSBpcyBncmVhdCE=";
-    saveFile(
-        "myfile.txt",
-        { base64 },
-        {
-            type: "base64",
-            saveIPFS: true,
-            onSuccess: (result) => console.log(result.ipfs()),
-            onError: (error) => console.log(error),
-        }
-    );
+  const base64 = "V29ya2luZyBhdCBQYXJzZSBpcyBncmVhdCE=";
+  saveFile(
+    "myfile.txt",
+    { base64 },
+    {
+      type: "base64",
+      saveIPFS: true,
+      onSuccess: (result) => console.log(result.ipfs()),
+      onError: (error) => console.log(error),
+    }
+  );
 };
 ```
 
@@ -96,7 +98,7 @@ const uploadFile = () => {
 
 An IPFS file can be retrieved with a `GET` request to a public gateway. The URL for the Moralis gateway is:
 
-* `https://gateway.moralisipfs.com/ipfs/`.
+- `https://gateway.moralisipfs.com/ipfs/`.
 
 For example, [https://gateway.moralisipfs.com/ipfs/QmUfpsyqc4hwozotRo4woyi5fJqvfcej5GcFvKiWoY6xr6](https://gateway.moralisipfs.com/ipfs/QmUfpsyqc4hwozotRo4woyi5fJqvfcej5GcFvKiWoY6xr6). A function to fetch a JSON document in IPFS from the browser could be written as the following:
 

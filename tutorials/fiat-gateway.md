@@ -9,6 +9,5 @@ All dapps need to have an onboarding strategy for their users. If the user comes
 The best part? It's just one file of code!
 
 {% embed url="https://www.youtube.com/watch?v=5MlTnoBm7YQ&ab_channel=MoralisWeb3" %}
-Moralis Fiat Gateway  Tutorial
+Moralis Fiat Gateway Tutorial
 {% endembed %}
-
