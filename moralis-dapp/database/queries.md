@@ -12,6 +12,9 @@ In many cases, `get` isn't powerful enough to specify which objects you want to 
 
 The general pattern is to create a `Moralis.Query`, put conditions on it, and then retrieve an `Array` of matching `Moralis.Object`s using `find`. For example, to retrieve the monster that have a particular `ownerName`, use the `equalTo` method to constrain the value for a key.
 
+{% tabs %}
+{% tab title="JS" %}
+
 ```javascript
 const Monster = Moralis.Object.extend("Monster");
 const query = new Moralis.Query(Monster);
@@ -24,6 +27,37 @@ for (let i = 0; i < results.length; i++) {
   alert(object.id + ' - ' + object.get('ownerName'));
 }
 ```
+
+{% endtab %}
+{% tab title="React" %}
+
+```javascript
+import { useMoralisQuery } from "react-moralis";
+
+export default function App() {
+    const { fetch } = useMoralisQuery(
+        "Monster",
+        (query) => query.equalTo("ownerName", "Aegon"),
+        [],
+        { autoFetch: false }
+    );
+
+    const basicQuery = async () => {
+        const results = await fetch();
+        alert("Successfully retrieved " + results.length + " monsters.");
+        // Do something with the returned Moralis.Object values
+        for (let i = 0; i < results.length; i++) {
+            const object = results[i];
+            alert(object.id + " - " + object.get("ownerName"));
+        }
+    };
+
+    return <button onClick={basicQuery}>Call The Code</button>;
+}
+```
+
+{% endtab %}
+{% endtabs %}
 
 {% hint style="success" %}
 For an introduction video tutorial [**Click Here**](queries.md#tutorials)
@@ -68,12 +102,40 @@ query.limit(10); // limit to at most 10 results
 
 If you want **exactly one result**, a more convenient alternative may be to use `first` instead of using `find`.
 
+{% tabs %}
+{% tab title="JS" %}
+
 ```javascript
 const Monster = Moralis.Object.extend("Monster");
 const query = new Moralis.Query(Monster);
 query.equalTo("ownerEmail", "daenerys@housetargaryen.com");
 const object = await query.first();
 ```
+
+{% endtab %}
+{% tab title="React" %}
+
+```javascript
+import { useMoralisQuery } from "react-moralis";
+
+export default function App() {
+  const { fetch } = useMoralisQuery("Monster", (query) =>
+      query.equalTo("ownerEmail", "daenerys@housetargaryen.com").first(),
+    [],
+    { autoFetch: false }
+  );
+
+  const singleQuery = () =>
+    fetch({
+      onSuccess: (result) => console.log(result),
+    });
+
+  return <button onClick={singleQuery}>Call The Code</button>;
+}
+```
+
+{% endtab %}
+{% endtabs %}
 
 You can **skip the first results** by setting <mark style="color:green;">`skip`</mark>. In the old Moralis hosted backend, the maximum skip value was 10,000, but Moralis Dapps now removed that constraint. This can be useful for **pagination**:
 
@@ -93,6 +155,9 @@ To get the **total number of rows** in a table satisfying your query, for e.g. p
 
 Example - Let's say you have 200 rows in a table called `Monster`:
 
+{% tabs %}
+{% tab title="JS" %}
+
 ```javascript
 const Monster = Moralis.Object.extend("Monster");
 const query = new Moralis.Query(Monster);
@@ -105,6 +170,32 @@ const results = await query.find(); // [ Monster, Monster, ...]
 query.withCount();
 const response = await query.find(); // { results: [ Monster, ... ], count: 200 }
 ```
+
+{% endtab %}
+{% tab title="React" %}
+
+```javascript
+const limitQuery = useMoralisQuery("Monster", (query) => query.limit(25), [], {
+  autoFetch: false,
+});
+
+const getLimitedQuery = () =>
+  limitQuery.fetch({
+    onSuccess: (result) => console.log(result), // [ Monster, Monster, ...]
+  });
+
+const queryCount = useMoralisQuery("Monster", (query) => query.withCount(), [], {
+    autoFetch: false,
+  }
+);
+
+const getQueryWithCount = () =>
+  queryCount.fetch({
+    onSuccess: (result) => console.log(result), // { results: [ Monster, ... ], count: 200 }
+  });
+```
+{% endtab %}
+{% endtabs %}
 
 {% hint style="warning" %}
 Сount operations can be slow and expensive.
@@ -208,6 +299,9 @@ To **restrict the fields returned** by calling <mark style="color:green;">`selec
 
 For example, To retrieve documents that contain only the `strength` and `ownerName` fields (and also special built-in fields such as `objectId`, `createdAt`, and `updatedAt`):
 
+{% tabs %}
+{% tab title="JS" %}
+
 ```javascript
 const Monster = Moralis.Object.extend("Monster");
 const query = new Moralis.Query(Monster);
@@ -217,7 +311,35 @@ query.find().then(function(monsters) {
 });
 ```
 
+{% endtab %}
+{% tab title="React" %}
+
+```javascript
+import { useMoralisQuery } from "react-moralis";
+
+export default function App() {
+  const { fetch } = useMoralisQuery("Monster",
+    (query) => query.select("strength", "ownerName"), [], { autoFetch: false }
+  );
+
+  const getSelectedQuery = () =>
+    fetch({
+      onSuccess: (monster) => {
+        // each of the monsters will only have the selected fields available.
+      },
+    });
+
+  return <button onClick={getSelectedQuery}>Call The Code</button>;
+}
+```
+
+{% endtab %}
+{% endtabs %}
+
 Similarly, to **remove undesired fields while retrieving the rest** use <mark style="color:green;">`exclude`</mark>:
+
+{% tabs %}
+{% tab title="JS" %}
 
 ```javascript
 const Monster = Moralis.Object.extend("Monster");
@@ -227,6 +349,30 @@ query.find().then(function(monsters) {
   // Now each monster will have all fields except `ownerName`
 });
 ```
+{% endtab %}
+{% tab title="React" %}
+
+```javascript
+import { useMoralisQuery } from "react-moralis";
+
+export default function App() {
+  const { fetch } = useMoralisQuery("Monster",
+    (query) => query.exclude("ownerName"), [], { autoFetch: false }
+  );
+
+  const queryExcludingParam = () =>
+    fetch({
+      onSuccess: (monsters) => {
+        // Now each monster will have all fields except `ownerName`
+      },
+    });
+
+  return <button onClick={queryExcludingParam}>Call The Code</button>;
+}
+```
+
+{% endtab %}
+{% endtabs %}
 
 The remaining fields can be fetched later by calling `fetch` on the returned objects:
 
