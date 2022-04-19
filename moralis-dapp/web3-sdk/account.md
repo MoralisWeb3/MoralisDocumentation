@@ -165,7 +165,7 @@ const fetchNativeBalance = async () => {
     address: "0x3d6c0e79a1239df0039ec16Cc80f7A343b6C530e",
     to_block: "1234",
   };
-  const bscBalance = await Web3Api.getNativeBalance(options);
+  const bscBalance = await Web3Api.account.getNativeBalance(options);
   console.log(bscBalance);
 };
 ```
