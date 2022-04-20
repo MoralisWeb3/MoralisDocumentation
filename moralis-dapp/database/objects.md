@@ -33,7 +33,7 @@ const monster = new LegendaryMonster();
 
 // Alternatively, you can use the typical Backbone syntax.
 const LegendaryMonster = Moralis.Object.extend({
-  className: "Monster"
+  className: "Monster",
 });
 ```
 
@@ -41,26 +41,30 @@ You can add additional methods and properties to your subclasses of `Moralis.Obj
 
 ```javascript
 // A complex subclass of Moralis.Object
-const Monster = Moralis.Object.extend("Monster", {
-  // Instance methods
-  hasSuperHumanStrength: function () {
-    return this.get("strength") > 18;
+const Monster = Moralis.Object.extend(
+  "Monster",
+  {
+    // Instance methods
+    hasSuperHumanStrength: function () {
+      return this.get("strength") > 18;
+    },
+    // Instance properties go in an initialize method
+    initialize: function (attrs, options) {
+      this.sound = "Rawr";
+    },
   },
-  // Instance properties go in an initialize method
-  initialize: function (attrs, options) {
-    this.sound = "Rawr"
+  {
+    // Class methods
+    spawn: function (strength) {
+      const monster = new Monster();
+      monster.set("strength", strength);
+      return monster;
+    },
   }
-}, {
-  // Class methods
-  spawn: function(strength) {
-    const monster = new Monster();
-    monster.set("strength", strength);
-    return monster;
-  }
-});
+);
 
 const monster = Monster.spawn(200);
-alert(monster.get('strength'));  // Displays 200.
+alert(monster.get("strength")); // Displays 200.
 alert(monster.sound); // Displays Rawr.
 ```
 
@@ -72,18 +76,18 @@ If you’re already using ES6 in your codebase. You can subclass `Moralis.Object
 class Monster extends Moralis.Object {
   constructor() {
     // Pass the ClassName to the Moralis.Object constructor
-    super('Monster');
+    super("Monster");
     // All other initialization
-    this.sound = 'Rawr';
+    this.sound = "Rawr";
   }
 
   hasSuperHumanStrength() {
-    return this.get('strength') > 18;
+    return this.get("strength") > 18;
   }
 
   static spawn(strength) {
     const monster = new Monster();
-    monster.set('strength', strength);
+    monster.set("strength", strength);
     return monster;
   }
 }
@@ -93,7 +97,7 @@ However, when using `extends`, the SDK is not automatically aware of your subcla
 
 ```javascript
 // After specifying the Monster subclass...
-Moralis.Object.registerSubclass('Monster', Monster);
+Moralis.Object.registerSubclass("Monster", Monster);
 ```
 
 Similarly, you can use `extends` with `Moralis.User`.
@@ -108,19 +112,19 @@ class CustomUser extends Moralis.User {
     return 5;
   }
 }
-Moralis.Object.registerSubclass('_User', CustomUser);
+Moralis.Object.registerSubclass("_User", CustomUser);
 ```
 
 In addition to queries, `logIn` and `signUp` will return the subclass `CustomUser`.
 
 ```javascript
-const customUser = new CustomUser({ foo: 'bar' });
-customUser.setUsername('username');
-customUser.setPassword('password');
+const customUser = new CustomUser({ foo: "bar" });
+customUser.setUsername("username");
+customUser.setPassword("password");
 customUser.signUp().then((user) => {
   // user is an instance of CustomUser
   user.doSomething(); // return 5
-  user.get('foo');    // return 'bar'
+  user.get("foo"); // return 'bar'
 });
 ```
 
@@ -143,15 +147,17 @@ monster.set("strength", 1024);
 monster.set("ownerName", "Aegon");
 monster.set("canFly", true);
 
-monster.save()
-.then((monster) => {
-  // Execute any logic that should take place after the object is saved.
-  alert('New object created with objectId: ' + monster.id);
-}, (error) => {
-  // Execute any logic that should take place if the save fails.
-  // error is a Moralis.Error with an error code and message.
-  alert('Failed to create new object, with error code: ' + error.message);
-});
+monster.save().then(
+  (monster) => {
+    // Execute any logic that should take place after the object is saved.
+    alert("New object created with objectId: " + monster.id);
+  },
+  (error) => {
+    // Execute any logic that should take place if the save fails.
+    // error is a Moralis.Error with an error code and message.
+    alert("Failed to create new object, with error code: " + error.message);
+  }
+);
 ```
 
 {% endtab %}
@@ -161,33 +167,60 @@ monster.save()
 import { useNewMoralisObject } from "react-moralis";
 
 export default function App() {
-    const { save } = useNewMoralisObject("Monster");
+  const { save } = useNewMoralisObject("Monster");
 
-    const saveObject = async () => {
-        const data = {
-            strength: 1024,
-            ownerName: "Aegon",
-            canFly: true,
-        };
-
-        save(data, {
-            onSuccess: (monster) => {
-                // Execute any logic that should take place after the object is saved.
-                alert("New object created with objectId: " + monster.id);
-            },
-            onError: (error) => {
-                // Execute any logic that should take place if the save fails.
-                // error is a Moralis.Error with an error code and message.
-                alert(
-                    "Failed to create new object, with error code: " +
-                        error.message
-                );
-            },
-        });
+  const saveObject = async () => {
+    const data = {
+      strength: 1024,
+      ownerName: "Aegon",
+      canFly: true,
     };
 
-    return <button onClick={saveObject}>Call The Code</button>;
+    save(data, {
+      onSuccess: (monster) => {
+        // Execute any logic that should take place after the object is saved.
+        alert("New object created with objectId: " + monster.id);
+      },
+      onError: (error) => {
+        // Execute any logic that should take place if the save fails.
+        // error is a Moralis.Error with an error code and message.
+        alert("Failed to create new object, with error code: " + error.message);
+      },
+    });
+  };
+
+  return <button onClick={saveObject}>Call The Code</button>;
 }
+```
+
+{% endtab %}
+{% tab title="Unity" %}
+
+```csharp
+using Moralis.Platform.Objects;
+using MoralisWeb3ApiSdk;
+using Newtonsoft.Json;
+
+public class Monster : MoralisObject
+{
+    public int strength { get; set; }
+    public string ownerName { get; set; }
+    public bool canFly { get; set; }
+}
+public async void SaveObjectToDB()
+    {
+      try {
+        Monster monster = MoralisInterface.GetClient().Create<Monster>();
+        monster.strength = 1024;
+        monster.ownerName = "Aegon";
+        monster.canFly = true;
+        await character.SaveAsync();
+        print("Created new object");
+      }
+      catch (Exception e){
+        print("Failed to create new object, with error code: " + e);
+      }
+    }
 ```
 
 {% endtab %}
@@ -213,17 +246,21 @@ If you prefer, you can set attributes directly in your call to `save` instead.
 const Monster = Moralis.Object.extend("Monster");
 const monster = new Monster();
 
-monster.save({
-  strength: 1024,
-  ownerName: "Aegon",
-  canFly: true
-})
-.then((monster) => {
-  // The object was saved successfully.
-}, (error) => {
-  // The save failed.
-  // error is a Moralis.Error with an error code and message.
-});
+monster
+  .save({
+    strength: 1024,
+    ownerName: "Aegon",
+    canFly: true,
+  })
+  .then(
+    (monster) => {
+      // The object was saved successfully.
+    },
+    (error) => {
+      // The save failed.
+      // error is a Moralis.Error with an error code and message.
+    }
+  );
 ```
 
 {% hint style="warning" %}
@@ -251,7 +288,7 @@ In some scenarios, you may want to prevent this default chain save. For example,
 ```javascript
 const Monster = Moralis.Object.extend("Monster");
 const monster = new Monster();
-monster.set('ownerAccount', ownerAccount);   // Suppose `ownerAccount` has been created earlier.
+monster.set("ownerAccount", ownerAccount); // Suppose `ownerAccount` has been created earlier.
 
 monster.save(null, { cascadeSave: false });
 // Will save `teamMember` wihout attempting to save or modify `ownerAccount`
@@ -294,13 +331,15 @@ const Monster = Moralis.Object.extend("Monster");
 const query = new Moralis.Query(Monster);
 
 //get monster with id xWMyZ4YEGZ
-query.get("xWMyZ4YEGZ")
-.then((monster) => {
-  // The object was retrieved successfully.
-}, (error) => {
-  // The object was not retrieved successfully.
-  // error is a Moralis.Error with an error code and message.
-});
+query.get("xWMyZ4YEGZ").then(
+  (monster) => {
+    // The object was retrieved successfully.
+  },
+  (error) => {
+    // The object was not retrieved successfully.
+    // error is a Moralis.Error with an error code and message.
+  }
+);
 ```
 
 To get the values out of the `Moralis.Object`, use the `get` method:
@@ -326,6 +365,7 @@ const objectId = monster.id;
 const createdAt = monster.createdAt;
 const acl = monster.getACL();
 ```
+
 {% endhint %}
 
 ### <mark style="color:green;">myObject.fetch()</mark>
@@ -333,12 +373,15 @@ const acl = monster.getACL();
 If you need to refresh an object you already have with the latest data currently in the Moralis Cloud, you can call the `fetch` method like so:
 
 ```javascript
-myObject.fetch().then((myObject) => {
-  // The object was refreshed successfully.
-}, (error) => {
-  // The object was not refreshed successfully.
-  // error is a Moralis.Error with an error code and message.
-});
+myObject.fetch().then(
+  (myObject) => {
+    // The object was refreshed successfully.
+  },
+  (error) => {
+    // The object was not refreshed successfully.
+    // error is a Moralis.Error with an error code and message.
+  }
+);
 ```
 
 ### <mark style="color:green;">myObject.isDataAvailable()</mark>
@@ -387,27 +430,27 @@ monster.save().then((monster) => {
 import { useNewMoralisObject } from "react-moralis";
 
 export default function App() {
-    const { save } = useNewMoralisObject("Monster");
+  const { save } = useNewMoralisObject("Monster");
 
-    const updateObject = async () => {
-        const data = {
-            strength: 1024,
-            energy: 1337,
-            owner: "Aegon",
-            canFly: false,
-            skills: ["pwnage", "flying"],
-        };
-
-        save(data, {
-            onSuccess: (monster) => {
-                monster.set("canFly", true);
-                monster.set("strength", 1338);
-                return monster.save();
-            },
-        });
+  const updateObject = async () => {
+    const data = {
+      strength: 1024,
+      energy: 1337,
+      owner: "Aegon",
+      canFly: false,
+      skills: ["pwnage", "flying"],
     };
 
-    return <button onClick={updateObject}>Call The Code</button>;
+    save(data, {
+      onSuccess: (monster) => {
+        monster.set("canFly", true);
+        monster.set("strength", 1338);
+        return monster.save();
+      },
+    });
+  };
+
+  return <button onClick={updateObject}>Call The Code</button>;
 }
 ```
 
@@ -437,9 +480,9 @@ You can also increment by any amount by passing in a second argument to `increme
 
 To help with storing array data, there are three operations that can be used to automatically change an array associated with a given key:
 
-* `add` append the given object to the end of an array field.
-* `addUnique` add the given object only if it isn’t already contained in an array field. The position of the insert is not guaranteed.
-* `remove` remove all instances of the given object from an array field.
+- `add` append the given object to the end of an array field.
+- `addUnique` add the given object only if it isn’t already contained in an array field. The position of the insert is not guaranteed.
+- `remove` remove all instances of the given object from an array field.
 
 ```javascript
 monster.addUnique("skills", "flying");
@@ -456,12 +499,15 @@ Note that it is not currently possible to automatically add and remove items fro
 To delete an object from the cloud:
 
 ```javascript
-myObject.destroy().then((myObject) => {
-  // The object was deleted from the Moralis Cloud.
-}, (error) => {
-  // The delete failed.
-  // error is a Moralis.Error with an error code and message.
-});
+myObject.destroy().then(
+  (myObject) => {
+    // The object was deleted from the Moralis Cloud.
+  },
+  (error) => {
+    // The delete failed.
+    // error is a Moralis.Error with an error code and message.
+  }
+);
 ```
 
 ### <mark style="color:green;">myObject.unset()</mark>
@@ -528,27 +574,27 @@ myComment.save();
 import { useNewMoralisObject } from "react-moralis";
 
 export default function App() {
-    const postObject = useNewMoralisObject("Post");
-    const commentObject = useNewMoralisObject("Comment");
+  const postObject = useNewMoralisObject("Post");
+  const commentObject = useNewMoralisObject("Comment");
 
-    const makePost = async () => {
-        const postData = {
-            title: "I'm Hungry",
-            content: "Where should we go for lunch?",
-        };
-
-        const commentData = {
-            content: "Let's do Sushirrito.",
-            parent: await postObject.save(postData),
-        };
-
-        commentObject.save(commentData, {
-            onSuccess: (comment) => console.log(comment),
-            onError: (error) => console.log(error),
-        });
+  const makePost = async () => {
+    const postData = {
+      title: "I'm Hungry",
+      content: "Where should we go for lunch?",
     };
 
-    return <button onClick={makePost}>Call The Code</button>;
+    const commentData = {
+      content: "Let's do Sushirrito.",
+      parent: await postObject.save(postData),
+    };
+
+    commentObject.save(commentData, {
+      onSuccess: (comment) => console.log(comment),
+      onError: (error) => console.log(error),
+    });
+  };
+
+  return <button onClick={makePost}>Call The Code</button>;
 }
 ```
 
@@ -572,7 +618,7 @@ await post.fetch();
 const title = post.get("title");
 ```
 
-### <mark style="color:green;">Many-To-Many</mark>  <a href="#many-to-many-relationships" id="many-to-many-relationships"></a>
+### <mark style="color:green;">Many-To-Many</mark> <a href="#many-to-many-relationships" id="many-to-many-relationships"></a>
 
 Many-to-many relationships are modelled using `Moralis.Relation`. This works similar to storing an array of `Moralis.Object`'s in a key, except that you don’t need to fetch all of the objects in a relation at once. In addition, this allows `Moralis.Relation` to scale to many more objects than the array of `Moralis.Object` approach.&#x20;
 
@@ -596,20 +642,24 @@ You can remove a post from a `Moralis.Relation`:
 {% endhint %}
 
 {% code title="Example" %}
+
 ```javascript
 relation.remove(post);
 user.save();
 ```
+
 {% endcode %}
 
 You can call `add` and `remove` multiple times before calling save:
 
 {% code title="Example" %}
+
 ```javascript
 relation.remove(post1);
 relation.remove(post2);
 user.save();
 ```
+
 {% endcode %}
 
 You can also pass in an array of `Moralis.Object` to `add` and `remove`:
@@ -619,10 +669,12 @@ You can also pass in an array of `Moralis.Object` to `add` and `remove`:
 {% endhint %}
 
 {% code title="Example" %}
+
 ```javascript
 relation.add([post1, post2, post3]);
 user.save();
 ```
+
 {% endcode %}
 
 By default, the list of objects in this relation are not downloaded. You can get a list of the posts that a user likes by using the `Moralis.Query` returned by `query`. The code looks like:
@@ -644,9 +696,9 @@ If you only want a subset of the posts, you can add extra constraints to the `Mo
 const query = relation.query();
 query.equalTo("title", "I'm Hungry");
 query.find({
-  success:function(list) {
+  success: function (list) {
     // list contains post liked by the current user which have the title "I'm Hungry".
-  }
+  },
 });
 ```
 
@@ -656,20 +708,21 @@ For more details on `Moralis.Query`, please look at the [Queries](queries.md) po
 
 So far we’ve used values with type `String`, `Number`, and `Moralis.Object`. Moralis also supports `Date`s and `null`. You can nest `JSON Object`s and `JSON Array`s to store more structured data within a single `Moralis.Object`. Overall, the following types are allowed for each field in your object:
 
-* String => `String`
-* Number => `Number`
-* Bool => `bool`
-* Array => `JSON Array`
-* Object => `JSON Object`
-* Date => `Date`
-* File => `Moralis.File`
-* Pointer => other `Moralis.Object`
-* Relation => `Moralis.Relation`
-* Null => `null`
+- String => `String`
+- Number => `Number`
+- Bool => `bool`
+- Array => `JSON Array`
+- Object => `JSON Object`
+- Date => `Date`
+- File => `Moralis.File`
+- Pointer => other `Moralis.Object`
+- Relation => `Moralis.Relation`
+- Null => `null`
 
 Some examples:
 
 {% code title="Example" %}
+
 ```javascript
 const number = 42;
 const bool = false;
@@ -691,6 +744,7 @@ bigObject.set("anyKey", null); // this value can only be saved to an existing ke
 bigObject.set("myPointerKey", pointer); // shows up as Pointer &lt;MyClassName&gt; in the Data Browser
 bigObject.save();
 ```
+
 {% endcode %}
 
 We do not recommend storing large pieces of binary data like images or documents on `Moralis.Object`. We recommend you use `Moralis.File` to store images, documents, and other types of files. You can do so by instantiating a `Moralis.File` object and setting it on a field. See [Files](../files/files.md) for more details.
@@ -703,13 +757,9 @@ For more information about how Moralis handles data, check out our documentation
 What are Moralis Objects?
 {% endembed %}
 
-
-
 {% embed url="https://youtu.be/Ny6Y42OOv_4" %}
 Update Moralis Objects
 {% endembed %}
-
-
 
 {% embed url="https://youtu.be/ytJp0DBZKwA" %}
 Work with Relations&#x20;
