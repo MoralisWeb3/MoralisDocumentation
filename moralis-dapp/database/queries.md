@@ -24,7 +24,7 @@ alert("Successfully retrieved " + results.length + " monsters.");
 // Do something with the returned Moralis.Object values
 for (let i = 0; i < results.length; i++) {
   const object = results[i];
-  alert(object.id + ' - ' + object.get('ownerName'));
+  alert(object.id + " - " + object.get("ownerName"));
 }
 ```
 
@@ -35,25 +35,45 @@ for (let i = 0; i < results.length; i++) {
 import { useMoralisQuery } from "react-moralis";
 
 export default function App() {
-    const { fetch } = useMoralisQuery(
-        "Monster",
-        (query) => query.equalTo("ownerName", "Aegon"),
-        [],
-        { autoFetch: false }
-    );
+  const { fetch } = useMoralisQuery(
+    "Monster",
+    (query) => query.equalTo("ownerName", "Aegon"),
+    [],
+    { autoFetch: false }
+  );
 
-    const basicQuery = async () => {
-        const results = await fetch();
-        alert("Successfully retrieved " + results.length + " monsters.");
-        // Do something with the returned Moralis.Object values
-        for (let i = 0; i < results.length; i++) {
-            const object = results[i];
-            alert(object.id + " - " + object.get("ownerName"));
-        }
-    };
+  const basicQuery = async () => {
+    const results = await fetch();
+    alert("Successfully retrieved " + results.length + " monsters.");
+    // Do something with the returned Moralis.Object values
+    for (let i = 0; i < results.length; i++) {
+      const object = results[i];
+      alert(object.id + " - " + object.get("ownerName"));
+    }
+  };
 
-    return <button onClick={basicQuery}>Call The Code</button>;
+  return <button onClick={basicQuery}>Call The Code</button>;
 }
+```
+
+{% endtab %}
+{% tab title="Unity" %}
+
+```csharp
+using Moralis.Platform.Objects;
+using MoralisWeb3ApiSdk;
+using Newtonsoft.Json;
+
+ public async void RetrieveObjectFromDB()
+    {
+        MoralisQuery<Monster> monster = MoralisInterface.GetClient().Query<Monster>().WhereEqualTo("ownerName", "Aegon");
+        IEnumerable<Monster> result = await monster.FindAsync();
+        foreach(Monster mon in result)
+        {
+            print("My strength is " + mon.strength + " and can i fly ? " + mon.canFly);
+            // output : My strength is 1024 and can i fly ? true
+        }
+    }
 ```
 
 {% endtab %}
@@ -70,9 +90,11 @@ There are cases when a master key is needed for a query,
 For example, if you want to get the list of all the users, you can only do that in a cloud function using a master key - <mark style="color:green;">**because a user can not read the info for the other users due to ACL**</mark>.
 
 {% code title="Example" %}
+
 ```javascript
-query.find({useMasterKey:true});
+query.find({ useMasterKey: true });
 ```
+
 {% endcode %}
 
 ## Query Constraints
@@ -119,7 +141,9 @@ const object = await query.first();
 import { useMoralisQuery } from "react-moralis";
 
 export default function App() {
-  const { fetch } = useMoralisQuery("Monster", (query) =>
+  const { fetch } = useMoralisQuery(
+    "Monster",
+    (query) =>
       query.equalTo("ownerEmail", "daenerys@housetargaryen.com").first(),
     [],
     { autoFetch: false }
@@ -184,7 +208,11 @@ const getLimitedQuery = () =>
     onSuccess: (result) => console.log(result), // [ Monster, Monster, ...]
   });
 
-const queryCount = useMoralisQuery("Monster", (query) => query.withCount(), [], {
+const queryCount = useMoralisQuery(
+  "Monster",
+  (query) => query.withCount(),
+  [],
+  {
     autoFetch: false,
   }
 );
@@ -194,6 +222,7 @@ const getQueryWithCount = () =>
     onSuccess: (result) => console.log(result), // { results: [ Monster, ... ], count: 200 }
   });
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -235,8 +264,11 @@ For example- if you want to retrieve monsters owned by any monster owner in a pa
 
 ```javascript
 // Finds monsters from any of Jonathan, Dario, or Shawn
-query.containedIn("ownerName",
-                  ["Jonathan Walsh", "Dario Wunsch", "Shawn Simon"]);
+query.containedIn("ownerName", [
+  "Jonathan Walsh",
+  "Dario Wunsch",
+  "Shawn Simon",
+]);
 ```
 
 To **retrieve objects that do not match any of several values**, you can use <mark style="color:green;">`notContainedIn`</mark>, providing an array of acceptable values.
@@ -245,8 +277,11 @@ For example, if you want to retrieve monsters from monster owners besides those 
 
 ```javascript
 // Finds monsters from anyone who is neither Jonathan, Dario, nor Shawn
-query.notContainedIn("ownerName",
-                     ["Jonathan Walsh", "Dario Wunsch", "Shawn Simon"]);
+query.notContainedIn("ownerName", [
+  "Jonathan Walsh",
+  "Dario Wunsch",
+  "Shawn Simon",
+]);
 ```
 
 To **retrieve objects that have a particular key set**, you can use <mark style="color:green;">`exists`</mark>. Conversely, if you want to **retrieve objects without a particular key set**, you can use <mark style="color:green;">`doesNotExist`</mark>.
@@ -285,13 +320,17 @@ const results = await losingUserQuery.find();
 To **filter rows based on `objectId`'s from pointers in a second table**, you can use dot notation:
 
 ```javascript
-const rolesOfTypeX = new Moralis.Query('Role');
-rolesOfTypeX.equalTo('type', 'x');
+const rolesOfTypeX = new Moralis.Query("Role");
+rolesOfTypeX.equalTo("type", "x");
 
-const groupsWithRoleX = new Moralis.Query('Group');
-groupsWithRoleX.matchesKeyInQuery('objectId', 'belongsTo.objectId', rolesOfTypeX);
-groupsWithRoleX.find().then(function(results) {
-   // results has the list of groups with role x
+const groupsWithRoleX = new Moralis.Query("Group");
+groupsWithRoleX.matchesKeyInQuery(
+  "objectId",
+  "belongsTo.objectId",
+  rolesOfTypeX
+);
+groupsWithRoleX.find().then(function (results) {
+  // results has the list of groups with role x
 });
 ```
 
@@ -306,7 +345,7 @@ For example, To retrieve documents that contain only the `strength` and `ownerNa
 const Monster = Moralis.Object.extend("Monster");
 const query = new Moralis.Query(Monster);
 query.select("strength", "ownerName");
-query.find().then(function(monsters) {
+query.find().then(function (monsters) {
   // each of the monsters will only have the selected fields available.
 });
 ```
@@ -318,8 +357,11 @@ query.find().then(function(monsters) {
 import { useMoralisQuery } from "react-moralis";
 
 export default function App() {
-  const { fetch } = useMoralisQuery("Monster",
-    (query) => query.select("strength", "ownerName"), [], { autoFetch: false }
+  const { fetch } = useMoralisQuery(
+    "Monster",
+    (query) => query.select("strength", "ownerName"),
+    [],
+    { autoFetch: false }
   );
 
   const getSelectedQuery = () =>
@@ -345,10 +387,11 @@ Similarly, to **remove undesired fields while retrieving the rest** use <mark st
 const Monster = Moralis.Object.extend("Monster");
 const query = new Moralis.Query(Monster);
 query.exclude("ownerName");
-query.find().then(function(monsters) {
+query.find().then(function (monsters) {
   // Now each monster will have all fields except `ownerName`
 });
 ```
+
 {% endtab %}
 {% tab title="React" %}
 
@@ -356,8 +399,11 @@ query.find().then(function(monsters) {
 import { useMoralisQuery } from "react-moralis";
 
 export default function App() {
-  const { fetch } = useMoralisQuery("Monster",
-    (query) => query.exclude("ownerName"), [], { autoFetch: false }
+  const { fetch } = useMoralisQuery(
+    "Monster",
+    (query) => query.exclude("ownerName"),
+    [],
+    { autoFetch: false }
   );
 
   const queryExcludingParam = () =>
@@ -377,12 +423,15 @@ export default function App() {
 The remaining fields can be fetched later by calling `fetch` on the returned objects:
 
 ```javascript
-query.first().then(function(result) {
-  // only the selected fields of the object will now be available here.
-  return result.fetch();
-}).then(function(result) {
-  // all fields of the object will now be available here.
-});
+query
+  .first()
+  .then(function (result) {
+    // only the selected fields of the object will now be available here.
+    return result.fetch();
+  })
+  .then(function (result) {
+    // all fields of the object will now be available here.
+  });
 ```
 
 {% hint style="info" %}
@@ -413,11 +462,11 @@ query.containsAll("arrayKey", [2, 3, 4]);
 
 Type the query exactly as you would in the client or cloud code. Include a `console.log()` to print out the results then press the "Run" button. Some differences to watch out for:
 
-* Need to use the `Parse` keyword instead of `Moralis`
-  * i.e `new Parse.Query("EthTokenTransfers")`
-  * This will likely be fixed in a future version (Moralis is a fork of Parse).
-* Don't escape `$` in queries.
-* You can use the master key - `const results = query.find({ useMasterKey: true })`
+- Need to use the `Parse` keyword instead of `Moralis`
+  - i.e `new Parse.Query("EthTokenTransfers")`
+  - This will likely be fixed in a future version (Moralis is a fork of Parse).
+- Don't escape `$` in queries.
+- You can use the master key - `const results = query.find({ useMasterKey: true })`
 
 {% hint style="success" %}
 The code can be saved between sessions by clicking "Save".
@@ -449,7 +498,7 @@ Use <mark style="color:green;">**`fullText`**</mark> for efficient search capabi
 
 ```javascript
 const query = new Moralis.Query(BarbecueSauce);
-query.fullText('name', 'bbq');
+query.fullText("name", "bbq");
 ```
 
 The above example will match any `BarbecueSauce` objects where the value in the "name" String key contains "bbq". For example, both "Big Daddy's BBQ", "Big Daddy's bbq", and "Big BBQ Daddy" will match.
@@ -457,14 +506,15 @@ The above example will match any `BarbecueSauce` objects where the value in the 
 ```javascript
 // You can sort by weight / rank. ascending() and select()
 const query = new Moralis.Query(BarbecueSauce);
-query.fullText('name', 'bbq');
-query.ascending('$score');
-query.select('$score');
-query.find()
-  .then(function(results) {
+query.fullText("name", "bbq");
+query.ascending("$score");
+query.select("$score");
+query
+  .find()
+  .then(function (results) {
     // results contains a weight / rank in result.get('score')
   })
-  .catch(function(error) {
+  .catch(function (error) {
     // There was an error.
   });
 ```
@@ -606,11 +656,12 @@ const fewWins = new Moralis.Query("Player");
 fewWins.lessThan("wins", 5);
 
 const mainQuery = Moralis.Query.or(lotsOfWins, fewWins);
-mainQuery.find()
-  .then(function(results) {
+mainQuery
+  .find()
+  .then(function (results) {
     // results contains a list of players that either have won a lot of games or won only a few games.
   })
-  .catch(function(error) {
+  .catch(function (error) {
     // There was an error.
   });
 ```
@@ -623,11 +674,12 @@ To **find objects that match all conditions**, you normally would use just one q
 const query = new Moralis.Query("User");
 query.greaterThan("age", 18);
 query.greaterThan("friends", 0);
-query.find()
-  .then(function(results) {
+query
+  .find()
+  .then(function (results) {
     // results contains a list of users both older than 18 and having friends.
   })
-  .catch(function(error) {
+  .catch(function (error) {
     // There was an error.
   });
 ```
@@ -653,12 +705,13 @@ const mainQuery = Moralis.Query.and(
   Moralis.Query.or(age16Query, age18Query),
   Moralis.Query.or(friends0Query, friends2Query)
 );
-mainQuery.find()
-  .then(function(results) {
+mainQuery
+  .find()
+  .then(function (results) {
     // results contains a list of users in the age of 16 or 18 who have either no friends or at least 2 friends
     // results: (age 16 or 18) and (0 or >2 friends)
   })
-  .catch(function(error) {
+  .catch(function (error) {
     // There was an error.
   });
 ```
@@ -677,12 +730,10 @@ You can **create a pipeline using an Array or an Object**.
 
 ```javascript
 const pipelineObject = {
-  group: { objectId: '$name' }
+  group: { objectId: "$name" },
 };
 
-const pipelineArray = [
-  { group: { objectId: '$name' } }
-];
+const pipelineArray = [{ group: { objectId: "$name" } }];
 ```
 
 {% hint style="success" %}
@@ -702,17 +753,16 @@ Match pipeline is similar to `equalTo`.
 {% embed url="https://youtu.be/isl3JZwNVqg" %}
 
 ```javascript
-const pipeline = [
-  { match: { name: 'BBQ' } }
-];
+const pipeline = [{ match: { name: "BBQ" } }];
 
 const query = new Moralis.Query("User");
 
-query.aggregate(pipeline)
-  .then(function(results) {
+query
+  .aggregate(pipeline)
+  .then(function (results) {
     // results contains name that matches 'BBQ'
   })
-  .catch(function(error) {
+  .catch(function (error) {
     // There was an error.
   });
 ```
@@ -720,17 +770,16 @@ query.aggregate(pipeline)
 You can match by comparison.
 
 ```javascript
-const pipeline = [
-  { match: { score: { $gt: 15 } } }
-];
+const pipeline = [{ match: { score: { $gt: 15 } } }];
 
 const query = new Moralis.Query("User");
 
-query.aggregate(pipeline)
-  .then(function(results) {
+query
+  .aggregate(pipeline)
+  .then(function (results) {
     // results contains score greater than 15
   })
-  .catch(function(error) {
+  .catch(function (error) {
     // There was an error.
   });
 ```
@@ -767,24 +816,32 @@ Then you would define a cloud function like this (aggregate queries must be run 
 
 ```javascript
 // this goes in the Moralis server Cloud Functions section
-Moralis.Cloud.define("getUserTokenTransfers", function(request) {
+Moralis.Cloud.define("getUserTokenTransfers", function (request) {
   const userAddress = request.params.userAddress;
   const query = new Moralis.Query("EthTokenTransfers");
 
   const pipeline = [
     // only transfers to or from userAddress
-    {match: {$expr: {$or: [
-      {$eq: ["$from_address", userAddress]},
-      {$eq: ["$to_address", userAddress]},
-    ]}}},
+    {
+      match: {
+        $expr: {
+          $or: [
+            { $eq: ["$from_address", userAddress] },
+            { $eq: ["$to_address", userAddress] },
+          ],
+        },
+      },
+    },
 
     // join to Token collection on token_address
-    {lookup: {
-      from: "Token",
-      localField: "token_address",
-      foreignField: "token_address",
-      as: "token"
-    }}
+    {
+      lookup: {
+        from: "Token",
+        localField: "token_address",
+        foreignField: "token_address",
+        as: "token",
+      },
+    },
   ];
 
   return query.aggregate(pipeline);
@@ -860,17 +917,16 @@ Project pipeline is similar to `keys` or `select`, add or remove existing fields
 {% embed url="https://youtu.be/8ksKYxMiTZw" %}
 
 ```javascript
-const pipeline = [
-  { project: { name: 1 } }
-];
+const pipeline = [{ project: { name: 1 } }];
 
 const query = new Moralis.Query("User");
 
-query.aggregate(pipeline)
-  .then(function(results) {
+query
+  .aggregate(pipeline)
+  .then(function (results) {
     // results contains only name field
   })
-  .catch(function(error) {
+  .catch(function (error) {
     // There was an error.
   });
 ```
@@ -885,17 +941,16 @@ You can group by field:
 
 ```javascript
 // score is the field. $ before score lets the database know this is a field
-const pipeline = [
-  { group: { objectId: '$score' } }
-];
+const pipeline = [{ group: { objectId: "$score" } }];
 
 const query = new Moralis.Query("User");
 
-query.aggregate(pipeline)
-  .then(function(results) {
+query
+  .aggregate(pipeline)
+  .then(function (results) {
     // results contains unique score values
   })
-  .catch(function(error) {
+  .catch(function (error) {
     // There was an error.
   });
 ```
@@ -904,17 +959,16 @@ You can apply collective calculations like $sum, $avg, $max, $min.
 
 ```javascript
 // total will be a newly created field to hold the sum of score field
-const pipeline = [
-  { group: { objectId: null, total: { $sum: '$score' } } }
-];
+const pipeline = [{ group: { objectId: null, total: { $sum: "$score" } } }];
 
 const query = new Moralis.Query("User");
 
-query.aggregate(pipeline)
-  .then(function(results) {
+query
+  .aggregate(pipeline)
+  .then(function (results) {
     // results contains sum of score field and stores it in results[0].total
   })
-  .catch(function(error) {
+  .catch(function (error) {
     // There was an error.
   });
 ```
@@ -930,16 +984,17 @@ The collection of documents matching the grouping field can be accessed with `$$
 ```javascript
 // games will be an array of all the games played by each unique player
 const pipeline = [
-  { group: { objectId: '$playerId',  games: { $push: "$$ROOT" } } },
+  { group: { objectId: "$playerId", games: { $push: "$$ROOT" } } },
 ];
 
 const query = new Moralis.Query("GameRound");
 
-query.aggregate(pipeline)
-  .then(function(results) {
+query
+  .aggregate(pipeline)
+  .then(function (results) {
     // results contains a collection of players with their respective games played
   })
-  .catch(function(error) {
+  .catch(function (error) {
     // There was an error.
   });
 ```
@@ -959,8 +1014,12 @@ The sorting stage is used to sort the results by a given column in a specific or
 To specify sort order, `1` is used to sort in ascending order, and `-1` is used to sort in descending order.
 
 ```javascript
- // This will sort the rows in ascending order based on the username field
- { sort : { username : 1 } }
+// This will sort the rows in ascending order based on the username field
+{
+  sort: {
+    username: 1;
+  }
+}
 ```
 
 You can sort by several columns in a given order.
@@ -976,8 +1035,10 @@ You can sort by several columns in a given order.
 The skip stage skips over the specified number of rows that is passed into the stage. This is often used when implementing pagination functionality.
 
 ```javascript
-   // This stage will skip the first 5 rows passed into this stage
-   { skip : 5 }
+// This stage will skip the first 5 rows passed into this stage
+{
+  skip: 5;
+}
 ```
 
 ### Limit
@@ -985,8 +1046,10 @@ The skip stage skips over the specified number of rows that is passed into the s
 The limit stage only includes the first `n` number of rows that are passed into the stage.
 
 ```javascript
-   // This stage will throw away all rows except the first 5
-   { limit: 5 }
+// This stage will throw away all rows except the first 5
+{
+  limit: 5;
+}
 ```
 
 ### Count
@@ -994,9 +1057,11 @@ The limit stage only includes the first `n` number of rows that are passed into 
 The count stage returns the number of rows passed into the stage assigned to a variable name.
 
 ```javascript
-   // This stage will return the number of rows passed into the stage
-   // and store it in the variable numberOfNfts
-   { count: "numberOfNfts" }
+// This stage will return the number of rows passed into the stage
+// and store it in the variable numberOfNfts
+{
+  count: "numberOfNfts";
+}
 ```
 
 ## Distinct
@@ -1010,11 +1075,12 @@ Queries can be made using `distinct`, allowing you to find unique values for a s
 ```javascript
 const query = new Moralis.Query("User");
 
-query.distinct("age")
-  .then(function(results) {
+query
+  .distinct("age")
+  .then(function (results) {
     // results contains unique age
   })
-  .catch(function(error) {
+  .catch(function (error) {
     // There was an error.
   });
 ```
@@ -1024,11 +1090,12 @@ You can also restrict results by using `equalTo`.
 ```javascript
 const query = new Moralis.Query("User");
 query.equalTo("name", "foo");
-query.distinct("age")
-  .then(function(results) {
+query
+  .distinct("age")
+  .then(function (results) {
     // results contains unique age where name is foo
   })
-  .catch(function(error) {
+  .catch(function (error) {
     // There was an error.
   });
 ```
@@ -1038,11 +1105,7 @@ query.distinct("age")
 When using a MongoDB replica set, you can use the `query.readPreference(readPreference, includeReadPreference, subqueryReadPreference)` function to choose from which replica the objects will be retrieved. The `includeReadPreference` argument chooses from which replica the included pointers will be retrieved and the `subqueryReadPreference` argument chooses in which replica the subqueries will run. The possible values are `PRIMARY` (default), `PRIMARY_PREFERRED`, `SECONDARY`, `SECONDARY_PREFERRED`, or `NEAREST`. If the `includeReadPreference` argument is not passed, the same replica chosen for `readPreference` will also be used for the includes. The same rule applies for the `subqueryReadPreference` argument.
 
 ```javascript
-query.readPreference(
-  'SECONDARY',
-  'SECONDARY_PREFERRED',
-  'NEAREST'
-);
+query.readPreference("SECONDARY", "SECONDARY_PREFERRED", "NEAREST");
 ```
 
 ## Tutorials
