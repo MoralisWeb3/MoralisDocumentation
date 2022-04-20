@@ -64,4 +64,3 @@ Your server is up and running. Keep going! Next up is part two where we learn ho
 {% content-ref url="build-a-simple-dap-in-3-mins-login-part-2.md" %}
 [build-a-simple-dap-in-3-mins-login-part-2.md](build-a-simple-dap-in-3-mins-login-part-2.md)
 {% endcontent-ref %}
-

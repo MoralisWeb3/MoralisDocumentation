@@ -39,13 +39,13 @@ This video explains how you can setup SMS, Email, Webhooks and run custom code w
 
 You can get all historical events from a specific smart contract topic and listen to new events in real-time. It requires the following information:
 
-* \_**description**: \_a short description to identify this sync job.
-* \_**topic**: \_The topic you will listen to, this could either be a definition or sha3:
-  * `bet(address,uint256,bool)`
-  * `0x20d932006281d267f137cd3921b707c2097e1f041b1291181cc3d0e86f449ebb`
-* _**abi**_: If you provide the abi for this event, Moralis will automatically parse all the fields and populate the schema accordingly.
-* _**address**_: The address you will listen to for this event.
-* _**tableName**_: The name of the subclass that will be created in your Moralis database.
+- \_**description**: \_a short description to identify this sync job.
+- \_**topic**: \_The topic you will listen to, this could either be a definition or sha3:
+  - `bet(address,uint256,bool)`
+  - `0x20d932006281d267f137cd3921b707c2097e1f041b1291181cc3d0e86f449ebb`
+- _**abi**_: If you provide the abi for this event, Moralis will automatically parse all the fields and populate the schema accordingly.
+- _**address**_: The address you will listen to for this event.
+- _**tableName**_: The name of the subclass that will be created in your Moralis database.
 
 if you do not provide the \_\*\*abi \*\*\_then the following schema will be used:
 
@@ -147,31 +147,31 @@ Below are some more filter examples. You can set conditions for any variable in 
 If `sender` = `0x0` AND `receiver` = `0x0`
 
 ```
-{ 
+{
   "and": [
     { "eq": ["sender", "0x0"] },
     { "eq": ["receiver", "0x0"] }
-  ] 
+  ]
 }
 ```
 
 If `sender` = `0x0` OR `receiver` = `0x0`
 
 ```
-{ 
+{
   "or": [
     { "eq": ["sender", "0x0"] },
     { "eq": ["receiver", "0x0"] }
-  ] 
+  ]
 }
 ```
 
 If (`sender` = `0x0` AND `amount` = `1000` ) OR (`receiver` = `0x0` AND `amount` = `100` )
 
 ```
-{ 
+{
   "or": [
-    { 
+    {
       "and": [
        { "eq": ["sender", "0x0"] },
        { "eq": ["amount", "1000"]}
@@ -183,14 +183,14 @@ If (`sender` = `0x0` AND `amount` = `1000` ) OR (`receiver` = `0x0` AND `amount`
        { "eq": ["amount", "1000"]}
       ]
     }
-  ] 
+  ]
 }
 ```
 
 If an event has wei denominated values you can use `<name>_decimals` fields to run comparisons (like greater than/less than):
 
 ```
-{ 
+{
   "and": [
     { "eq": ["sender", "0x0"] },
     { "gt": ["amount_decimals", "1000"]}
@@ -211,34 +211,54 @@ _Note: at the moment the events created via code won't be seen in the admin UI, 
 ```javascript
 // code example of creating a sync event from cloud code
 let options = {
-    "chainId": "0x1",
-    "address": "0x5c69bee701ef814a2b6a3edd4b1652cb9cc5aa6f",
-    "topic": "PairCreated(address, address, address, uint256)",
-    "abi":   {
-      "anonymous": false,
-      "inputs": [
-        { "indexed": true, "internalType": "address", "name": "token0", "type": "address" },
-        { "indexed": true, "internalType": "address", "name": "token1", "type": "address" },
-        { "indexed": false, "internalType": "address", "name": "pair", "type": "address" },
-        { "indexed": false, "internalType": "uint256", "name": "test", "type": "uint256" }
-      ],
-      "name": "PairCreated",
-      "type": "event"
-    },
-    "limit": 500000,
-    "tableName": "UniPairCreated",
-    "sync_historical": false
-}
+  chainId: "0x1",
+  address: "0x5c69bee701ef814a2b6a3edd4b1652cb9cc5aa6f",
+  topic: "PairCreated(address, address, address, uint256)",
+  abi: {
+    anonymous: false,
+    inputs: [
+      {
+        indexed: true,
+        internalType: "address",
+        name: "token0",
+        type: "address",
+      },
+      {
+        indexed: true,
+        internalType: "address",
+        name: "token1",
+        type: "address",
+      },
+      {
+        indexed: false,
+        internalType: "address",
+        name: "pair",
+        type: "address",
+      },
+      {
+        indexed: false,
+        internalType: "uint256",
+        name: "test",
+        type: "uint256",
+      },
+    ],
+    name: "PairCreated",
+    type: "event",
+  },
+  limit: 500000,
+  tableName: "UniPairCreated",
+  sync_historical: false,
+};
 
-Moralis.Cloud.run("watchContractEvent", options, {useMasterKey:true});
+Moralis.Cloud.run("watchContractEvent", options, { useMasterKey: true });
 ```
 
 ### Unwatch existing smart contract event
 
 ```javascript
 // unwatch event that has TABLE_NAME as table in the database
-let options = {"tableName": "TABLE_NAME"}
-Moralis.Cloud.run("unwatchContractEvent", options, {useMasterKey:true});
+let options = { tableName: "TABLE_NAME" };
+Moralis.Cloud.run("unwatchContractEvent", options, { useMasterKey: true });
 ```
 
 ### Important Note
@@ -253,4 +273,3 @@ Some known issues:
 We are working to fix these issues.
 
 [Join our Discord](https://moralis.io/mage) to discuss the development!
-

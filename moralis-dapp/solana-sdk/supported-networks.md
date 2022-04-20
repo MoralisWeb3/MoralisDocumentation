@@ -16,4 +16,3 @@ If not specified the `network` value will default to `mainnet`.
 | ------------ | ------------- |
 | Mainnet Beta | `mainnet`     |
 | Devnet       | `devnet`      |
-

@@ -25,4 +25,3 @@ Need a fast and reliable full node, but already have your own backend? Then Mora
 More blockchains coming soon!
 
 {% embed url="https://youtu.be/WyTLg4c7wEA" %}
-

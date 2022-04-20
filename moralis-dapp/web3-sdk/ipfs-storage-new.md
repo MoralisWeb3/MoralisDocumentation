@@ -10,10 +10,11 @@ Uploads multiple files and place them in a folder directory. Returns path (async
 
 #### Options:
 
-* `abi`(required): Array of JSON and Base64 Supported
+- `abi`(required): Array of JSON and Base64 Supported
 
 {% tabs %}
 {% tab title="JS" %}
+
 ```javascript
 const options = {
   abi: [
@@ -26,9 +27,11 @@ const options = {
 };
 const path = await Moralis.Web3API.storage.uploadFolder(options);
 ```
+
 {% endtab %}
 
 {% tab title="React" %}
+
 ```javascript
 import React from "react";
 import { useMoralisWeb3Api } from "react-moralis";
@@ -49,9 +52,11 @@ const uploadFolder = async () => {
   console.log(path);
 };
 ```
+
 {% endtab %}
 
 {% tab title="curl" %}
+
 ```bash
 curl -X 'POST' \
   'https://deep-index.moralis.io/api/v2/ipfs/uploadFolder' \
@@ -65,9 +70,11 @@ curl -X 'POST' \
   }
 ]'
 ```
+
 {% endtab %}
 
 {% tab title="Unity" %}
+
 ```csharp
 using System.Collections.Generic;
 using Moralis.Web3Api.Models;
@@ -93,6 +100,7 @@ using MoralisWeb3ApiSdk;
       }
   }
 ```
+
 {% endtab %}
 {% endtabs %}
 

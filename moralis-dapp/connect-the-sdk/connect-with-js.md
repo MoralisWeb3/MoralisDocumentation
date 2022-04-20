@@ -22,6 +22,7 @@ Make sure to create your own server before beginning this guide - [**Create a Mo
 The first step is to create an empty page we call `index.html` and `main.js` in the same directory and import the **moralis** script alongside our `main.js` file. We include two buttons on the page - one for logging in and one for logging out.
 
 {% code title="index.html" %}
+
 ```html
 <!DOCTYPE html>
 <html>
@@ -40,6 +41,7 @@ The first step is to create an empty page we call `index.html` and `main.js` in 
   </body>
 </html>
 ```
+
 {% endcode %}
 
 {% hint style="info" %}
@@ -59,6 +61,7 @@ Initialize your server using **`Moralis.start()`** function
 {% endhint %}
 
 {% code title="main.js" %}
+
 ```javascript
 /* Moralis init code */
 const serverUrl = "https://xxxxx/server";
@@ -67,6 +70,7 @@ Moralis.start({ serverUrl, appId });
 
 /* TODO: Add Moralis Authentication code */
 ```
+
 {% endcode %}
 
 In order to initialize the SDK, you need to fetch _**Server URL**_ and _**APP ID**_ from your Moralis Dashboard. Go to your Moralis Server Details:
@@ -80,6 +84,7 @@ In order to initialize the SDK, you need to fetch _**Server URL**_ and _**APP ID
 Now that the SDK is successfully connected we can use the power of Moralis. Let's login a user and instantly get all their tokens, transactions and NFTs from all chains in your Moralis Database.
 
 {% code title="main.js" %}
+
 ```javascript
 /* Moralis init code */
 const serverUrl = "https://xxxxx/server";
@@ -111,6 +116,7 @@ async function logOut() {
 document.getElementById("btn-login").onclick = login;
 document.getElementById("btn-logout").onclick = logOut;
 ```
+
 {% endcode %}
 
 ### 4. View the page from localhost
