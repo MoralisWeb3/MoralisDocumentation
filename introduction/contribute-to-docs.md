@@ -18,14 +18,14 @@ Documentation is maybe the most important thing for developers learning new tech
 
 **Here is where you come in!**&#x20;
 
-As a member of the Moralis Community you are welcome to help out **** and we will reward you greatly for your help.
+As a member of the Moralis Community you are welcome to help out \*\*\*\* and we will reward you greatly for your help.
 
 ### 🏆 Rewards for helping out
 
-* Free Moralis Merch 🤩
-* Access to new features before anyone else ⭐️
-* XP in Moralis Discord so you can level up to access the hidden high-level rooms 🧙‍♂️
-* If you are interested you can even join our team as a content creator and work with Moralis full-time 🤯
+- Free Moralis Merch 🤩
+- Access to new features before anyone else ⭐️
+- XP in Moralis Discord so you can level up to access the hidden high-level rooms 🧙‍♂️
+- If you are interested you can even join our team as a content creator and work with Moralis full-time 🤯
 
 ## 💪 How to contribute
 
@@ -40,6 +40,3 @@ On the other hand - if you see open issues on our GitHub - feel free to submit p
 ### 📹 YouTube and Blog
 
 As you know, the Moralis Community runs one of the largest crypto development channels on YouTube. If you would like to contribute to our YouTube with tutorials - please join [our Discord](https://moralis.io/mage) and submit a video sample in **#content-trials**. The same procedure is in case you want to contribute to our Blog - submit samples in Discord **#content-trials** section.
-
-
-

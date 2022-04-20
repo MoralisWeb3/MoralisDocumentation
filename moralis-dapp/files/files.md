@@ -27,16 +27,16 @@ const file = new Moralis.File("myfile.txt", { base64: base64 });
 const { saveFile } = useMoralisFile();
 
 const uploadFile = () => {
-    const base64 = "V29ya2luZyBhdCBQYXJzZSBpcyBncmVhdCE=";
-    saveFile(
-        "myfile.txt",
-        { base64 },
-        {
-            type: "base64",
-            onSuccess: (result) => console.log(result),
-            onError: (error) => console.log(error),
-        }
-    );
+  const base64 = "V29ya2luZyBhdCBQYXJzZSBpcyBncmVhdCE=";
+  saveFile(
+    "myfile.txt",
+    { base64 },
+    {
+      type: "base64",
+      onSuccess: (result) => console.log(result),
+      onError: (error) => console.log(error),
+    }
+  );
 };
 ```
 
@@ -46,7 +46,7 @@ const uploadFile = () => {
 Alternatively, you can create a file from an array of byte values:
 
 ```javascript
-const bytes = [ 0xBE, 0xEF, 0xCA, 0xFE ];
+const bytes = [0xbe, 0xef, 0xca, 0xfe];
 const file = new Moralis.File("myfile.txt", bytes);
 ```
 
@@ -66,7 +66,7 @@ In a browser, you’ll want to use an HTML form with a file upload control. To d
 
 Then, in a click handler or other function, get a reference to that file:
 
-> note this is using JQuery, for JS, (see vid)[https://youtu.be/I_wxIshq4WA?t=93] or getElementById 
+> note this is using JQuery, for JS, (see vid)[https://youtu.be/I_wxIshq4WA?t=93] or getElementById
 
 {% tabs %}
 {% tab title="JS" %}
@@ -89,25 +89,25 @@ import { useState } from "react";
 import { useMoralisFile } from "react-moralis";
 
 function App() {
-    const [fileTarget, setFileTarget] = useState("");
-    const { saveFile } = useMoralisFile();
+  const [fileTarget, setFileTarget] = useState("");
+  const { saveFile } = useMoralisFile();
 
-    const uploadFile = () => {
-        saveFile("photo.jpg", fileTarget, {
-            type: "image/png",
-            onSuccess: (result) => console.log(result),
-            onError: (error) => console.log(error),
-        });
-    };
+  const uploadFile = () => {
+    saveFile("photo.jpg", fileTarget, {
+      type: "image/png",
+      onSuccess: (result) => console.log(result),
+      onError: (error) => console.log(error),
+    });
+  };
 
-    const fileInput = (e) => setFileTarget(e.target.files[0]);
+  const fileInput = (e) => setFileTarget(e.target.files[0]);
 
-    return (
-        <div>
-            <input type="file" onChange={fileInput} />
-            <button onClick={uploadFile}>Call The Code</button>
-        </div>
-    );
+  return (
+    <div>
+      <input type="file" onChange={fileInput} />
+      <button onClick={uploadFile}>Call The Code</button>
+    </div>
+  );
 }
 
 export default App;
@@ -118,17 +118,20 @@ export default App;
 
 Notice in this example that we give the file a name of `photo.jpg`. There are two things to note here:
 
-* You don’t need to worry about filename collisions. Each upload gets a unique identifier so there’s no problem with uploading multiple files named `photo.jpg`.
-* It’s important that you give a name to the file that has a file extension. This lets Moralis figure out the file type and handle it accordingly. So, if you’re storing PNG images, make sure your filename ends with `.png`.
+- You don’t need to worry about filename collisions. Each upload gets a unique identifier so there’s no problem with uploading multiple files named `photo.jpg`.
+- It’s important that you give a name to the file that has a file extension. This lets Moralis figure out the file type and handle it accordingly. So, if you’re storing PNG images, make sure your filename ends with `.png`.
 
 Next, you’ll want to save the file to the cloud. As with `Moralis.Object`, there are many variants of the `save` method you can use depending on what sort of callback and error handling suits you.
 
 ```javascript
-moralisFile.save().then(function() {
-  // The file has been saved to Moralis.
-}, function(error) {
-  // The file either could not be read, or could not be saved to Moralis.
-});
+moralisFile.save().then(
+  function () {
+    // The file has been saved to Moralis.
+  },
+  function (error) {
+    // The file either could not be read, or could not be saved to Moralis.
+  }
+);
 ```
 
 ### In NodeJs
@@ -136,24 +139,23 @@ moralisFile.save().then(function() {
 In NodeJs you can fetch images or other files and store them as a `Moralis.File`:
 
 ```javascript
-const Moralis = require('moralis/node');
-const request = require('request-promise');
-
+const Moralis = require("moralis/node");
+const request = require("request-promise");
 
 const options = {
-  uri: 'https://bit.ly/2zD8fgm',
+  uri: "https://bit.ly/2zD8fgm",
   resolveWithFullResponse: true,
   encoding: null, // <-- this is important for binary data like images.
 };
 
 request(options)
   .then((response) => {
-    const data = Array.from(Buffer.from(response.body, 'binary'));
-    const contentType = response.headers['content-type'];
-    const file = new Moralis.File('logo', data, contentType);
+    const data = Array.from(Buffer.from(response.body, "binary"));
+    const contentType = response.headers["content-type"];
+    const file = new Moralis.File("logo", data, contentType);
     return file.save();
   })
-  .then((file => console.log(file.url())))
+  .then((file) => console.log(file.url()))
   .catch(console.error);
 ```
 
@@ -174,9 +176,8 @@ If you are saving Files in your cloud code you must provide the MasterKey when s
 ```javascript
 jobApplication.save(null, { useMasterKey: true });
 ```
+
 {% endhint %}
-
-
 
 ## Retrieving File Contents
 
@@ -190,7 +191,9 @@ $("profileImg")[0].src = profilePhoto.url();
 If you want to process a file’s data in cloud code, you can retrieve the file using our HTTP networking libraries:
 
 ```javascript
-Moralis.Cloud.httpRequest({ url: profilePhoto.url() }).then(function(response) {
+Moralis.Cloud.httpRequest({ url: profilePhoto.url() }).then(function (
+  response
+) {
   // The file contents are in response.buffer.
 });
 ```
@@ -215,14 +218,20 @@ Note: not all storage adapters support metadata and tags. Check the documentatio
 
 ```javascript
 // Init with metadata and tags
-const metadata = { createdById: 'some-user-id' };
-const tags = { groupId: 'some-group-id' };
-const file = new Moralis.File('myfile.zzz', fileData, 'image/png', metadata, tags);
+const metadata = { createdById: "some-user-id" };
+const tags = { groupId: "some-group-id" };
+const file = new Moralis.File(
+  "myfile.zzz",
+  fileData,
+  "image/png",
+  metadata,
+  tags
+);
 
 // Add metadata and tags
-const file = new Moralis.File('myfile.zzz', fileData, 'image/png');
-file.addMetadata('createdById', 'some-user-id');
-file.addTag('groupId', 'some-group-id');
+const file = new Moralis.File("myfile.zzz", fileData, "image/png");
+file.addMetadata("createdById", "some-user-id");
+file.addTag("groupId", "some-group-id");
 ```
 
 {% endtab %}
@@ -232,15 +241,15 @@ file.addTag('groupId', 'some-group-id');
 const metadata = { createdById: "some-user-id" };
 const tags = { groupId: "some-group-id" };
 saveFile(
-    "myfile.png",
-    { fileData },
-    {
-        type: "image/png",
-        metadata,
-        tags,
-        onSuccess: (result) => console.log(result.ipfs()),
-        onError: (error) => console.log(error),
-    }
+  "myfile.png",
+  { fileData },
+  {
+    type: "image/png",
+    metadata,
+    tags,
+    onSuccess: (result) => console.log(result.ipfs()),
+    onError: (error) => console.log(error),
+  }
 );
 ```
 

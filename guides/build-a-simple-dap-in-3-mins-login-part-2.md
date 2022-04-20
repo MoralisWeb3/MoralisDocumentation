@@ -38,7 +38,7 @@ Install [MetaMask](https://metamask.io) if you haven't already. Add the followin
 
 ### Run dApp on Localhost
 
-Run `index.html` on `localhost` as a web page. The easiest way is by using the [live server extension](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer)  Visual Studio Code. Just right click on `index.html` and select `Open with Live Server`.
+Run `index.html` on `localhost` as a web page. The easiest way is by using the [live server extension](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) Visual Studio Code. Just right click on `index.html` and select `Open with Live Server`.
 
 ![](../.gitbook/assets/VsCode_OpenWithLiveServer.PNG)
 
@@ -65,4 +65,3 @@ Wowww! Congratulations! You have a login working! Keep the pamp going...
 {% content-ref url="build-a-simple-dapp-in-3-mins-historical-transactions-part3.md" %}
 [build-a-simple-dapp-in-3-mins-historical-transactions-part3.md](build-a-simple-dapp-in-3-mins-historical-transactions-part3.md)
 {% endcontent-ref %}
-
