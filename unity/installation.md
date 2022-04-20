@@ -21,7 +21,7 @@ Here are the steps:
 - Open Edit -> Preferences, make sure that 'Git packages' is checked.
 - Open Windows -> Package Manager
 - Find the '+' icon at the top left of the Package Manager Window, click it and select 'Add package from git URL ...'
-- Enter https://github.com/metaversesdk/web3unity.git#upm and click 'ADD'.
+- Enter https://github.com/metaversesdk/web3unity.git#upm and click 'ADD' !.
 - When the package loads, expand Samples and import the demo.
 - Close the Package Manager.
 

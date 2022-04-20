@@ -53,6 +53,20 @@ const { fetch, data, isLoading } = useMoralisSolanaCall(
 );
 ```
 
+<<<<<<< HEAD
+=======
+{% endtab %}
+
+{% tab title="curl" %}
+
+```bash
+curl -X 'GET' \
+  'https://solana-gateway.moralis.io/account/devnet/6XU36wCxWobLx5Rtsb58kmgAJKVYmMVqy4SHXxENAyAe/balance' \
+  -H 'accept: application/json' \
+  -H 'X-API-Key: MY-API-KEY'
+```
+
+>>>>>>> 6e9ea3f9ef5206577c91bb54795746c7bc117f61
 {% endtab %}
 
 {% tab title="Unity" %}
@@ -129,6 +143,20 @@ const { fetch, data, isLoading } = useMoralisSolanaCall(
 );
 ```
 
+<<<<<<< HEAD
+=======
+{% endtab %}
+
+{% tab title="curl" %}
+
+```bash
+curl -X 'GET' \
+  'https://solana-gateway.moralis.io/account/devnet/6XU36wCxWobLx5Rtsb58kmgAJKVYmMVqy4SHXxENAyAe/tokens' \
+  -H 'accept: application/json' \
+  -H 'X-API-Key: MY-API-KEY'
+```
+
+>>>>>>> 6e9ea3f9ef5206577c91bb54795746c7bc117f61
 {% endtab %}
 
 {% tab title="Unity" %}
@@ -212,6 +240,19 @@ const { fetch, data, isLoading } = useMoralisSolanaCall(
 );
 ```
 
+<<<<<<< HEAD
+=======
+{% endtab %}
+{% tab title="curl" %}
+
+```bash
+curl -X 'GET' \
+  'https://solana-gateway.moralis.io/account/devnet/6XU36wCxWobLx5Rtsb58kmgAJKVYmMVqy4SHXxENAyAe/nft' \
+  -H 'accept: application/json' \
+  -H 'X-API-Key: MY-API-KEY'
+```
+
+>>>>>>> 6e9ea3f9ef5206577c91bb54795746c7bc117f61
 {% endtab %}
 
 {% tab title="Unity" %}
@@ -294,9 +335,23 @@ const { fetch, data, isLoading } = useMoralisSolanaCall(
   options
 );
 ```
+<<<<<<< HEAD
 
 {% endtab %}
+=======
+>>>>>>> 6e9ea3f9ef5206577c91bb54795746c7bc117f61
 
+{% endtab %}
+{% tab title="curl" %}
+
+```bash
+curl -X 'GET' \
+  'https://solana-gateway.moralis.io/account/devnet/6XU36wCxWobLx5Rtsb58kmgAJKVYmMVqy4SHXxENAyAe/portfolio' \
+  -H 'accept: application/json' \
+  -H 'X-API-Key: MY-API-KEY'
+```
+
+{% endtab %}
 {% tab title="Unity" %}
 
 ```csharp
