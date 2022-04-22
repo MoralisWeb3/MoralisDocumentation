@@ -34,10 +34,6 @@ Moralis.Cloud.afterSave("EthTransactions", async function (request) {
 });
 ```
 
-#### Skipping Unconfirmed Transactions
-
-It's possible to prevent unconfirmed transactions from being saved to a particular collection by defining a [beforeConsume trigger](../automatic-transaction-sync/smart-contract-events.md#beforeconsume-trigger).
-
 #### Local Dev Chains
 
 {% hint style="info" %}
