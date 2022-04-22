@@ -100,7 +100,7 @@ Call the **`useMoralis`** hooks inside your app in `App.tsx` enter the below cod
 
 {% code title="src/App.tsx" %}
 ```javascript
-import React from 'react';
+import React, { useEffect } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import { useMoralis } from "react-moralis";
@@ -108,6 +108,13 @@ import { useMoralis } from "react-moralis";
 function App() {
 
     const { authenticate, isAuthenticated, isAuthenticating, user, account, logout } = useMoralis();
+
+    useEffect(() => {
+    if (isAuthenticated) {
+      // add your logic here
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isAuthenticated]);
 
     const login = async () => {
       if (!isAuthenticated) {
