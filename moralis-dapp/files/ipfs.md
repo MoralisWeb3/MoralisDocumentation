@@ -105,11 +105,12 @@ async function fetchIPFSDoc(ipfsHash) {
 
 Moralis public IPFS gateway is for:
 
-1. Displaying content on websites
+1. Displaying content on websites that was uploaded via Moralis
 
 Moralis public IPFS gateway is not for:
 
 1. Running scripts downloading content from IPFS. The Moralis public gateway has a JS Challenge blocking scripts for abuse protection. If your use-case requires you to run script downloading a lot of IPFS data we recommend [Infura](https://infura.io/product/ipfs) or [Pinata](https://www.pinata.cloud).
+2. Accessing files on IPFS that weren't uploaded via Moralis.
 
 ##
 
