@@ -12,10 +12,10 @@ Need a fast and reliable full node, but already have your own backend? Then Mora
 
 Once you log into your account, go to the "Speedy Nodes" section. Click on the "Endpoints" button for the Binance Smart Chain Network. You will see separate URLs for:
 
-* Mainnet.
-* Mainnet Archive.
-* Testnet.
-* Testnet Archive.
+- Mainnet.
+- Mainnet Archive.
+- Testnet.
+- Testnet Archive.
 
 ![](<../../.gitbook/assets/image (82).png>)
 
@@ -54,7 +54,7 @@ npm install web3
 ```
 
 ```javascript
-const Web3 = require('web3');
+const Web3 = require("web3");
 ```
 
 Now that the library is imported, a provider can be created.
@@ -127,6 +127,3 @@ And there you have it! See the [ethers.js docs](https://docs.ethers.io) for more
 ### Create a Token on BSC - Launch a Binance Smart Chain BEP-20 Token
 
 {% embed url="https://youtu.be/h4gQD7R1r94" %}
-
-
-

@@ -18,18 +18,21 @@ To transfer native assets of the blockchain follow the steps:&#x20;
 
 {% tabs %}
 {% tab title="JS" %}
+
 ```javascript
 // sending 0.5 ETH
 const options = {
   type: "native",
   amount: Moralis.Units.ETH("0.5"),
-  receiver: "0x.."
+  receiver: "0x..",
 };
 let result = await Moralis.transfer(options);
 ```
+
 {% endtab %}
 
 {% tab title="React" %}
+
 ```javascript
 import React from "react";
 import { useWeb3Transfer } from "react-moralis";
@@ -38,7 +41,7 @@ const TransferEth = () => {
   const { fetch, error, isFetching } = useWeb3Transfer({
     type: "native",
     amount: Moralis.Units.ETH(0.5),
-    receiver: "0x0000000000000000000000000000000000000000"
+    receiver: "0x0000000000000000000000000000000000000000",
   });
 
   return (
@@ -52,6 +55,7 @@ const TransferEth = () => {
   );
 };
 ```
+
 {% endtab %}
 {% endtabs %}
 

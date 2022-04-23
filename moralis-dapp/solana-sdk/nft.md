@@ -27,6 +27,11 @@ const options = {
 const nftMetadata = await Moralis.SolanaAPI.nft.getNFTMetadata(options);
 ```
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+>>>>>>> 5f27048d33c8d54d958de32876f3ebf22dc5400f
 {% endtab %}
 {% tab title="React" %}
 
@@ -56,6 +61,10 @@ curl -X 'GET' \
   -H 'X-API-Key: MY-API-KEY'
 ```
 
+<<<<<<< HEAD
+=======
+>>>>>>> 6e9ea3f9ef5206577c91bb54795746c7bc117f61
+>>>>>>> 5f27048d33c8d54d958de32876f3ebf22dc5400f
 {% endtab %}
 
 {% tab title="Unity" %}

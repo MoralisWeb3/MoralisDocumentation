@@ -11,4 +11,3 @@ description: This video series explains how you can create an NFT Game From Scra
 ## Lesson 2 - Adding Multiplayer capabilities
 
 {% embed url="https://www.youtube.com/watch?v=FIutG9R38ko&ab_channel=MoralisWeb3" %}
-

@@ -16,6 +16,6 @@ This will limit the number of requests for unauthenticated users to 10 per minut
 
 The values are set by default:
 
-* anonymous: 30
-* authenticated: 50
-* windowMs: 60000 (1 minute)
+- anonymous: 30
+- authenticated: 50
+- windowMs: 60000 (1 minute)
