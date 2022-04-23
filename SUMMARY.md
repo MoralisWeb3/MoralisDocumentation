@@ -89,7 +89,6 @@
   - [Website Hosting](moralis-dapp/tools/hosting.md)
 - [🔌 Plugins](moralis-dapp/plugins/README.md)
   - [Install and Remove Plugins](moralis-dapp/plugins/untitled.md)
-=======
 * [🛠 Getting Started](moralis-dapp/getting-started/README.md)
   * [🚀 Create a Moralis Dapp](moralis-dapp/getting-started/create-a-moralis-dapp.md)
 * [🔮 Connect with SDK](moralis-dapp/connect-the-sdk/README.md)
