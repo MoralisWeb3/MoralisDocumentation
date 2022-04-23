@@ -6,10 +6,6 @@ description: Moralis Has Native Support for IPFS!
 
 {% embed url="https://youtu.be/c9SalynPw-g" %}
 
-## Configuring IPFS
-
-⚠️ This is no longer required. IPFS is enabled by default. There used to be a tab for this in "View Details" on the server instance but this has been removed.
-
 ## Saving Files
 
 [IPFS ](https://ipfs.io)is supported out of the box when using Moralis.
@@ -59,16 +55,14 @@ By uploading base64, you could also upload other base64 encoded files such as im
 
 {% tabs %}
 {% tab title="JS" %}
-
 ```javascript
 const image = "data:image/png;base64,iVBORw0KGgoAAA...."
 const file = new Moralis.File("image.png", {base64 : image });
 await file.saveIPFS();
 ```
-
 {% endtab %}
-{% tab title="React" %}
 
+{% tab title="React" %}
 ```javascript
 const { saveFile } = useMoralisFile();
 
@@ -86,7 +80,6 @@ const uploadFile = () => {
     );
 };
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -107,3 +100,14 @@ async function fetchIPFSDoc(ipfsHash) {
   return await response.json();
 }
 ```
+
+## Use Cases
+
+Moralis IPFS features are great for:
+
+1. Uploading content
+2. Displaying content on websites
+
+Moralis IPFS features are not for:
+
+1. Running scripts downloading a lot of different content from IPFS
