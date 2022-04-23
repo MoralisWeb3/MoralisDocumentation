@@ -14,28 +14,19 @@
 -->
 ## Checklist
 
-* [ ] Have you followed the guidelines in our Contributing document?
+* [ ] Have you followed the guidelines in our [Contributing document](https://docs.moralis.io/introduction/contribute-to-docs) ?
 * [ ] Have you checked to ensure there aren't other open [Pull Requests](https://github.com/MoralisWeb3/MoralisDocumentation/pulls) for the same update/change?
 - [ ] If it is a core feature, have you added thorough tests?
 
 ## Type of Change
 
 - [ ] Documentation update
-- [ ] Bug fix (non-breaking change which fixes an issue)
+- [ ] Bug fix (non-breaking change which fixes an issue/code)
 - [ ] New feature (non-breaking change which adds functionality)
-- [ ] Breaking change (fix or feature that would cause existing functionality to not work as expected)
-- [ ] This change requires a documentation update
 
 ## Description
 
 
 
 ## Related Issues & Documents
-
-
-
-## QA Instructions, Screenshots, Recordings
-
-_Please replace this line with instructions on how to test your changes, as well
-as any relevant images for UI changes._
 

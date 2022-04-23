@@ -6,10 +6,6 @@ description: Moralis Has Native Support for IPFS!
 
 {% embed url="https://youtu.be/c9SalynPw-g" %}
 
-## Configuring IPFS
-
-⚠️ This is no longer required. IPFS is enabled by default. There used to be a tab for this in "View Details" on the server instance but this has been removed.
-
 ## Saving Files
 
 [IPFS ](https://ipfs.io)is supported out of the box when using Moralis.
@@ -61,16 +57,14 @@ By uploading base64, you could also upload other base64 encoded files such as im
 
 {% tabs %}
 {% tab title="JS" %}
-
 ```javascript
 const image = "data:image/png;base64,iVBORw0KGgoAAA....";
 const file = new Moralis.File("image.png", { base64: image });
 await file.saveIPFS();
 ```
-
 {% endtab %}
-{% tab title="React" %}
 
+{% tab title="React" %}
 ```javascript
 const { saveFile } = useMoralisFile();
 
@@ -88,13 +82,12 @@ const uploadFile = () => {
   );
 };
 ```
-
 {% endtab %}
 {% endtabs %}
 
 {% embed url="https://youtu.be/jPa0a7-6uUw" %}
 
-## Getting Files
+## Getting Files via the Public Gateway
 
 An IPFS file can be retrieved with a `GET` request to a public gateway. The URL for the Moralis gateway is:
 
@@ -109,3 +102,14 @@ async function fetchIPFSDoc(ipfsHash) {
   return await response.json();
 }
 ```
+
+### Public Gateway Use-Cases
+
+Moralis public IPFS gateway is for:
+
+1. Displaying content on websites that was uploaded via Moralis
+
+Moralis public IPFS gateway is not for:
+
+1. Running scripts downloading content from IPFS. The Moralis public gateway has a JS Challenge blocking scripts for abuse protection. If your use-case requires you to run script downloading a lot of IPFS data we recommend [Infura](https://infura.io/product/ipfs) or [Pinata](https://www.pinata.cloud).
+2. Accessing files on IPFS that weren't uploaded via Moralis.
