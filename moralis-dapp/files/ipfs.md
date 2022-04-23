@@ -85,7 +85,7 @@ const uploadFile = () => {
 
 {% embed url="https://youtu.be/jPa0a7-6uUw" %}
 
-## Getting Files
+## Getting Files via the Public Gateway
 
 An IPFS file can be retrieved with a `GET` request to a public gateway. The URL for the Moralis gateway is:
 
@@ -101,13 +101,16 @@ async function fetchIPFSDoc(ipfsHash) {
 }
 ```
 
-## Use Cases
+### Public Gateway Use-Cases
 
-Moralis IPFS features are great for:
+Moralis public IPFS gateway is for:
 
-1. Uploading content
-2. Displaying content on websites
+1. Displaying content on websites
 
-Moralis IPFS features are not for:
+Moralis public IPFS gateway is not for:
 
-1. Running scripts downloading a lot of different content from IPFS
+1. Running scripts downloading content from IPFS. The Moralis public gateway has a JS Challenge blocking scripts for abuse protection.
+2. For these use-cases we recommend [Infura](https://infura.io/product/ipfs) or [Pinata](https://www.pinata.cloud).
+
+##
+
