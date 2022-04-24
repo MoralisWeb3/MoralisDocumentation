@@ -34,7 +34,6 @@ const transactions = await Moralis.Web3API.account.getTransactions(options);
 ```
 
 {% endtab %}
-
 {% tab title="React" %}
 
 ```javascript
@@ -62,16 +61,7 @@ const fetchTransactions = async () => {
 ```
 
 {% endtab %}
-
-<<<<<<< HEAD
 {% tab title="curl" %}
-=======
-<<<<<<< HEAD
-{% tab title="Curl" %}
-=======
-{% tab title="curl" %}
->>>>>>> 6e9ea3f9ef5206577c91bb54795746c7bc117f61
->>>>>>> 5f27048d33c8d54d958de32876f3ebf22dc5400f
 
 ```bash
 curl -X 'GET' \
@@ -81,7 +71,6 @@ curl -X 'GET' \
 ```
 
 {% endtab %}
-
 {% tab title="Unity" %}
 
 ```csharp
@@ -180,15 +169,8 @@ const fetchNativeBalance = async () => {
 
 {% endtab %}
 
-<<<<<<< HEAD
 {% tab title="curl" %}
-=======
-<<<<<<< HEAD
-{% tab title="Curl" %}
-=======
-{% tab title="curl" %}
->>>>>>> 6e9ea3f9ef5206577c91bb54795746c7bc117f61
->>>>>>> 5f27048d33c8d54d958de32876f3ebf22dc5400f
+
 
 ```bash
 curl -X 'GET' \

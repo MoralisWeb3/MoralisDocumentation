@@ -53,11 +53,6 @@ const { fetch, data, isLoading } = useMoralisSolanaCall(
 );
 ```
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
->>>>>>> 5f27048d33c8d54d958de32876f3ebf22dc5400f
 {% endtab %}
 
 {% tab title="curl" %}
@@ -69,10 +64,6 @@ curl -X 'GET' \
   -H 'X-API-Key: MY-API-KEY'
 ```
 
-<<<<<<< HEAD
-=======
->>>>>>> 6e9ea3f9ef5206577c91bb54795746c7bc117f61
->>>>>>> 5f27048d33c8d54d958de32876f3ebf22dc5400f
 {% endtab %}
 
 {% tab title="Unity" %}
@@ -149,11 +140,6 @@ const { fetch, data, isLoading } = useMoralisSolanaCall(
 );
 ```
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
->>>>>>> 5f27048d33c8d54d958de32876f3ebf22dc5400f
 {% endtab %}
 
 {% tab title="curl" %}
@@ -165,10 +151,6 @@ curl -X 'GET' \
   -H 'X-API-Key: MY-API-KEY'
 ```
 
-<<<<<<< HEAD
-=======
->>>>>>> 6e9ea3f9ef5206577c91bb54795746c7bc117f61
->>>>>>> 5f27048d33c8d54d958de32876f3ebf22dc5400f
 {% endtab %}
 
 {% tab title="Unity" %}
@@ -252,11 +234,6 @@ const { fetch, data, isLoading } = useMoralisSolanaCall(
 );
 ```
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
->>>>>>> 5f27048d33c8d54d958de32876f3ebf22dc5400f
 {% endtab %}
 {% tab title="curl" %}
 
@@ -267,10 +244,6 @@ curl -X 'GET' \
   -H 'X-API-Key: MY-API-KEY'
 ```
 
-<<<<<<< HEAD
-=======
->>>>>>> 6e9ea3f9ef5206577c91bb54795746c7bc117f61
->>>>>>> 5f27048d33c8d54d958de32876f3ebf22dc5400f
 {% endtab %}
 
 {% tab title="Unity" %}
@@ -353,18 +326,9 @@ const { fetch, data, isLoading } = useMoralisSolanaCall(
   options
 );
 ```
-<<<<<<< HEAD
 
 {% endtab %}
-=======
-<<<<<<< HEAD
 
-{% endtab %}
-=======
->>>>>>> 6e9ea3f9ef5206577c91bb54795746c7bc117f61
-
-{% endtab %}
->>>>>>> 5f27048d33c8d54d958de32876f3ebf22dc5400f
 {% tab title="curl" %}
 
 ```bash
