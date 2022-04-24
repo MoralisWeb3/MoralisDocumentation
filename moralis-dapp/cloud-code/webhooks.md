@@ -49,7 +49,7 @@ An example of using this webhook would be to listen to all transfer events by on
 
 You need to define the beforeConsume and set the tableName used on plugin creation.
 
-```
+```javascript
 Moralis.Cloud.beforeConsume('TransfersEvent', function (object) {
     if(object.value > 100000000000){
         return true;
@@ -72,8 +72,8 @@ To respond to a `beforeSave` request, send a JSON object with the key `error` or
 
 This is the same as for cloud functions, but there’s an extra capability with `beforeSave` triggers. By returning an error, you will cancel the save request and the object will not be stored in Moralis. You can also return a JSON object in the following format to override the values that will be saved for the object:
 
-```
-📋{
+```json
+{
   "className": "AwesomeClass",
   "existingColumn": "sneakyChange",
   "newColumn": "sneakyAddition"

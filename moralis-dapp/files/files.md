@@ -60,8 +60,8 @@ const file = new Moralis.File("myfile.zzz", fileData, "image/png");
 
 In a browser, you’ll want to use an HTML form with a file upload control. To do this, create a file input tag that allows the user to pick a file from their local drive to upload:
 
-```
-<input type="file" id="profilePhotoFileUpload">
+```html
+<input type="file" id="profilePhotoFileUpload" />
 ```
 
 Then, in a click handler or other function, get a reference to that file:

@@ -23,7 +23,7 @@ npx create-react-app my-app --template typescript
 {% tab title="yarn" %}
 
 ```bash
-yarn create-react-app my-app --template typescript
+yarn create react-app my-app --template typescript
 ```
 
 {% endtab %}
@@ -177,7 +177,7 @@ npm start
 
 {% tab title="yarn" %}
 
-```
+```bash
 yarn start
 ```
 
