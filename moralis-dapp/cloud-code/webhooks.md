@@ -38,26 +38,7 @@ Once the webhook is set, you can call it from the Moralis SDK, the same way you 
 {% hint style="success" %}
 Webhooks are great when you want to use a specialized technology not available using Moralis Cloud Functions.
 {% endhint %}
-<!--
-### beforeConsume Webhooks
 
-beforeConsume webhooks are required when adding events that contain a large amount of data.&#x20;
-
-For example, the _`Transfer(address,address,uint256)`_ event, adding a new "Sync and Watch Contract" of this event without an address will synchronize millions of events per hour, making the instance unresponsive.
-
-An example of using this webhook would be to listen to all transfer events by only saving to the DB if specified filters are fulfilled, such as filtering the transfer value greater than X.
-
-You need to define the beforeConsume and set the tableName used on plugin creation.
-
-```javascript
-Moralis.Cloud.beforeConsume('TransfersEvent', function (object) {
-    if(object.value > 100000000000){
-        return true;
-    }
-    return false;
-})
-```
--->
 ### beforeSave Webhooks
 
 For triggers, the following parameters are sent to your webhook.
