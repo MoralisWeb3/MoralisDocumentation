@@ -38,7 +38,7 @@ Once the webhook is set, you can call it from the Moralis SDK, the same way you 
 {% hint style="success" %}
 Webhooks are great when you want to use a specialized technology not available using Moralis Cloud Functions.
 {% endhint %}
-
+<!--
 ### beforeConsume Webhooks
 
 beforeConsume webhooks are required when adding events that contain a large amount of data.&#x20;
@@ -57,7 +57,7 @@ Moralis.Cloud.beforeConsume('TransfersEvent', function (object) {
     return false;
 })
 ```
-
+-->
 ### beforeSave Webhooks
 
 For triggers, the following parameters are sent to your webhook.
