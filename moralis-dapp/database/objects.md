@@ -326,6 +326,9 @@ Saving data to the cloud is fun, but it’s even more fun to get that data out a
 
 If the `Moralis.Object` has been uploaded to the server, you can use the `objectId` to retrieve it using a `Moralis.Query`:
 
+{% tabs %}
+{% tab title="JS" %}
+
 ```javascript
 const Monster = Moralis.Object.extend("Monster");
 const query = new Moralis.Query(Monster);
@@ -341,6 +344,39 @@ query.get("xWMyZ4YEGZ").then(
   }
 );
 ```
+
+{% endtab %}
+{% tab title="React" %}
+
+```javascript
+import { useMoralisQuery } from "react-moralis";
+
+export default function App() {
+  const { fetch } = useMoralisQuery(
+    "Monster",
+    (query) => query.equalTo("objectId", "xWMyZ4YEGZ"),
+    [],
+    { autoFetch: false }
+  );
+
+  const objectIdQuery = () => {
+    fetch({
+      onSuccess: (monster) => {
+        // The object was retrieved successfully.
+      },
+      onError: (error) => {
+        // The object was not retrieved successfully.
+        // error is a Moralis.Error with an error code and message.
+      },
+    });
+  };
+
+  return <button onClick={objectIdQuery}>Call The Code</button>;
+}
+```
+
+{% endtab %}
+{% endtabs %}
 
 To get the values out of the `Moralis.Object`, use the `get` method:
 
