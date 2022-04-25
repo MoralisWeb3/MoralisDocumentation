@@ -84,3 +84,11 @@ redirects:
   moralis-server/tools/hosting: moralis-dapp/tools/hosting.md
   moralis-server/plugins: moralis-dapp/plugins/README.md
   moralis-server/plugins/untitled: moralis-dapp/plugins/untitled.md
+  moralis-dapp/users/crypto-login: moralis-dapp/users/web3-login.md
+  moralis-dapp/users/crypto-login/metamask: moralis-dapp/users/web3-login/metamask.md
+  moralis-dapp/users/crypto-login/walletconnect: moralis-dapp/users/web3-login/walletconnect.md
+  moralis-dapp/users/crypto-login/web3Auth: moralis-dapp/users/web3-login/web3Auth.md
+  moralis-dapp/users/crypto-login/magic: moralis-dapp/users/web3-login/magic.md
+  moralis-dapp/users/crypto-login/custom-auth-any-eip1193-provider: moralis-dapp/users/web3-login/custom-auth-any-eip1193-provider.md
+  moralis-dapp/users/crypto-login/phantom-solana: moralis-dapp/users/web3-login/phantom-solana.md
+  moralis-dapp/users/crypto-login/sign-in-message: moralis-dapp/users/web3-login/sign-in-message.md
