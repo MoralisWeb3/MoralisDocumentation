@@ -1,15 +1,15 @@
 ---
 description: >-
   Once you have your Moralis Server launched it's time to connect to it via the
-  Moralis Unity SDK. This guide will show you how you can do it in Unity 3D with
+  Moralis Unity SDK. This guide will show you how you can do it in Unity with
   the Web3 Unity Boilerplate
 ---
 
-# 🎮 Connect with Unity3D
+# 🎮 Connect with Unity
 
 ### Web3 Unity Boilerplate
 
-* The Unity Boilerplate include C# Moralis SDK and has an example Unity scene allowing you to login your users via their wallets, read their tokens and NFTs, interact with smart contracts and much more.
+- The Unity Boilerplate include C# Moralis SDK and has an example Unity scene allowing you to login your users via their wallets, read their tokens and NFTs, interact with smart contracts and much more.
 
 {% embed url="https://github.com/ethereum-boilerplate/ethereum-unity-boilerplate" %}
 Web3 Unity Boilerplate
@@ -25,8 +25,8 @@ Downlaod the latest version of the SDK [here](https://github.com/ethereum-boiler
 
 #### Creating a unity project
 
-* Create a new Unity project with Unity HUB, you can select any template of your choice, add a name to your project and a location.
-* When the project is created, navigate to the folder you downloaded the package, drag and drop the package into the Assets folder in unity, an importing menu will popup and then click import to import the package into your project.
+- Create a new Unity project with Unity HUB, you can select any template of your choice, add a name to your project and a location.
+- When the project is created, navigate to the folder you downloaded the package, drag and drop the package into the Assets folder in unity, an importing menu will popup and then click import to import the package into your project.
 
 ![](../../.gitbook/assets/importingthesdk.gif)
 
@@ -36,23 +36,23 @@ Downlaod the latest version of the SDK [here](https://github.com/ethereum-boiler
 
 #### Configuring the project
 
-* In your unity project, open MoralisWeb3ApiSdk->Example folder and double-click on the DemoScene to lauch it in the scene view.
-* In the "Hierachy" panel under DemoScene click on the "MoralisSetup" gameobject, if the attached script sub-section is not expanded, expand it, also do the same with the "WalletConnect" gameobject, take a look at this script and explore their code and the varibales they links with.
-* Using the information from your Moralis Server, fill in Application Id, and Server URL on the "MoralisController" script attached to the "MoralisSetup".
+- In your unity project, open MoralisWeb3ApiSdk->Example folder and double-click on the DemoScene to lauch it in the scene view.
+- In the "Hierachy" panel under DemoScene click on the "MoralisSetup" gameobject, if the attached script sub-section is not expanded, expand it, also do the same with the "WalletConnect" gameobject, take a look at this script and explore their code and the varibales they links with.
+- Using the information from your Moralis Server, fill in Application Id, and Server URL on the "MoralisController" script attached to the "MoralisSetup".
 
 ![](../../.gitbook/assets/addingserverkeys.gif)
 
 **For WEBGL**
 
-* In Player Settings change the WebGL template to the Moralis WebGL Template.
+- In Player Settings change the WebGL template to the Moralis WebGL Template.
 
 ![](../../.gitbook/assets/buildingforwebgl.gif)
 
 #### Running the application
 
-* Run the application by clicking the Play icon located at the top, center of the Unity3D.
-* Click on the "Authenticate" button to authenticate to Moralis using your Wallet.
-* Explore the demoscene.
+- Run the application by clicking the Play icon located at the top, center of the Unity.
+- Click on the "Authenticate" button to authenticate to Moralis using your Wallet.
+- Explore the demoscene.
 
 > Webgl can only be tested on build
 

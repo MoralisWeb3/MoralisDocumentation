@@ -7,7 +7,7 @@ description: >-
 
 # 🔮 Connect with SDK
 
-This guide will show you the process of connecting the [Moralis server](../getting-started/create-a-moralis-dapp.md#create-a-moralis-dapp) with various frameworks, including Vanilla Javascript, React, and Unity3D.
+This guide will show you the process of connecting the [Moralis server](../getting-started/create-a-moralis-dapp.md#create-a-moralis-dapp) with various frameworks, including Vanilla Javascript, React, and Unity.
 
 In addition, Moralis has numerous dedicated boilerplates for NextJS, Angular and other popular frameworks.
 

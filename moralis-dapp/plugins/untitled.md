@@ -6,7 +6,7 @@ description: How to install and use plugins from Moralis Store.
 
 ## Open Plugin List <a href="#open-plugin-list" id="open-plugin-list"></a>
 
-Each Moralis Server instance has its own set of plugins which are managed separately. Expand the server view and click on the "Plugins" button.​![](https://gblobscdn.gitbook.com/assets%2F-MVStbACGLCycg7J5WQ2%2F-MayDMcwlVlm6RGQYXl1%2F-MayGaBjyaxg\_zj9bp3B%2Fimage.png?alt=media\&token=e7ac317c-beba-4740-883a-132e2daee532)​![](https://gblobscdn.gitbook.com/assets%2F-MVStbACGLCycg7J5WQ2%2F-MayDMcwlVlm6RGQYXl1%2F-MayGxaPiZHh\_rkNdvyL%2Fimage.png?alt=media\&token=9dccfd0d-7724-4dd5-9d7b-2db4af34fe2d)‌
+Each Moralis Server instance has its own set of plugins which are managed separately. Expand the server view and click on the "Plugins" button.​![](https://gblobscdn.gitbook.com/assets%2F-MVStbACGLCycg7J5WQ2%2F-MayDMcwlVlm6RGQYXl1%2F-MayGaBjyaxg_zj9bp3B%2Fimage.png?alt=media&token=e7ac317c-beba-4740-883a-132e2daee532)​![](https://gblobscdn.gitbook.com/assets%2F-MVStbACGLCycg7J5WQ2%2F-MayDMcwlVlm6RGQYXl1%2F-MayGxaPiZHh_rkNdvyL%2Fimage.png?alt=media&token=9dccfd0d-7724-4dd5-9d7b-2db4af34fe2d)‌
 
 This will bring up the list of plugins. The "Installed" tab will list the currently installed plugins, where the "Browse" tab lists all available plugins.‌
 

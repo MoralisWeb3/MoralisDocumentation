@@ -105,7 +105,6 @@ You can now run the following command to start the process (Insert your own key,
 ```bash
 moralis-admin-cli connect-local-devchain --moralisApiKey FAM6pYzBKjcM
  --moralisApiSecret 7thQGNKKqX8s --frpcPath "C:\Program Files\frpc\frpc.exe"
- 
 ```
 
 To get more information you can write:&#x20;
@@ -129,7 +128,6 @@ You can now run the following command to start the process (Insert your own key,
 ```bash
 moralis-admin-cli update-server --moralisApiKey FAM6pYzBKjcM
  --moralisApiSecret 7thQGNKKqX8s
- 
 ```
 
 To get more information you can write:&#x20;
@@ -153,7 +151,6 @@ Run the following command to start the process (Insert your own key, secret, and
 ```bash
 moralis-admin-cli create-server --moralisApiKey FAM6pYzBKjcM
  --moralisApiSecret 7thQGNKKqX8s
- 
 ```
 
 To get more information you can write:&#x20;
@@ -175,14 +172,14 @@ You can choose to listen and sync smart contract events to your Moralis servers 
 
 Run the following command to start the process (Insert your own key, secret, and path): exit: Ctrl+↩
 
-```
+```bash
 moralis-admin-cli add-contract --moralisApiKey FAM6pYzBKjcM 
 --moralisApiSecret 7thQGNKKqX8s --abiPath ".\MyContract.json"
 ```
 
 To get more information you can write:
 
-```
+```bash
 moralis-admin-cli add-contract help
 ```
 

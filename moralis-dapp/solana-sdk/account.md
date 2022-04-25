@@ -328,6 +328,7 @@ const { fetch, data, isLoading } = useMoralisSolanaCall(
 ```
 
 {% endtab %}
+
 {% tab title="curl" %}
 
 ```bash

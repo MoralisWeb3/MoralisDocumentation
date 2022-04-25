@@ -13,8 +13,8 @@ Before you start learning about Moralis it's important you understand who we are
 
 The Moralis Forum and Moralis Discord is one of the most active crypto developer communities in the world.
 
-* [Visit the Moralis Forum](https://forum.moralis.io)
-* [Join the Moralis Discord](https://moralis.io/mage)
+- [Visit the Moralis Forum](https://forum.moralis.io)
+- [Join the Moralis Discord](https://moralis.io/mage)
 
 We are dedicated to helping you with your project from start to finish. Therefore we are monitoring our Discord and Forum in order to answer your questions as soon as possible. You can ask anything crypto programming and Moralis related and we will ensure that you get the help you need as soon as possible.
 
