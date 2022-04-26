@@ -6,13 +6,13 @@ description: >-
 
 # ☀ Solana API
 
-### Configuring SolanaAPI
+### What is Solana API?
 
-After you have initialized your application with `Moralis.start()`, it will automatically load the SolanaAPI module. Please follow the below guide before proceeding:
+Solana API is a very powerful REST API for developers to fetch various kinds of data from the Solana Blockchain, which includes fetching user token balances, fetching NFT metadata, and many more!
 
-{% content-ref url="../getting-started/create-a-moralis-dapp.md" %}
-[create-a-moralis-dapp.md](../getting-started/create-a-moralis-dapp.md)
-{% endcontent-ref %}
+Since Solana API is a REST API, it can be called in any programming languages by default. This makes it easy to for developers to fetch Solana data throughout multiple apps and platforms.
+
+For ease of use, the Solana API can be called using the Moralis SDK with just **a few lines of code**. For more details, check out the section below.
 
 ### Solana SDK
 
