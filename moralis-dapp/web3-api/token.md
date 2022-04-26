@@ -1551,8 +1551,6 @@ curl -X 'PUT' \
 ```
 
 {% endtab %}
-{% endtab %}
-
 {% tab title="Unity" %}
 
 ```csharp
