@@ -480,6 +480,8 @@ result = Moralis.Cloud.units({
 });
 return result
 ```
+{% endcode %}
+
 <mark style="color:green;">**Result**</mark>: `1000`
 
 ## Web3
