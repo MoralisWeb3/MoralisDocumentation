@@ -8,7 +8,7 @@ description: >-
 
 ### What is Solana API?
 
-Solana API is a very powerful REST API for developers to fetch various kinds of data from the Solana Blockchain, which includes fetching user token balances, fetching NFT metadata, and many more!
+Solana API is a very powerful REST API for developers to fetch various kinds of data from the Solana Blockchain, which includes **fetching user token balances, fetching NFT metadata** and many more!
 
 Since Solana API is a REST API, it can be called in any programming languages by default. This makes it easy to for developers to fetch Solana data throughout multiple apps and platforms.
 
