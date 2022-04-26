@@ -1551,6 +1551,23 @@ curl -X 'PUT' \
 ```
 
 {% endtab %}
+{% endtab %}
+
+{% tab title="Unity" %}
+
+```csharp
+using System.Collections.Generic;
+using Moralis.Web3Api.Models;
+using MoralisWeb3ApiSdk;
+
+  public async void resyncMetadata()
+  {
+    string status = await  MoralisInterface.GetClient().Web3Api.Token.ReSyncMetadata({address :"0x7de3085b3190b3a787822ee16f23be010f5f8686",token_id: tokenId, chain : ChainList.eth});
+    print(status);
+  }
+```
+
+{% endtab %}
 {% endtabs %}
 
 #### Example result:
