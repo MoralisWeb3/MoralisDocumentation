@@ -12,11 +12,11 @@ Solana API is a very powerful REST API for developers to fetch various kinds of 
 
 Since Solana API is a REST API, it can be called in any programming languages by default. This makes it easy to for developers to fetch Solana data throughout multiple apps and platforms.
 
-For ease of use, the Solana API can be called using the Moralis SDK with just **a few lines of code**. For more details, check out the section below.
+For ease of use, the Solana API can be called using the Moralis SDK with just **a few lines of code**. You can find all of these powerful functions in the <mark style="color:green;">**`Moralis.SolanaAPI`**</mark> namespace in the Moralis SDK.
 
-### Solana SDK
-
-You find all of these powerful functions in the `Moralis.SolanaAPI` namespace in the Moralis SDK.
+{% hint style="info" %}
+To access Web3API, make sure to initialise the SDK by following the [**Connect with SDK**](../connect-the-sdk/) guide. **`Moralis.start()`** will automatically load the <mark style="color:green;">**`Moralis.SolanaAPI`**</mark> module.
+{% endhint %}
 
 The namespace is divided into two categories, depending on what is the main parameter for obtaining information:
 
