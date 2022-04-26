@@ -166,50 +166,6 @@ example of output:
 ]
 ```
 
-## Impact of using an offset for rate limit is offset / 500 \* request-weight
-
-For example, if we have this request:
-
-```
-https://deep-index.moralis.io/api/v2/0x965F527D9159dCe6288a2219DB51fc6Eef120dD1?chain=bsc&offset=5000
-```
-
-in headers it returns:
-
-```
-x-rate-limit-limit: 25
-x-rate-limit-used: 10
-x-request-weight: 1
-x-rate-limit-remaining-ip-ttl: 1
-x-rate-limit-remaining-ttl: 1
-x-rate-limit-ip-used: 10
-```
-
-that means that one request without offset has a weight of 1 (x-request-weight: 1), and because it used offset 5000 in this case, it was counted for rate limit as a weight of 10 (x-rate-limit-ip-used: 10).
-
-that 10 is computed as 5000/500 \* 1
-
-for another endpoint:
-
-```
-https://deep-index.moralis.io/api/v2/0x965F527D9159dCe6288a2219DB51fc6Eef120dD1/erc20/transfers?chain=bsc&offset=5000
-```
-
-we have:
-
-```
-x-rate-limit-limit: 25
-x-rate-limit-used: 20
-x-request-weight: 2
-x-rate-limit-remaining-ip-ttl: 1
-x-rate-limit-remaining-ttl: 1
-x-rate-limit-ip-used: 20
-```
-
-here the formula is 5000/500 \* 2
-
-meaning that the formula is offset / 500 \* request-weight
-
 ## Why am I rate limited?
 
 There are 2 different types of rate-limits you need to know about.
