@@ -466,6 +466,22 @@ Convert any given value to its hexadecimal representation.
 
 <mark style="color:green;">**Result**</mark>: `64`
 
+
+#### Using decimals
+
+Convert any given value using a custom decimals value.
+
+{% code title="cloud.js" %}
+```javascript
+result = Moralis.Cloud.units({
+  method: "fromWei",
+  value: 10000000000000,
+  decimals: 10
+});
+return result
+```
+<mark style="color:green;">**Result**</mark>: `1000`
+
 ## Web3
 
 Web3 functions are available within Cloud Code including the ability to call contract methods. Moralis uses the [Web3.js](https://web3js.readthedocs.io) and [ethers.js](https://docs.ethers.io) libraries.
