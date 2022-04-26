@@ -1562,8 +1562,7 @@ using MoralisWeb3ApiSdk;
 
   public async void resyncMetadata()
   {
-    string status = await MoralisInterface.GetClient().Web3Api.Token.ReSyncMetadata(address: "0x7de3085b3190b3a787822ee16f23be010f5f8686", tokenId: "1", chain: ChainList.eth);
-    print(status);
+    await MoralisInterface.GetClient().Web3Api.Token.ReSyncMetadata(address: "0x7de3085b3190b3a787822ee16f23be010f5f8686", tokenId: "1", chain: ChainList.eth);
   }
 ```
 
