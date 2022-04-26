@@ -631,7 +631,7 @@ Function to change the current network
 
 #### Options:
 
-- `chain`(required): The chain id to switch to. Accepts values in numbers or in hex strings. Valid values are listed on the [intro page in the Transactions and Balances section](https://docs.moralis.io/moralis-dapp/web3-sdk/intro#supported-chains). Examples: `56`, `"0x38"`
+- `chain`(required): The chain id to switch to. Accepts values in numbers or in hex strings. Valid values are listed on the [intro page in the Transactions and Balances section](https://docs.moralis.io/moralis-dapp/web3-api/supported-chains#supported-chains). Examples: `56`, `"0x38"`
 
 ```javascript
 const chainId = "0x1"; //Ethereum Mainnet
