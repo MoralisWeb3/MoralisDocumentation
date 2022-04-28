@@ -60,6 +60,7 @@ async function logOut() {
 document.getElementById("btn-login").onclick = login;
 document.getElementById("btn-logout").onclick = logOut;
 ```
+
 {% endcode %}
 
 ## Web3 React Boilerplate
@@ -86,7 +87,11 @@ The Unity Boilerplate include C# Moralis SDK and has an example Unity scene allo
 Web3 Unity Boilerplate
 {% endembed %}
 
-## Web3 React Native Boilerplate
+## Web3 React Native Boilerplate (alpha)
+
+{% hint style="danger" %}
+This boilerplate is not for production use.
+{% endhint %}
 
 This React Native Boilerplate has all the features to start your new iOS or Android web3 app such as:
 
