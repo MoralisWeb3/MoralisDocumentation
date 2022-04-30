@@ -267,7 +267,9 @@ monster
 By default, the classes you create will have no permissions set - meaning that anyone can write data into the class and read data from the class. Please see [Security Docs](https://docs.moralis.io/moralis-dapp/database/security) about securing your classes and adding permissions.
 {% endhint %}
 
-#### SAVE NESTED OBJECTS
+By default the classes you create will have no permissions set meaning that anyone can write data into the class and read data from the class. Please see [Security Docs](https://docs.moralis.io/moralis-dapp/database/security) about securing your classes and adding permissions.
+
+#### SAVING NESTED OBJECTS
 
 You may add a `Moralis.Object` as the value of a property in another `Moralis.Object`. By default, when you call `save()` on the parent object, all nested objects will be created and/or saved as well in a batch operation. This feature makes it really easy to manage relational data as you don’t have to take care of creating the objects in any specific order.
 

@@ -40,22 +40,80 @@ Make sure to check if you use the latest stable version of the WalletConnect web
 
 Call authenticate function, but with a **provider** option:
 
+{% tabs %}
+{% tab title="JS" %}
 ```javascript
 const user = await Moralis.authenticate({ provider: "walletconnect" })
 ```
+{% endtab %}
+
+{% tab title="React" %}
+```javascript
+import { useMoralis } from "react-moralis";
+
+function App() {
+
+    const { authenticate, isAuthenticated, user } = useMoralis();
+
+    const login = async () => {
+      if (!isAuthenticated) {
+
+        await authenticate({ provider: "walletconnect" })
+          .then(function (user) {
+            console.log(user!.get("ethAddress"));
+          })
+          .catch(function (error) {
+            console.log(error);
+          });
+      }
+    }
+}
+```
+{% endtab %}
+{% endtabs %}
 
 ### 3. Specify the `chainId`
 
 Specify the chain id that WalletConnect will use by default. You can do this by providing the **`chainId`** as an extra option:
 
+{% tabs %}
+{% tab title="JS" %}
 ```javascript
 const user = await Moralis.authenticate({ provider: "walletconnect", chainId: 56 })
 ```
+{% endtab %}
+{% tab title="React" %}
+```javascript
+import { useMoralis } from "react-moralis";
+
+function App() {
+
+    const { authenticate, isAuthenticated, user } = useMoralis();
+
+    const login = async () => {
+      if (!isAuthenticated) {
+
+        await authenticate({ provider: "walletconnect", chainId: 56 })
+          .then(function (user) {
+            console.log(user!.get("ethAddress"));
+          })
+          .catch(function (error) {
+            console.log(error);
+          });
+      }
+    }
+}
+```
+{% endtab %}
+{% endtabs %}
+
 
 ### 4. Filter Mobile Linking Options
 
 To reduce the number of mobile linking options or customize its order, provide an array of [wallet names](https://walletconnect.com/registry/wallets) to the **`mobileLinks`** option.
 
+{% tabs %}
+{% tab title="JS" %}
 ```javascript
 const user = await Moralis.authenticate({ 
     provider: "walletconnect", 
@@ -69,7 +127,42 @@ const user = await Moralis.authenticate({
     ] 
 })
 ```
+{% endtab %}
 
+{% tab title="React" %}
+```javascript
+import { useMoralis } from "react-moralis";
+
+function App() {
+
+    const { authenticate, isAuthenticated, user } = useMoralis();
+
+    const login = async () => {
+      if (!isAuthenticated) {
+
+        await authenticate({ 
+                provider: "walletconnect", 
+                mobileLinks: [
+                  "rainbow",
+                  "metamask",
+                  "argent",
+                  "trust",
+                  "imtoken",
+                  "pillar",
+                ] 
+            })
+          .then(function (user) {
+            console.log(user!.get("ethAddress"));
+          })
+          .catch(function (error) {
+            console.log(error);
+          });
+      }
+    }
+}
+```
+{% endtab %}
+{% endtabs %}
 ## Tutorial
 
 {% embed url="https://www.youtube.com/watch?feature=emb_title&v=UP6MfkU3Bkg" %}
