@@ -10,8 +10,8 @@ Need a fast and reliable full node, but already have your own backend? Then Mora
 
 Once you log into your account, go to the "Speedy Nodes" section. Click on the "Endpoints" button for the Arbitrum Network. You will see separate URLs for:
 
-* Mainnet.
-* Rinkeby Testnet.
+- Mainnet.
+- Rinkeby Testnet.
 
 ![](<../../.gitbook/assets/image (82).png>)
 
@@ -46,7 +46,7 @@ npm install web3
 ```
 
 ```javascript
-const Web3 = require('web3');
+const Web3 = require("web3");
 ```
 
 Now that the library is imported a provider can be created.

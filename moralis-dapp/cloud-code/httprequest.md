@@ -4,10 +4,17 @@ description: Send HTTP Requests from Cloud Functions.
 
 # httpRequest
 
-Moralis Server includes `Moralis.Cloud.httpRequest`. It allows you to send HTTP requests to any HTTP server. This function takes an options object to configure the call.
+{% hint style="success" %}
+<mark style="color:green;">**Cloud Code can contain HTTP requests.**</mark>
+{% endhint %}
+
+### Moralis.Cloud.httpRequest
+
+Moralis Dapp includes `Moralis.Cloud.httpRequest`. It allows you to send HTTP requests to any HTTP server. This function takes an options object to configure the call.
 
 A simple GET request would look like this:
 
+{% code title="cloud.js" %}
 ```javascript
 const logger = Moralis.Cloud.getLogger();
 
@@ -21,11 +28,13 @@ Moralis.Cloud.httpRequest({
   logger.error('Request failed with response code ' + httpResponse.status);
 });
 ```
+{% endcode %}
 
 `Moralis.Cloud.httpRequest` returns a promise that will be resolved on a successful HTTP status code; otherwise, the promise will be rejected. In the above example, we use `then()` to handle both outcomes.
 
 A GET request that specifies the port number would look like this:
 
+{% code title="cloud.js" %}
 ```javascript
 const logger = Moralis.Cloud.getLogger();
 
@@ -37,11 +46,15 @@ Moralis.Cloud.httpRequest({
   logger.error('Request failed with response code ' + httpResponse.status);
 });
 ```
+{% endcode %}
 
+{% hint style="success" %}
 Valid port numbers are 80, 443, and all numbers from 1025 through 65535.
+{% endhint %}
 
-By default, `Moralis.Cloud.httpRequest` does not follow redirects caused by HTTP 3xx response codes, the `followRedirects: true` option can be used to change this.
+By default, `Moralis.Cloud.httpRequest` does not follow redirects caused by HTTP 3xx response codes, the `followRedirects: true` option can be used as shown here: [Following Redirects](httprequest.md#following-redirects)&#x20;
 
+{% code title="cloud.js" %}
 ```javascript
 const logger = Moralis.Cloud.getLogger();
 
@@ -54,11 +67,13 @@ Moralis.Cloud.httpRequest({
   logger.error('Request failed with response code ' + httpResponse.status);
 });
 ```
+{% endcode %}
 
-## Query Parameters
+### Query Parameters
 
 You can specify query parameters to append to the end of the URL by setting `params` on the options object. You can either pass a JSON object of key-value pairs such as:
 
+{% code title="cloud.js" %}
 ```javascript
 const logger = Moralis.Cloud.getLogger();
 
@@ -73,9 +88,11 @@ Moralis.Cloud.httpRequest({
   logger.error('Request failed with response code ' + httpResponse.status);
 });
 ```
+{% endcode %}
 
 Or, as a raw `String` like this:
 
+{% code title="cloud.js" %}
 ```javascript
 const logger = Moralis.Cloud.getLogger();
 
@@ -88,11 +105,13 @@ Moralis.Cloud.httpRequest({
   logger.error('Request failed with response code ' + httpResponse.status);
 });
 ```
+{% endcode %}
 
-## Setting Headers
+### Setting Headers
 
 You can send HTTP Headers by setting the `header` attribute of the options object. Let’s say you want to set the Content-Type of the request, you can do:
 
+{% code title="cloud.js" %}
 ```javascript
 const logger = Moralis.Cloud.getLogger();
 
@@ -107,11 +126,13 @@ Moralis.Cloud.httpRequest({
   logger.error('Request failed with response code ' + httpResponse.status);
 });
 ```
+{% endcode %}
 
-## Sending a POST Request
+### Sending a POST Request
 
 You can send a post request by setting the `method` attribute of the options object. The body of the POST can be set using the `body`. A simple example would be:
 
+{% code title="cloud.js" %}
 ```javascript
 const logger = Moralis.Cloud.getLogger();
 
@@ -128,9 +149,11 @@ Moralis.Cloud.httpRequest({
   logger.error('Request failed with response code ' + httpResponse.status);
 });
 ```
+{% endcode %}
 
 This will send a post to `http://www.example.com/create_post` with body that is the URL form encoded `body` attribute. If you want the body to be JSON encoded, you can instead do this:
 
+{% code title="cloud.js" %}
 ```javascript
 const logger = Moralis.Cloud.getLogger();
 
@@ -150,13 +173,17 @@ Moralis.Cloud.httpRequest({
   logger.error('Request failed with response code ' + httpResponse.status);
 });
 ```
+{% endcode %}
 
+{% hint style="info" %}
 To ensure that your HTTP request body is encoded correctly, please always include the charset in your content-type header.
+{% endhint %}
 
-## Following Redirects
+### Following Redirects
 
 By default, `Moralis.Cloud.httpRequest` does not follow redirects caused by HTTP 3xx response codes. You can use the `followRedirects` option to change this behavior to follow redirects:
 
+{% code title="cloud.js" %}
 ```javascript
 const logger = Moralis.Cloud.getLogger();
 
@@ -169,8 +196,9 @@ Moralis.Cloud.httpRequest({
   logger.error('Request failed with response code ' + httpResponse.status);
 });
 ```
+{% endcode %}
 
-## The RESPONSE Object
+### The Response Object
 
 The response object passed into the `success` and `error` will contain:
 

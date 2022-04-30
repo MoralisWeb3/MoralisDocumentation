@@ -47,7 +47,7 @@ npm install web3
 ```
 
 ```javascript
-const Web3 = require('web3');
+const Web3 = require("web3");
 ```
 
 Now that the library is imported, a provider can be created.

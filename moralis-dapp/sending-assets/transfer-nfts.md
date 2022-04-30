@@ -23,6 +23,7 @@ As it's only possible to transfer one ERC721 at a time, no _**`amount`**_`is`nee
 
 {% tabs %}
 {% tab title="JS" %}
+
 ```javascript
 // sending a token with token id = 1
 const options = {
@@ -33,9 +34,11 @@ const options = {
 };
 let transaction = await Moralis.transfer(options);
 ```
+
 {% endtab %}
 
 {% tab title="React" %}
+
 ```javascript
 import React from "react";
 import { useWeb3Transfer } from "react-moralis";
@@ -59,6 +62,7 @@ const TransferNFT = () => {
   );
 };
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -76,6 +80,7 @@ To transfer [ERC1155](https://ethereum.org/en/developers/docs/standards/tokens/e
 
 {% tabs %}
 {% tab title="JS" %}
+
 ```javascript
 // sending 15 tokens with token id = 1
 const options = {
@@ -87,9 +92,11 @@ const options = {
 };
 let transaction = await Moralis.transfer(options);
 ```
+
 {% endtab %}
 
 {% tab title="React" %}
+
 ```javascript
 import React from "react";
 import { useWeb3Transfer } from "react-moralis";
@@ -114,6 +121,7 @@ const TransferNFT = () => {
   );
 };
 ```
+
 {% endtab %}
 {% endtabs %}
 

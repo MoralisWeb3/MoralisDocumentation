@@ -84,3 +84,26 @@ redirects:
   moralis-server/tools/hosting: moralis-dapp/tools/hosting.md
   moralis-server/plugins: moralis-dapp/plugins/README.md
   moralis-server/plugins/untitled: moralis-dapp/plugins/untitled.md
+  moralis-dapp/users/crypto-login: moralis-dapp/users/web3-login.md
+  moralis-dapp/users/crypto-login/metamask: moralis-dapp/users/web3-login/metamask.md
+  moralis-dapp/users/crypto-login/walletconnect: moralis-dapp/users/web3-login/walletconnect.md
+  moralis-dapp/users/crypto-login/web3Auth: moralis-dapp/users/web3-login/web3Auth.md
+  moralis-dapp/users/crypto-login/magic: moralis-dapp/users/web3-login/magic.md
+  moralis-dapp/users/crypto-login/custom-auth-any-eip1193-provider: moralis-dapp/users/web3-login/custom-auth-any-eip1193-provider.md
+  moralis-dapp/users/crypto-login/phantom-solana: moralis-dapp/users/web3-login/phantom-solana.md
+  moralis-dapp/users/crypto-login/sign-in-message: moralis-dapp/users/web3-login/sign-in-message.md
+  moralis-dapp/web3-sdk: moralis-dapp/web3-api/README.md
+  moralis-dapp/web3-sdk/supported-chains: moralis-dapp/web3-api/supported-chains.md
+  moralis-dapp/web3-sdk/native: moralis-dapp/web3-api/native.md
+  moralis-dapp/web3-sdk/account: moralis-dapp/web3-api/account.md
+  moralis-dapp/web3-sdk/token: moralis-dapp/web3-api/token.md
+  moralis-dapp/web3-sdk/defi-new: moralis-dapp/web3-api/defi-new.md
+  moralis-dapp/web3-sdk/ipfs-storage-new: moralis-dapp/web3-api/ipfs-storage-new.md
+  moralis-dapp/web3-sdk/resolve: moralis-dapp/web3-api/resolve.md
+  moralis-dapp/web3-sdk/moralis-web3-api-rest: moralis-dapp/web3-api/moralis-web3-api-rest.md
+  moralis-dapp/web3-sdk/nft-api: moralis-dapp/web3-api/nft-api.md
+  moralis-dapp/web3-sdk/rate-limit: moralis-dapp/web3-api/rate-limit.md
+  moralis-dapp/solana-sdk: moralis-dapp/solana-api/README.md
+  moralis-dapp/solana-sdk/supported-networks: moralis-dapp/solana-api/supported-networks.md
+  moralis-dapp/solana-sdk/account: moralis-dapp/solana-api/account.md
+  moralis-dapp/solana-sdk/nft: moralis-dapp/solana-api/nft.md

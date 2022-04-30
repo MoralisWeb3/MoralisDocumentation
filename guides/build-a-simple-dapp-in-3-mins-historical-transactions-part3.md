@@ -64,7 +64,7 @@ async function login() {
     user = await Moralis.Web3.authenticate();
   }
   console.log("logged in user:", user);
-  
+
   // ** add this **
   getStats();
 }
@@ -148,4 +148,3 @@ Historical working! Yeaaaa... keep going!
 {% content-ref url="build-a-simple-dapp-in-3-mins-real-time-transactions-part-4.md" %}
 [build-a-simple-dapp-in-3-mins-real-time-transactions-part-4.md](build-a-simple-dapp-in-3-mins-real-time-transactions-part-4.md)
 {% endcontent-ref %}
-

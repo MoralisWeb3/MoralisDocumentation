@@ -13,9 +13,9 @@ description: >-
 
 You can get all historical transactions and listen to new transactions in real-time. It requires the following information:
 
-* `ChainId` (required): The chain to sync
-* `Address` (required): The address you will listen to for this event.
-* `Sync_historical` (optional): Sync Historical Data option. Default value `true`
+- `ChainId` (required): The chain to sync
+- `Address` (required): The address you will listen to for this event.
+- `Sync_historical` (optional): Sync Historical Data option. Default value `true`
 
 ![](<../../.gitbook/assets/image (115).png>)
 
@@ -53,7 +53,7 @@ query.equalTo("to_address", binanceWallet);
 
 // subscribe for real-time updates
 const subscription = await query.subscribe();
-subscription.on("create", function(data) {
+subscription.on("create", function (data) {
   const amountEth = web3.utils.fromWei(data.attributes.value);
   console.log(`${amountEth} deposited to Binance`);
 });
@@ -76,13 +76,18 @@ If an address is watched that would result in retrieving 500k or more historical
 The `Sync and Watch Address` plugin calls a [Cloud Function](../cloud-code/cloud-functions.md) called `watchXxxAddress`under the hood, where "Xxx" are the chain names [here](historical-transactions.md#chain-prefixes). These cloud functions can also be called directly from your own code!
 
 ```javascript
-const results = await Moralis.Cloud.run("watchBscAddress", {address: "0x..."})
+const results = await Moralis.Cloud.run("watchBscAddress", {
+  address: "0x...",
+});
 ```
 
 By default, only new transactions made by addresses being watched by using this cloud function will be added to the database. If you also want to add historical data for addresses that you want to watch, you can add `sync_historical:true`:
 
 ```javascript
-const results = await Moralis.Cloud.run("watchBscAddress", {address: "0x...", sync_historical: true});
+const results = await Moralis.Cloud.run("watchBscAddress", {
+  address: "0x...",
+  sync_historical: true,
+});
 ```
 
 {% hint style="info" %}
@@ -94,18 +99,22 @@ The watch address functions return no value as they start a job. They are still 
 When deleting `Sync and Watch Address` plugin on certain address, the plugin calls a [Cloud Function](../cloud-code/cloud-functions.md) called `unwatchXxxAddress` under the hood, where "Xxx" are the chain names [here](historical-transactions.md#chain-prefixes). Similarly to watching address from code, this cloud function can also be called directly from your own code!
 
 ```javascript
-const results = await Moralis.Cloud.run("unwatchBscAddress", { address: "0x..." })
+const results = await Moralis.Cloud.run("unwatchBscAddress", {
+  address: "0x...",
+});
 ```
 
 ## Unconfirmed Transactions
 
-Transactions on Testnet and Mainnet can take a while to be confirmed. When Moralis detects a new transaction (or event) in an unconfirmed state, these get put into transaction tables like `EthTransactions` with `confirmed: false`. For aggregate collections like balances, the unconfirmed transaction entries are put in separate collections postfixed with "Pending".
+Transactions on Testnet and Mainnet can take a while to be confirmed. When Moralis detects a new transaction (or event) in an unconfirmed state, these get put into transaction tables like `EthTransactions` with `confirmed: false`. When the transaction gets confirmed, the status is updated to `confirmed: true`.
 
-* EthBalancePending
-* EthNFTOwnersPending
-* etc.
+It is important to note that different blockchains will have different confirmation numbers to ensure the validity of transactions. This means that in order for transactions to change its `confirmed` value in DB to `true`, it will require certain number of confirmations:
 
-When the transaction gets confirmed, the status is updated to `confirmed: true` and any corresponding entries in pending collections are merged into their respective main collections.
+- Ethereum: 12
+- Polygon: 100
+- BSC: 18
+- Avalanche: 100
+- Fantom: 100
 
 ### Consequences for Triggers
 
@@ -151,11 +160,11 @@ In this case you should disable historic sync as explained above and instead jus
 
 Moralis Server will get all value transfers, token transfers (ERC20), and NFT transfers (ERC721, ERC1155) made from or to any authenticated user address (including linked addresses) or watched address. Right after a user is [created](https://docs.moralis.io/users/intro) (or an address is watched), Moralis Server will populate the following set of collections for each blockchain synced by the Moralis Server. The names will be prefixed by the chain they came from.
 
-* xxxTransactions
-* xxxTokenTransfers
-* xxxTokenBalances
-* xxxNFTTransfers
-* xxxNFTOwners
+- xxxTransactions
+- xxxTokenTransfers
+- xxxTokenBalances
+- xxxNFTTransfers
+- xxxNFTOwners
 
 These collections can be viewed in the "Moralis Dashboard."
 

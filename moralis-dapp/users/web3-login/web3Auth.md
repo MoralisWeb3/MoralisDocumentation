@@ -23,7 +23,7 @@ Import the SDK based on how moralis was imported into the project - CDN, npm, or
 {% tabs %}
 {% tab title="CDN" %}
 ```html
-<script src="https://unpkg.com/@web3auth/web3auth@0.2.3/dist/web3auth.umd.min.js"></script>
+<script src="https://unpkg.com/@web3auth/web3auth@latest/dist/web3auth.umd.min.js"></script>
 ```
 {% endtab %}
 

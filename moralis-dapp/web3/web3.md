@@ -582,7 +582,15 @@ if (isWeb3Active) {
   await Moralis.enable();
 }
 ```
+## deactivateWeb3
+Deactivates current web3 connection
 
+```javascript
+      await Moralis.enableWeb3();
+      console.log("ENABLED", Moralis.isWeb3Enabled());
+      await Moralis.deactivateWeb3();
+      console.log("DISABLED", Moralis.isWeb3Enabled());
+```
 ## connector / connectorType
 
 Returns details of the connector or the connector type, that is used to authenticate or enable web3:
@@ -623,7 +631,7 @@ Function to change the current network
 
 #### Options:
 
-- `chain`(required): The chain id to switch to. Accepts values in numbers or in hex strings. Valid values are listed on the [intro page in the Transactions and Balances section](https://docs.moralis.io/moralis-dapp/web3-sdk/intro#supported-chains). Examples: `56`, `"0x38"`
+- `chain`(required): The chain id to switch to. Accepts values in numbers or in hex strings. Valid values are listed on the [intro page in the Transactions and Balances section](https://docs.moralis.io/moralis-dapp/web3-api/supported-chains#supported-chains). Examples: `56`, `"0x38"`
 
 ```javascript
 const chainId = "0x1"; //Ethereum Mainnet
