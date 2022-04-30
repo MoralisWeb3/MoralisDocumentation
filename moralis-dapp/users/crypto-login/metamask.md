@@ -79,7 +79,7 @@ To change the authentication message on MetaMask. Just follow:&#x20;
 
 The following code demonstrates a working example
 
-{% content-ref url="broken-reference" %}
+{% content-ref url="../../connect-the-sdk/connect-with-js.md" %}
 [Broken link](broken-reference)
 {% endcontent-ref %}
 

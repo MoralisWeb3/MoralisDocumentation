@@ -41,14 +41,42 @@ yarn add @web3auth/web3auth
 {% endtabs %}
 
 ### 3. Call the authenticate function
-
+{% tabs %}
+{% tab title="JS" %}
 ```javascript
 const user = await Moralis.authenticate({
 	provider: "web3Auth",
 	clientId: "ABC*****************",
 })
 ```
+{% endtab %}
+{% tab title="React" %}
+```javascript
+import { useMoralis } from "react-moralis";
 
+function App() {
+
+    const { authenticate, isAuthenticated, user } = useMoralis();
+
+    const login = async () => {
+      if (!isAuthenticated) {
+
+        await authenticate({
+				provider: "web3Auth",
+				clientId: "ABC*****************",
+			})
+          .onSuccess: (user) => {
+            console.log(user!.get("ethAddress"));
+          }
+          .catch(function (error) {
+            console.log(error);
+          });
+      }
+    }
+}
+```
+{% endtab %}
+{% endtabs %}
 Then call authenticate like above, but with a provider option, and the required params. The **`clientId`** is the only **required param**.
 
 ## Parameters
