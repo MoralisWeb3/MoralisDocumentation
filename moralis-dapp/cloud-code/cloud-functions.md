@@ -413,6 +413,77 @@ Moralis.Cloud.define('adminFunctionTwo', request => {
 * The validation function will run prior to your Cloud Code Functions. You can use `async` and promises here, but try to keep the validation as simple and fast as possible so your cloud requests resolve quickly.
 * As previously mentioned, cloud validator objects will not validate if a master key is provided, unless `validateMasterKey:true` is set. However, if you set your validator to a function, the function will **always** run.
 
+## Units
+
+Moralis units are available inside your cloud functions.\
+In order to successfully run the `units` function you always need to specify a `method` and a `value`.
+
+#### To wei
+
+Convert any ether value to wei.
+
+{% code title="cloud.js" %}
+```javascript
+const result = await Moralis.Cloud.units({
+  method: "toWei",
+  value: 1
+});
+return result;
+```
+{% endcode %}
+
+<mark style="color:green;">**Result**</mark>: `1000000000000000000`
+
+#### From wei
+
+Convert any wei value to ether.
+
+{% code title="cloud.js" %}
+```javascript
+const result = Moralis.Cloud.units({
+  method: "fromWei",
+  value: 1000000000000000
+});
+return result;
+```
+{% endcode %}
+
+<mark style="color:green;">**Result**</mark>: `0.001`
+
+#### To hex
+
+Convert any given value to its hexadecimal representation.
+
+{% code title="cloud.js" %}
+```javascript
+ const result = Moralis.Cloud.units({
+   method: "toHex",
+   value: 100
+ });
+ return result;
+```
+{% endcode %}
+
+<mark style="color:green;">**Result**</mark>: `64`
+
+
+#### Using decimals
+
+Convert any given value using a custom decimals value.
+
+{% code title="cloud.js" %}
+```javascript
+result = Moralis.Cloud.units({
+  method: "fromWei",
+  value: 10000000000000,
+  decimals: 10
+});
+return result
+```
+{% endcode %}
+
+<mark style="color:green;">**Result**</mark>: `1000`
+
 ## Web3
 
 Web3 functions are available within Cloud Code including the ability to call contract methods. Moralis uses the [Web3.js](https://web3js.readthedocs.io) and [ethers.js](https://docs.ethers.io) libraries.
@@ -510,6 +581,7 @@ For your own contracts, the ABI can be found in the build directory after compil
 ### Example of how to use a custom RPC url
 
 By using ethers:
+
 {% code title="cloud.js" %}
 ```javascript
 const web3 = Moralis.ethersByChain("0x1")
@@ -522,6 +594,7 @@ customHttpProvider.getBlockNumber().then((result) => {
 {% endcode %}
 
 By using web3:
+
 {% code title="cloud.js" %}
 ```javascript
 Moralis.Cloud.define("run_contract_function_with_web3", async (request) => {
@@ -538,59 +611,6 @@ Moralis.Cloud.define("run_contract_function_with_web3", async (request) => {
 });
 ```
 {% endcode %}
-
-## Units
-
-Moralis units are available inside your cloud functions.\
-In order to successfully run the `units` function you always need to specify a `method` and a `value`.
-
-### To wei
-
-Convert any ether value to wei.
-
-{% code title="cloud.js" %}
-```javascript
-const result = await Moralis.Cloud.units({
-  method: "toWei",
-  value: 1
-});
-return result;
-```
-{% endcode %}
-
-<mark style="color:green;">**Result**</mark>: `1000000000000000000`
-
-### From wei
-
-Convert any wei value to ether.
-
-{% code title="cloud.js" %}
-```javascript
-const result = Moralis.Cloud.units({
-  method: "fromWei",
-  value: 1000000000000000
-});
-return result;
-```
-{% endcode %}
-
-<mark style="color:green;">**Result**</mark>: `0.001`
-
-### To hex
-
-Convert any given value to its hexadecimal representation.
-
-{% code title="cloud.js" %}
-```javascript
- const result = Moralis.Cloud.units({
-   method: "toHex",
-   value: 100
- });
- return result;
-```
-{% endcode %}
-
-<mark style="color:green;">**Result**</mark>: `64`
 
 ## IPFS
 

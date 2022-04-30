@@ -8,9 +8,11 @@ description: >-
 
 ### When to use Web3API?
 
-As a blockchain developer, you have to be able to fetch different information such as **block info**, **transaction info**, **NFT metadata**, **token prices**, **user balances**, **owner list of a particular NFT** and any other blockchain data!
+As a blockchain developer, you have to be able to fetch different information such as **block info**, **transaction info**, **NFT metadata**, **token prices**, **user balances**, **owner list of a particular NFT** and any other EVM blockchain data!
 
-You find all of these powerful functions in the <mark style="color:green;">**`Moralis.Web3API`**</mark> namespace in the Moralis SDK.
+Since Web3 API is a REST API, it can be called in any programming languages by default. This makes it easy to for developers to fetch EVM blockchain data throughout multiple apps and platforms.
+
+For ease of use, the Web3 API can be called using the Moralis SDK with just **a few lines of code**. You can find all of these powerful functions in the <mark style="color:green;">**`Moralis.Web3API`**</mark> namespace in the Moralis SDK.
 
 {% hint style="info" %}
 To access Web3API, make sure to initialise the SDK by following the [**Connect with SDK**](../connect-the-sdk/) guide. **`Moralis.start()`** will automatically load the <mark style="color:green;">**`Moralis.Web3API`**</mark> module.
@@ -69,7 +71,7 @@ Youtube playlist with all the Applications built using the Web3API
 
 ### Tutorial
 
-Video demonstrating how the latest Web3 API can be accessed through the SDK. Can also be used in the backend through [**REST API**](moralis-web3-api-rest.md)****
+Video demonstrating how the latest Web3 API can be accessed through the SDK. Can also be used in the backend through [**REST API**](moralis-web3-api-rest.md)\*\*\*\*
 
 {% embed url="https://www.youtube.com/watch?v=lX9A6yQXZ_8&ab_channel=MoralisWeb3" %}
 Video demonstrating how the latest Web3 API can be accessed through the SDK.

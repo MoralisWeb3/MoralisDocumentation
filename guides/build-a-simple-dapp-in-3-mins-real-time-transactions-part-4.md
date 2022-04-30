@@ -20,12 +20,12 @@ const subscription = await query.subscribe();
 ### And Handle the Events
 
 ```javascript
-subscription.on("create", function(data) {
+subscription.on("create", function (data) {
   console.log("new transaction: ", data);
 });
 ```
 
-That's it!... we can modify our `getUserTransactions()`  function as follows:
+That's it!... we can modify our `getUserTransactions()` function as follows:
 
 ```javascript
 async function getUserTransactions(user) {
@@ -44,7 +44,7 @@ async function getUserTransactions(user) {
 
 async function handleNewTransaction(subscription) {
   // log each new transaction
-  subscription.on("create", function(data) {
+  subscription.on("create", function (data) {
     console.log("new transaction: ", data);
   });
 }
@@ -60,4 +60,3 @@ Real-time action! Can't stop now, we're almost to the finish line... keep going!
 {% content-ref url="build-a-simple-dapp-in-3-mins-cloud-functions-part-5.md" %}
 [build-a-simple-dapp-in-3-mins-cloud-functions-part-5.md](build-a-simple-dapp-in-3-mins-cloud-functions-part-5.md)
 {% endcontent-ref %}
-

@@ -7,5 +7,3 @@ All of the functions described above can be accessed directly through the REST A
 {% embed url="https://www.youtube.com/watch?v=io_KopjB5jk&ab_channel=MoralisWeb3" %}
 How to use Moralis Web3 API
 {% endembed %}
-
-

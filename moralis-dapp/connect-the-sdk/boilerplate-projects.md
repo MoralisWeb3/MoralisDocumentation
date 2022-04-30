@@ -10,9 +10,9 @@ description: >-
 
 This simple app logs in user, creates a user profile in Moralis Database and syncs user transactions into Moralis Database.
 
-```html
-<!-- index.html -->
+{% code title="index.html" %}
 
+```html
 <!DOCTYPE html>
 <html>
   <head>
@@ -29,9 +29,11 @@ This simple app logs in user, creates a user profile in Moralis Database and syn
 </html>
 ```
 
-```javascript
-// main.js
+{% endcode %}
 
+{% code title="main.js" %}
+
+```javascript
 const serverUrl = "https://xxxxx.yourserver.com:2053/server";
 const appId = "YOUR_APP_ID";
 Moralis.start({ serverUrl, appId });
@@ -40,13 +42,13 @@ Moralis.start({ serverUrl, appId });
 async function login() {
   let user = Moralis.User.current();
   if (!user) {
-   try {
-      user = await Moralis.authenticate({ signingMessage: "Hello World!" })
-      console.log(user)
-      console.log(user.get('ethAddress'))
-   } catch(error) {
-     console.log(error)
-   }
+    try {
+      user = await Moralis.authenticate({ signingMessage: "Hello World!" });
+      console.log(user);
+      console.log(user.get("ethAddress"));
+    } catch (error) {
+      console.log(error);
+    }
   }
 }
 
@@ -58,6 +60,8 @@ async function logOut() {
 document.getElementById("btn-login").onclick = login;
 document.getElementById("btn-logout").onclick = logOut;
 ```
+
+{% endcode %}
 
 ## Web3 React Boilerplate
 
@@ -83,7 +87,11 @@ The Unity Boilerplate include C# Moralis SDK and has an example Unity scene allo
 Web3 Unity Boilerplate
 {% endembed %}
 
-## Web3 React Native Boilerplate
+## Web3 React Native Boilerplate (alpha)
+
+{% hint style="danger" %}
+This boilerplate is not for production use.
+{% endhint %}
 
 This React Native Boilerplate has all the features to start your new iOS or Android web3 app such as:
 
@@ -111,4 +119,3 @@ A simple NFT Marketplace allowing user to do the following:
 {% embed url="https://github.com/ethereum-boilerplate/ethereum-nft-marketplace-boilerplate" %}
 NFT Marketplace Boilerplate
 {% endembed %}
-

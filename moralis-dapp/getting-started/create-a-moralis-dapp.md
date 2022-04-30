@@ -40,17 +40,15 @@ For the purpose of this demo, we select Ethereum, Polygon, BSC and Avalanche.
 
 Now you will see your server in your dashboard, and we can move on and create a web app that talks to the server and is able to login users, fetch user data (tokens, NFTs, historical transactions), and so much more! <mark style="color:green;">**All cross-chain by default, of course**</mark> 🤯
 
-
-
 ![The Dapp displays several important indicators as shown in the image above:](../../.gitbook/assets/Server-dashboard.png)
 
 The server displays several important **indicators** as shown in the image above:
 
-* `Network`: Network traffic per second
-* `CPU`: Server's CPU Usage
-* `RAM`: Server's RAM Usage
-* `DISK`: Server's Disk Usage
-* `Number of Users`: The number of users that have been authenticated in the server
+- `Network`: Network traffic per second
+- `CPU`: Server's CPU Usage
+- `RAM`: Server's RAM Usage
+- `DISK`: Server's Disk Usage
+- `Number of Users`: The number of users that have been authenticated in the server
 
 ### Migrate Dapp to Nitro Version
 
@@ -70,8 +68,8 @@ One <mark style="color:green;">**important**</mark> change when migrating from l
 
 To attain the same functionality, all queries to these tables should be replaced with some of our available [Web3APIs](../web3-sdk/) to do the same job:
 
-* `TokenBalance` -> [`getTokenBalances`](https://docs.moralis.io/moralis-dapp/web3-sdk/account#gettokenbalances)
-* `NFTOwners` -> [`getNFTOwners`](https://docs.moralis.io/moralis-dapp/web3-sdk/token#getnftowners)
+- `TokenBalance` -> [`getTokenBalances`](https://docs.moralis.io/moralis-dapp/web3-sdk/account#gettokenbalances)
+- `NFTOwners` -> [`getNFTOwners`](https://docs.moralis.io/moralis-dapp/web3-sdk/token#getnftowners)
 
 ### Tutorial
 

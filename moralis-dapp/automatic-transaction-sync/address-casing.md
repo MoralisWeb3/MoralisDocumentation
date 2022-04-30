@@ -8,7 +8,7 @@ When syncing addresses from transactions or smart contracts, Moralis will normal
 
 ```javascript
 // this is a checksum address (note the mixed cases)
-let address = '0xEDe998b7BdE2467732b748613a1Aab4e5528dE15';
+let address = "0xEDe998b7BdE2467732b748613a1Aab4e5528dE15";
 
 // In order to make queries based on the address you can convert it to lowercase
 address = address.toLowerCase();

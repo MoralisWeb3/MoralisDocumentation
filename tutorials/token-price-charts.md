@@ -11,4 +11,3 @@ Jay from Moralis explains how to fetch price of any crypto or token and how to g
 {% embed url="https://www.youtube.com/watch?v=90dMpTlPNZ0&ab_channel=MoralisWeb3" %}
 Retreiving token price data from the blockchain and drawing a price chart using Moralis SDK.
 {% endembed %}
-

@@ -12,16 +12,16 @@ Need a fast and reliable full node, but already have your own backend? Then Mora
 
 Once you log into your account, go to the "Speedy Nodes" section. Click on the "Endpoints" button for the Ethereum Network. You will see separate URLs for each network and each archive version.
 
-* Mainnet.
-* Mainnet Archive (coming soon).
-* Goerli.
-* Goerli Archive.
-* Ropsten.
-* Ropsten Archive.
-* Rinkeby.
-* Rinkeby Archive.
-* Kovan.
-* Kovan Archive.
+- Mainnet.
+- Mainnet Archive (coming soon).
+- Goerli.
+- Goerli Archive.
+- Ropsten.
+- Ropsten Archive.
+- Rinkeby.
+- Rinkeby Archive.
+- Kovan.
+- Kovan Archive.
 
 ![](<../../.gitbook/assets/image (82).png>)
 
@@ -60,7 +60,7 @@ npm install web3
 ```
 
 ```javascript
-const Web3 = require('web3');
+const Web3 = require("web3");
 ```
 
 Now that the library is imported, a provider can be created.
