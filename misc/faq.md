@@ -165,7 +165,7 @@ When a server is shutdown you will experience down time until you wake it up by 
 
 Don't worry - the wake up process will take approximately 30 seconds and your server will be restored to exactly the same state that it was before.
 
-### 🛑 If Your Server Stays Shutdown for 24h
+### 🛑 If Your Server Stays Shutdown for 24h <a href="#servershutdown" id="servershutdown"></a>
 
 If a server stays shutdown for a period longer than 24 hours it will be terminated.
 
