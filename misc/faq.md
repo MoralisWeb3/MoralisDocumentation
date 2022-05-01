@@ -153,11 +153,11 @@ However the fact that Moralis Servers are free means that some of them are left 
 
 Thankfully we found a very simple solution 🤩
 
-If you are a free tier user you need to confirm that you are still using your servers on a weekly basis. This is how it works 👇
+If you are a free tier user you need to confirm that you are still using your servers every 3 days. This is how it works 👇
 
 ### 😴 Prevent Your Servers from Sleeping
 
-Once a week you will get an email prompting you to login to your Moralis account and prevent your server from going to sleep by clicking the _**"Prevent Sleep"**_ button.
+Every 3 days you will get an email prompting you to login to your Moralis account and prevent your server from going to sleep by clicking the _**"Prevent Sleep"**_ button.
 
 You have 24 hours to prevent your Moralis server from sleeping. If you don't prevent your server from sleeping it will be temporarily shut down (it will go to sleep 🥱).
 
