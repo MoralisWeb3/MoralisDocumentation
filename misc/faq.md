@@ -159,23 +159,23 @@ If you are a free tier user you need to confirm that you are still using your se
 
 Once a week you will get an email prompting you to login to your Moralis account and prevent your server from going to sleep by clicking the _**"Prevent Sleep"**_ button.
 
-You have 48 hours to prevent your Moralis server from sleeping. If you don't prevent your server from sleeping it will be temporarily shut down (it will go to sleep 🥱).
+You have 24 hours to prevent your Moralis server from sleeping. If you don't prevent your server from sleeping it will be temporarily shut down (it will go to sleep 🥱).
 
 When a server is shutdown you will experience down time until you wake it up by clicking the _**"Wake Up"**_.
 
 Don't worry - the wake up process will take approximately 30 seconds and your server will be restored to exactly the same state that it was before.
 
-### 🛑 If Your Server Stays Shutdown for 48h
+### 🛑 If Your Server Stays Shutdown for 24h
 
-If a server stays shutdown for a period longer than 48 hours it will be terminated.
+If a server stays shutdown for a period longer than 24 hours it will be terminated.
 
-But don't worry - we will back up your server configuration and save it in archive for 1 month. You will need to recover it by clicking the _**"Recover"**_ button.
+But don't worry - **we will back up your server configuration and save it in archive for 1 month**. You will need to recover it by clicking the _**"Recover"**_ button.
 
 This process is a bit longer than a normal "Wake Up" and can take a few minutes.
 
 Your server will be restored but it will be a fresh server with a new IP and a new URL.
 
-If your server stays shutdown for over 1 month - the archive version of it will be deleted permanently and you won't be able to get the server back.
+<mark style="color:red;">**If your server stays shutdown for over 1 month - the archive version of it will be deleted permanently and you won't be able to get the server back.**</mark>
 
 ### 🤩 How to Avoid Sleeping Server
 
