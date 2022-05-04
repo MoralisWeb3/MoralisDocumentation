@@ -37,6 +37,10 @@ See the tables below for details about Speedy Node methods and API Endpoints tha
 
 ### Speedy Node Requests
 
+{% hint style="info" %}
+The watch address functions return no value as they start a job. They are still asynchronous though! Once the promise returns the synced transactions, they should be in the XxxTransactions table for the corresponding chain.
+{% endhint %}
+
 | Method                                  | Cost         |
 | --------------------------------------- | ------------ |
 | All methods not on this list            | 1 request    |
@@ -229,28 +233,43 @@ The way to fix this error is to upgrade your Moralis plan.
 _(If you are using NFT endpoints with offset - please_ [_read this_](https://forum.moralis.io/t/nft-endpoints-temporary-offset-rate-limit/5867/16?u=ivan) _as they have temporarily different special weights)._
 
 ## Example of how to use cursor (nodejs)
-```javascript
-const  Moralis = require('moralis/node')
-const serverUrl = 'https://server_domain:2053/server'
-const appId = 'app id'
-const contractAddress = 'contract address'
-async function getAllOwners() {
-  await Moralis.start({serverUrl: serverUrl, appId: appId})
-  let cursor = null
-  let owners = {}
-  do {
-    const response = await Moralis.Web3API.token.getNFTOwners({ address: contractAddress, chain: 'eth', limit: 500, cursor: cursor  })
-    console.log(`Got page ${response.page} of ${Math.ceil(response.total / response.page_size)}, ${response.total} total`)
-    for (const owner of response.result) {
-      owners[owner.owner_of] = {amount: owner.amount, owner: owner.owner_of, tokenId: owner.token_id, tokenAddress: owner.token_address}
-    }
-    cursor = response.cursor
-  } while (cursor != '' && cursor != null)
 
-  console.log('owners:', owners, 'total owners:', Object.keys(owners).length)
+```javascript
+const Moralis = require("moralis/node");
+const serverUrl = "https://server_domain:2053/server";
+const appId = "app id";
+const contractAddress = "contract address";
+async function getAllOwners() {
+  await Moralis.start({ serverUrl: serverUrl, appId: appId });
+  let cursor = null;
+  let owners = {};
+  do {
+    const response = await Moralis.Web3API.token.getNFTOwners({
+      address: contractAddress,
+      chain: "eth",
+      limit: 500,
+      cursor: cursor,
+    });
+    console.log(
+      `Got page ${response.page} of ${Math.ceil(
+        response.total / response.page_size
+      )}, ${response.total} total`
+    );
+    for (const owner of response.result) {
+      owners[owner.owner_of] = {
+        amount: owner.amount,
+        owner: owner.owner_of,
+        tokenId: owner.token_id,
+        tokenAddress: owner.token_address,
+      };
+    }
+    cursor = response.cursor;
+  } while (cursor != "" && cursor != null);
+
+  console.log("owners:", owners, "total owners:", Object.keys(owners).length);
 }
 
-getAllOwners()
+getAllOwners();
 ```
 
 ## Example of how to use cursor (python)
