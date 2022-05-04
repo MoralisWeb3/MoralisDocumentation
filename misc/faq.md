@@ -15,6 +15,7 @@ No. The app ID ("Application ID") is meant to be public and is included in all r
     Each dapp by default welcomes any user to sign up. If you have app id and server url you can try to sign up as a user.
 
     To control how new users are created you can use use a "[beforeSave" trigger](https://docs.moralis.io/triggers#beforesave) on the user collection.
+
 2.  **Try to call Cloud Functions**.
 
     Think of Cloud Functions as endpoints in an API.
@@ -26,6 +27,7 @@ No. The app ID ("Application ID") is meant to be public and is included in all r
     Then you can specify that some other Cloud Functions can only called by registered users.
 
     And finally you can specify that some specific Cloud Functions can only be called by registered users with a specific role. See the [Security docs](https://docs.moralis.io/security) for more details.
+
 3.  **Try to add new Classes or Columns to the database.**
 
     By default Moralis allows clients to create new Classes in the database and to add columns to existing Classes. This speeds up the development a lot.
@@ -46,7 +48,7 @@ This is the general standard for verifying that you really own the wallet. It is
 
 Authorization through Moralis gives for user access to his [user object](https://docs.moralis.io/moralis-dapp/users/crypto-login#user-object), in which, for example, private information can be stored, and the user also gets the right to change his data. For this we use signing messages. This is an absolutely safe way: It does not export private keys, does not allow the spending of tokens, and does not require gas fees.
 
-If you do not need users to be stored in the database, you can use `enableWeb3()` and get eth\_address of users using default web3 methods.
+If you do not need users to be stored in the database, you can use `enableWeb3()` and get eth_address of users using default web3 methods.
 
 ## How to ask for help on the forum and Discord
 
@@ -107,25 +109,35 @@ Join our [Discord](https://moralis.io/mage) to be updated when this feature is r
 
 If you really want us to add the auto re-sync feature - add it or upvote it here: [https://roadmap.moralis.io/b/feature-requests/](https://roadmap.moralis.io/b/feature-requests/)
 
+## What is the batch request limit on Moralis Speedy Nodes?
+
+Currently, we have a batch limit of 50 requests in a batch. In most production cases, it might not be suitable for your needs. Therefore we recommend you to use our Web3 APIs to get all transactions in a block and all contents of a transaction:
+
+- [getBlock](https://docs.moralis.io/moralis-dapp/web3-api/native#getblock)
+- [getTransaction](https://docs.moralis.io/moralis-dapp/web3-api/native#gettransaction-new)
+- or check [any other of our endpoints](https://docs.moralis.io/moralis-dapp/web3-api/native)
+
+If Web3 API provided doesn't suit your needs and prefer to use nodes with larger batches - you can sign up at to our partner [here](https://moralis.io/largenodes).
+
 ## FRPC
 
 ### What version should I use on Mac?
 
-* frp\_x.xx.x\_darwin\_amd64.tar.gz
+- frp_x.xx.x_darwin_amd64.tar.gz
 
 ### How should I run frpc on Mac?
 
-* Open a terminal.
-* Navigate to frpc directory.
-* Type `./frpc -c frpc.ini`.
+- Open a terminal.
+- Navigate to frpc directory.
+- Type `./frpc -c frpc.ini`.
 
 ### Why does Mac say that `frpc` is from an "Unidentified Developer"?
 
 This is because `frpc` is not signed for Mac. To allow it to run, follow these steps:
 
-* Navigate to `frpc` folder in Finder.
-* Right-click on the `frpc` executable while pressing the "**Ctrl"** key.
-* Select **Open**.
+- Navigate to `frpc` folder in Finder.
+- Right-click on the `frpc` executable while pressing the "**Ctrl"** key.
+- Select **Open**.
 
 Mac will give you information about the risks of overriding the system's security. Please read it carefully and click "**Open"** in the pop-up if you agree.
 
