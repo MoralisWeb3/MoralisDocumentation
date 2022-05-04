@@ -38,7 +38,7 @@ See the tables below for details about Speedy Node methods and API Endpoints tha
 ### Speedy Node Requests
 
 {% hint style="info" %}
-The watch address functions return no value as they start a job. They are still asynchronous though! Once the promise returns the synced transactions, they should be in the XxxTransactions table for the corresponding chain.
+Moralis Speedy Nodes have a requests limit of 50 requests per batch.
 {% endhint %}
 
 | Method                                  | Cost         |
