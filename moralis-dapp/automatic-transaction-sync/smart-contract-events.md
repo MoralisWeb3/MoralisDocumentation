@@ -265,11 +265,4 @@ Moralis.Cloud.run("unwatchContractEvent", options, { useMasterKey: true });
 
 These features to watch/unwatch from code are still beta.
 
-Some known issues:
-
-1. You can only unwatch events via code that were created via code. If you created an event via UI - you can't unwatch it via code.
-2. If you watch an event via code - it won't be shown in the UI.
-
-We are working to fix these issues.
-
 [Join our Discord](https://moralis.io/mage) to discuss the development!
