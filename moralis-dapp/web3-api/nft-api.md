@@ -40,7 +40,7 @@ The most important use-cases for this API is getting cross-chain data related to
 
 - [`SearchNFTs`](https://github.com/nft-api/nft-api#searchnfts)
 
-## searchNFTs
+#### searchNFTs
 
 Very powerful and fast tool for getting the NFT data based on a metadata search (asynchronous).
 
