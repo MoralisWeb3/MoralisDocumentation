@@ -15,8 +15,8 @@ You may also be seeing other error messages.
 
 Below are a few scenarios where you get temporarily banned.
 
-1. If you are sending requests although your key is already rate-limited we may temporarily ban your IP. For example, let's say your plan allows you to do 30 requests per second. If you try to do 200 requests in the same second - you will most likely get temporarily banned.
-2. Don't use several keys from the same IP. For example, if you create 100 free accounts and send requests using the keys from these accounts - all accounts originating from that IP may get disabled.
+1. If you are sending requests although your key is already rate-limited we may temporarily ban you. For example, let's say your plan allows you to do 30 requests per second. If you try to do 200 requests in the same second - you will most likely get temporarily banned.
+2. Use one key per project. For example, if you create 100 free accounts and send requests using the keys from these accounts - all accounts tied to the same project will be banned.
 3. If you think you are temporarily banned by mistake please email hello@moralis.io and we will help you fast.
 
 ### How to avoid an IP ban?
