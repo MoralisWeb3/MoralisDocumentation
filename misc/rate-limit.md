@@ -7,9 +7,11 @@ description: Important note regarding rate limits when using Moralis Services.
 It's important you study rate limits for your plan and the different services that you use.\
 Please email hello@moralis.io if you have any questions!
 
-## Abuse prevention - Cloudflare 1020 Error
+## Abuse prevention&#x20;
 
-If you start getting Cloudflare errors - it's most likely you are being flagged by our abuse prevention system and Cloudflare blocks your access on our behalf.
+If you start getting Cloudflare errors such as Cloudflare error 1020 - it's most likely you are being flagged by our abuse prevention system and Cloudflare blocks your access on our behalf.
+
+You may also be seeing other error messages.
 
 Below are a few scenarios where you get temporarily banned.
 
