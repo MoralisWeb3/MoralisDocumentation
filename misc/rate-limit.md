@@ -232,7 +232,6 @@ In order to not get rate-limited pay attention to `x-rate-limit-used` and `x-rat
 
 The way to fix this error is to upgrade your Moralis plan.
 
-_(If you are using NFT endpoints with offset - please_ [_read this_](https://forum.moralis.io/t/nft-endpoints-temporary-offset-rate-limit/5867/16?u=ivan) _as they have temporarily different special weights)._
 
 ## Example of how to use cursor (nodejs)
 
