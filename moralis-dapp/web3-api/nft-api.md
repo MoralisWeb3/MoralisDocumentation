@@ -38,7 +38,7 @@ The most important use-cases for this API is getting cross-chain data related to
 
 **Endpoints:**
 
-### searchNFTs
+### SearchNFTs
 
 Very powerful and fast tool for getting the NFT data based on a metadata search (asynchronous).
 
@@ -386,7 +386,7 @@ using MoralisWeb3ApiSdk;
 ];
 ```
 
-### getNFTsForContract
+### GetNFTsForContract
 
 Returns an object with the NFT count for the specified contract and an NFT array belonging to the given address for the specified contract (asynchronous).
 
@@ -502,7 +502,7 @@ Any request which includes the token_address param will start the indexing proce
 }
 ```
 
-### getNFTTransfers
+### GetNFTTransfers
 
 Get the NFT transfers. Returns an object with the number of NFT transfers and the array of NFT transfers (asynchronous).
 
@@ -621,7 +621,7 @@ Any request which includes the token_address param will start the indexing proce
 
 - [`GetNFTTransfersByBlock`](https://github.com/nft-api/nft-api#GetNFTTransfersByBlock)
 
-### getAllTokenIds
+### GetAllTokenIds
 
 Returns an object with a number of NFTs and an array with NFT metadata (name, symbol) for a given token contract address (asynchronous).
 
@@ -913,7 +913,7 @@ using MoralisWeb3ApiSdk;
 ];
 ```
 
-### getNFTMetadata
+### GetNFTMetadata
 
 Returns the contract level metadata (name, symbol, base token uri) for the given contract (asynchronous).
 
@@ -999,7 +999,7 @@ Requests for contract addresses not yet indexed will automatically start the ind
 }
 ```
 
-### getNFTOwners
+### GetNFTOwners
 
 Returns an object with a number of NFT owners and an array with NFT metadata (name, symbol) for a given token contract address (asynchronous).
 
@@ -1203,7 +1203,7 @@ using MoralisWeb3ApiSdk;
 ];
 ```
 
-### getTokenIdMetadata
+### GetTokenIdMetadata
 
 Returns data, including fully resolved metadata for the given token id of the given contract address (asynchronous).
 
@@ -1299,7 +1299,7 @@ using MoralisWeb3ApiSdk;
 }
 ```
 
-### getTokenIdOwners
+### GetTokenIdOwners
 
 Returns an object with number of NFT transfers and an array with all owners of NFT items within a given contract collection (asynchronous).
 
@@ -1396,9 +1396,7 @@ using MoralisWeb3ApiSdk;
 ];
 ```
 
-- [`GetWalletTokenIdTransfers`](https://github.com/nft-api/nft-api#getwallettokenidtransfers)
-
-<!-- #### getWalletTokenIdTransfers -->
+### GetWalletTokenIdTransfers
 
 Returns an object with number of NFT transfers and an array with all transfers of NFT by token id (asynchronous).
 
