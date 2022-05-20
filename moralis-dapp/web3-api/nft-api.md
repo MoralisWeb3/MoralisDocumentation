@@ -38,9 +38,7 @@ The most important use-cases for this API is getting cross-chain data related to
 
 **Endpoints:**
 
-- [`SearchNFTs`](https://github.com/nft-api/nft-api#searchnfts)
-
-<!-- #### searchNFTs -->
+### searchNFTs
 
 Very powerful and fast tool for getting the NFT data based on a metadata search (asynchronous).
 
@@ -280,9 +278,7 @@ using MoralisWeb3ApiSdk;
     }
 ```
 
-- [`GetNFTs`](https://github.com/nft-api/nft-api#getnfts)
-
-<!-- #### getNFTs -->
+### GetNFTs
 
 Get all NFTs from the current user or address. Supports both ERC721 and ERC1155. Returns an object with the number of NFT objects and the array of NFT objects (asynchronous).
 
@@ -390,9 +386,7 @@ using MoralisWeb3ApiSdk;
 ];
 ```
 
-- [`GetNFTsForContract`](https://github.com/nft-api/nft-api#getnftsforcontract)
-
-<!-- #### getNFTsForContract -->
+### getNFTsForContract
 
 Returns an object with the NFT count for the specified contract and an NFT array belonging to the given address for the specified contract (asynchronous).
 
@@ -508,9 +502,7 @@ Any request which includes the token_address param will start the indexing proce
 }
 ```
 
-- [`GetNFTTransfers`](https://github.com/nft-api/nft-api#getnfttransfers)
-
-<!-- #### getNFTTransfers -->
+### getNFTTransfers
 
 Get the NFT transfers. Returns an object with the number of NFT transfers and the array of NFT transfers (asynchronous).
 
@@ -628,10 +620,8 @@ Any request which includes the token_address param will start the indexing proce
 ```
 
 - [`GetNFTTransfersByBlock`](https://github.com/nft-api/nft-api#GetNFTTransfersByBlock)
-  //
-- [`GetAllTokenIds`](https://github.com/nft-api/nft-api#getalltokenids)
 
-<!-- #### getAllTokenIds -->
+### getAllTokenIds
 
 Returns an object with a number of NFTs and an array with NFT metadata (name, symbol) for a given token contract address (asynchronous).
 
@@ -724,8 +714,7 @@ using MoralisWeb3ApiSdk;
 ];
 ```
 
-- [`GetContractNFTTransfers`](https://github.com/nft-api/nft-api#getcontractnfttransfers)
-<!-- #### getContractNFTTransfers -->
+### GetContractNFTTransfers
 
 Returns an object with number of NFT transfers and an array with NFT transfers for a given token contract address (asynchronous).
 
@@ -830,9 +819,7 @@ using MoralisWeb3ApiSdk;
 ];
 ```
 
-- [`GetNFTLowestPrice`](https://github.com/nft-api/nft-api#getnftlowestprice)
-
-<!-- #### getNFTLowestPrice -->
+### GetNFTLowestPrice
 
 Returns an object with the lowest price found for a NFT token contract for the last x days (only trades paid in ETH)
 
@@ -926,9 +913,7 @@ using MoralisWeb3ApiSdk;
 ];
 ```
 
-- [`GetNFTMetadata`](https://github.com/nft-api/nft-api#getnftmetadata)
-
-<!-- #### getNFTMetadata -->
+### getNFTMetadata
 
 Returns the contract level metadata (name, symbol, base token uri) for the given contract (asynchronous).
 
@@ -1014,9 +999,7 @@ Requests for contract addresses not yet indexed will automatically start the ind
 }
 ```
 
-- [`GetNFTOwners`](https://github.com/nft-api/nft-api#getnftowners)
-
-<!-- #### getNFTOwners -->
+### getNFTOwners
 
 Returns an object with a number of NFT owners and an array with NFT metadata (name, symbol) for a given token contract address (asynchronous).
 
@@ -1118,9 +1101,7 @@ Requests for contract addresses not yet indexed will automatically start the ind
 ];
 ```
 
-- [`GetNFTTrades`](https://github.com/nft-api/nft-api#getnfttrades)
-
-<!-- #### getNFTTrades -->
+### GetNFTTrades
 
 Returns an object with NFT trades for a given contract and marketplace
 
@@ -1222,9 +1203,7 @@ using MoralisWeb3ApiSdk;
 ];
 ```
 
-- [`GetTokenIdMetadata`](https://github.com/nft-api/nft-api#gettokenidmetadata)
-
-<!-- #### getTokenIdMetadata -->
+### getTokenIdMetadata
 
 Returns data, including fully resolved metadata for the given token id of the given contract address (asynchronous).
 
@@ -1320,9 +1299,7 @@ using MoralisWeb3ApiSdk;
 }
 ```
 
-- [`GetTokenIdOwners`](https://github.com/nft-api/nft-api#gettokenidowners)
-
-<!-- #### getTokenIdOwners -->
+### getTokenIdOwners
 
 Returns an object with number of NFT transfers and an array with all owners of NFT items within a given contract collection (asynchronous).
 
