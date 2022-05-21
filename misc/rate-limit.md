@@ -7,7 +7,7 @@ description: Important note regarding rate limits when using Moralis Services.
 It's important you study rate limits for your plan and the different services that you use.\
 Please email hello@moralis.io if you have any questions!
 
-## Abuse prevention&#x20;
+## Abuse prevention
 
 If you start getting Cloudflare errors such as Cloudflare error 1020 - it's most likely you are being flagged by our abuse prevention system and Cloudflare blocks your access on our behalf.
 
@@ -24,6 +24,16 @@ Below are a few scenarios where you get temporarily banned.
 1. Don't use more than 1 Moralis account.
 2. Implement rate-limiting logic in your app so you don't try doing more requests than your plan allows.
 3. Email us at hello@moralis.io if you have any questions.
+
+## Is it allowed to create multiple accounts?
+
+As we offer generous free plans we don't allow multiple account creation.
+
+Only 1 free account is allowed per user - you have to upgrade to pro-plan if you need more limits that the free plan offers you.
+
+If you build your dapp based on resources spread over several free accounts - you will be banned and your service will face unexpected downtime.
+
+Please contact us at hello@moralis.io if you have any questions 🙌
 
 ## Request weights
 
@@ -231,7 +241,6 @@ Some heavy requests count as [several requests](https://docs.moralis.io/misc/rat
 In order to not get rate-limited pay attention to `x-rate-limit-used` and `x-rate-throttle-used`.
 
 The way to fix this error is to upgrade your Moralis plan.
-
 
 ## Example of how to use cursor (nodejs)
 
