@@ -85,7 +85,6 @@ Downlaod the latest version of the SDK [here](https://github.com/ethereum-boiler
 
 - Open the DemoScene in the Examples
 - Run the application by clicking the Play icon located at the top, center of the Unity.
-- Be amazed.
 
 {% endtab %}
 {% endtabs %}
