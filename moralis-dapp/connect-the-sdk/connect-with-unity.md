@@ -34,10 +34,6 @@ Downlaod the latest version of the SDK [here](https://github.com/ethereum-boiler
 
 ![](../../.gitbook/assets/importingthesdk.gif)
 
-> NOTE: If after importing but before running the package, you see an error that describes something as "unsafe", it is probably due to a block of code in Nethereum SCrypt.cs. Open Build Settings -> Player Settings, scroll a bit to the bottom and check "Allow unsafe Code".
-
-![](../../.gitbook/assets/unsafe.gif)
-
 #### Configuring the project
 
 - In your unity project, open MoralisWeb3ApiSdk->Example folder and double-click on the DemoScene to lauch it in the scene view.
@@ -58,12 +54,12 @@ Downlaod the latest version of the SDK [here](https://github.com/ethereum-boiler
 - Click on the "Authenticate" button to authenticate to Moralis using your Wallet.
 - Explore the demoscene.
 
-> **Warning**
->
-> Webgl can only be tested on build
+{% hint style="warning" %}
 
-<br/>
-{% endtab %}
+> Webgl can only be tested on build
+> {% endhint %}
+> <br/>
+> {% endtab %}
 
 {% tab title="Version >= 1.2.0" %}
 
@@ -107,9 +103,10 @@ You will see the database of that server once you click _Dashboard_. Moralis fet
 
 ### Tutorial guides
 
-> **Warning**
->
+{% hint style="warning" %}
+
 > These example videos/tutorials were made with the sdk version < 1.2.0, some of the code may not work for version >= 1.2.0, take a look at the [changelog](https://github.com/ethereum-boilerplate/web3-unity-boilerplate/releases/tag/v1.2.0) and [download migration video](https://cdn.discordapp.com/attachments/918645175562145822/978328925753208904/MigrateToV120.mp4)
+> {% endhint %}
 
 Guides on how to use the moralis unity sdk in unity on various platform.
 
