@@ -70,17 +70,19 @@ curl -X 'GET' \
 
 {% tab title="Unity" %}
 ```csharp
-using System.Collections.Generic;
-using Moralis.Web3Api.Models;
-using MoralisWeb3ApiSdk;
+using MoralisUnity;
+using MoralisUnity.Web3Api.Models;
+using UnityEngine;
 
-
-  public async void GetTransactions()
-  {
-    // get BSC transactions for a given address
-    TransactionCollection BSCtransactions = await MoralisInterface.GetClient().Web3Api.Account.GetTransactions("0x3d6c0e79a1239df0039ec16Cc80f7A343b6C530e".ToLower(), ChainList.bsc);
-    print(BSCtransactions.ToJson());
-  }
+public class Example
+{
+    public async void GetTransactions()
+    {
+        // get BSC transactions for a given address
+        TransactionCollection BSCtransactions = await Moralis.Web3Api.Account.GetTransactions("0x3d6c0e79a1239df0039ec16Cc80f7A343b6C530e".ToLower(), ChainList.bsc);
+        Debug.Log(BSCtransactions.ToJson());
+    }
+}
 ```
 {% endtab %}
 {% endtabs %}
@@ -171,17 +173,19 @@ curl -X 'GET' \
 
 {% tab title="Unity" %}
 ```csharp
-using System.Collections.Generic;
-using Moralis.Web3Api.Models;
-using MoralisWeb3ApiSdk;
+using MoralisUnity;
+using MoralisUnity.Web3Api.Models;
+using UnityEngine;
 
-
-  public async void GetNativeBalance()
-  {
-    // get BSC native balance for a given address
-    NativeBalance BSCbalance = await MoralisInterface.GetClient().Web3Api.Account.GetNativeBalance("0x4c6Ec2448C243B39Cd1e9E6db0F9bF7436c0c93f".ToLower(), ChainList.bsc);
-    print(BSCbalance.ToJson());
-  }
+public class Example
+{
+    public async void GetNativeBalance()
+    {
+        // get BSC native balance for a given address
+        NativeBalance BSCbalance = await Moralis.Web3Api.Account.GetNativeBalance("0x4c6Ec2448C243B39Cd1e9E6db0F9bF7436c0c93f".ToLower(), ChainList.bsc);
+        Debug.Log(BSCbalance.ToJson());
+    }
+}
 ```
 {% endtab %}
 {% endtabs %}
@@ -236,18 +240,22 @@ curl -X 'GET' \
 
 {% tab title="Unity" %}
 ```csharp
+using MoralisUnity;
+using MoralisUnity.Web3Api.Models;
 using System.Collections.Generic;
-using Moralis.Web3Api.Models;
-using MoralisWeb3ApiSdk;
+using UnityEngine;
 
-  public async void fetchTokenBalance()
-  {
-    List<Erc20TokenBalance> balance = await MoralisInterface.GetClient().Web3Api.Account.GetTokenBalances("0x3d6c0e79a1239df0039ec16Cc80f7A343b6C530e".ToLower(), ChainList.bsc);
-    foreach (Erc20TokenBalance erc20bal in balance)
+public class Example
+{
+    public async void fetchTokenBalance()
     {
-      print(erc20bal.ToJson());
+        List<Erc20TokenBalance> balance = await Moralis.Web3Api.Account.GetTokenBalances("0x3d6c0e79a1239df0039ec16Cc80f7A343b6C530e".ToLower(), ChainList.bsc);
+        foreach (Erc20TokenBalance erc20bal in balance)
+        {
+            Debug.Log(erc20bal.ToJson());
+        }
     }
-  }
+}
 ```
 {% endtab %}
 {% endtabs %}
@@ -381,15 +389,18 @@ curl -X 'GET' \
 
 {% tab title="Unity" %}
 ```csharp
-using System.Collections.Generic;
-using Moralis.Web3Api.Models;
-using MoralisWeb3ApiSdk;
+using MoralisUnity;
+using MoralisUnity.Web3Api.Models;
+using UnityEngine;
 
-  public async void fetchTokenTransfers()
-  {
-    Erc20TransactionCollection transfers = await MoralisInterface.GetClient().Web3Api.Account.GetTokenTransfers("0x3d6c0e79a1239df0039ec16Cc80f7A343b6C530e".ToLower(), ChainList.bsc);
-    print(transfers.ToJson());
-  }
+public class Example
+{
+    public async void fetchTokenTransfers()
+    {
+        Erc20TransactionCollection transfers = await Moralis.Web3Api.Account.GetTokenTransfers("0x3d6c0e79a1239df0039ec16Cc80f7A343b6C530e".ToLower(), ChainList.bsc);
+        Debug.Log(transfers.ToJson());
+    }
+}
 ```
 {% endtab %}
 {% endtabs %}
@@ -479,15 +490,18 @@ curl -X 'GET' \
 
 {% tab title="Unity" %}
 ```csharp
-using System.Collections.Generic;
-using Moralis.Web3Api.Models;
-using MoralisWeb3ApiSdk;
+using MoralisUnity;
+using MoralisUnity.Web3Api.Models;
+using UnityEngine;
 
-  public async void fetchNFTs()
-  {
-    NftOwnerCollection polygonNFTs = await MoralisInterface.GetClient().Web3Api.Account.GetNFTs("0x75e3e9c92162e62000425c98769965a76c2e387a".ToLower(), ChainList.polygon);
-    print(polygonNFTs.ToJson());
-  }
+public class Example
+{
+    public async void fetchNFTs()
+    {
+        NftOwnerCollection polygonNFTs = await Moralis.Web3Api.Account.GetNFTs("0x75e3e9c92162e62000425c98769965a76c2e387a".ToLower(), ChainList.polygon);
+        Debug.Log(polygonNFTs.ToJson());
+    }
+}
 ```
 {% endtab %}
 {% endtabs %}
@@ -579,15 +593,18 @@ curl -X 'GET' \
 
 {% tab title="Unity" %}
 ```csharp
-using System.Collections.Generic;
-using Moralis.Web3Api.Models;
-using MoralisWeb3ApiSdk;
+using MoralisUnity;
+using MoralisUnity.Web3Api.Models;
+using UnityEngine;
 
-  public async void fetchNFTTransfers()
-  {
-    NftTransferCollection BSCnfttransfers = await MoralisInterface.GetClient().Web3Api.Account.GetNFTTransfers("0x3d6c0e79a1239df0039ec16Cc80f7A343b6C530e".ToLower(), ChainList.bsc);
-    print(BSCnfttransfers.ToJson());
-  }
+public class Example
+{
+    public async void fetchNFTTransfers()
+    {
+        NftTransferCollection BSCnfttransfers = await Moralis.Web3Api.Account.GetNFTTransfers("0x3d6c0e79a1239df0039ec16Cc80f7A343b6C530e".ToLower(), ChainList.bsc);
+        Debug.Log(BSCnfttransfers.ToJson());
+    }
+}
 ```
 {% endtab %}
 {% endtabs %}
@@ -678,15 +695,18 @@ curl -X 'GET' \
 
 {% tab title="Unity" %}
 ```csharp
-using System.Collections.Generic;
-using Moralis.Web3Api.Models;
-using MoralisWeb3ApiSdk;
+using MoralisUnity;
+using MoralisUnity.Web3Api.Models;
+using UnityEngine;
 
-  public async void fetchNFTsForContract()
-  {
-    NftOwnerCollection polygonNFTs = await MoralisInterface.GetClient().Web3Api.Account.GetNFTsForContract("0x3d6c0e79a1239df0039ec16Cc80f7A343b6C530e".ToLower(),"0x2953399124F0cBB46d2CbACD8A89cF0599974963", ChainList.polygon);
-    print(polygonNFTs.ToJson());
-  }
+public class Example
+{
+    public async void fetchNFTsForContract()
+    {
+        NftOwnerCollection polygonNFTs = await Moralis.Web3Api.Account.GetNFTsForContract("0x3d6c0e79a1239df0039ec16Cc80f7A343b6C530e".ToLower(), "0x2953399124F0cBB46d2CbACD8A89cF0599974963", ChainList.polygon);
+        Debug.Log(polygonNFTs.ToJson());
+    }
+}
 ```
 {% endtab %}
 {% endtabs %}

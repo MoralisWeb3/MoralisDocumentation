@@ -79,20 +79,25 @@ curl -X 'GET' \
 {% tab title="Unity" %}
 
 ```csharp
+using MoralisUnity;
+using MoralisUnity.Web3Api.Models;
 using System.Collections.Generic;
-using Moralis.Web3Api.Models;
-using MoralisWeb3ApiSdk;
+using UnityEngine;
 
-  public async void fetchTokenMetadata()
-  {
-    List<string> addresses = new List<string>();
-    addresses.Add("0xdAC17F958D2ee523a2206206994597C13D831ec7");
-    addresses.Add("0x0a385f86059e0b2a048171d78afd1f38558121f3");
-    List<Erc20Metadata> resp = await web3Api.Token.GetTokenMetadata(addresses, ChainList.eth);
-    foreach(Erc20Metadata erc20metadata in resp){
-      print(erc20metadata.ToJson());
+public class Example
+{
+    public async void fetchTokenMetadata()
+    {
+        List<string> addresses = new List<string>();
+        addresses.Add("0xdAC17F958D2ee523a2206206994597C13D831ec7");
+        addresses.Add("0x0a385f86059e0b2a048171d78afd1f38558121f3");
+        List<Erc20Metadata> resp = await Moralis.Web3Api.Token.GetTokenMetadata(addresses, ChainList.eth);
+        foreach (Erc20Metadata erc20metadata in resp)
+        {
+            Debug.Log(erc20metadata.ToJson());
+        }
     }
-  }
+}
 ```
 
 {% endtab %}
@@ -196,20 +201,26 @@ curl -X 'GET' \
 {% tab title="Unity" %}
 
 ```csharp
+using MoralisUnity;
+using MoralisUnity.Web3Api.Models;
 using System.Collections.Generic;
-using Moralis.Web3Api.Models;
-using MoralisWeb3ApiSdk;
+using UnityEngine;
 
-  public async void fetchTokenMetadataBySymbol()
-  {
-    List<string> symbols = new List<string>();
-    symbols.Add("AAVE");
-    symbols.Add("LINK");
-    List<Erc20Metadata> resp = await web3Api.Token.GetTokenMetadataBySymbol(symbols, ChainList.bsc);
-    foreach(Erc20Metadata erc20metadata in resp){
-      print(erc20metadata.ToJson());
+public class Example
+{
+
+    public async void fetchTokenMetadataBySymbol()
+    {
+        List<string> symbols = new List<string>();
+        symbols.Add("AAVE");
+        symbols.Add("LINK");
+        List<Erc20Metadata> resp = await Moralis.Web3Api.Token.GetTokenMetadataBySymbol(symbols, ChainList.bsc);
+        foreach (Erc20Metadata erc20metadata in resp)
+        {
+            Debug.Log(erc20metadata.ToJson());
+        }
     }
-  }
+}
 ```
 
 {% endtab %}
@@ -304,15 +315,18 @@ curl -X 'GET' \
 {% tab title="Unity" %}
 
 ```csharp
-using System.Collections.Generic;
-using Moralis.Web3Api.Models;
-using MoralisWeb3ApiSdk;
+using MoralisUnity;
+using MoralisUnity.Web3Api.Models;
+using UnityEngine;
 
-  public async void fetchTokenMetadataBySymbol()
-  {
-    Erc20Allowance allowance = await MoralisInterface.GetClient().Web3Api.Token.GetTokenAllowance(address: "0xC18360217D8F7Ab5e7c516566761Ea12Ce7F9D72", ownerAddress: "0xd1628228ffaede220cd583da5f9262355682210a", spenderAddress: "0x68b3465833fb72A70ecDF485E0e4C7bD8665Fc45", ChainList.eth);
-    print(allowance.ToJson());
-  }
+public class Example
+{
+    public async void fetchTokenMetadataBySymbol()
+    {
+        Erc20Allowance allowance = await Moralis.Web3Api.Token.GetTokenAllowance(address: "0xC18360217D8F7Ab5e7c516566761Ea12Ce7F9D72", ownerAddress: "0xd1628228ffaede220cd583da5f9262355682210a", spenderAddress: "0x68b3465833fb72A70ecDF485E0e4C7bD8665Fc45", ChainList.eth);
+        Debug.Log(allowance.ToJson());
+    }
+}
 ```
 
 {% endtab %}
@@ -465,15 +479,18 @@ curl -X 'GET' \
 {% tab title="Unity" %}
 
 ```csharp
-using System.Collections.Generic;
-using Moralis.Web3Api.Models;
-using MoralisWeb3ApiSdk;
+using MoralisUnity;
+using MoralisUnity.Web3Api.Models;
+using UnityEngine;
 
-  public async void fetchAllTokenIds()
-  {
-    NftCollection nfts = await MoralisInterface.GetClient().Web3Api.Token.GetAllTokenIds(address: "0x7dE3085b3190B3a787822Ee16F23be010f5F8686" , ChainList.eth);
-    print(nfts.ToJson());
-  }
+public class Example
+{
+    public async void fetchAllTokenIds()
+    {
+        NftCollection nfts = await Moralis.Web3Api.Token.GetAllTokenIds(address: "0x7dE3085b3190B3a787822Ee16F23be010f5F8686", ChainList.eth);
+        Debug.Log(nfts.ToJson());
+    }
+}
 ```
 
 {% endtab %}
@@ -555,15 +572,18 @@ curl -X 'GET' \
 {% tab title="Unity" %}
 
 ```csharp
-using System.Collections.Generic;
-using Moralis.Web3Api.Models;
-using MoralisWeb3ApiSdk;
+using MoralisUnity;
+using MoralisUnity.Web3Api.Models;
+using UnityEngine;
 
-  public async void fetchNFTMetadata()
-  {
-    NftContractMetadata metadata = await MoralisInterface.GetClient().Web3Api.Token.GetNFTMetadata(address: "0x7dE3085b3190B3a787822Ee16F23be010f5F8686", ChainList.eth);
-    print(metadata.ToJson());
-  }
+public class Example
+{
+    public async void fetchNFTMetadata()
+    {
+        NftContractMetadata metadata = await Moralis.Web3Api.Token.GetNFTMetadata(address: "0x7dE3085b3190B3a787822Ee16F23be010f5F8686", ChainList.eth);
+        Debug.Log(metadata.ToJson());
+    }
+}
 ```
 
 {% endtab %}
@@ -644,15 +664,18 @@ curl -X 'GET' \
 {% tab title="Unity" %}
 
 ```csharp
-using System.Collections.Generic;
-using Moralis.Web3Api.Models;
-using MoralisWeb3ApiSdk;
+using MoralisUnity;
+using MoralisUnity.Web3Api.Models;
+using UnityEngine;
 
-  public async void fetchNFTOwners()
-  {
-    NftOwnerCollection nftowners = await MoralisInterface.GetClient().Web3Api.Token.GetNFTOwners(address: "0x7de3085b3190b3a787822ee16f23be010f5f8686", ChainList.eth);
-    print(nftowners.ToJson());
-  }
+public class Example
+{
+    public async void fetchNFTOwners()
+    {
+        NftOwnerCollection nftowners = await Moralis.Web3Api.Token.GetNFTOwners(address: "0x7de3085b3190b3a787822ee16f23be010f5f8686", ChainList.eth);
+        Debug.Log(nftowners.ToJson());
+    }
+}
 ```
 
 {% endtab %}
@@ -741,15 +764,18 @@ curl -X 'GET' \
 {% tab title="Unity" %}
 
 ```csharp
-using System.Collections.Generic;
-using Moralis.Web3Api.Models;
-using MoralisWeb3ApiSdk;
+using MoralisUnity;
+using MoralisUnity.Web3Api.Models;
+using UnityEngine;
 
-  public async void fetchSearchNFTs()
-  {
-    NftMetadataCollection nft = await MoralisInterface.GetClient().Web3Api.Token.SearchNFTs(q: "Pancake", ChainList.bsc, filter: "name");
-    print(nft.ToJson());
-  }
+public class Example
+{
+    public async void fetchSearchNFTs()
+    {
+        NftMetadataCollection nft = await Moralis.Web3Api.Token.SearchNFTs(q: "Pancake", ChainList.bsc, filter: "name");
+        Debug.Log(nft.ToJson());
+    }
+}
 ```
 
 {% endtab %}
@@ -817,15 +843,18 @@ curl -X 'GET' \
 {% tab title="Unity" %}
 
 ```csharp
-using System.Collections.Generic;
-using Moralis.Web3Api.Models;
-using MoralisWeb3ApiSdk;
+using MoralisUnity;
+using MoralisUnity.Web3Api.Models;
+using UnityEngine;
 
-  public async void fetchSearchNFTs()
-  {
-    NftMetadataCollection nft = await MoralisInterface.GetClient().Web3Api.Token.SearchNFTs(q: "Pancake", ChainList.bsc, filter: "global");
-    print(nft.ToJson());
-  }
+public class Example
+{
+    public async void fetchSearchNFTs()
+    {
+        NftMetadataCollection nft = await Moralis.Web3Api.Token.SearchNFTs(q: "Pancake", ChainList.bsc, filter: "global");
+        Debug.Log(nft.ToJson());
+    }
+}
 ```
 
 {% endtab %}
@@ -882,15 +911,18 @@ curl -X 'GET' \
 {% tab title="Unity" %}
 
 ```csharp
-using System.Collections.Generic;
-using Moralis.Web3Api.Models;
-using MoralisWeb3ApiSdk;
+using MoralisUnity;
+using MoralisUnity.Web3Api.Models;
+using UnityEngine;
 
-  public async void fetchSearchNFTs()
-  {
-    NftMetadataCollection nft = await MoralisInterface.GetClient().Web3Api.Token.SearchNFTs(q: "Pancake", ChainList.bsc, filter: "description,attributes");
-    print(nft.ToJson());
-  }
+public class Example
+{
+    public async void fetchSearchNFTs()
+    {
+        NftMetadataCollection nft = await Moralis.Web3Api.Token.SearchNFTs(q: "Pancake", ChainList.bsc, filter: "description,attributes");
+        Debug.Log(nft.ToJson());
+    }
+}
 ```
 
 {% endtab %}
@@ -960,15 +992,18 @@ curl -X 'GET' \
 {% tab title="Unity" %}
 
 ```csharp
-using System.Collections.Generic;
-using Moralis.Web3Api.Models;
-using MoralisWeb3ApiSdk;
+using MoralisUnity;
+using MoralisUnity.Web3Api.Models;
+using UnityEngine;
 
-  public async void fetchContractNFTTransfers()
-  {
-    NftTransferCollection nftTransers = await MoralisInterface.GetClient().Web3Api.Token.GetContractNFTTransfers(address: "0x7de3085b3190b3a787822ee16f23be010f5f8686", ChainList.eth);
-    print(nftTransfers.ToJson());
-  }
+public class Example
+{
+    public async void fetchContractNFTTransfers()
+    {
+        NftTransferCollection nftTransfers = await Moralis.Web3Api.Token.GetContractNFTTransfers(address: "0x7de3085b3190b3a787822ee16f23be010f5f8686", ChainList.eth);
+        Debug.Log(nftTransfers.ToJson());
+    }
+}
 ```
 
 {% endtab %}
@@ -1061,15 +1096,18 @@ curl -X 'GET' \
 {% tab title="Unity" %}
 
 ```csharp
-using System.Collections.Generic;
-using Moralis.Web3Api.Models;
-using MoralisWeb3ApiSdk;
+using MoralisUnity;
+using MoralisUnity.Web3Api.Models;
+using UnityEngine;
 
-  public async void fetchTokenIdMetadata()
-  {
-    Nft tokenIdMetadata = await MoralisInterface.GetClient().Web3Api.Token.GetTokenIdMetadata(address: "0x7de3085b3190b3a787822ee16f23be010f5f8686", tokenId: "1", ChainList.eth);
-    print(tokenIdMetadata.ToJson());
-  }
+public class Example
+{
+    public async void fetchTokenIdMetadata()
+    {
+        Nft tokenIdMetadata = await Moralis.Web3Api.Token.GetTokenIdMetadata(address: "0x7de3085b3190b3a787822ee16f23be010f5f8686", tokenId: "1", ChainList.eth);
+        Debug.Log(tokenIdMetadata.ToJson());
+    }
+}
 ```
 
 {% endtab %}
@@ -1159,15 +1197,18 @@ curl -X 'GET' \
 {% tab title="Unity" %}
 
 ```csharp
-using System.Collections.Generic;
-using Moralis.Web3Api.Models;
-using MoralisWeb3ApiSdk;
+using MoralisUnity;
+using MoralisUnity.Web3Api.Models;
+using UnityEngine;
 
-  public async void fetchTokenIdOwners()
-  {
-    NftOwnerCollection tokenIdOwners = await MoralisInterface.GetClient().Web3Api.Token.GetTokenIdOwners(address: "0x7de3085b3190b3a787822ee16f23be010f5f8686", tokenId: "1" , ChainList.eth);
-    print(tokenIdOwners.ToJson());
-  }
+public class Example
+{
+    public async void fetchTokenIdOwners()
+    {
+        NftOwnerCollection tokenIdOwners = await Moralis.Web3Api.Token.GetTokenIdOwners(address: "0x7de3085b3190b3a787822ee16f23be010f5f8686", tokenId: "1", ChainList.eth);
+        Debug.Log(tokenIdOwners.ToJson());
+    }
+}
 ```
 
 {% endtab %}
@@ -1258,15 +1299,18 @@ curl -X 'GET' \
 {% tab title="Unity" %}
 
 ```csharp
-using System.Collections.Generic;
-using Moralis.Web3Api.Models;
-using MoralisWeb3ApiSdk;
+using MoralisUnity;
+using MoralisUnity.Web3Api.Models;
+using UnityEngine;
 
-  public async void fetchWalletTokenIdTransfers()
-  {
-    NftTransferCollection transfers = await  MoralisInterface.GetClient().Web3Api.Token.GetWalletTokenIdTransfers(address: "0x7de3085b3190b3a787822ee16f23be010f5f8686", tokenId: "1", ChainList.eth);
-    print(transfers.ToJson());
-  }
+public class Example
+{
+    public async void fetchWalletTokenIdTransfers()
+    {
+        NftTransferCollection transfers = await Moralis.Web3Api.Token.GetWalletTokenIdTransfers(address: "0x7de3085b3190b3a787822ee16f23be010f5f8686", tokenId: "1", ChainList.eth);
+        Debug.Log(transfers.ToJson());
+    }
+}
 ```
 
 {% endtab %}
@@ -1364,15 +1408,18 @@ curl -X 'GET' \
 {% tab title="Unity" %}
 
 ```csharp
-using System.Collections.Generic;
-using Moralis.Web3Api.Models;
-using MoralisWeb3ApiSdk;
+using MoralisUnity;
+using MoralisUnity.Web3Api.Models;
+using UnityEngine;
 
-  public async void fetchNFTTrades()
-  {
-    TradeCollection trades = await MoralisInterface.GetClient().Web3Api.Token.GetNFTTrades(address: "0x7de3085b3190b3a787822ee16f23be010f5f8686", ChainList.eth, limit: 10);
-    print(trades.ToJson());
-  }
+public class Example
+{
+    public async void fetchNFTTrades()
+    {
+        TradeCollection trades = await Moralis.Web3Api.Token.GetNFTTrades(address: "0x7de3085b3190b3a787822ee16f23be010f5f8686", ChainList.eth, limit: 10);
+        Debug.Log(trades.ToJson());
+    }
+}
 ```
 
 {% endtab %}
@@ -1459,15 +1506,18 @@ curl -X 'GET' \
 {% tab title="Unity" %}
 
 ```csharp
-using System.Collections.Generic;
-using Moralis.Web3Api.Models;
-using MoralisWeb3ApiSdk;
+using MoralisUnity;
+using MoralisUnity.Web3Api.Models;
+using UnityEngine;
 
-  public async void fetchNFTLowestPrice()
-  {
-    Trade NFTLowestPrice = await MoralisInterface.GetClient().Web3Api.Token.GetNFTLowestPrice(address: "0x7de3085b3190b3a787822ee16f23be010f5f8686", ChainList.eth, days: 2);
-    print(NFTLowestPrice.ToJson());
-  }
+public class Example
+{
+    public async void fetchNFTLowestPrice()
+    {
+        Trade NFTLowestPrice = await Moralis.Web3Api.Token.GetNFTLowestPrice(address: "0x7de3085b3190b3a787822ee16f23be010f5f8686", ChainList.eth, days: 2);
+        Debug.Log(NFTLowestPrice.ToJson());
+    }
+}
 ```
 
 {% endtab %}
