@@ -18,6 +18,7 @@ Web3 Unity Boilerplate
 ### Adding Moralis to Your Unity Game
 
 {% tabs %}
+
 {% tab title="Version < 1.2.0" %}
 
 #### Downloading the SDK
@@ -63,7 +64,9 @@ Downlaod the latest version of the SDK [here](https://github.com/ethereum-boiler
 
 <br/>
 {% endtab %}
+
 {% tab title="Version >= 1.2.0" %}
+
 #### Downloading the SDK
 
 Downlaod the latest version of the SDK [here](https://github.com/ethereum-boilerplate/web3-unity-boilerplate) Then navigate to the releases and select the lastest version of the sdk. downlaod it as a unity package
@@ -74,12 +77,14 @@ Downlaod the latest version of the SDK [here](https://github.com/ethereum-boiler
 
 - Create a new Unity project with Unity HUB, you can select any template of your choice, add a name to your project and a location.
 - When the project is created, navigate to the folder you downloaded the package, drag and drop the package into the Assets folder in unity, an importing menu will popup and then click import to import the package into your project.
-  ![](../../.gitbook/assets/moralis_package_setup.gif)
+
+![](../../.gitbook/assets/moralis_package_setup.gif)
 
 #### Setup Wizard
 
 - you will be presented with the setup wizard to input your Dapp URL and Dapp ID
-  ![](../../.gitbook/assets/moralis-unity-boilerplate_2.gif)
+
+![](../../.gitbook/assets/moralis-unity-boilerplate_2.gif)
 
 #### Running the application
 
@@ -87,6 +92,7 @@ Downlaod the latest version of the SDK [here](https://github.com/ethereum-boiler
 - Run the application by clicking the Play icon located at the top, center of the Unity.
 
 {% endtab %}
+
 {% endtabs %}
 
 #### See all User Assets in the Moralis Database
