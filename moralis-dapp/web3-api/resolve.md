@@ -52,15 +52,18 @@ curl -X 'GET' \
 {% tab title="Unity" %}
 
 ```csharp
-using System.Collections.Generic;
-using Moralis.Web3Api.Models;
-using MoralisWeb3ApiSdk;
+using MoralisUnity;
+using MoralisUnity.Web3Api.Models;
+using UnityEngine;
 
-  public async void fetchDomain()
-  {
-    Resolve resolve = await MoralisInterface.GetClient().Web3Api.Resolve.ResolveDomain(domain: "brad.crypto" currency: "eth");
-    print(resolve.ToJson());
-  }
+public class Example
+{
+    public async void fetchDomain()
+    {
+        Resolve resolve = await Moralis.Web3Api.Resolve.ResolveDomain(domain: "brad.crypto" currency: "eth");
+        Debug.Log(resolve.ToJson());
+    }
+}
 ```
 
 {% endtab %}
@@ -125,15 +128,18 @@ curl -X 'GET' \
 {% tab title="Unity" %}
 
 ```csharp
-using System.Collections.Generic;
-using Moralis.Web3Api.Models;
-using MoralisWeb3ApiSdk;
+using MoralisUnity;
+using MoralisUnity.Web3Api.Models;
+using UnityEngine;
 
-  public async void fetchAddress()
-  {
-    Ens result = await MoralisInterface.GetClient().Web3Api.Resolve.ResolveAddress(address: "0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045");
-    print(result.ToJson());
-  }
+public class Example
+{
+    public async void fetchAddress()
+    {
+        Ens result = await Moralis.Web3Api.Resolve.ResolveAddress(address: "0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045");
+        Debug.Log(result.ToJson());
+    }
+}
 ```
 
 {% endtab %}
