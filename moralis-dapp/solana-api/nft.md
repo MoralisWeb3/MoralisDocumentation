@@ -56,17 +56,19 @@ curl -X 'GET' \
 
 {% tab title="Unity" %}
 ```csharp
-using System.Collections.Generic;
-using Moralis.SolanaApi.Models;
-using Moralis.SolanaApi;
-using MoralisWeb3ApiSdk;
+using MoralisUnity;
+using MoralisUnity.SolanaApi.Models;
+using UnityEngine;
 
-  // get mainnet metadata for a given SPL NFT address
-  public async void GetSPLNftMetadata()
-  {
-    NftMetadata nftmetadata = await MoralisSolanaClient.SolanaApi.Nft.GetNFTMetadata(NetworkTypes.mainnet, "6XU36wCxWobLx5Rtsb58kmgAJKVYmMVqy4SHXxENAyAe");
-    print(nftmetadata);
-  }
+public class Example
+{
+    // get mainnet metadata for a given SPL NFT address
+    public async void GetSPLNftMetadata()
+    {
+        NftMetadata nftmetadata = await Moralis.SolanaApi.Nft.GetNFTMetadata(NetworkTypes.mainnet, "6XU36wCxWobLx5Rtsb58kmgAJKVYmMVqy4SHXxENAyAe");
+        Debug.Log(nftmetadata);
+    }
+}
 ```
 {% endtab %}
 {% endtabs %}
