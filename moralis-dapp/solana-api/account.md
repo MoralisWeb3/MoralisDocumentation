@@ -62,16 +62,18 @@ curl -X 'GET' \
 
 {% tab title="Unity" %}
 ```csharp
-using System.Collections.Generic;
-using Moralis.SolanaApi.Models;
-using Moralis.SolanaApi;
-using MoralisWeb3ApiSdk;
+using MoralisUnity;
+using MoralisUnity.SolanaApi.Models;
+using UnityEngine;
 
-  public async void GetSolNativeBalance()
-  {
-    NativeBalance solBalance = await MoralisSolanaClient.SolanaApi.Account.Balance(NetworkTypes.mainnet, "6XU36wCxWobLx5Rtsb58kmgAJKVYmMVqy4SHXxENAyAe");
-    print(solBalance);
-  }
+public class Example
+{
+    public async void GetSolNativeBalance()
+    {
+        NativeBalance solBalance = await Moralis.SolanaApi.Account.Balance(NetworkTypes.mainnet, "6XU36wCxWobLx5Rtsb58kmgAJKVYmMVqy4SHXxENAyAe");
+        Debug.Log(solBalance);
+    }
+}
 ```
 {% endtab %}
 {% endtabs %}
@@ -141,18 +143,22 @@ curl -X 'GET' \
 
 {% tab title="Unity" %}
 ```csharp
+using MoralisUnity;
+using MoralisUnity.SolanaApi.Models;
 using System.Collections.Generic;
-using Moralis.SolanaApi.Models;
-using Moralis.SolanaApi;
-using MoralisWeb3ApiSdk;
+using UnityEngine;
 
-  public async void GetSPLTokens()
-  {
-    List<SplTokenBalanace> spltokens = await MoralisSolanaClient.SolanaApi.Account.GetSplTokens(NetworkTypes.mainnet, "6XU36wCxWobLx5Rtsb58kmgAJKVYmMVqy4SHXxENAyAe");
-    foreach(SplTokenBalanace spltoken in spltokens){
-      print(spltoken);
-   }
-  }
+public class Example
+{
+    public async void GetSPLTokens()
+    {
+        List<SplTokenBalanace> spltokens = await Moralis.SolanaApi.Account.GetSplTokens(NetworkTypes.mainnet, "6XU36wCxWobLx5Rtsb58kmgAJKVYmMVqy4SHXxENAyAe");
+        foreach (SplTokenBalanace spltoken in spltokens)
+        {
+            Debug.Log(spltoken);
+        }
+    }
+}
 ```
 {% endtab %}
 {% endtabs %}
@@ -227,18 +233,22 @@ curl -X 'GET' \
 
 {% tab title="Unity" %}
 ```csharp
+using MoralisUnity;
+using MoralisUnity.SolanaApi.Models;
 using System.Collections.Generic;
-using Moralis.SolanaApi.Models;
-using Moralis.SolanaApi;
-using MoralisWeb3ApiSdk;
+using UnityEngine;
 
-  public async void GetSPLNft()
-  {
-    List<SplNft> SplNFTbal = await MoralisSolanaClient.SolanaApi.Account.GetNFTs(NetworkTypes.mainnet, "6XU36wCxWobLx5Rtsb58kmgAJKVYmMVqy4SHXxENAyAe");
-    foreach(SplNft splnft in SplNFTbal){
-      print(splnft);
+public class Example
+{
+    public async void GetSPLNft()
+    {
+        List<SplNft> SplNFTbal = await Moralis.SolanaApi.Account.GetNFTs(NetworkTypes.mainnet, "6XU36wCxWobLx5Rtsb58kmgAJKVYmMVqy4SHXxENAyAe");
+        foreach (SplNft splnft in SplNFTbal)
+        {
+            Debug.Log(splnft);
+        }
     }
-  }
+}
 ```
 {% endtab %}
 {% endtabs %}
@@ -313,16 +323,18 @@ curl -X 'GET' \
 
 {% tab title="Unity" %}
 ```csharp
-using System.Collections.Generic;
-using Moralis.SolanaApi.Models;
-using Moralis.SolanaApi;
-using MoralisWeb3ApiSdk;
+using MoralisUnity;
+using MoralisUnity.SolanaApi.Models;
+using UnityEngine;
 
-  public async void GetSPLPortfolioBal()
-  {
-    Portfolio PortfolioBal = await MoralisSolanaClient.SolanaApi.Account.GetPortfolio(NetworkTypes.mainnet, "6XU36wCxWobLx5Rtsb58kmgAJKVYmMVqy4SHXxENAyAe");
-    print(PortfolioBal);
-  }
+public class Example
+{
+    public async void GetSPLPortfolioBal()
+    {
+        Portfolio PortfolioBal = await Moralis.SolanaApi.Account.GetPortfolio(NetworkTypes.mainnet, "6XU36wCxWobLx5Rtsb58kmgAJKVYmMVqy4SHXxENAyAe");
+        Debug.Log(PortfolioBal);
+    }
+}
 ```
 {% endtab %}
 {% endtabs %}
