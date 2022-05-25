@@ -1,5 +1,5 @@
 ---
-cover: ../../.gitbook/assets/Moralis-Logo-w-Final.png
+cover: ../../.gitbook/assets/Moralis-Logo-Final.png
 coverY: 11.69849246231156
 ---
 
