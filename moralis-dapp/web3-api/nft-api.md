@@ -38,9 +38,7 @@ The most important use-cases for this API is getting cross-chain data related to
 
 **Endpoints:**
 
-- [`SearchNFTs`](https://github.com/nft-api/nft-api#searchnfts)
-
-<!-- #### searchNFTs -->
+### searchNFTs
 
 Very powerful and fast tool for getting the NFT data based on a metadata search (asynchronous).
 
@@ -94,15 +92,18 @@ curl -X 'GET' \
 {% tab title="Unity" %}
 
 ```csharp
-using System.Collections.Generic;
-using Moralis.Web3Api.Models;
-using MoralisWeb3ApiSdk;
+using MoralisUnity;
+using MoralisUnity.Web3Api.Models;
+using UnityEngine;
 
-  public async void fetchSearchNFTs()
-  {
-    NftMetadataCollection nft = await MoralisInterface.GetClient().Web3Api.Token.SearchNFTs(q: "Pancake", ChainList.bsc, filter: "name");
-    print(nft.ToJson());
-  }
+public class Example
+{
+    public async void fetchSearchNFTs()
+    {
+        NftMetadataCollection nft = await Moralis.Web3Api.Token.SearchNFTs(q: "Pancake", ChainList.bsc, filter: "name");
+        Debug.Log(nft.ToJson());
+    }
+}
 ```
 
 {% endtab %}
@@ -170,15 +171,18 @@ curl -X 'GET' \
 {% tab title="Unity" %}
 
 ```csharp
-using System.Collections.Generic;
-using Moralis.Web3Api.Models;
-using MoralisWeb3ApiSdk;
+using MoralisUnity;
+using MoralisUnity.Web3Api.Models;
+using UnityEngine;
 
-  public async void fetchSearchNFTs()
-  {
-    NftMetadataCollection nft = await MoralisInterface.GetClient().Web3Api.Token.SearchNFTs(q: "Pancake", ChainList.bsc, filter: "global");
-    print(nft.ToJson());
-  }
+public class Example
+{
+    public async void fetchSearchNFTs()
+    {
+        NftMetadataCollection nft = await Moralis.Web3Api.Token.SearchNFTs(q: "Pancake", ChainList.bsc, filter: "global");
+        Debug.Log(nft.ToJson());
+    }
+}
 ```
 
 {% endtab %}
@@ -235,15 +239,18 @@ curl -X 'GET' \
 {% tab title="Unity" %}
 
 ```csharp
-using System.Collections.Generic;
-using Moralis.Web3Api.Models;
-using MoralisWeb3ApiSdk;
+using MoralisUnity;
+using MoralisUnity.Web3Api.Models;
+using UnityEngine;
 
-  public async void fetchSearchNFTs()
-  {
-    NftMetadataCollection nft = await MoralisInterface.GetClient().Web3Api.Token.SearchNFTs(q: "Pancake", ChainList.bsc, filter: "description,attributes");
-    print(nft.ToJson());
-  }
+public class Example
+{
+    public async void fetchSearchNFTs()
+    {
+        NftMetadataCollection nft = await Moralis.Web3Api.Token.SearchNFTs(q: "Pancake", ChainList.bsc, filter: "description,attributes");
+        Debug.Log(nft.ToJson());
+    }
+}
 ```
 
 {% endtab %}
@@ -280,9 +287,7 @@ using MoralisWeb3ApiSdk;
     }
 ```
 
-- [`GetNFTs`](https://github.com/nft-api/nft-api#getnfts)
-
-<!-- #### getNFTs -->
+### getNFTs
 
 Get all NFTs from the current user or address. Supports both ERC721 and ERC1155. Returns an object with the number of NFT objects and the array of NFT objects (asynchronous).
 
@@ -355,15 +360,18 @@ curl -X 'GET' \
 {% tab title="Unity" %}
 
 ```csharp
-using System.Collections.Generic;
-using Moralis.Web3Api.Models;
-using MoralisWeb3ApiSdk;
+using MoralisUnity;
+using MoralisUnity.Web3Api.Models;
+using UnityEngine;
 
-  public async void fetchNFTs()
-  {
-    NftOwnerCollection polygonNFTs = await MoralisInterface.GetClient().Web3Api.Account.GetNFTs("0x75e3e9c92162e62000425c98769965a76c2e387a".ToLower(), ChainList.polygon);
-    print(polygonNFTs.ToJson());
-  }
+public class Example
+{
+    public async void fetchNFTs()
+    {
+        NftOwnerCollection polygonNFTs = await Moralis.Web3Api.Account.GetNFTs("0x75e3e9c92162e62000425c98769965a76c2e387a".ToLower(), ChainList.polygon);
+        Debug.Log(polygonNFTs.ToJson());
+    }
+}
 ```
 
 {% endtab %}
@@ -390,9 +398,7 @@ using MoralisWeb3ApiSdk;
 ];
 ```
 
-- [`GetNFTsForContract`](https://github.com/nft-api/nft-api#getnftsforcontract)
-
-<!-- #### getNFTsForContract -->
+### getNFTsForContract
 
 Returns an object with the NFT count for the specified contract and an NFT array belonging to the given address for the specified contract (asynchronous).
 
@@ -455,15 +461,18 @@ curl -X 'GET' \
 {% tab title="Unity" %}
 
 ```csharp
-using System.Collections.Generic;
-using Moralis.Web3Api.Models;
-using MoralisWeb3ApiSdk;
+using MoralisUnity;
+using MoralisUnity.Web3Api.Models;
+using UnityEngine;
 
-  public async void fetchNFTsForContract()
-  {
-    NftOwnerCollection polygonNFTs = await MoralisInterface.GetClient().Web3Api.Account.GetNFTsForContract("0x3d6c0e79a1239df0039ec16Cc80f7A343b6C530e".ToLower(),"0x2953399124F0cBB46d2CbACD8A89cF0599974963", ChainList.polygon);
-    print(polygonNFTs.ToJson());
-  }
+public class Example
+{
+    public async void fetchNFTsForContract()
+    {
+        NftOwnerCollection polygonNFTs = await Moralis.Web3Api.Account.GetNFTsForContract("0x3d6c0e79a1239df0039ec16Cc80f7A343b6C530e".ToLower(), "0x2953399124F0cBB46d2CbACD8A89cF0599974963", ChainList.polygon);
+        Debug.Log(polygonNFTs.ToJson());
+    }
+}
 ```
 
 {% endtab %}
@@ -508,9 +517,7 @@ Any request which includes the token_address param will start the indexing proce
 }
 ```
 
-- [`GetNFTTransfers`](https://github.com/nft-api/nft-api#getnfttransfers)
-
-<!-- #### getNFTTransfers -->
+### getNFTTransfers
 
 Get the NFT transfers. Returns an object with the number of NFT transfers and the array of NFT transfers (asynchronous).
 
@@ -583,15 +590,18 @@ curl -X 'GET' \
 {% tab title="Unity" %}
 
 ```csharp
-using System.Collections.Generic;
-using Moralis.Web3Api.Models;
-using MoralisWeb3ApiSdk;
+using MoralisUnity;
+using MoralisUnity.Web3Api.Models;
+using UnityEngine;
 
-  public async void fetchNFTTransfers()
-  {
-    NftTransferCollection BSCnfttransfers = await MoralisInterface.GetClient().Web3Api.Account.GetNFTTransfers("0x3d6c0e79a1239df0039ec16Cc80f7A343b6C530e".ToLower(), ChainList.bsc);
-    print(BSCnfttransfers.ToJson());
-  }
+public class Example
+{
+    public async void fetchNFTTransfers()
+    {
+        NftTransferCollection BSCnfttransfers = await Moralis.Web3Api.Account.GetNFTTransfers("0x3d6c0e79a1239df0039ec16Cc80f7A343b6C530e".ToLower(), ChainList.bsc);
+        Debug.Log(BSCnfttransfers.ToJson());
+    }
+}
 ```
 
 {% endtab %}
@@ -627,11 +637,7 @@ Any request which includes the token_address param will start the indexing proce
 ];
 ```
 
-- [`GetNFTTransfersByBlock`](https://github.com/nft-api/nft-api#GetNFTTransfersByBlock)
-  //
-- [`GetAllTokenIds`](https://github.com/nft-api/nft-api#getalltokenids)
-
-<!-- #### getAllTokenIds -->
+### getAllTokenIds
 
 Returns an object with a number of NFTs and an array with NFT metadata (name, symbol) for a given token contract address (asynchronous).
 
@@ -690,15 +696,18 @@ curl -X 'GET' \
 {% tab title="Unity" %}
 
 ```csharp
-using System.Collections.Generic;
-using Moralis.Web3Api.Models;
-using MoralisWeb3ApiSdk;
+using MoralisUnity;
+using MoralisUnity.Web3Api.Models;
+using UnityEngine;
 
-  public async void fetchAllTokenIds()
-  {
-    NftCollection nfts = await MoralisInterface.GetClient().Web3Api.Token.GetAllTokenIds(address: "0x7dE3085b3190B3a787822Ee16F23be010f5F8686" , ChainList.eth);
-    print(nfts.ToJson());
-  }
+public class Example
+{
+    public async void fetchAllTokenIds()
+    {
+        NftCollection nfts = await Moralis.Web3Api.Token.GetAllTokenIds(address: "0x7dE3085b3190B3a787822Ee16F23be010f5F8686", ChainList.eth);
+        Debug.Log(nfts.ToJson());
+    }
+}
 ```
 
 {% endtab %}
@@ -724,8 +733,7 @@ using MoralisWeb3ApiSdk;
 ];
 ```
 
-- [`GetContractNFTTransfers`](https://github.com/nft-api/nft-api#getcontractnfttransfers)
-<!-- #### getContractNFTTransfers -->
+### getContractNFTTransfers
 
 Returns an object with number of NFT transfers and an array with NFT transfers for a given token contract address (asynchronous).
 
@@ -735,9 +743,6 @@ Returns an object with number of NFT transfers and an array with NFT transfers f
 - `format` (optional): The format of the token id. Available values : `decimal`, `hex`. Default value is `decimal.`
 - `offset` (optional): offset.
 - `limit`(optional): limit.
-
-\`\`
-
 - `address`(required): Address of the contract
 
 {% tabs %}
@@ -789,15 +794,18 @@ curl -X 'GET' \
 {% tab title="Unity" %}
 
 ```csharp
-using System.Collections.Generic;
-using Moralis.Web3Api.Models;
-using MoralisWeb3ApiSdk;
+using MoralisUnity;
+using MoralisUnity.Web3Api.Models;
+using UnityEngine;
 
-  public async void fetchContractNFTTransfers()
-  {
-    NftTransferCollection nftTransers = await MoralisInterface.GetClient().Web3Api.Token.GetContractNFTTransfers(address: "0x7de3085b3190b3a787822ee16f23be010f5f8686", ChainList.eth);
-    print(nftTransfers.ToJson());
-  }
+public class Example
+{
+    public async void fetchContractNFTTransfers()
+    {
+        NftTransferCollection nftTransfers = await Moralis.Web3Api.Token.GetContractNFTTransfers(address: "0x7de3085b3190b3a787822ee16f23be010f5f8686", ChainList.eth);
+        Debug.Log(nftTransfers.ToJson());
+    }
+}
 ```
 
 {% endtab %}
@@ -830,9 +838,7 @@ using MoralisWeb3ApiSdk;
 ];
 ```
 
-- [`GetNFTLowestPrice`](https://github.com/nft-api/nft-api#getnftlowestprice)
-
-<!-- #### getNFTLowestPrice -->
+### getNFTLowestPrice
 
 Returns an object with the lowest price found for a NFT token contract for the last x days (only trades paid in ETH)
 
@@ -890,15 +896,18 @@ curl -X 'GET' \
 {% tab title="Unity" %}
 
 ```csharp
-using System.Collections.Generic;
-using Moralis.Web3Api.Models;
-using MoralisWeb3ApiSdk;
+using MoralisUnity;
+using MoralisUnity.Web3Api.Models;
+using UnityEngine;
 
-  public async void fetchNFTLowestPrice()
-  {
-    Trade NFTLowestPrice = await MoralisInterface.GetClient().Web3Api.Token.GetNFTLowestPrice(address: "0x7de3085b3190b3a787822ee16f23be010f5f8686", ChainList.eth, days: 2);
-    print(NFTLowestPrice.ToJson());
-  }
+public class Example
+{
+    public async void fetchNFTLowestPrice()
+    {
+        Trade NFTLowestPrice = await Moralis.Web3Api.Token.GetNFTLowestPrice(address: "0x7de3085b3190b3a787822ee16f23be010f5f8686", ChainList.eth, days: 2);
+        Debug.Log(NFTLowestPrice.ToJson());
+    }
+}
 ```
 
 {% endtab %}
@@ -926,9 +935,7 @@ using MoralisWeb3ApiSdk;
 ];
 ```
 
-- [`GetNFTMetadata`](https://github.com/nft-api/nft-api#getnftmetadata)
-
-<!-- #### getNFTMetadata -->
+### getNFTMetadata
 
 Returns the contract level metadata (name, symbol, base token uri) for the given contract (asynchronous).
 
@@ -984,15 +991,18 @@ curl -X 'GET' \
 {% tab title="Unity" %}
 
 ```csharp
-using System.Collections.Generic;
-using Moralis.Web3Api.Models;
-using MoralisWeb3ApiSdk;
+using MoralisUnity;
+using MoralisUnity.Web3Api.Models;
+using UnityEngine;
 
-  public async void fetchNFTMetadata()
-  {
-    NftContractMetadata metadata = await MoralisInterface.GetClient().Web3Api.Token.GetNFTMetadata(address: "0x7dE3085b3190B3a787822Ee16F23be010f5F8686", ChainList.eth);
-    print(metadata.ToJson());
-  }
+public class Example
+{
+    public async void fetchNFTMetadata()
+    {
+        NftContractMetadata metadata = await Moralis.Web3Api.Token.GetNFTMetadata(address: "0x7dE3085b3190B3a787822Ee16F23be010f5F8686", ChainList.eth);
+        Debug.Log(metadata.ToJson());
+    }
+}
 ```
 
 {% endtab %}
@@ -1014,9 +1024,7 @@ Requests for contract addresses not yet indexed will automatically start the ind
 }
 ```
 
-- [`GetNFTOwners`](https://github.com/nft-api/nft-api#getnftowners)
-
-<!-- #### getNFTOwners -->
+### getNFTOwners
 
 Returns an object with a number of NFT owners and an array with NFT metadata (name, symbol) for a given token contract address (asynchronous).
 
@@ -1075,15 +1083,18 @@ curl -X 'GET' \
 {% tab title="Unity" %}
 
 ```csharp
-using System.Collections.Generic;
-using Moralis.Web3Api.Models;
-using MoralisWeb3ApiSdk;
+using MoralisUnity;
+using MoralisUnity.Web3Api.Models;
+using UnityEngine;
 
-  public async void fetchNFTOwners()
-  {
-    NftOwnerCollection nftowners = await MoralisInterface.GetClient().Web3Api.Token.GetNFTOwners(address: "0x7de3085b3190b3a787822ee16f23be010f5f8686", ChainList.eth);
-    print(nftowners.ToJson());
-  }
+public class Example
+{
+    public async void fetchNFTOwners()
+    {
+        NftOwnerCollection nftowners = await Moralis.Web3Api.Token.GetNFTOwners(address: "0x7de3085b3190b3a787822ee16f23be010f5f8686", ChainList.eth);
+        Debug.Log(nftowners.ToJson());
+    }
+}
 ```
 
 {% endtab %}
@@ -1118,9 +1129,7 @@ Requests for contract addresses not yet indexed will automatically start the ind
 ];
 ```
 
-- [`GetNFTTrades`](https://github.com/nft-api/nft-api#getnfttrades)
-
-<!-- #### getNFTTrades -->
+### getNFTTrades
 
 Returns an object with NFT trades for a given contract and marketplace
 
@@ -1185,15 +1194,18 @@ curl -X 'GET' \
 {% tab title="Unity" %}
 
 ```csharp
-using System.Collections.Generic;
-using Moralis.Web3Api.Models;
-using MoralisWeb3ApiSdk;
+using MoralisUnity;
+using MoralisUnity.Web3Api.Models;
+using UnityEngine;
 
-  public async void fetchNFTTrades()
-  {
-    TradeCollection trades = await MoralisInterface.GetClient().Web3Api.Token.GetNFTTrades(address: "0x7de3085b3190b3a787822ee16f23be010f5f8686", ChainList.eth, limit: 10);
-    print(trades.ToJson());
-  }
+public class Example
+{
+    public async void fetchNFTTrades()
+    {
+        TradeCollection trades = await Moralis.Web3Api.Token.GetNFTTrades(address: "0x7de3085b3190b3a787822ee16f23be010f5f8686", ChainList.eth, limit: 10);
+        Debug.Log(trades.ToJson());
+    }
+}
 ```
 
 {% endtab %}
@@ -1222,9 +1234,7 @@ using MoralisWeb3ApiSdk;
 ];
 ```
 
-- [`GetTokenIdMetadata`](https://github.com/nft-api/nft-api#gettokenidmetadata)
-
-<!-- #### getTokenIdMetadata -->
+### getTokenIdMetadata
 
 Returns data, including fully resolved metadata for the given token id of the given contract address (asynchronous).
 
@@ -1284,15 +1294,18 @@ curl -X 'GET' \
 {% tab title="Unity" %}
 
 ```csharp
-using System.Collections.Generic;
-using Moralis.Web3Api.Models;
-using MoralisWeb3ApiSdk;
+using MoralisUnity;
+using MoralisUnity.Web3Api.Models;
+using UnityEngine;
 
-  public async void fetchTokenIdMetadata()
-  {
-    Nft tokenIdMetadata = await MoralisInterface.GetClient().Web3Api.Token.GetTokenIdMetadata(address: "0x7de3085b3190b3a787822ee16f23be010f5f8686", tokenId: "1", ChainList.eth);
-    print(tokenIdMetadata.ToJson());
-  }
+public class Example
+{
+    public async void fetchTokenIdMetadata()
+    {
+        Nft tokenIdMetadata = await Moralis.Web3Api.Token.GetTokenIdMetadata(address: "0x7de3085b3190b3a787822ee16f23be010f5f8686", tokenId: "1", ChainList.eth);
+        Debug.Log(tokenIdMetadata.ToJson());
+    }
+}
 ```
 
 {% endtab %}
@@ -1320,9 +1333,7 @@ using MoralisWeb3ApiSdk;
 }
 ```
 
-- [`GetTokenIdOwners`](https://github.com/nft-api/nft-api#gettokenidowners)
-
-<!-- #### getTokenIdOwners -->
+### getTokenIdOwners
 
 Returns an object with number of NFT transfers and an array with all owners of NFT items within a given contract collection (asynchronous).
 
@@ -1384,15 +1395,18 @@ curl -X 'GET' \
 {% tab title="Unity" %}
 
 ```csharp
-using System.Collections.Generic;
-using Moralis.Web3Api.Models;
-using MoralisWeb3ApiSdk;
+using MoralisUnity;
+using MoralisUnity.Web3Api.Models;
+using UnityEngine;
 
-  public async void fetchTokenIdOwners()
-  {
-    NftOwnerCollection tokenIdOwners = await MoralisInterface.GetClient().Web3Api.Token.GetTokenIdOwners(address: "0x7de3085b3190b3a787822ee16f23be010f5f8686", tokenId: "1" , ChainList.eth);
-    print(tokenIdOwners.ToJson());
-  }
+public class Example
+{
+    public async void fetchTokenIdOwners()
+    {
+        NftOwnerCollection tokenIdOwners = await Moralis.Web3Api.Token.GetTokenIdOwners(address: "0x7de3085b3190b3a787822ee16f23be010f5f8686", tokenId: "1", ChainList.eth);
+        Debug.Log(tokenIdOwners.ToJson());
+    }
+}
 ```
 
 {% endtab %}
@@ -1419,9 +1433,7 @@ using MoralisWeb3ApiSdk;
 ];
 ```
 
-- [`GetWalletTokenIdTransfers`](https://github.com/nft-api/nft-api#getwallettokenidtransfers)
-
-<!-- #### getWalletTokenIdTransfers -->
+### getWalletTokenIdTransfers
 
 Returns an object with number of NFT transfers and an array with all transfers of NFT by token id (asynchronous).
 
@@ -1485,15 +1497,18 @@ curl -X 'GET' \
 {% tab title="Unity" %}
 
 ```csharp
-using System.Collections.Generic;
-using Moralis.Web3Api.Models;
-using MoralisWeb3ApiSdk;
+using MoralisUnity;
+using MoralisUnity.Web3Api.Models;
+using UnityEngine;
 
-  public async void fetchWalletTokenIdTransfers()
-  {
-    NftTransferCollection transfers = await  MoralisInterface.GetClient().Web3Api.Token.GetWalletTokenIdTransfers(address: "0x7de3085b3190b3a787822ee16f23be010f5f8686", tokenId: "1", ChainList.eth);
-    print(transfers.ToJson());
-  }
+public class Example
+{
+    public async void fetchWalletTokenIdTransfers()
+    {
+        NftTransferCollection transfers = await Moralis.GetClient().Web3Api.Token.GetWalletTokenIdTransfers(address: "0x7de3085b3190b3a787822ee16f23be010f5f8686", tokenId: "1", ChainList.eth);
+        Debug.Log(transfers.ToJson());
+    }
+}
 ```
 
 {% endtab %}
