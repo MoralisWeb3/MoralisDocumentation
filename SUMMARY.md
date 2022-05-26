@@ -75,7 +75,6 @@
   * [Jobs](moralis-dapp/cloud-code/jobs.md)
   * [Webhooks](moralis-dapp/cloud-code/webhooks.md)
   * [Config](moralis-dapp/cloud-code/config.md)
-  * [Seamless Updates](moralis-dapp/cloud-code/seamless-updates.md)
 * [⛓ Web3](moralis-dapp/web3/README.md)
   * [Web3 Provider](moralis-dapp/web3/web3.md)
   * [Ganache & Hardhat Setup](moralis-dapp/web3/setting-up-ganache.md)
