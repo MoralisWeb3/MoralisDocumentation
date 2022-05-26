@@ -158,7 +158,7 @@ In this case you should disable historic sync as explained above and instead jus
 
 ## Collection Schema
 
-Moralis Server will get all value transfers, token transfers (ERC20), and NFT transfers (ERC721, ERC1155) made from or to any authenticated user address (including linked addresses) or watched address. Right after a user is [created](https://docs.moralis.io/users/intro) (or an address is watched), Moralis Server will populate the following set of collections for each blockchain synced by the Moralis Server. The names will be prefixed by the chain they came from.
+Moralis Server will get all value transfers, token transfers (ERC20), and NFT transfers (ERC721, ERC1155) made from or to any authenticated user address (including linked addresses) or watched address. Right after a user is [created](../users/) (or an address is watched), Moralis Server will populate the following set of collections for each blockchain synced by the Moralis Server. The names will be prefixed by the chain they came from.
 
 * xxxTransactions
 * xxxTokenTransfers

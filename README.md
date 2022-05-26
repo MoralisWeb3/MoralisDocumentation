@@ -40,7 +40,7 @@ You can read more about this in the [cloud code section](moralis-dapp/cloud-code
 
 Moralis' SDK is how we tie all of this together. Our JavaScript SDK is how your dApp interacts with your Moralis Server. Using the SDK, you can authenticate users, either through username and password or through a crypto wallet like MetaMask You can also use the SDK to get and set user data to fetch balances, NFTs, events, or transactions.
 
-You can read more about the SDK by[ clicking here](https://docs.moralis.io/moralis-dapp/getting-started/connect-the-sdk).
+You can read more about the SDK by[ clicking here](moralis-dapp/connect-the-sdk/).
 
 ## Welcome to the Moralis Documentation
 
