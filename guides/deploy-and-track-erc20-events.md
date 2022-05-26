@@ -2,7 +2,7 @@
 
 The following guide will explain how to deploy an ERC-20 smart contract, sync and watch contract events, and saving the data into the Moralis database:
 
-For this example, we deployed an ERC-20 contract with the symbol MOR with "**ERC20PresetMinterPauser.sol"** using our local Ganache instance, [Remix](https://remix.ethereum.org), and MetaMask. We also want to track all "\_mint" events for our contract _(keep in mind that "\_mint" events in OpenZeppelin emits a transfer event, more info_ [_HERE_](https://docs.openzeppelin.com/contracts/2.x/api/token/erc20#ERC20-_mint-address-uint256-)_)._
+For this example, we deployed an ERC-20 contract with the symbol MOR with "**ERC20PresetMinterPauser.sol"** using our local Ganache instance, [Remix](https://remix.ethereum.org), and MetaMask. We also want to track all "\_mint" events for our contract _(keep in mind that "\_mint" events in OpenZeppelin emits a transfer event, more info_ [_HERE_](https://docs.openzeppelin.com/contracts/2.x/api/token/erc20#ERC20-\_mint-address-uint256-)_)._
 
 ### Set Up Ganache
 
@@ -24,9 +24,9 @@ Click the MetaMask icon on the browser, and select the network drop-down menu. H
 
 ![](<../.gitbook/assets/image (12).png>)
 
-- **Network Name**: Ganache
-- **New RPC URL**: http://localhost:7545
-- **Chain Id**: 1337
+* **Network Name**: Ganache
+* **New RPC URL**: http://localhost:7545
+* **Chain Id**: 1337
 
 This information should be enough to connect MetaMask to your local Ganache.
 
@@ -133,7 +133,7 @@ Now, on the Moralis admin page, go to your Ganache server and click "View Detail
 
 Moralis comes with a built-in proxy server just for you, that enables direct connection from your Ganache instance to your server without worrying about firewalls.
 
-We need to get FRP from [https://github.com/fatedier/frp/releases](https://github.com/fatedier/frp/releases) depending on your OS/Hardware. In some Windows versions, FRP could be blocked by the firewall. If so, just use an older release, for example, frp_0.34.3_windows_386. This is a known issue, more information here: [https://github.com/fatedier/frp/issues/2095](https://github.com/fatedier/frp/issues/2095)
+We need to get FRP from [https://github.com/fatedier/frp/releases](https://github.com/fatedier/frp/releases) depending on your OS/Hardware. In some Windows versions, FRP could be blocked by the firewall. If so, just use an older release, for example, frp\_0.34.3\_windows\_386. This is a known issue, more information here: [https://github.com/fatedier/frp/issues/2095](https://github.com/fatedier/frp/issues/2095)
 
 Replace the content in "frpc.ini", the code assumes that your Ganache instance is hosted at port 7545.
 
@@ -157,11 +157,11 @@ The next step will be to create a new plugin in the admin panel to sync and watc
 
 ![](<../.gitbook/assets/image (5).png>)
 
-- **"description" -** Enter "Sync MOR Transfer Events". It's a small description for us to keep track of all the plugins we add to our instance.
-- **"topic" -** We use "_**Transfer(address,address,uint256)",**_ but you can also use the sha3 topic "**0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef**".
-- **"abi" -** Our abi includes three inputs: from, to, and value. We get this abi directly from Remix.
-- **"address" -** "**0x4F27558d3F86670a9E2EfF294b7d10600266533F**" (our MOR contract address).
-- **"tableName" -** "_**MORTransferEvent**",_ it's the name of the table that will be created in our database with all the events.
+* **"description" -** Enter "Sync MOR Transfer Events". It's a small description for us to keep track of all the plugins we add to our instance.
+* **"topic" -** We use "_**Transfer(address,address,uint256)",**_ but you can also use the sha3 topic "**0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef**".
+* **"abi" -** Our abi includes three inputs: from, to, and value. We get this abi directly from Remix.
+* **"address" -** "**0x4F27558d3F86670a9E2EfF294b7d10600266533F**" (our MOR contract address).
+* **"tableName" -** "_**MORTransferEvent**",_ it's the name of the table that will be created in our database with all the events.
 
 To get the abi from Remix, just go to the "Solidity Compiler" tab, choose the "**ERC20PresetMinterPauser.sol"** contract and click on the abi icon. The full abi will be copied to the clipboard, make sure you use only the abi for the event you are syncing:
 
@@ -171,4 +171,4 @@ Make sure your "frp-ganache" is connected, and you will see the table continuous
 
 ![](<../.gitbook/assets/image (6).png>)
 
-More details on [Sync and Watch Smart Contracts here](https://docs.moralis.io/moralis-dapp/web3/web3-1#sync-and-watch-contract-events).
+More details on [Sync and Watch Smart Contracts here](deploy-and-track-erc20-events.md#syncing-and-watching-contract-events-from-moralis).

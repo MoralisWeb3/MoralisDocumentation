@@ -13,9 +13,9 @@ description: >-
 
 You can get all historical transactions and listen to new transactions in real-time. It requires the following information:
 
-- `ChainId` (required): The chain to sync
-- `Address` (required): The address you will listen to for this event.
-- `Sync_historical` (optional): Sync Historical Data option. Default value `true`
+* `ChainId` (required): The chain to sync
+* `Address` (required): The address you will listen to for this event.
+* `Sync_historical` (optional): Sync Historical Data option. Default value `true`
 
 ![](<../../.gitbook/assets/image (115).png>)
 
@@ -110,11 +110,11 @@ Transactions on Testnet and Mainnet can take a while to be confirmed. When Moral
 
 It is important to note that different blockchains will have different confirmation numbers to ensure the validity of transactions. This means that in order for transactions to change its `confirmed` value in DB to `true`, it will require certain number of confirmations:
 
-- Ethereum: 12
-- Polygon: 100
-- BSC: 18
-- Avalanche: 100
-- Fantom: 100
+* Ethereum: 12
+* Polygon: 100
+* BSC: 18
+* Avalanche: 100
+* Fantom: 100
 
 ### Consequences for Triggers
 
@@ -158,13 +158,13 @@ In this case you should disable historic sync as explained above and instead jus
 
 ## Collection Schema
 
-Moralis Server will get all value transfers, token transfers (ERC20), and NFT transfers (ERC721, ERC1155) made from or to any authenticated user address (including linked addresses) or watched address. Right after a user is [created](https://docs.moralis.io/users/intro) (or an address is watched), Moralis Server will populate the following set of collections for each blockchain synced by the Moralis Server. The names will be prefixed by the chain they came from.
+Moralis Server will get all value transfers, token transfers (ERC20), and NFT transfers (ERC721, ERC1155) made from or to any authenticated user address (including linked addresses) or watched address. Right after a user is [created](../users/) (or an address is watched), Moralis Server will populate the following set of collections for each blockchain synced by the Moralis Server. The names will be prefixed by the chain they came from.
 
-- xxxTransactions
-- xxxTokenTransfers
-- xxxTokenBalances
-- xxxNFTTransfers
-- xxxNFTOwners
+* xxxTransactions
+* xxxTokenTransfers
+* xxxTokenBalances
+* xxxNFTTransfers
+* xxxNFTOwners
 
 These collections can be viewed in the "Moralis Dashboard."
 
