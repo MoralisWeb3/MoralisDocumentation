@@ -246,7 +246,7 @@ The first one tells you how many requests you are allowed to do per second and t
 
 Some heavy requests count as [several requests](https://docs.moralis.io/misc/rate-limit#request-weights).
 
-In order to not get rate-limited pay attention to `x-rate-limit-used`.
+In order to not get rate-limited pay attention to `x-rate-limit-used` to be lower than `x-rate-limit-limit`.
 
 The way to fix this error is to upgrade your Moralis plan.
 
