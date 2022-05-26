@@ -57,6 +57,7 @@
   * [User Balances and Transactions](moralis-dapp/automatic-transaction-sync/historical-transactions.md)
   * [Smart Contract Events](moralis-dapp/automatic-transaction-sync/smart-contract-events.md)
   * [Address Casing](moralis-dapp/automatic-transaction-sync/address-casing.md)
+  * [Free Plan Notes](moralis-dapp/automatic-transaction-sync/free-plan-notes.md)
 * [🗃 Database](moralis-dapp/database/README.md)
   * [Objects](moralis-dapp/database/objects.md)
   * [Permissions](moralis-dapp/database/permissions.md)
