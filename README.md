@@ -2,7 +2,7 @@
 
 ## What is Moralis?
 
-Think **Firebase of crypto**. Moralis provides managed backend for blockchain projects. Automatically syncing the balances of your users into the database, allowing you to set up on-chain alerts, watch smart contract events, build indexes, and so much more. All features are accessed through an easy-to-use SDK. All features Moralis provides are cross-chain by default 🤯.
+**Moralis provides a single workflow for building high performance dapps. Fully compatible with your favorite web3 tools and services.** Moralis provides managed backend for blockchain projects. Automatically syncing the balances of your users into the database, allowing you to set up on-chain alerts, watch smart contract events, build indexes, and so much more. All features are accessed through an easy-to-use SDK. All features Moralis provides are cross-chain by default 🤯.
 
 ## Why use Moralis?
 
