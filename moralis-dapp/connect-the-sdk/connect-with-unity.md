@@ -57,7 +57,6 @@ Downlaod the latest version of the SDK [here](https://github.com/ethereum-boiler
 
 Webgl can only be tested on build
 {% endhint %}
-<br/>
 {% endtab %}
 {% tab title="Version >= 1.2.0" %}
 
