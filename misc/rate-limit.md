@@ -238,15 +238,15 @@ In that case you will get `Error 429: Rate limit exceeded`.
 
 When you call the API you can expect the response header in order to understand your rate limits.
 
-![Response header example.](<../.gitbook/assets/Screenshot 2021-12-15 at 15.38.46.png>)
+![Response header example.](<../.gitbook/assets/headers_example.png>)
 
-The most important values to look at are `x-rate-limit-limit` and `x-rate-limit-throttle-limit`.
+The most important values to look at are `x-rate-limit-limit` and `x-rate-limit-used`.
 
-The first one tells you how many requests you are allowed to do per minute and the second one how many you can do per second.
+The first one tells you how many requests you are allowed to do per second and the second one how many requests you already did in current second.
 
 Some heavy requests count as [several requests](https://docs.moralis.io/misc/rate-limit#request-weights).
 
-In order to not get rate-limited pay attention to `x-rate-limit-used` and `x-rate-throttle-used`.
+In order to not get rate-limited pay attention to `x-rate-limit-used` to be lower than `x-rate-limit-limit`.
 
 The way to fix this error is to upgrade your Moralis plan.
 
