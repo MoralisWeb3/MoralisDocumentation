@@ -35,6 +35,14 @@ If you build your dapp based on resources spread over several free accounts - yo
 
 Please contact us at hello@moralis.io if you have any questions 🙌
 
+## Automatic Sync Free Plan Limitation
+
+On the free plan you are allowed to have 200 different syncs including all smart contract events and user syncs.
+
+Also you can maximum sync 20,000 events across all events.
+
+If you need more please email hello@moralis.io and we will give you an appropriate pro-plan.
+
 ## Request weights
 
 All Moralis plans have generous limits on the amount of requests you can make per month. How many included requests you have depends on the plan you have, check the [pricing page](https://moralis.io/pricing) for more details.
