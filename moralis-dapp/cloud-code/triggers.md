@@ -78,6 +78,8 @@ Moralis.Cloud.beforeSave("Review", (request) => {
     // Truncate and add a ...
     request.object.set("comment", comment.substring(0, 137) + "...");
   }
+  // ...
+  return request.object
 });
 ```
 
