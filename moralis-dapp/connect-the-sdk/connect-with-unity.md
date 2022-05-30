@@ -67,7 +67,7 @@ Webgl can only be tested on build
 ![](../../.gitbook/assets/moralis-unity-boilerplate_2.gif)
 
 **For WEBGL**
-
+- Copy the `WebGLTemplates` folder from  `Packages/io.moralis.web3-unity-sdk/Resources/` to the Assets folder
 - In Player Settings change the WebGL template to the Moralis WebGL Template.
 
 ![](../../.gitbook/assets/buildingforwebgl.gif)
