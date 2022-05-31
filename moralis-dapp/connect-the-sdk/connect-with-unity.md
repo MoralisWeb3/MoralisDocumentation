@@ -42,7 +42,7 @@ Downlaod the latest version of the SDK [here](https://github.com/ethereum-boiler
 ![](../../.gitbook/assets/addingserverkeys.gif)
 
 **For WEBGL**
-
+- Copy the `WebGLTemplates` folder from  `Packages/io.moralis.web3-unity-sdk/Resources/` to the Assets folder
 - In Player Settings change the WebGL template to the Moralis WebGL Template.
 
 ![](../../.gitbook/assets/buildingforwebgl.gif)
