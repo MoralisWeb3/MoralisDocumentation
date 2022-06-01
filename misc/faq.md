@@ -85,17 +85,7 @@ The goal of Moralis is to always offer you fully resolved metadata so that you d
 
 ### Why is it null?
 
-Some NFTs have their metadata hosted on centralised servers. These servers sometimes have rate limits preventing Moralis to fully index the collections that have their metadata stored on such servers. In such cases the metadata may not be resolved. We are working all the time to extend our coverage of metadata.
-
-### How to get metadata?
-
-Even though Moralis can't always resolve the metadata for you we will always give you `token_uri` so that you can always resolve it yourself.
-
-When working with Moralis NFT API always check if metadata is given to you.
-
-If yes - use it! We just saved you load time and improved the performance of your app 🙌
-
-If no - make a request to `token_uri` provided and get the metadata yourself.
+Sometimes the token_uri is invalid, and when we try to fetch the metadata we can not acceess it. In that case the metadata will be null.
 
 ## Why is metadata outdated?
 
