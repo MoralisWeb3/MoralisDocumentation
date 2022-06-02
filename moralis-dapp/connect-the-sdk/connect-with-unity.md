@@ -19,7 +19,7 @@ Web3 Unity Boilerplate
 
 #### Downloading the SDK
 
-Downlaod the latest version of the SDK [here](https://github.com/ethereum-boilerplate/web3-unity-boilerplate) Then navigate to the releases and select the lastest version of the sdk. downlaod it as a unity package
+Download the latest version of the SDK [here](https://github.com/ethereum-boilerplate/web3-unity-boilerplate) Then navigate to the releases and select the lastest version of the sdk. download it as a unity package
 
 ![](../../.gitbook/assets/downloadtheunitysdk.gif)
 
