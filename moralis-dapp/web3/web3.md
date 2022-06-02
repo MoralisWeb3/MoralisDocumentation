@@ -19,8 +19,6 @@ _Example_
 const web3Provider = await Moralis.enableWeb3();
 ```
 
-See for more info on how to use Ethers.js, in the [Ethers.js docs](https://docs.ethers.io)
-
 ### Web3.js
 
 You might want to use another library, like [Web3.js](https://web3js.readthedocs.io). To do so, you need to include this library to your code.
@@ -51,15 +49,15 @@ See for more info on how to use web3.js, in the [Web3.js docs](https://web3js.re
 
 > Note: Ethers.js is included in the Moralis SDK. So The function responses of Moralis.executeFunction and Moralis.transfer will always be formatted by Ethers.js (see below for more information)
 
-### Get the EthersJs library
+### Get the ethers.js library
 
-You can have access to the Ethers.js library, that Moralis is using:
+You can have access to the ethers.js library, that Moralis is using:
 
 ```javascript
 const ethers = Moralis.web3Library;
 ```
 
-With this instance, you can use any methods from Ethers.js, for example:
+With this instance, you can use any methods from ethers.js, for example:
 
 ```javascript
 const ethers = Moralis.web3Library;
@@ -79,7 +77,7 @@ console.log(name);
 // 'Dai Stablecoin'
 ```
 
-See for more info on how to use Ethers.js, in the [Ethers.js docs](https://docs.ethers.io)
+See for more info on how to use ethers.js, in the [ethers.js docs](https://docs.ethers.io)
 
 ### Connectors
 
@@ -109,11 +107,11 @@ Via `executeFunction`, you can execute read-only (view) functions, and write met
 
 Options:
 
-- contractAddress (required): A smart contract address
-- abi (required): Contract's or function ABI(should be provided as an array)
-- functionName (required): A function name
-- params (required): Parameters needed for your specific function
-- msgValue(optional): Number|String|BN|BigNumber. The value transferred for the transaction in wei.
+* contractAddress (required): A smart contract address
+* abi (required): Contract's or function ABI(should be provided as an array)
+* functionName (required): A function name
+* params (required): Parameters needed for your specific function
+* msgValue(optional): Number|String|BN|BigNumber. The value transferred for the transaction in wei.
 
 ### Read-only functions
 
@@ -165,7 +163,7 @@ Requires an enabled web3 provider. Before executing the function, make sure that
 {% endhint %}
 
 {% hint style="info" %}
-You can recieve this information without an active web3 provider using our Web3API: [Moralis.Web3API.token.getAllowance()](https://docs.moralis.io/moralis-dapp/web3-sdk/token#gettokenallowance)
+You can receive this information without an active web3 provider using our Web3API: [Moralis.Web3API.token.getAllowance()](https://docs.moralis.io/moralis-dapp/web3-sdk/token#gettokenallowance)
 {% endhint %}
 
 ### Example of calling a write contract method
@@ -224,7 +222,7 @@ console.log(message);
 // --> "Hello Moralis"
 ```
 
-You will get back a [transaction response from Ethers.js](https://docs.ethers.io/v5/api/providers/types/#providers-TransactionResponse), that includes the `hash` and other information.
+You will get back a [transaction response from ethers.js](https://docs.ethers.io/v5/api/providers/types/#providers-TransactionResponse), that includes the `hash` and other information.
 
 **Example transaction response**
 
@@ -308,6 +306,28 @@ const receipt = await transaction.wait(3);
 }
 ```
 
+### Setting custom gas
+
+Currently to set gas parameters, you will need to use ethers.js or web3.js directly. The following example uses the ethers.js library that comes with Moralis.
+
+```javascript
+const test = Moralis.web3Library; // get ethers.js library
+const web3Provider = await Moralis.enableWeb3(); // Get ethers.js web3Provider
+const gasPrice = await web3Provider.getGasPrice();
+
+const signer = web3Provider.getSigner();
+
+// wMATIC token on Mumbai
+const contract = new ethers.Contract('0x9c3C9283D3e44854697Cd22D3Faa240Cfb032889', ABI, signer);
+
+const transaction = await contract.deposit({
+  value: Moralis.Units.ETH('1'),
+  gasLimit: 100000000,
+  gasPrice: gasPrice,
+});
+await transaction.wait();
+```
+
 ### Transfering native crypto in contract method example
 
 For example, you want to call a smart contract method that exchanges native cryptocurrency for tokens. This case is different from the usual situations where you use ERC20 tokens and specify the number of tokens to use as a method parameter. Action with a native cryptocurrency in a smart contract assumes that you will transfer some value along with the transaction. In solidity you can know it as a `msg.value`
@@ -353,8 +373,8 @@ const name = await Moralis.executeFunction({
 
 `Moralis.executeFunction()` returns:
 
-- The return value if the function is read-only
-- A [transaction response](https://docs.ethers.io/v5/api/providers/types/#providers-TransactionResponse), if the function writes on-chain.
+* The return value if the function is read-only
+* A [transaction response](https://docs.ethers.io/v5/api/providers/types/#providers-TransactionResponse), if the function writes on-chain.
 
 You can resolve the transaction response into a receipt, by waiting until the transaction has been confirmed. For example, to wait for 3 confirmations:
 
@@ -373,12 +393,12 @@ const result = await transaction.wait();
 
 There are several events, that you can listen to on Moralis, in order to check the web3 connection of the user:
 
-- onWeb3Enabled
-- onWeb3Deactivated
-- onChainChanged
-- onAccountChanged
-- onConnect (fired from the EIP1193 provider)
-- onDisconnect (fired from the EIP1193 provider)
+* onWeb3Enabled
+* onWeb3Deactivated
+* onChainChanged
+* onAccountChanged
+* onConnect (fired from the EIP1193 provider)
+* onDisconnect (fired from the EIP1193 provider)
 
 ### Moralis.onWeb3Enabled()
 
@@ -471,8 +491,8 @@ From [the specification](https://eips.ethereum.org/EIPS/eip-1193):
 
 > The Provider emits connect when it:
 >
-> - first connects to a chain after being initialized.
-> - first connects to a chain, after the disconnect event was emitted.
+> * first connects to a chain after being initialized.
+> * first connects to a chain, after the disconnect event was emitted.
 
 ```javascript
 // Subscribe to onConnect events
@@ -536,8 +556,8 @@ Other wallets have similar implementations, please look at the documentation of 
 
 Link (unlink) an address to the current user.
 
-- link(address)
-- unlink(address)
+* link(address)
+* unlink(address)
 
 The user may have multiple addresses they wish to associate with their profile. This can be done with the `link` function after the user has been authenticated.
 
@@ -582,7 +602,9 @@ if (isWeb3Active) {
   await Moralis.enable();
 }
 ```
+
 ## deactivateWeb3
+
 Deactivates current web3 connection
 
 ```javascript
@@ -591,6 +613,7 @@ Deactivates current web3 connection
       await Moralis.deactivateWeb3();
       console.log("DISABLED", Moralis.isWeb3Enabled());
 ```
+
 ## connector / connectorType
 
 Returns details of the connector or the connector type, that is used to authenticate or enable web3:
@@ -631,7 +654,7 @@ Function to change the current network
 
 #### Options:
 
-- `chain`(required): The chain id to switch to. Accepts values in numbers or in hex strings. Valid values are listed on the [intro page in the Transactions and Balances section](https://docs.moralis.io/moralis-dapp/web3-api/supported-chains#supported-chains). Examples: `56`, `"0x38"`
+* `chain`(required): The chain id to switch to. Accepts values in numbers or in hex strings. Valid values are listed on the [intro page in the Transactions and Balances section](https://docs.moralis.io/moralis-dapp/web3-api/supported-chains#supported-chains). Examples: `56`, `"0x38"`
 
 ```javascript
 const chainId = "0x1"; //Ethereum Mainnet
@@ -650,12 +673,12 @@ The function for adding a new network to the wallet. You can find the network co
 
 #### Options:
 
-- `chainid`(required): Network Chain Id
-- `chainName`(required): Network name
-- `currencyName`(required): Name of native currency
-- `currencySymbol`(required): Currency Symbol
-- `rpcUrl`(required): New RPC URL
-- `blockExplorerUrl`(required): BLock Explorer URL
+* `chainid`(required): Network Chain Id
+* `chainName`(required): Network name
+* `currencyName`(required): Name of native currency
+* `currencySymbol`(required): Currency Symbol
+* `rpcUrl`(required): New RPC URL
+* `blockExplorerUrl`(required): BLock Explorer URL
 
 ```javascript
 const chainId = 43114;
