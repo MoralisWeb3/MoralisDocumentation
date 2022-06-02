@@ -46,8 +46,8 @@ Very powerful and fast tool for getting the NFT data based on a metadata search 
 
 * `chain`(optional): The blockchain to get data from. Valid values are listed on [Supported Chains](supported-chains.md). Default value `Eth`.
 * `format` (optional): The format of the token id. Available values : `decimal`, `hex`. Default value : `decimal.`
-* `offset` (optional): offset.
-* `limit`(optional): limit.
+* `cursor` (optional): The next page of data to retrieve. Next page cursor value returned from each request.
+* `limit`(optional): limit (max 100).
 * `q` (required): The search string parameter
 * `filter`(required): What fields the search should match on. To look into the entire metadata set the value to `global`. To have a better response time you can look into a specific field like name. Available values : `name`; `description`; `attributes`; `global`; `name,description`; `name,attributes`; `description,attributes`; `name,description,attributes`
 
@@ -374,8 +374,8 @@ Returns an object with the NFT count for the specified contract and an NFT array
 
 * `chain`(optional): The blockchain to get data from. Valid values are listed on [Supported Chains](supported-chains.md). Default value `Eth`.
 * `format` (optional): The format of the token id. Available values : `decimal`, `hex`. Default value : `decimal.`
-* `offset`(optional): Offset.
-* `limit`(optional): Limit.
+* `cursor` (optional): The next page of data to retrieve. Next page cursor value returned from each request.
+* `limit`(optional): limit (max 100).
 * `order`(optional): The field(s) to order on and if it should be ordered in ascending or descending order.
 * `address` (optional): The owner of a given token (i.e. `0x1a2b3x...`). If specified, the user attached to the query is ignored and the address will be used instead.
 * `token_address`(required): Address of the contract
@@ -485,9 +485,9 @@ Get the NFT transfers. Returns an object with the number of NFT transfers and th
 
 * `chain`(optional): The blockchain to get data from. Valid values are listed on [Supported Chains](supported-chains.md). Default value `Eth`.
 * `format` (optional): The format of the token id. Available values : `decimal`, `hex`. Default value : `decimal.`
-* `offset`(optional): Offset.
 * `direction`(optional): The transfer direction. Available values : `both`, `to`, `from` . Default value : `both`.
-* `limit`(optional): Limit.
+* `cursor` (optional): The next page of data to retrieve. Next page cursor value returned from each request.
+* `limit`(optional): limit (max 100).
 * `order` (optional): The field(s) to order on and if it should be ordered in ascending or descending order.
 * `address` (optional): A user address (i.e. `0x1a2b3x...`). If specified, the user attached to the query is ignored and the address will be used instead.
 
@@ -597,8 +597,8 @@ Returns an object with a number of NFTs and an array with NFT metadata (name, sy
 
 * `chain`(optional): The blockchain to get data from. Valid values are listed on [Supported Chains](supported-chains.md). Default value `Eth`.
 * `format` (optional): The format of the token id. Available values : `decimal`, `hex`. Default value : `decimal.`
-* `offset` (optional): offset.
-* `limit`(optional): limit.
+* `cursor` (optional): The next page of data to retrieve. Next page cursor value returned from each request.
+* `limit`(optional): limit (max 100).
 * `address`(required): The address of the token contract.
 
 {% tabs %}
@@ -685,8 +685,8 @@ Returns an object with number of NFT transfers and an array with NFT transfers f
 
 * `chain`(optional): The blockchain to get data from. Valid values are listed on [Supported Chains](supported-chains.md). Default value `Eth`.
 * `format` (optional): The format of the token id. Available values : `decimal`, `hex`. Default value is `decimal.`
-* `offset` (optional): offset.
-* `limit`(optional): limit.
+* `cursor` (optional): The next page of data to retrieve. Next page cursor value returned from each request.
+* `limit`(optional): limit (max 100).
 * `address`(required): Address of the contract
 
 {% tabs %}
@@ -952,8 +952,8 @@ Returns an object with a number of NFT owners and an array with NFT metadata (na
 
 * `chain`(optional): The blockchain to get data from. Valid values are listed on [Supported Chains](supported-chains.md). Default value `Eth`.
 * `format` (optional): The format of the token id. Available values : `decimal`, `hex`. Default value : `decimal.`
-* `offset` (optional): offset.
-* `limit`(optional): limit.
+* `cursor` (optional): The next page of data to retrieve. Next page cursor value returned from each request.
+* `limit`(optional): limit (max 100).
 * `address`(required): Address of the contract
 
 {% tabs %}
@@ -1052,8 +1052,8 @@ Returns an object with NFT trades for a given contract and marketplace
 * `to_date` (optional): Get the trades to this date (any format that is accepted by momentjs). Provide the param 'to\_block' or 'to\_date' If 'to\_date' and 'to\_block' are provided, 'to\_block' will be used.
 * `from_block` (optional): The minimum block number from where to get the tradesProvide the param 'from\_block' or 'from\_date' If 'from\_date' and 'from\_block' are provided, 'from\_block' will be used.
 * `to_block` (optional): The maximum block number from where to get the trades. Provide the param 'to\_block' or 'to\_date' If 'to\_date' and 'to\_block' are provided, 'to\_block' will be used.
-* `offset`(optional): Offset.
-* `limit`(optional): Limit.
+* `cursor` (optional): The next page of data to retrieve. Next page cursor value returned from each request.
+* `limit`(optional): limit (max 100).
 * `marketplace` (optional): Marketplace from where to get the trades (only opensea is supported at the moment).
 * `address` (required): Address of the contract(i.e. `0x1a2b3x...`).
 
@@ -1237,8 +1237,8 @@ Returns an object with number of NFT transfers and an array with all owners of N
 
 * `chain`(optional): The blockchain to get data from. Valid values are listed on [Supported Chains](supported-chains.md). Default value `Eth`.
 * `format` (optional): The format of the token id. Available values : `decimal`, `hex`. Default value is `decimal`
-* `offset` (optional): offset.
-* `limit`(optional): limit.
+* `cursor` (optional): The next page of data to retrieve. Next page cursor value returned from each request.
+* `limit`(optional): limit (max 100).
 * `address`(required): Address of the contract.
 * `token_id`(required): The id of the token.
 
@@ -1329,8 +1329,8 @@ Returns an object with number of NFT transfers and an array with all transfers o
 
 * `chain`(optional): The blockchain to get data from. Valid values are listed on [Supported Chains](supported-chains.md). Default value `Eth`.
 * `format` (optional): The format of the token id. Available values : `decimal`, `hex`. Default value is `decimal`
-* `offset` (optional): offset.
-* `limit`(optional): limit.
+* `cursor` (optional): The next page of data to retrieve. Next page cursor value returned from each request.
+* `limit`(optional): limit (max 100).
 * `address`(required): Address of the contract.
 * `token_id`(required): The id of the token.
 
