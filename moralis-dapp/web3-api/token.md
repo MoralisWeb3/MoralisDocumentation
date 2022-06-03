@@ -710,6 +710,124 @@ Requests for contract addresses not yet indexed will automatically start the ind
 ];
 ```
 
+## getNftTransfersFromToBlock
+
+Gets NFT transfers from a block number to a block number
+
+#### Options:
+
+Needs at least one of `from_block`, `to_block` , `from_date` , `to_date`
+
+- `chain`(optional): The blockchain to get data from. Valid values are listed on [Supported Chains](supported-chains.md). Default value `Eth`.
+- `from_block`(optional): The minimum block number from where to get the transfers\n* Provide the param 'from_block' or 'from_date'. If 'from_date' and 'from_block' are provided, 'from_block' will be used.
+- `to_block` (optional): The maximum block number from where to get the transfers. Provide the param 'to_block' or 'to_date', If 'to_date' and 'to_block' are provided, 'to_block' will be used.
+- `from_date` (optional): The date from where to get the transfers (any format that is accepted by momentjs). Provide the param 'from_block' or 'from_date'. If 'from_date' and 'from_block' are provided, 'from_block' will be used.
+- `to_date`(optional): Get transfers up until this date (any format that is accepted by momentjs)\n* Provide the param 'to_block' or 'to_date'. If 'to_date' and 'to_block' are provided, 'to_block' will be used.
+- `format`(optional): The format of the token id. Available values : `decimal`, `hex`. Default value : `decimal.`
+- `limit`(optional): limit
+
+
+{% tabs %}
+{% tab title="JS" %}
+
+```javascript
+const options = {
+  from_block: "14876000",
+  to_block: "14877000",
+  //from_date: "",
+  //to_date: "",
+  format: "decimal",
+  limit: "10"
+};
+const data = await Moralis.Web3API.token.getNftTransfersFromToBlock(options)
+```
+
+{% endtab %}
+
+{% tab title="React" %}
+
+```javascript
+import React from "react";
+import { useMoralisWeb3Api } from "react-moralis";
+
+const Web3Api = useMoralisWeb3Api();
+
+const nftTransfers = async () => {
+  const options = {
+    from_block: "14876000",
+    to_block: "14877000",
+    format: "decimal",
+    limit: "10"
+  };
+  const nftTransfers = await Web3Api.token.getNftTransfersFromToBlock(options);
+  console.log(nftTransfers);
+};
+```
+
+{% endtab %}
+
+{% tab title="curl" %}
+
+```bash
+curl -X 'GET' \
+  'https://deep-index.moralis.io/api/v2/nft/transfers?chain=eth&from_block=14876000&format=decimal' \
+  -H 'accept: application/json' \
+  -H 'X-API-Key: MY-API-KEY'
+```
+
+{% endtab %}
+
+{% tab title="Unity" %}
+
+```csharp
+using MoralisUnity;
+using MoralisUnity.Web3Api.Models;
+using UnityEngine;
+
+public class Example
+{
+    public async void fetchNFTTransfers()
+    {
+        NftTransfer nftTransfers = await Moralis.Web3Api.Token.getNftTransfersFromToBlock(from_block: "14876000", ChainList.eth);
+        Debug.Log(nftTransfers.ToJson());
+    }
+}
+```
+
+{% endtab %}
+{% endtabs %}
+
+{% hint style="info" %}
+Make sure to include a sort parm on a column like token_id for consistent pagination results
+{% endhint %}
+
+{% hint style="info" %}
+Requests for contract addresses not yet indexed will automatically start the indexing process for that NFT collection
+{% endhint %}
+
+#### Example result:
+
+```javascript
+[
+  {
+    token_address: "0x057Ec652A4F150f7FF94f089A38008f49a0DF88e",
+    token_id: "15",
+    contract_type: "ERC721",
+    owner_of: "0x057Ec652A4F150f7FF94f089A38008f49a0DF88e",
+    block_number: "88256",
+    block_number_minted: "88256",
+    token_uri: "string",
+    metadata: "string",
+    synced_at: "string",
+    amount: "1",
+    name: "CryptoKitties",
+    symbol: "RARI",
+  },
+];
+```
+
+
+
 ## searchNFTs
 
 Very powerful and fast tool for getting the NFT data based on a metadata search (asynchronous).
