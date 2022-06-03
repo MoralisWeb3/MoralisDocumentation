@@ -788,7 +788,7 @@ public class Example
 {
     public async void fetchNFTTransfers()
     {
-        NftTransfer nftTransfers = await Moralis.Web3Api.Token.getNftTransfersFromToBlock(from_block: "14876000", ChainList.eth);
+        NftTransferCollection nftTransfers = await Moralis.Web3Api.Token.getNftTransfersFromToBlock(from_block: "14876000", ChainList.eth);
         Debug.Log(nftTransfers.ToJson());
     }
 }
