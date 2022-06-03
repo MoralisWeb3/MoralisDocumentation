@@ -489,7 +489,7 @@ Get the NFT transfers. Returns an object with the number of NFT transfers and th
 * `cursor` (optional): The next page of data to retrieve. Next page cursor value returned from each request.
 * `limit`(optional): limit (max 100).
 * `order` (optional): The field(s) to order on and if it should be ordered in ascending or descending order.
-* `address` (optional): A user address (i.e. `0x1a2b3x...`). If specified, the user attached to the query is ignored and the address will be used instead.
+* `address` (required): A user address (i.e. `0x1a2b3x...`). If specified, the user attached to the query is ignored and the authenticated address will be used instead.
 
 {% tabs %}
 {% tab title="JS" %}
@@ -585,6 +585,241 @@ Any request which includes the token\_address param will start the indexing proc
     transaction_type: "string",
     transaction_index: "string",
     log_index: 0,
+  },
+];
+```
+
+### getNftTransfersFromToBlock
+
+Gets NFT transfers from a block number to a block number
+
+#### Options:
+
+Needs at least one of `from_block`, `to_block` , `from_date` , `to_date`
+
+- `chain`(optional): The blockchain to get data from. Valid values are listed on [Supported Chains](supported-chains.md). Default value `Eth`.
+- `from_block`(optional): The minimum block number from where to get the transfers. Provide the param 'from_block' or 'from_date'. If 'from_date' and 'from_block' are provided, 'from_block' will be used.
+- `to_block` (optional): The maximum block number from where to get the transfers. Provide the param 'to_block' or 'to_date', If 'to_date' and 'to_block' are provided, 'to_block' will be used.
+- `from_date` (optional): The date from where to get the transfers (any format that is accepted by momentjs). Provide the param 'from_block' or 'from_date'. If 'from_date' and 'from_block' are provided, 'from_block' will be used.
+- `to_date`(optional): Get transfers up until this date (any format that is accepted by momentjs). Provide the param 'to_block' or 'to_date'. If 'to_date' and 'to_block' are provided, 'to_block' will be used.
+- `format`(optional): The format of the token id. Available values : `decimal`, `hex`. Default value : `decimal.`
+- `limit`(optional): limit
+
+
+{% tabs %}
+{% tab title="JS" %}
+
+```javascript
+const options = {
+  from_block: "14876000",
+  to_block: "14877000",
+  //from_date: "",
+  //to_date: "",
+  format: "decimal",
+  limit: "10"
+};
+const data = await Moralis.Web3API.token.getNftTransfersFromToBlock(options)
+```
+
+{% endtab %}
+
+{% tab title="React" %}
+
+```javascript
+import React from "react";
+import { useMoralisWeb3Api } from "react-moralis";
+
+const Web3Api = useMoralisWeb3Api();
+
+const nftTransfers = async () => {
+  const options = {
+    from_block: "14876000",
+    to_block: "14877000",
+    format: "decimal",
+    limit: "10"
+  };
+  const nftTransfers = await Web3Api.token.getNftTransfersFromToBlock(options);
+  console.log(nftTransfers);
+};
+```
+
+{% endtab %}
+
+{% tab title="curl" %}
+
+```bash
+curl -X 'GET' \
+  'https://deep-index.moralis.io/api/v2/nft/transfers?chain=eth&from_block=14876000&format=decimal' \
+  -H 'accept: application/json' \
+  -H 'X-API-Key: MY-API-KEY'
+```
+
+{% endtab %}
+
+{% tab title="Unity" %}
+
+```csharp
+using MoralisUnity;
+using MoralisUnity.Web3Api.Models;
+using UnityEngine;
+
+public class Example
+{
+    public async void fetchNFTTransfers()
+    {
+        NftTransferCollection nftTransfers = await Moralis.Web3Api.Token.getNftTransfersFromToBlock(from_block: "14876000", ChainList.eth);
+        Debug.Log(nftTransfers.ToJson());
+    }
+}
+```
+
+{% endtab %}
+{% endtabs %}
+
+{% hint style="info" %}
+Make sure to include a sort parm on a column like token_id for consistent pagination results
+{% endhint %}
+
+{% hint style="info" %}
+Requests for contract addresses not yet indexed will automatically start the indexing process for that NFT collection
+{% endhint %}
+
+#### Example result:
+
+```javascript
+"result": [
+    {
+      "block_number": "14876001",
+      "block_timestamp": "2022-05-31T01:41:33.000Z",
+      "block_hash": "0x38e7a69058a46376774dfe7f625e0cca7828a129925ada09ab7761bda6b701de",
+      "transaction_hash": "0x0ec413e59b7ca4d0eee2c18ae054315b30faed0c3ddb5de6af0689794f225abe",
+      "transaction_index": 180,
+      "log_index": 416,
+      "value": "24900000000000000",
+      "contract_type": "ERC721",
+      "transaction_type": "Single",
+      "token_address": "0x415f77738147a65a9d76bb0407af206a921cee0f",
+      "token_id": "1377",
+      "from_address": "0xcc3490aecec5eb123c2f6a51e406f04debb47f96",
+      "to_address": "0xe966275f1e1932fb064f9ba90aa65e0c2ad0bfad",
+      "amount": "1",
+      "verified": 1,
+      "operator": null
+    },
+    {
+      "block_number": "14876001",
+      "block_timestamp": "2022-05-31T01:41:33.000Z",
+      "block_hash": "0x38e7a69058a46376774dfe7f625e0cca7828a129925ada09ab7761bda6b701de",
+      "transaction_hash": "0x7de568004f40c193989306e2e3bb3c17670c2aef7da2fb5065b633d6cd48bd1b",
+      "transaction_index": 178,
+      "log_index": 413,
+      "value": "80000000000000000",
+      "contract_type": "ERC1155",
+      "transaction_type": "Single",
+      "token_address": "0xb66a603f4cfe17e3d27b87a8bfcad319856518b8",
+      "token_id": "68508210689022796360004252200345882845300391813826407755322269495475862241291",
+      "from_address": "0x977645ec9a66cb8baa744c73862b7525845390ec",
+      "to_address": "0x0ee8951fe70b088b5ecf63af4491ed230bbd51a6",
+      "amount": "1",
+      "verified": 1,
+      "operator": "0x5cf4ce4bcd9c49c153e644f11d3fed7a64ccc065"
+    },
+];
+```
+
+### getNFTTransfersByBlock
+
+Retrieve NFT transfers by block number or block hash. Returns an array of NFT transfers (asynchronous).
+
+#### Options:
+
+- `chain`(optional): The blockchain to get data from. Valid values are listed on [Supported Chains](supported-chains.md). Default value `Eth`.
+- `block_number_or_hash` (required): The block hash or block number.
+
+{% tabs %}
+{% tab title="JS" %}
+
+```javascript
+const options = { chain: "bsc", block_number_or_hash: "11284830" };
+
+// get NFT transfers by block number or block hash
+const NFTTransfers = await Moralis.Web3API.native.getNFTTransfersByBlock(
+  options
+);
+```
+
+{% endtab %}
+
+{% tab title="React" %}
+
+```javascript
+import React from "react";
+import { useMoralisWeb3Api } from "react-moralis";
+
+const Web3Api = useMoralisWeb3Api();
+
+const fetchNFTTransfersByBlock = async () => {
+  // get NFT transfers by block number or block hash
+  const options = { chain: "bsc", block_number_or_hash: "11284830" };
+
+  const NFTTransfers = await Web3Api.native.getNFTTransfersByBlock(options);
+  console.log(NFTTransfers);
+};
+```
+
+{% endtab %}
+
+{% tab title="curl" %}
+
+```bash
+curl -X 'GET' \
+  'https://deep-index.moralis.io/api/v2/block/11284830/nft/transfers?chain=bsc&limit=500' \
+  -H 'accept: application/json' \
+  -H 'X-API-Key: MY-API-KEY'
+```
+
+{% endtab %}
+
+{% tab title="Unity" %}
+
+```csharp
+using MoralisUnity;
+using MoralisUnity.Web3Api.Models;
+using UnityEngine;
+
+public class Example
+{
+    public async void fetchNFTTransfersByBlock()
+    {
+        NftTransferCollection nftTransfers = await Moralis.Web3Api.Native.GetNFTTransfersByBlock(blockNumberOrHash: "11284830", ChainList.bsc);
+        Debug.Log(nftTransfers.ToJson());
+    }
+}
+```
+
+{% endtab %}
+{% endtabs %}
+
+#### Example result:
+
+```javascript
+[
+  {
+    amount: "1",
+    block_hash:
+      "0x4c00bcee8900e5fc4f6a5d11dff6edca3b97470da290986940da1d2f0ef221fb",
+    block_number: "11284830",
+    block_timestamp: "2021-09-27T17:07:54.000Z",
+    contract_type: "ERC721",
+    from_address: "0x6102f780a5c51dee8ce46c5db5b62d88119d559d",
+    log_index: 130,
+    to_address: "0xd95f7419ce0debf3a991ef9944808010928db319",
+    token_address: "0xcf58705e2ff8642c4276c2dd2747ec8af5bafc1d",
+    token_id: "281",
+    transaction_hash:
+      "0x19721cf6855f412f82de87f8c6050e6de3cc77a81388002bc24efea53bd36a0f",
+    transaction_index: 35,
+    transaction_type: "Single",
   },
 ];
 ```
