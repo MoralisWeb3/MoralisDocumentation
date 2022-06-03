@@ -719,10 +719,10 @@ Gets NFT transfers from a block number to a block number
 Needs at least one of `from_block`, `to_block` , `from_date` , `to_date`
 
 - `chain`(optional): The blockchain to get data from. Valid values are listed on [Supported Chains](supported-chains.md). Default value `Eth`.
-- `from_block`(optional): The minimum block number from where to get the transfers\n* Provide the param 'from_block' or 'from_date'. If 'from_date' and 'from_block' are provided, 'from_block' will be used.
+- `from_block`(optional): The minimum block number from where to get the transfers. Provide the param 'from_block' or 'from_date'. If 'from_date' and 'from_block' are provided, 'from_block' will be used.
 - `to_block` (optional): The maximum block number from where to get the transfers. Provide the param 'to_block' or 'to_date', If 'to_date' and 'to_block' are provided, 'to_block' will be used.
 - `from_date` (optional): The date from where to get the transfers (any format that is accepted by momentjs). Provide the param 'from_block' or 'from_date'. If 'from_date' and 'from_block' are provided, 'from_block' will be used.
-- `to_date`(optional): Get transfers up until this date (any format that is accepted by momentjs)\n* Provide the param 'to_block' or 'to_date'. If 'to_date' and 'to_block' are provided, 'to_block' will be used.
+- `to_date`(optional): Get transfers up until this date (any format that is accepted by momentjs). Provide the param 'to_block' or 'to_date'. If 'to_date' and 'to_block' are provided, 'to_block' will be used.
 - `format`(optional): The format of the token id. Available values : `decimal`, `hex`. Default value : `decimal.`
 - `limit`(optional): limit
 
@@ -808,21 +808,43 @@ Requests for contract addresses not yet indexed will automatically start the ind
 #### Example result:
 
 ```javascript
-[
-  {
-    token_address: "0x057Ec652A4F150f7FF94f089A38008f49a0DF88e",
-    token_id: "15",
-    contract_type: "ERC721",
-    owner_of: "0x057Ec652A4F150f7FF94f089A38008f49a0DF88e",
-    block_number: "88256",
-    block_number_minted: "88256",
-    token_uri: "string",
-    metadata: "string",
-    synced_at: "string",
-    amount: "1",
-    name: "CryptoKitties",
-    symbol: "RARI",
-  },
+"result": [
+    {
+      "block_number": "14876001",
+      "block_timestamp": "2022-05-31T01:41:33.000Z",
+      "block_hash": "0x38e7a69058a46376774dfe7f625e0cca7828a129925ada09ab7761bda6b701de",
+      "transaction_hash": "0x0ec413e59b7ca4d0eee2c18ae054315b30faed0c3ddb5de6af0689794f225abe",
+      "transaction_index": 180,
+      "log_index": 416,
+      "value": "24900000000000000",
+      "contract_type": "ERC721",
+      "transaction_type": "Single",
+      "token_address": "0x415f77738147a65a9d76bb0407af206a921cee0f",
+      "token_id": "1377",
+      "from_address": "0xcc3490aecec5eb123c2f6a51e406f04debb47f96",
+      "to_address": "0xe966275f1e1932fb064f9ba90aa65e0c2ad0bfad",
+      "amount": "1",
+      "verified": 1,
+      "operator": null
+    },
+    {
+      "block_number": "14876001",
+      "block_timestamp": "2022-05-31T01:41:33.000Z",
+      "block_hash": "0x38e7a69058a46376774dfe7f625e0cca7828a129925ada09ab7761bda6b701de",
+      "transaction_hash": "0x7de568004f40c193989306e2e3bb3c17670c2aef7da2fb5065b633d6cd48bd1b",
+      "transaction_index": 178,
+      "log_index": 413,
+      "value": "80000000000000000",
+      "contract_type": "ERC1155",
+      "transaction_type": "Single",
+      "token_address": "0xb66a603f4cfe17e3d27b87a8bfcad319856518b8",
+      "token_id": "68508210689022796360004252200345882845300391813826407755322269495475862241291",
+      "from_address": "0x977645ec9a66cb8baa744c73862b7525845390ec",
+      "to_address": "0x0ee8951fe70b088b5ecf63af4491ed230bbd51a6",
+      "amount": "1",
+      "verified": 1,
+      "operator": "0x5cf4ce4bcd9c49c153e644f11d3fed7a64ccc065"
+    },
 ];
 ```
 
