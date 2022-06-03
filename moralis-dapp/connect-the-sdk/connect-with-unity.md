@@ -73,8 +73,14 @@ Webgl can only be tested on build
 
 #### Running the application
 
-- Open the DemoScene in the Examples
-- Run the application by clicking the Play icon located at the top, center of the Unity.
+- Open the Demos folder in the Moralis Web3 Unity SDK/
+- Navigate to and open the Introduction scene in Introduction/
+- Run the application/scene by clicking the Play icon located at the top, center of the Unity.
+
+{% hint style="warning" %}
+If the above did not work, you can copy and paste the Demos/ folder in the Assets folder and run it from there
+{% endhint %}
+
 
 {% endtab %}
 
