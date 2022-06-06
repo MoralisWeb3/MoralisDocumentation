@@ -82,6 +82,7 @@ Specify the chain id that WalletConnect will use by default. You can do this by 
 const user = await Moralis.authenticate({ provider: "walletconnect", chainId: 56 })
 ```
 {% endtab %}
+
 {% tab title="React" %}
 ```javascript
 import { useMoralis } from "react-moralis";
@@ -127,8 +128,6 @@ const user = await Moralis.authenticate({
 })
 ```
 {% endtab %}
-<<<<<<< HEAD
-=======
 
 {% tab title="React" %}
 ```javascript
@@ -164,42 +163,7 @@ function App() {
 ```
 {% endtab %}
 {% endtabs %}
->>>>>>> d82bb09ff1610e9b0e24a7f8db9118fc66e13d2b
 
-{% tab title="React" %}
-```javascript
-import { useMoralis } from "react-moralis";
-
-function App() {
-
-    const { authenticate, isAuthenticated, user } = useMoralis();
-
-    const login = async () => {
-      if (!isAuthenticated) {
-
-        await authenticate({ 
-                provider: "walletconnect", 
-                mobileLinks: [
-                  "rainbow",
-                  "metamask",
-                  "argent",
-                  "trust",
-                  "imtoken",
-                  "pillar",
-                ] 
-            })
-          .then(function (user) {
-            console.log(user!.get("ethAddress"));
-          })
-          .catch(function (error) {
-            console.log(error);
-          });
-      }
-    }
-}
-```
-{% endtab %}
-{% endtabs %}
 ## Tutorial
 
 {% embed url="https://www.youtube.com/watch?feature=emb_title&v=UP6MfkU3Bkg" %}
