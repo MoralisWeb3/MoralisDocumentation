@@ -107,3 +107,4 @@ redirects:
   moralis-dapp/solana-sdk/supported-networks: moralis-dapp/solana-api/supported-networks.md
   moralis-dapp/solana-sdk/account: moralis-dapp/solana-api/account.md
   moralis-dapp/solana-sdk/nft: moralis-dapp/solana-api/nft.md
+  unity: moralis-dapp/connect-the-sdk/connect-with-unity.md

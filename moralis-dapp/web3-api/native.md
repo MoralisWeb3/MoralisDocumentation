@@ -100,30 +100,33 @@ curl -X 'POST' \
 {% tab title="Unity" %}
 
 ```csharp
-using System.Collections.Generic;
-using Moralis.Web3Api.Models;
-using MoralisWeb3ApiSdk;
+using MoralisUnity;
+using MoralisUnity.Web3Api.Models;
+using UnityEngine;
 
-   public async void ReadFunction()
-   {
-      // Function ABI input parameters
-      object[] inputParams = new object[1];
-      inputParams[0] = new { internalType = "address", name = "account", type = "address"};
-      // Function ABI Output parameters
-      object[] outputParams = new object[1];
-      outputParams[0] = new { internalType = "uint256", name = "", type = "uint256"};
-      // Function ABI
-      object[] abi = new object[1];
-      abi[0] = new { inputs = inputParams, name = "balanceOf", outputs = outputParams, stateMutability = "view", type = "function" };
-      // Define request object
-      RunContractDto rcd = new RunContractDto()
-      {
-          Abi = abi,
-          Params = new { account = "0x3355d6E71585d4e619f4dB4C7c5Bfe549b278299" }
-      };
-      string resp = await MoralisInterface.GetClient().Web3Api.Native.RunContractFunction("0xdAC17F958D2ee523a2206206994597C13D831ec7", "balanceOf", rcd, ChainList.eth);
-      print(resp);
-   }
+public class Example
+{
+    public async void ReadFunction()
+    {
+        // Function ABI input parameters
+        object[] inputParams = new object[1];
+        inputParams[0] = new { internalType = "address", name = "account", type = "address" };
+        // Function ABI Output parameters
+        object[] outputParams = new object[1];
+        outputParams[0] = new { internalType = "uint256", name = "", type = "uint256" };
+        // Function ABI
+        object[] abi = new object[1];
+        abi[0] = new { inputs = inputParams, name = "balanceOf", outputs = outputParams, stateMutability = "view", type = "function" };
+        // Define request object
+        RunContractDto rcd = new RunContractDto()
+        {
+            Abi = abi,
+            Params = new { account = "0x3355d6E71585d4e619f4dB4C7c5Bfe549b278299" }
+        };
+        string resp = await Moralis.Web3Api.Native.RunContractFunction("0xdAC17F958D2ee523a2206206994597C13D831ec7", "balanceOf", rcd, ChainList.eth);
+        Debug.Log(resp);
+    }
+}
 ```
 
 {% endtab %}
@@ -187,15 +190,18 @@ curl -X 'GET' \
 {% tab title="Unity" %}
 
 ```csharp
-using System.Collections.Generic;
-using Moralis.Web3Api.Models;
-using MoralisWeb3ApiSdk;
+using MoralisUnity;
+using MoralisUnity.Web3Api.Models;
+using UnityEngine;
 
-  public async void fetchBlock()
-  {
-    Block block = await MoralisInterface.GetClient().Web3Api.Native.GetBlock(blockNumberOrHash: "2", ChainList.bsc);
-    print(block.ToJson());
-  }
+public class Example
+{
+    public async void fetchBlock()
+    {
+        Block block = await Moralis.Web3Api.Native.GetBlock(blockNumberOrHash: "2", ChainList.bsc);
+        Debug.Log(block.ToJson());
+    }
+}
 ```
 
 {% endtab %}
@@ -316,15 +322,18 @@ curl -X 'GET' \
 {% tab title="Unity" %}
 
 ```csharp
-using System.Collections.Generic;
-using Moralis.Web3Api.Models;
-using MoralisWeb3ApiSdk;
+using MoralisUnity;
+using MoralisUnity.Web3Api.Models;
+using UnityEngine;
 
-  public async void fetchDateToBlock()
-  {
-    BlockDate blockDate = await MoralisInterface.GetClient().Web3Api.Native.GetDateToBlock(date:"2021-09-29T13:09:15+00:00", ChainList.eth);
-    print(blockDate.ToJson());
-  }
+public class Example
+{
+    public async void fetchDateToBlock()
+    {
+        BlockDate blockDate = await Moralis.Web3Api.Native.GetDateToBlock(date: "2021-09-29T13:09:15+00:00", ChainList.eth);
+        Debug.Log(blockDate.ToJson());
+    }
+}
 ```
 
 {% endtab %}
@@ -414,15 +423,18 @@ curl -X 'GET' \
 {% tab title="Unity" %}
 
 ```csharp
-using System.Collections.Generic;
-using Moralis.Web3Api.Models;
-using MoralisWeb3ApiSdk;
+using MoralisUnity;
+using MoralisUnity.Web3Api.Models;
+using UnityEngine;
 
-  public async void fetchLogsByAddress()
-  {
-    LogEventByAddress logEvents = await MoralisInterface.GetClient().Web3Api.Native.GetLogsByAddress(address: "0x057Ec652A4F150f7FF94f089A38008f49a0DF88e", ChainList.bsc, topic0:"0x2caecd17d02f56fa897705dcc740da2d237c373f70686f4e0d9bd3bf0400ea7a",topic1:"0x000000000000000000000000031002d15b0d0cd7c9129d6f644446368deae391", topic2:"0x000000000000000000000000d25943be09f968ba740e0782a34e710100defae9");
-    print(logEvents.ToJson());
-  }
+public class Example
+{
+    public async void fetchLogsByAddress()
+    {
+        LogEventByAddress logEvents = await Moralis.Web3Api.Native.GetLogsByAddress(address: "0x057Ec652A4F150f7FF94f089A38008f49a0DF88e", ChainList.bsc, topic0: "0x2caecd17d02f56fa897705dcc740da2d237c373f70686f4e0d9bd3bf0400ea7a", topic1: "0x000000000000000000000000031002d15b0d0cd7c9129d6f644446368deae391", topic2: "0x000000000000000000000000d25943be09f968ba740e0782a34e710100defae9");
+        Debug.Log(logEvents.ToJson());
+    }
+}
 ```
 
 {% endtab %}
@@ -537,19 +549,23 @@ curl -X 'POST' \
 {% tab title="Unity" %}
 
 ```csharp
+using MoralisUnity;
+using MoralisUnity.Web3Api.Models;
 using System.Collections.Generic;
-using Moralis.Web3Api.Models;
-using MoralisWeb3ApiSdk;
+using UnityEngine;
 
-  public async void fetchContractEvents()
-  {
-    string abi = "{anonymous: false, inputs:[{ indexed: true, name: \"from\", type: \"address\" },{ indexed: true, name: \"to\", type: \"address\" },{ indexed: false, name: \"value\", type: \"uint256\" },],name: \"Transfer\", type: \"event\" }";
-    List<LogEvent> logEvents = await MoralisInterface.GetClient().Web3Api.Native.GetContractEvents(address: "0xdAC17F958D2ee523a2206206994597C13D831ec7", topic: "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef",abi: abi, ChainList.eth);
-    foreach (LogEvent eventlog in logEvents)
+public class Example
+{
+    public async void fetchContractEvents()
     {
-      print(eventlog.ToJson());
+        string abi = "{anonymous: false, inputs:[{ indexed: true, name: \"from\", type: \"address\" },{ indexed: true, name: \"to\", type: \"address\" },{ indexed: false, name: \"value\", type: \"uint256\" },],name: \"Transfer\", type: \"event\" }";
+        List<LogEvent> logEvents = await Moralis.Web3Api.Native.GetContractEvents(address: "0xdAC17F958D2ee523a2206206994597C13D831ec7", topic: "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef", abi: abi, ChainList.eth);
+        foreach (LogEvent eventlog in logEvents)
+        {
+            Debug.Log(eventlog.ToJson());
+        }
     }
-  }
+}
 ```
 
 {% endtab %}
@@ -663,15 +679,18 @@ curl -X 'GET' \
 {% tab title="Unity" %}
 
 ```csharp
-using System.Collections.Generic;
-using Moralis.Web3Api.Models;
-using MoralisWeb3ApiSdk;
+using MoralisUnity;
+using MoralisUnity.Web3Api.Models;
+using UnityEngine;
 
-  public async void fetchNFTTransfersByBlock()
-  {
-    NftTransferCollection nftTransfers = MoralisInterface.GetClient().Web3Api.Native.GetNFTTransfersByBlock(blockNumberOrHash: "11284830", ChainList.bsc);
-    print(nftTransfers.ToJson());
-  }
+public class Example
+{
+    public async void fetchNFTTransfersByBlock()
+    {
+        NftTransferCollection nftTransfers = await Moralis.Web3Api.Native.GetNFTTransfersByBlock(blockNumberOrHash: "11284830", ChainList.bsc);
+        Debug.Log(nftTransfers.ToJson());
+    }
+}
 ```
 
 {% endtab %}
@@ -759,15 +778,18 @@ curl -X 'GET' \
 {% tab title="Unity" %}
 
 ```csharp
-using System.Collections.Generic;
-using Moralis.Web3Api.Models;
-using MoralisWeb3ApiSdk;
+using MoralisUnity;
+using MoralisUnity.Web3Api.Models;
+using UnityEngine;
 
-  public async void fetchTransaction()
-  {
-    BlockTransaction blockTransaction = MoralisInterface.GetClient().Web3Api.Native.GetTransaction(transactionHash:"0x5e519cd5117aea6ed9d51d4f235b4badb2e3f69377a4e2f945e13feb20af4db3", ChainList.eth);
-    print(blockTransaction.ToJson());
-  }
+public class Example
+{
+    public async void fetchTransaction()
+    {
+        BlockTransaction blockTransaction = await Moralis.Web3Api.Native.GetTransaction(transactionHash: "0x5e519cd5117aea6ed9d51d4f235b4badb2e3f69377a4e2f945e13feb20af4db3", ChainList.eth);
+        Debug.Log(blockTransaction.ToJson());
+    }
+}
 ```
 
 {% endtab %}

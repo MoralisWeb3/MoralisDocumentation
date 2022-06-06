@@ -1,4 +1,4 @@
-# REST API
+# 🖨 REST API
 
 ## [_**See Full API Documentation**_](https://deep-index.moralis.io/api-docs/)
 

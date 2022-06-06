@@ -1,4 +1,4 @@
-# 👤 Web3API.account
+# 💰 Web3API.account
 
 ## getTransactions
 
@@ -6,18 +6,17 @@ Returns the transactions from the current user or address. Returns an object wit
 
 #### Options:
 
-- `chain`(optional): The blockchain to get data from. Valid values are listed on [Supported Chains](supported-chains.md). Default value `Eth`.
-- `address` (optional): A user address (i.e. `0x1a2b3x...`). If specified, the user attached to the query is ignored and the address will be used instead.
-- `from_date` (optional): The date from where to get the transactions (any format that is accepted by momentjs). Provide the param 'from_block' or 'from_date' If 'from_date' and 'from_block' are provided, 'from_block' will be used.
-- `to_date` (optional): Get the transactions to this date (any format that is accepted by momentjs). Provide the param 'to_block' or 'to_date' If 'to_date' and 'to_block' are provided, 'to_block' will be used.
-- `from_block` (optional): The minimum block number from where to get the transactions Provide the param 'from_block' or 'from_date' If 'from_date' and 'from_block' are provided, 'from_block' will be used.
-- `to_block` (optional): The maximum block number from where to get the transactions. Provide the param 'to_block' or 'to_date' If 'to_date' and 'to_block' are provided, 'to_block' will be used.
-- `offset`(optional): Offset.
-- `limit`(optional): Limit
+* `chain`(optional): The blockchain to get data from. Valid values are listed on [Supported Chains](supported-chains.md). Default value `Eth`.
+* `address` (optional): A user address (i.e. `0x1a2b3x...`). If specified, the user attached to the query is ignored and the address will be used instead.
+* `from_date` (optional): The date from where to get the transactions (any format that is accepted by momentjs). Provide the param 'from\_block' or 'from\_date' If 'from\_date' and 'from\_block' are provided, 'from\_block' will be used.
+* `to_date` (optional): Get the transactions to this date (any format that is accepted by momentjs). Provide the param 'to\_block' or 'to\_date' If 'to\_date' and 'to\_block' are provided, 'to\_block' will be used.
+* `from_block` (optional): The minimum block number from where to get the transactions Provide the param 'from\_block' or 'from\_date' If 'from\_date' and 'from\_block' are provided, 'from\_block' will be used.
+* `to_block` (optional): The maximum block number from where to get the transactions. Provide the param 'to\_block' or 'to\_date' If 'to\_date' and 'to\_block' are provided, 'to\_block' will be used.
+* `offset`(optional): Offset.
+* `limit`(optional): Limit
 
 {% tabs %}
 {% tab title="JS" %}
-
 ```javascript
 // get mainnet transactions for the current user
 const transactions = await Moralis.Web3API.account.getTransactions();
@@ -32,10 +31,9 @@ const options = {
 };
 const transactions = await Moralis.Web3API.account.getTransactions(options);
 ```
-
 {% endtab %}
-{% tab title="React" %}
 
+{% tab title="React" %}
 ```javascript
 import React from "react";
 import { useMoralisWeb3Api } from "react-moralis";
@@ -59,34 +57,33 @@ const fetchTransactions = async () => {
   console.log(bscTransactions);
 };
 ```
-
 {% endtab %}
-{% tab title="curl" %}
 
+{% tab title="curl" %}
 ```bash
 curl -X 'GET' \
   'https://deep-index.moralis.io/api/v2/0x3d6c0e79a1239df0039ec16Cc80f7A343b6C530e?chain=bsc&from_block=0' \
   -H 'accept: application/json' \
   -H 'X-API-Key: MY-API-KEY'
 ```
-
 {% endtab %}
+
 {% tab title="Unity" %}
-
 ```csharp
-using System.Collections.Generic;
-using Moralis.Web3Api.Models;
-using MoralisWeb3ApiSdk;
+using MoralisUnity;
+using MoralisUnity.Web3Api.Models;
+using UnityEngine;
 
-
-  public async void GetTransactions()
-  {
-    // get BSC transactions for a given address
-    TransactionCollection BSCtransactions = await MoralisInterface.GetClient().Web3Api.Account.GetTransactions("0x3d6c0e79a1239df0039ec16Cc80f7A343b6C530e".ToLower(), ChainList.bsc);
-    print(BSCtransactions.ToJson());
-  }
+public class Example
+{
+    public async void GetTransactions()
+    {
+        // get BSC transactions for a given address
+        TransactionCollection BSCtransactions = await Moralis.Web3Api.Account.GetTransactions("0x3d6c0e79a1239df0039ec16Cc80f7A343b6C530e".ToLower(), ChainList.bsc);
+        Debug.Log(BSCtransactions.ToJson());
+    }
+}
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -123,13 +120,12 @@ Returns native balance for a specific address (asynchronous).
 
 #### Options:
 
-- `chain`(optional): The blockchain to get data from. Valid values are listed on [Supported Chains](supported-chains.md). Default value `Eth`.
-- `to_block` (optional): The block number on which the balances should be checked.
-- `address` (optional): The address for which the native balance will be checked. If specified, the user attached to the query is ignored and the address will be used instead. If user is not authenticated with a Wallet, then address has to be specified.
+* `chain`(optional): The blockchain to get data from. Valid values are listed on [Supported Chains](supported-chains.md). Default value `Eth`.
+* `to_block` (optional): The block number on which the balances should be checked.
+* `address` (optional): The address for which the native balance will be checked. If specified, the user attached to the query is ignored and the address will be used instead. If user is not authenticated with a Wallet, then address has to be specified.
 
 {% tabs %}
 {% tab title="JS" %}
-
 ```javascript
 // get mainnet native balance for the current user
 const balance = await Moralis.Web3API.account.getNativeBalance();
@@ -142,11 +138,9 @@ const options = {
 };
 const balance = await Moralis.Web3API.account.getNativeBalance(options);
 ```
-
 {% endtab %}
 
 {% tab title="React" %}
-
 ```javascript
 import React from "react";
 import { useMoralisWeb3Api } from "react-moralis";
@@ -166,37 +160,33 @@ const fetchNativeBalance = async () => {
   console.log(bscBalance);
 };
 ```
-
 {% endtab %}
 
 {% tab title="curl" %}
-
-
 ```bash
 curl -X 'GET' \
   'https://deep-index.moralis.io/api/v2/0x3d6c0e79a1239df0039ec16Cc80f7A343b6C530e/balance?chain=bsc' \
   -H 'accept: application/json' \
   -H 'X-API-Key: MY-API-KEY'
 ```
-
 {% endtab %}
 
 {% tab title="Unity" %}
-
 ```csharp
-using System.Collections.Generic;
-using Moralis.Web3Api.Models;
-using MoralisWeb3ApiSdk;
+using MoralisUnity;
+using MoralisUnity.Web3Api.Models;
+using UnityEngine;
 
-
-  public async void GetNativeBalance()
-  {
-    // get BSC native balance for a given address
-    NativeBalance BSCbalance = await MoralisInterface.GetClient().Web3Api.Account.GetNativeBalance("0x4c6Ec2448C243B39Cd1e9E6db0F9bF7436c0c93f".ToLower(), ChainList.bsc);
-    print(BSCbalance.ToJson());
-  }
+public class Example
+{
+    public async void GetNativeBalance()
+    {
+        // get BSC native balance for a given address
+        NativeBalance BSCbalance = await Moralis.Web3Api.Account.GetNativeBalance("0x4c6Ec2448C243B39Cd1e9E6db0F9bF7436c0c93f".ToLower(), ChainList.bsc);
+        Debug.Log(BSCbalance.ToJson());
+    }
+}
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -214,21 +204,18 @@ Retrieve all token balances of a current user or specified address. Returns an o
 
 #### Options:
 
-- `chain`(optional): The blockchain to get data from. Valid values are listed on [Supported Chains](supported-chains.md). Default value `Eth`.
-- `address` (optional): A user address (i.e. `0x1a2b3x...`). If specified, the user attached to the query is ignored and the address will be used instead.
-- `to_block` (optional): The block number on which the balances should be checked
+* `chain`(optional): The blockchain to get data from. Valid values are listed on [Supported Chains](supported-chains.md). Default value `Eth`.
+* `address` (optional): A user address (i.e. `0x1a2b3x...`). If specified, the user attached to the query is ignored and the address will be used instead.
+* `to_block` (optional): The block number on which the balances should be checked
 
 {% tabs %}
 {% tab title="JS" %}
-
 ```javascript
 const balances = await Moralis.Web3API.account.getTokenBalances();
 ```
-
 {% endtab %}
 
 {% tab title="React" %}
-
 ```javascript
 import React from "react";
 import { useMoralisWeb3Api } from "react-moralis";
@@ -240,37 +227,36 @@ const fetchTokenBalances = async () => {
   console.log(balances);
 };
 ```
-
 {% endtab %}
 
 {% tab title="curl" %}
-
 ```bash
 curl -X 'GET' \
   'https://deep-index.moralis.io/api/v2/0x3d6c0e79a1239df0039ec16Cc80f7A343b6C530e/erc20' \
   -H 'accept: application/json' \
   -H 'X-API-Key: MY-API-KEY'
 ```
-
 {% endtab %}
 
 {% tab title="Unity" %}
-
 ```csharp
+using MoralisUnity;
+using MoralisUnity.Web3Api.Models;
 using System.Collections.Generic;
-using Moralis.Web3Api.Models;
-using MoralisWeb3ApiSdk;
+using UnityEngine;
 
-  public async void fetchTokenBalance()
-  {
-    List<Erc20TokenBalance> balance = await MoralisInterface.GetClient().Web3Api.Account.GetTokenBalances("0x3d6c0e79a1239df0039ec16Cc80f7A343b6C530e".ToLower(), ChainList.bsc);
-    foreach (Erc20TokenBalance erc20bal in balance)
+public class Example
+{
+    public async void fetchTokenBalance()
     {
-      print(erc20bal.ToJson());
+        List<Erc20TokenBalance> balance = await Moralis.Web3Api.Account.GetTokenBalances("0x3d6c0e79a1239df0039ec16Cc80f7A343b6C530e".ToLower(), ChainList.bsc);
+        foreach (Erc20TokenBalance erc20bal in balance)
+        {
+            Debug.Log(erc20bal.ToJson());
+        }
     }
-  }
+}
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -278,7 +264,6 @@ Without any parameters specified, it defaults to 'Eth' as chain and the current 
 
 {% tabs %}
 {% tab title="JS" %}
-
 ```javascript
 const options = {
   chain: "bsc",
@@ -287,11 +272,9 @@ const options = {
 };
 const balances = await Moralis.Web3API.account.getTokenBalances(options);
 ```
-
 {% endtab %}
 
 {% tab title="React" %}
-
 ```javascript
 import React from "react";
 import { useMoralisWeb3Api } from "react-moralis";
@@ -308,18 +291,15 @@ const fetchTokenBalances = async () => {
   console.log(balances);
 };
 ```
-
 {% endtab %}
 
 {% tab title="curl" %}
-
 ```bash
 curl -X 'GET' \
   'https://deep-index.moralis.io/api/v2/0x3d6c0e79a1239df0039ec16Cc80f7A343b6C530e/erc20?chain=bsc&to_block=10253391' \
   -H 'accept: application/json' \
   -H 'X-API-Key: MY-API-KEY'
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -347,18 +327,17 @@ Get ERC20 token transfers from the current user or address. Returns an object wi
 
 #### Options:
 
-- `chain`(optional): The blockchain to get data from. Valid values are listed on [Supported Chains](supported-chains.md). Default value `Eth`.
-- `address` (optional): A user address (i.e. `0x1a2b3x...`). If specified, the user attached to the query is ignored and the address will be used instead.
-- `from_date` (optional): The date from where to get the transactions (any format that is accepted by momentjs). Provide the param 'from_block' or 'from_date' If 'from_date' and 'from_block' are provided, 'from_block' will be used.
-- `to_date` (optional): Get the transactions to this date (any format that is accepted by momentjs). Provide the param 'to_block' or 'to_date' If 'to_date' and 'to_block' are provided, 'to_block' will be used.
-- `from_block` (optional): The minimum block number from where to get the transactions Provide the param 'from_block' or 'from_date' If 'from_date' and 'from_block' are provided, 'from_block' will be used.
-- `to_block` (optional): The maximum block number from where to get the transactions. Provide the param 'to_block' or 'to_date' If 'to_date' and 'to_block' are provided, 'to_block' will be used.
-- `offset`(optional): Offset.
-- `limit`(optional): Limit
+* `chain`(optional): The blockchain to get data from. Valid values are listed on [Supported Chains](supported-chains.md). Default value `Eth`.
+* `address` (optional): A user address (i.e. `0x1a2b3x...`). If specified, the user attached to the query is ignored and the address will be used instead.
+* `from_date` (optional): The date from where to get the transactions (any format that is accepted by momentjs). Provide the param 'from\_block' or 'from\_date' If 'from\_date' and 'from\_block' are provided, 'from\_block' will be used.
+* `to_date` (optional): Get the transactions to this date (any format that is accepted by momentjs). Provide the param 'to\_block' or 'to\_date' If 'to\_date' and 'to\_block' are provided, 'to\_block' will be used.
+* `from_block` (optional): The minimum block number from where to get the transactions Provide the param 'from\_block' or 'from\_date' If 'from\_date' and 'from\_block' are provided, 'from\_block' will be used.
+* `to_block` (optional): The maximum block number from where to get the transactions. Provide the param 'to\_block' or 'to\_date' If 'to\_date' and 'to\_block' are provided, 'to\_block' will be used.
+* `offset`(optional): Offset.
+* `limit`(optional): Limit
 
 {% tabs %}
 {% tab title="JS" %}
-
 ```javascript
 // get mainnet transfers for the current user
 const userTrans = await Moralis.Web3API.account.getTokenTransfers();
@@ -372,11 +351,9 @@ const options = {
 };
 const transfers = await Moralis.Web3API.account.getTokenTransfers(options);
 ```
-
 {% endtab %}
 
 {% tab title="React" %}
-
 ```javascript
 import React from "react";
 import { useMoralisWeb3Api } from "react-moralis";
@@ -399,34 +376,32 @@ const fetchTokenTransfers = async () => {
   console.log(transfers);
 };
 ```
-
 {% endtab %}
 
 {% tab title="curl" %}
-
 ```bash
 curl -X 'GET' \
   'https://deep-index.moralis.io/api/v2/0x3d6c0e79a1239df0039ec16Cc80f7A343b6C530e/erc20/transfers?chain=bsc&from_block=0' \
   -H 'accept: application/json' \
   -H 'X-API-Key: MY-API-KEY'
 ```
-
 {% endtab %}
 
 {% tab title="Unity" %}
-
 ```csharp
-using System.Collections.Generic;
-using Moralis.Web3Api.Models;
-using MoralisWeb3ApiSdk;
+using MoralisUnity;
+using MoralisUnity.Web3Api.Models;
+using UnityEngine;
 
-  public async void fetchTokenTransfers()
-  {
-    Erc20TransactionCollection transfers = await MoralisInterface.GetClient().Web3Api.Account.GetTokenTransfers("0x3d6c0e79a1239df0039ec16Cc80f7A343b6C530e".ToLower(), ChainList.bsc);
-    print(transfers.ToJson());
-  }
+public class Example
+{
+    public async void fetchTokenTransfers()
+    {
+        Erc20TransactionCollection transfers = await Moralis.Web3Api.Account.GetTokenTransfers("0x3d6c0e79a1239df0039ec16Cc80f7A343b6C530e".ToLower(), ChainList.bsc);
+        Debug.Log(transfers.ToJson());
+    }
+}
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -455,12 +430,11 @@ Get all NFTs from the current user or address. Supports both ERC721 and ERC1155.
 
 #### Options:
 
-- `chain`(optional): The blockchain to get data from. Valid values are listed on [Supported Chains](supported-chains.md). Default value `Eth`.
-- `address` (optional): A user address (i.e. `0x1a2b3x...`). If specified, the user attached to the query is ignored and the address will be used instead.
+* `chain`(optional): The blockchain to get data from. Valid values are listed on [Supported Chains](supported-chains.md). Default value `Eth`.
+* `address` (optional): A user address (i.e. `0x1a2b3x...`). If specified, the user attached to the query is ignored and the address will be used instead.
 
 {% tabs %}
 {% tab title="JS" %}
-
 ```javascript
 // get NFTs for current user on Mainnet
 const userEthNFTs = await Moralis.Web3API.account.getNFTs();
@@ -475,11 +449,9 @@ const options = {
 };
 const polygonNFTs = await Moralis.Web3API.account.getNFTs(options);
 ```
-
 {% endtab %}
 
 {% tab title="React" %}
-
 ```javascript
 import React from "react";
 import { useMoralisWeb3Api } from "react-moralis";
@@ -505,34 +477,32 @@ const fetchNFTs = async () => {
 };
 console.log(polygonNFTs);
 ```
-
 {% endtab %}
 
 {% tab title="curl" %}
-
 ```bash
 curl -X 'GET' \
   'https://deep-index.moralis.io/api/v2/0x75e3e9c92162e62000425c98769965a76c2e387a/nft?chain=polygon&format=decimal' \
   -H 'accept: application/json' \
   -H 'X-API-Key: MY-API-KEY'
 ```
-
 {% endtab %}
 
 {% tab title="Unity" %}
-
 ```csharp
-using System.Collections.Generic;
-using Moralis.Web3Api.Models;
-using MoralisWeb3ApiSdk;
+using MoralisUnity;
+using MoralisUnity.Web3Api.Models;
+using UnityEngine;
 
-  public async void fetchNFTs()
-  {
-    NftOwnerCollection polygonNFTs = MoralisInterface.GetClient().Web3Api.Account.GetNFTs("0x75e3e9c92162e62000425c98769965a76c2e387a".ToLower(), ChainList.polygon);
-    print(polygonNFTs.ToJson());
-  }
+public class Example
+{
+    public async void fetchNFTs()
+    {
+        NftOwnerCollection polygonNFTs = await Moralis.Web3Api.Account.GetNFTs("0x75e3e9c92162e62000425c98769965a76c2e387a".ToLower(), ChainList.polygon);
+        Debug.Log(polygonNFTs.ToJson());
+    }
+}
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -563,17 +533,16 @@ Get the NFT transfers. Returns an object with the number of NFT transfers and th
 
 #### Options:
 
-- `chain`(optional): The blockchain to get data from. Valid values are listed on [Supported Chains](supported-chains.md). Default value `Eth`.
-- `format` (optional): The format of the token id. Available values : `decimal`, `hex`. Default value : `decimal.`
-- `offset`(optional): Offset.
-- `direction`(optional): The transfer direction. Available values : `both`, `to`, `from` . Default value : `both`.
-- `limit`(optional): Limit.
-- `order` (optional): The field(s) to order on and if it should be ordered in ascending or descending order.
-- `address` (optional): A user address (i.e. `0x1a2b3x...`). If specified, the user attached to the query is ignored and the address will be used instead.
+* `chain`(optional): The blockchain to get data from. Valid values are listed on [Supported Chains](supported-chains.md). Default value `Eth`.
+* `format` (optional): The format of the token id. Available values : `decimal`, `hex`. Default value : `decimal.`
+* `offset`(optional): Offset.
+* `direction`(optional): The transfer direction. Available values : `both`, `to`, `from` . Default value : `both`.
+* `limit`(optional): Limit.
+* `order` (optional): The field(s) to order on and if it should be ordered in ascending or descending order.
+* `address` (optional): A user address (i.e. `0x1a2b3x...`). If specified, the user attached to the query is ignored and the address will be used instead.
 
 {% tabs %}
 {% tab title="JS" %}
-
 ```javascript
 // get mainnet NFT transfers for the current user
 const transfersNFT = await Moralis.Web3API.account.getNFTTransfers();
@@ -587,11 +556,9 @@ const options = {
 };
 const transfersNFT = await Moralis.Web3API.account.getNFTTransfers(options);
 ```
-
 {% endtab %}
 
 {% tab title="React" %}
-
 ```javascript
 import React from "react";
 import { useMoralisWeb3Api } from "react-moralis";
@@ -613,43 +580,41 @@ const fetchNFTTransfers = async () => {
   console.log(bscTransfersNFT);
 };
 ```
-
 {% endtab %}
 
 {% tab title="curl" %}
-
 ```bash
 curl -X 'GET' \
   'https://deep-index.moralis.io/api/v2/0x75e3e9c92162e62000425c98769965a76c2e387a/nft/transfers?chain=polygon&format=decimal&direction=both&limit=5' \
   -H 'accept: application/json' \
   -H 'X-API-Key: MY-API-KEY'
 ```
-
 {% endtab %}
 
 {% tab title="Unity" %}
-
 ```csharp
-using System.Collections.Generic;
-using Moralis.Web3Api.Models;
-using MoralisWeb3ApiSdk;
+using MoralisUnity;
+using MoralisUnity.Web3Api.Models;
+using UnityEngine;
 
-  public async void fetchNFTTransfers()
-  {
-    NftTransferCollection BSCnfttransfers = await MoralisInterface.GetClient().Web3Api.Account.GetNFTTransfers("0x3d6c0e79a1239df0039ec16Cc80f7A343b6C530e".ToLower(), ChainList.bsc);
-    print(BSCnfttransfers.ToJson());
-  }
+public class Example
+{
+    public async void fetchNFTTransfers()
+    {
+        NftTransferCollection BSCnfttransfers = await Moralis.Web3Api.Account.GetNFTTransfers("0x3d6c0e79a1239df0039ec16Cc80f7A343b6C530e".ToLower(), ChainList.bsc);
+        Debug.Log(BSCnfttransfers.ToJson());
+    }
+}
 ```
-
 {% endtab %}
 {% endtabs %}
 
 {% hint style="info" %}
-Use the token_address param to get results for a specific contract only.
+Use the token\_address param to get results for a specific contract only.
 
 Note results will include all indexed NFTs.
 
-Any request which includes the token_address param will start the indexing process for that NFT collection the very first time it is requested.
+Any request which includes the token\_address param will start the indexing process for that NFT collection the very first time it is requested.
 {% endhint %}
 
 #### Example result:
@@ -680,17 +645,16 @@ Returns an object with the NFT count for the specified contract and an NFT array
 
 #### Options:
 
-- `chain`(optional): The blockchain to get data from. Valid values are listed on [Supported Chains](supported-chains.md). Default value `Eth`.
-- `format` (optional): The format of the token id. Available values : `decimal`, `hex`. Default value : `decimal.`
-- `offset`(optional): Offset.
-- `limit`(optional): Limit.
-- `order`(optional): The field(s) to order on and if it should be ordered in ascending or descending order.
-- `address` (optional): The owner of a given token (i.e. `0x1a2b3x...`). If specified, the user attached to the query is ignored and the address will be used instead.
-- `token_address`(required): Address of the contract
+* `chain`(optional): The blockchain to get data from. Valid values are listed on [Supported Chains](supported-chains.md). Default value `Eth`.
+* `format` (optional): The format of the token id. Available values : `decimal`, `hex`. Default value : `decimal.`
+* `offset`(optional): Offset.
+* `limit`(optional): Limit.
+* `order`(optional): The field(s) to order on and if it should be ordered in ascending or descending order.
+* `address` (optional): The owner of a given token (i.e. `0x1a2b3x...`). If specified, the user attached to the query is ignored and the address will be used instead.
+* `token_address`(required): Address of the contract
 
 {% tabs %}
 {% tab title="JS" %}
-
 ```javascript
 const options = {
   chain: "polygon",
@@ -699,11 +663,9 @@ const options = {
 };
 const polygonNFTs = await Moralis.Web3API.account.getNFTsForContract(options);
 ```
-
 {% endtab %}
 
 {% tab title="React" %}
-
 ```javascript
 import React from "react";
 import { useMoralisWeb3Api } from "react-moralis";
@@ -720,43 +682,41 @@ const fetchNFTsForContract = async () => {
   console.log(polygonNFTs);
 };
 ```
-
 {% endtab %}
 
 {% tab title="curl" %}
-
 ```bash
 curl -X 'GET' \
   'https://deep-index.moralis.io/api/v2/0x75e3e9c92162e62000425c98769965a76c2e387a/nft/0x2953399124F0cBB46d2CbACD8A89cF0599974963?chain=polygon&format=decimal' \
   -H 'accept: application/json' \
   -H 'X-API-Key: My-API-KEY'
 ```
-
 {% endtab %}
 
 {% tab title="Unity" %}
-
 ```csharp
-using System.Collections.Generic;
-using Moralis.Web3Api.Models;
-using MoralisWeb3ApiSdk;
+using MoralisUnity;
+using MoralisUnity.Web3Api.Models;
+using UnityEngine;
 
-  public async void fetchNFTsForContract()
-  {
-    NftOwnerCollection polygonNFTs = await MoralisInterface.GetClient().Web3Api.Account.GetNFTsForContract("0x3d6c0e79a1239df0039ec16Cc80f7A343b6C530e".ToLower(),"0x2953399124F0cBB46d2CbACD8A89cF0599974963", ChainList.polygon);
-    print(polygonNFTs.ToJson());
-  }
+public class Example
+{
+    public async void fetchNFTsForContract()
+    {
+        NftOwnerCollection polygonNFTs = await Moralis.Web3Api.Account.GetNFTsForContract("0x3d6c0e79a1239df0039ec16Cc80f7A343b6C530e".ToLower(), "0x2953399124F0cBB46d2CbACD8A89cF0599974963", ChainList.polygon);
+        Debug.Log(polygonNFTs.ToJson());
+    }
+}
 ```
-
 {% endtab %}
 {% endtabs %}
 
 {% hint style="info" %}
-Use the token_address param to get results for a specific contract only.
+Use the token\_address param to get results for a specific contract only.
 
 Note results will include all indexed NFTs.
 
-Any request which includes the token_address param will start the indexing process for that NFT collection the very first time it is requested.
+Any request which includes the token\_address param will start the indexing process for that NFT collection the very first time it is requested.
 {% endhint %}
 
 #### Example result:

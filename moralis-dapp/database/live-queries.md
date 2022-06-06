@@ -8,7 +8,7 @@ description: >-
 
 ## Standard Connection
 
-We maintain a WebSocket connection to communicate with the Moralis LiveQuery server. When used server-side, we use the [`ws`](https://www.npmjs.com/package/ws) package and in the browser we use [`window.WebSocket`](https://developer.mozilla.org/en-US%7B%7B%20site.baseUrl%20%7D%7D/Web/API/WebSockets\_API). We think that in most cases it isn't necessary to deal with the WebSocket connection directly. Thus, we developed a simple API to let you focus on your own business logic.
+We maintain a WebSocket connection to communicate with the Moralis LiveQuery server. When used server-side, we use the [`ws`](https://www.npmjs.com/package/ws) package and in the browser we use [`window.WebSocket`](https://developer.mozilla.org/en-US/docs/Web/API/WebSockets\_API). We think that in most cases it isn't necessary to deal with the WebSocket connection directly. Thus, we developed a simple API to let you focus on your own business logic.
 
 ## Create a Subscription
 
@@ -172,6 +172,7 @@ However, if the WebSocket connection is closed due to `Moralis.LiveQuery.close()
 We send `sessionToken` to the LiveQuery server when you subscribe to a `MoralisQuery`. For the standard API, we use the `sessionToken` of the current user by default. For the advanced API, you can use any `sessionToken` when you subscribe to a `MoralisQuery`. An important thing to be aware of is when you log out or the `sessionToken` you are using is invalid, you should unsubscribe from the subscription and subscribe to the `MoralisQuery` again. Otherwise, you may face a security issue since you'll get events that shouldn't be sent to you.
 
 ## Example with using Moralis.Query.or with two queries
+
 ```javascript
 let query1 = new Moralis.Query('test_subscription');
 let query2 = new Moralis.Query('test_subscription');

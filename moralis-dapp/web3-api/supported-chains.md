@@ -26,6 +26,7 @@ If not specified the chain will default to Ethereum Mainnet.
 | Avalanche Mainnet                                                                                               | `avalanche`, `0xa86a`                                                   |
 | Avalanche Testnet                                                                                               | `avalanche testnet`, `0xa869`                                           |
 | Fantom Mainnet                                                                                                  | `fantom`, `0xfa`                                                        |
+| Cronos Mainnet                                                                                                  | `cronos`, `0x19`                                                        |
 | <p>Local Dev Chain <em>(Ganache, Hardhat)</em></p><p><strong>(doesn't work currently with Web3API)</strong></p> | `ganache`, `hardhat`, `localdevchain`, `local devchain` ,`dev`, `0x539` |
 
 {% hint style="warning" %}

@@ -24,27 +24,26 @@ These **Assets, Tokens, and NFTs** are updated in <mark style="color:green;">rea
 
 Use `Moralis.authenticate()` to login users on **any chain** using **any wallet**. Follow the guides for code examples and tutorials:
 
-{% content-ref url="crypto-login/metamask.md" %}
-[metamask.md](crypto-login/metamask.md)
+{% content-ref url="web3-login/metamask.md" %}
+[metamask.md](web3-login/metamask.md)
 {% endcontent-ref %}
 
-{% content-ref url="crypto-login/walletconnect.md" %}
-[walletconnect.md](crypto-login/walletconnect.md)
+{% content-ref url="web3-login/walletconnect.md" %}
+[walletconnect.md](web3-login/walletconnect.md)
 {% endcontent-ref %}
 
-{% content-ref url="crypto-login/phantom-solana.md" %}
-[phantom-solana.md](crypto-login/phantom-solana.md)
+{% content-ref url="web3-login/phantom-solana.md" %}
+[phantom-solana.md](web3-login/phantom-solana.md)
 {% endcontent-ref %}
 
-{% content-ref url="crypto-login/web3Auth.md" %}
-[web3Auth.md](crypto-login/web3Auth.md)
+{% content-ref url="web3-login/web3Auth.md" %}
+[web3Auth.md](web3-login/web3Auth.md)
 {% endcontent-ref %}
 
-{% content-ref url="crypto-login/custom-auth-any-eip1193-provider.md" %}
-[custom-auth-any-eip1193-provider.md](crypto-login/custom-auth-any-eip1193-provider.md)
+{% content-ref url="web3-login/custom-auth-any-eip1193-provider.md" %}
+[custom-auth-any-eip1193-provider.md](web3-login/custom-auth-any-eip1193-provider.md)
 {% endcontent-ref %}
 
 {% hint style="info" %}
-**For new developers:  Begin with** [metamask.md](crypto-login/metamask.md "mention")&#x20;
+**For new developers: Begin with** [metamask.md](web3-login/metamask.md "mention")
 {% endhint %}
-

@@ -61,6 +61,32 @@ Almost all `Web3 API` function methods have a return format:
 }
 ```
 
+### Web3 API pagination examples with .next()
+```javascript
+result = await Moralis.Web3API.account.getTransactions({ chain: 'bsc', address:'0x322FAa41ed28E189D8816f27d9eB5F003E3ff83F' })
+result = await result.next() // page 1
+result = await result.next() // page 2
+result = await result.next() // page 3
+```
+
+```javascript
+result = await Moralis.Web3API.account.getTransactions({ chain: 'bsc', address:'0x322FAa41ed28E189D8816f27d9eB5F003E3ff83F' })
+console.log(result)
+while (result.next){
+    result = await result.next()
+    console.log(result)
+}
+```
+
+```javascript
+result = await Moralis.Web3API.token.getAllTokenIds({chain: "bsc", address: "0xD80EdcF7C73B43852dA39497a6B5E9cbA1Edf39e"})
+console.log(result)
+while (result.next){
+    result = await result.next()
+    console.log(result)
+}
+```
+
 ### Applications built using Web3API
 
 A playlist of all the applications built using Web3API features

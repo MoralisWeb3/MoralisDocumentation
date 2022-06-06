@@ -107,10 +107,9 @@ function App() {
 {% endtab %}
 {% endtabs %}
 
-
 ### 4. Filter Mobile Linking Options
 
-To reduce the number of mobile linking options or customize its order, provide an array of [wallet names](https://walletconnect.com/registry/wallets) to the **`mobileLinks`** option.
+To reduce the number of mobile linking options or customize its order, provide an array of [wallet names](https://walletconnect.com/registry?type=wallet) to the **`mobileLinks`** option.
 
 {% tabs %}
 {% tab title="JS" %}
@@ -128,6 +127,44 @@ const user = await Moralis.authenticate({
 })
 ```
 {% endtab %}
+<<<<<<< HEAD
+=======
+
+{% tab title="React" %}
+```javascript
+import { useMoralis } from "react-moralis";
+
+function App() {
+
+    const { authenticate, isAuthenticated, user } = useMoralis();
+
+    const login = async () => {
+      if (!isAuthenticated) {
+
+        await authenticate({ 
+                provider: "walletconnect", 
+                mobileLinks: [
+                  "rainbow",
+                  "metamask",
+                  "argent",
+                  "trust",
+                  "imtoken",
+                  "pillar",
+                ] 
+            })
+          .then(function (user) {
+            console.log(user!.get("ethAddress"));
+          })
+          .catch(function (error) {
+            console.log(error);
+          });
+      }
+    }
+}
+```
+{% endtab %}
+{% endtabs %}
+>>>>>>> d82bb09ff1610e9b0e24a7f8db9118fc66e13d2b
 
 {% tab title="React" %}
 ```javascript
