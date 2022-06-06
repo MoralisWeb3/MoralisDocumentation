@@ -18,14 +18,14 @@ With this class, you'll be able to add user account functionality to your app.
 
 All the methods that are on [`Moralis.Object`](../database/objects.md) also exist in `Moralis.User`. The difference is that `Moralis.User` has some special additions specific to user accounts.
 
-Authentication of users can be done in different ways. You can authenticate via an [email login](email-login/) or via a [crypto wallet](crypto-login.md).
+Authentication of users can be done in different ways. You can authenticate via an [email login](email-login/) or via a [crypto wallet](web3-login.md).
 
 Let's start by learning how to login user via their crypto wallet - no matter which wallet or blockchain they use! 🤯
 
 ### Authenticate Users
 
-{% content-ref url="crypto-login.md" %}
-[crypto-login.md](crypto-login.md)
+{% content-ref url="web3-login.md" %}
+[web3-login.md](web3-login.md)
 {% endcontent-ref %}
 
 {% content-ref url="email-login/" %}

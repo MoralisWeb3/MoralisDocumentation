@@ -2,7 +2,7 @@
 
 ## What is Moralis?
 
-Think **Firebase of crypto**. Moralis provides managed backend for blockchain projects. Automatically syncing the balances of your users into the database, allowing you to set up on-chain alerts, watch smart contract events, build indexes, and so much more. All features are accessed through an easy-to-use SDK. All features Moralis provides are cross-chain by default 🤯.
+**Moralis provides the full-stack workflow for building high performance dapps. Fully compatible with your favorite web3 tools and services.** Automatically syncing the balances of your users into the database, allowing you to set up on-chain alerts, watch smart contract events, build indexes, and so much more. All features are accessed through an easy-to-use SDK. All features Moralis provides are cross-chain by default 🤯.
 
 ## Why use Moralis?
 
@@ -28,7 +28,7 @@ Here is where all of your data will be stored. For example, when a user signs in
 
 You can then use this data instantaneously in your dApp frontend.
 
-You can read more under the sections: [Moralis Server Database](moralis-dapp/database/) and [User Authentication](moralis-dapp/users/crypto-login.md).
+You can read more under the sections: [Moralis Server Database](moralis-dapp/database/) and [User Authentication](moralis-dapp/users/web3-login.md).
 
 ### Cloud Code
 
@@ -40,7 +40,7 @@ You can read more about this in the [cloud code section](moralis-dapp/cloud-code
 
 Moralis' SDK is how we tie all of this together. Our JavaScript SDK is how your dApp interacts with your Moralis Server. Using the SDK, you can authenticate users, either through username and password or through a crypto wallet like MetaMask You can also use the SDK to get and set user data to fetch balances, NFTs, events, or transactions.
 
-You can read more about the SDK by[ clicking here](https://docs.moralis.io/moralis-dapp/getting-started/connect-the-sdk).
+You can read more about the SDK by[ clicking here](moralis-dapp/connect-the-sdk/).
 
 ## Welcome to the Moralis Documentation
 
@@ -50,10 +50,10 @@ We're excited for you to discover all the cool things you can build using Morali
 
 ## Expectations
 
-- The docs assume that you have some programming knowledge.
-- The docs are a work in progress and receive regular updates.
-- If you find something confusing in the docs or have suggestions for improvements let us know by posting in the [Moralis forum](https://forum.moralis.io).
-- If you find a bug in the Moralis SDK or server dashboard, please report it in [this GitHub repo](https://github.com/MoralisWeb3/issue-tracker), along with a detailed description and steps to reproduce the issue. For technical questions, or if you need help with your code, then please create a post in the [Moralis forum.](https://forum.moralis.io) If you're unsure where to post, then please ask by creating a post in the [Moralis forum](https://forum.moralis.io) or on the [FAQ & How to Get Help](https://forum.moralis.io/c/faq/12) page.
+* The docs assume that you have some programming knowledge.
+* The docs are a work in progress and receive regular updates.
+* If you find something confusing in the docs or have suggestions for improvements let us know by posting in the [Moralis forum](https://forum.moralis.io).
+* If you find a bug in the Moralis SDK or server dashboard, please report it in [this GitHub repo](https://github.com/MoralisWeb3/issue-tracker), along with a detailed description and steps to reproduce the issue. For technical questions, or if you need help with your code, then please create a post in the [Moralis forum.](https://forum.moralis.io) If you're unsure where to post, then please ask by creating a post in the [Moralis forum](https://forum.moralis.io) or on the [FAQ & How to Get Help](https://forum.moralis.io/c/faq/12) page.
 
 ## Prerequisites
 

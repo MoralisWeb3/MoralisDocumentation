@@ -58,6 +58,10 @@ Every new Dapp created in Moralis now will be Nitro by default. However, those D
 Keep in mind that once the coreservices plugin has been added, it can't be removed. This means that the migration from Legacy to Nitro will be **irreversible**. From your server, you can see `coreservices` as one of the plugins.
 {% endhint %}
 
+{% hint style="info" %}
+If you are in production and you have strict access rights to tables, then, coreservices role has to be added to CLP for some tables, for example for tables where event syncs are done. You can contact us in legacy to nitro migration channel in discord in case that you need assistance.
+{% endhint %}
+
 ![](../../.gitbook/assets/Plugin.png)
 
 Moralis Nitro Dapp has a number of breaking changes that are listed [here](https://forum.moralis.io/t/moralis-nitro-is-out/9267).&#x20;

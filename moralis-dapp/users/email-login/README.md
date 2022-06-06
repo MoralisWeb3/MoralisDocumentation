@@ -4,11 +4,11 @@ description: Authenticate via Email and Password.
 
 # 📧 Email Authentication
 
-Moralis allows you to authenticate your users using email and passwords. These profile details can be later linked with [web3 wallets](../crypto-login.md).
+Moralis allows you to authenticate your users using email and passwords. These profile details can be later linked with [web3 wallets](../web3-login.md).
 
 ### Sign Up with Username
 
-It's also possible to <mark style="color:purple;">**authenticate without a wallet**</mark> via username and password. This makes use of the built-in `Moralis.User` class.&#x20;
+It's also possible to <mark style="color:purple;">**authenticate without a wallet**</mark> via username and password. This makes use of the built-in `Moralis.User` class.
 
 This class extends [`Moralis.Object`](../../database/objects.md) with some extra attributes:
 
@@ -46,7 +46,7 @@ Note that we used the<mark style="color:purple;">**`signUp`**</mark>method, not 
 This call will asynchronously create a new user in your [Moralis Database](../../database/). Before it does this, it also
 
 1. Checks to make sure that both the username and email are unique.
-2. It securely hashes the password in the cloud using **`bcrypt`**.&#x20;
+2. It securely hashes the password in the cloud using **`bcrypt`**.
 
 {% hint style="warning" %}
 We never store passwords in plaintext, nor will we ever transmit passwords back to the client in plaintext.
@@ -60,7 +60,7 @@ You are free to use an email address as the username and if so, simply ask your 
 
 ### Log In With Username
 
-After signing up, you can allow users to login through the **`logIn`**method
+After signing up, you can allow users to login through the \*\*`logIn`\*\*method
 
 ```javascript
 const user = await Moralis.User.logIn("myname", "mypass");
@@ -77,7 +77,7 @@ const user = await Moralis.User.logIn("myname", "mypass", { usePost: true });
 ### Verify Emails
 
 {% hint style="info" %}
-To use this feature, first [Setup Email Service](sending-email.md)&#x20;
+To use this feature, first [Setup Email Service](sending-email.md)
 {% endhint %}
 
 Enabling email verification in an application’s settings allows the application to reserve part of its experience for users with confirmed email addresses.
@@ -90,12 +90,12 @@ There are three **`emailVerified`** states to consider:
 2. **`false`** - The user <mark style="color:red;">**did not confirm**</mark> his/her email address by clicking the link Moralis emailed them. If `emailVerified` is `false`, consider calling `fetch` on the `Moralis.User`.
 3. **`undefined (missing)`**- This `Moralis.User` was created when <mark style="color:red;">**email verification was not set up**</mark> or `Moralis.User` <mark style="color:red;">**does not have an email**</mark> when signing up.
 
-![User class in Moralis Database ](<../../../.gitbook/assets/Screenshot 2022-03-15 at 1.33.58 PM.png>)
+![User class in Moralis Database](<../../../.gitbook/assets/Screenshot 2022-03-15 at 1.33.58 PM.png>)
 
 ### Reset Password
 
 {% hint style="info" %}
-To use this feature, first [Setup Email Service](sending-email.md)&#x20;
+To use this feature, first [Setup Email Service](sending-email.md)
 {% endhint %}
 
 As you introduce passwords into a system, users will forget them. In such cases, our library provides a way to let them securely reset their password by sending an email with a reset link.
@@ -127,7 +127,7 @@ Note that the messaging in this flow will reference your app by the name that yo
 
 ### Tutorial
 
-You can connect your Moralis app with [**Sendgrid**](https://sendgrid.com) email service in order to send verification emails. The video below shows how to:&#x20;
+You can connect your Moralis app with [**Sendgrid**](https://sendgrid.com) email service in order to send verification emails. The video below shows how to:
 
 * Setting up email service (Sendgrid) with Moralis
 * Signing up users with username and password

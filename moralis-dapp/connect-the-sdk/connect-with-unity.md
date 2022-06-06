@@ -11,7 +11,7 @@ description: >-
 
 - The Unity Boilerplate include C# Moralis SDK and has an example Unity scene allowing you to login your users via their wallets, read their tokens and NFTs, interact with smart contracts and much more.
 
-{% embed url="https://github.com/ethereum-boilerplate/ethereum-unity-boilerplate" %}
+{% embed url="https://github.com/ethereum-boilerplate/web3-unity-boilerplate" %}
 Web3 Unity Boilerplate
 {% endembed %}
 
@@ -19,7 +19,7 @@ Web3 Unity Boilerplate
 
 #### Downloading the SDK
 
-Downlaod the latest version of the SDK [here](https://github.com/ethereum-boilerplate/ethereum-unity-boilerplate) Then navigate to the releases and select the lastest version of the sdk. downlaod it as a unity package
+Download the latest version of the SDK [here](https://github.com/ethereum-boilerplate/web3-unity-boilerplate) Then navigate to the releases and select the lastest version of the sdk. download it as a unity package
 
 ![](../../.gitbook/assets/downloadtheunitysdk.gif)
 
@@ -30,9 +30,8 @@ Downlaod the latest version of the SDK [here](https://github.com/ethereum-boiler
 
 ![](../../.gitbook/assets/importingthesdk.gif)
 
-> NOTE: If after importing but before running the package, you see an error that describes something as "unsafe", it is probably due to a block of code in Nethereum SCrypt.cs. Open Build Settings -> Player Settings, scroll a bit to the bottom and check "Allow unsafe Code".
-
-![](../../.gitbook/assets/unsafe.gif)
+{% tabs %}
+{% tab title="Version < 1.2.0" %}
 
 #### Configuring the project
 
@@ -43,7 +42,6 @@ Downlaod the latest version of the SDK [here](https://github.com/ethereum-boiler
 ![](../../.gitbook/assets/addingserverkeys.gif)
 
 **For WEBGL**
-
 - In Player Settings change the WebGL template to the Moralis WebGL Template.
 
 ![](../../.gitbook/assets/buildingforwebgl.gif)
@@ -54,7 +52,39 @@ Downlaod the latest version of the SDK [here](https://github.com/ethereum-boiler
 - Click on the "Authenticate" button to authenticate to Moralis using your Wallet.
 - Explore the demoscene.
 
-> Webgl can only be tested on build
+{% hint style="warning" %}
+
+Webgl can only be tested on build
+{% endhint %}
+{% endtab %}
+{% tab title="Version >= 1.2.0" %}
+
+#### Setup Wizard
+
+- you will be presented with the setup wizard to input your Dapp URL and Dapp ID
+
+![](../../.gitbook/assets/moralis-unity-boilerplate_2.gif)
+
+**For WEBGL**
+- Copy the `WebGLTemplates` folder from  `Packages/io.moralis.web3-unity-sdk/Resources/` to the Assets folder
+- In Player Settings change the WebGL template to the Moralis WebGL Template.
+
+![](../../.gitbook/assets/buildingforwebgl.gif)
+
+#### Running the application
+
+- Open the Demos folder in the Moralis Web3 Unity SDK/
+- Navigate to and open the Introduction scene in Introduction/
+- Run the application/scene by clicking the Play icon located at the top, center of the Unity.
+
+{% hint style="warning" %}
+If the above did not work, you can copy and paste the Demos/ folder in the Assets folder and run it from there
+{% endhint %}
+
+
+{% endtab %}
+
+{% endtabs %}
 
 #### See all User Assets in the Moralis Database
 
@@ -67,6 +97,11 @@ You will see the database of that server once you click _Dashboard_. Moralis fet
 ![Moralis Database fetches all user data from all chains and updates it in real time in case users move their assets on chain.](<../../.gitbook/assets/Screenshot 2021-10-15 at 18.44.04 (1).png>)
 
 ### Tutorial guides
+
+{% hint style="warning" %}
+
+These example videos/tutorials were made with the sdk version < 1.2.0, some of the code may not work for version >= 1.2.0, take a look at the [changelog](https://github.com/ethereum-boilerplate/web3-unity-boilerplate/releases/tag/v1.2.0) and [download migration video](https://cdn.discordapp.com/attachments/918645175562145822/978328925753208904/MigrateToV120.mp4)
+{% endhint %}
 
 Guides on how to use the moralis unity sdk in unity on various platform.
 

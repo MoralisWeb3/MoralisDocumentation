@@ -13,19 +13,15 @@ To start a new Create React App project with TypeScript, you can run:
 
 {% tabs %}
 {% tab title="npx" %}
-
 ```
 npx create-react-app my-app --template typescript
 ```
-
 {% endtab %}
 
 {% tab title="yarn" %}
-
 ```bash
 yarn create react-app my-app --template typescript
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -35,19 +31,15 @@ Make sure to have **react**, **react-dom** and **moralis** installed as dependen
 
 {% tabs %}
 {% tab title="npm" %}
-
 ```
 npm install moralis react-moralis
 ```
-
 {% endtab %}
 
 {% tab title="yarn" %}
-
 ```
 yarn add moralis react-moralis
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -56,7 +48,6 @@ yarn add moralis react-moralis
 You will see the following code:
 
 {% code title="src/index.tsx" %}
-
 ```javascript
 import React from "react";
 import ReactDOM from "react-dom";
@@ -71,13 +62,11 @@ ReactDOM.render(
   document.getElementById("root")
 );
 ```
-
 {% endcode %}
 
 Import Moralis Provider in your project and add **`<MoralisProvider>`** component as shown below
 
 {% code title="src/index.tsx" %}
-
 ```javascript
 import React from "react";
 import ReactDOM from "react-dom";
@@ -95,7 +84,6 @@ ReactDOM.render(
   document.getElementById("root")
 );
 ```
-
 {% endcode %}
 
 _Server URL_ and _APP ID_ you can get from your Moralis Dashboard. Go to your Moralis Dashboard and click on _View Details_ next to the server name of your server.
@@ -111,7 +99,6 @@ Now that the SDK is successfully connected we can use the power of Moralis. Let'
 Call the **`useMoralis`** hooks inside your app in `App.tsx` enter the below code:
 
 {% code title="src/App.tsx" %}
-
 ```javascript
 import React, { useEffect } from 'react';
 import logo from './logo.svg';
@@ -159,7 +146,6 @@ function App() {
 
 export default App;
 ```
-
 {% endcode %}
 
 ### 5. View the page from localhost
@@ -168,19 +154,15 @@ Run your app on `localhost` with the following command in your project directory
 
 {% tabs %}
 {% tab title="npm" %}
-
 ```bash
 npm start
 ```
-
 {% endtab %}
 
 {% tab title="yarn" %}
-
 ```bash
 yarn start
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -189,7 +171,7 @@ yarn start
 Visit the webpage and click `Login`. Your Metamask will popup and ask you to sign in.
 
 {% hint style="success" %}
-To connect other wallets other than MetaMask, check out: [**Web3 Authentication**](../users/crypto-login.md)
+To connect other wallets other than MetaMask, check out: [**Web3 Authentication**](../users/web3-login.md)
 {% endhint %}
 
 ![Metamask popping up when user clicks Login.](<../../.gitbook/assets/Screenshot 2022-03-16 at 12.46.56 PM.png>)
