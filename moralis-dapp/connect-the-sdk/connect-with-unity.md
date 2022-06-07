@@ -14,7 +14,7 @@ description: >-
 - You can take a look at this well presented [migration video](https://cdn.discordapp.com/attachments/918645175562145822/978328925753208904/MigrateToV120.mp4)
 - This also mean some of the moralis projects, github examples, youtube tutorials e.t.c  created before the release may be using the old sdk if not updated and may cause some confusing or conflicts (when looking at the docs), you are advised to migrate by following the migration video above
 - This chapter has been split to show the various installation and setup for the different sdk versions [ < v1.2.0 or >= v1.2.0]
-- Further questions ? feel free to ask on our [forum (uinty thread)](https://forum.moralis.io/t/ethereum-unity3d-boilerplate-questions/4553/708) or ask in our [discord server](https://moralis.io/mage/)
+- Further questions feel free to ask on our [forum (uinty thread)](https://forum.moralis.io/t/ethereum-unity3d-boilerplate-questions/4553/708) or ask in our [discord server](https://moralis.io/mage/)
 {% endhint %}
 
 ### Web3 Unity Boilerplate
