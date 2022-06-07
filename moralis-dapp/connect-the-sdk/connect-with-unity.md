@@ -117,7 +117,7 @@ These example videos/tutorials were made with the sdk version < 1.2.0, some of t
 {% endhint %}
 
 Guides on how to use the moralis unity sdk in unity on various platform.
-{% embed url="https://github.com/ethereum-boilerplate/ethereum-unity-boilerplate" %}
+{% embed url="https://docs.moralis.io/moralis-dapp/users/unity-login/authkit#tutorial-guide" %}
 Authentication using the Moralis Authentication Kit
 {% endembed %}
 
