@@ -12,16 +12,16 @@ Moralis allows you to authenticate your users using email and passwords.
 
 It's also possible to <mark style="color:purple;">**authenticate without a wallet**</mark> via username and password. This makes use of the built-in `MoralisUser` class.
 
-<!--This class extends [`Moralis.Object`](../../database/objects.md) with some extra attributes: -->
+<!-- This class extends [`Moralis.Object`](../../database/objects.md) with some extra attributes: -->
 
 - **`username`**: the username for the user (required)
 - **`password`**: the password for the user (required on signup)
 - **`email`**: the email address for the user (optional)
-  <!--
+<!--
   {% hint style="success" %}
   Use **`Moralis.User.signUp(username, password)`**to create a new user
   {% endhint %}
-  -->
+-->
 
 ```csharp
 // This can be placed in a function or anywhere really

@@ -27,7 +27,7 @@
     - [✨ Phantom (Solana)](moralis-dapp/users/web3-login/phantom-solana.md)
     - [🖊 Sign-in Message](moralis-dapp/users/web3-login/sign-in-message.md)
   - [🎮 Unity Authentication](moralis-dapp/users/unity-login/README.md)
-    - [📧 Email Authentication](moralis-dapp/users/unity-login/emaillogin.md)
+    - [📧 Email Authentication](moralis-dapp/users/unity-login/email-login.md)
     - [🧰 Authentication kit](moralis-dapp/users/unity-login/authkit.md)
   - [📧 Email Authentication](moralis-dapp/users/email-login/README.md)
     - [Setup Email](moralis-dapp/users/email-login/sending-email.md)
