@@ -17,7 +17,7 @@ It's also possible to <mark style="color:purple;">**authenticate without a walle
 - **`username`**: the username for the user (required)
 - **`password`**: the password for the user (required on signup)
 - **`email`**: the email address for the user (optional)
-  <!-->
+  <!--
   {% hint style="success" %}
   Use **`Moralis.User.signUp(username, password)`**to create a new user
   {% endhint %}
@@ -107,7 +107,7 @@ After loging in, you can retrieve the current user
 Logs the current user out of Moralis
 
 {% hint style="info" %}
-This logs the user out of Moralis, but in the case of a wallet login, you may need to clear wallect connect cached provider and discoonect wallet connect to reset the connection
+This logs the user out of Moralis, but in the case of a wallet login, you may need to clear wallet connect cached provider and discoonect wallet connect to reset the connection
 {% endhint %}
 
 ```csharp
