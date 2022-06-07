@@ -115,10 +115,10 @@
 ## 🎓Guides
 
 - [Build a Simple dApp in 3 Minutes - Setup (Part 1)](guides/build-a-simple-dapp-in-3-minutes.md)
-- [Build a Simple dApp in 3 Minutes - Login (Part 2)](guides/build-a-simple-dap-in-3-mins-login-part-2.md)
-- [Build a Simple dApp in 3 Mins - Historical Transactions (Part 3)](guides/build-a-simple-dapp-in-3-mins-historical-transactions-part3.md)
-- [Build a Simple dApp in 3 Mins - Real-Time Transactions (Part 4)](guides/build-a-simple-dapp-in-3-mins-real-time-transactions-part-4.md)
-- [Build a Simple dApp in 3 Mins - Cloud Functions (Part 5)](guides/build-a-simple-dapp-in-3-mins-cloud-functions-part-5.md)
+  - [Build a Simple dApp in 3 Minutes - Login (Part 2)](guides/build-a-simple-dap-in-3-mins-login-part-2.md)
+  - [Build a Simple dApp in 3 Mins - Historical Transactions (Part 3)](guides/build-a-simple-dapp-in-3-mins-historical-transactions-part3.md)
+  - [Build a Simple dApp in 3 Mins - Real-Time Transactions (Part 4)](guides/build-a-simple-dapp-in-3-mins-real-time-transactions-part-4.md)
+  - [Build a Simple dApp in 3 Mins - Cloud Functions (Part 5)](guides/build-a-simple-dapp-in-3-mins-cloud-functions-part-5.md)
 - [Deploy and Track ERC-20 Events](guides/deploy-and-track-erc20-events.md)
 
 ## Misc
