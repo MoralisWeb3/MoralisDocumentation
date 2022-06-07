@@ -14,7 +14,7 @@ With this class, you'll be able to add user account functionality to your app.
 1. Flexible schema
 2. Automatic persistence
 3. A key-value interface
-{% endhint %}
+   {% endhint %}
 
 All the methods that are on [`Moralis.Object`](../database/objects.md) also exist in `Moralis.User`. The difference is that `Moralis.User` has some special additions specific to user accounts.
 
@@ -30,6 +30,10 @@ Let's start by learning how to login user via their crypto wallet - no matter wh
 
 {% content-ref url="email-login/" %}
 [email-login](email-login/)
+{% endcontent-ref %}
+
+{% content-ref url="unity-login/" %}
+[unity-login](unity-login/)
 {% endcontent-ref %}
 
 ### Manage Users
