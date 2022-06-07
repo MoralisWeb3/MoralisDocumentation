@@ -7,9 +7,9 @@ description: >-
 
 # 🎮 Connect with Unity
 
-### Note : unity sdk breaking update
+### Unity SDK breaking updates
 {% hint style="warning" %}
-- New unity sdk has been published which feature some major updates and breaking changes, take a look at the [changelog here](https://github.com/MoralisWeb3/unity-web3-game-kit/releases/tag/v1.2.0)
+- New unity sdk version has been published which feature some major updates and breaking changes, take a look at the [changelog here](https://github.com/MoralisWeb3/unity-web3-game-kit/releases/tag/v1.2.0)
 - The code snippets in the docs has been updated to use the latest version of the sdk with the new code syntax (most recommended)
 - You can take a look at this well presented [migration video](https://cdn.discordapp.com/attachments/918645175562145822/978328925753208904/MigrateToV120.mp4)
 - This also mean some of the moralis projects, github examples, youtube tutorials e.t.c  created before the release may be using the old sdk if not updated and may cause some confusing or conflicts (when looking at the docs), you are advised to migrate by following the migration video above
