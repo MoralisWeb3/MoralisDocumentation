@@ -15,8 +15,8 @@ These **Assets, Tokens, and NFTs** are updated in <mark style="color:green;">rea
 
 ## Login Methods on Unity
 
-{% content-ref url="emaillogin.md" %}
-[Email login in Unity](emaillogin.md)
+{% content-ref url="email-login.md" %}
+[Email login in Unity](email-login.md)
 {% endcontent-ref %}
 
 {% content-ref url="authkit.md" %}
