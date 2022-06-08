@@ -203,6 +203,8 @@ public class Monster : MoralisObject
     public int strength { get; set; }
     public string ownerName { get; set; }
     public bool canFly { get; set; }
+    // base class is required
+    public Monster() : base("Monster"){}
 }
 public async void SaveObjectToDB()
     {
