@@ -211,7 +211,7 @@ public async void SaveObjectToDB()
         monster.strength = 1024;
         monster.ownerName = "Aegon";
         monster.canFly = true;
-        await character.SaveAsync();
+        await monster.SaveAsync();
         print("Created new object");
       }
       catch (Exception e){
