@@ -7,13 +7,13 @@ Returns the transactions from the current user or address. Returns an object wit
 #### Options:
 
 * `chain`(optional): The blockchain to get data from. Valid values are listed on [Supported Chains](supported-chains.md). Default value `Eth`.
-* `address` (optional): A user address (i.e. `0x1a2b3x...`). If specified, the user attached to the query is ignored and the address will be used instead.
-* `from_date` (optional): The date from where to get the transactions (any format that is accepted by momentjs). Provide the param 'from\_block' or 'from\_date' If 'from\_date' and 'from\_block' are provided, 'from\_block' will be used.
-* `to_date` (optional): Get the transactions to this date (any format that is accepted by momentjs). Provide the param 'to\_block' or 'to\_date' If 'to\_date' and 'to\_block' are provided, 'to\_block' will be used.
 * `from_block` (optional): The minimum block number from where to get the transactions Provide the param 'from\_block' or 'from\_date' If 'from\_date' and 'from\_block' are provided, 'from\_block' will be used.
 * `to_block` (optional): The maximum block number from where to get the transactions. Provide the param 'to\_block' or 'to\_date' If 'to\_date' and 'to\_block' are provided, 'to\_block' will be used.
-* `offset`(optional): Offset.
-* `limit`(optional): Limit
+* `from_date` (optional): The date from where to get the transactions (any format that is accepted by momentjs). Provide the param 'from\_block' or 'from\_date' If 'from\_date' and 'from\_block' are provided, 'from\_block' will be used.
+* `to_date` (optional): Get the transactions to this date (any format that is accepted by momentjs). Provide the param 'to\_block' or 'to\_date' If 'to\_date' and 'to\_block' are provided, 'to\_block' will be used.
+* `cursor`(optional): The cursor returned in the last response (for getting the next page).
+* `limit`(optional): Limit.
+* `address` (optional): A user address (i.e. `0x1a2b3x...`). If specified, the user attached to the query is ignored and the address will be used instead.
 
 {% tabs %}
 {% tab title="JS" %}
@@ -122,7 +122,7 @@ Returns native balance for a specific address (asynchronous).
 
 * `chain`(optional): The blockchain to get data from. Valid values are listed on [Supported Chains](supported-chains.md). Default value `Eth`.
 * `to_block` (optional): The block number on which the balances should be checked.
-* `address` (optional): The address for which the native balance will be checked. If specified, the user attached to the query is ignored and the address will be used instead. If user is not authenticated with a Wallet, then address has to be specified.
+* `address` (optional): A user address (i.e. `0x1a2b3x...`). If specified, the user attached to the query is ignored and the address will be used instead.
 
 {% tabs %}
 {% tab title="JS" %}
@@ -205,8 +205,9 @@ Retrieve all token balances of a current user or specified address. Returns an o
 #### Options:
 
 * `chain`(optional): The blockchain to get data from. Valid values are listed on [Supported Chains](supported-chains.md). Default value `Eth`.
+* `to_block` (optional): The block number on which the balances should be checked.
+* `token_addresses` (optional): The addresses to get balances for (array of strings).
 * `address` (optional): A user address (i.e. `0x1a2b3x...`). If specified, the user attached to the query is ignored and the address will be used instead.
-* `to_block` (optional): The block number on which the balances should be checked
 
 {% tabs %}
 {% tab title="JS" %}
@@ -303,6 +304,14 @@ curl -X 'GET' \
 {% endtab %}
 {% endtabs %}
 
+{% hint style="info" %}
+Use the token\_addresses param to get results for a specific contract(s) only.
+
+Note results will include all indexed NFTs.
+
+Any request which includes the token\_addresses param will start the indexing process for that NFT collection the very first time it is requested.
+{% endhint %}
+
 #### Example result:
 
 ```javascript
@@ -328,13 +337,13 @@ Get ERC20 token transfers from the current user or address. Returns an object wi
 #### Options:
 
 * `chain`(optional): The blockchain to get data from. Valid values are listed on [Supported Chains](supported-chains.md). Default value `Eth`.
-* `address` (optional): A user address (i.e. `0x1a2b3x...`). If specified, the user attached to the query is ignored and the address will be used instead.
-* `from_date` (optional): The date from where to get the transactions (any format that is accepted by momentjs). Provide the param 'from\_block' or 'from\_date' If 'from\_date' and 'from\_block' are provided, 'from\_block' will be used.
-* `to_date` (optional): Get the transactions to this date (any format that is accepted by momentjs). Provide the param 'to\_block' or 'to\_date' If 'to\_date' and 'to\_block' are provided, 'to\_block' will be used.
 * `from_block` (optional): The minimum block number from where to get the transactions Provide the param 'from\_block' or 'from\_date' If 'from\_date' and 'from\_block' are provided, 'from\_block' will be used.
 * `to_block` (optional): The maximum block number from where to get the transactions. Provide the param 'to\_block' or 'to\_date' If 'to\_date' and 'to\_block' are provided, 'to\_block' will be used.
-* `offset`(optional): Offset.
-* `limit`(optional): Limit
+* `from_date` (optional): The date from where to get the transactions (any format that is accepted by momentjs). Provide the param 'from\_block' or 'from\_date' If 'from\_date' and 'from\_block' are provided, 'from\_block' will be used.
+* `to_date` (optional): Get the transactions to this date (any format that is accepted by momentjs). Provide the param 'to\_block' or 'to\_date' If 'to\_date' and 'to\_block' are provided, 'to\_block' will be used.
+* `cursor`(optional): The cursor returned in the last response (for getting the next page).
+* `limit`(optional): Limit.
+* `address` (optional): A user address (i.e. `0x1a2b3x...`). If specified, the user attached to the query is ignored and the address will be used instead.
 
 {% tabs %}
 {% tab title="JS" %}
@@ -431,6 +440,10 @@ Get all NFTs from the current user or address. Supports both ERC721 and ERC1155.
 #### Options:
 
 * `chain`(optional): The blockchain to get data from. Valid values are listed on [Supported Chains](supported-chains.md). Default value `Eth`.
+* `format` (optional): The format of the token id. Available values : `decimal`, `hex`. Default value : `decimal.`
+* `cursor`(optional): The cursor returned in the last response (for getting the next page).
+* `limit`(optional): Limit.
+* `token_addresses` (optional): The addresses to get balances for (array of strings).
 * `address` (optional): A user address (i.e. `0x1a2b3x...`). If specified, the user attached to the query is ignored and the address will be used instead.
 
 {% tabs %}
@@ -506,6 +519,14 @@ public class Example
 {% endtab %}
 {% endtabs %}
 
+{% hint style="info" %}
+Use the token\_addresses param to get results for a specific contract(s) only.
+
+Note results will include all indexed NFTs.
+
+Any request which includes the token\_addresses param will start the indexing process for that NFT collection the very first time it is requested.
+{% endhint %}
+
 #### Example result:
 
 ```javascript
@@ -535,10 +556,9 @@ Get the NFT transfers. Returns an object with the number of NFT transfers and th
 
 * `chain`(optional): The blockchain to get data from. Valid values are listed on [Supported Chains](supported-chains.md). Default value `Eth`.
 * `format` (optional): The format of the token id. Available values : `decimal`, `hex`. Default value : `decimal.`
-* `offset`(optional): Offset.
 * `direction`(optional): The transfer direction. Available values : `both`, `to`, `from` . Default value : `both`.
+* `cursor`(optional): The cursor returned in the last response (for getting the next page).
 * `limit`(optional): Limit.
-* `order` (optional): The field(s) to order on and if it should be ordered in ascending or descending order.
 * `address` (optional): A user address (i.e. `0x1a2b3x...`). If specified, the user attached to the query is ignored and the address will be used instead.
 
 {% tabs %}
@@ -609,14 +629,6 @@ public class Example
 {% endtab %}
 {% endtabs %}
 
-{% hint style="info" %}
-Use the token\_address param to get results for a specific contract only.
-
-Note results will include all indexed NFTs.
-
-Any request which includes the token\_address param will start the indexing process for that NFT collection the very first time it is requested.
-{% endhint %}
-
 #### Example result:
 
 ```javascript
@@ -647,9 +659,8 @@ Returns an object with the NFT count for the specified contract and an NFT array
 
 * `chain`(optional): The blockchain to get data from. Valid values are listed on [Supported Chains](supported-chains.md). Default value `Eth`.
 * `format` (optional): The format of the token id. Available values : `decimal`, `hex`. Default value : `decimal.`
-* `offset`(optional): Offset.
+* `cursor` (optional): The cursor returned in the last response (for getting the next page).
 * `limit`(optional): Limit.
-* `order`(optional): The field(s) to order on and if it should be ordered in ascending or descending order.
 * `address` (optional): The owner of a given token (i.e. `0x1a2b3x...`). If specified, the user attached to the query is ignored and the address will be used instead.
 * `token_address`(required): Address of the contract
 
@@ -710,14 +721,6 @@ public class Example
 ```
 {% endtab %}
 {% endtabs %}
-
-{% hint style="info" %}
-Use the token\_address param to get results for a specific contract only.
-
-Note results will include all indexed NFTs.
-
-Any request which includes the token\_address param will start the indexing process for that NFT collection the very first time it is requested.
-{% endhint %}
 
 #### Example result:
 
