@@ -304,7 +304,7 @@ Get all NFTs from the current user or address. Supports both ERC721 and ERC1155.
 const userEthNFTs = await Moralis.Web3API.account.getNFTs();
 
 // get testnet NFTs for user
-const testnetNFTs = await Moralis.Web3API.account.getNFTs({ chain: "ropsten" });
+const testnetNFTs = await Moralis.Web3API.account.getNFTs({ chain: "goerli" });
 
 // get polygon NFTs for address
 const options = {
@@ -330,7 +330,7 @@ const fetchNFTs = async () => {
   console.log(userEthNFTs);
   // get testnet NFTs for user
   const testnetNFTs = await Web3Api.Web3API.account.getNFTs({
-    chain: "ropsten",
+    chain: "goerli",
   });
   console.log(testnetNFTs);
 
