@@ -4,41 +4,59 @@ description: Authenticate via Email and Password.
 
 # 📧 Email Authentication
 
-Moralis allows you to authenticate your users using email and passwords. These profile details can be later linked with [web3 wallets](../web3-login.md).
+Moralis allows you to authenticate your users using email and passwords.
+
+<!-- These profile details can be later linked with [web3 wallets](../web3-login.md). -->
 
 ### Sign Up with Username
 
-It's also possible to <mark style="color:purple;">**authenticate without a wallet**</mark> via username and password. This makes use of the built-in `Moralis.User` class.
+It's also possible to <mark style="color:purple;">**authenticate without a wallet**</mark> via username and password. This makes use of the built-in `MoralisUser` class.
 
-This class extends [`Moralis.Object`](../../database/objects.md) with some extra attributes:
+<!-- This class extends [`Moralis.Object`](../../database/objects.md) with some extra attributes: -->
 
 - **`username`**: the username for the user (required)
 - **`password`**: the password for the user (required on signup)
 - **`email`**: the email address for the user (optional)
+<!--
+  {% hint style="success" %}
+  Use **`Moralis.User.signUp(username, password)`**to create a new user
+  {% endhint %}
+-->
 
-{% hint style="success" %}
-Use **`Moralis.User.signUp(username, password)`**to create a new user
-{% endhint %}
+```csharp
+// This can be placed in a function or anywhere really
 
-```javascript
-const user = new Moralis.User();
-user.set("username", "my name");
-user.set("password", "my pass");
-user.set("email", "email@example.com");
-
-// other fields can be set just like with Moralis.Object
-user.set("phone", "415-392-0202");
+MoralisUser user = Moralis.Create<MoralisUser>();
+user.username = "myname";
+user.password = "mypass";
+user.email = "myemail@gmail.com"; // optional
 try {
-  await user.signUp();
-  // Hooray! Let them use the app now.
-} catch (error) {
-  // Show the error message somewhere and let the user try again.
-  alert("Error: " + error.code + " " + error.message);
+    // this signs the user up and doesnt log them in
+    await user.SignUpAsync();
+    // Hooray! Let them login the app now.
+}catch (Exception error) {
+    // Show the error message somewhere and let the user try again.
+    Debug.log("{0} Exception caught:", error);
 }
+
+```
+
+or you can use a simpler method below
+
+```csharp
+try {
+    // this signs the user up and doesnt log them in
+    await Moralis.SignUpAsync("myname", "mypass");
+    // Hooray! Let them login the app now.
+}catch (Exception error) {
+    // Show the error message somewhere and let the user try again.
+    Debug.log("{0} Exception caught:", error);
+}
+
 ```
 
 {% hint style="info" %}
-Note that we used the<mark style="color:purple;">**`signUp`**</mark>method, not the<mark style="color:purple;">**`save`**</mark>method. New **`Moralis.User`**'s created with a username should always be created using the<mark style="color:purple;">**`signUp`**</mark>method. Subsequent updates to a user can be done by calling<mark style="color:purple;">**`save`**</mark>
+Note that we used the<mark style="color:purple;">**`SignUpAsync`**</mark>method, not the<mark style="color:purple;">**`save`**</mark>method. New **`MoralisUser`**'s created with a username should always be created using the<mark style="color:purple;">**`SignUpAsync`**</mark>method.<!-- Subsequent updates to a user can be done by calling<mark style="color:purple;">**`i will probably put a method here later on`**</mark> -->
 {% endhint %}
 
 ### Users in Database
@@ -56,22 +74,44 @@ We never store passwords in plaintext, nor will we ever transmit passwords back 
 
 If a signup isn’t successful, you should read the error object that is returned however, in most cases, this happens because the username or email is already being used by another user. You should clearly communicate this to your users, and ask them to try a different username.
 
-You are free to use an email address as the username and if so, simply ask your users to enter their email into the username property — `Moralis.User` will work as normal. We’ll go over how this is handled in the reset password section.
+You are free to use an email address as the username and if so, simply ask your users to enter their email into the username property — `MoralisUser` will work as normal. We’ll go over how this is handled in the reset password section.
 
 ### Log In With Username
 
 After signing up, you can allow users to login through the \*\*`logIn`\*\*method
 
-```javascript
-const user = await Moralis.User.logIn("myname", "mypass");
+```csharp
+var user = await Moralis.LogInAsync("myname", "mypass");
 // Do stuff after successful login.
 ```
 
+<!--
 By default, the SDK uses the GET HTTP method. If you would like to override this and use a POST HTTP method instead, you may pass an optional boolean property in the options argument with the key **`usePost`**.
 
 ```javascript
 const user = await Moralis.User.logIn("myname", "mypass", { usePost: true });
 // Do stuff after successful login.
+```
+-->
+
+### Get MoralisUser
+
+After loging in, you can retrieve the current user
+
+```csharp
+ MoralisUser user = await Moralis.GetUserAsync();
+```
+
+### Logout current MoralisUser
+
+Logs the current user out of Moralis
+
+{% hint style="info" %}
+This logs the user out of Moralis, but in the case of a wallet login, you may need to clear wallet connect cached provider and discoonect wallet connect to reset the connection
+{% endhint %}
+
+```csharp
+ await Moralis.LogOutAsync();
 ```
 
 ### Verify Emails
@@ -82,16 +122,17 @@ To use this feature, first [Setup Email Service](sending-email.md)
 
 Enabling email verification in an application’s settings allows the application to reserve part of its experience for users with confirmed email addresses.
 
-Email verification adds the **`emailVerified`** key to the `Moralis.User` object. When a `Moralis.User`’s `email` is set or modified, `emailVerified` is set to `false`. `Moralis`then emails the user a link which will set `emailVerified` to `true`.
+Email verification adds the **`emailVerified`** key to the `MoralisUser` object. When a `MoralisUser`’s `email` is set or modified, `emailVerified` is set to `false`. `Moralis`then emails the user a link which will set `emailVerified` to `true`.
 
 There are three **`emailVerified`** states to consider:
 
-1. **`true`** - The user <mark style="color:green;">**confirmed**</mark> his or her email address by clicking on the link Moralis emailed them. `Moralis.Users` can never have a `true` value when the user account is first created.
-2. **`false`** - The user <mark style="color:red;">**did not confirm**</mark> his/her email address by clicking the link Moralis emailed them. If `emailVerified` is `false`, consider calling `fetch` on the `Moralis.User`.
-3. **`undefined (missing)`**- This `Moralis.User` was created when <mark style="color:red;">**email verification was not set up**</mark> or `Moralis.User` <mark style="color:red;">**does not have an email**</mark> when signing up.
+1. **`true`** - The user <mark style="color:green;">**confirmed**</mark> his or her email address by clicking on the link Moralis emailed them. `MoralisUser`s can never have a `true` value when the user account is first created.
+2. **`false`** - The user <mark style="color:red;">**did not confirm**</mark> his/her email address by clicking the link Moralis emailed them. If `emailVerified` is `false`, consider calling `fetch` on the `MoralisUser`.
+3. **`undefined (missing)`**- This `MoralisUser` was created when <mark style="color:red;">**email verification was not set up**</mark> or `MoralisUser` <mark style="color:red;">**does not have an email**</mark> when signing up.
 
 ![User class in Moralis Database](<../../../.gitbook/assets/Screenshot 2022-03-15 at 1.33.58 PM.png>)
 
+<!--
 ### Reset Password
 
 {% hint style="info" %}
@@ -125,6 +166,7 @@ The flow for password reset is as follows:
 {% hint style="info" %}
 Note that the messaging in this flow will reference your app by the name that you specified when you created this app on Moralis.
 {% endhint %}
+-->
 
 ### Tutorial
 

@@ -7,6 +7,18 @@ description: >-
 
 # 🎮 Connect with Unity
 
+### Unity SDK breaking updates
+
+{% hint style="warning" %}
+
+- New unity sdk version has been published which feature some major updates and breaking changes, take a look at the [changelog here](https://github.com/MoralisWeb3/unity-web3-game-kit/releases/tag/v1.2.0)
+- The code snippets in the docs has been updated to use the latest version of the sdk with the new code syntax (most recommended)
+- You can take a look at this well presented [migration video](https://cdn.discordapp.com/attachments/918645175562145822/978328925753208904/MigrateToV120.mp4)
+- This also mean some of the moralis projects, github examples, youtube tutorials e.t.c created before the release may be using the old sdk if not updated and may cause some confusing or conflicts (when looking at the docs), you are advised to migrate by following the migration video above
+- This chapter has been split to show the various installation and setup for the different sdk versions [ < v1.2.0 or >= v1.2.0]
+- Further questions feel free to ask on our [forum (uinty thread)](https://forum.moralis.io/t/ethereum-unity3d-boilerplate-questions/4553/708) or ask in our [discord server](https://moralis.io/mage/)
+  {% endhint %}
+
 ### Web3 Unity Boilerplate
 
 * The Unity Boilerplate include C# Moralis SDK and has an example Unity scene allowing you to login your users via their wallets, read their tokens and NFTs, interact with smart contracts and much more.
@@ -42,7 +54,7 @@ Download the latest version of the SDK [here](https://github.com/ethereum-boiler
 
 **For WEBGL**
 
-* In Player Settings change the WebGL template to the Moralis WebGL Template.
+- In Player Settings change the WebGL template to the Moralis WebGL Template.
 
 ![](../../.gitbook/assets/buildingforwebgl.gif)
 
@@ -66,12 +78,24 @@ Webgl can only be tested on build
 
 **For WEBGL**
 
+- Copy the `WebGLTemplates` folder from `Packages/io.moralis.web3-unity-sdk/Resources/` to the Assets folder
+- In Player Settings change the WebGL template to the Moralis WebGL Template.
+
 * Copy the `WebGLTemplates` folder from `Packages/io.moralis.web3-unity-sdk/Resources/` to the Assets folder
 * In Player Settings change the WebGL template to the Moralis WebGL Template.
 
 ![](../../.gitbook/assets/buildingforwebgl.gif)
 
+
 **Running the application**
+
+- Open the Demos folder in the Moralis Web3 Unity SDK/
+- Navigate to and open the Introduction scene in Introduction/
+- Run the application/scene by clicking the Play icon located at the top, center of the Unity.
+
+{% hint style="warning" %}
+If the above did not work, you can copy and paste the Demos/ folder in the Assets folder and run it from there
+{% endhint %}
 
 * Open the DemoScene in the Examples
 * Run the application by clicking the Play icon located at the top, center of the Unity.
@@ -95,11 +119,10 @@ These example videos/tutorials were made with the sdk version < 1.2.0, some of t
 {% endhint %}
 
 Guides on how to use the moralis unity sdk in unity on various platform.
-
-{% embed url="https://www.youtube.com/watch?v=FY77ImUpciI" %}
-Unity WEBGL Metamask Wallet Connection
+{% embed url="https://docs.moralis.io/moralis-dapp/users/unity-login/authkit#tutorial-guide" %}
+Authentication using the Moralis Authentication Kit
 {% endembed %}
 
-{% embed url="https://www.youtube.com/watch?v=5Bz-r1KBres" %}
-Multiplayer Web3 game with Unity and Photon
+{% embed url="https://www.youtube.com/watch?v=fSKCF_tSKQc" %}
+Unity Web3 for Beginners - Smart Contract Interaction, Solidity, Hardhat, Moralis, C#, WebGL
 {% endembed %}

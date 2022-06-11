@@ -15,10 +15,7 @@ If not specified the chain will default to Ethereum Mainnet.
 | Chain                                                                                                           | Lookup Values                                                           |
 | --------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------- |
 | Ethereum Mainnet                                                                                                | `eth`, `mainnet`, `0x1`                                                 |
-| Ropsten _(Ethereum Testnet)_                                                                                    | `testnet`, `ropsten`, `0x3`                                             |
-| Rinkeby _(Ethereum Testnet)_                                                                                    | `rinkeby`, `0x4`                                                        |
 | Goerli _(Ethereum Testnet_)                                                                                     | `goerli`, `0x5`                                                         |
-| Kovan _(Ethereum Testnet)_                                                                                      | `kovan`, `0x2a`                                                         |
 | Binance Smart Chain Mainnet                                                                                     | `bsc`, `binance`, `binance smart chain`, `0x38`                         |
 | Binance Smart Chain Testnet                                                                                     | `bsc testnet`, `binance testnet`, `binance smart chain testnet`, `0x61` |
 | Polygon _(Matic)_ Mainnet                                                                                       | `matic`, `polygon`, `0x89`                                              |
@@ -28,6 +25,10 @@ If not specified the chain will default to Ethereum Mainnet.
 | Fantom Mainnet                                                                                                  | `fantom`, `0xfa`                                                        |
 | Cronos Mainnet                                                                                                  | `cronos`, `0x19`                                                        |
 | <p>Local Dev Chain <em>(Ganache, Hardhat)</em></p><p><strong>(doesn't work currently with Web3API)</strong></p> | `ganache`, `hardhat`, `localdevchain`, `local devchain` ,`dev`, `0x539` |
+
+{% hint style="warning" %}
+Ropsten, Rinkeby and Kovan are no longer supported starting June 2022
+{% endhint %}
 
 {% hint style="warning" %}
 Local Dev Chain (Ganache, Hardhat) doesn't work currently with Web3API.

@@ -311,7 +311,7 @@ const receipt = await transaction.wait(3);
 Currently to set gas parameters, you will need to use ethers.js or web3.js directly. The following example uses the ethers.js library that comes with Moralis.
 
 ```javascript
-const test = Moralis.web3Library; // get ethers.js library
+const ethers = Moralis.web3Library; // get ethers.js library
 const web3Provider = await Moralis.enableWeb3(); // Get ethers.js web3Provider
 const gasPrice = await web3Provider.getGasPrice();
 
