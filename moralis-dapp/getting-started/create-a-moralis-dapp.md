@@ -22,15 +22,15 @@ Go to [Moralis](https://moralis.io) and sign up for a free account.
 
 ### 2. Create a Moralis Server
 
-Click **Create a new server** in the top right corner.&#x20;
+Click **Create a new server** in the top right corner.
 
-You can use Moralis to develop dApps for <mark style="color:green;"></mark> <mark style="color:green;"></mark><mark style="color:green;">**mainnets, testnets**</mark> and <mark style="color:green;">**local devchains**</mark> (for example Hardhat and Ganache).
+You can use Moralis to develop dApps for <mark style="color:green;">**mainnets, testnets**</mark> and <mark style="color:green;">**local devchains**</mark> (for example Hardhat and Ganache).
 
 For now, please select **Mainnet Server**.
 
-![Create a Moralis Dapp Mainnet Server](../../.gitbook/assets/create-new-server.png)
+![Create a Moralis Dapp Mainnet Server](../../.gitbook/assets/Create-new-server.png)
 
-### 3. Select Dapp Networks&#x20;
+### 3. Select Dapp Networks
 
 For the purpose of this demo, we select Ethereum, Polygon, BSC and Avalanche.
 
@@ -44,11 +44,11 @@ Now you will see your server in your dashboard, and we can move on and create a 
 
 The server displays several important **indicators** as shown in the image above:
 
-- `Network`: Network traffic per second
-- `CPU`: Server's CPU Usage
-- `RAM`: Server's RAM Usage
-- `DISK`: Server's Disk Usage
-- `Number of Users`: The number of users that have been authenticated in the server
+* `Network`: Network traffic per second
+* `CPU`: Server's CPU Usage
+* `RAM`: Server's RAM Usage
+* `DISK`: Server's Disk Usage
+* `Number of Users`: The number of users that have been authenticated in the server
 
 ### Migrate Dapp to Nitro Version
 
@@ -64,7 +64,7 @@ If you are in production and you have strict access rights to tables, then, core
 
 ![](../../.gitbook/assets/Plugin.png)
 
-Moralis Nitro Dapp has a number of breaking changes that are listed [here](https://forum.moralis.io/t/moralis-nitro-is-out/9267).&#x20;
+Moralis Nitro Dapp has a number of breaking changes that are listed [here](https://forum.moralis.io/t/moralis-nitro-is-out/9267).
 
 {% hint style="info" %}
 One <mark style="color:green;">**important**</mark> change when migrating from legacy to Nitro would be the removal of _**TokenBalance**_ and _**NFTOwners**_ tables from the database. This means once the Moralis Dapp has been migrated, these tables will disappear
@@ -72,8 +72,8 @@ One <mark style="color:green;">**important**</mark> change when migrating from l
 
 To attain the same functionality, all queries to these tables should be replaced with some of our available [Web3APIs](../web3-sdk/) to do the same job:
 
-- `TokenBalance` -> [`getTokenBalances`](https://docs.moralis.io/moralis-dapp/web3-sdk/account#gettokenbalances)
-- `NFTOwners` -> [`getNFTOwners`](https://docs.moralis.io/moralis-dapp/web3-sdk/token#getnftowners)
+* `TokenBalance` -> [`getTokenBalances`](https://docs.moralis.io/moralis-dapp/web3-sdk/account#gettokenbalances)
+* `NFTOwners` -> [`getNFTOwners`](https://docs.moralis.io/moralis-dapp/web3-sdk/token#getnftowners)
 
 ### Tutorial
 
