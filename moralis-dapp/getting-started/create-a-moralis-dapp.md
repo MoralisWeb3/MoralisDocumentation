@@ -52,7 +52,7 @@ The server displays several important **indicators** as shown in the image above
 
 ### Migrate Dapp to Nitro Version
 
-Every new Dapp created in Moralis now will be Nitro by default. However, those Dapps created before the launch of Moralis Nitro might still be using the legacy version. In order to upgrade the server to Nitro, simply install the coreservices plugin by clicking [here](https://admin.moralis.io/install/plugin/coreservices).
+Every new Dapp created in Moralis now will be Nitro by default. However, those Dapps created before the launch of Moralis Nitro might still be using the legacy version. In order to upgrade the server to Nitro, simply install the coreservices plugin by clicking [here](https://legacy.moralis.io/install/plugin/coreservices).
 
 {% hint style="info" %}
 Keep in mind that once the coreservices plugin has been added, it can't be removed. This means that the migration from Legacy to Nitro will be **irreversible**. From your server, you can see `coreservices` as one of the plugins.
