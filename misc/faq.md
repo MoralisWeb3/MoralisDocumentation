@@ -87,9 +87,9 @@ The goal of Moralis is to always offer you fully resolved metadata so that you d
 
 Sometimes the token_uri is invalid, and when we try to fetch the metadata we can not acceess it. In that case the metadata will be null.
 
-## Why is metadata outdated?
+## Why is metadata sometimes outdated?
 
-Resync feature was relased: [`https://forum.moralis.io/t/moralis-now-automatically-updates-nft-metadata/14816`](https://forum.moralis.io/t/moralis-now-automatically-updates-nft-metadata/14816). Now the metadata is queued for resync when a token id is accessed, but only if the token uri points to IPFS. If the token uri doesn't point to IPFS, you still have to use [`reSyncMetadata`](https://docs.moralis.io/moralis-dapp/web3-sdk/token#resyncmetadata) API that can help you to manually trigger metadata re-sync on specific token.
+Automatic re-sync feature was relased: [`https://forum.moralis.io/t/moralis-now-automatically-updates-nft-metadata/14816`](https://forum.moralis.io/t/moralis-now-automatically-updates-nft-metadata/14816). Now, the metadata is queued automatically for resync when a token id is accessed, but only if the token uri points to IPFS. If the token uri doesn't point to IPFS, you still have to use [`reSyncMetadata`](https://docs.moralis.io/moralis-dapp/web3-sdk/token#resyncmetadata) API that can help you to manually trigger metadata re-sync on specific token.
 
 ## What is the batch request limit on Moralis Speedy Nodes?
 
