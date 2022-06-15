@@ -17,7 +17,7 @@ Cloud Code is easy to use because it’s built on the same Moralis JavaScript SD
 Even if you’re only familiar with mobile development, we hope you’ll find Cloud Code straightforward and easy to use.
 
 {% hint style="warning" %}
-**Note:** Starting June 2022 you can only write Cloud Function code through [**CLI**](cloud-functions.md#ide-setup)**.**
+**Note:** Starting June 2022 you can only write Cloud Function code through CLI/IDE [**(setup)**](cloud-functions.md#ide-setup)**.**
 {% endhint %}
 
 <p align="center">
