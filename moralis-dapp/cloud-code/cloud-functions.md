@@ -20,9 +20,13 @@ Even if you’re only familiar with mobile development, we hope you’ll find Cl
 **Note:** Starting June 2022 you can only write Cloud Function code through [**CLI**](cloud-functions.md#ide-setup)**.**
 {% endhint %}
 
-![Server Settings](<../../.gitbook/assets/AdminPanel-Cloud-Functions-1.png>)
+<p align="center">
+  <img src="../../.gitbook/assets/AdminPanel-Cloud-Functions-1.png">
+</p>
 
-![Cloud Code Tab](../../.gitbook/assets/AdminPanel-Cloud-Functions-2.png)
+<p align="center">
+  <img src="../../.gitbook/assets/AdminPanel-Cloud-Functions-2.png">
+</p>
 
 Let’s look at a slightly more complex example where Cloud Code is useful. One reason to do the computation in the cloud is so that you don’t have to send a huge list of objects down to a device if you only want a little bit of information.
 
