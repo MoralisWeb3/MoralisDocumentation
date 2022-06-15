@@ -16,11 +16,13 @@ Cloud Code is easy to use because it’s built on the same Moralis JavaScript SD
 
 Even if you’re only familiar with mobile development, we hope you’ll find Cloud Code straightforward and easy to use.
 
-You can either edit cloud code on the dashboard directly or [**set up IDE**](cloud-functions.md#ide-setup)**.**
+{% hint style="warning" %}
+**Note:** Starting June 2022 you can only write Cloud Function code through [**CLI**](cloud-functions.md#ide-setup)**.**
+{% endhint %}
 
-![Cloud Functions on Moralis Dashboard](<../../.gitbook/assets/Screenshot 2022-04-08 at 2.26.40 AM.png>)
+![Server Settings](<../../.gitbook/assets/AdminPanel-Cloud-Functions-1.png>)
 
-![Edit Cloud Code as required](../../.gitbook/assets/Moralis_dashboard_cloudfunction.png)
+![Cloud Code Tab](../../.gitbook/assets/AdminPanel-Cloud-Functions-2.png)
 
 Let’s look at a slightly more complex example where Cloud Code is useful. One reason to do the computation in the cloud is so that you don’t have to send a huge list of objects down to a device if you only want a little bit of information.
 
@@ -127,6 +129,10 @@ Because each time the request gets randomly routed to different instances of you
 Global constants are ok to use as they will just be copied to all instances and won't change.
 
 ## IDE Setup
+
+{% hint style="success" %}
+You can find instructions specifically for your server in the server's settings in the Cloud Functions tab
+{% endhint %}
 
 You can write your Cloud Functions in your preferred IDE by making use of the `moralis-admin-cli`.
 
