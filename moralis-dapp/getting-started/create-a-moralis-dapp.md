@@ -87,6 +87,10 @@ To attain the same functionality, all queries to these tables should be replaced
 
 ### Tutorial
 
+{% hint style="info" %}
+Note: UI in the videos might differ from the current UI
+{% endhint %}
+
 {% embed url="https://www.youtube.com/watch?v=txHnWDRB728" %}
 See this video if you want to understand the power of Moralis Server and how it can help you build cross-chain dApps.
 {% endembed %}
