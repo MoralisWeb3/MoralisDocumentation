@@ -241,7 +241,7 @@ To get `moralisSecret` you need to go to account settings as shown in image belo
 
 then API and copy your `moralisSecret` key
 
-![](../../.gitbook/assets/Moralis-secret.png)
+![](../../.gitbook/assets/Moralis-Secret.png)
 
 Run:
 
