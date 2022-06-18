@@ -30,11 +30,17 @@ For now, please select **Mainnet Server**.
 
 ![Create a Moralis Dapp Mainnet Server](../../.gitbook/assets/Create-new-server.png)
 
-### 3. Select Dapp Networks
+### 3. Set Up Desired Environment
 
 For the purpose of this demo, we select Ethereum, Polygon, BSC and Avalanche.
 
-![Select the chains](../../.gitbook/assets/Add-new-mainnet-server.png)
+![Select Mainnet](../../.gitbook/assets/Add-new-mainnet-server.png)
+<br>
+![Select the chains](../../.gitbook/assets/Add-new-mainnet-server-2.png)
+<br>
+![Select the chains](../../.gitbook/assets/Add-new-mainnet-server-3.png)
+<br>
+![Select the chains](../../.gitbook/assets/Add-new-mainnet-server-4.png)
 
 ### 4. Explore the Dapp Dashboard
 
@@ -52,7 +58,7 @@ The server displays several important **indicators** as shown in the image above
 
 ### Migrate Dapp to Nitro Version
 
-Every new Dapp created in Moralis now will be Nitro by default. However, those Dapps created before the launch of Moralis Nitro might still be using the legacy version. In order to upgrade the server to Nitro, simply install the coreservices plugin by clicking [here](https://legacy.moralis.io/install/plugin/coreservices).
+Every new Dapp created in Moralis now will be Nitro by default. However, those Dapps created before the launch of Moralis Nitro might still be using the legacy version. In order to upgrade the server to Nitro, simply install the coreservices plugin by clicking [here](https://legacy.moralis.io/install/plugin/coreservices). 
 
 {% hint style="info" %}
 Keep in mind that once the coreservices plugin has been added, it can't be removed. This means that the migration from Legacy to Nitro will be **irreversible**. From your server, you can see `coreservices` as one of the plugins.
@@ -63,6 +69,10 @@ If you are in production and you have strict access rights to tables, then, core
 {% endhint %}
 
 ![](../../.gitbook/assets/Plugin.png)
+
+{% hint style="info" %}
+Note: This screenshot was taken while Moralis was still using Legacy UI!
+{% endhint %}
 
 Moralis Nitro Dapp has a number of breaking changes that are listed [here](https://forum.moralis.io/t/moralis-nitro-is-out/9267).
 
