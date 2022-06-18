@@ -28,7 +28,7 @@ You can use Moralis to develop dApps for <mark style="color:green;">**mainnets, 
 
 For now, please select **Mainnet Server**.
 
-![Create a Moralis Dapp Mainnet Server](../../.gitbook/assets/Create-new-server.png)
+![Create a Moralis Dapp Mainnet Server](../../.gitbook/assets/Create-new-moralis-server.png)
 
 ### 3. Set Up Desired Environment
 
