@@ -106,11 +106,13 @@ If the above did not work, you can copy and paste the Demos/ folder in the Asset
 
 #### See all User Assets in the Moralis Database
 
-As soon as the user logs in Moralis fetches all the on-chain data about that user from all chains and puts it into the Moralis Database. To see the Moralis Database go your server and click on _Dashboard_.
+As soon as the user logs in Moralis fetches all the on-chain data about that user from all chains and puts it into the Moralis Database. To see the Moralis Database go your server settings into the _Database_ tab.
 
-![Click on Dashboard in order to see the database of your server.](<../../.gitbook/assets/Screenshot 2021-10-15 at 18.38.52.png>)
+![Click on Database in server settings to get to the database page.](<../../.gitbook/assets/Database-access.png>)
+<br>
+![Click on Access Database in order to see the database of your server.](<../../.gitbook/assets/Database-access-2.png>)
 
-You will see the database of that server once you click _Dashboard_. Moralis fetches data from all blockchain where the address of the user has been active and you can see and query all tokens, NFTs and past transactions of the user all in one database.
+You will see the database of that server once you click _Access Database_. Moralis fetches data from all blockchain where the address of the user has been active and you can see and query all tokens, NFTs and past transactions of the user all in one database.
 
 ![Moralis Database fetches all user data from all chains and updates it in real time in case users move their assets on chain.](<../../.gitbook/assets/Screenshot 2021-10-15 at 18.44.04.png>)
 
