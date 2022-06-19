@@ -3,6 +3,8 @@ description: >-
   Learn how to manage and authenticate Users in Moralis using the Unity SDK
 ---
 
+# 🎮 Moralis web3 Authentication
+
 ## Moralis Authentication For Unity
 
 Moralis allows you to authenticate users on any blockchain

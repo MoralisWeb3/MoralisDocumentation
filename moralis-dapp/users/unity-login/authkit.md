@@ -1,10 +1,8 @@
 ---
-description: Authenticate via Moralis unity Authentication kit.
+description: Authenticate with Moralis unity Authentication kit.
 ---
 
-# 🎮 Moralis web3 Authentication
-
-### Moralis Auth Kit
+## Moralis Auth Kit
 
 - This is a kit used to simplify web3 authentication for the moralis unity sdk
 - It features drag and drop prefab that can be easily placed and configured in your project
@@ -17,8 +15,6 @@ The Moralis authentication Kit is capable of authenticating users on any selecte
 {% hint style="info" %}
 It is recommended to use the auth kit for your authentication and it is eaiser and less tedious as it removes the large chuck of code needed to be written for authentication
 {% endhint %}
-
-Custom code autentication [To come]
 
 ### Tutorial guide
 
