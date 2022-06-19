@@ -36,7 +36,7 @@ try {
     // Hooray! Let them login the app now.
 }catch (Exception error) {
     // Show the error message somewhere and let the user try again.
-    Debug.log("{0} Exception caught:", error);
+    Debug.log("Error :" +  error);
 }
 
 ```
@@ -50,7 +50,7 @@ try {
     // Hooray! Let them login the app now.
 }catch (Exception error) {
     // Show the error message somewhere and let the user try again.
-    Debug.log("{0} Exception caught:", error);
+    Debug.log("Error :" + error);
 }
 
 ```
@@ -148,7 +148,7 @@ try {
   // Password reset request was sent successfully
 }catch(Exception error){
   // Show the error message somewhere
-  Debug.log("{0} Exception caught:", error);
+  Debug.log("Error :" +  error);
 }
 ```
 

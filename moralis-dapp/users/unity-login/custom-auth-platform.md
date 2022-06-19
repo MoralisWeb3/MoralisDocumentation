@@ -26,7 +26,7 @@ When the QR code is scanned, the Wallet Connect script has various events to tri
 
 <details open>
 <summary>Sign moralis authentication message</summary>
-The code below is for referencing the sign message function in the inspector (not through code), this can be done, [Learn more about accessing events through code](https://docs.unity3d.com/ScriptReference/Events.UnityEvent.html)
+The code below is for referencing the sign message function in the inspector (not through code), this can be done, <a target = "_blank" href = "https://docs.unity3d.com/ScriptReference/Events.UnityEvent.html">Learn more about accessing events through code</a>
 
 ```csharp
     public WalletConnect _walletConnect;
@@ -99,7 +99,7 @@ The code below is for referencing the sign message function in the inspector (no
 
 The function `WalletConnect_OnConnectedEventSession(WCSessionData wcSessionData)` will be hooked up in the inspector in your Wallet Connect script on the `Connected Event Session (WCSessionData)` event.
 
-Fucntions can be created to be hooked up to the other different Events on the Wallect Connect script.
+functions can be created to be hooked up to the other different Events on the Wallect Connect script.
 
 </details>
 4). Save and Press play
@@ -132,7 +132,7 @@ This should initailize/start Moralis apis and services when the program starts, 
  if (await Moralis.GetUserAsync() != null){return;}
 ```
 
-This is to check if there is a logged in user and stop executing this fucntion when there is a logged in user (when `user != null`).
+This is to check if there is a logged in user and stop executing this function when there is a logged in user (when `user != null`).
 
 ---
 
@@ -199,7 +199,7 @@ This sends the sign message to your wallet to confirm and sign, it also catches 
 This creates a Dictionary `authData` consisitng of the address, signature and signMessage, Logs them in with the `authData` and the chainId.
 Print "connected" to unity console if succesfully logged in.
 
-#### Disconnect Fucntion
+#### Disconnect function
 
 ```csharp
     public async void disconnect()
