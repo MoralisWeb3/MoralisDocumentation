@@ -10,6 +10,7 @@ Wei is the smallest denomination of ether, and you should always make calculatio
 
 {% hint style="info" %}
 Due to the limitations of C#(csharp) `int` and `long` (32 and 64 bits) bit size been exceeded, `BigInteger` from `using System.Numerics;` was used due to it large bit size. `int` and `long` can be used but not recommended (`long` can be used as it is larger than `int` but it will still be easily exceeded).
+{% endhint %}
 
 ```csharp
 long value = (long)UnitConversion.Convert.ToWei(5);
@@ -18,8 +19,6 @@ long value = (long)UnitConversion.Convert.ToWei(5);
 // max length = 19
 // long length > 19 will yield Overflow Exception error
 ```
-
-{% endhint %}
 
 ## Converting ERC20 Token to Wei
 

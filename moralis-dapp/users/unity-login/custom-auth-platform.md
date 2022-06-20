@@ -8,7 +8,7 @@ description: Custom code for Authentication on the Moralis Unity SDK
 Code for the Moralis Unity SDK
 {% endembed %}
 
-### Wallect Connect authentication for platform (Windows/macs)
+### Wallect Connect authentication for platform (Windows/Macs)
 
 The platform authentication uses wallet connect and requires scan qr code and confirm sign in message to be logged in
 
