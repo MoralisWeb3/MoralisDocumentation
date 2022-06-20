@@ -16,10 +16,10 @@ You will get <mark style="color:green;">**IntelliSense**</mark> for the availabl
 
 ![](<../../.gitbook/assets/image (41).png>)
 
-### Unity using statements
+### Unity using directives
 
 <details>
-<summary>possible/frequent using statements/namespaces when using the moralis unity sdk</summary>
+<summary>possible/frequent using directives/namespaces when using the moralis unity sdk</summary>
 
 ```csharp
 using MoralisUnity;

@@ -25,7 +25,7 @@ ExecuteContractFunction calls smart contract functions
 - `gasPrice`: This is the amount in wei the sender is willing to pay for the transaction
 
 ```csharp
-//using statements
+//using directives
 using MoralisUnity;
 using MoralisUnity.Web3Api.Models;
 using Nethereum.Hex.HexTypes;
@@ -34,7 +34,7 @@ using Nethereum.Hex.HexTypes;
 //function
 public async void executeContractFunction()
     {
-        string ABI = "[{\"inputs\":[{\"internalType\":\"int256\",\"name\":\"p\",\"type\":\"int256\"}],\"name\":\"test\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}]"; ;
+        string ABI = "[{\"inputs\":[{\"internalType\":\"int256\",\"name\":\"p\",\"type\":\"int256\"}],\"name\":\"test\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}]";
         string ContractAddress = "0xD3622d5eDA04B0A393EA10513239A1fD50A61B65";
         string FunctioName = "test";
         object[] inputParams = { 3 };
