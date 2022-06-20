@@ -110,7 +110,6 @@ using Nethereum.Util;
 using System.Numerics;
 
 //conversion code
-
 //Convert token value to ETH style with 6 decimals
 BigInteger tokenValue = UnitConversion.Convert.FromWei(2000000000000000000,6);
 
