@@ -9,7 +9,15 @@ description: The list of chains supported by Web3API
 All helper functions have a **`chain`** option to specify which blockchain to get data from. The following are the currently supported values for the **`chain`** option. Any of the "Lookup Values" will match the corresponding chain.&#x20;
 
 {% hint style="info" %}
-If not specified the chain will default to Ethereum Mainnet.
+If not specified the chain will default to Ethereum Mainnet on javascript.
+{% endhint %}
+{% hint style="info" %}
+Get the list of supportedChains in unity
+
+```csharp
+List<ChainEntry> chains = Moralis.SupportedChains;
+```
+
 {% endhint %}
 
 | Chain                                                                                                           | Lookup Values                                                           |

@@ -1,8 +1,8 @@
 ---
-description: Authenticate via Email and Password.
+description: SignUp/Login via Username and Password.
 ---
 
-# 📧 Email Authentication
+## 📧 Email Login
 
 Moralis allows you to authenticate your users using email and passwords.
 
@@ -36,7 +36,7 @@ try {
     // Hooray! Let them login the app now.
 }catch (Exception error) {
     // Show the error message somewhere and let the user try again.
-    Debug.log("{0} Exception caught:", error);
+    Debug.log("Error :" +  error);
 }
 
 ```
@@ -50,7 +50,7 @@ try {
     // Hooray! Let them login the app now.
 }catch (Exception error) {
     // Show the error message somewhere and let the user try again.
-    Debug.log("{0} Exception caught:", error);
+    Debug.log("Error :" + error);
 }
 
 ```
@@ -132,7 +132,6 @@ There are three **`emailVerified`** states to consider:
 
 ![User class in Moralis Database](<../../../.gitbook/assets/Screenshot 2022-03-15 at 1.33.58 PM.png>)
 
-<!--
 ### Reset Password
 
 {% hint style="info" %}
@@ -143,15 +142,14 @@ As you introduce passwords into a system, users will forget them. In such cases,
 
 To kick off the password reset flow, ask the user for their email address, and call:
 
-```javascript
-Moralis.User.requestPasswordReset("email@example.com")
-  .then(() => {
-    // Password reset request was sent successfully
-  })
-  .catch((error) => {
-    // Show the error message somewhere
-    alert("Error: " + error.code + " " + error.message);
-  });
+```csharp
+try {
+  Moralis.GetClient().UserService.RequestPasswordResetAsync("email@example.com")
+  // Password reset request was sent successfully
+}catch(Exception error){
+  // Show the error message somewhere
+  Debug.log("Error :" +  error);
+}
 ```
 
 This will attempt to match the given email with the user’s email or username field, and will send them a password reset email. By doing this, you can opt to have users use their email as their username, or you can collect it separately and store it in the email field.
@@ -166,7 +164,6 @@ The flow for password reset is as follows:
 {% hint style="info" %}
 Note that the messaging in this flow will reference your app by the name that you specified when you created this app on Moralis.
 {% endhint %}
--->
 
 ### Tutorial
 
