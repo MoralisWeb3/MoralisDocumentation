@@ -83,7 +83,9 @@ OR
 
 Returns the hash of the transaction
 
-`0x17b920d425938c0796f7fdbc4dec4f8ad37344cb62ef5df8b20d07bacbbaed22`
+```csharp
+"0x17b920d425938c0796f7fdbc4dec4f8ad37344cb62ef5df8b20d07bacbbaed22"
+```
 
 Use `UnitConversion.Convert.ToWei` to specify the amount in ETH (same goes for BSC and Polygon).&#x20;
 
@@ -94,7 +96,7 @@ Use `UnitConversion.Convert.ToWei` to specify the amount in ETH (same goes for B
 ### Transfer ERC721 Tokens (Non-Fungible)
 
 There is currently no method for NFT transfer, this will be done `ExecuteContractFunction` to call smart contract function to transfer NFTs  
-The abi used is inline with the EIP721 standard and all tokens that use that standard should be transfereable by changing the contract address  
+The abi used is inline with the EIP721 standard and all tokens that use that standard should be transferable by changing the contract address of the NFT  
 This can also be recreated for NFT minting
 
 - `contractAddress` : The address of the deployed smart contract
@@ -120,7 +122,8 @@ public async void transferNFT()
         MoralisUser user = await Moralis.GetUserAsync();
         string fromAddress = user.authData["moralisEth"]["id"].ToString().ToLower();
         string toAddress = "0xE6502...";
-        string ContractAddress = "0xD3622d5eDA04B0A393EA10513239A1fD50A61B65";
+        // change the contract address to transfer different tokens
+        string BAYCContractAddress = "0xD3622d5eDA04B0A393EA10513239A1fD50A61B65";
         string FunctioName = "transferFrom";
         // params - fromAddress, toAddress, tokenId
         object[] inputParams = { fromAddress, toAddress, 2 };
@@ -129,7 +132,7 @@ public async void transferNFT()
         HexBigInteger gasprice = new HexBigInteger("230000");
         try
         {
-            string result = await Moralis.ExecuteContractFunction(contractAddress: ContractAddress, abi: EIPTransferNFTABI, functionName: FunctioName, args: inputParams, value: value, gas: gas, gasPrice: gasprice);
+            string result = await Moralis.ExecuteContractFunction(contractAddress: BAYCContractAddress, abi: EIPTransferNFTABI, functionName: FunctioName, args: inputParams, value: value, gas: gas, gasPrice: gasprice);
             Debug.Log("Txhash :" + result);
         }
         catch (Exception error)
@@ -143,12 +146,14 @@ public async void transferNFT()
 
 Returns the hash of the transaction
 
-`0x17b920d425938c0796f7fdbc4dec4f8ad37344cb62ef5df8b20d07bacbbaed22`
+```csharp
+"0x17b920d425938c0796f7fdbc4dec4f8ad37344cb62ef5df8b20d07bacbbaed22"
+```
 
 ### Transfer ERC20 Tokens
 
 There is currently no method for Token transfer, this will be done with `ExecuteContractFunction` to call smart contract function to transfer Tokens  
-The abi used is inline with the EIP20 standard and all tokens that use that standard should be transfereable by changing the contract address
+The abi used is inline with the EIP20 standard and all tokens that use that standard should be transferable by changing the contract address of the Token
 
 - `contractAddress` : The address of the deployed smart contract
 - `abi` : The abi of the contract or just of that specific function. [You can convert the ABI to a string here](https://tools.knowledgewalls.com/json-to-string) to pass it as a string in code or it can be passed through the inspector
@@ -170,6 +175,7 @@ using System.Numerics;
 public async void transferToken()
     {
         string EIPTransferTokenABI = "{\"inputs\":[{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"transfer\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}";
+         // change the contract address to transfer different tokens
         string DAIContractAddress = "0x6B175474E89094C44Da98b954EedeAC495271d0F";
         string FunctioName = "transfer";
         string receiverAddress = "0x0EF9...";
@@ -195,4 +201,6 @@ public async void transferToken()
 
 Returns the hash of the transaction
 
-`"0x17b920d425938c0796f7fdbc4dec4f8ad37344cb62ef5df8b20d07bacbbaed22"`
+```csharp
+"0x17b920d425938c0796f7fdbc4dec4f8ad37344cb62ef5df8b20d07bacbbaed22"
+```

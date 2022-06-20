@@ -57,10 +57,10 @@ public async void executeContractFunction()
 
 Returns the hash of the transaction
 
-```javascript
-"0x17b920d425938c0796f7fdbc4dec4f8ad37344cb62ef5df8b20d07bacbbaed22";
+```csharp
+"0x17b920d425938c0796f7fdbc4dec4f8ad37344cb62ef5df8b20d07bacbbaed22"
 ```
 
 {% hint style="info" %}
-`ExecuteContractFunction` is currently the only accepted way to call smart contract fucntions, there are other methods like [SendEvmTransactionAsync](https://github.com/MoralisWeb3/web3-unity-sdk/blob/main/Runtime/Core/Moralis.cs#L835),[SendTransactionAndWaitForReceiptAsync](https://github.com/MoralisWeb3/web3-unity-sdk/blob/main/Runtime/Core/Moralis.cs#L876) but they only work for platform and are deprecated
+`ExecuteContractFunction` is currently the only accepted way to call smart contract fucntions, there are other methods like [SendEvmTransactionAsync](https://github.com/MoralisWeb3/web3-unity-sdk/blob/main/Runtime/Core/Moralis.cs#L835), [SendTransactionAndWaitForReceiptAsync](https://github.com/MoralisWeb3/web3-unity-sdk/blob/main/Runtime/Core/Moralis.cs#L876) but they only work for platform and are deprecated
 {% endhint %}

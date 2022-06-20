@@ -102,7 +102,7 @@ The function `WalletConnect_OnConnectedEventSession(WCSessionData wcSessionData)
 functions can be created to be hooked up to the other different Events on the Wallect Connect script.
 
 </details>
-4). Save and Press play           
+4). Save and Press play.                  
 5). If things are setup correctly, The QR code should pop up and be scanned followed my a sign request and when Logged in should print `connected` to the console.
 
 ### Code breakdown
