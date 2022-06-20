@@ -39,7 +39,7 @@ const busdInWei = Moralis.Units.Token("0.5", "18");
 {% tab title="Unity" %}
 
 ```csharp
-// using statemnents
+// using namespace
 using Nethereum.Util;
 using System.Numerics;
 
@@ -72,7 +72,7 @@ const ethInWei = Moralis.Units.ETH("0.5");
 {% tab title="Unity" %}
 
 ```csharp
-// using statemnents
+// using namespace
 using Nethereum.Util;
 using System.Numerics;
 
@@ -105,12 +105,11 @@ const tokenValue = Moralis.Units.FromWei("2000000000000000000");
 {% tab title="Unity" %}
 
 ```csharp
-// using statemnents
+// using namespace
 using Nethereum.Util;
 using System.Numerics;
 
 //conversion code
-
 //Convert token value to ETH style with 6 decimals
 BigInteger tokenValue = UnitConversion.Convert.FromWei(2000000000000000000,6);
 
