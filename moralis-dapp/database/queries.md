@@ -14,6 +14,7 @@ The general pattern is to create a `Moralis.Query`, put conditions on it, and th
 
 {% tabs %}
 {% tab title="JS" %}
+
 ```javascript
 const Monster = Moralis.Object.extend("Monster");
 const query = new Moralis.Query(Monster);
@@ -26,9 +27,11 @@ for (let i = 0; i < results.length; i++) {
   alert(object.id + " - " + object.get("ownerName"));
 }
 ```
+
 {% endtab %}
 
 {% tab title="React" %}
+
 ```javascript
 import { useMoralisQuery } from "react-moralis";
 
@@ -53,17 +56,20 @@ export default function App() {
   return <button onClick={basicQuery}>Call The Code</button>;
 }
 ```
+
 {% endtab %}
 
 {% tab title="Unity" %}
+
 ```csharp
 using Moralis.Platform.Objects;
-using MoralisWeb3ApiSdk;
+using MoralisUnity;
 using Newtonsoft.Json;
 
  public async void RetrieveObjectFromDB()
     {
-        MoralisQuery<Monster> monster = Moralis.Query<Monster>().WhereEqualTo("ownerName", "Aegon");
+        MoralisQuery<Monster> monster = Moralis.Query<Monster>()
+        monster = monster.WhereEqualTo("ownerName", "Aegon");
         IEnumerable<Monster> result = await monster.FindAsync();
         foreach(Monster mon in result)
         {
@@ -72,6 +78,7 @@ using Newtonsoft.Json;
         }
     }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -86,9 +93,11 @@ There are cases when a master key is needed for a query,
 For example, if you want to get the list of all the users, you can only do that in a cloud function using a master key - <mark style="color:green;">**because a user can not read the info for the other users due to ACL**</mark>.
 
 {% code title="Example" %}
+
 ```javascript
 query.find({ useMasterKey: true });
 ```
+
 {% endcode %}
 
 ## Query Constraints
@@ -120,15 +129,18 @@ If you want **exactly one result**, a more convenient alternative may be to use 
 
 {% tabs %}
 {% tab title="JS" %}
+
 ```javascript
 const Monster = Moralis.Object.extend("Monster");
 const query = new Moralis.Query(Monster);
 query.equalTo("ownerEmail", "daenerys@housetargaryen.com");
 const object = await query.first();
 ```
+
 {% endtab %}
 
 {% tab title="React" %}
+
 ```javascript
 import { useMoralisQuery } from "react-moralis";
 
@@ -149,6 +161,7 @@ export default function App() {
   return <button onClick={singleQuery}>Call The Code</button>;
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -172,6 +185,7 @@ Example - Let's say you have 200 rows in a table called `Monster`:
 
 {% tabs %}
 {% tab title="JS" %}
+
 ```javascript
 const Monster = Moralis.Object.extend("Monster");
 const query = new Moralis.Query(Monster);
@@ -184,9 +198,11 @@ const results = await query.find(); // [ Monster, Monster, ...]
 query.withCount();
 const response = await query.find(); // { results: [ Monster, ... ], count: 200 }
 ```
+
 {% endtab %}
 
 {% tab title="React" %}
+
 ```javascript
 const limitQuery = useMoralisQuery("Monster", (query) => query.limit(25), [], {
   autoFetch: false,
@@ -211,6 +227,7 @@ const getQueryWithCount = () =>
     onSuccess: (result) => console.log(result), // { results: [ Monster, ... ], count: 200 }
   });
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -328,6 +345,7 @@ For example, To retrieve documents that contain only the `strength` and `ownerNa
 
 {% tabs %}
 {% tab title="JS" %}
+
 ```javascript
 const Monster = Moralis.Object.extend("Monster");
 const query = new Moralis.Query(Monster);
@@ -336,9 +354,11 @@ query.find().then(function (monsters) {
   // each of the monsters will only have the selected fields available.
 });
 ```
+
 {% endtab %}
 
 {% tab title="React" %}
+
 ```javascript
 import { useMoralisQuery } from "react-moralis";
 
@@ -360,6 +380,7 @@ export default function App() {
   return <button onClick={getSelectedQuery}>Call The Code</button>;
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -367,6 +388,7 @@ Similarly, to **remove undesired fields while retrieving the rest** use <mark st
 
 {% tabs %}
 {% tab title="JS" %}
+
 ```javascript
 const Monster = Moralis.Object.extend("Monster");
 const query = new Moralis.Query(Monster);
@@ -375,9 +397,11 @@ query.find().then(function (monsters) {
   // Now each monster will have all fields except `ownerName`
 });
 ```
+
 {% endtab %}
 
 {% tab title="React" %}
+
 ```javascript
 import { useMoralisQuery } from "react-moralis";
 
@@ -399,6 +423,7 @@ export default function App() {
   return <button onClick={queryExcludingParam}>Call The Code</button>;
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -444,11 +469,11 @@ query.containsAll("arrayKey", [2, 3, 4]);
 
 Type the query exactly as you would in the client or cloud code. Include a `console.log()` to print out the results then press the "Run" button. Some differences to watch out for:
 
-* Need to use the `Parse` keyword instead of `Moralis`
-  * i.e `new Parse.Query("EthTokenTransfers")`
-  * This will likely be fixed in a future version (Moralis is a fork of Parse).
-* Don't escape `$` in queries.
-* You can use the master key - `const results = query.find({ useMasterKey: true })`
+- Need to use the `Parse` keyword instead of `Moralis`
+  - i.e `new Parse.Query("EthTokenTransfers")`
+  - This will likely be fixed in a future version (Moralis is a fork of Parse).
+- Don't escape `$` in queries.
+- You can use the master key - `const results = query.find({ useMasterKey: true })`
 
 {% hint style="success" %}
 The code can be saved between sessions by clicking "Save".

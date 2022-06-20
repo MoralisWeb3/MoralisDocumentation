@@ -726,7 +726,6 @@ Needs at least one of `from_block`, `to_block` , `from_date` , `to_date`
 - `format`(optional): The format of the token id. Available values : `decimal`, `hex`. Default value : `decimal.`
 - `limit`(optional): limit
 
-
 {% tabs %}
 {% tab title="JS" %}
 
@@ -737,9 +736,9 @@ const options = {
   //from_date: "",
   //to_date: "",
   format: "decimal",
-  limit: "10"
+  limit: "10",
 };
-const data = await Moralis.Web3API.token.getNftTransfersFromToBlock(options)
+const data = await Moralis.Web3API.token.getNftTransfersFromToBlock(options);
 ```
 
 {% endtab %}
@@ -757,7 +756,7 @@ const nftTransfers = async () => {
     from_block: "14876000",
     to_block: "14877000",
     format: "decimal",
-    limit: "10"
+    limit: "10",
   };
   const nftTransfers = await Web3Api.token.getNftTransfersFromToBlock(options);
   console.log(nftTransfers);
@@ -847,8 +846,6 @@ Requests for contract addresses not yet indexed will automatically start the ind
     },
 ];
 ```
-
-
 
 ## searchNFTs
 
@@ -1746,7 +1743,7 @@ curl -X 'PUT' \
 ```csharp
 using System.Collections.Generic;
 using Moralis.Web3Api.Models;
-using MoralisWeb3ApiSdk;
+using MoralisUnity;
 
   public async void resyncMetadata()
   {

@@ -54,6 +54,22 @@ using Nethereum.RPC.Eth.DTOs;
             Debug.Log($"Transfer of {transferAmount} ETH from {fromAddress} to {toAddress} failed! with error {exp}");
         }
     }
+
+/////////////////////////////////// OR ///////////////
+   public async void SendRawETH()
+    {
+        string toAddress = "0x000...";
+        int transferAmount = 1;
+        try
+        {
+            string txnHash = await Moralis.SendTransactionAsync(toAddress, new HexBigInteger(UnitConversion.Convert.ToWei(transferAmount)));
+            Debug.Log($"Transfered {transferAmount} ETH to {toAddress}.  TxnHash: {txnHash}");
+        }
+        catch (Exception exp)
+        {
+            Debug.Log($"Transfer of {transferAmount} ETH to {toAddress} failed! with error {exp}");
+        }
+    }
 ```
 
 #### Example result:
@@ -88,29 +104,34 @@ This can also be recreated for NFT minting
 //using statements
 using MoralisUnity;
 using MoralisUnity.Web3Api.Models;
+using MoralisUnity.Platform.Objects;
 using Nethereum.Hex.HexTypes;
 
 
 //function
-public async void transferNFT() {
-string EIPTransferNFTABI = "{\"inputs\":[{\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"transferFrom\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}";
-MoralisUser user = await Moralis.GetUserAsync();
-string fromAddress = user.authData["moralisEth"]["id"].ToLower();
-string toAddress = "0xE6502...";
-string ContractAddress = "0xD3622d5eDA04B0A393EA10513239A1fD50A61B65";
-string FunctioName = "transferFrom";
-// params - fromAddress, toAddress, tokenId
-object[] inputParams = {fromAddress,toAddress, 2};
-HexBigInteger value = new HexBigInteger("0x0");
-HexBigInteger gas = new HexBigInteger("800000");
-HexBigInteger gasprice = new HexBigInteger("230000");
-try {
-string result = await Moralis.ExecuteContractFunction(contractAddress: ContractAddress, abi: EIPTransferNFTABI, functionName: FunctioName, args: inputParams, value: value, gas: gas, gasPrice: gasprice);
-Debug.Log("Txhash :" + result);
-}
-}catch(Exception error){
-     Debug.Log("Error :" + error);
-}
+public async void transferNFT()
+    {
+        string EIPTransferNFTABI = "{\"inputs\":[{\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"transferFrom\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}";
+        MoralisUser user = await Moralis.GetUserAsync();
+        string fromAddress = user.authData["moralisEth"]["id"].ToString().ToLower();
+        string toAddress = "0xE6502...";
+        string ContractAddress = "0xD3622d5eDA04B0A393EA10513239A1fD50A61B65";
+        string FunctioName = "transferFrom";
+        // params - fromAddress, toAddress, tokenId
+        object[] inputParams = { fromAddress, toAddress, 2 };
+        HexBigInteger value = new HexBigInteger("0x0");
+        HexBigInteger gas = new HexBigInteger("800000");
+        HexBigInteger gasprice = new HexBigInteger("230000");
+        try
+        {
+            string result = await Moralis.ExecuteContractFunction(contractAddress: ContractAddress, abi: EIPTransferNFTABI, functionName: FunctioName, args: inputParams, value: value, gas: gas, gasPrice: gasprice);
+            Debug.Log("Txhash :" + result);
+        }
+        catch (Exception error)
+        {
+            Debug.Log("Error :" + error);
+        }
+    }
 ```
 
 #### Example result:
@@ -143,24 +164,28 @@ using Nethereum.Util;
 using System.Numerics;
 
 //function
-public async void transferToken() {
-string EIPTransferTokenABI = "{\"inputs\":[{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"transfer\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}";
-string DAIContractAddress = "0x6B175474E89094C44Da98b954EedeAC495271d0F";
-string FunctioName = "transfer";
-string receiverAddress = "0x0EF9...";
-BigInteger DAIInWei = UnitConversion.Convert.ToWei(5, 18);
-// params - toAddress, amount
-object[] inputParams = {receiverAddress, new HexBigInteger(DAIInWei)};
-HexBigInteger value = new HexBigInteger("0x0");
-HexBigInteger gas = new HexBigInteger("800000");
-HexBigInteger gasprice = new HexBigInteger("230000");
-try {
-string result = await Moralis.ExecuteContractFunction(contractAddress: DAIContractAddress, abi: EIPTransferTokenABI, functionName: FunctioName, args: inputParams, value: value, gas: gas, gasPrice: gasprice);
-Debug.Log("Txhash :" + result);
-}catch(Exception error){
-     Debug.Log("Error :" + error);
-}
-}
+public async void transferToken()
+    {
+        string EIPTransferTokenABI = "{\"inputs\":[{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"transfer\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}";
+        string DAIContractAddress = "0x6B175474E89094C44Da98b954EedeAC495271d0F";
+        string FunctioName = "transfer";
+        string receiverAddress = "0x0EF9...";
+        BigInteger DAIInWei = UnitConversion.Convert.ToWei(5, 18);
+        // params - toAddress, amount
+        object[] inputParams = { receiverAddress, new HexBigInteger(DAIInWei) };
+        HexBigInteger value = new HexBigInteger("0x0");
+        HexBigInteger gas = new HexBigInteger("800000");
+        HexBigInteger gasprice = new HexBigInteger("230000");
+        try
+        {
+            string result = await Moralis.ExecuteContractFunction(contractAddress: DAIContractAddress, abi: EIPTransferTokenABI, functionName: FunctioName, args: inputParams, value: value, gas: gas, gasPrice: gasprice);
+            Debug.Log("Txhash :" + result);
+        }
+        catch (Exception error)
+        {
+            Debug.Log("Error :" + error);
+        }
+    }
 ```
 
 #### Example result:
