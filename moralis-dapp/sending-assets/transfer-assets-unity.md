@@ -18,7 +18,7 @@ To transfer native assets of the blockchain follow the steps:&#x20;
 2. Call the Moralis transfer function as shown below
 
 ```csharp
-//using statement
+//using directives
 using MoralisUnity;
 using MoralisUnity.Web3Api.Models;
 using Nethereum.Util;
