@@ -228,6 +228,7 @@ public async void transferNFT1155()
 ```
 
 </details>
+
 #### Example result:
 
 Returns the hash of the transaction
