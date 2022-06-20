@@ -8,7 +8,7 @@ description: Custom code for Authentication on the Moralis Unity SDK
 Code for the Moralis Unity SDK
 {% endembed %}
 
-### Wallect Connect authentication for platform (Windows/macs)
+### Wallect Connect authentication for platform (Windows/Macs)
 
 The platform authentication uses wallet connect and requires scan qr code and confirm sign in message to be logged in
 
@@ -102,7 +102,7 @@ The function `WalletConnect_OnConnectedEventSession(WCSessionData wcSessionData)
 functions can be created to be hooked up to the other different Events on the Wallect Connect script.
 
 </details>
-4). Save and Press play           
+4). Save and Press play.                  
 5). If things are setup correctly, The QR code should pop up and be scanned followed my a sign request and when Logged in should print `connected` to the console.
 
 ### Code breakdown

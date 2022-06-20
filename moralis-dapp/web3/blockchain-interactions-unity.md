@@ -25,7 +25,7 @@ ExecuteContractFunction calls smart contract functions
 - `gasPrice`: This is the amount in wei the sender is willing to pay for the transaction
 
 ```csharp
-//using statements
+//using directives
 using MoralisUnity;
 using MoralisUnity.Web3Api.Models;
 using Nethereum.Hex.HexTypes;
@@ -34,7 +34,7 @@ using Nethereum.Hex.HexTypes;
 //function
 public async void executeContractFunction()
     {
-        string ABI = "[{\"inputs\":[{\"internalType\":\"int256\",\"name\":\"p\",\"type\":\"int256\"}],\"name\":\"test\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}]"; ;
+        string ABI = "[{\"inputs\":[{\"internalType\":\"int256\",\"name\":\"p\",\"type\":\"int256\"}],\"name\":\"test\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}]";
         string ContractAddress = "0xD3622d5eDA04B0A393EA10513239A1fD50A61B65";
         string FunctioName = "test";
         object[] inputParams = { 3 };
@@ -57,10 +57,10 @@ public async void executeContractFunction()
 
 Returns the hash of the transaction
 
-```javascript
-"0x17b920d425938c0796f7fdbc4dec4f8ad37344cb62ef5df8b20d07bacbbaed22";
+```csharp
+"0x17b920d425938c0796f7fdbc4dec4f8ad37344cb62ef5df8b20d07bacbbaed22"
 ```
 
 {% hint style="info" %}
-`ExecuteContractFunction` is currently the only accepted way to call smart contract fucntions, there are other methods like [SendEvmTransactionAsync](https://github.com/MoralisWeb3/web3-unity-sdk/blob/main/Runtime/Core/Moralis.cs#L835),[SendTransactionAndWaitForReceiptAsync](https://github.com/MoralisWeb3/web3-unity-sdk/blob/main/Runtime/Core/Moralis.cs#L876) but they only work for platform and are deprecated
+`ExecuteContractFunction` is currently the only accepted way to call smart contract fucntions, there are other methods like [SendEvmTransactionAsync](https://github.com/MoralisWeb3/web3-unity-sdk/blob/main/Runtime/Core/Moralis.cs#L835), [SendTransactionAndWaitForReceiptAsync](https://github.com/MoralisWeb3/web3-unity-sdk/blob/main/Runtime/Core/Moralis.cs#L876) but they only work for platform and are deprecated
 {% endhint %}

@@ -1,7 +1,7 @@
 root: ./
 
 ​structure:
-  readme: README.md
+  moralis: README.md
   summary: SUMMARY.md​
 
 redirects:

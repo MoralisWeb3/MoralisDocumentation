@@ -21,7 +21,7 @@ description: >-
 
 ### Web3 Unity Boilerplate
 
-* The Unity Boilerplate include C# Moralis SDK and has an example Unity scene allowing you to login your users via their wallets, read their tokens and NFTs, interact with smart contracts and much more.
+- The Unity Boilerplate include C# Moralis SDK and has an example Unity scene allowing you to login your users via their wallets, read their tokens and NFTs, interact with smart contracts and much more.
 
 {% embed url="https://github.com/ethereum-boilerplate/web3-unity-boilerplate" %}
 Web3 Unity Boilerplate
@@ -37,8 +37,8 @@ Download the latest version of the SDK [here](https://github.com/ethereum-boiler
 
 #### Creating a unity project
 
-* Create a new Unity project with Unity HUB, you can select any template of your choice, add a name to your project and a location.
-* When the project is created, navigate to the folder you downloaded the package, drag and drop the package into the Assets folder in unity, an importing menu will popup and then click import to import the package into your project.
+- Create a new Unity project with Unity HUB, you can select any template of your choice, add a name to your project and a location.
+- When the project is created, navigate to the folder you downloaded the package, drag and drop the package into the Assets folder in unity, an importing menu will popup and then click import to import the package into your project.
 
 ![](../../.gitbook/assets/importingthesdk.gif)
 
@@ -46,9 +46,9 @@ Download the latest version of the SDK [here](https://github.com/ethereum-boiler
 {% tab title="Version < 1.2.0" %}
 **Configuring the project**
 
-* In your unity project, open MoralisWeb3ApiSdk->Example folder and double-click on the DemoScene to lauch it in the scene view.
-* In the "Hierachy" panel under DemoScene click on the "MoralisSetup" gameobject, if the attached script sub-section is not expanded, expand it, also do the same with the "WalletConnect" gameobject, take a look at this script and explore their code and the varibales they links with.
-* Using the information from your Moralis Server, fill in Application Id, and Server URL on the "MoralisController" script attached to the "MoralisSetup".
+- In your unity project, open MoralisWeb3ApiSdk->Example folder and double-click on the DemoScene to lauch it in the scene view.
+- In the "Hierachy" panel under DemoScene click on the "MoralisSetup" gameobject, if the attached script sub-section is not expanded, expand it, also do the same with the "WalletConnect" gameobject, take a look at this script and explore their code and the varibales they links with.
+- Using the information from your Moralis Server, fill in Application Id, and Server URL on the "MoralisController" script attached to the "MoralisSetup".
 
 ![](../../.gitbook/assets/addingserverkeys.gif)
 
@@ -56,14 +56,13 @@ Download the latest version of the SDK [here](https://github.com/ethereum-boiler
 
 - In Player Settings change the WebGL template to the Moralis WebGL Template.
 
-
 ![](../../.gitbook/assets/buildingforwebgl.gif)
 
 **Running the application**
 
-* Run the application by clicking the Play icon located at the top, center of the Unity.
-* Click on the "Authenticate" button to authenticate to Moralis using your Wallet.
-* Explore the demoscene.
+- Run the application by clicking the Play icon located at the top, center of the Unity.
+- Click on the "Authenticate" button to authenticate to Moralis using your Wallet.
+- Explore the demoscene.
 
 {% hint style="warning" %}
 Webgl can only be tested on build
@@ -73,15 +72,14 @@ Webgl can only be tested on build
 {% tab title="Version >= 1.2.0" %}
 **Setup Wizard**
 
-* you will be presented with the setup wizard to input your Dapp URL and Dapp ID
+- you will be presented with the setup wizard to input your Dapp URL and Dapp ID
 
-![](../../.gitbook/assets/moralis-unity-boilerplate\_2.gif)
+![](../../.gitbook/assets/moralis-unity-boilerplate_2.gif)
 
 **For WEBGL**
 
 - Copy the `WebGLTemplates` folder from `Packages/io.moralis.web3-unity-sdk/Resources/` to the Assets folder
 - In Player Settings change the WebGL template to the Moralis WebGL Template.
-
 
 * Copy the `WebGLTemplates` folder from `Packages/io.moralis.web3-unity-sdk/Resources/` to the Assets folder
 * In Player Settings change the WebGL template to the Moralis WebGL Template.
@@ -98,19 +96,18 @@ If the above did not work, you can copy and paste the Demos/ folder in the Asset
 
 **Running the application**
 
-
-* Open the DemoScene in the Examples
-* Run the application by clicking the Play icon located at the top, center of the Unity.
-{% endtab %}
-{% endtabs %}
+- Open the DemoScene in the Examples
+- Run the application by clicking the Play icon located at the top, center of the Unity.
+  {% endtab %}
+  {% endtabs %}
 
 #### See all User Assets in the Moralis Database
 
 As soon as the user logs in Moralis fetches all the on-chain data about that user from all chains and puts it into the Moralis Database. To see the Moralis Database go your server settings into the _Database_ tab.
 
-![Click on Database in server settings to get to the database page.](<../../.gitbook/assets/Database-access.png>)
+![Click on Database in server settings to get to the database page.](../../.gitbook/assets/Database-access.png)
 <br>
-![Click on Access Database in order to see the database of your server.](<../../.gitbook/assets/Database-access-2.png>)
+![Click on Access Database in order to see the database of your server.](../../.gitbook/assets/Database-access-2.png)
 
 You will see the database of that server once you click _Access Database_. Moralis fetches data from all blockchain where the address of the user has been active and you can see and query all tokens, NFTs and past transactions of the user all in one database.
 
