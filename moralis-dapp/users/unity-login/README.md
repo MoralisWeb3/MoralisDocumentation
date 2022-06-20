@@ -24,3 +24,7 @@ These **Assets, Tokens, and NFTs** are updated in <mark style="color:green;">rea
 {% content-ref url="authkit.md" %}
 [Moralis Authentication Kit](authkit.md)
 {% endcontent-ref %}
+
+{% content-ref url="custom-auth-platform.md" %}
+[Custom Moralis Authentication](custom-auth-platform.md))
+{% endcontent-ref %}
