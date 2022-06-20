@@ -108,8 +108,7 @@ functions can be created to be hooked up to the other different Events on the Wa
 
 </details>
 
-4\). Save and Press play .          &#x20;
-
+4\). Save and Press play.                            
 5\). If things are setup correctly, The QR code should pop up and be scanned followed my a sign request and when Logged in should print \`connected\` to the console.
 
 ## Code breakdown
