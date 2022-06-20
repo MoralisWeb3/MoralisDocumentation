@@ -12,9 +12,9 @@ To transfer native assets of the blockchain follow the steps:&#x20;
 
 1. Construct a `TransactionInput` object and set
    1. `Data: "String.Empty"`&#x20;
-   2. `From: "0xe1e8..."` //current connected user
-   3. `To: "0x000..."` //reciever address
-   4. `Value: "new HexBigInteger(5000)"`//in [`wei`](https://ethdocs.org/en/latest/ether.html#denominations)
+   2. `From: "0xe1e8..."`
+   3. `To: "0x000..."`
+   4. `Value: "new HexBigInteger(5000)"`
 2. Call the Moralis transfer function as shown below
 
 ```csharp
@@ -38,8 +38,11 @@ using Nethereum.RPC.Eth.DTOs;
         TransactionInput txnRequest = new TransactionInput()
         {
             Data = String.Empty,
+            //current connected user
             From = fromAddress,
+            //reciever address
             To = toAddress,
+            // amount in  wei
             Value = new HexBigInteger(UnitConversion.Convert.ToWei(transferAmount)) // convert to WEI
         };
         try
@@ -54,8 +57,12 @@ using Nethereum.RPC.Eth.DTOs;
             Debug.Log($"Transfer of {transferAmount} ETH from {fromAddress} to {toAddress} failed! with error {exp}");
         }
     }
+```
 
-/////////////////////////////////// OR ///////////////
+OR
+
+```csharp
+
    public async void SendRawETH()
     {
         string toAddress = "0x000...";
@@ -76,9 +83,7 @@ using Nethereum.RPC.Eth.DTOs;
 
 Returns the hash of the transaction
 
-```javascript
-"0x17b920d425938c0796f7fdbc4dec4f8ad37344cb62ef5df8b20d07bacbbaed22";
-```
+`0x17b920d425938c0796f7fdbc4dec4f8ad37344cb62ef5df8b20d07bacbbaed22`
 
 Use `UnitConversion.Convert.ToWei` to specify the amount in ETH (same goes for BSC and Polygon).&#x20;
 
@@ -138,9 +143,7 @@ public async void transferNFT()
 
 Returns the hash of the transaction
 
-```javascript
-"0x17b920d425938c0796f7fdbc4dec4f8ad37344cb62ef5df8b20d07bacbbaed22";
-```
+`0x17b920d425938c0796f7fdbc4dec4f8ad37344cb62ef5df8b20d07bacbbaed22`
 
 ### Transfer ERC20 Tokens
 
@@ -192,6 +195,4 @@ public async void transferToken()
 
 Returns the hash of the transaction
 
-```javascript
-"0x17b920d425938c0796f7fdbc4dec4f8ad37344cb62ef5df8b20d07bacbbaed22";
-```
+`"0x17b920d425938c0796f7fdbc4dec4f8ad37344cb62ef5df8b20d07bacbbaed22"`

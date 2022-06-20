@@ -25,7 +25,7 @@ long value = (long)UnitConversion.Convert.ToWei(5);
 
 To convert ERC20 token to Wei, you need to specify the amount of tokens and number of decimals.
 
-{% endtab %}
+{% tabs %}
 
 {% tab title="Javascript" %}
 
@@ -58,7 +58,7 @@ The number of decimals for a token can normally be found on Etherscan, on the we
 
 To convert native asset to Wei, you need to specify the amount of native crypto.
 
-{% endtab %}
+{% tabs %}
 
 {% tab title="Javascript" %}
 
@@ -89,8 +89,7 @@ BigInteger ethInWei = UnitConversion.Convert.ToWei(0.5);
 
 All token values are shown in Wei. If you want to display token values in the "Eth" style, you can use:
 
-{% endtab %}
-
+{% tabs %}
 {% tab title="Javascript" %}
 
 ```javascript
