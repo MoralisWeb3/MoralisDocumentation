@@ -10,7 +10,7 @@ If you need to insert, update or delete many rows at once it's recommended to us
 **Bulk Queries are fast and efficient but they don't trigger any** [**LiveQuery**](live-queries.md) **events or any** [**Triggers**](../cloud-code/triggers.md)**.**
 {% endhint %}
 
-Because Bulk Queries have no overhead they are very fast and are executed directly on the database.
+Because Bulk Queries have no overhead they are very fast and are executed directly on the database. Bulk Queries only work in [Cloud Code](../cloud-code/).
 
 **When to use:**
 
@@ -35,10 +35,12 @@ Inserts one or several objects into a Class.
 
 ```javascript
 // insert these 2 rows into the database 
-let foodsToInsert = [{update: {"name" : "Apple", "color" : "green"},
-                     {update: {"name" : "Orange", "color" : "orange"}]
+let foodsToInsert = [
+  { update: { name: "Apple", color: "green" } },
+  { update: { name: "Orange", color: "orange" } },
+];
                      
-Moralis.bulkWrite("Food", foodsToInsert)
+Moralis.bulkWrite("Food", foodsToInsert);
 ```
 
 ## Bulk Update
@@ -57,10 +59,12 @@ Updates one or several columns on the first found object for each filter.
 ```javascript
 // update the first Food where name is Apple and set color to red 
 // also update the first Food where name is Lemon and set color to yellow
-let foodsToUpdate = [{filter: {"name" : "Apple"}, update:{ "color" : "red"}},
-                     {filter: {"name" : "Lemon"}, update:{ "color" : "yellow"}}]
+let foodsToUpdate = [
+  { filter: { name: "Apple" }, update: { color: "red" } },
+  { filter: { name: "Lemon" }, update: { color: "yellow" } },
+];
                      
-Moralis.bulkUpdate("Food", foodsToUpdate)
+Moralis.bulkUpdate("Food", foodsToUpdate);
 ```
 
 ## Bulk Update Many
@@ -75,10 +79,12 @@ Updates one or several columns on all found objects for each filter.
 ```javascript
 // update the all Food where name is Apple and set color to red 
 // also update all Food where name is Lemon and set color to yellow
-let foodsToUpdate = [{filter: {"name" : "Apple"}, update:{ "color" : "red"}},
-                     {filter: {"name" : "Lemon"}, update:{ "color" : "yellow"}}]
+let foodsToUpdate = [
+  { filter: { name: "Apple" }, update: { color: "red" } },
+  { filter: { name: "Lemon" }, update: { color: "yellow" } },
+];
                      
-Moralis.bulkUpdateMany("Food", foodsToUpdate)
+Moralis.bulkUpdateMany("Food", foodsToUpdate);
 ```
 
 ## Bulk Delete
@@ -115,8 +121,10 @@ Deletes all objects found for each filter.
 ```javascript
 // deletes all Food where name is Apple
 // also delete all Food where color is purple 
-let foodsToDelete = [{filter: {"name" : "Apple"}},
-                     {filter: {"color" : "purple"}}]
+let foodsToDelete = [
+  { filter: { name: "Apple" } },
+  { filter: { color: "purple" } },
+];
                      
-Moralis.bulkDeleteMany("Food", foodsToDelete)
+Moralis.bulkDeleteMany("Food", foodsToDelete);
 ```
