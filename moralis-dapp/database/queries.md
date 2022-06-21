@@ -757,6 +757,10 @@ For a list of available stages please refer to [Mongo Aggregate Documentation](h
 
 Match pipeline is similar to `equalTo`.
 
+{% hint style="info" %}
+Legacy UI is present in this video, some things might be different
+{% endhint %}
+
 {% embed url="https://youtu.be/isl3JZwNVqg" %}
 
 ```javascript
@@ -796,6 +800,10 @@ You can read more about what operators are available in the [Mongo query operato
 ### Lookup (Join)
 
 The `lookup` pipeline is similar to `LEFT OUTER JOIN` in SQL. It will match documents in another collection and bring them into the results as an array property. Use this for collections that were not created with an explicit relation (see [Relational Data](objects.md#relational-data), [Relational Queries](queries.md#relational-queries)).
+
+{% hint style="info" %}
+Legacy UI is present in this video, some things might be different
+{% endhint %}
 
 {% embed url="https://youtu.be/T7of3eP5CQ0" %}
 
@@ -919,6 +927,10 @@ The `lookup` pipeline uses a `match` stage to specify the additional join condit
 
 ### Project (Select)
 
+{% hint style="info" %}
+Legacy UI is present in this video, some things might be different
+{% endhint %}
+
 Project pipeline is similar to `keys` or `select`, add or remove existing fields.
 
 {% embed url="https://youtu.be/8ksKYxMiTZw" %}
@@ -939,6 +951,10 @@ query
 ```
 
 ### Group
+
+{% hint style="info" %}
+Legacy UI is present in this video, some things might be different
+{% endhint %}
 
 {% embed url="https://youtu.be/xAoBRCoAhMU" %}
 
@@ -1013,6 +1029,10 @@ You can group by the column of a child document by using dot notation. However, 
 ```
 
 ### Sort
+
+{% hint style="info" %}
+Legacy UI is present in this video, some things might be different
+{% endhint %}
 
 {% embed url="https://youtu.be/aUZfictZevc" %}
 
@@ -1116,6 +1136,10 @@ query.readPreference("SECONDARY", "SECONDARY_PREFERRED", "NEAREST");
 ```
 
 ## Tutorials
+
+{% hint style="info" %}
+Legacy UI might be present in the videos, some things might be different
+{% endhint %}
 
 {% embed url="https://youtu.be/l0NvTvNxpQo" %}
 Introduction to Queries

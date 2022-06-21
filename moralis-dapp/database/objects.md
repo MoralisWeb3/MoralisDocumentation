@@ -798,6 +798,10 @@ For more information about how Moralis handles data, check out our documentation
 
 ## Tutorial
 
+{% hint style="info" %}
+Legacy UI could be present in these videos, some things might be slightly different
+{% endhint %}
+
 {% embed url="https://www.youtube.com/watch?v=ypbXe91CTkA" %}
 Unity Web3 Database - Storing Offchain Data with Moralis
 {% endembed %}

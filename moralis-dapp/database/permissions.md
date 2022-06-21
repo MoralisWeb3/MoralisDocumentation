@@ -60,6 +60,10 @@ You can do any custom logic you want in order to determine whether a file should
 
 ## Tutorial&#x20;
 
+{% hint style="info" %}
+Legacy UI is present in the video, some things might be different
+{% endhint %}
+
 {% embed url="https://www.youtube.com/watch?v=Yd4gFQ5ppmQ" %}
 CLP and ACL policies explained.
 {% endembed %}

@@ -301,6 +301,10 @@ We hope that youâ€™ll use these tools to do everything you can to keep your appâ
 
 ### Tutorial
 
+{% hint style="info" %}
+Legacy UI might be present in the videos, some things might be different
+{% endhint %}
+
 {% embed url="https://www.youtube.com/watch?v=Yd4gFQ5ppmQ" %}
 CLP, ACL and protected fields practically demonstrated.
 {% endembed %}
