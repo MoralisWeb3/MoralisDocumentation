@@ -17,9 +17,9 @@ You can get all historical transactions and listen to new transactions in real-t
 * `Address` (required): The address you will listen to for this event.
 * `Sync_historical` (optional): Sync Historical Data option. Default value `true`
 
-![](<../../.gitbook/assets/image (115).png>)
+![](<../../.gitbook/assets/AutoSync1.png>)
 
-![](<../../.gitbook/assets/image (116).png>)
+![](<../../.gitbook/assets/AutoSnyc2.png>)
 
 ### Historical Event Limit
 
