@@ -23,7 +23,7 @@ Click the "View Details" button on your server instance, then the "Email Configu
 * **Sendgrid Verification Email Template ID**: The template to use for the verification email.
 * **Sendgrid Password Reset Template ID**: The template to use for the password reset email.
 
-![Moralis email configuration](<../../../.gitbook/assets/Screenshot 2022-03-15 at 4.40.18 PM.png>)
+![Moralis email configuration](<../../../.gitbook/assets/SendGrid1.png>)
 
 ### 2. Apply Email Template
 
@@ -61,6 +61,10 @@ Moralis.Cloud.define("sendEmailToUser", function (request) {
 ```
 
 ### Tutorial
+
+{% hint style="info" %}
+Legacy UI is present in this video, some things might be slightly different
+{% endhint %}
 
 {% embed url="https://youtu.be/Q6IQRe4yUrM" %}
 

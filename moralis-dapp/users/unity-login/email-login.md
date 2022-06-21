@@ -175,6 +175,10 @@ You can connect your Moralis app with [**Sendgrid**](https://sendgrid.com) email
 - Verifying emails for users
 - Reset passwords for signed-up users
 
+{% hint style="info" %}
+Legacy UI is present in this video, some things might be slightly different
+{% endhint %}
+
 {% embed url="https://www.youtube.com/watch?v=PByFsb6t4Vo&ab_channel=MoralisWeb3" %}
 Moralis User Email Verification using Sendrid
 {% endembed %}

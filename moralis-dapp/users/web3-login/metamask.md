@@ -85,6 +85,10 @@ The following code demonstrates a working example
 
 ### Tutorial
 
+{% hint style="info" %}
+Legacy UI is present in this video, some things might be slightly different
+{% endhint %}
+
 {% embed url="https://youtu.be/SYWdSg9KLCQ" %}
 Logging in your first users on Ethereum, Polygon, Avalanche (or any other chain) using Moralis.
 {% endembed %}
