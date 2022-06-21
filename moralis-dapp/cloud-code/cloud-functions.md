@@ -158,6 +158,10 @@ moralis-admin-cli watch-cloud-folder --moralisApiKey your_api_key --moralisApiSe
 
 After you've run the command, the cloud code will be updated automatically on the backend with each save!
 
+{% hint style="info" %}
+Legacy UI is present in the video, some things might be different
+{% endhint %}
+
 {% embed url="https://youtu.be/rJ88MPODVRg?t=437" %}
 Exact time-stamp where we explain how to setup an IDE on your local machine.
 {% endembed %}
@@ -186,6 +190,10 @@ To learn more about CLI, how to install CLI and how to work with CLI please chec
 {% content-ref url="../tools/moralis-admin-cli.md" %}
 [moralis-admin-cli.md](../tools/moralis-admin-cli.md)
 {% endcontent-ref %}
+
+{% hint style="info" %}
+Legacy UI is present in the video, some things might be different
+{% endhint %}
 
 {% embed url="https://youtu.be/r8kWG-9tAXo" %}
 Video explaining how to use the CLI in order to get logs in real-time.
@@ -799,5 +807,9 @@ return result;
 ## Tutorial
 
 Introduction to Cloud functions:
+
+{% hint style="info" %}
+Legacy UI is present in the video, some things might be different (you can no longer write Cloud code in the UI)
+{% endhint %}
 
 {% embed url="https://www.youtube.com/watch?v=rJ88MPODVRg&list=PLFPZ8ai7J-iSgXptMiGlnofw4YKgNITgY&index=1&ab_channel=MoralisWeb3" %}
