@@ -85,6 +85,10 @@ const uploadFile = () => {
 {% endtab %}
 {% endtabs %}
 
+{% hint style="info" %}
+Legacy UI is present in the video, some things might be different
+{% endhint %}
+
 {% embed url="https://youtu.be/jPa0a7-6uUw" %}
 
 ## Getting Files via the Public Gateway
