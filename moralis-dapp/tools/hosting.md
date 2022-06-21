@@ -10,6 +10,10 @@ description: >-
 
 Moralis makes it easy to host your static files through the Moralis Admin CLI.
 
+{% hint style="info" %}
+Legacy UI is present in the video, some things might be different
+{% endhint %}
+
 {% embed url="https://www.youtube.com/watch?v=RiH0ADGPleg" %}
 How to host your dapp using Moralis Hosting.
 {% endembed %}

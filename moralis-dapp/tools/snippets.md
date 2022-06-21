@@ -35,4 +35,8 @@ using Nethereum.RPC.Eth.DTOs;
 
 ### Tutorial
 
+{% hint style="info" %}
+Legacy UI is present in the video, some things might be different
+{% endhint %}
+
 {% embed url="https://www.youtube.com/watch?v=X82YBwLf1Vk" %}
