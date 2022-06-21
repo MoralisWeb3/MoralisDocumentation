@@ -6,6 +6,10 @@ description: >-
 
 # Create and Launch Own NFTs
 
+{% hint style="info" %}
+Legacy UI is present in the video, some things might be different
+{% endhint %}
+
 {% embed url="https://www.youtube.com/watch?v=tBMk1iZa85Y" %}
 Big NFT Tutorial - Creating, launching, managing NFTs
 {% endembed %}
