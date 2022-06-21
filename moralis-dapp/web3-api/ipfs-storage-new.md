@@ -119,6 +119,10 @@ public class Example
 
 ### Tutorial
 
+{% hint style="info" %}
+Legacy UI is present in this video, some things might be slightly different
+{% endhint %}
+
 {% embed url="https://www.youtube.com/watch?v=VglTdr0n5ZQ" %}
 **Bulk Mint NFTs on OpenSea Using IPFS folders (ERC1155 Compliant)**
 {% endembed %}
