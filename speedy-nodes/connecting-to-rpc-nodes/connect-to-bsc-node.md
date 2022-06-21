@@ -116,6 +116,10 @@ And there you have it! See the [ethers.js docs](https://docs.ethers.io) for more
 
 ## Tutorials
 
+{% hint style="info" %}
+Legacy UI might be present in the videos, some things might be different
+{% endhint %}
+
 ### How to Connect to a BSC Node? Full Archive Binance Smart Chain Node
 
 {% embed url="https://youtu.be/o5hIlOuRPeA" %}
