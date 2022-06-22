@@ -7,9 +7,14 @@ description: How to install and use plugins from Moralis Store.
 ## Open Plugin List <a href="#open-plugin-list" id="open-plugin-list"></a>
 
 Each Moralis Server instance has its own set of plugins which are managed separately. Expand the server view and click on the "Plugins" button.​
-![](<../../.gitbook/assets/Plugins1.png>)
-<br>
-​![](<../../.gitbook/assets/Plugins2.png>)‌
+
+<p align="center">
+  <img src="../../.gitbook/assets/Plugins1.png">
+</p>
+
+<p align="center">
+  <img src="../../.gitbook/assets/Plugins2.png">
+</p>
 
 This will bring up the list of plugins. The "Installed" tab will list the currently installed plugins, where the "Browse" tab lists all available plugins.‌
 

@@ -133,11 +133,18 @@ To connect other wallets other than MetaMask, check out: [**Web3 Authentication*
 
 As soon as the user logs in Moralis fetches all the on-chain data about that user from all chains and puts it into the [**Moralis Database**](../database/). To see the Moralis Database go to your server and click on _**Dashboard**_.
 
-![Click on Database in server settings to get to the database page.](<../../.gitbook/assets/Database-access.png>)
-<br>
-![Click on Access Database in order to see the database of your server.](<../../.gitbook/assets/Database-access-2.png>)
+<p align="center">
+  <img src="../../.gitbook/assets/Database-access.png">
+</p>
 
-![Database dashboard of the server](<../../.gitbook/assets/Database-access-3.png>)
+<p align="center">
+  <img src="../../.gitbook/assets/Database-access-2.png">
+</p>
+
+<p align="center">
+  <img src="../../.gitbook/assets/Database-access-3.png">
+</p>
+
 
 You will see the database of that server once you click _Dashboard_. Moralis fetches data from all blockchains where the address of the user has been active and you can see and query all tokens, NFTs and past transactions of the user all in one database.
 

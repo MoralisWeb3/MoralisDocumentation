@@ -71,9 +71,9 @@ REACT_APP_MORALIS_SECRET = ""
 
 _Server URL_ and _APP ID_ you can get from your Moralis Dashboard. Go to your Moralis Dashboard and click on _View Details_ next to the server name of your server.
 
-![Click On View Details to get serverUrl and AppId](<../../.gitbook/assets/Screenshot 2022-03-16 at 12.03.37 PM.png>)
+![Click on Settings below the server name of your server.](<../../.gitbook/assets/Server-dashboard.png>)
 
-![Dapp Details](<../../.gitbook/assets/Screenshot 2022-03-16 at 12.05.32 PM (1).png>)
+![Dapp Details](<../../.gitbook/assets/Server-credentials.png>)
 
 ### 4. Edit App.tsx
 
