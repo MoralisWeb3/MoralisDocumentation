@@ -1602,7 +1602,7 @@ curl -X 'PUT' \
 {% tab title="Unity" %}
 ```csharp
 using System.Collections.Generic;
-using Moralis.Web3Api.Models;
+using MoralisUnity.Web3Api.Models;
 using MoralisUnity;
 
   public async void resyncMetadata()
