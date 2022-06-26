@@ -2,27 +2,27 @@
 description: Smart contracts interactions in Unity with the Moralis Unity SDK.
 ---
 
-## Smart contract interactions
+# Blockchain Interactions Unity
 
-### smart contracts
+## smart contracts
 
 what are smart contracts ?
 
-- Simple definition : Smart contracts are simply programs stored on a blockchain that run when predetermined conditions are met. [Learn more about smart contracts](https://www.ibm.com/topics/smart-contracts)
+* Simple definition : Smart contracts are simply programs stored on a blockchain that run when predetermined conditions are met. [Learn more about smart contracts](https://www.ibm.com/topics/smart-contracts)
 
-### Execute smart contract function
+## Execute smart contract function
 
 ExecuteContractFunction calls smart contract functions
 
-#### options
+### options
 
-- `contractAddress` : The address of the deployed smart contract
-- `abi` : The abi of the contract or just of that specific function. [You can convert the ABI to a string here](https://tools.knowledgewalls.com/json-to-string) to pass it as a string in code or it can be passed through the inspector
-- `functionName`: The name of the smart contract function to be called
-- `args`: The arguments passed into the function
-- `value` : msg.value of a contract function
-- `gas`: Transaction fee for the transaction
-- `gasPrice`: This is the amount in wei the sender is willing to pay for the transaction
+* `contractAddress` : The address of the deployed smart contract
+* `abi` : The abi of the contract or just of that specific function. [You can convert the ABI to a string here](https://tools.knowledgewalls.com/json-to-string) to pass it as a string in code or it can be passed through the inspector
+* `functionName`: The name of the smart contract function to be called
+* `args`: The arguments passed into the function
+* `value` : msg.value of a contract function
+* `gas`: Transaction fee for the transaction
+* `gasPrice`: This is the amount in wei the sender is willing to pay for the transaction
 
 ```csharp
 //using directives
@@ -53,7 +53,7 @@ public async void executeContractFunction()
     }
 ```
 
-#### Example result:
+### Example result:
 
 Returns the hash of the transaction
 
@@ -62,5 +62,5 @@ Returns the hash of the transaction
 ```
 
 {% hint style="info" %}
-`ExecuteContractFunction` is currently the only accepted way to call smart contract fucntions, there are other methods like [SendEvmTransactionAsync](https://github.com/MoralisWeb3/web3-unity-sdk/blob/main/Runtime/Core/Moralis.cs#L835), [SendTransactionAndWaitForReceiptAsync](https://github.com/MoralisWeb3/web3-unity-sdk/blob/main/Runtime/Core/Moralis.cs#L876) but they only work for platform and are deprecated
+`ExecuteContractFunction` is currently the only accepted way to call smart contract functions, there are other methods like [SendEvmTransactionAsync](https://github.com/MoralisWeb3/web3-unity-sdk/blob/main/Runtime/Core/Moralis.cs#L835), [SendTransactionAndWaitForReceiptAsync](https://github.com/MoralisWeb3/web3-unity-sdk/blob/main/Runtime/Core/Moralis.cs#L876) but they only work for platform and are deprecated
 {% endhint %}

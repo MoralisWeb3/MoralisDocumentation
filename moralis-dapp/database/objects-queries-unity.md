@@ -2,11 +2,9 @@
 description: Storing, Updating, Retrieving and Deleting Data in a Moralis Server on Unity.
 ---
 
-# Object and Queries unity
+# Objects
 
-## Objects
-
-### Create MoralisObject
+## Create MoralisObject
 
 ```csharp
 //using namespaces
@@ -38,11 +36,12 @@ public async void SaveObjectToDB()
         print("Failed to create new object, with error code: " + e);
       }
     }
+
 ```
 
-## Queries
+# Queries
 
-#### Basic Queries
+### Basic Queries
 
 Queries provide a way to retrieve information from your Moralis database
 
@@ -67,7 +66,7 @@ using Newtonsoft.Json;
     }
 ```
 
-#### Updating an Object
+### Updating an Object
 
 updating objects in the db
 
@@ -94,13 +93,16 @@ you create a query instance
 MoralisQuery<Monster> monster = await Moralis.Query<Monster>()
 ```
 
-#### Query params / Query constraints
+### Query params / Query constraints
 
 you can search for different params like:
 
 <details>
+<summary> Query params / Query constraints</summary>
 
-<summary>Query params / Query constraints</summary>
+{% embed url="https://github.com/MoralisWeb3/web3-unity-sdk/blob/main/Runtime/Core/Platform/Queries/MoralisQuery.cs" %}
+Moralis Query
+{% endembed %}
 
 code syntax is below description
 
@@ -173,7 +175,7 @@ WhereWithinDistance(string key, MoralisGeoPoint point, MoralisGeoDistance maxDis
 
 </details>
 
-#### compound queries
+### compound queries
 
 ```csharp
 MoralisQuery<Monster> monster = await Moralis.Query<Monster>();
@@ -183,17 +185,10 @@ MoralisQuery<Monster> monster1 = Moralis.BuildOrQuery<PlayerData>(new MoralisQue
 IEnumerable<PlayerData> result = await monster1.FindAsync();
 ```
 
-#### Moralis User object
+### Moralis User object
 
 This is an object reserve for the \_User class that handles user data in the dapp
 
 ```csharp
 MoralisUser user = Moralis.Create<MoralisUser>();
-```
-
-OR
-
-```csharp
-MoralisUser user = new MoralisUser();
-// using the above is the same as using (MoralisUser user = Moralis.Create<MoralisUser>;)
 ```
