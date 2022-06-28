@@ -549,120 +549,10 @@ return result;
 
 ## Web3
 
-Web3 functions are available within Cloud Code including the ability to call contract methods. Moralis uses the [Web3.js](https://web3js.readthedocs.io) and [ethers.js](https://docs.ethers.io) libraries.
+Web3 functions are available within Cloud Code including the ability to call contract methods. Moralis uses the [Web3.js](https://web3js.readthedocs.io) library.
 
-{% code title="cloud.js" %}
-
-```javascript
-// get a web3 instance for a specific chain
-const web3 = Moralis.web3ByChain("0x1"); // mainnet
-```
-
-{% endcode %}
-
-```javascript
-// get an ethers instance for a specific chain and ethersjs library
-const web3 = Moralis.ethersByChain("0x4"); // rinkeby
-```
-
-When you call `Moralis.ethersByChain()`, you'll get an object with the `provider` and `ethers` libraries.
-
-```json
-{
-  provider: //A provider with the supplied chainId,
-  ethers: //ethers.js library,
-}
-```
-
-Ask for an `web3` object by supplying the `chainId` for the blockchain you wish to connect to.
-
-{% hint style="info" %}
-**Note:** the `web3` instance returned by `Moralis.web3ByChain()` or `Moralis.ethersByChain()` cannot sign transactions. There is a way to sign a transaction using a private key, but <mark style="color:red;">**this is NOT recommended for security reasons**</mark>.
-{% endhint %}
-
-The following is a list of the currently supported chains.
-
-| Chain Name                    | ChainId   |
-| ----------------------------- | --------- |
-| Ethereum (Mainnet)            | `0x1`     |
-| Ropsten (Ethereum Testnet)    | `0x3`     |
-| Rinkeby                       | `0x4`     |
-| Goerli (Ethereum Testnet)     | `0x5`     |
-| Kovan                         | `0x2a`    |
-| Binance Smart Chain (Mainnet) | `0x38`    |
-| Binance Smart Chain (Testnet) | `0x61`    |
-| Matic (Mainnet)               | `0x89`    |
-| Mumbai (Matic Testnet)        | `0x13881` |
-| Local Dev (Ganache, Hardhat)  | `0x539`   |
-
-### Contracts
-
-Once you have a `web3` instance, you can use it to make contract calls by constructing a contract instance with the ABI and contract address.
-
-```javascript
-const contract = new web3.eth.Contract(abi, address);
-```
-
-For convenience, Moralis bundles the [Openzepplin](https://github.com/OpenZeppelin/openzeppelin-contracts/tree/master/contracts/token) ABI for ERC20, ERC721, and ERC1155.
-
-- `Moralis.Web3.abis.erc20`
-- `Moralis.Web3.abis.erc721`
-- `Moralis.Web3.abis.erc1155`
-
-Bringing it all together...
-
-{% code title="cloud.js" %}
-
-```javascript
-const web3 = Moralis.web3ByChain("0x38"); // BSC
-const abi = Moralis.Web3.abis.erc20;
-const address = "0x....";
-
-// create contract instance
-const contract = new web3.eth.Contract(abi, address);
-
-// get contract name
-const name = await contract.methods
-  .name()
-  .call()
-  .catch(() => "");
-```
-
-{% endcode %}
-
-{% hint style="info" %}
-For more details on the Web3.js contract interface, see the [`web3.eth.Contract`](https://web3js.readthedocs.io/en/v1.3.4/web3-eth-contract.html) section of the Web3.js docs.
-{% endhint %}
-
-The Web3 instance returned by `Moralis.web3ByChain()` cannot sign transactions. In the near future, it may be possible to do this with custom plugins. For now, if you need to make on-chain contract interactions, consider doing them on the frontend or create a NodeJS backend where you have access to [Truffle's HdWalletProvider](https://github.com/trufflesuite/truffle/tree/develop/packages/hdwallet-provider).
-
-### Contract ABI
-
-To find the ABI for a contract already published on Ethereum's Mainnet you can look on [Etherscan](https://etherscan.io) by searching for the contract address and looking in the "Contract" tab. There are similar block explorers for other chains where the ABI is published. For instance, you can go to [BscScan](https://www.bscscan.com) for Binance Smart Chain.
-
-For your own contracts, the ABI can be found in the build directory after compiling the contract
-
-- Truffle: `/truffle/build/contracts/myContract.json`.
-- Hardhat: `/artifacts/contracts/myContract.sol/myContract.json`.
 
 ### Example of how to use a custom RPC url
-
-By using ethers:
-
-{% code title="cloud.js" %}
-
-```javascript
-const web3 = Moralis.ethersByChain("0x1");
-var url = "https://speedy-nodes-nyc.moralis.io/YOUR_ID_HERE/eth/mainnet";
-var customHttpProvider = new web3.ethers.providers.JsonRpcProvider(url);
-customHttpProvider.getBlockNumber().then((result) => {
-  logger.info("Current block number: " + result);
-});
-```
-
-{% endcode %}
-
-By using web3:
 
 {% code title="cloud.js" %}
 
@@ -695,6 +585,62 @@ Moralis.Cloud.define("run_contract_function_with_web3", async (request) => {
 ```
 
 {% endcode %}
+
+
+### Contracts
+
+Once you have a `web3` instance, you can use it to make contract calls by constructing a contract instance with the ABI and contract address.
+
+```javascript
+const contract = new web3.eth.Contract(abi, address);
+```
+
+For convenience, Moralis bundles the [Openzepplin](https://github.com/OpenZeppelin/openzeppelin-contracts/tree/master/contracts/token) ABI for ERC20, ERC721, and ERC1155.
+
+- `Moralis.Web3.abis.erc20`
+- `Moralis.Web3.abis.erc721`
+- `Moralis.Web3.abis.erc1155`
+
+
+Bringing it all together...
+
+{% code title="cloud.js" %}
+
+```javascript
+const web3 = new Moralis.Web3(
+    new Moralis.Web3.providers.HttpProvider(
+      "https://speedy-nodes-nyc.moralis.io/YOUR_ID_HERE/bsc/mainnet"
+    )
+  );
+const abi = Moralis.Web3.abis.erc20;
+const address = "0x....";
+
+// create contract instance
+const contract = new web3.eth.Contract(abi, address);
+
+// get contract name
+const name = await contract.methods
+  .name()
+  .call()
+  .catch(() => "");
+```
+
+{% endcode %}
+
+{% hint style="info" %}
+For more details on the Web3.js contract interface, see the [`web3.eth.Contract`](https://web3js.readthedocs.io/en/v1.3.4/web3-eth-contract.html) section of the Web3.js docs.
+{% endhint %}
+
+
+### Contract ABI
+
+To find the ABI for a contract already published on Ethereum's Mainnet you can look on [Etherscan](https://etherscan.io) by searching for the contract address and looking in the "Contract" tab. There are similar block explorers for other chains where the ABI is published. For instance, you can go to [BscScan](https://www.bscscan.com) for Binance Smart Chain.
+
+For your own contracts, the ABI can be found in the build directory after compiling the contract
+
+- Truffle: `/truffle/build/contracts/myContract.json`.
+- Hardhat: `/artifacts/contracts/myContract.sol/myContract.json`.
+
 
 ## IPFS
 
