@@ -86,11 +86,11 @@ ReactDOM.render(
 ```
 {% endcode %}
 
-_Server URL_ and _APP ID_ you can get from your Moralis Dashboard. Go to your Moralis Dashboard and click on _View Details_ next to the server name of your server.
+_Server (Dapp) URL_ and _APP ID_ you can get from your Moralis Dashboard. Go to your Moralis Dashboard and click on _View Details_ next to the server name of your server.
 
-![Click On View Details to get serverUrl and AppId](<../../.gitbook/assets/Screenshot 2022-03-16 at 12.03.37 PM.png>)
+![Click on Settings below the server name of your server.](<../../.gitbook/assets/Server-dashboard.png>)
 
-![Dapp Details](<../../.gitbook/assets/Screenshot 2022-03-16 at 12.05.32 PM (1).png>)
+![Dapp Details](<../../.gitbook/assets/Server-credentials.png>)
 
 ### 4. Authenticate User
 
@@ -180,11 +180,18 @@ To connect other wallets other than MetaMask, check out: [**Web3 Authentication*
 
 As soon as the user logs in Moralis fetches all the on-chain data about that user from all chains and puts it into the [Moralis Database](../database/). To see the Moralis Database go to your server and click on _Dashboard_.
 
-![Click on Dashboard in order to see the database of your server.](<../../.gitbook/assets/Screenshot 2022-03-16 at 12.49.38 PM.png>)
+<p align="center">
+  <img src="../../.gitbook/assets/Database-access.png">
+</p>
+
+<p align="center">
+  <img src="../../.gitbook/assets/Database-access-2.png">
+</p>
+
 
 You will see the database of that server once you click _Dashboard_. Moralis fetches data from all blockchains where the address of the user has been active and you can see and query all tokens, NFTs and past transactions of the user all in one database.
 
-![Moralis Database fetches all user data from all chains and updates it in real time in case users move their assets on chain.](<../../.gitbook/assets/Screenshot 2022-03-15 at 1.29.16 PM.png>)
+![Moralis Database fetches all user data from all chains and updates it in real time in case users move their assets on chain.](<../../.gitbook/assets/Database-access-3.png>)
 
 ### Working code
 

@@ -12,9 +12,9 @@ It's also possible to <mark style="color:purple;">**authenticate without a walle
 
 This class extends [`Moralis.Object`](../../database/objects.md) with some extra attributes:
 
-* **`username`**: the username for the user (required)
-* **`password`**: the password for the user (required on signup)
-* **`email`**: the email address for the user (optional)
+- **`username`**: the username for the user (required)
+- **`password`**: the password for the user (required on signup)
+- **`email`**: the email address for the user (optional)
 
 {% hint style="success" %}
 Use **`Moralis.User.signUp(username, password)`**to create a new user
@@ -104,12 +104,13 @@ To kick off the password reset flow, ask the user for their email address, and c
 
 ```javascript
 Moralis.User.requestPasswordReset("email@example.com")
-.then(() => {
-  // Password reset request was sent successfully
-}).catch((error) => {
-  // Show the error message somewhere
-  alert("Error: " + error.code + " " + error.message);
-});
+  .then(() => {
+    // Password reset request was sent successfully
+  })
+  .catch((error) => {
+    // Show the error message somewhere
+    alert("Error: " + error.code + " " + error.message);
+  });
 ```
 
 This will attempt to match the given email with the user’s email or username field, and will send them a password reset email. By doing this, you can opt to have users use their email as their username, or you can collect it separately and store it in the email field.
@@ -129,11 +130,11 @@ Note that the messaging in this flow will reference your app by the name that yo
 
 You can connect your Moralis app with [**Sendgrid**](https://sendgrid.com) email service in order to send verification emails. The video below shows how to:
 
-* Setting up email service (Sendgrid) with Moralis
-* Signing up users with username and password
-* Sending custom welcome emails upon creating new profiles
-* Verifying emails for users
-* Reset passwords for signed-up users
+- Setting up email service (Sendgrid) with Moralis
+- Signing up users with username and password
+- Sending custom welcome emails upon creating new profiles
+- Verifying emails for users
+- Reset passwords for signed-up users
 
 {% embed url="https://www.youtube.com/watch?v=PByFsb6t4Vo&ab_channel=MoralisWeb3" %}
 Moralis User Email Verification using Sendrid

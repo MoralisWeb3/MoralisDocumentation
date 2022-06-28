@@ -2,7 +2,7 @@
 description: The account topic extends the namespace Moralis.SolanaAPI
 ---
 
-# 💰 SolanaAPI.account
+# SolanaAPI.account
 
 All the methods extend from **Moralis.SolanaAPI.account**
 

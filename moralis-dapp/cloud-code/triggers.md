@@ -42,6 +42,10 @@ Ganache and Hardhat only process new blocks when a transaction is made. This mea
 
 ### Tutorials
 
+{% hint style="info" %}
+Legacy UI is present in the video, some things might be different (you can no longer write Cloud code in the UI)
+{% endhint %}
+
 {% embed url="https://youtu.be/-IVGFwPILgc" %}
 
 ## Save Triggers <a href="#delete-triggers" id="delete-triggers"></a>

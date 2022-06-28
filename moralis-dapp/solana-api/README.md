@@ -31,3 +31,11 @@ The namespace is divided into two categories, depending on what is the main para
 {% hint style="info" %}
 It's also possible to access all of this functionality through REST API from your own backend. Information about how to fetch data using `REST API` is described in the [REST API](../web3-sdk/moralis-web3-api-rest.md) topic. It has similar functionality as SDK.
 {% endhint %}
+
+### Tutorial
+
+Please watch the video for an in-depth reference of the Solana API.
+
+{% embed url="https://www.youtube.com/watch?v=Ln0GEUsvcFM" %}
+Moralis Solana API walkthrough
+{% endembed %}

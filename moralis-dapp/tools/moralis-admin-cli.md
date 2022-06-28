@@ -8,6 +8,10 @@ description: >-
 
 ## Initial Setup
 
+{% hint style="info" %}
+Legacy UI is present in the video, some things might be different
+{% endhint %}
+
 {% embed url="https://youtu.be/WtAlRwkB12w" %}
 
 To use the Moralis Admin CLI, you need to install it by running the following code in the terminal:&#x20;
@@ -88,6 +92,10 @@ Here is how you can use CLI to upload all JS files in a folder as cloud code. Al
  moralis-admin-cli watch-cloud-folder --moralisApiKey API_KEY --moralisApiSecret API_SECRET --moralisSubdomain SERVER_URL --autoSave 1 --moralisCloudfolder PATH
 ```
 
+{% hint style="info" %}
+Legacy UI is present in the video, some things might be different
+{% endhint %}
+
 {% embed url="https://youtu.be/rJ88MPODVRg?t=507" %}
 How to write cloud functions locally on your machine, use multiple files and upload to the server.
 {% endembed %}
@@ -95,6 +103,10 @@ How to write cloud functions locally on your machine, use multiple files and upl
 After you've run the command, the cloud code will be updated automatically on the backend with each save!
 
 ## connect-local-devchain
+
+{% hint style="info" %}
+Legacy UI is present in the video, some things might be different
+{% endhint %}
 
 {% embed url="https://youtu.be/p8Rr5nMruSI" %}
 
@@ -119,6 +131,10 @@ You can leave out the arguments if you follow option [2 ](https://docs.moralis.i
 
 ## update-server
 
+{% hint style="info" %}
+Legacy UI is present in the video, some things might be different
+{% endhint %}
+
 {% embed url="https://youtu.be/xamQDNAQVM0" %}
 
 You can update and restart your Moralis servers from the command line by using the `update-server`command.
@@ -142,6 +158,10 @@ You can leave out the arguments if you follow option [2 ](https://docs.moralis.i
 
 ## create-server
 
+{% hint style="info" %}
+Legacy UI is present in the video, some things might be different
+{% endhint %}
+
 {% embed url="https://youtu.be/Noo_cNLSyqU" %}
 
 You can create new Moralis servers from the command line by using the `create-server`command.
@@ -164,6 +184,10 @@ This will show you a more detailed description of the command and show how you c
 You can leave out the arguments if you follow option [2 ](https://docs.moralis.io/moralis-admin-cli#2-use-an-env-file)or [3 ](https://docs.moralis.io/moralis-admin-cli#3-use-environment-variables)in the [Initial Setup](https://docs.moralis.io/moralis-admin-cli#initial-setup) section.
 
 ## add-contract
+
+{% hint style="info" %}
+Legacy UI is present in the video, some things might be different
+{% endhint %}
 
 {% embed url="https://youtu.be/oD81b75s6Ik" %}
 
@@ -193,6 +217,10 @@ Keep in mind that table names are not allowed to contain numeric characters (0-9
 
 
 ## deploy
+
+{% hint style="info" %}
+Legacy UI is present in the video, some things might be different
+{% endhint %}
 
 {% embed url="https://youtu.be/3_5oMqcFLws" %}
 
@@ -259,6 +287,10 @@ You can leave out the arguments if you follow option [2 ](https://docs.moralis.i
 ## get-logs
 
 You can get real-time logs from Moralis by running the "get-logs" script.
+
+{% hint style="info" %}
+Legacy UI is present in the video, some things might be different
+{% endhint %}
 
 {% embed url="https://www.youtube.com/watch?v=r8kWG-9tAXo&ab_channel=MoralisWeb3" %}
 

@@ -69,11 +69,11 @@ Moralis.start({ serverUrl, appId });
 ```
 {% endcode %}
 
-In order to initialize the SDK, you need to fetch _**Server URL**_ and _**APP ID**_ from your Moralis Dashboard. Go to your Moralis Server Details:
+In order to initialize the SDK, you need to fetch _**Server (Dapp) URL**_ and _**APP ID**_ from your Moralis Dashboard. Go to your Moralis Server Details:
 
-![Click on View Details next to the server name of your server.](<../../.gitbook/assets/Screenshot 2022-03-16 at 12.03.37 PM.png>)
+![Click on Settings below the server name of your server.](<../../.gitbook/assets/Server-dashboard.png>)
 
-![Pick the server url and app id from the details page](<../../.gitbook/assets/Screenshot 2022-03-16 at 12.05.32 PM.png>)
+![Pick the server url and app id from the details page](<../../.gitbook/assets/Server-credentials.png>)
 
 ### 3. Add Authentication
 
@@ -133,9 +133,18 @@ To connect other wallets other than MetaMask, check out: [**Web3 Authentication*
 
 As soon as the user logs in Moralis fetches all the on-chain data about that user from all chains and puts it into the [**Moralis Database**](../database/). To see the Moralis Database go to your server and click on _**Dashboard**_.
 
-![Click on Dashboard in order to see the database of your server.](<../../.gitbook/assets/Screenshot 2022-03-16 at 12.49.38 PM.png>)
+<p align="center">
+  <img src="../../.gitbook/assets/Database-access.png">
+</p>
 
-![Database dashboard of the server](<../../.gitbook/assets/Screenshot 2022-03-15 at 1.29.16 PM.png>)
+<p align="center">
+  <img src="../../.gitbook/assets/Database-access-2.png">
+</p>
+
+<p align="center">
+  <img src="../../.gitbook/assets/Database-access-3.png">
+</p>
+
 
 You will see the database of that server once you click _Dashboard_. Moralis fetches data from all blockchains where the address of the user has been active and you can see and query all tokens, NFTs and past transactions of the user all in one database.
 

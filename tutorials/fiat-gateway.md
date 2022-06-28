@@ -8,6 +8,10 @@ All dapps need to have an onboarding strategy for their users. If the user comes
 
 The best part? It's just one file of code!
 
+{% hint style="info" %}
+Legacy UI is present in the video, some things might be different
+{% endhint %}
+
 {% embed url="https://www.youtube.com/watch?v=5MlTnoBm7YQ&ab_channel=MoralisWeb3" %}
 Moralis Fiat Gateway Tutorial
 {% endembed %}

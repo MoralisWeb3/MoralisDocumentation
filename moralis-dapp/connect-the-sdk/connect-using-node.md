@@ -237,11 +237,11 @@ with `moralisSecret` all API calls go directly to the API instead of passing thr
 
 To get `moralisSecret` you need to go to account settings as shown in image below
 
-![](images/moralisSecret1.png)
+![](../../.gitbook/assets/Account-settings.png)
 
 then API and copy your `moralisSecret` key
 
-![](images/moralisSecret2.png)
+![](../../.gitbook/assets/Moralis-Secret.png)
 
 Run:
 

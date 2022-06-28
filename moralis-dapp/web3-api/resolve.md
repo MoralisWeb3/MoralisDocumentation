@@ -155,6 +155,10 @@ public class Example
 
 ## Tutorial
 
+{% hint style="info" %}
+Legacy UI is present in this video, some things might be slightly different
+{% endhint %}
+
 {% embed url="https://www.youtube.com/watch?v=CvtEciDhcuY" %}
 Practical example showing how ENS Domain resolution works in Ethereum. Also demonstrating Unstoppable Domains.
 {% endembed %}

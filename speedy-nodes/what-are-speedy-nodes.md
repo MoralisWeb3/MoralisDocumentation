@@ -24,4 +24,8 @@ Need a fast and reliable full node, but already have your own backend? Then Mora
 
 More blockchains coming soon!
 
+{% hint style="info" %}
+Legacy UI is present in the video, some things might be different
+{% endhint %}
+
 {% embed url="https://youtu.be/WyTLg4c7wEA" %}

@@ -17,9 +17,9 @@ You can get all historical transactions and listen to new transactions in real-t
 * `Address` (required): The address you will listen to for this event.
 * `Sync_historical` (optional): Sync Historical Data option. Default value `true`
 
-![](<../../.gitbook/assets/image (115).png>)
-
-![](<../../.gitbook/assets/image (116).png>)
+![](<../../.gitbook/assets/AutoSync1.png>)
+<br>
+![](<../../.gitbook/assets/AutoSync2.png>)
 
 ### Historical Event Limit
 
@@ -126,7 +126,9 @@ By default Moralis will sync all the past transactions of your users automatical
 
 If you know that you don't need all history of all your users you should disable historic sync in Server Settings. See image below.
 
-![Disabling historic sync can be done in server settings.](../../.gitbook/assets/screenaaa.png)
+![Disabling historic sync can be done in server settings.](../../.gitbook/assets/AutoSync3.png)
+<br>
+![Disabling historic sync can be done in server settings.](../../.gitbook/assets/AutoSync4.png)
 
 ### Fetching historical data via API
 

@@ -17,17 +17,29 @@ Luckily, Moralis Server has this functionality built in.
 
 **You can listen to smart contract events in real-time and also get all historic occurences of a specific event.**
 
+{% hint style="info" %}
+Legacy UI is present in this video, some things might be slightly different
+{% endhint %}
+
 {% embed url="https://www.youtube.com/watch?v=LMqqxkuo7b0" %}
 A tutorial demonstrating how to sync and watch smart contract event with Moralis.
 {% endembed %}
 
 ## The Graph vs Moralis For Smart Contract Indexing
 
+{% hint style="info" %}
+Legacy UI is present in this video, some things might be slightly different
+{% endhint %}
+
 {% embed url="https://www.youtube.com/watch?v=zrtcXd5cSe4" %}
 Indexing Smart Contracts with The Graph vs Moralis
 {% endembed %}
 
 ## Webhooks, SMS, Emails, Custom Code Based on Smart Contract Events
+
+{% hint style="info" %}
+Legacy UI is present in this video, some things might be slightly different
+{% endhint %}
 
 {% embed url="https://www.youtube.com/watch?v=PEILxU53-Zs" %}
 This video explains how you can setup SMS, Email, Webhooks and run custom code when a smart contract even triggers.
