@@ -55,24 +55,22 @@ const user = await Moralis.authenticate({
 import { useMoralis } from "react-moralis";
 
 function App() {
+  const { authenticate, isAuthenticated } = useMoralis();
 
-    const { authenticate, isAuthenticated, user } = useMoralis();
-
-    const login = async () => {
-      if (!isAuthenticated) {
-
-        await authenticate({
-				provider: "web3Auth",
-				clientId: "ABC*****************",
-			})
-          .onSuccess: (user) => {
-            console.log(user!.get("ethAddress"));
-          }
-          .catch(function (error) {
-            console.log(error);
-          });
-      }
+  const login = async () => {
+    if (!isAuthenticated) {
+      await authenticate({
+        provider: "web3Auth",
+        clientId: "ABC*****************",
+      })
+        .then(function (user) {
+          console.log(user!.get("ethAddress"));
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
     }
+  };
 }
 ```
 {% endtab %}
