@@ -80,7 +80,6 @@
   * [Web3 Provider](moralis-dapp/web3/web3.md)
   * [Ganache & Hardhat Setup](moralis-dapp/web3/setting-up-ganache.md)
 * [📂 Files](moralis-dapp/files/README.md)
-  * [Files](moralis-dapp/files/files.md)
   * [IPFS](moralis-dapp/files/ipfs.md)
 * [🧰 Tools](moralis-dapp/tools/README.md)
   * [Moralis Units](moralis-dapp/tools/moralis-units.md)
