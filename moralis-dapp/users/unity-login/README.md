@@ -17,10 +17,6 @@ These **Assets, Tokens, and NFTs** are updated in <mark style="color:green;">rea
 
 ## Login Methods on Unity
 
-{% content-ref url="email-login.md" %}
-[Email login in Unity](email-login.md)
-{% endcontent-ref %}
-
 {% content-ref url="authkit.md" %}
 [Moralis Authentication Kit](authkit.md)
 {% endcontent-ref %}
