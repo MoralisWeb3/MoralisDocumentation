@@ -376,7 +376,7 @@ const name = await Moralis.executeFunction({
 * The return value if the function is read-only
 * A [transaction response](https://docs.ethers.io/v5/api/providers/types/#providers-TransactionResponse), if the function writes on-chain.
 
-You can resolve the transaction response into a receipt, by waiting until the transaction has been confirmed. For example, to wait for 3 confirmations:
+You can resolve the transaction response into a receipt, by waiting until the transaction has been confirmed. For example, to wait for 1 confirmation:
 
 ```javascript
 const options = {
@@ -387,6 +387,12 @@ const options = {
 };
 const transaction = await Moralis.executeFunction(options);
 const result = await transaction.wait();
+```
+
+To wait for 5 confirmations:
+
+```javascript
+const result = await transaction.wait(5);
 ```
 
 ## Events
