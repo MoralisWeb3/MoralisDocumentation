@@ -39,6 +39,147 @@ public async void SaveObjectToDB()
 
 ```
 
+{% hint style="info" %}
+`SaveAsync()` will throw `MoralisSaveException` on failure
+{% endhint %}
+
+## Create and retrieve a Custom user
+
+<details>
+
+<summary>Create and retrieve a Custom user</summary>
+
+```csharp
+using Cysharp.Threading.Tasks;
+using MoralisUnity;
+using MoralisUnity.Platform.Objects;
+using MoralisUnity.Platform.Queries;
+
+namespace Assets.Scripts
+{
+    /// <summary>
+    /// Create your custom user object derived from MoralisUser.
+    /// Here I created a user that holds an access level and
+    /// address properties.
+    /// </summary>
+    public class MyCustomUser : MoralisUser
+    {
+        public int AccessLevel { get; set; }
+        public string Street { get; set; }
+        public string City { get; set; }
+        public string PostalCode { get; set; }
+        public string Country { get; set; }
+        public string State { get; set; }
+
+        public MyCustomUser() { }
+
+        public MyCustomUser(MoralisUser baseUser)
+        {
+            base.accounts = baseUser.accounts;
+            base.ACL = baseUser.ACL;
+            base.authData = baseUser.authData;
+            base.createdAt = baseUser.createdAt;
+            base.email = baseUser.email;
+            base.ethAddress = baseUser.ethAddress;
+            base.objectId = baseUser.objectId;
+            base.sessionToken = baseUser.sessionToken;
+            base.updatedAt = baseUser.updatedAt;
+            base.username = baseUser.username;
+            // Necessary step to make sure the customer user is saved to
+            // the _User table and not a new table.
+            base.ClassName = baseUser.ClassName;
+        }
+    }
+
+    /// <summary>
+    /// The whole purpose of this class is to trick the MoralisQuery to
+    /// target the "_User" table
+    /// </summary>
+    internal class _User : MyCustomUser { }
+
+    /// <summary>
+    /// This class provides some examples showing how to create a user and
+    /// then load it at need.
+    /// </summary>
+    public class CustomUserServiceExample
+    {
+        public static async UniTask<MyCustomUser> CreateUser(MoralisUser user, int accessLevel, string street, string city, string state, string postalCode, string country)
+        {
+            MyCustomUser newUser = new MyCustomUser(user);
+            newUser.City = city;
+            newUser.State = state;
+            newUser.PostalCode = postalCode;
+            newUser.Country = country;
+            newUser.Street = street;
+            newUser.AccessLevel = accessLevel;
+
+            await newUser.SaveAsync();
+
+            return newUser;
+        }
+
+        /// <summary>
+        /// Loads a custom user object using the normal MoralisUser
+        /// as a reference.
+        /// </summary>
+        /// <param name="user"></param>
+        /// <returns></returns>
+        public static async UniTask<MyCustomUser> LoadFromUser(MoralisUser user)
+        {
+            return await LoadFromUser(user.objectId);
+        }
+
+        /// <summary>
+        /// Loads a customer user using an objectId
+        /// </summary>
+        /// <param name="objectId"></param>
+        /// <returns></returns>
+        public static async UniTask<MyCustomUser> LoadFromUser(string objectId)
+        {
+            // Query using the _User object so query is against tghe "_User" table.
+            MoralisQuery<_User> q = await Moralis.Query<_User>();
+
+            _User user = await q.WhereEqualTo("objectId", objectId).FirstOrDefaultAsync();
+
+            // Since _User is derived from MyCustomUser you can just return it
+            // and it will be returned as a MyCustomUser.
+            return user;
+        }
+    }
+}
+
+```
+
+Retrieve and use from the above
+
+```csharp
+public async static void TestStuff()
+{
+    await CreateCustomUserTest();
+
+    await GetCustomUserTest();
+}
+
+private static async UniTask CreateCustomUserTest()
+{
+    MoralisUser user = await Moralis.GetUserAsync();
+
+    await CustomUserServiceExample.CreateUser(user, 4321, "555 My Street", "MyCity", "FL", "33809", "US");
+}
+
+private static async UniTask GetCustomUserTest()
+{
+    MoralisUser user = await Moralis.GetUserAsync();
+
+    MyCustomUser myUser = await CustomUserServiceExample.LoadFromUser(user.objectId);
+
+    Debug.Log($"Street: {myUser.Street}, City: {myUser.City}, State: {myUser.State}, Zip: {myUser.PostalCode}");
+}
+
+```
+
+</details>
+
 # Queries
 
 ### Basic Queries
