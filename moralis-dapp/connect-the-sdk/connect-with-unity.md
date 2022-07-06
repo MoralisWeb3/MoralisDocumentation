@@ -27,6 +27,9 @@ Web3 Unity Boilerplate
 {% endembed %}
 
 ### Adding Moralis to Your Unity Game
+{% hint style="info" %}
+The SDK support Unity version 2020.3 LTS and up
+{% endhint %}
 
 #### Downloading the SDK
 
