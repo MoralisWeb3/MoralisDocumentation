@@ -8,7 +8,18 @@ description: Smart contracts interactions in Unity with the Moralis Unity SDK.
 
 what are smart contracts ?
 
-* Simple definition : Smart contracts are simply programs stored on a blockchain that run when predetermined conditions are met. [Learn more about smart contracts](https://www.ibm.com/topics/smart-contracts)
+- Simple definition : Smart contracts are simply programs stored on a blockchain that run when predetermined conditions are met. [Learn more about smart contracts](https://www.ibm.com/topics/smart-contracts)
+
+## User details
+
+After logging in, you can get the user details in the `MoralisUser` object
+
+```csharp
+ MoralisUser user = await Moralis.GetUserAsync();
+ Debug.Log(user.ethAddress);
+ // output : connected user address
+ // user.ethAddress is the same as user.authData["moralisEth"]["id"].ToString()
+```
 
 ## Execute smart contract function
 
@@ -16,13 +27,13 @@ ExecuteContractFunction calls smart contract functions
 
 ### options
 
-* `contractAddress` : The address of the deployed smart contract
-* `abi` : The abi of the contract or just of that specific function. [You can convert the ABI to a string here](https://tools.knowledgewalls.com/json-to-string) to pass it as a string in code or it can be passed through the inspector
-* `functionName`: The name of the smart contract function to be called
-* `args`: The arguments passed into the function
-* `value` : msg.value of a contract function
-* `gas`: Transaction fee for the transaction
-* `gasPrice`: This is the amount in wei the sender is willing to pay for the transaction
+- `contractAddress` : The address of the deployed smart contract
+- `abi` : The abi of the contract or just of that specific function. [You can convert the ABI to a string here](https://tools.knowledgewalls.com/json-to-string) to pass it as a string in code or it can be passed through the inspector
+- `functionName`: The name of the smart contract function to be called
+- `args`: The arguments passed into the function
+- `value` : msg.value of a contract function
+- `gas`: Transaction fee for the transaction
+- `gasPrice`: This is the amount in wei the sender is willing to pay for the transaction
 
 ```csharp
 //using directives
