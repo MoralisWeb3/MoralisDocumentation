@@ -12,6 +12,15 @@ Moralis web3 Authentication kit
 {% endembed %}
 
 The Moralis authentication Kit is capable of authenticating users on any selected build platform in Unity
+
+**WalletConnect** handles authentication for:
+ - Mac/PC
+ - iOS/Android
+ - Xbox
+
+**Metamask** handles authentication for:
+ - WebGL
+
 {% hint style="info" %}
 It is recommended to use the auth kit for your authentication and it is eaiser and less tedious as it removes the large chuck of code needed to be written for authentication
 {% endhint %}
