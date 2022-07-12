@@ -1466,7 +1466,7 @@ Returns an object with the lowest price found for a NFT token contract for the l
 #### Options:
 
 * `chain`(optional): The blockchain to get data from. Valid values are listed on [Supported Chains](supported-chains.md). Default value `Eth`.
-* `days` (optional): The number of days to look back to find the lowest price If not provided 7 days will be the default
+* `days` (optional): The number of days to look back to find the lowest price If not provided 7 days will be the default (365 days is max)
 * `marketplace` (optional): Marketplace from where to get the trades (only opensea is supported at the moment).
 * `address` (required): Address of the contract(i.e. `0x1a2b3x...`).
 
