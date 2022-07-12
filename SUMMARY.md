@@ -91,10 +91,7 @@
   * [VS Code Snippets](moralis-dapp/tools/snippets.md)
 * [🔌 Plugins](moralis-dapp/plugins/README.md)
   * [Install and Remove Plugins](moralis-dapp/plugins/untitled.md)
-
-## 💾 RPC Nodes
-
-* [RPC Nodes](rpc-nodes/nodes.md)
+* [💾 RPC Nodes](rpc-nodes/nodes.md)
 
 
 ## 👨‍🍳 Tutorials
