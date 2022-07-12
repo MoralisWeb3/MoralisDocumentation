@@ -92,15 +92,10 @@
 * [🔌 Plugins](moralis-dapp/plugins/README.md)
   * [Install and Remove Plugins](moralis-dapp/plugins/untitled.md)
 
-## 🔥 Speedy Nodes
+## 💾 RPC Nodes
 
-* [What Are Speedy Nodes?](speedy-nodes/what-are-speedy-nodes.md)
-* [Connecting to RPC Nodes](speedy-nodes/connecting-to-rpc-nodes/README.md)
-  * [Connect to Ethereum Node](speedy-nodes/connecting-to-rpc-nodes/connect-to-eth-node.md)
-  * [Connect to Polygon Node](speedy-nodes/connecting-to-rpc-nodes/connect-to-polygon-node.md)
-  * [Connect to BSC Node](speedy-nodes/connecting-to-rpc-nodes/connect-to-bsc-node.md)
-  * [Connect to Avalanche Node](speedy-nodes/connecting-to-rpc-nodes/connect-to-avalanche-node.md)
-  * [Connect to Arbitrum Node](speedy-nodes/connecting-to-rpc-nodes/connect-to-arbitrum-node.md)
+* [RPC Nodes](rpc-nodes/nodes.md)
+
 
 ## 👨‍🍳 Tutorials
 
