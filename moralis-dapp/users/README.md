@@ -28,6 +28,10 @@ Let's start by learning how to login user via their crypto wallet - no matter wh
 [web3-login.md](web3-login.md)
 {% endcontent-ref %}
 
+{% content-ref url="email-login/" %}
+[email-login](email-login/)
+{% endcontent-ref %}
+
 {% content-ref url="unity-login/" %}
 [unity-login](unity-login/)
 {% endcontent-ref %}
