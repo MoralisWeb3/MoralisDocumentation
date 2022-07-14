@@ -291,6 +291,12 @@ This can be done in server settings.
 
 ![Client Class Creation needs to be disabled when you go to production.](<../../.gitbook/assets/Screenshot 2021-11-02 at 19.37.00.png>)
 
+### Whitelist Domains
+
+Moralis allows you to whitelist domains to prevent adversarial behavior towards your servers. Basically, in case your server credentails are leaked or reveal to unintended individual or organization which might be used for malicious websites or consuming your server request limit without your knowledge, you can prevent this from happening by whitelisting domains. Once the domains are whitelisted as shown in image below only those domains can use Moralis server credentails.
+
+![Whitelisting Domains.](<../../.gitbook/assets/whitelistDomains.png>)
+
 ### Summary <a href="#parse-security-summary" id="parse-security-summary"></a>
 
 Moralis provides a number of ways for you to secure data in your app. As you build your app and evaluate the kinds of data you will be storing, you can make the decision about which implementation to choose.
