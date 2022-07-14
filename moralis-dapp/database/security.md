@@ -293,7 +293,7 @@ This can be done in server settings.
 
 ### Whitelist Domains
 
-Moralis allows you to whitelist domains to prevent adversarial behavior towards your servers. Basically, in case your server credentails are leaked or reveal to unintended individual or organization which might be used for malicious websites or consuming your server request limit without your knowledge, you can prevent this from happening by whitelisting domains. Once the domains are whitelisted as shown in image below only those domains can use Moralis server credentails.
+Moralis allows you to whitelist domains to prevent adversarial behavior towards your servers. Basically, in case your server credentails are leaked or reveal to unintended individual or organization which might be used for malicious websites or consuming your server request limit without your knowledge, you can prevent this from happening by whitelisting domains. Once the domains are whitelisted by going to `settings` in your moralis server as shown in image below only those domains can use Moralis server credentails.
 
 ![Whitelisting Domains.](<../../.gitbook/assets/whitelistDomains.png>)
 
