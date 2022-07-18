@@ -267,6 +267,10 @@ You will see the following result:
 
 ### Enable Moralis with Private key
 
+{% hint style="warning" %}
+Currently this doesn't work on free plan due to Speedy Nodes removal
+{% endhint %}
+
 #### `Moralis.Transfer`
 
 We can transfer using a private key in the backend any `'native' | 'erc20' | 'erc721' | 'erc1155'` tokens.
