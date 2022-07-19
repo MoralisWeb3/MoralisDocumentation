@@ -31,11 +31,11 @@ curl -X 'POST' \
   -H 'X-API-Key: MY-API-KEY' \
   -H 'Content-Type: application/json' \
   -d '{
-    "domain": "rugpull.finance",
+    "domain": "https://admin.moralis.io",
     "chainId": 1,
     "address": "0xAb5801a7D398351b8bE11C439e05C5B3259aeC9B",
     "statement": "Please confirm",
-    "uri": "https://rugpull.finance/",
+    "uri": "https://admin.moralis.io",
     "expirationTime": "2020-01-01T00:00:00.000Z",
     "notBefore": "2020-01-01T00:00:00.000Z",
     "resources": [
@@ -90,11 +90,11 @@ curl -X 'POST' \
 ```javascript
 {
   "id": "fRyt67D3eRss3RrX",
-  "domain": "rugpull.finance",
+  "domain": "https://admin.moralis.io",
   "chainId": 1,
   "address": "0xAb5801a7D398351b8bE11C439e05C5B3259aeC9B",
   "statement": "Please confirm",
-  "uri": "https://rugpull.finance/",
+  "uri": "https://admin.moralis.io",
   "expirationTime": "2020-01-01T00:00:00.000Z",
   "notBefore": "2020-01-01T00:00:00.000Z",
   "resources": [
