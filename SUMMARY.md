@@ -32,6 +32,7 @@
     * [Custom Authentication](moralis-dapp/users/unity-login/custom-auth-platform.md)
   * [📧 Email Authentication](moralis-dapp/users/email-login/README.md)
     * [Setup Email](moralis-dapp/users/email-login/sending-email.md)
+  * [🛡 Auth API](moralis-dapp/users/auth-api.md)
   * [Merging Addresses](moralis-dapp/users/merging-addresses.md)
   * [Current User](moralis-dapp/users/current-user.md)
   * [Delete User](moralis-dapp/users/delete-user.md)
@@ -95,7 +96,6 @@
 * [🔌 Plugins](moralis-dapp/plugins/README.md)
   * [Install and Remove Plugins](moralis-dapp/plugins/untitled.md)
 * [💾 RPC Nodes](rpc-nodes/nodes.md)
-
 
 ## 👨‍🍳 Tutorials
 
