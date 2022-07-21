@@ -95,20 +95,20 @@ An array of objects of NFTs for every chain, example of one from ETH:
 
 ```javascript 
 {
-    amount: "1"
-    block_number: "15185192"
-    block_number_minted: "15185192"
-    contract_type: "ERC721"
-    last_metadata_sync: "2022-07-21T09:49:21.033Z"
-    last_token_uri_sync: "2022-07-21T09:49:10.267Z"
-    metadata: "{\"dna\":\"2a9b0c466f3818a835ae31ea64ccef2b81a33231\",\"name\":\"WoP #1768\",\"description\":\"World of Pride\",\"image\":\"https://wop.fra1.digitaloceanspaces.com/images/1768.png\",\"edition\":1768,\"date\":1655975706548,\"Team\":\"WoP\",\"attributes\":[{\"trait_type\":\"background\",\"value\":\"stripes right\"},{\"trait_type\":\"special\",\"value\":\"none\"},{\"trait_type\":\"body\",\"value\":\"light\"},{\"trait_type\":\"features\",\"value\":\"none\"},{\"trait_type\":\"wear down\",\"value\":\"skirt with feathers\"},{\"trait_type\":\"hair\",\"value\":\"the bob\"},{\"trait_type\":\"wear up\",\"value\":\"short tank top\"},{\"trait_type\":\"accessories\",\"value\":\"pois earrings\"},{\"trait_type\":\"beard\",\"value\":\"none\"},{\"trait_type\":\"mouth\",\"value\":\"smile red\"},{\"trait_type\":\"glasses\",\"value\":\"cat eye\"}],\"compiler\":\"WoP Compiler\"}"
-    name: "World of Pride"
-    owner_of: "0x47024aa3900e331d9948cd71c5559722297e0a18"
-    symbol: "WoP"
-    token_address: "0x73868abd52b00f55124a5a823d7ece28ab9de6e2"
-    token_hash: "9abfdbf3067a8cbd2ec0ee5ed98af9d8"
-    token_id: "1768"
-    token_uri: "https://ipfs.moralis.io:2053/ipfs/QmeXtZ1P1QihbsYWvBprLp8mwcaEfes3NeuXJ7BMjJu5S7/1768.json"
-    updated_at: "1658396947.209"
+    amount: "1",
+    block_number: "15042725",
+    block_number_minted: "15042725",
+    contract_type: "ERC721",
+    last_metadata_sync: "2022-07-21T10:21:13.079Z",
+    last_token_uri_sync: "2022-06-29T02:09:37.703Z",
+    metadata: "{\"name\":\"Poor Dude #8338\",\"image\":\"https://poordudes.life/metadata/images/8338.png\",\"attributes\":[{\"trait_type\":\"Background\",\"value\":\"Lime\"},{\"trait_type\":\"Eyes\",\"value\":\"Normal\"},{\"trait_type\":\"Pants\",\"value\":\"Underpants\"},{\"trait_type\":\"Shoes\",\"value\":\"None\"},{\"trait_type\":\"Shirt\",\"value\":\"Grey Tanktop\"},{\"trait_type\":\"Mouth\",\"value\":\"Normal\"},{\"trait_type\":\"Hat\",\"value\":\"Pink Bad Boy Cap\"},{\"trait_type\":\"Items\",\"value\":\"Black Mitts\"}]}",
+    name: "Poor Dudes",
+    owner_of: "0x47024aa3900e331d9948cd71c5559722297e0a18",
+    symbol: "DUDES",
+    token_address: "0x6ce9ee25a3942baab219c2ee6fadcb8abefaee52",
+    token_hash: "adeac37fc8e621fde418ead003d36d38",
+    token_id: "8338",
+    token_uri: "https://poordudes.life/metadata/8338.json",
+    updated_at: "1656468574.953",
 }
 ```
