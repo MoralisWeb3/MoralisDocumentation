@@ -101,14 +101,14 @@ An array of objects of NFTs for every chain, example of one from ETH:
     contract_type: "ERC721",
     last_metadata_sync: "2022-07-21T10:21:13.079Z",
     last_token_uri_sync: "2022-06-29T02:09:37.703Z",
-    metadata: "{\"name\":\"Poor Dude #8338\",\"image\":\"https://poordudes.life/metadata/images/8338.png\",\"attributes\":[{\"trait_type\":\"Background\",\"value\":\"Lime\"},{\"trait_type\":\"Eyes\",\"value\":\"Normal\"},{\"trait_type\":\"Pants\",\"value\":\"Underpants\"},{\"trait_type\":\"Shoes\",\"value\":\"None\"},{\"trait_type\":\"Shirt\",\"value\":\"Grey Tanktop\"},{\"trait_type\":\"Mouth\",\"value\":\"Normal\"},{\"trait_type\":\"Hat\",\"value\":\"Pink Bad Boy Cap\"},{\"trait_type\":\"Items\",\"value\":\"Black Mitts\"}]}",
+    metadata: "string",
     name: "Poor Dudes",
     owner_of: "0x47024aa3900e331d9948cd71c5559722297e0a18",
     symbol: "DUDES",
     token_address: "0x6ce9ee25a3942baab219c2ee6fadcb8abefaee52",
     token_hash: "adeac37fc8e621fde418ead003d36d38",
     token_id: "8338",
-    token_uri: "https://poordudes.life/metadata/8338.json",
+    token_uri: "string",
     updated_at: "1656468574.953",
 }
 ```
