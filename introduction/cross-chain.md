@@ -7,7 +7,7 @@ description: >-
 
 ## Intro
 
-Moralis supports multiple chains (see [full list](https://github.com/MoralisWeb3/MoralisDocumentation)), which enables you to make your dapp cross chain, by adding very little code and not having to rewrite everything while providing support to other chain.
+Moralis supports multiple chains (see [full list](https://docs.moralis.io/moralis-dapp/web3-api/supported-chains)), which enables you to make your dapp cross chain, by adding very little code and not having to rewrite everything while providing support to other chain.
 
 ## How To
 
