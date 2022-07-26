@@ -1,22 +1,21 @@
 ---
 description: >-
-  Moralis offers and enables you to make cross chain dapps easier than ever, here is how
+  Moralis makes building cross-chain dapps a breeze - here's how.
 ---
 
 # Cross Chain Support
 
 ## Intro
 
-Moralis supports multiple chains (see [full list](https://docs.moralis.io/moralis-dapp/web3-api/supported-chains)), which enables you to make your dapp cross chain, by adding very little code and not having to rewrite everything while providing support to other chain.
+Moralis supports multiple chains (see full list [here](https://docs.moralis.io/moralis-dapp/web3-api/supported-chains)), which means any dapp built with Moralis is cross-chain by default. This empowers you to make cross-chain dapps quickly with minimal code. No more rewriting everything to support each chain you want to deploy to.
 
-## How To
+## How To Make a Cross-Chain Dapp
 
-To make a cross chain dapp using Moralis, just [create your own server](https://docs.moralis.io/moralis-dapp/getting-started/create-a-moralis-dapp), selecting the chains you want your dapp to be available on when creating the Moralis dapp. And that is all! All that is left is exploring the docs and a few lines of code and you have all data for your users cross chain.
-
+Making a cross-chain dapp with Moralis is easy. Start by [creating your own server](https://docs.moralis.io/moralis-dapp/getting-started/create-a-moralis-dapp), select the chains you want your dapp to deploy on, and... that's it! A quick check of the docs, a few lines of code, and your dapp will have access to all cross-chain user data.
 
 ## Examples 
 
-Here are some examples using Moralis to fetch data about an address from multiple chains. For the purpose of these quick examples, we are going to use vanilla JavaScript.
+Here are some examples of using Moralis to fetch address data from multiple chains. For these quick examples, we're going to use vanilla JavaScript.
 
 ### Fetching Native Balance 
 
