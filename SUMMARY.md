@@ -6,6 +6,7 @@
 * [Our community](introduction/our-community.md)
 * [Prerequisites](introduction/pre-requisites.md)
 * [Contribute to Docs](introduction/contribute-to-docs.md)
+* [Cross Chain Support](introduction/cross-chain.md)
 
 ## 🧙 Platform <a href="#moralis-dapp" id="moralis-dapp"></a>
 
