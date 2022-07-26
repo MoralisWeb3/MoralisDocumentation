@@ -6,6 +6,8 @@ description: >-
 
 # 🛡 Auth API
 
+Auth API is a Moralis API that enables you to authenticate users without relying on Moralis Server, by just using API calls, which means you can now authenticate anywhere (frontend, backend, etc.), making it a more universal alternative to `Moralis.authenticate()`. See below for documentation on needed functions and examples.
+
 ## requestMessage
 
 Request a challenge message based on [Sign-in with Ethereum](https://eips.ethereum.org/EIPS/eip-4361) (EIP-4361) standard and returns message for signing.
