@@ -107,3 +107,102 @@ curl -X 'POST' \
   "profileId": "0xbfbcfab169c67072ff418133124480fea02175f1402aaa497daa4fd09026b0e1"
 }
 ```
+
+## Integration in NodeJs
+
+{% hint style="warning" %}
+This functionality is only implemented in v2 of the SDK, which is currently in pre-release.
+{% endhint %}
+
+The above functionalities can easily be implemented in the JS SDK.
+
+First initialise the Moralis instance with your API key, that ca be found in the dashboard under yout account settings.
+
+```javascript
+import Moralis from 'moralis';
+
+Moralis.start({
+  apiKey: <YOUR_MORALIS_API_KEY>,
+});
+```
+
+
+### requestMessage
+
+Then call `Moralis.Auth.requestMessage` with the following options:
+
+
+* `network` (required): The network (currently only supports `evm`).
+* `domain` (required): RFC 4501 DNS authority that is requesting the signing.
+* `chain`(required): Any valid chain as a decimal or hex-string (e.g. `1`, `'0x1'`).
+* `address` (required): Ethereum address performing the signing (can be lowercase or checksummed).
+* `statement` (required): Human-readable ASCII assertion that the user will sign, and it must not contain `\n`.
+* `uri` (required): RFC 3986 URI referring to the resource that is the subject of the signing (as in the **subject** of a claim).
+* `expirationTime` (optional): ISO 8601 datetime string that, if present, indicates when the signed authentication message is no longer valid.
+* `notBefore` (optional): ISO 8601 datetime string that, if present, indicates when the signed authentication message will become valid.
+* `resources` (optional): List of information or references to information the user wishes to have resolved as part of authentication by the relying party. They are expressed as RFC 3986 URIs separated by `\n-` .
+* `timeout` (required): Time in seconds before the challenge is expired.
+
+```javascript
+const { result } = awaitMoralis.Auth.requestMessage({
+  "network": "evm",
+  "domain": "https://admin.moralis.io",
+  "chainId": 1,
+  "address": "0xAb5801a7D398351b8bE11C439e05C5B3259aeC9B",
+  "statement": "Please confirm",
+  "uri": "https://admin.moralis.io",
+  "expirationTime": "2020-01-01T00:00:00.000Z",
+  "notBefore": "2020-01-01T00:00:00.000Z",
+  "resources": [
+    "https://docs.moralis.io/"
+  ],
+  "timeout": 15
+})
+```
+
+#### Example result
+```javascript
+{
+  id: "fRyt67D3eRss3RrX",
+  profileId: "0xbfbcfab169c67072ff418133124480fea02175f1402aaa497daa4fd09026b0e1",
+  message: "https://admin.moralis.io wants you to sign in with your Ethereum account:\n0x3355d6E71585d4e619f4dB4C7c5Bfe549b278299\n\nMoralis Web3Api\n\nURI: https://admin.moralis.io/api/v2/auth/challenge\nVersion: 1\nChain ID: 1\nNonce: T0rUqS2W4va4SvztT\nIssued At: 2022-07-13T07:53:25.750Z\nResources:\n- https://admin.moralis.io/api/v2/auth/challenge",
+}
+```
+
+### verify
+
+Then call `Moralis.Auth.requestMessage` with the following options:
+
+
+* `network` (required): The network (currently only supports `evm`).
+* `message`(required): Message that needs to be signed by the end user.
+* `signature` (required): The signature of the signed message.
+
+```javascript
+const { result } = awaitMoralis.Auth.verify({
+  "network": "evm",
+  "message": "https://admin.moralis.io wants you to sign in with your Ethereum account:\n0x3355d6E71585d4e619f4dB4C7c5Bfe549b278299\n\nMoralis Web3Api\n\nURI: https://admin.moralis.io/api/v2/auth/challenge\nVersion: 1\nChain ID: 1\nNonce: T0rUqS2W4va4SvztT\nIssued At: 2022-07-13T07:53:25.750Z\nResources:\n- https://admin.moralis.io/api/v2/auth/challenge",
+  "signature": "0xa082ad8e0a2d998df317eb265af831ace1af9872d024dc80cc8c5e7fa09e9c94533083a30f181c8441c4e04863c466ef9fad48c7393dd776fc272d8e3de85aec1e"
+})
+```
+
+#### Example result
+```javascript
+{
+  "id": "fRyt67D3eRss3RrX",
+  "domain": "https://admin.moralis.io",
+  "chain": EvmChain,
+  "address": EvmAddress,
+  "statement": "Please confirm",
+  "uri": "https://admin.moralis.io",
+  "expirationTime": "2020-01-01T00:00:00.000Z",
+  "notBefore": "2020-01-01T00:00:00.000Z",
+  "resources": [
+    "https://docs.moralis.io/"
+  ],
+  "version": "1.0",
+  "nonce": "0x1234567890abcdef0123456789abcdef1234567890abcdef",
+  "profileId": "0xbfbcfab169c67072ff418133124480fea02175f1402aaa497daa4fd09026b0e1"
+
+}
+```
