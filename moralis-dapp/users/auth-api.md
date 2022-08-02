@@ -28,7 +28,7 @@ Request a challenge message based on [Sign-in with Ethereum](https://eips.ethere
 {% tab title="curl" %}
 ```bash
 curl -X 'POST' \
-  'https://authapi.moralis.io/challenge' \
+  'https://authapi.moralis.io/challenge/request/evm' \
   -H 'accept: application/json' \
   -H 'X-API-Key: MY-API-KEY' \
   -H 'Content-Type: application/json' \
