@@ -1592,8 +1592,8 @@ const reSyncMetadata = async () => {
 
 {% tab title="curl" %}
 ```bash
-curl -X 'PUT' \
-  'https://deep-index.moralis.io/api/v2/nft/0x7de3085b3190b3a787822ee16f23be010f5f8686/sync?chain=eth' \
+curl -X 'GET' \
+  'https://deep-index.moralis.io/api/v2/nft/0x7de3085b3190b3a787822ee16f23be010f5f8686/1/metadata/resync?chain=eth&flag=metadata&mode=sync' \
   -H 'accept: */*' \
   -H 'X-API-Key: MY-API-KEY'
 ```

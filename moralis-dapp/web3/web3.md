@@ -89,6 +89,10 @@ const web3 = await Moralis.enableWeb3({ provider: "walletconnect" });
 
 ### NodeJs Enviroment
 
+{% hint style="warning" %}
+Currently this doesn't work on free plan due to Speedy Nodes removal
+{% endhint %}
+
 When using moralis in a nodejs environment, you can optionally use the `privateKey` option to sign transactions:
 
 ```javascript
