@@ -8,7 +8,7 @@ description: >-
 
 ## Connect any EIP1993 Provider
 
-You can implement your own **`connector`**, which extends the [AbstractConnector](https://github.com/MoralisWeb3/Moralis-JS-SDK/blob/beta/src/Web3Connector/AbstractWeb3Connector.js) class.
+You can implement your own **`connector`**, which extends the [AbstractConnector](https://github.com/MoralisWeb3/Moralis-JS-SDK/blob/main/src/Web3Connector/AbstractWeb3Connector.js) class.
 
 This class should implement
 
@@ -28,5 +28,5 @@ Moralis.authenticate({ connector: CustomConnector })
 
 ## Example implementations:
 
-* The [WalletConnectConnector](https://github.com/MoralisWeb3/Moralis-JS-SDK/blob/beta/src/Web3Connector/WalletConnectWeb3Connector.js), that is used when you specify `provider: "walletconnect"`.
-* The [InjectedWeb3Connector](https://github.com/MoralisWeb3/Moralis-JS-SDK/blob/beta/src/Web3Connector/InjectedWeb3Connector.js) (metamask), is used when you don’t specify any connector.
+* The [WalletConnectConnector](https://github.com/MoralisWeb3/Moralis-JS-SDK/blob/main/src/Web3Connector/WalletConnectWeb3Connector.js), that is used when you specify `provider: "walletconnect"`.
+* The [InjectedWeb3Connector](https://github.com/MoralisWeb3/Moralis-JS-SDK/blob/main/src/Web3Connector/InjectedWeb3Connector.js) (metamask), is used when you don’t specify any connector.
