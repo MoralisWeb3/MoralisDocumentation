@@ -119,7 +119,7 @@ The above functionalities can easily be implemented in the JS SDK.
 First initialise the Moralis instance with your API key, that ca be found in the dashboard under yout account settings.
 
 ```javascript
-import Moralis from 'moralis';
+import Moralis from 'moralis-v1';
 
 Moralis.start({
   apiKey: <YOUR_MORALIS_API_KEY>,

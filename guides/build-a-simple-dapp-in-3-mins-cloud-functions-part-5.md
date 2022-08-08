@@ -113,7 +113,7 @@ The final results will look something like this after several users have logged 
   <head>
     <!-- Moralis SDK code -->
     <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
-    <script src="https://unpkg.com/moralis/dist/moralis.js"></script>
+    <script src="https://unpkg.com/moralis-v1/dist/moralis.js"></script>
   </head>
   <body>
     <h1>Moralis Gas Stats</h1>

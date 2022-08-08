@@ -27,7 +27,7 @@ The first step is to create an empty page we call `index.html` and `main.js` in 
 <html>
   <head>
     <title>Vanilla Boilerplate</title>
-    <script src="https://unpkg.com/moralis/dist/moralis.js"></script>
+    <script src="https://unpkg.com/moralis-v1/dist/moralis.js"></script>
   </head>
 
   <body>
@@ -45,11 +45,11 @@ The first step is to create an empty page we call `index.html` and `main.js` in 
 {% hint style="info" %}
 The above example imports the **latest** version of Moralis. When running your code in production, It's always better to specify a version in this way:
 
-_**https://unpkg.com/moralis@\<VERSION>/dist/moralis.js**_
+_**https://unpkg.com/moralis-v1@\<VERSION>/dist/moralis.js**_
 
 For the latest release version, you can check the [Releases on GitHub](https://github.com/MoralisWeb3/Moralis-JS-SDK/releases). For example:
 
-_**\<script src="https://unpkg.com/moralis@1.0.3/dist/moralis.js">\</script>**_
+_**\<script src="https://unpkg.com/moralis-v1@1.0.3/dist/moralis.js">\</script>**_
 {% endhint %}
 
 ### 2. Initialize the SDK
@@ -166,16 +166,16 @@ Feel free to explore the rest of the documentation in order to grasp the full po
 
 #### Install Moralis NPM Package
 
-For larger projects use the [npm module](https://www.npmjs.com/moralis).
+For larger projects use the [npm module](https://www.npmjs.com/moralis-v1).
 
 ```
-npm install moralis
+npm install moralis-v1
 ```
 
 Then include it in the JS file as usual.
 
 ```javascript
-const Moralis = require("moralis");
+const Moralis = require("moralis-v1");
 ```
 
 {% hint style="success" %}
