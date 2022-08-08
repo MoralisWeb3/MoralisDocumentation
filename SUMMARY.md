@@ -61,6 +61,7 @@
   * [⛓ Supported Networks](moralis-dapp/solana-api/supported-networks.md)
   * [💰 SolanaAPI.account](moralis-dapp/solana-api/account.md)
   * [🖼 SolanaAPI.nft](moralis-dapp/solana-api/nft.md)
+  * [🪙 SolanaAPI.token](moralis-dapp/solana-api/solanaapi.token.md)
 * [♻ Automatic Sync](moralis-dapp/automatic-transaction-sync/README.md)
   * [User Balances and Transactions](moralis-dapp/automatic-transaction-sync/historical-transactions.md)
   * [Smart Contract Events](moralis-dapp/automatic-transaction-sync/smart-contract-events.md)
