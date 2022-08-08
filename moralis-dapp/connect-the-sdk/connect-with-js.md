@@ -47,7 +47,7 @@ The above example imports the **latest** version of Moralis. When running your c
 
 _**https://unpkg.com/moralis-v1@\<VERSION>/dist/moralis.js**_
 
-For the latest release version, you can check the [Releases on GitHub](https://github.com/MoralisWeb3/Moralis-JS-SDK/releases). For example:
+For the latest release version, you can check the [Releases on GitHub](https://github.com/MoralisWeb3/Moralis-JS-SDK-v1/releases). For example:
 
 _**\<script src="https://unpkg.com/moralis-v1@1.0.3/dist/moralis.js">\</script>**_
 {% endhint %}
