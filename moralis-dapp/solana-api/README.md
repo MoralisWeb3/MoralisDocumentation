@@ -28,6 +28,10 @@ The namespace is divided into two categories, depending on what is the main para
 [nft.md](nft.md)
 {% endcontent-ref %}
 
+{% content-ref url="solanaapi.token.md" %}
+[solanaapi.token.md](solanaapi.token.md)
+{% endcontent-ref %}
+
 {% hint style="info" %}
 It's also possible to access all of this functionality through REST API from your own backend. Information about how to fetch data using `REST API` is described in the [REST API](../web3-sdk/moralis-web3-api-rest.md) topic. It has similar functionality as SDK.
 {% endhint %}
