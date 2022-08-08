@@ -32,13 +32,13 @@ Make sure to have **react**, **react-dom** and **moralis** installed as dependen
 {% tabs %}
 {% tab title="npm" %}
 ```
-npm install moralis react-moralis
+npm install moralis-v1 react-moralis
 ```
 {% endtab %}
 
 {% tab title="yarn" %}
 ```
-yarn add moralis react-moralis
+yarn add moralis-v1 react-moralis
 ```
 {% endtab %}
 {% endtabs %}
