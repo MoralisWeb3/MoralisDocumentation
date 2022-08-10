@@ -2,7 +2,7 @@
 
 ## 👋 Introduction
 
-* [Why use Moralis?](README.md)
+* [Old Documentation](README.md)
 * [Our community](introduction/our-community.md)
 * [Prerequisites](introduction/pre-requisites.md)
 * [Contribute to Docs](introduction/contribute-to-docs.md)
