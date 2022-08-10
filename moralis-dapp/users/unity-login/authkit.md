@@ -2,10 +2,10 @@
 description: Authenticate with Moralis unity Authentication kit.
 ---
 
-## Moralis Auth Kit
+# 🧰 Authentication kit
 
-- This is a kit used to simplify web3 authentication for the moralis unity sdk
-- It features drag and drop prefab that can be easily placed and configured in your project
+* This is a kit used to simplify web3 authentication for the moralis unity sdk
+* It features drag and drop prefab that can be easily placed and configured in your project
 
 {% embed url="https://github.com/MoralisWeb3/web3-unity-sdk/tree/main/Runtime/Kits/AuthenticationKit" %}
 Moralis web3 Authentication kit
@@ -14,18 +14,20 @@ Moralis web3 Authentication kit
 The Moralis authentication Kit is capable of authenticating users on any selected build platform in Unity
 
 **WalletConnect** handles authentication for:
- - Mac/PC
- - iOS/Android
- - Xbox
+
+* Mac/PC
+* iOS/Android
+* Xbox
 
 **Metamask** handles authentication for:
- - WebGL
+
+* WebGL
 
 {% hint style="info" %}
 It is recommended to use the auth kit for your authentication and it is eaiser and less tedious as it removes the large chuck of code needed to be written for authentication
 {% endhint %}
 
-### Tutorial guide
+## Tutorial guide
 
 {% embed url="https://www.youtube.com/watch?v=UActVWlODUI" %}
 Moralis Authentication Kit: part 1

@@ -1,4 +1,4 @@
-# What are RPC Nodes and where to access them?
+# 💾 RPC Nodes
 
 To put it simply, RPC nodes are nodes (servers) that access a blockchain network (for example Ethereum), which enable you to interact with the network without running your own node.
 

@@ -2,7 +2,7 @@
 description: You can query NFTs and get their metadata on Solana
 ---
 
-# SolanaAPI.nft
+# 🖼 SolanaAPI.nft
 
 All the methods extend from **Moralis.SolanaAPI.nft**
 

@@ -138,7 +138,6 @@ Let’s say you want to save the `Monster` described above to the Moralis Cloud.
 
 {% tabs %}
 {% tab title="JS" %}
-
 ```javascript
 const Monster = Moralis.Object.extend("Monster");
 const monster = new Monster();
@@ -159,11 +158,9 @@ monster.save().then(
   }
 );
 ```
-
 {% endtab %}
 
 {% tab title="React" %}
-
 ```javascript
 import { useNewMoralisObject } from "react-moralis";
 
@@ -193,11 +190,9 @@ export default function App() {
   return <button onClick={saveObject}>Call The Code</button>;
 }
 ```
-
 {% endtab %}
 
 {% tab title="Unity" %}
-
 ```csharp
 using Moralis.Platform.Objects;
 using MoralisUnity;
@@ -226,7 +221,6 @@ public async void SaveObjectToDB()
       }
     }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -334,7 +328,6 @@ If the `Moralis.Object` has been uploaded to the server, you can use the `object
 
 {% tabs %}
 {% tab title="JS" %}
-
 ```javascript
 const Monster = Moralis.Object.extend("Monster");
 const query = new Moralis.Query(Monster);
@@ -350,11 +343,9 @@ query.get("xWMyZ4YEGZ").then(
   }
 );
 ```
-
 {% endtab %}
 
 {% tab title="React" %}
-
 ```javascript
 import { useMoralisQuery } from "react-moralis";
 
@@ -381,7 +372,6 @@ export default function App() {
   return <button onClick={objectIdQuery}>Call The Code</button>;
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -408,7 +398,6 @@ const objectId = monster.id;
 const createdAt = monster.createdAt;
 const acl = monster.getACL();
 ```
-
 {% endhint %}
 
 ### <mark style="color:green;">myObject.fetch()</mark>
@@ -445,7 +434,6 @@ Updating an object is simple. Just set some new data on it and call the save met
 
 {% tabs %}
 {% tab title="JS" %}
-
 ```javascript
 // Create the object.
 const Monster = Moralis.Object.extend("Monster");
@@ -465,11 +453,9 @@ monster.save().then((monster) => {
   return monster.save();
 });
 ```
-
 {% endtab %}
 
 {% tab title="React" %}
-
 ```javascript
 import { useNewMoralisObject } from "react-moralis";
 
@@ -497,7 +483,6 @@ export default function App() {
   return <button onClick={updateObject}>Call The Code</button>;
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -524,9 +509,9 @@ You can also increment by any amount by passing in a second argument to `increme
 
 To help with storing array data, there are three operations that can be used to automatically change an array associated with a given key:
 
-- `add` append the given object to the end of an array field.
-- `addUnique` add the given object only if it isn’t already contained in an array field. The position of the insert is not guaranteed.
-- `remove` remove all instances of the given object from an array field.
+* `add` append the given object to the end of an array field.
+* `addUnique` add the given object only if it isn’t already contained in an array field. The position of the insert is not guaranteed.
+* `remove` remove all instances of the given object from an array field.
 
 ```javascript
 monster.addUnique("skills", "flying");
@@ -589,7 +574,6 @@ To create a new `Post` with a single `Comment`, you could write:
 
 {% tabs %}
 {% tab title="JS" %}
-
 ```javascript
 // Declare the types.
 const Post = Moralis.Object.extend("Post");
@@ -610,11 +594,9 @@ myComment.set("parent", myPost);
 // This will save both myPost and myComment
 myComment.save();
 ```
-
 {% endtab %}
 
 {% tab title="React" %}
-
 ```javascript
 import { useNewMoralisObject } from "react-moralis";
 
@@ -642,7 +624,6 @@ export default function App() {
   return <button onClick={makePost}>Call The Code</button>;
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -687,24 +668,20 @@ You can remove a post from a `Moralis.Relation`:
 {% endhint %}
 
 {% code title="Example" %}
-
 ```javascript
 relation.remove(post);
 user.save();
 ```
-
 {% endcode %}
 
 You can call `add` and `remove` multiple times before calling save:
 
 {% code title="Example" %}
-
 ```javascript
 relation.remove(post1);
 relation.remove(post2);
 user.save();
 ```
-
 {% endcode %}
 
 You can also pass in an array of `Moralis.Object` to `add` and `remove`:
@@ -714,12 +691,10 @@ You can also pass in an array of `Moralis.Object` to `add` and `remove`:
 {% endhint %}
 
 {% code title="Example" %}
-
 ```javascript
 relation.add([post1, post2, post3]);
 user.save();
 ```
-
 {% endcode %}
 
 By default, the list of objects in this relation are not downloaded. You can get a list of the posts that a user likes by using the `Moralis.Query` returned by `query`. The code looks like:
@@ -753,21 +728,20 @@ For more details on `Moralis.Query`, please look at the [Queries](queries.md) po
 
 So far we’ve used values with type `String`, `Number`, and `Moralis.Object`. Moralis also supports `Date`s and `null`. You can nest `JSON Object`s and `JSON Array`s to store more structured data within a single `Moralis.Object`. Overall, the following types are allowed for each field in your object:
 
-- String => `String`
-- Number => `Number`
-- Bool => `bool`
-- Array => `JSON Array`
-- Object => `JSON Object`
-- Date => `Date`
-- File => `Moralis.File`
-- Pointer => other `Moralis.Object`
-- Relation => `Moralis.Relation`
-- Null => `null`
+* String => `String`
+* Number => `Number`
+* Bool => `bool`
+* Array => `JSON Array`
+* Object => `JSON Object`
+* Date => `Date`
+* File => `Moralis.File`
+* Pointer => other `Moralis.Object`
+* Relation => `Moralis.Relation`
+* Null => `null`
 
 Some examples:
 
 {% code title="Example" %}
-
 ```javascript
 const number = 42;
 const bool = false;
@@ -789,10 +763,9 @@ bigObject.set("anyKey", null); // this value can only be saved to an existing ke
 bigObject.set("myPointerKey", pointer); // shows up as Pointer &lt;MyClassName&gt; in the Data Browser
 bigObject.save();
 ```
-
 {% endcode %}
 
-We do not recommend storing large pieces of binary data like images or documents on `Moralis.Object`. We recommend you use `Moralis.File` to store images, documents, and other types of files. You can do so by instantiating a `Moralis.File` object and setting it on a field. See [Files](../files/files.md) for more details.
+We do not recommend storing large pieces of binary data like images or documents on `Moralis.Object`. We recommend you use `Moralis.File` to store images, documents, and other types of files. You can do so by instantiating a `Moralis.File` object and setting it on a field. See [Files](broken-reference) for more details.
 
 For more information about how Moralis handles data, check out our documentation on [Data](data.md).
 

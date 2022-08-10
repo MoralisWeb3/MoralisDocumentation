@@ -6,6 +6,10 @@ description: >-
 
 # ☀ Solana API
 
+## New v2 docs
+
+You are viewing our old v1 docs - please [see new docs here](https://docs.moralis.io/reference/solana-api-overview).
+
 ### What is Solana API?
 
 Solana API is a very powerful REST API for developers to fetch various kinds of data from the Solana Blockchain, which includes **fetching user token balances, fetching NFT metadata** and many more!
