@@ -9,6 +9,8 @@ description: >-
 ![](images/c1.png)
 
 2. Click on Cronos Testnet
+
+
 ![](images/c2.png)
 
 3. Click on “Back to Home”
