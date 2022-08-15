@@ -8,6 +8,10 @@ description: Upload multiple files and place them in a folder directory (ERC1155
 
 Uploads multiple files and place them in a folder directory. Returns path (asynchronous).
 
+{% hint style="info" %}
+The size limit is 50 MB
+{% endhint %}
+
 #### Options:
 
 - `abi`(required): Array of JSON and Base64 Supported
@@ -126,3 +130,23 @@ Legacy UI is present in this video, some things might be slightly different
 {% embed url="https://www.youtube.com/watch?v=VglTdr0n5ZQ" %}
 **Bulk Mint NFTs on OpenSea Using IPFS folders (ERC1155 Compliant)**
 {% endembed %}
+
+{% hint style="info" %}
+If using axios like in the video you need to specify some "maxBodyLength" in the request object, see below for example
+{% endhint %}
+
+{% code  %}
+```javascript
+axios.post('https://deep-index.moralis.io/api/v2/ipfs/uploadFolder',
+            arrayToUpload,
+            {
+                headers: {
+                    'X-API-KEY': '',
+                    'Content-Type': 'application/json',
+                    accept: 'application/json'
+                },
+                maxBodyLength: Infinity
+            }
+)
+```
+{% endcode %}

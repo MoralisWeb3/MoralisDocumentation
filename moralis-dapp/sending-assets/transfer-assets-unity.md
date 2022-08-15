@@ -1,17 +1,17 @@
 ---
 description: >-
-  Transfer Native assets, NFTs, ERC20 tokens in unity on any blockchain - ETH (Ethereum), BNB (Binance Smart
-  Chain), MATIC  (Polygon) e.t.c
+  Transfer Native assets, NFTs, ERC20 tokens in unity on any blockchain - ETH
+  (Ethereum), BNB (Binance Smart Chain), MATIC  (Polygon) e.t.c
 ---
 
-# 🪙 🖼 🎴 Transfer ETH, Tokens and NFTs
+# 𝌻 Transfer Assets in Unity
 
 ### Transfer Native Assets (ETH/BNB/MATIC etc)
 
-To transfer native assets of the blockchain follow the steps:&#x20;
+To transfer native assets of the blockchain follow the steps:
 
 1. Construct a `TransactionInput` object and set
-   1. `Data: "String.Empty"`&#x20;
+   1. `Data: "String.Empty"`
    2. `From: "0xe1e8..."`
    3. `To: "0x000..."`
    4. `Value: "new HexBigInteger(5000)"`
@@ -62,7 +62,6 @@ using Nethereum.RPC.Eth.DTOs;
 OR
 
 ```csharp
-
    public async void SendRawETH()
     {
         string toAddress = "0x000...";
@@ -87,7 +86,7 @@ Returns the hash of the transaction
 "0x17b920d425938c0796f7fdbc4dec4f8ad37344cb62ef5df8b20d07bacbbaed22"
 ```
 
-Use `UnitConversion.Convert.ToWei` to specify the amount in ETH (same goes for BSC and Polygon).&#x20;
+Use `UnitConversion.Convert.ToWei` to specify the amount in ETH (same goes for BSC and Polygon).
 
 {% hint style="info" %}
 [**`UnitConversion.Convert.ToWei`**](../tools/moralis-units.md#converting-native-asset-eth-bnb-matic-etc-to-wei) gotten from `using Nethereum.Util;` is a helper function that will convert your ETH amount to [_wei_](https://ethdocs.org/en/latest/ether.html#denominations) which is required in order to construct the transaction.
@@ -95,16 +94,16 @@ Use `UnitConversion.Convert.ToWei` to specify the amount in ETH (same goes for B
 
 ### Transfer ERC20 Tokens (Fungible)
 
-There is currently no method for Token transfer, this will be done with `ExecuteContractFunction` to call smart contract function to transfer Tokens  
+There is currently no method for Token transfer, this will be done with `ExecuteContractFunction` to call smart contract function to transfer Tokens\
 The abi used is inline with the EIP20 standard and all tokens that use that standard should be transferable by changing the contract address of the Token
 
-- `contractAddress` : The address of the deployed smart contract
-- `abi` : The abi of the contract or just of that specific function. [You can convert the ABI to a string here](https://tools.knowledgewalls.com/json-to-string) to pass it as a string in code or it can be passed through the inspector
-- `functionName`: The name of the smart contract function to be called
-- `args`: The arguments passed into the function
-- `value` : msg.value of a contract function
-- `gas`: Transaction fee for the transaction
-- `gasPrice`: This is the amount in wei the sender is willing to pay for the transaction
+* `contractAddress` : The address of the deployed smart contract
+* `abi` : The abi of the contract or just of that specific function. [You can convert the ABI to a string here](https://tools.knowledgewalls.com/json-to-string) to pass it as a string in code or it can be passed through the inspector
+* `functionName`: The name of the smart contract function to be called
+* `args`: The arguments passed into the function
+* `value` : msg.value of a contract function
+* `gas`: Transaction fee for the transaction
+* `gasPrice`: This is the amount in wei the sender is willing to pay for the transaction
 
 ```csharp
 //using directives
@@ -150,17 +149,17 @@ Returns the hash of the transaction
 
 ### Transfer ERC721 Tokens (Non-Fungible)
 
-There is currently no method for NFT transfer, this will be done `ExecuteContractFunction` to call smart contract function to transfer NFTs  
-The abi used is inline with the EIP721 standard and all tokens that use that standard should be transferable by changing the contract address of the NFT  
+There is currently no method for NFT transfer, this will be done `ExecuteContractFunction` to call smart contract function to transfer NFTs\
+The abi used is inline with the EIP721 standard and all tokens that use that standard should be transferable by changing the contract address of the NFT\
 This can also be recreated for NFT minting
 
-- `contractAddress` : The address of the deployed smart contract
-- `abi` : The abi of the contract or just of that specific function. [You can convert the ABI to a string here](https://tools.knowledgewalls.com/json-to-string) to pass it as a string in code or it can be passed through the inspector
-- `functionName`: The name of the smart contract function to be called
-- `args`: The arguments passed into the function
-- `value` : msg.value of a contract function
-- `gas`: Transaction fee for the transaction
-- `gasPrice`: This is the amount in wei the sender is willing to pay for the transaction
+* `contractAddress` : The address of the deployed smart contract
+* `abi` : The abi of the contract or just of that specific function. [You can convert the ABI to a string here](https://tools.knowledgewalls.com/json-to-string) to pass it as a string in code or it can be passed through the inspector
+* `functionName`: The name of the smart contract function to be called
+* `args`: The arguments passed into the function
+* `value` : msg.value of a contract function
+* `gas`: Transaction fee for the transaction
+* `gasPrice`: This is the amount in wei the sender is willing to pay for the transaction
 
 ```csharp
 //using directives
@@ -198,7 +197,8 @@ public async void transferNFT721()
 ```
 
 <details>
-<summary> safeTransferFrom for NFT 1155 (Semi-Fungible) token transfers</summary>
+
+<summary>safeTransferFrom for NFT 1155 (Semi-Fungible) token transfers</summary>
 
 ```csharp
 public async void transferNFT1155()

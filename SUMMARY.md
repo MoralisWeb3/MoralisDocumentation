@@ -2,12 +2,9 @@
 
 ## 👋 Introduction
 
-* [Why use Moralis?](README.md)
-* [Our community](introduction/our-community.md)
-* [Prerequisites](introduction/pre-requisites.md)
-* [Contribute to Docs](introduction/contribute-to-docs.md)
+* [Old Documentation](README.md)
 
-## 🧙 Platform <a href="#moralis-dapp" id="moralis-dapp"></a>
+## 🧙 Moralis Server <a href="#moralis-dapp" id="moralis-dapp"></a>
 
 * [🛠 Getting Started](moralis-dapp/getting-started/README.md)
   * [🚀 Create a Moralis Dapp](moralis-dapp/getting-started/create-a-moralis-dapp.md)
@@ -27,8 +24,13 @@
     * [✨ Phantom (Solana)](moralis-dapp/users/web3-login/phantom-solana.md)
     * [🖊 Sign-in Message](moralis-dapp/users/web3-login/sign-in-message.md)
   * [🎮 Unity Authentication](moralis-dapp/users/unity-login/README.md)
+    * [📧 Email Authentication](moralis-dapp/users/unity-login/email-login.md)
     * [🧰 Authentication kit](moralis-dapp/users/unity-login/authkit.md)
     * [Custom Authentication](moralis-dapp/users/unity-login/custom-auth-platform.md)
+  * [📧 Email Authentication](moralis-dapp/users/email-login/README.md)
+    * [Setup Email](moralis-dapp/users/email-login/sending-email.md)
+  * [🛡 Auth API](moralis-dapp/users/auth-api/auth-api.md)
+    * [❓ Step-by-step Guide](moralis-dapp/users/auth-api/step-by-step-guide.md)
   * [Merging Addresses](moralis-dapp/users/merging-addresses.md)
   * [Current User](moralis-dapp/users/current-user.md)
   * [Delete User](moralis-dapp/users/delete-user.md)
@@ -55,6 +57,7 @@
   * [⛓ Supported Networks](moralis-dapp/solana-api/supported-networks.md)
   * [💰 SolanaAPI.account](moralis-dapp/solana-api/account.md)
   * [🖼 SolanaAPI.nft](moralis-dapp/solana-api/nft.md)
+  * [🪙 SolanaAPI.token](moralis-dapp/solana-api/solanaapi.token.md)
 * [♻ Automatic Sync](moralis-dapp/automatic-transaction-sync/README.md)
   * [User Balances and Transactions](moralis-dapp/automatic-transaction-sync/historical-transactions.md)
   * [Smart Contract Events](moralis-dapp/automatic-transaction-sync/smart-contract-events.md)
@@ -91,16 +94,7 @@
   * [VS Code Snippets](moralis-dapp/tools/snippets.md)
 * [🔌 Plugins](moralis-dapp/plugins/README.md)
   * [Install and Remove Plugins](moralis-dapp/plugins/untitled.md)
-
-## 🔥 Speedy Nodes
-
-* [What Are Speedy Nodes?](speedy-nodes/what-are-speedy-nodes.md)
-* [Connecting to RPC Nodes](speedy-nodes/connecting-to-rpc-nodes/README.md)
-  * [Connect to Ethereum Node](speedy-nodes/connecting-to-rpc-nodes/connect-to-eth-node.md)
-  * [Connect to Polygon Node](speedy-nodes/connecting-to-rpc-nodes/connect-to-polygon-node.md)
-  * [Connect to BSC Node](speedy-nodes/connecting-to-rpc-nodes/connect-to-bsc-node.md)
-  * [Connect to Avalanche Node](speedy-nodes/connecting-to-rpc-nodes/connect-to-avalanche-node.md)
-  * [Connect to Arbitrum Node](speedy-nodes/connecting-to-rpc-nodes/connect-to-arbitrum-node.md)
+* [💾 RPC Nodes](rpc-nodes/nodes.md)
 
 ## 👨‍🍳 Tutorials
 

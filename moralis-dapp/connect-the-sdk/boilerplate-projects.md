@@ -18,7 +18,7 @@ This simple app logs in user, creates a user profile in Moralis Database and syn
   <head>
     <title>Vanilla Boilerplate</title>
     <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
-    <script src="https://unpkg.com/moralis/dist/moralis.js"></script>
+    <script src="https://unpkg.com/moralis-v1/dist/moralis.js"></script>
   </head>
 
   <body>

@@ -15,7 +15,7 @@ Run the following command to install Moralis SDK
 {% tab title="npm" %}
 
 ```shell
-npm install moralis
+npm install moralis-v1
 ```
 
 {% endtab %}
@@ -23,7 +23,7 @@ npm install moralis
 {% tab title="yarn" %}
 
 ```shell
-yarn add moralis
+yarn add moralis-v1
 ```
 
 {% endtab %}
@@ -39,7 +39,7 @@ Create a file `index.ts` and add below code:
 
 ```javascript
 /* import moralis */
-const Moralis = require("moralis/node");
+const Moralis = require("moralis-v1/node");
 
 /* Moralis init code */
 const serverUrl = "YOUR-SERVER-URL";
@@ -266,6 +266,10 @@ You will see the following result:
 ```
 
 ### Enable Moralis with Private key
+
+{% hint style="warning" %}
+Currently this doesn't work on free plan due to Speedy Nodes removal
+{% endhint %}
 
 #### `Moralis.Transfer`
 

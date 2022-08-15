@@ -2,7 +2,7 @@
 description: Networks supported by Moralis for Solana
 ---
 
-# Supported Networks
+# ⛓ Supported Networks
 
 ### Supported Solana Networks
 

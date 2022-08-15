@@ -554,13 +554,17 @@ Web3 functions are available within Cloud Code including the ability to call con
 
 ### Example of how to use a custom RPC url
 
+{% hint style="info" %}
+You can get an RPC node and its URL [here](https://moralis.io/largenodes).
+{% endhint %}
+
 {% code title="cloud.js" %}
 
 ```javascript
 Moralis.Cloud.define("run_contract_function_with_web3", async (request) => {
   web3 = new Moralis.Web3(
     new Moralis.Web3.providers.HttpProvider(
-      "https://speedy-nodes-nyc.moralis.io/YOUR_ID_HERE/bsc/mainnet"
+      "RPC URL"
     )
   );
   const abi = [

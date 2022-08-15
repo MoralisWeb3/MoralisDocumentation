@@ -29,7 +29,7 @@ Create a new file called `index.html` and copy the following code.
   <head>
     <!-- Moralis SDK code -->
     <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
-    <script src="https://unpkg.com/moralis/dist/moralis.js"></script>
+    <script src="https://unpkg.com/moralis-v1/dist/moralis.js"></script>
   </head>
   <body>
     <h1>Gas Stats With Moralis</h1>
