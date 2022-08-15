@@ -6,7 +6,7 @@ description: >-
 # Setup Cronos Testnet in Defi Wallet
 
 1. In Cronos Defi Wallet go to Settings and select Network Settings
-![](images/c1.png =x250)
+![](images/c1.png)
 
 2. Click on Cronos Testnet
 
