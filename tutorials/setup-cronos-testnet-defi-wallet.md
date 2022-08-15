@@ -6,10 +6,12 @@ description: >-
 # Setup Cronos Testnet in Defi Wallet
 
 1. In Cronos Defi Wallet go to Settings and select Network Settings
-![](images/c1.png)
+
+<img src="images/c1.png" width="250">
 
 2. Click on Cronos Testnet
-![](images/c2.png)
+
+<img src="images/c2.png" width="250">
 
 3. Click on “Back to Home”
 
@@ -26,15 +28,15 @@ To create a network connection in Metamask
 
 1. In Metamask go to Settings
 
-![](images/c3.png)
+<img src="images/c3.png" width="250">
 
 2. Select Network
 
-![](images/c4.png)
+<img src="images/c4.png" width="250">
 
 3. Select Add Network and Custom Network. Enter the chain network information (see above)
 
-![](images/c5.png)
+<img src="images/c5.png" width="250">
 
 4. Click “Add”
 

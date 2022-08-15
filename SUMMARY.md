@@ -98,6 +98,7 @@
 
 ## 👨‍🍳 Tutorials
 
+* [Cronos testnet wallet Setup](tutorials/setup-cronos-testnet-defi-wallet.md)
 * [Fiat Gateway Tutorial](tutorials/fiat-gateway.md)
 * [Token Swaps (DEX) Tutorial](tutorials/token-swaps-dex-tutorial.md)
 * [Create and Launch Own NFTs](tutorials/create-and-launch-own-nfts.md)
