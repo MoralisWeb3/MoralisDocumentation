@@ -94,6 +94,7 @@
   * [VS Code Snippets](moralis-dapp/tools/snippets.md)
 * [🔌 Plugins](moralis-dapp/plugins/README.md)
   * [Install and Remove Plugins](moralis-dapp/plugins/untitled.md)
+  * [How to use API/SDK directly](moralis-dapp/plugins/api.md)
 * [💾 RPC Nodes](rpc-nodes/nodes.md)
 
 ## 👨‍🍳 Tutorials
