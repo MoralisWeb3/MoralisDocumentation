@@ -127,7 +127,7 @@ We will update this FAQ and provide the link to the whitelisted collections shor
 
 - **Is there a way to add my favourite non IPFS NFT collection to this list ?**
 
-Yes, you can submit your request [here](https://forum.moralis.io/c/moralis/non-ipfs-collection-refresh-whitelisting/24).
+Yes, you can submit your request [here](https://forum.moralis.io/t/non-ipfs-nft-refresh-whitelisting-requests/17887).
 
 - **How long does it take to see the change after the request?**
 
