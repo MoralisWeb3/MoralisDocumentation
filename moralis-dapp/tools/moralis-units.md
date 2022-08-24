@@ -120,7 +120,9 @@ BigInteger tokenValue = UnitConversion.Convert.FromWei(2000000000000000000);
 {% endtab %}
 {% endtabs %}
 
-Note that this function is not available in the cloud code yet. You can use it in the SDK only. We are very soon adding it to the cloud code.
+{% hint style="info" %}
+Check [here](../cloud-code/cloud-functions.md#units) to see how to handle units in cloud code.
+{% endhint %}
 
 Web3 API responses for token balances have **decimals** and **balance** in Wei fields:
 
