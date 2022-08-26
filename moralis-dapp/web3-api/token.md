@@ -480,7 +480,7 @@ public class Example
 
 ## getNFTMetadata
 
-Returns the contract level metadata (name, symbol, base token uri) for the given contract (asynchronous).
+Returns the contract level metadata (name, symbol, ...) for the given contract (asynchronous).
 
 #### Options:
 
