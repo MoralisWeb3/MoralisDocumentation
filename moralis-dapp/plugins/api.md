@@ -24,3 +24,8 @@ The documentation for OpenSea API can be found [here](https://docs.opensea.io/re
 You can request an API key for OpenSea [here](https://docs.opensea.io/reference/request-an-api-key). 
 
 You can find more information [here](https://github.com/ProjectOpenSea/opensea-js/blob/master/README.md) about how to use OpenSea JavaScript SDK.
+
+
+## Fiat Onramp
+
+For Fiat Onramp, you can use the widget integrations from [here](https://docs.onramper.com/widget/). There is also a react [component](https://docs.onramper.com/widget/#react-component) there.
