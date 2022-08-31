@@ -29,3 +29,16 @@ You can find more information [here](https://github.com/ProjectOpenSea/opensea-j
 ## Fiat Onramp
 
 For Fiat Onramp, you can use the widget integrations from [here](https://docs.onramper.com/widget/). There is also a react [component](https://docs.onramper.com/widget/#react-component) there.
+
+
+## 1Inch
+
+For 1Inch you can use the API from [here](https://1inch.io/api/).
+
+The API documentation for 1Inch can be found [here](https://docs.1inch.io/).
+
+The swagger for aggregation protocol can be found [here](https://docs.1inch.io/docs/aggregation-protocol/api/swagger).
+
+
+
+
