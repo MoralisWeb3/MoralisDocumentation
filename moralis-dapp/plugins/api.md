@@ -40,5 +40,14 @@ The API documentation for 1Inch can be found [here](https://docs.1inch.io/).
 The swagger for aggregation protocol can be found [here](https://docs.1inch.io/docs/aggregation-protocol/api/swagger).
 
 
+## Pinata IPFS
 
+The documentation for Pinata can be found [here](https://docs.pinata.cloud/).
+
+Pinata API documentation specific to pining files can be found [here](https://docs.pinata.cloud/pinata-api/pinning/pin-file-or-directory).
+
+
+## Covalent
+
+The documentation for Covalent API can be found [here](https://covalenthq.com/docs/api/).
 
