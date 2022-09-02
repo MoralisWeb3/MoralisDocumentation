@@ -613,7 +613,7 @@ Bringing it all together...
 ```javascript
 const web3 = new Moralis.Web3(
     new Moralis.Web3.providers.HttpProvider(
-      "https://speedy-nodes-nyc.moralis.io/YOUR_ID_HERE/bsc/mainnet"
+      "SPEEDY NODE URL"
     )
   );
 const abi = Moralis.Web3.abis.erc20;
