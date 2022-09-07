@@ -20,6 +20,9 @@ This class extends [`Moralis.Object`](../../database/objects.md) with some extra
 Use **`Moralis.User.signUp(username, password)`**to create a new user
 {% endhint %}
 
+{% tabs %}
+
+{% tab title="JS"}
 ```javascript
 const user = new Moralis.User();
 user.set("username", "my name");
@@ -36,6 +39,35 @@ try {
   alert("Error: " + error.code + " " + error.message);
 }
 ```
+{% endtab %}
+
+{% tab title="React" %}
+```javascript
+import { React } from "react";
+import { useMoralis } from "react-moralis";
+
+const { Moralis, isInitialized, ...rest } = useMoralis();
+
+const emailUser = async () => {
+  const user = new Moralis.User();
+  user.set("username", "my name");
+  user.set("password", "my pass");
+  user.set("email", "email@example.com");
+
+  // other fields can be set just like with Moralis.Object
+  user.set("phone", "415-392-0202");
+  try {
+    await user.signUp();
+    // Hooray! Let them use the app now.
+  } catch (error) {
+    // Show the error message somewhere and let the user try again.
+    alert("Error: " + error.code + " " + error.message);
+  }
+}
+```
+{% endtab %}
+
+{% endtabs %}
 
 {% hint style="info" %}
 Note that we used the<mark style="color:purple;">**`signUp`**</mark>method, not the<mark style="color:purple;">**`save`**</mark>method. New **`Moralis.User`**'s created with a username should always be created using the<mark style="color:purple;">**`signUp`**</mark>method. Subsequent updates to a user can be done by calling<mark style="color:purple;">**`save`**</mark>
