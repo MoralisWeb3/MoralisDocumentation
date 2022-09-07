@@ -21,7 +21,7 @@ Use **`Moralis.User.signUp(username, password)`**to create a new user
 {% endhint %}
 
 {% tabs %}
-{% tab title="JS"}
+{% tab title="JS" %}
 ```javascript
 const user = new Moralis.User();
 user.set("username", "my name");
