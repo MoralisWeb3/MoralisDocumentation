@@ -21,7 +21,6 @@ Use **`Moralis.User.signUp(username, password)`**to create a new user
 {% endhint %}
 
 {% tabs %}
-
 {% tab title="JS"}
 ```javascript
 const user = new Moralis.User();
@@ -66,7 +65,6 @@ const emailUser = async () => {
 }
 ```
 {% endtab %}
-
 {% endtabs %}
 
 {% hint style="info" %}
