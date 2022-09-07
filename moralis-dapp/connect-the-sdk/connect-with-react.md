@@ -7,6 +7,10 @@ description: >-
 
 # ⚛ Connect with React
 
+{% hint style="info" %}
+For move details on using React with Moralis check the react-moralis [github repo](https://github.com/MoralisWeb3/react-moralis).
+{% endhint %}
+
 ### 1. Creating React App
 
 To start a new Create React App project with TypeScript, you can run:
