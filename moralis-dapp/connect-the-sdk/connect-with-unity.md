@@ -7,16 +7,7 @@ description: >-
 
 # 🎮 Connect with Unity
 
-### Unity SDK breaking updates
 
-{% hint style="warning" %}
-* New unity sdk version has been published which feature some major updates and breaking changes, take a look at the [changelog here](https://github.com/MoralisWeb3/unity-web3-game-kit/releases/tag/v1.2.0)
-* The code snippets in the docs has been updated to use the latest version of the sdk with the new code syntax (most recommended)
-* You can take a look at this well presented [migration video](https://cdn.discordapp.com/attachments/918645175562145822/978328925753208904/MigrateToV120.mp4)
-* This also mean some of the moralis projects, github examples, youtube tutorials e.t.c created before the release may be using the old sdk if not updated and may cause some confusing or conflicts (when looking at the docs), you are advised to migrate by following the migration video above
-* This chapter has been split to show the various installation and setup for the different sdk versions \[ < v1.2.0 or >= v1.2.0]
-* Further questions feel free to ask on our [forum (unity thread)](https://forum.moralis.io/t/ethereum-unity3d-boilerplate-questions/4553/708) or ask in our [discord server](https://moralis.io/mage/)
-{% endhint %}
 
 ### Web3 Unity Boilerplate
 
@@ -113,7 +104,7 @@ As soon as the user logs in Moralis fetches all the on-chain data about that use
 
 You will see the database of that server once you click _Access Database_. Moralis fetches data from all blockchain where the address of the user has been active and you can see and query all tokens, NFTs and past transactions of the user all in one database.
 
-![Moralis Database fetches all user data from all chains and updates it in real time in case users move their assets on chain.](<../../.gitbook/assets/Screenshot 2021-10-15 at 18.44.04 (1).png>)
+![Moralis Database fetches all user data from all chains and updates it in real time in case users move their assets on chain.](<../../.gitbook/assets/Screenshot 2021-10-15 at 18.44.04.png>)
 
 ### Tutorial guides
 
