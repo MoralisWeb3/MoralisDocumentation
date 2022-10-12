@@ -47,75 +47,13 @@ If you need more please email hello@moralis.io and we will give you an appropria
 
 All Moralis plans have generous limits on the amount of requests you can make per month. How many included requests you have depends on the plan you have, check the [pricing page](https://moralis.io/pricing) for more details.
 
-In most cases one request to the Speedy Nodes or the Web3 API counts as one request towards your monthly quota or allowed rate limit.
+In most cases one request to the Web3 API counts as one request towards your monthly quota or allowed rate limit.
 
-However, some Speedy Node methods and API requests are very computationally expensive and therefore count as several requests.
+However, some API requests are very computationally expensive and therefore count as several requests.
 
 By giving some heavy requests higher weight we ensure that you ONLY pay for what you use and not a cent more - period! This way you get cheap requests for most use-cases while we can protect our systems from abuse by weighing the computationally expensive endpoints.
 
-See the tables below for details about Speedy Node methods and API Endpoints that are weighted.
-
-### Speedy Node Requests
-
-{% hint style="info" %}
-Moralis Speedy Nodes have a requests limit of 50 requests per batch.
-{% endhint %}
-
-| Method                                   | Cost         |
-| ---------------------------------------- | ------------ |
-| All methods not on this list             | 1 request    |
-| eth\_uninstallFilter                     | 1 request    |
-| eth\_accounts                            | 1 request    |
-| eth\_blockNumber                         | 1 request    |
-| eth\_chainId                             | 1 request    |
-| eth\_protocolVersion                     | 1 request    |
-| eth\_syncing                             | 1 request    |
-| net\_listening                           | 1 request    |
-| net\_version                             | 1 request    |
-| eth\_subscribe                           | 1 request    |
-| eth\_unsubscribe                         | 1 request    |
-| eth\_feeHistory                          | 1 request    |
-| eth\_maxPriorityFeePerGas                | 1 request    |
-| eth\_getTransactionReceipt               | 2 requests   |
-| eth\_getUncleByBlockHashAndIndex         | 2 requests   |
-| eth\_getUncleByBlockNumberAndIndex       | 2 requests   |
-| eth\_getTransactionByBlockHashAndIndex   | 2 requests   |
-| eth\_getTransactionByBlockNumberAndIndex | 2 requests   |
-| eth\_getUncleCountByBlockHash            | 2 requests   |
-| eth\_getUncleCountByBlockNumber          | 2 requests   |
-| web3\_clientVersion                      | 2 requests   |
-| web3\_sha3                               | 2 requests   |
-| eth\_getBlockByNumber                    | 2 requests   |
-| eth\_getStorageAt                        | 2 requests   |
-| eth\_getTransactionByHash                | 2 requests   |
-| trace\_get                               | 2 requests   |
-| eth\_gasPrice                            | 2 requests   |
-| eth\_getBalance                          | 2 requests   |
-| eth\_getCode                             | 2 requests   |
-| eth\_getFilterChanges                    | 2 requests   |
-| eth\_newBlockFilter                      | 2 requests   |
-| eth\_newFilter                           | 2 requests   |
-| eth\_newPendingTransactionFilter         | 2 requests   |
-| eth\_getBlockTransactionCountByHash      | 2 requests   |
-| eth\_getBlockTransactionCountByNumber    | 2 requests   |
-| eth\_getProof                            | 2 requests   |
-| eth\_getBlockByHash                      | 2 requests   |
-| trace\_block                             | 3 requests   |
-| parity\_getBlockReceipts                 | 3 requests   |
-| eth\_getTransactionCount                 | 3 requests   |
-| eth\_call                                | 3 requests   |
-| trace\_transaction                       | 3 requests   |
-| eth\_getFilterLogs                       | 8 requests   |
-| eth\_getLogs                             | 8 requests   |
-| trace\_call                              | 8 requests   |
-| trace\_callMany                          | 8 requests   |
-| trace\_rawTransaction                    | 8 requests   |
-| trace\_filter                            | 8 requests   |
-| eth\_estimateGas                         | 9 requests   |
-| eth\_sendRawTransaction                  | 25 requests  |
-| debug\_traceTransaction                  | 31 requests  |
-| trace\_replayTransaction                 | 298 requests |
-| trace\_replayBlockTransactions           | 298 requests |
+See the tables below for details about API Endpoints that are weighted.
 
 ### API Requests
 

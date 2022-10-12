@@ -137,16 +137,6 @@ The time can vary and it will depends on the numbers of NFTs to be refreshed but
 
 All our EVM compatible chains are supported.
 
-## What is the batch request limit on Moralis Speedy Nodes?
-
-Currently, we have a batch limit of 50 requests in a batch. In most production cases, it might not be suitable for your needs. Therefore we recommend you to use our Web3 APIs to get all transactions in a block and all contents of a transaction:
-
-* [getBlock](https://docs.moralis.io/moralis-dapp/web3-api/native#getblock)
-* [getTransaction](https://docs.moralis.io/moralis-dapp/web3-api/native#gettransaction-new)
-* or check [any other of our endpoints](https://docs.moralis.io/moralis-dapp/web3-api/native)
-
-If Web3 API provided doesn't suit your needs and prefer to use nodes with larger batches - you can sign up at to our partner [here](https://moralis.io/largenodes).
-
 ## FRPC
 
 ### What version should I use on Mac?
