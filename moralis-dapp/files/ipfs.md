@@ -4,6 +4,10 @@ description: Moralis Has Native Support for IPFS!
 
 # IPFS
 
+{% hint style="warning" %}
+This does not work with a **self-hosted** server, you can use [uploadFolder](../web3-api/ipfs-storage-new.md#🔥-uploadfolder-new) instead
+{% endhint %}
+
 {% embed url="https://youtu.be/c9SalynPw-g" %}
 
 ## Saving Files
