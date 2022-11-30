@@ -27,14 +27,6 @@ Note: Calling `link()`on an address already associated with a user will throw an
 You can see which addresses the user has already linked by querying the `user.attributes.accounts` array (will return undefined if the user has not yet linked or authenticated an address).
 {% endhint %}
 
-### Link Elrond Address
-
-Elrond accounts can be linked to existing accounts using the following code. This will prompt the user to authenticate on the ledger device.
-
-```javascript
-await Moralis.ERD.link(address)
-```
-
 ### Tutorial
 
 {% embed url="https://youtu.be/onzTGQcE_a0" %}
