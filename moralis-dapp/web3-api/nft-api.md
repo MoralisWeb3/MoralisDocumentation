@@ -381,7 +381,7 @@ Returns an object with the NFT count for the specified contract and an NFT array
 * `cursor` (optional): The next page of data to retrieve. Next page cursor value returned from each request.
 * `limit`(optional): limit (max 100).
 * `address` (optional): The owner of a given token (i.e. `0x1a2b3x...`). If specified, the user attached to the query is ignored and the address will be used instead.
-* `token_address`(required): Address of the contract
+* `tokenAddresses`(required): Array of contract addresses
 
 {% tabs %}
 {% tab title="JS" %}
@@ -406,7 +406,7 @@ const fetchNFTsForContract = async () => {
   const options = {
     chain: "polygon",
     address: "0x75e3e9c92162e62000425c98769965a76c2e387a",
-    token_address: "0x2953399124F0cBB46d2CbACD8A89cF0599974963",
+    tokenAddresses: ["0x2953399124F0cBB46d2CbACD8A89cF0599974963],
   };
   const polygonNFTs = await Web3Api.account.getNFTsForContract(options);
   console.log(polygonNFTs);
