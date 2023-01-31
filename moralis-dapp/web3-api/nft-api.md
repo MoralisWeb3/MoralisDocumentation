@@ -406,7 +406,7 @@ const fetchNFTsForContract = async () => {
   const options = {
     chain: "polygon",
     address: "0x75e3e9c92162e62000425c98769965a76c2e387a",
-    tokenAddresses: ["0x2953399124F0cBB46d2CbACD8A89cF0599974963],
+    tokenAddresses: ["0x2953399124F0cBB46d2CbACD8A89cF0599974963"],
   };
   const polygonNFTs = await Web3Api.account.getNFTsForContract(options);
   console.log(polygonNFTs);
