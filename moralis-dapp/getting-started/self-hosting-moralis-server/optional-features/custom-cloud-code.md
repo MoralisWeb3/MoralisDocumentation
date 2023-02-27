@@ -93,12 +93,12 @@ const { fetch, data, error } = useMoralisCloudFunction("Hello");
 
 {% hint style="info" %}
 
-If you don't know how to set up a **Moralis v1 client**, head over to [**_Client connection_**](https://v1docs.moralis.io/moralis-dapp/getting-started/self-hosting-moralis-server/client-connection).
+If you don't know how to set up a **Moralis v1 client**, head over to [**_Client connection_**](../client-connection.md).
 
 {% endhint %}
 
 {% hint style="info" %}
-You can also watch the following [**video tutorial**](https://v1docs.moralis.io/moralis-dapp/getting-started/self-hosting-moralis-server/optional-features/custom-cloud-code#video-tutorial) which goes through the whole setup.
+You can also watch the following [**video tutorial**](custom-cloud-code.md#video-tutorial) which goes through the whole setup.
 {% endhint %}
 
 ## Video tutorial

@@ -7,20 +7,20 @@ sidebar_position: 3
 
 ### Important
 
-The completion of the [**Local Environment Setup**](https://v1docs.moralis.io/moralis-dapp/getting-started/self-hosting-moralis-server/local-environment-setup) is required to continue.
-The completion of the [**Production Environment Setup**](https://v1docs.moralis.io/moralis-dapp/getting-started/self-hosting-moralis-server/production-environment-setup) is **NOT required** but it is **strongly recommended**.
+The completion of the [**Local Environment Setup**](../local-environment-setup.md) is required to continue.
+The completion of the [**Production Environment Setup**](../production-environment-setup.md) is **NOT required** but it is **strongly recommended**.
 
 {% endhint %}
 
 **Moralis-hosted Server** offered certain features that **can be replicated** in our **self-hosted Moralis Server**:
 
-- [**Parse Dashboard**](parse-dashboard)
-- [**Custom Cloud Code**](custom-cloud-code)
-- [**Custom Jobs**](custom-jobs)
-- [**Streams (Syncs)**](streams)
+- [**Parse Dashboard**](parse-dashboard.md)
+- [**Custom Cloud Code**](custom-cloud-code.md)
+- [**Custom Jobs**](custom-jobs.md)
+- [**Streams (Syncs)**](streams.md)
 
 {% hint style="info" %}
 
-Apart from implementing those features, you can also head over to [**_Advanced configuration_**](https://v1docs.moralis.io/moralis-dapp/getting-started/self-hosting-moralis-server/optional-features/advanced-configuration to learn how to make advanced adjustments to your server.
+Apart from implementing those features, you can also head over to [**_Advanced configuration_**](advanced-configuration.md) to learn how to make advanced adjustments to your server.
 
 {% endhint %}

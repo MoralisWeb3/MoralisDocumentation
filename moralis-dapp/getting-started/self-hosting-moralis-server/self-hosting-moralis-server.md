@@ -33,9 +33,9 @@ Migrating from the Moralis-hosted server to a self-hosted server has several ben
 
 ## Steps to follow
 
-1. [**Local Environment Setup**](https://v1docs.moralis.io/moralis-dapp/getting-started/self-hosting-moralis-server/local-environment-setup)
-2. [**Production Environment Setup**](https://v1docs.moralis.io/moralis-dapp/getting-started/self-hosting-moralis-server/production-environment-setup)
-3. [**Optional features**](https://v1docs.moralis.io/moralis-dapp/getting-started/self-hosting-moralis-server/optional-features)
-4. [**Data migration**](https://v1docs.moralis.io/moralis-dapp/getting-started/self-hosting-moralis-server/migrate-data)
-5. [**Client connection**](https://v1docs.moralis.io/moralis-dapp/getting-started/self-hosting-moralis-server/client-connection)
-6. [**Deployment**](https://v1docs.moralis.io/moralis-dapp/getting-started/self-hosting-moralis-server/deployment)
+1. [**Local Environment Setup**](local-environment-setup.md)
+2. [**Production Environment Setup**](production-environment-setup.md)
+3. [**Optional features**](optional-features/optional-features.md)
+4. [**Data migration**](migrate-data.md)
+5. [**Client connection**](client-connection.md)
+6. [**Deployment**](deployment.md)
