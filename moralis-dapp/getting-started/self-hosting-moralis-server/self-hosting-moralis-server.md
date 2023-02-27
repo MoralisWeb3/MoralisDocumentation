@@ -5,13 +5,21 @@ description: "This guide will help you migrate to a self-hosted Moralis Server."
 
 ![](/img/content/53a7368-self-hosted-moralis-server-webpage-banner.webp)
 
-:::info You're in the right place
-If you have a **Moralis-hosted server**, this guide will help you **migrate** to a **self-hosting solution**.
-:::
+{% hint style="info" %}
 
-:::info you too
+### You're in the right place
+
+If you have a **Moralis-hosted server**, this guide will help you **migrate** to a **self-hosting solution**.
+
+{% endhint %}
+
+{% hint style="info" %}
+
+### you too
+
 If you are looking to **self-host a Moralis Server from scratch**, this guide is also for you.
-:::
+
+{% endhint %}
 
 ## Why self-hosting
 
