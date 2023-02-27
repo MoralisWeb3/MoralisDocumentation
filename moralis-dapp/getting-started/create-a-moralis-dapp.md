@@ -9,6 +9,8 @@ description: >-
 
 {% hint style="warning" %}
 
+### Moralis Server Deprecation
+
 The Moralis Server has been deprecated and you should now self-host your own server. To self-host, follow this guide [here](self-hosting-moralis-server/self-hosting-moralis-server.md).
 
 If you are only using Moralis for its APIs, check out our latest documentation [here](https://docs.moralis.io).
