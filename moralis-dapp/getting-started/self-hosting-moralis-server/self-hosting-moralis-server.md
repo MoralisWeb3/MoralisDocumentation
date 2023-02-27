@@ -15,7 +15,7 @@ If you have a **Moralis-hosted server**, this guide will help you **migrate** to
 
 {% hint style="info" %}
 
-### you too
+### You too
 
 If you are looking to **self-host a Moralis Server from scratch**, this guide is also for you.
 
