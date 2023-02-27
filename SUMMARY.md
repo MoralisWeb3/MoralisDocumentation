@@ -7,7 +7,7 @@
 ## 🧙 Moralis Server <a href="#moralis-dapp" id="moralis-dapp"></a>
 
 - [🛠 Getting Started](moralis-dapp/getting-started/README.md)
-  - [🚀 Create a Moralis Dapp](moralis-dapp/getting-started/create-a-moralis-dapp.md)
+  - [🚀 Create a Moralis Dapp (DEPRECATED)](moralis-dapp/getting-started/create-a-moralis-dapp.md)
   - [🎰 Self-Hosting Moralis Server](moralis-dapp/getting-started/self-hosting-moralis-server/self-hosting-moralis-server.md)
     - [Local Environment Setup](moralis-dapp/getting-started/self-hosting-moralis-server/local-environment-setup.md)
     - [Production Environment Setup](moralis-dapp/getting-started/self-hosting-moralis-server/production-environment-setup.md)
