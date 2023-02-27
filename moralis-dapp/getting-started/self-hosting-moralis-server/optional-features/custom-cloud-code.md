@@ -5,9 +5,13 @@ description: "This guide will teach you how to set up your own Cloud Code."
 sidebar_position: 2
 ---
 
-:::info overview
+{% hint style="info" %}
+
+### Overview
+
 This guide will teach you how to **set up your own [Cloud Code](https://docs.parseplatform.org/cloudcode/guide/)**.
-:::
+
+{% endhint %}
 
 **Custom Cloud Code** replaces the old **Moralis-hosted Cloud Functions**:
 
@@ -15,9 +19,11 @@ This guide will teach you how to **set up your own [Cloud Code](https://docs.par
 
 ## Configuration
 
-:::note
+{% hint style="info" %}
+
 By default the cloud code is located in **`src/cloud/main.ts`**.
-:::
+
+{% endhint %}
 
 **Create a new file** inside `src/cloud/` folder and name it `cloud.ts`.
 
@@ -25,7 +31,7 @@ Now add the following to `src/cloud/main.ts` to import the file:
 
 ```typescript main.ts
 //import cloud.ts file
-import './cloud';
+import "./cloud";
 ```
 
 ## Adding custom cloud code
@@ -35,11 +41,11 @@ Add some **cloud functions** inside your newly created file `src/cloud/cloud.ts`
 ```typescript cloud.ts
 declare const Parse: any;
 
-Parse.Cloud.define('Hello', () => {
+Parse.Cloud.define("Hello", () => {
   return `Hello! Cloud functions are cool!`;
 });
 
-Parse.Cloud.define('SayMyName', (request: any) => {
+Parse.Cloud.define("SayMyName", (request: any) => {
   return `Hello ${request.params.name}! Cloud functions are cool!`;
 });
 ```
@@ -85,13 +91,15 @@ const { fetch, data, error } = useMoralisCloudFunction("Hello");
   </TabItem>
 </Tabs>
 
-:::tip
-If you don't know how to set up a **Moralis v1 client**, head over to [***Client connection***](/web3-data-api/self-hosting-moralis-server/client-connection).
-:::
+{% hint style="info" %}
 
-:::tip
+If you don't know how to set up a **Moralis v1 client**, head over to [**_Client connection_**](/web3-data-api/self-hosting-moralis-server/client-connection).
+
+{% endhint %}
+
+{% hint style="info" %}
 You can also watch the following [**video tutorial**](/web3-data-api/self-hosting-moralis-server/optional-features/custom-cloud-code#video-tutorial) which goes through the whole setup.
-:::
+{% endhint %}
 
 ## Video tutorial
 

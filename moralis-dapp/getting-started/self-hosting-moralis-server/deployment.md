@@ -4,13 +4,21 @@ slug: "deployment"
 sidebar_position: 6
 ---
 
-:::info overview
-This guide will teach you how to **deploy your server to a hosting service of your choice**.
-:::
+{% hint style="info" %}
 
-:::caution Important
+### Overview
+
+This guide will teach you how to **deploy your server to a hosting service of your choice**.
+
+{% endhint %}
+
+{% hint style="warning" %}
+
+### Important
+
 The completion of [**Production Environment Setup**](/web3-data-api/self-hosting-moralis-server/production-environment-setup) is **required** to continue.
-:::
+
+{% endhint %}
 
 ## Heroku
 
@@ -34,13 +42,17 @@ Navigate to "Settings" and reveal the keys. Here you can paste all the variables
 
 ![](/img/content/6f65c9c-Screenshot_2022-09-08_at_02.44.49.webp)
 
-:::info
-Make sure to update `SERVER_URL` in the config vars to the deployed url on Heroku. This looks something like `moralis-demo.herokuapp.com/server`. Also make sure to set this same serverUrl in your frontend.
-:::
+{% hint style="info" %}
 
-:::tip Success
+Make sure to update `SERVER_URL` in the config vars to the deployed url on Heroku. This looks something like `moralis-demo.herokuapp.com/server`. Also make sure to set this same serverUrl in your frontend.
+
+{% endhint %}
+
+{% hint style="success" %}
+
 You are now **self-hosting** your own **Moralis Server**!
-:::
+
+{% endhint %}
 
 ## AWS Elastic Beanstalk
 
@@ -49,16 +61,13 @@ You are now **self-hosting** your own **Moralis Server**!
 - Create an [AWS account](https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?refid=349e66be-cf8d-4106-ae2c-54262fc45524).
 - Create an [IAM user](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_create.html).
 
-### Manual deployment
-
-:::info Coming soon!
-:::
-
 ### One-click deployment
 
-:::caution
+{% hint style="warning" %}
+
 Be aware that this process **could resort to expenses** as **Elastic Beanstalk** is not part of [AWS Free Tier](https://aws.amazon.com/es/free/).
-:::
+
+{% endhint %}
 
 [**Click here to deploy automatically**](https://console.aws.amazon.com/elasticbeanstalk/home?region=us-east-1#/newApplication?applicationName=demo-parse-server-migration&platform=Node.js&tierName=WebServer&environmentType=SingleInstance&sourceBundleUrl=https://moralis-s3-bucket.s3.eu-west-1.amazonaws.com/parse-server-migration.zip) and follow the **instructions below**:
 
@@ -86,9 +95,11 @@ Paste the environment variables retrieved on the [previous steps](https://docs.m
 
 ![](/img/content/b8e3def-image.webp)
 
-:::info
+{% hint style="info" %}
+
 This [video](https://youtu.be/9GtysZs-FrA?t=147) also shows you how to get the **environment variables**.
-:::
+
+{% endhint %}
 
 Elastic Beanstalk will update your environment and after a couple of minutes it will be ready:
 
@@ -102,9 +113,11 @@ Add **`/server`** to the URL and you'll be accessing your **_Moralis Parse Serve
 
 ![](/img/content/d4ef788-image.webp)
 
-:::tip Success
+{% hint style="success" %}
+
 You are now **self-hosting** your own **Moralis Server**!
-:::
+
+{% endhint %}
 
 ## Railway
 
@@ -119,7 +132,7 @@ This will also create a MongoDB and Redis instance for you automatically, all ma
 3. Click on the "Variables" tab in your Parse Server and update:
 
 - `SERVER_URL` with the domain from Step 1 e.g. [`https://***.up.railway.app/server`](https://***.up.railway.app/server)
-- `DATABASE_URI` with your MongoDB connection URL e.g. [`mongodb://mongo:***.railway.app:****`](mongodb://mongo:***.railway.app:****/parse) 
+- `DATABASE_URI` with your MongoDB connection URL e.g. [`mongodb://mongo:***.railway.app:****`](mongodb://mongo:***.railway.app:****/parse)
 - `REDIS_CONNECTION_STRING` with your Redis connection URL e.g. [`redis://***@containers-us-west-157.railway.app:****`](redis://*@containers-us-west-157.railway.app:****)
 
 Your server will re-deploy after these changes.
@@ -149,9 +162,11 @@ Your server will re-deploy after these changes.
 
 ![](/img/content/63abd77-Railway_5.webp)
 
-:::tip Success
+{% hint style="success" %}
+
 You are now **self-hosting** your own **Moralis Server**!
-:::
+
+{% endhint %}
 
 ## Google App Engine
 
@@ -164,9 +179,13 @@ You are now **self-hosting** your own **Moralis Server**!
 
 ### Deployment
 
-:::caution Be aware!
+{% hint style="warning" %}
+
+### Be aware!
+
 If your [Google Cloud free trial](https://cloud.google.com/free) has ended, the following process **could resort to expenses**.
-:::
+
+{% endhint %}
 
 Replace the environment variables values in **`app.yaml`** with your own:
 
@@ -200,6 +219,8 @@ Add **`/server`** to the URL and you'll be accessing your **_Moralis Parse Serve
 
 ![](/img/content/7cbef58-image.webp)
 
-:::tip Success
+{% hint style="success" %}
+
 You are now **self-hosting** your own **Moralis Server**!
-:::
+
+{% endhint%}

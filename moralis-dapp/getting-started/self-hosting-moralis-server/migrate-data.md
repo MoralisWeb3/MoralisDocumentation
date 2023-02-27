@@ -5,13 +5,21 @@ sidebar_position: 4
 description: "This guide teaches you how to migrate data from your Moralis-hosted server to your MongoDB Atlas solution."
 ---
 
-:::info overview
-This guide teaches you how to **migrate data** from your **Moralis-hosted MongoDB** to your **MongoDB Atlas solution**.
-:::
+{% hint style="info" %}
 
-:::caution Important
+## Overview
+
+This guide teaches you how to **migrate data** from your **Moralis-hosted MongoDB** to your **MongoDB Atlas solution**.
+
+{% endhint %}
+
+{% hint style="warning" %}
+
+### Important
+
 The completion of [**Production Environment Setup**](/web3-data-api/self-hosting-moralis-server/production-environment-setup) is **required** to continue.
-:::
+
+{% endhint %}
 
 ## Whitelist your IP in Moralis
 
@@ -29,7 +37,7 @@ You can connect to the MongoDB that is hosted on Moralis via different methods:
 
 - Using scripts
 - Using the [MongoDB Compass tool](https://www.mongodb.com/products/compass)
-- Using `mongodump` and `mongorestore` 
+- Using `mongodump` and `mongorestore`
 
 ### Using scripts
 
@@ -40,26 +48,26 @@ import TabItem from '@theme/TabItem';
   <TabItem value="nodejs" label="NodeJs" default>
 
 ```javascript NodeJs
-const { MongoClient } = require('mongodb');
+const { MongoClient } = require("mongodb");
 
-const MONGO_HOST = 'MONGO_HOST_IP_FROM_ADMIN_INTERFACE';  
-const MONGO_PORT = 'MONGO_HOST_PORT_FROM_ADMIN_INTERFACE';
+const MONGO_HOST = "MONGO_HOST_IP_FROM_ADMIN_INTERFACE";
+const MONGO_PORT = "MONGO_HOST_PORT_FROM_ADMIN_INTERFACE";
 
-// Create a new MongoClient  
+// Create a new MongoClient
 const client = new MongoClient(`mongodb://${MONGO_HOST}:${MONGO_PORT}`);
 
-async function run() {  
-  try {  
-    // Connect the client to the server  
-    await client.connect();  
-    // Establish and verify connection  
-    await client.db('admin').command({ ping: 1 });  
-    console.log('Connected successfully to server');  
-  } finally {  
-    // Ensures that the client will close when you finish/error  
-    await client.close();  
-  }  
-}  
+async function run() {
+  try {
+    // Connect the client to the server
+    await client.connect();
+    // Establish and verify connection
+    await client.db("admin").command({ ping: 1 });
+    console.log("Connected successfully to server");
+  } finally {
+    // Ensures that the client will close when you finish/error
+    await client.close();
+  }
+}
 run().catch(console.dir);
 ```
 
@@ -67,14 +75,14 @@ run().catch(console.dir);
   <TabItem value="python" label="Python">
 
 ```python Python
-import pprint  
+import pprint
 import pymongo
 
-MONGO_HOST = "MONGO_HOST_IP_FROM_ADMIN_INTERFACE"  
+MONGO_HOST = "MONGO_HOST_IP_FROM_ADMIN_INTERFACE"
 MONGO_PORT = MONGO_HOST_PORT_FROM_ADMMIN_INTERFACE
 
-con = pymongo.MongoClient(MONGO_HOST, MONGO_PORT)  
-user_table = con['parse']['_User']  
+con = pymongo.MongoClient(MONGO_HOST, MONGO_PORT)
+user_table = con['parse']['_User']
 pprint.pprint(user_table.find_one())
 ```
 
@@ -83,9 +91,11 @@ pprint.pprint(user_table.find_one())
 
 After you have established direct access to Mongo DB, you You can do your own dumps for the database.
 
-:::info
+{% hint style="info" %}
+
 \_User table is a particular example of table that starts with \_, most of the tables will not start with \_
-:::
+
+{% endhint %}
 
 ### Using Compass
 
