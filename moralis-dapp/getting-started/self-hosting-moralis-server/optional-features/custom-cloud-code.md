@@ -15,7 +15,7 @@ This guide will teach you how to **set up your own [Cloud Code](https://docs.par
 
 **Custom Cloud Code** replaces the old **Moralis-hosted Cloud Functions**:
 
-![](./images/cloud-code-1.webp)
+![](../images/cloud-code-1.webp)
 
 ## Configuration
 

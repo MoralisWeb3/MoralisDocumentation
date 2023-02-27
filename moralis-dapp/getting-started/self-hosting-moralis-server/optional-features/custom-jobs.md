@@ -100,15 +100,15 @@ npm run start
 
 Head over to <http://localhost:1337/dashboard/> and choose **_Jobs --> Schedule a job_**:
 
-![](./images/jobs-1.webp)
+![](../images/jobs-1.webp)
 
 Write a description and choose `newJob` on the **_Cloud job_** dropdown:
 
-![](./images/jobs-2.webp)
+![](../images/jobs-2.webp)
 
 Configure when you want the job to run and choose **_Schedule_**:
 
-![](./images/jobs-3.webp)
+![](../images/jobs-3.webp)
 
 {% hint style="success" %}
 
@@ -116,4 +116,4 @@ If _Start immediately_ was selected your job will start right away and repeat ba
 
 {% endhint %}
 
-![](./images/jobs-4.webp)
+![](../images/jobs-4.webp)
