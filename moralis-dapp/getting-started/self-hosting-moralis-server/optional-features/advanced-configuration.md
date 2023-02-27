@@ -5,9 +5,13 @@ description: "This tutorial teaches you how to configure your self-hosted Morali
 sidebar_position: 4
 ---
 
-:::info overview
+{% hint style="info" %}
+
+### Overview
+
 This guide teaches you how to make **advanced adjustments** to your **self-hosted Moralis Server**.
-:::
+
+{% endhint %}
 
 ## Authentication
 
@@ -27,7 +31,7 @@ Alternatively, you can replace the `handleRateLimit` function to a custom implem
 
 The EvmApi and SolApi can be accessed in the frontend via cloud functions (this is what happens when you call `Moralis.Web3Api.<method>` in the JS SDK v1).
 
-These cloud functions are generated when you run `yarn gen:cloud`. 
+These cloud functions are generated when you run `yarn gen:cloud`.
 
 Note that with the current implementation the generated cloud functions might show you some Typescript errors. This can happen when we make updates to the api that are not reflected yet in the NodeJs SDK. These can be ignored or fixed manually, please let us know when this happens. We are working on a better experience to keep these definitions in sync.
 
