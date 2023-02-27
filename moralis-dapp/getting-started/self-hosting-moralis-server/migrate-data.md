@@ -25,7 +25,7 @@ The completion of [**Production Environment Setup**](/web3-data-api/self-hosting
 
 In order to access your MongoDB you need to whitelist your IP address:
 
-![](images/fa2ab6d-Screenshot_2022-09-08_at_02.10.29.webp)
+![](images/whitelist-1.webp)
 
 ![](images/57d2813-Screenshot_2022-09-08_at_02.11.02.webp)
 
