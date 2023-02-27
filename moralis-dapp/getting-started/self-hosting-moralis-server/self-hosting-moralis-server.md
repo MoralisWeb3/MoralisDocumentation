@@ -3,6 +3,7 @@ title: "Self-hosting Moralis Server"
 description: "This guide will help you migrate to a self-hosted Moralis Server."
 ---
 
+![](images/client-1.webp.webp)
 ![](/img/content/53a7368-self-hosted-moralis-server-webpage-banner.webp)
 
 {% hint style="info" %}
