@@ -5,7 +5,15 @@ description: >-
   serve it to clients such as web and mobile apps
 ---
 
-# 🚀 Create a Moralis Dapp
+# 🚀 Create a Moralis Dapp (DEPRECATED)
+
+{% hint style="warning" %}
+
+The Moralis Server has been deprecated and you should now self-host your own server. To self-host, follow this guide [here](self-hosting-moralis-server/self-hosting-moralis-server.md).
+
+If you are only using Moralis for its APIs, check out our latest documentation [here](https://docs.moralis.io).
+
+{% endhint%}
 
 ### What is a Moralis Dapp?
 
@@ -50,15 +58,15 @@ Now you will see your server in your dashboard, and we can move on and create a 
 
 The server displays several important **indicators** as shown in the image above:
 
-* `Network`: Network traffic per second
-* `CPU`: Server's CPU Usage
-* `RAM`: Server's RAM Usage
-* `DISK`: Server's Disk Usage
-* `Number of Users`: The number of users that have been authenticated in the server
+- `Network`: Network traffic per second
+- `CPU`: Server's CPU Usage
+- `RAM`: Server's RAM Usage
+- `DISK`: Server's Disk Usage
+- `Number of Users`: The number of users that have been authenticated in the server
 
 ### Migrate Dapp to Nitro Version
 
-Every new Dapp created in Moralis now will be Nitro by default. However, those Dapps created before the launch of Moralis Nitro might still be using the legacy version. In order to upgrade the server to Nitro, simply install the coreservices plugin by clicking [here](https://legacybackup.moralis.io/install/plugin/coreservices). 
+Every new Dapp created in Moralis now will be Nitro by default. However, those Dapps created before the launch of Moralis Nitro might still be using the legacy version. In order to upgrade the server to Nitro, simply install the coreservices plugin by clicking [here](https://legacybackup.moralis.io/install/plugin/coreservices).
 
 {% hint style="info" %}
 Keep in mind that once the coreservices plugin has been added, it can't be removed. This means that the migration from Legacy to Nitro will be **irreversible**. From your server, you can see `coreservices` as one of the plugins.
@@ -82,8 +90,8 @@ One <mark style="color:green;">**important**</mark> change when migrating from l
 
 To attain the same functionality, all queries to these tables should be replaced with some of our available [Web3APIs](../web3-sdk/) to do the same job:
 
-* `TokenBalance` -> [`getTokenBalances`](https://docs.moralis.io/moralis-dapp/web3-sdk/account#gettokenbalances)
-* `NFTOwners` -> [`getNFTOwners`](https://docs.moralis.io/moralis-dapp/web3-sdk/token#getnftowners)
+- `TokenBalance` -> [`getTokenBalances`](https://docs.moralis.io/moralis-dapp/web3-sdk/account#gettokenbalances)
+- `NFTOwners` -> [`getNFTOwners`](https://docs.moralis.io/moralis-dapp/web3-sdk/token#getnftowners)
 
 ### Tutorial
 
