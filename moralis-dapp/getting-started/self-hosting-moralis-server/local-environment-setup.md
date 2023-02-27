@@ -212,6 +212,6 @@ Now your server can be accessed on **[http://localhost:1337/server](http://local
 
 ### Remember
 
-With this local setup, the server is still **not production-ready**. Let's continue with the [next step](https://v1docs.moralis.io/moralis-dapp/getting-started/self-hosting-moralis-server/production-environment-setup) to make it so.
+With this local setup, the server is still **not production-ready**. Let's continue with the [next step](production-environment-setup.md) to make it so.
 
 {% endhint%}
