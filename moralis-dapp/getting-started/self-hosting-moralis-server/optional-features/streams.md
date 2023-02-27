@@ -5,13 +5,21 @@ description: "This guide will teach you how to set up streams for your self-host
 sidebar_position: 3
 ---
 
-:::info overview
-This guide will teach you how to **set up Streams** on your **self-hosted Moralis Server**.
-:::
+{% hint style="info" %}
 
-:::note [more info](http://docs.moralis.io/streams-api)
+## Overview
+
+This guide will teach you how to **set up Streams** on your **self-hosted Moralis Server**.
+
+{% endhint %}
+
+{% hint style="info" %}
+
+### [More Info](http://docs.moralis.io/streams-api)
+
 Using **Streams**, you can **listen to real-time on-chain events** and automatically **synchronize incoming data** with your **database**.
-:::
+
+{% endhint %}
 
 **Streams** is what you need to **replace** the **old Moralis-hosted Syncs**:
 
@@ -29,7 +37,7 @@ app.use(
   streamsSync(parseServer, {
     apiKey: config.MORALIS_API_KEY,
     webhookUrl: config.STREAMS_WEBHOOK_URL,
-  }),
+  })
 );
 
 //.........
@@ -40,15 +48,20 @@ You can modify this parameter in your `.env` file by setting **`STREAMS_WEBHOOK_
 ```shell .env
 STREAMS_WEBHOOK_URL = '/streams-webhook'
 ```
-:::tip
+
+{% hint style="info" %}
+
 If you want to **modify** the ability to **listen to Streams** you can do so on your `.env` file by setting **`USE_STREAMS`** to `true` or `false`.
-:::
+
+{% endhint %}
 
 ## Build and run
 
-:::info
+{% hint style="info" %}
+
 We need to build and run the project to get the full **Streams Webhook URL** that we'll use later.
-:::
+
+{% endhint %}
 
 Build the project:
 
