@@ -39,7 +39,7 @@ This project uses [`react-moralis`](https://github.com/MoralisWeb3/react-moralis
 
 [**Download**](https://moralisweb3.github.io/Moralis-JS-SDK/downloads/parse-server-migration-react-client.zip) it and open it with your code editor:
 
-![](/img/content/client-1.webp)
+![](images/client-1.webp)
 
 ### Installation
 
@@ -57,7 +57,7 @@ Run the following command to get the `.env` file:
 cp .env.example .env
 ```
 
-![](/img/content/client-2.webp)
+![](images/client-2.webp)
 
 Set the `REACT_APP_SERVER_URL` to your **`SERVER_URL`**:
 
@@ -93,7 +93,7 @@ yarn start
 
 Now you can try to **_Authenticate_** and for example **_getBlock_** data:
 
-![](/img/content/client-3.webp)
+![](images/client-3.webp)
 
 {% hint style="success" %}
 
@@ -235,15 +235,15 @@ We will use the last release of the [**`unity-web3-game-kit`**](https://github.c
 
 [Download the `.unitypackage`](https://github.com/MoralisWeb3/unity-web3-game-kit/releases/download/v1.2.11/moralisweb3sdk_v1_2_11.unitypackage) and drag it into your Unity project:
 
-![](/img/content/unity-1.webp)
+![](images/unity-1.webp)
 
 Import all the files:
 
-![](/img/content/unity-2.webp)
+![](images/unity-2.webp)
 
 The **_Moralis Web3 Setup_** panel will appear. Enter your `SERVER_URL` and your `APPLICATION_ID` and choose **_Done_**:
 
-![](/img/content/unity-3.webp)
+![](images/unity-3.webp)
 
 {% hint style="info" %}
 
@@ -265,7 +265,7 @@ This section goes through **all the steps** but if you need help you can head ov
 
 Open `Packages > Moralis Web3 Unity SDK > Runtime > Kits > AuthenticationKit > Scripts > AuthenticationKit.cs`:
 
-![](/img/content/unity-4.webp)
+![](images/unity-4.webp)
 
 Replace the code block from **lines [`257`](https://github.com/MoralisWeb3/web3-unity-sdk/blob/fe522579772bb8eaeabd412710f764cb8bfbf4a7/Runtime/Kits/AuthenticationKit/Scripts/AuthenticationKit.cs#L257) to [`263`](https://github.com/MoralisWeb3/web3-unity-sdk/blob/fe522579772bb8eaeabd412710f764cb8bfbf4a7/Runtime/Kits/AuthenticationKit/Scripts/AuthenticationKit.cs#L263)** (both included) for the following:
 
@@ -330,11 +330,11 @@ app.use(`/server`, parseServer);
 
 Open `Assets > Moralis Web3 Unity SDK > Demos > Introduction > Introduction.unity` scene and run it. Now choose **_Connect_**:
 
-![](/img/content/unity-5.webp)
+![](images/unity-5.webp)
 
 After signing the **authentication message** you should see the following screen:
 
-![](/img/content/unity-6.webp)
+![](images/unity-6.webp)
 
 {% hint style="info" %}
 

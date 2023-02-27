@@ -26,21 +26,21 @@ Login or sign-up to Heroku and configure your app:
 
 Create a new app from the top menu and set your app name and preferred region where the server is hosted:
 
-![](/img/content/41607d4-Screenshot_2022-09-08_at_02.42.11.webp)
+![](images/41607d4-Screenshot_2022-09-08_at_02.42.11.webp)
 
-![](/img/content/d4bb8cc-Screenshot_2022-09-08_at_02.42.38.webp)
+![](images/d4bb8cc-Screenshot_2022-09-08_at_02.42.38.webp)
 
 Deploy your by connecting via Github or using the Heroku CLI. This will import your code to heroku and will automatically rebuild your app when changes are pushed to your repo.
 
-![](/img/content/00b9508-Screenshot_2022-09-08_at_02.43.11.webp)
+![](images/00b9508-Screenshot_2022-09-08_at_02.43.11.webp)
 
 As a final step you need to set your environment variables.
 
 Navigate to "Settings" and reveal the keys. Here you can paste all the variables from your `.env` file. Make sure that these variables are production-ready (no references to localhost, and different database that used in local development)
 
-![](/img/content/914ac14-Screenshot_2022-09-08_at_02.44.26.webp)
+![](images/914ac14-Screenshot_2022-09-08_at_02.44.26.webp)
 
-![](/img/content/6f65c9c-Screenshot_2022-09-08_at_02.44.49.webp)
+![](images/6f65c9c-Screenshot_2022-09-08_at_02.44.49.webp)
 
 {% hint style="info" %}
 
@@ -73,27 +73,27 @@ Be aware that this process **could resort to expenses** as **Elastic Beanstalk**
 
 Scroll down leaving all the other settings as default and choose _**Upload your code**_:
 
-![](/img/content/31905da-image.webp)
+![](images/31905da-image.webp)
 
 _**Public S3 URL**_ should be automatically selected and filled. Make sure it is so and choose _**Review and launch**_:
 
-![](/img/content/3c4f4f6-image.webp)
+![](images/3c4f4f6-image.webp)
 
 Scroll down leaving all the settings as default and choose _**Create app**_:
 
-![](/img/content/a2a6af9-image.webp)
+![](images/a2a6af9-image.webp)
 
 After a couple minutes the application is created but the environment is **not ready** because you need to **set your environment variables**:
 
-![](/img/content/2d9a5c2-image.webp)
+![](images/2d9a5c2-image.webp)
 
 In the left navigation pane, go to **_Configuration_** and at the row where we find _Environment properties_, choose _**Edit**_:
 
-![](/img/content/a2e78d0-image.webp)
+![](images/a2e78d0-image.webp)
 
 Paste the environment variables retrieved on the [previous steps](https://docs.moralis.io/docs/run-parse-server-locally#setup-your-project) to the corresponding fields (marked in green) and choose _**Apply**_:
 
-![](/img/content/b8e3def-image.webp)
+![](images/b8e3def-image.webp)
 
 {% hint style="info" %}
 
@@ -103,15 +103,15 @@ This [video](https://youtu.be/9GtysZs-FrA?t=147) also shows you how to get the *
 
 Elastic Beanstalk will update your environment and after a couple of minutes it will be ready:
 
-![](/img/content/00d25ea-image.webp)
+![](images/00d25ea-image.webp)
 
 In the left navigation pane, choose **_Go to environment_** to test it:
 
-![](/img/content/42e04c4-image.webp)
+![](images/42e04c4-image.webp)
 
 Add **`/server`** to the URL and you'll be accessing your **_Moralis Parse Server_ hosted on AWS Elastic Beanstalk**:
 
-![](/img/content/d4ef788-image.webp)
+![](images/d4ef788-image.webp)
 
 {% hint style="success" %}
 
@@ -142,25 +142,25 @@ Your server will re-deploy after these changes.
 1. Go to [Railway](https://railway.app/), click "Start a New Project" and choose "Deploy from GitHub repo". Connect your GitHub account.
 2. Give permission for Railway to access your self-hosted server repository and click "Deploy Now":
 
-![](/img/content/50e28a0-Railway_2.webp)
+![](images/50e28a0-Railway_2.webp)
 
 3. In your project's deployment page, click on the "Variables" tab and then "Raw Editor". Paste in your environment variables and click "Update Variables":
 
-![](/img/content/43d1e9d-Railway_env_a.webp)
+![](images/43d1e9d-Railway_env_a.webp)
 
-![](/img/content/009db76-Railway_-_env.webp)
+![](images/009db76-Railway_-_env.webp)
 
 4. Click on the "Settings" tab and under "Domains", click "Generate Domain". You can choose a different Railway domain or use your own custom domain:
 
-![](/img/content/de66219-Railway_3.webp)
+![](images/de66219-Railway_3.webp)
 
 5. Copy this domain and update your `SERVER_URL` environment variable. Your project will re-deploy:
 
-![](/img/content/2bdc4b2-Railway_4.webp)
+![](images/2bdc4b2-Railway_4.webp)
 
 6. After your re-deploy is successful, open your Railway project URL in your browser to test:
 
-![](/img/content/63abd77-Railway_5.webp)
+![](images/63abd77-Railway_5.webp)
 
 {% hint style="success" %}
 
@@ -189,7 +189,7 @@ If your [Google Cloud free trial](https://cloud.google.com/free) has ended, the 
 
 Replace the environment variables values in **`app.yaml`** with your own:
 
-![](/img/content/161ccae-image.webp)
+![](images/161ccae-image.webp)
 
 Open the terminal, make sure you're in the root folder and run:
 
@@ -199,15 +199,15 @@ gcloud app deploy
 
 Choose your region:
 
-![](/img/content/d8a49da-image.webp)
+![](images/d8a49da-image.webp)
 
 Type **`Y`** to continue:
 
-![](/img/content/99306a1-image.webp)
+![](images/99306a1-image.webp)
 
 After a couple minutes the application is deployed:
 
-![](/img/content/87f1739-image.webp)
+![](images/87f1739-image.webp)
 
 Now run the following command to see it on the browser:
 
@@ -217,7 +217,7 @@ gcloud app browse
 
 Add **`/server`** to the URL and you'll be accessing your **_Moralis Parse Server_ hosted on Google App Engine**:
 
-![](/img/content/7cbef58-image.webp)
+![](images/7cbef58-image.webp)
 
 {% hint style="success" %}
 

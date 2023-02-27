@@ -42,7 +42,7 @@ This project includes all the supported features, and will be updated once we re
 
 [**Download**](https://moralisweb3.github.io/Moralis-JS-SDK/downloads/parse-server-migration.zip) it and open it with your code editor:
 
-![](/img/content/self-hosting-1.webp)
+![](images/self-hosting-1.webp)
 
 ## Install dependencies
 
@@ -62,7 +62,7 @@ cp .env.example .env
 
 You will see something like this:
 
-![](/img/content/self-hosting-2.webp)
+![](images/self-hosting-2.webp)
 
 Next, we will go through the variables that you need to **fill/modify for this local setup**.
 

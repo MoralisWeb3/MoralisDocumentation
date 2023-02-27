@@ -36,7 +36,7 @@ This option can be used for local development as well.
 
 Just after signing up, MongoDB offers you to create and deploy a database. **Choose your plan** and then **_Create_**:
 
-![](/img/content/database-1.webp)
+![](images/database-1.webp)
 
 ### Configuration
 
@@ -44,7 +44,7 @@ After database creation, follow the **Security Quickstart** to set up network se
 
 Choose **_Username and Password_** and then **_Create User_**:
 
-![](/img/content/database-2.webp)
+![](images/database-2.webp)
 
 {% hint style="info" %}
 
@@ -56,7 +56,7 @@ Now choose your environment. In this tutorial we choose **_My Local Environment_
 
 Both options will automatically add your **current IP Address** to the _Access List_. Add any other desired IP Address here and then choose **_Finish and Close_**:
 
-![](/img/content/database-3.webp)
+![](images/database-3.webp)
 
 {% hint style="info" %}
 
@@ -68,15 +68,15 @@ You can configurate this further under [_Network Access_](https://cloud.mongodb.
 
 Find your database cluster under [_Database Deployments_](https://cloud.mongodb.com/v2/63ef51b2ca3fd8321c7a3817#/clusters) and choose **_Connect_**:
 
-![](/img/content/database-4.webp)
+![](images/database-4.webp)
 
 Choose **_Connect your application_**:
 
-![](/img/content/database-5.webp)
+![](images/database-5.webp)
 
 Copy the connection string:
 
-![](/img/content/database-6.webp)
+![](images/database-6.webp)
 
 Now set the `DATABASE_URL` in your `.env` with that string:
 
@@ -108,31 +108,31 @@ This option can be used for local development as well.
 
 Under _Subscriptions_, choose **_New subscription_**:
 
-![](/img/content/redis-1.webp)
+![](images/redis-1.webp)
 
 Choose your plan, enter a _Subscription name_ and choose **_Create subscription_**:
 
-![](/img/content/redis-2.webp)
+![](images/redis-2.webp)
 
 ### Create a database
 
 With a subscription created, now choose **_New database_**:
 
-![](/img/content/redis-3.webp)
+![](images/redis-3.webp)
 
 Enter a _Database name_ and choose **_Activate database_**. We left all the settings as default (recommended):
 
-![](/img/content/redis-4.webp)
+![](images/redis-4.webp)
 
 ### Connection
 
 With a database created, now choose **_Connect_**:
 
-![](/img/content/redis-5.webp)
+![](images/redis-5.webp)
 
 Choose _RedisInsight Desktop_ and **_copy the connection URL_**:
 
-![](/img/content/redis-6.webp)
+![](images/redis-6.webp)
 
 Now set the `REDIS_CONNECTION_STRING` in your `.env` with that URL:
 

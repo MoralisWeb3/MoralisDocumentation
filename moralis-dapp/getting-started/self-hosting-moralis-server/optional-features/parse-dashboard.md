@@ -13,11 +13,11 @@ This guide will teach you how to **set up your own [Parse Dashboard](https://git
 
 The data stored in your MongoDB will be automatically synced and shown here:
 
-![](/img/content/dashboard-1.webp)
+![](images/dashboard-1.webp)
 
 With [MongoDB](/web3-data-api/self-hosting-moralis-server/production-environment-setup#use-mongodb-atlas) and Parse Dashboard set up, you'll have an almost exact experience to the **Moralis-hosted-server's database**:
 
-![](/img/content/dashboard-2.webp)
+![](images/dashboard-2.webp)
 
 ## Installation
 
@@ -106,9 +106,9 @@ npm run start
 
 Head over to **<http://localhost:1337/dashboard/>** to access your **self-hosted dashboard**:
 
-![](/img/content/dashboard-3.webp)
+![](images/dashboard-3.webp)
 
-![](/img/content/dashboard-4.webp)
+![](images/dashboard-4.webp)
 
 ## Securing access
 
@@ -164,4 +164,4 @@ npm run start
 
 {% endhint %}
 
-![](/img/content/6f65c0b-image.webp)
+![](images/6f65c0b-image.webp)
