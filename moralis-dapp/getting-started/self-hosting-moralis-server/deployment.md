@@ -26,7 +26,7 @@ Login or sign-up to Heroku and configure your app:
 
 Create a new app from the top menu and set your app name and preferred region where the server is hosted:
 
-![](images/41607d4-Screenshot_2022-09-08_at_02.42.11.webp)
+![](images/heroku-1.webp)
 
 ![](images/d4bb8cc-Screenshot_2022-09-08_at_02.42.38.webp)
 

@@ -164,4 +164,4 @@ npm run start
 
 {% endhint %}
 
-![](images/6f65c0b-image.webp)
+![](../images/6f65c0b-image.webp)

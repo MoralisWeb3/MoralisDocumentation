@@ -23,7 +23,7 @@ Using **Streams**, you can **listen to real-time on-chain events** and automatic
 
 **Streams** is what you need to **replace** the **old Moralis-hosted Syncs**:
 
-![](images/streams-1.webp)
+![](../images/streams-1.webp)
 
 ## Configuration
 
@@ -87,4 +87,4 @@ To create a Stream, head over to the [**following guide**](https://docs.moralis.
 
 You will need to provide the **Streams Webhook URL** you got in the previous step:
 
-![](images/streams-2.webp)
+![](../images/streams-2.webp)
