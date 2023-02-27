@@ -14,10 +14,10 @@ The completion of the [**Production Environment Setup**](../production-environme
 
 **Moralis-hosted Server** offered certain features that **can be replicated** in our **self-hosted Moralis Server**:
 
-- [**Parse Dashboard**](parse-dashboard)
-- [**Custom Cloud Code**](custom-cloud-code)
-- [**Custom Jobs**](custom-jobs)
-- [**Streams (Syncs)**](streams)
+- [**Parse Dashboard**](parse-dashboard.md)
+- [**Custom Cloud Code**](custom-cloud-code.md)
+- [**Custom Jobs**](custom-jobs.md)
+- [**Streams (Syncs)**](streams.md)
 
 {% hint style="info" %}
 
