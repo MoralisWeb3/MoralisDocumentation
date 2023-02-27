@@ -17,7 +17,7 @@ This guide will teach you how to **add custom jobs** to your **self-hosted Moral
 
 ### Important
 
-The completion of the [**Parse Dashboard**](/web3-data-api/self-hosting-moralis-server/optional-features/parse-dashboard) and [**Custom Cloud Code**](/web3-data-api/self-hosting-moralis-server/optional-features/custom-cloud-code) guides is **required** to set up custom jobs.
+The completion of the [**Parse Dashboard**](https://v1docs.moralis.io/moralis-dapp/getting-started/self-hosting-moralis-server/optional-features/parse-dashboard) and [**Custom Cloud Code**](https://v1docs.moralis.io/moralis-dapp/getting-started/self-hosting-moralis-server/optional-features/custom-cloud-code) guides is **required** to set up custom jobs.
 
 {% endhint %}
 

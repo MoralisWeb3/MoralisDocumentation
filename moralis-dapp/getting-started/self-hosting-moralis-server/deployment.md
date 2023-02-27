@@ -16,7 +16,7 @@ This guide will teach you how to **deploy your server to a hosting service of yo
 
 ### Important
 
-The completion of [**Production Environment Setup**](/web3-data-api/self-hosting-moralis-server/production-environment-setup) is **required** to continue.
+The completion of [**Production Environment Setup**](https://v1docs.moralis.io/moralis-dapp/getting-started/self-hosting-moralis-server/production-environment-setup) is **required** to continue.
 
 {% endhint %}
 

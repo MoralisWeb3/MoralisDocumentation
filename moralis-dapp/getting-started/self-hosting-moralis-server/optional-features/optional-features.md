@@ -7,8 +7,8 @@ sidebar_position: 3
 
 ### Important
 
-The completion of the [**Local Environment Setup**](/web3-data-api/self-hosting-moralis-server/local-environment-setup) is required to continue.
-The completion of the [**Production Environment Setup**](/web3-data-api/self-hosting-moralis-server/production-environment-setup) is **NOT required** but it is **strongly recommended**.
+The completion of the [**Local Environment Setup**](https://v1docs.moralis.io/moralis-dapp/getting-started/self-hosting-moralis-server/local-environment-setup) is required to continue.
+The completion of the [**Production Environment Setup**](https://v1docs.moralis.io/moralis-dapp/getting-started/self-hosting-moralis-server/production-environment-setup) is **NOT required** but it is **strongly recommended**.
 
 {% endhint %}
 
@@ -21,6 +21,6 @@ The completion of the [**Production Environment Setup**](/web3-data-api/self-hos
 
 {% hint style="info" %}
 
-Apart from implementing those features, you can also head over to [**_Advanced configuration_**](advanced-configuration) to learn how to make advanced adjustments to your server.
+Apart from implementing those features, you can also head over to [**_Advanced configuration_**](https://v1docs.moralis.io/moralis-dapp/getting-started/self-hosting-moralis-server/optional-features/advanced-configuration to learn how to make advanced adjustments to your server.
 
 {% endhint %}

@@ -16,8 +16,8 @@ This guide will teach you how to **connect to** your **self-hosted Moralis Serve
 
 ### Important
 
-The completion of the [**Local Environment Setup**](/web3-data-api/self-hosting-moralis-server/local-environment-setup) is required to continue.
-The completion of the [**Production Environment Setup**](/web3-data-api/self-hosting-moralis-server/production-environment-setup) is **NOT required** but it is **strongly recommended**.
+The completion of the [**Local Environment Setup**](https://v1docs.moralis.io/moralis-dapp/getting-started/self-hosting-moralis-server/local-environment-setup) is required to continue.
+The completion of the [**Production Environment Setup**](https://v1docs.moralis.io/moralis-dapp/getting-started/self-hosting-moralis-server/production-environment-setup) is **NOT required** but it is **strongly recommended**.
 
 {% endhint %}
 
